@@ -1,0 +1,836 @@
+[
+  {
+    "source": "/privacy-policy/",
+    "type": "page",
+    "slug": "privacy-policy",
+    "title": "Privacy Policy"
+  },
+  {
+    "source": "/contact/",
+    "type": "page",
+    "slug": "contact",
+    "title": "Contact"
+  },
+  {
+    "source": "/resources/",
+    "type": "page",
+    "slug": "resources",
+    "title": "Resources"
+  },
+  {
+    "source": "/thank-you/",
+    "type": "page",
+    "slug": "thank-you",
+    "title": "Thank you"
+  },
+  {
+    "source": "/attorney-assistant-home/",
+    "type": "page",
+    "slug": "attorney-assistant-home",
+    "title": "Attorney Assistant Home"
+  },
+  {
+    "source": "/calendly-booking-page/",
+    "type": "page",
+    "slug": "calendly-booking-page",
+    "title": "Calendly booking page"
+  },
+  {
+    "source": "/attorney-assistant-contract-terms/",
+    "type": "page",
+    "slug": "attorney-assistant-contract-terms",
+    "title": "Attorney Assistant Contract Terms"
+  },
+  {
+    "source": "/reviews/",
+    "type": "page",
+    "slug": "reviews",
+    "title": "Reviews"
+  },
+  {
+    "source": "/home-old/",
+    "type": "page",
+    "slug": "home-old",
+    "title": "Attorney Assistant 2024"
+  },
+  {
+    "source": "/order-confirmation-page/",
+    "type": "page",
+    "slug": "order-confirmation-page",
+    "title": "Order Confirmation Page"
+  },
+  {
+    "source": "/testimonials-and-case-studies/",
+    "type": "page",
+    "slug": "testimonials-and-case-studies",
+    "title": "Testimonials and Case Studies"
+  },
+  {
+    "source": "/our-team/",
+    "type": "page",
+    "slug": "our-team",
+    "title": "Our Team"
+  },
+  {
+    "source": "/faq/",
+    "type": "page",
+    "slug": "faq",
+    "title": "FAQ"
+  },
+  {
+    "source": "/blog/",
+    "type": "page",
+    "slug": "blog",
+    "title": "Blog"
+  },
+  {
+    "source": "/recruitment-onboarding/",
+    "type": "page",
+    "slug": "recruitment-onboarding",
+    "title": "Recruitment &amp; Onboarding"
+  },
+  {
+    "source": "/calendly-booking-page-linkedin/",
+    "type": "page",
+    "slug": "calendly-booking-page-linkedin",
+    "title": "Calendly booking page  linkedin"
+  },
+  {
+    "source": "/cost-comparison/",
+    "type": "page",
+    "slug": "cost-comparison",
+    "title": "Cost Comparison"
+  },
+  {
+    "source": "/book-a-call/",
+    "type": "page",
+    "slug": "book-a-call",
+    "title": "Book  A  Call"
+  },
+  {
+    "source": "/virtual-legal-assistants/",
+    "type": "page",
+    "slug": "virtual-legal-assistants",
+    "title": "Virtual Legal Assistants"
+  },
+  {
+    "source": "/webinar/",
+    "type": "page",
+    "slug": "webinar",
+    "title": "Webinar"
+  },
+  {
+    "source": "/admin-support/",
+    "type": "page",
+    "slug": "admin-support",
+    "title": "Admin Support"
+  },
+  {
+    "source": "/legal-receptionist/",
+    "type": "page",
+    "slug": "legal-receptionist",
+    "title": "Reception"
+  },
+  {
+    "source": "/intake-reception/",
+    "type": "page",
+    "slug": "intake-reception",
+    "title": "Intake/Reception"
+  },
+  {
+    "source": "/webinar-step-2/",
+    "type": "page",
+    "slug": "webinar-step-2",
+    "title": "Webinar Step 2"
+  },
+  {
+    "source": "/executive-assistant/",
+    "type": "page",
+    "slug": "executive-assistant",
+    "title": "Executive Assistant"
+  },
+  {
+    "source": "/calendly-booking-page-smb/",
+    "type": "page",
+    "slug": "calendly-booking-page-smb",
+    "title": "Calendly Booking Page SMB"
+  },
+  {
+    "source": "/webinar-thank-you/",
+    "type": "page",
+    "slug": "webinar-thank-you",
+    "title": "Webinar Thank You"
+  },
+  {
+    "source": "/checkout-with-how-it-works/",
+    "type": "page",
+    "slug": "checkout-with-how-it-works",
+    "title": "Checkout With How It Works"
+  },
+  {
+    "source": "/webinar-book-your-free-intake-audit/",
+    "type": "page",
+    "slug": "webinar-book-your-free-intake-audit",
+    "title": "Book  Your Free Intake Audit"
+  },
+  {
+    "source": "/careers/",
+    "type": "page",
+    "slug": "careers",
+    "title": "Careers"
+  },
+  {
+    "source": "/referral-program/",
+    "type": "page",
+    "slug": "referral-program",
+    "title": "Referral Program"
+  },
+  {
+    "source": "/affiliate/",
+    "type": "page",
+    "slug": "affiliate",
+    "title": "Affiliate"
+  },
+  {
+    "source": "/checkout-payment-100/",
+    "type": "page",
+    "slug": "checkout-payment-100",
+    "title": "Checkout Payment $100"
+  },
+  {
+    "source": "/attorney-assistant-contract-terms-for-100/",
+    "type": "page",
+    "slug": "attorney-assistant-contract-terms-for-100",
+    "title": "Attorney Assistant Contract Terms For $100"
+  },
+  {
+    "source": "/our-story/",
+    "type": "page",
+    "slug": "our-story",
+    "title": "Our Story"
+  },
+  {
+    "source": "/thankyou/",
+    "type": "page",
+    "slug": "thankyou",
+    "title": "Thank You"
+  },
+  {
+    "source": "/how-we-generated/",
+    "type": "page",
+    "slug": "how-we-generated",
+    "title": "How We Generated"
+  },
+  {
+    "source": "/download-pdfs/",
+    "type": "page",
+    "slug": "download-pdfs",
+    "title": "Download PDFs"
+  },
+  {
+    "source": "/new-book-a-call/",
+    "type": "page",
+    "slug": "new-book-a-call",
+    "title": "New book a call"
+  },
+  {
+    "source": "/intake360/",
+    "type": "page",
+    "slug": "intake360",
+    "title": "Intake360"
+  },
+  {
+    "source": "/",
+    "type": "page",
+    "slug": "home",
+    "title": "Attorney Assistant"
+  },
+  {
+    "source": "/events/",
+    "type": "page",
+    "slug": "events",
+    "title": "Events"
+  },
+  {
+    "source": "/new-events/",
+    "type": "page",
+    "slug": "new-events",
+    "title": "New Events"
+  },
+  {
+    "source": "/intake-scripts/",
+    "type": "page",
+    "slug": "intake-scripts",
+    "title": "Intake Scripts"
+  },
+  {
+    "source": "/practice-area-scripts/",
+    "type": "page",
+    "slug": "practice-area-scripts",
+    "title": "Practice Area Scripts"
+  },
+  {
+    "source": "/recources-new/",
+    "type": "page",
+    "slug": "recources-new",
+    "title": "Recources New"
+  },
+  {
+    "source": "/in-office/",
+    "type": "page",
+    "slug": "in-office",
+    "title": "In-office"
+  },
+  {
+    "source": "/pdfs-new/",
+    "type": "page",
+    "slug": "pdfs-new",
+    "title": "Pdf''s New"
+  },
+  {
+    "source": "/resource-2025/",
+    "type": "page",
+    "slug": "resource-2025",
+    "title": "Resource 2025"
+  },
+  {
+    "source": "/virtual-webinar/",
+    "type": "page",
+    "slug": "virtual-webinar",
+    "title": "Virtual Webinar"
+  },
+  {
+    "source": "/intake-360-terms/",
+    "type": "page",
+    "slug": "intake-360-terms",
+    "title": "Intake 360 Terms"
+  },
+  {
+    "source": "/podcast/",
+    "type": "page",
+    "slug": "podcast",
+    "title": "Podcast"
+  },
+  {
+    "source": "/guides/",
+    "type": "page",
+    "slug": "guides",
+    "title": "Guides"
+  },
+  {
+    "source": "/webinars/",
+    "type": "page",
+    "slug": "webinars",
+    "title": "Webinars"
+  },
+  {
+    "source": "/all-scripts-2025/",
+    "type": "page",
+    "slug": "all-scripts-2025",
+    "title": "All Scripts"
+  },
+  {
+    "source": "/guides-easy-access/",
+    "type": "page",
+    "slug": "guides-easy-access",
+    "title": "Guides"
+  },
+  {
+    "source": "/pricing/",
+    "type": "page",
+    "slug": "pricing",
+    "title": "Pricing"
+  },
+  {
+    "source": "/marketing-support/",
+    "type": "page",
+    "slug": "marketing-support",
+    "title": "Marketing support"
+  },
+  {
+    "source": "/webinar-lp/",
+    "type": "page",
+    "slug": "webinar-lp",
+    "title": "webinar LP"
+  },
+  {
+    "source": "/Blog/how-modern-technology-transforms-law-firm-efficiency-and-enhances-client-satisfaction/",
+    "destination": "/blog/how-modern-technology-transforms-law-firm-efficiency-and-enhances-client-satisfaction/",
+    "type": "post",
+    "title": "How Modern Technology Transforms Law Firm Efficiency and Enhances Client Satisfaction."
+  },
+  {
+    "source": "/Blog/a-law-firms-secret-weapon-for-social-media-management/",
+    "destination": "/blog/a-law-firms-secret-weapon-for-social-media-management/",
+    "type": "post",
+    "title": "A Law Firm's Secret Weapon for Social Media Management"
+  },
+  {
+    "source": "/Blog/attorney-assistant-brand-revamp/",
+    "destination": "/blog/attorney-assistant-brand-revamp/",
+    "type": "post",
+    "title": "Attorney Assistant Brand Revamp"
+  },
+  {
+    "source": "/Blog/tips-to-build-a-powerful-brand-for-your-law-firm/",
+    "destination": "/blog/tips-to-build-a-powerful-brand-for-your-law-firm/",
+    "type": "post",
+    "title": "Tips to Build a Powerful Brand for Your Law Firm"
+  },
+  {
+    "source": "/Blog/effective-strategies-and-techniques-for-generating-high-quality-legal-marketing-leads/",
+    "destination": "/blog/effective-strategies-and-techniques-for-generating-high-quality-legal-marketing-leads/",
+    "type": "post",
+    "title": "Effective Strategies and Techniques for Generating High-Quality Legal Marketing Leads"
+  },
+  {
+    "source": "/Blog/the-power-of-lead-nurturing-in-legal-marketing/",
+    "destination": "/blog/the-power-of-lead-nurturing-in-legal-marketing/",
+    "type": "post",
+    "title": "The Power of Lead Nurturing in Legal Marketing"
+  },
+  {
+    "source": "/Blog/the-crucial-role-of-case-evaluation-how-virtual-assistants-can-improve-efficiency/",
+    "destination": "/blog/the-crucial-role-of-case-evaluation-how-virtual-assistants-can-improve-efficiency/",
+    "type": "post",
+    "title": "The Crucial Role of Case Evaluation: How Virtual Assistants Can Improve Efficiency"
+  },
+  {
+    "source": "/Blog/how-to-overcome-the-fear-of-letting-go/",
+    "destination": "/blog/how-to-overcome-the-fear-of-letting-go/",
+    "type": "post",
+    "title": "How To Overcome the Fear of Letting Go"
+  },
+  {
+    "source": "/Blog/attorney-assistant-ceo-coo-practice-what-they-preach-achieving-work-life-balance-through-delegation/",
+    "destination": "/blog/attorney-assistant-ceo-coo-practice-what-they-preach-achieving-work-life-balance-through-delegation/",
+    "type": "post",
+    "title": "Attorney Assistant CEO &amp; COO Practice What They Preach: Achieving Work-Life Balance Through Delegation"
+  },
+  {
+    "source": "/Blog/maximizing-productivity-tips-for-managing-virtual-assistants-in-a-law-firm-setting/",
+    "destination": "/blog/maximizing-productivity-tips-for-managing-virtual-assistants-in-a-law-firm-setting/",
+    "type": "post",
+    "title": "Maximizing Productivity: Tips for Managing Virtual Assistants in a Law Firm Setting "
+  },
+  {
+    "source": "/Blog/powering-legal-excellence-how-impact-assistants-transform-success-as-executive-assistants/",
+    "destination": "/blog/powering-legal-excellence-how-impact-assistants-transform-success-as-executive-assistants/",
+    "type": "post",
+    "title": "Powering Legal Excellence: How Impact Assistants Transform Success as Executive Assistants "
+  },
+  {
+    "source": "/Blog/remote-team-management/",
+    "destination": "/blog/remote-team-management/",
+    "type": "post",
+    "title": "Remote Team Management - Essential Tips "
+  },
+  {
+    "source": "/Blog/debunking-myths-about-virtual-assistants/",
+    "destination": "/blog/debunking-myths-about-virtual-assistants/",
+    "type": "post",
+    "title": "Debunking Myths about Virtual Assistants   "
+  },
+  {
+    "source": "/Blog/affordable-virtual-assistant/",
+    "destination": "/blog/affordable-virtual-assistant/",
+    "type": "post",
+    "title": "Affordable Virtual Assistant - Help Scale Your Law Firm"
+  },
+  {
+    "source": "/Blog/remote-work-culture/",
+    "destination": "/blog/remote-work-culture/",
+    "type": "post",
+    "title": "Remote Work Culture - Strategies to Build a Virtual Team "
+  },
+  {
+    "source": "/Blog/happy-international-virtual-assistants-day/",
+    "destination": "/blog/happy-international-virtual-assistants-day/",
+    "type": "post",
+    "title": "Happy International Virtual Assistants Day!  "
+  },
+  {
+    "source": "/Blog/international-virtual-assistant-day/",
+    "destination": "/blog/international-virtual-assistant-day/",
+    "type": "post",
+    "title": "International Virtual Assistant Day"
+  },
+  {
+    "source": "/intake360-development/",
+    "type": "page",
+    "slug": "intake360-development",
+    "title": "Intake360 Development"
+  },
+  {
+    "source": "/intake2025/",
+    "type": "page",
+    "slug": "intake2025",
+    "title": "Intake"
+  },
+  {
+    "source": "/remoteworkculture/",
+    "type": "page",
+    "slug": "remoteworkculture",
+    "title": "Remote Work Culture"
+  },
+  {
+    "source": "/Blog/solo-attorney-productivity/",
+    "destination": "/blog/solo-attorney-productivity/",
+    "type": "post",
+    "title": "Solo Attorney- Top Strategies to Boost Productivity "
+  },
+  {
+    "source": "/Blog/networking-for-lawyers/",
+    "destination": "/blog/networking-for-lawyers/",
+    "type": "post",
+    "title": "How Important is Networking for Lawyers"
+  },
+  {
+    "source": "/Blog/virtual-legal-assistant/",
+    "destination": "/blog/virtual-legal-assistant/",
+    "type": "post",
+    "title": "Virtual Legal Assistant: 6 Tasks Every Lawyer Must Delegate"
+  },
+  {
+    "source": "/Blog/maximizing-law-practice-efficiency-with-a-virtual-legal-assistant/",
+    "destination": "/blog/maximizing-law-practice-efficiency-with-a-virtual-legal-assistant/",
+    "type": "post",
+    "title": "Maximizing Law Practice Efficiency with a Virtual Legal Assistant "
+  },
+  {
+    "source": "/Blog/legal-intake-specialists/",
+    "destination": "/blog/legal-intake-specialists/",
+    "type": "post",
+    "title": "What a Legal Intake Specialists Can Do for Your Law Firm"
+  },
+  {
+    "source": "/Blog/transform-your-law-firm-with-a-legal-administrative-assistant/",
+    "destination": "/blog/transform-your-law-firm-with-a-legal-administrative-assistant/",
+    "type": "post",
+    "title": "Transform Your Law Firm with a Legal Administrative Assistant "
+  },
+  {
+    "source": "/Blog/why-your-law-firm-should-consider-a-virtual-legal-receptionist/",
+    "destination": "/blog/why-your-law-firm-should-consider-a-virtual-legal-receptionist/",
+    "type": "post",
+    "title": "Why Your Law Firm Should Consider a Virtual Legal Receptionist "
+  },
+  {
+    "source": "/Blog/boosting-legal-practice-with-a-virtual-executive-assistant/",
+    "destination": "/blog/boosting-legal-practice-with-a-virtual-executive-assistant/",
+    "type": "post",
+    "title": "Boosting Legal Practice with a Virtual Executive Assistant "
+  },
+  {
+    "source": "/Blog/the-future-of-the-ai-lawyer-how-ai-is-transforming-law/",
+    "destination": "/blog/the-future-of-the-ai-lawyer-how-ai-is-transforming-law/",
+    "type": "post",
+    "title": "The Future of the AI Lawyer: How AI is Transforming Law "
+  },
+  {
+    "source": "/Blog/law-firm-reviews-by-clients-why-they-matter-and-how-to-get-more/",
+    "destination": "/blog/law-firm-reviews-by-clients-why-they-matter-and-how-to-get-more/",
+    "type": "post",
+    "title": "Law Firm Reviews by Clients: Why They Matter and How to Get More "
+  },
+  {
+    "source": "/Blog/reasons-your-law-firm-needs-a-lawyer-secretary/",
+    "destination": "/blog/reasons-your-law-firm-needs-a-lawyer-secretary/",
+    "type": "post",
+    "title": "Reasons Your Law Firm Needs a Lawyer Secretary"
+  },
+  {
+    "source": "/Blog/how-to-keep-your-va-productive/",
+    "destination": "/blog/how-to-keep-your-va-productive/",
+    "type": "post",
+    "title": "How to Keep Your Virtual Assistant Productive"
+  },
+  {
+    "source": "/Blog/virtual-assistants-for-family-law/",
+    "destination": "/blog/virtual-assistants-for-family-law/",
+    "type": "post",
+    "title": "Virtual Assistants for Family Law"
+  },
+  {
+    "source": "/Blog/virtual-assistant-services-list/",
+    "destination": "/blog/virtual-assistant-services-list/",
+    "type": "post",
+    "title": "Virtual Assistant Services List"
+  },
+  {
+    "source": "/Blog/legal-process-outsourcing/",
+    "destination": "/blog/legal-process-outsourcing/",
+    "type": "post",
+    "title": "Legal Process Outsourcing"
+  },
+  {
+    "source": "/Blog/what-is-a-legal-virtual-assistant/",
+    "destination": "/blog/what-is-a-legal-virtual-assistant/",
+    "type": "post",
+    "title": "What is a legal Virtual assistant"
+  },
+  {
+    "source": "/Blog/the-advantages-of-hiring-a-virtual-legal-assistant/",
+    "destination": "/blog/the-advantages-of-hiring-a-virtual-legal-assistant/",
+    "type": "post",
+    "title": "The Advantages of Hiring a Virtual Legal Assistants"
+  },
+  {
+    "source": "/Blog/the-top-10-qualities-of-the-best-virtual-legal-assistant/",
+    "destination": "/blog/the-top-10-qualities-of-the-best-virtual-legal-assistant/",
+    "type": "post",
+    "title": "The Top 10 Qualities of the best virtual legal assistant"
+  },
+  {
+    "source": "/Blog/5-ways-a-virtual-assistant-for-law-firm-can-boost-productivity/",
+    "destination": "/blog/5-ways-a-virtual-assistant-for-law-firm-can-boost-productivity/",
+    "type": "post",
+    "title": "Virtual Assistant for Law Firm Can Boost Productivity"
+  },
+  {
+    "source": "/Blog/choose-the-best-virtual-legal-receptionist-for-your-law-firm/",
+    "destination": "/blog/choose-the-best-virtual-legal-receptionist-for-your-law-firm/",
+    "type": "post",
+    "title": "Choose the Best Virtual Legal Receptionist For Your Law Firm"
+  },
+  {
+    "source": "/Blog/intake-specialist/",
+    "destination": "/blog/intake-specialist/",
+    "type": "post",
+    "title": "Characteristics of a good intake specialist"
+  },
+  {
+    "source": "/Blog/bilingual-virtual-assistant-for-your-law-firm/",
+    "destination": "/blog/bilingual-virtual-assistant-for-your-law-firm/",
+    "type": "post",
+    "title": "Hiring a Bilingual Virtual Assistant for Your Law Firm"
+  },
+  {
+    "source": "/Blog/how-to-build-a-law-firm-a-complete-step-by-step-guide/",
+    "destination": "/blog/how-to-build-a-law-firm-a-complete-step-by-step-guide/",
+    "type": "post",
+    "title": "How to Build a Law Firm: A Complete Step-by-Step Guide"
+  },
+  {
+    "source": "/Blog/why-you-should-hire-an-intake-specialist-for-your-law-firm/",
+    "destination": "/blog/why-you-should-hire-an-intake-specialist-for-your-law-firm/",
+    "type": "post",
+    "title": "Why You Should Hire an Intake Specialist for Your Law Firm"
+  },
+  {
+    "source": "/Blog/the-right-way-to-use-attorney-phone-answering-services/",
+    "destination": "/blog/the-right-way-to-use-attorney-phone-answering-services/",
+    "type": "post",
+    "title": "The Right Way to Use Attorney Phone Answering Services"
+  },
+  {
+    "source": "/Blog/remote-legal-assistants-why-two-is-better-than-one/",
+    "destination": "/blog/remote-legal-assistants-why-two-is-better-than-one/",
+    "type": "post",
+    "title": "Remote Legal Assistants: Why Two Is Better Than One"
+  },
+  {
+    "source": "/Blog/lawyer-networking-building-connections-grow-your-practice/",
+    "destination": "/blog/lawyer-networking-building-connections-grow-your-practice/",
+    "type": "post",
+    "title": "The Ultimate Guide to Lawyer Networking: Building Strong Connections"
+  },
+  {
+    "source": "/Blog/creating-a-happier-law-firm-top-8-incentives-for-a-better-lawyer-work-environment/",
+    "destination": "/blog/creating-a-happier-law-firm-top-8-incentives-for-a-better-lawyer-work-environment/",
+    "type": "post",
+    "title": "Creating a Happier Law Firm: Top 8 Incentives for a Better Lawyer Work Environment"
+  },
+  {
+    "source": "/Blog/legal-answering-service-how-law-firms-stay-responsive-without-burning-out/",
+    "destination": "/blog/legal-answering-service-how-law-firms-stay-responsive-without-burning-out/",
+    "type": "post",
+    "title": "Legal Answering Service: How Law Firms Stay Responsive Without Burning Out"
+  },
+  {
+    "source": "/Blog/mistakes-to-avoid-when-hiring-your-law-firms-receptionist/",
+    "destination": "/blog/mistakes-to-avoid-when-hiring-your-law-firms-receptionist/",
+    "type": "post",
+    "title": "Mistakes to Avoid When Hiring Your Law Firm’s Receptionist"
+  },
+  {
+    "source": "/Blog/legal-process-outsourcing-a-complete-guide-for-law-firms/",
+    "destination": "/blog/legal-process-outsourcing-a-complete-guide-for-law-firms/",
+    "type": "post",
+    "title": "Legal Process Outsourcing: A Complete Guide for Law Firms"
+  },
+  {
+    "source": "/Blog/lawyers-guide-to-virtual-assistants/",
+    "destination": "/blog/lawyers-guide-to-virtual-assistants/",
+    "type": "post",
+    "title": "Lawyer's Guide to Virtual Assistants"
+  },
+  {
+    "source": "/Blog/managing-virtual-teams/",
+    "destination": "/blog/managing-virtual-teams/",
+    "type": "post",
+    "title": "Managing Virtual Teams"
+  },
+  {
+    "source": "/Blog/smart-goals-for-executive-assistants/",
+    "destination": "/blog/smart-goals-for-executive-assistants/",
+    "type": "post",
+    "title": "Smart Goals for Executive Assistants"
+  },
+  {
+    "source": "/Blog/legal-intake-specialist/",
+    "destination": "/blog/legal-intake-specialist/",
+    "type": "post",
+    "title": "Legal Intake Specialist: The Essential Solution for Personal Injury Law Firms"
+  },
+  {
+    "source": "/Blog/paralegal-assistants-how-vas-help-law-firms/",
+    "destination": "/blog/paralegal-assistants-how-vas-help-law-firms/",
+    "type": "post",
+    "title": "Paralegal Assistants: How VAs Help Law Firms"
+  },
+  {
+    "source": "/Blog/remote-closer-the-complete-guide-for-law-firms/",
+    "destination": "/blog/remote-closer-the-complete-guide-for-law-firms/",
+    "type": "post",
+    "title": "Remote Closers: The Complete Guide for Law Firms"
+  },
+  {
+    "source": "/Blog/the-real-cost-of-delaying-hiring-a-virtual-assistant/",
+    "destination": "/blog/the-real-cost-of-delaying-hiring-a-virtual-assistant/",
+    "type": "post",
+    "title": "The Real Cost of Delaying Hiring a Virtual Assistant"
+  },
+  {
+    "source": "/Blog/administrative-virtual-assistant-roles-in-law-firms/",
+    "destination": "/blog/administrative-virtual-assistant-roles-in-law-firms/",
+    "type": "post",
+    "title": "Administrative Virtual Assistant Roles in Law Firms"
+  },
+  {
+    "source": "/Blog/how-virtual-recruiters-use-ai-to-optimize-law-firm-hiring/",
+    "destination": "/blog/how-virtual-recruiters-use-ai-to-optimize-law-firm-hiring/",
+    "type": "post",
+    "title": "How Virtual Recruiters Use AI to Optimize Law Firm Hiring"
+  },
+  {
+    "source": "/Blog/legal-research-assistant-the-backbone-of-smarter-law-firms/",
+    "destination": "/blog/legal-research-assistant-the-backbone-of-smarter-law-firms/",
+    "type": "post",
+    "title": "Legal Research Assistant: The Backbone of Smarter Law Firms"
+  },
+  {
+    "source": "/Blog/virtual-assistant-vs-executive-assistant/",
+    "destination": "/blog/virtual-assistant-vs-executive-assistant/",
+    "type": "post",
+    "title": "Virtual Assistant vs Executive Assistant: Which Does Your Law Firm Actually Need?"
+  },
+  {
+    "source": "/Blog/medical-record-retrieval/",
+    "destination": "/blog/medical-record-retrieval/",
+    "type": "post",
+    "title": "Medical Record Retrieval: How Legal VAs Help Law Firms"
+  },
+  {
+    "source": "/Blog/virtual-staffing-for-law-firms/",
+    "destination": "/blog/virtual-staffing-for-law-firms/",
+    "type": "post",
+    "title": "How Virtual Staffing for Law Firms Is Redefining Scaling"
+  },
+  {
+    "source": "/Blog/hard-skills-for-executive-assistant/",
+    "destination": "/blog/hard-skills-for-executive-assistant/",
+    "type": "post",
+    "title": "Hard Skills for Executive Assistant Every Law Firm Should Value "
+  },
+  {
+    "source": "/Blog/intake-impacts-google-ranking/",
+    "destination": "/blog/intake-impacts-google-ranking/",
+    "type": "post",
+    "title": "How Intake Impacts Google Ranking for Law Firms"
+  },
+  {
+    "source": "/Blog/legal-case-manager/",
+    "destination": "/blog/legal-case-manager/",
+    "type": "post",
+    "title": "The Strategic Role of a Legal Case Manager in a Modern Law Firm "
+  },
+  {
+    "source": "/Blog/holiday-pto/",
+    "destination": "/blog/holiday-pto/",
+    "type": "post",
+    "title": "How Law Firms Handle Holiday PTO and Keep Reliable 24/7 Support"
+  },
+  {
+    "source": "/Blog/customer-service-management/",
+    "destination": "/blog/customer-service-management/",
+    "type": "post",
+    "title": "Customer Service Management for Law Firms"
+  },
+  {
+    "source": "/Blog/administrative-assistant-skills/",
+    "destination": "/blog/administrative-assistant-skills/",
+    "type": "post",
+    "title": "Administrative Assistant Skills Every Legal Team Needs"
+  },
+  {
+    "source": "/Blog/never-lose-a-lead-again-with-intake360/",
+    "destination": "/blog/never-lose-a-lead-again-with-intake360/",
+    "type": "post",
+    "title": "Never Lose a Lead Again with Intake360"
+  },
+  {
+    "source": "/Blog/artificial-intelligence-and-law-firms/",
+    "destination": "/blog/artificial-intelligence-and-law-firms/",
+    "type": "post",
+    "title": "Artificial Intelligence and Law Firms in 2026"
+  },
+  {
+    "source": "/Blog/goals-for-administrative-assistants/",
+    "destination": "/blog/goals-for-administrative-assistants/",
+    "type": "post",
+    "title": "Executing the Right Goals for Administrative Assistants"
+  },
+  {
+    "source": "/Blog/hire-virtual-legal-assistant/",
+    "destination": "/blog/hire-virtual-legal-assistant/",
+    "type": "post",
+    "title": "A Practical Guide To Hire Virtual Legal Assistant Services"
+  },
+  {
+    "source": "/Blog/law-firms-with-remote-staff/",
+    "destination": "/blog/law-firms-with-remote-staff/",
+    "type": "post",
+    "title": "The Success of Law Firms Hiring Remote Staff"
+  },
+  {
+    "source": "/Blog/goals-for-intake-department/",
+    "destination": "/blog/goals-for-intake-department/",
+    "type": "post",
+    "title": "Goals for intake Department: Serving Firms the Right Way"
+  },
+  {
+    "source": "/Blog/virtual-assistant-for-lawyers/",
+    "destination": "/blog/virtual-assistant-for-lawyers/",
+    "type": "post",
+    "title": "Why Lawyers Need Virtual Assistants to Attract More Clients"
+  },
+  {
+    "source": "/Blog/grow-your-law-firm/",
+    "destination": "/blog/grow-your-law-firm/",
+    "type": "post",
+    "title": "Practical Strategies to Grow Your Law Firm Successfully"
+  },
+  {
+    "source": "/Blog/virtual-legal-assistant-cost/",
+    "destination": "/blog/virtual-legal-assistant-cost/",
+    "type": "post",
+    "title": "Virtual Legal Assistant Cost and How Much You Could Save"
+  },
+  {
+    "source": "/Blog/applications-for-lawyers/",
+    "destination": "/blog/applications-for-lawyers/",
+    "type": "post",
+    "title": "Applications for Lawyers Working Smarter in a Digital Legal World"
+  }
+]

@@ -27,5 +27,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Migration output
-scripts/output/
+# Migration output (tracked for build)

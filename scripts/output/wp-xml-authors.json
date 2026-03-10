@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "login": "ethen12321",
+    "email": "jd@eolcompanies.com",
+    "displayName": "Attorney Assistant",
+    "firstName": "Attorney Assistant",
+    "lastName": ""
+  },
+  {
+    "id": "3",
+    "login": "ZEEK",
+    "email": "zikriafred852@gmail.com",
+    "displayName": "Zikria Sagar",
+    "firstName": "Zikria",
+    "lastName": "Sagar"
+  },
+  {
+    "id": "13",
+    "login": "Erin",
+    "email": "erin@attorneyassistant.com",
+    "displayName": "Erin",
+    "firstName": "",
+    "lastName": ""
+  },
+  {
+    "id": "9",
+    "login": "Lourence123",
+    "email": "loren@attorneyassistant.com",
+    "displayName": "Lourence Magbanua",
+    "firstName": "Lourence",
+    "lastName": "Magbanua"
+  },
+  {
+    "id": "14",
+    "login": "LORD",
+    "email": "Rynkar@attorneyassistant.com",
+    "displayName": "LORD",
+    "firstName": "",
+    "lastName": ""
+  },
+  {
+    "id": "6",
+    "login": "Jusiah",
+    "email": "jusiah@ethenostrofflaw.com",
+    "displayName": "Jusiah",
+    "firstName": "Jusiah",
+    "lastName": ""
+  }
+]
