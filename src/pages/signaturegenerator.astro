@@ -229,8 +229,8 @@
     </div>
 
     <script is:inline>
-        const LOGO_LOCAL = '/brand/logos/vertical_fullcolor.png';
-        const LOGO_ABSOLUTE = 'https://aamarketing.hallghosts.com/brand/logos/vertical_fullcolor.png';
+        const BASE_LOCAL = '/brand';
+        const BASE_ABSOLUTE = 'https://aamarketing.hallghosts.com/brand';
 
         function generateSignature(useAbsoluteUrls) {
             const fullName = document.getElementById('fullName').value || 'Your Name';
@@ -238,7 +238,14 @@
             const phone = document.getElementById('phone').value || '000-000-0000';
             const email = document.getElementById('email').value || 'email@attorneyassistant.com';
 
-            const logoUrl = useAbsoluteUrls ? LOGO_ABSOLUTE : LOGO_LOCAL;
+            const base = useAbsoluteUrls ? BASE_ABSOLUTE : BASE_LOCAL;
+            const logoUrl = base + '/logos/vertical_fullcolor.png';
+            const iconLinkedin = base + '/social/linkedin.png';
+            const iconFacebook = base + '/social/facebook.png';
+            const iconInstagram = base + '/social/instagram.png';
+            const iconTwitter = base + '/social/twitter.png';
+            const iconYoutube = base + '/social/youtube.png';
+            const iconGoogle = base + '/social/google.png';
 
             const signature = `<div style="font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
     <br></div>
@@ -303,32 +310,32 @@
                                                                         <tr>
                                                                             <td style="direction:ltr; text-align:center; line-height:1.15; padding-right:10px">
                                                                                 <div style="direction:ltr; text-align:center; line-height:1.15; margin:1px; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(80,167,221)">
-                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/company/attorneyassistant/"><img style="width:20px; height:20px; float:left" alt="linkedin" width="20" height="20" src="https://gifo.srv.wisestamp.com/s/ld/0077b5/40/0/background.png"></a>
+                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/company/attorneyassistant/"><img style="width:20px; height:20px; float:left" alt="linkedin" width="20" height="20" src="${iconLinkedin}"></a>
                                                                                 </div>
                                                                             </td>
                                                                             <td style="direction:ltr; text-align:center; line-height:1.15; padding-right:10px">
                                                                                 <div style="direction:ltr; text-align:center; line-height:1.15; margin:1px; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(80,167,221)">
-                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/attyassistant"><img style="width:20px; height:20px; float:left" alt="facebook" width="20" height="20" src="https://gifo.srv.wisestamp.com/s/fb/3b5998/40/0/background.png"></a>
+                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/attyassistant"><img style="width:20px; height:20px; float:left" alt="facebook" width="20" height="20" src="${iconFacebook}"></a>
                                                                                 </div>
                                                                             </td>
                                                                             <td style="direction:ltr; text-align:center; line-height:1.15; padding-right:10px">
                                                                                 <div style="direction:ltr; text-align:center; line-height:1.15; margin:1px; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(80,167,221)">
-                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/attorneyassistant"><img style="width:20px; height:20px; float:left" alt="instagram" width="20" height="20" src="https://gifo.srv.wisestamp.com/s/inst/e1306c/40/0/background.png"></a>
+                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/attorneyassistant"><img style="width:20px; height:20px; float:left" alt="instagram" width="20" height="20" src="${iconInstagram}"></a>
                                                                                 </div>
                                                                             </td>
                                                                             <td style="direction:ltr; text-align:center; line-height:1.15; padding-right:10px">
                                                                                 <div style="direction:ltr; text-align:center; line-height:1.15; margin:1px; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(80,167,221)">
-                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://twitter.com/attyassistant"><img style="width:20px; height:20px; float:left" alt="twitter" width="20" height="20" src="https://gifo.srv.wisestamp.com/s/tw/000000/40/0/background.png"></a>
+                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://twitter.com/attyassistant"><img style="width:20px; height:20px; float:left" alt="twitter" width="20" height="20" src="${iconTwitter}"></a>
                                                                                 </div>
                                                                             </td>
                                                                             <td style="direction:ltr; text-align:center; line-height:1.15; padding-right:10px">
                                                                                 <div style="direction:ltr; text-align:center; line-height:1.15; margin:1px; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(80,167,221)">
-                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/@attorneyassistant"><img style="width:20px; height:20px; float:left" alt="youtube" width="20" height="20" src="https://gifo.srv.wisestamp.com/s/yt/ff0000/40/0/background.png"></a>
+                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/@attorneyassistant"><img style="width:20px; height:20px; float:left" alt="youtube" width="20" height="20" src="${iconYoutube}"></a>
                                                                                 </div>
                                                                             </td>
                                                                             <td style="direction:ltr; text-align:center; line-height:1.15; padding-right:10px">
                                                                                 <div style="direction:ltr; text-align:center; line-height:1.15; margin:1px; font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(80,167,221)">
-                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://search.google.com/local/reviews?placeid=ChIJKSqaqoG_xokRw6mNcCWmxcI"><img style="width:20px; height:20px; float:left" alt="google reviews" width="20" height="20" src="https://gifo.srv.wisestamp.com/s/gp/4285f4/40/0/background.png"></a>
+                                                                                    <a style="color:rgb(80,167,221)" rel="noopener noreferrer" target="_blank" href="https://search.google.com/local/reviews?placeid=ChIJKSqaqoG_xokRw6mNcCWmxcI"><img style="width:20px; height:20px; float:left" alt="google reviews" width="20" height="20" src="${iconGoogle}"></a>
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
