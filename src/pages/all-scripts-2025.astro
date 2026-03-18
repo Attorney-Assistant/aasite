@@ -78,36 +78,37 @@ const scripts = [
   <Hero
     title="Intake Scripts"
     subtitle="Free, ready-to-use intake scripts for every practice area. Download and customize for your firm."
+    badge="Free Resources"
   />
 
-  <section class="py-16 lg:py-24">
+  <section class="section-padding">
     <div class="container-wide">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {scripts.map((script) => (
-          <div class="group bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-gold/30 transition-all duration-200 overflow-hidden">
+          <div class="card card-hover overflow-hidden flex flex-col">
             <img
               src={script.image}
               alt={script.title}
-              class="w-full h-48 object-cover rounded-t-xl"
+              class="w-full h-48 object-cover"
               loading="lazy"
             />
-            <div class="p-6">
-              <h3 class="font-heading font-bold text-lg text-brand-black mb-2 group-hover:text-brand-gold transition-colors">
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
                 {script.title}
               </h3>
-              <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              <p class="text-sm text-gray-600 leading-relaxed mb-5 flex-1">
                 {script.description}
               </p>
               <a
                 href={script.pdf}
                 target="_blank"
                 rel="noopener"
-                class="btn-primary text-sm"
+                class="btn-primary text-sm w-full justify-center"
               >
-                Download Script
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
+                Download Script
               </a>
             </div>
           </div>
@@ -121,6 +122,7 @@ const scripts = [
     body="Download free, ready-to-use legal scripts and transform your intake process."
     buttonText="Get Started"
     buttonLink="/contact"
+    variant="brand"
   />
 
 </BaseLayout>

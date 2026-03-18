@@ -2,76 +2,108 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
-
-const services = [
-  {
-    title: "Intake 360",
-    href: "/services/intake-360",
-    description: "Comprehensive client intake services that capture every detail, qualify leads, and set your cases up for success. Our trained intake specialists handle calls 24/7.",
-    features: ["24/7 live answering", "Lead qualification", "Bilingual support", "CRM integration", "Custom scripts"],
-  },
-  {
-    title: "Impact Assistants",
-    href: "/services/impact-assistants",
-    description: "Dedicated virtual assistants trained in legal operations. They integrate with your team to handle administrative tasks, scheduling, document preparation, and more.",
-    features: ["Dedicated assistant", "Legal-trained", "Calendar management", "Document prep", "Client follow-up"],
-  },
-];
+import ServiceCard from "@components/ServiceCard.astro";
 ---
 
-<BaseLayout title="Services" description="Explore Attorney Assistant's legal support services including Intake 360 and Impact Assistants.">
+<BaseLayout title="Services" description="Explore Attorney Assistant's legal support services including 24/7 intake and dedicated legal support.">
 
   <Hero
-    title="Our Services"
-    subtitle="We build custom combinations of services tailored to your firm's unique needs — so you can scale smarter, not harder."
+    badge="Our Services"
+    title="Scale Smarter, Not Harder"
+    subtitle="We build custom combinations of services tailored to your firm's unique needs — so you can focus on practicing law while we handle the rest."
+    buttonText="Schedule Consultation"
+    buttonLink="/contact"
+    secondaryButtonText="Explore Services"
+    secondaryButtonLink="#services"
+    size="lg"
   />
 
-  <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container-narrow text-center">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-6">
-        A <em class="not-italic text-brand-gold italic">Strategic</em> Combination Built for <em class="not-italic text-brand-blue italic">Your Firm</em>
-      </h2>
-      <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-        Most of our clients benefit from a strategic combination of our services. Our team gets to know your firm's unique needs and recommends the ideal solution for scalability — whether that's dedicated Impact Assistants, per-task services like Intake 360, or a custom mix of both.
-      </p>
+  <!-- Strategic Combination -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden" id="services">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
+      <div class="reveal">
+        <span class="badge badge-brand">Why It Works</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          A Strategic Combination Built for Your Firm
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto">
+          Most of our clients benefit from a strategic combination of our services. Our team gets to know your firm's unique needs and recommends the ideal solution for scalability — whether that's dedicated assistants, per-task services like 24/7 intake, or a custom mix of both.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section class="py-16 lg:py-24">
+  <!-- Two Main Services -->
+  <section class="section-padding">
     <div class="container-wide">
-      <div class="grid gap-12">
-        {services.map((service, i) => (
-          <div class:list={["grid md:grid-cols-2 gap-8 items-center", i % 2 === 1 && "md:flex-row-reverse"]}>
-            <div class:list={[i % 2 === 1 && "md:order-2"]}>
-              <h2 class="text-3xl font-heading font-bold mb-4">{service.title}</h2>
-              <p class="text-gray-600 text-lg mb-6">{service.description}</p>
-              <ul class="space-y-2 mb-6">
-                {service.features.map((f) => (
-                  <li class="flex items-center gap-2 text-gray-700">
-                    <svg class="w-5 h-5 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                    </svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <a href={service.href} class="btn-primary">Learn More</a>
-            </div>
-            <div class:list={["bg-gray-100 rounded-xl h-64 flex items-center justify-center", i % 2 === 1 && "md:order-1"]}>
-              <span class="text-gray-400 font-heading text-lg">{service.title} Illustration</span>
-            </div>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Intake 360 -->
+        <div class="card card-hover p-8 md:p-10 flex flex-col group reveal" style="transition-delay: 0ms">
+          <div class="featured-icon featured-icon-lg featured-icon-brand mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
           </div>
-        ))}
+          <span class="badge badge-brand mb-4 w-fit">Per-Task Service</span>
+          <h3 class="text-display-xs font-heading text-gray-900 mb-3">24/7 Intake</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            Comprehensive client intake services that capture every detail, qualify leads, and set your cases up for success. Our trained intake specialists handle calls 24/7.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {["24/7 live answering", "Lead qualification", "Bilingual support", "CRM integration", "Custom scripts"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-700">
+                <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-auto">
+            <a href="/services/intake-360" class="btn-primary group">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Impact Assistants -->
+        <div class="card card-hover p-8 md:p-10 flex flex-col group reveal" style="transition-delay: 100ms">
+          <div class="featured-icon featured-icon-lg featured-icon-gold mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg>
+          </div>
+          <span class="badge badge-brand mb-4 w-fit">Dedicated Assistant</span>
+          <h3 class="text-display-xs font-heading text-gray-900 mb-3">Dedicated Legal Support</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">
+            Dedicated virtual assistants trained in legal operations. They integrate with your team to handle administrative tasks, scheduling, document preparation, and more.
+          </p>
+          <ul class="space-y-3 mb-8">
+            {["Dedicated assistant", "Legal-trained", "Calendar management", "Document prep", "Client follow-up"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-700">
+                <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-auto">
+            <a href="/services/impact-assistants" class="btn-primary group">Learn More</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <CTABanner
     heading="Let Us Build Your Growth System"
-    body="Every firm is different. We'll learn how your practice operates and recommend the ideal combination of Impact Assistants and per-task services to help you scale."
+    body="Every firm is different. We'll learn how your practice operates and recommend the ideal combination of dedicated assistants and per-task services to help you scale."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
-    variant="gold"
+    variant="brand"
   />
 
 </BaseLayout>

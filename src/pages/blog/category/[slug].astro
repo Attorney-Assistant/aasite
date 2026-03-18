@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
 import BlogCard from "@components/BlogCard.astro";
 import { fetchAllBlogPosts, fetchBlogTags } from "@lib/hubspot";
 
@@ -31,24 +32,33 @@ const posts = allPosts.filter((post: any) =>
   description={`Browse articles in the ${currentTag?.name || ""} category.`}
 >
 
-  <section class="py-16 lg:py-24">
+  <Hero
+    badge={currentTag?.name || "Category"}
+    title={currentTag?.name || "Category"}
+    subtitle={`Browse all articles in the ${currentTag?.name || ""} category.`}
+    size="sm"
+  />
+
+  <section class="section-padding">
     <div class="container-wide">
-      <div class="mb-12">
-        <a href="/blog" class="text-brand-blue text-sm font-medium hover:underline mb-2 inline-block">&larr; All Posts</a>
-        <h1 class="text-4xl font-heading font-bold mb-4">{currentTag?.name || "Category"}</h1>
+      <div class="mb-10 reveal" style="transition-delay:0.1s">
+        <a href="/blog" class="group inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:text-brand-800 transition-colors">
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+          All Posts
+        </a>
       </div>
 
       {tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mb-8">
-          <a href="/blog" class="text-sm font-medium px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-brand-blue hover:text-white transition-colors">All</a>
+        <div class="flex flex-wrap gap-2 mb-10 reveal" style="transition-delay:0.2s">
+          <a href="/blog" class="text-sm font-medium px-4 py-2 rounded-full bg-gray-100 text-gray-500 hover:bg-brand-700 hover:text-white transition-colors">All</a>
           {tags.map((tag: any) => (
             <a
               href={`/blog/category/${tag.slug}`}
               class:list={[
-                "text-sm font-medium px-3 py-1.5 rounded-full transition-colors",
+                "text-sm font-medium px-4 py-2 rounded-full transition-colors",
                 tag.slug === slug
-                  ? "bg-gray-900 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-brand-blue hover:text-white",
+                  ? "bg-brand-700 text-white"
+                  : "bg-gray-100 text-gray-500 hover:bg-brand-700 hover:text-white",
               ]}
             >
               {tag.name}
@@ -58,7 +68,7 @@ const posts = allPosts.filter((post: any) =>
       )}
 
       {posts.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal" style="transition-delay:0.3s">
           {posts.map((post: any) => (
             <BlogCard
               title={post.title}
@@ -72,7 +82,14 @@ const posts = allPosts.filter((post: any) =>
           ))}
         </div>
       ) : (
-        <p class="text-gray-500 text-lg text-center py-16">No posts in this category yet.</p>
+        <div class="text-center py-16">
+          <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-4">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+          </div>
+          <p class="text-lg text-gray-500">No posts in this category yet.</p>
+        </div>
       )}
     </div>
   </section>

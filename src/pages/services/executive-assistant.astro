@@ -8,25 +8,53 @@ import CTABanner from "@components/CTABanner.astro";
 <BaseLayout title="Executive Assistant" description="Stop managing your own calendar and email. A virtual executive assistant gives you the support to stay organized and focus on growing your firm.">
 
   <Hero
-    title="Executive Assistant"
+    badge="Executive Assistant"
+    title="Your Virtual Right Hand"
     subtitle="Stop managing your own calendar and email. A virtual executive assistant gives you the support to stay organized and focus on growing your firm."
-    ctaText="Get Started"
-    ctaLink="/contact"
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="View Capabilities"
+    secondaryButtonLink="#capabilities"
+    size="lg"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Features Grid -->
+  <section class="section-padding" id="capabilities">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Your Virtual <em class="not-italic text-brand-gold italic">Right Hand</em></h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">From inbox to itinerary, your executive assistant keeps everything organized so you can lead your firm.</p>
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Your Virtual Right Hand</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">From inbox to itinerary, your executive assistant keeps everything organized so you can lead your firm.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard title="Calendar Coordination" description="Juggle court appearances, team meetings, and client check-ins without double-booking or missed details." icon="clock" />
-        <FeatureCard title="Email Management" description="Inbox filtered, replies drafted, and priority messages flagged — stay focused, not buried in email." icon="document" />
-        <FeatureCard title="Travel Arrangements" description="Flights, hotels, itineraries, and backup plans all handled — whether it's a deposition or a conference." icon="shield" />
-        <FeatureCard title="Event Planning" description="Webinars to firm retreats — invitations, RSVPs, venue booking, and follow-ups handled from start to finish." icon="users" />
-        <FeatureCard title="Project Assistance" description="Track timelines, coordinate deliverables, and maintain progress reports to keep initiatives on target." icon="chart" />
-        <FeatureCard title="Administrative Tasks" description="Reports, presentations, research assistance — your virtual right hand for wherever the day demands." icon="scale" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Calendar Coordination" description="Juggle court appearances, team meetings, and client check-ins without double-booking or missed details." icon="calendar" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Email Management" description="Inbox filtered, replies drafted, and priority messages flagged — stay focused, not buried in email." icon="mail" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Travel Arrangements" description="Flights, hotels, itineraries, and backup plans all handled — whether it's a deposition or a conference." icon="globe" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Event Planning" description="Webinars to firm retreats — invitations, RSVPs, venue booking, and follow-ups handled from start to finish." icon="users" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Project Assistance" description="Track timelines, coordinate deliverables, and maintain progress reports to keep initiatives on target." icon="chart" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Administrative Tasks" description="Reports, presentations, research assistance — your virtual right hand for wherever the day demands." icon="document" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
+      <div class="reveal">
+        <span class="badge badge-brand">Complete Support</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Even More Powerful as a Package
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          Executive assistant support is even more powerful as part of a tailored package. We'll pair it with legal, admin, or receptionist coverage to give you a complete support team.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/contact" class="btn-primary btn-lg group">Schedule Consultation</a>
+          <a href="/services" class="btn-secondary btn-lg group">View All Services</a>
+        </div>
       </div>
     </div>
   </section>
@@ -36,7 +64,7 @@ import CTABanner from "@components/CTABanner.astro";
     body="Executive assistant support is even more powerful as part of a tailored package. We'll pair it with legal, admin, or receptionist coverage to give you a complete support team."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
-    variant="blue"
+    variant="dark"
   />
 
 </BaseLayout>

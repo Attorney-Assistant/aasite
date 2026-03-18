@@ -20,6 +20,14 @@ const page = await fetchLandingPageBySlug(slug!);
 if (!page) {
   return Astro.redirect("/");
 }
+
+// Map old variant names to new ones
+function mapVariant(style: string): "brand" | "light" | "dark" {
+  if (style === "gold" || style === "blue") return "brand";
+  if (style === "dark") return "dark";
+  if (style === "light") return "light";
+  return "brand";
+}
 ---
 
 <BaseLayout
@@ -31,9 +39,8 @@ if (!page) {
   <Hero
     title={page.hero_title}
     subtitle={page.hero_subtitle}
-    ctaText={page.cta_text}
-    ctaLink={page.cta_link}
-    backgroundImage={page.hero_image}
+    buttonText={page.cta_text}
+    buttonLink={page.cta_link}
   />
 
   {page.sections?.map((section: any) => {
@@ -42,8 +49,8 @@ if (!page) {
         <Hero
           title={section.heading}
           subtitle={section.subheading}
-          ctaText={section.cta_text}
-          ctaLink={section.cta_link}
+          buttonText={section.cta_text}
+          buttonLink={section.cta_link}
         />
       );
     }
@@ -55,19 +62,27 @@ if (!page) {
           body={section.body}
           buttonText={section.button_text}
           buttonLink={section.button_link}
-          variant={section.style || "default"}
+          variant={mapVariant(section.style || "brand")}
         />
       );
     }
 
     if (section.type === "feature_grid") {
       return (
-        <section class="py-16 lg:py-24 bg-gray-50">
-          <div class="container-wide">
-            {section.heading && <h2 class="text-3xl font-heading font-bold text-center mb-12">{section.heading}</h2>}
+        <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(180,160,120,0.08),transparent_70%)] pointer-events-none"></div>
+          <div class="container-wide relative">
+            {section.heading && (
+              <div class="text-center mb-12 reveal">
+                <h2 class="text-display-sm md:text-display-md font-heading text-gray-900">{section.heading}</h2>
+                <div class="divider-gold-center mt-5"></div>
+              </div>
+            )}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {section.features?.map((f: any) => (
-                <FeatureCard title={f.title} description={f.description} icon={f.icon} />
+              {section.features?.map((f: any, i: number) => (
+                <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+                  <FeatureCard title={f.title} description={f.description} icon={f.icon} />
+                </div>
               ))}
             </div>
           </div>
@@ -77,16 +92,16 @@ if (!page) {
 
     if (section.type === "text_with_image") {
       return (
-        <section class="py-16 lg:py-24">
+        <section class="section-padding">
           <div class="container-wide">
-            <div class:list={["grid md:grid-cols-2 gap-12 items-center", section.image_position === "left" && "md:flex-row-reverse"]}>
-              <div class:list={[section.image_position === "left" && "md:order-2"]}>
-                {section.heading && <h2 class="text-3xl font-heading font-bold mb-6">{section.heading}</h2>}
-                {section.body && <div class="prose" set:html={section.body} />}
+            <div class:list={["grid md:grid-cols-2 gap-12 lg:gap-16 items-center", section.image_position === "left" && "md:flex-row-reverse"]}>
+              <div class:list={[section.image_position === "left" && "md:order-2", "reveal"]}>
+                {section.heading && <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-6">{section.heading}</h2>}
+                {section.body && <div class="prose-brand" set:html={section.body} />}
               </div>
               {section.image && (
-                <div class:list={[section.image_position === "left" && "md:order-1"]}>
-                  <img src={section.image} alt={section.image_alt || ""} class="rounded-xl w-full" loading="lazy" />
+                <div class:list={[section.image_position === "left" && "md:order-1", "reveal"]} style="transition-delay: 100ms">
+                  <img src={section.image} alt={section.image_alt || ""} class="rounded-2xl shadow-lg w-full" loading="lazy" />
                 </div>
               )}
             </div>
@@ -97,11 +112,21 @@ if (!page) {
 
     if (section.type === "testimonials") {
       return (
-        <section class="py-16 lg:py-24 bg-gray-50">
-          <div class="container-wide">
-            {section.heading && <h2 class="text-3xl font-heading font-bold text-center mb-12">{section.heading}</h2>}
+        <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(180,160,120,0.08),transparent_70%)] pointer-events-none"></div>
+          <div class="container-wide relative">
+            {section.heading && (
+              <div class="text-center mb-12 reveal">
+                <h2 class="text-display-sm md:text-display-md font-heading text-gray-900">{section.heading}</h2>
+                <div class="divider-gold-center mt-5"></div>
+              </div>
+            )}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {section.testimonials?.map((t: any) => <TestimonialCard {...t} />)}
+              {section.testimonials?.map((t: any, i: number) => (
+                <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+                  <TestimonialCard {...t} />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -110,19 +135,24 @@ if (!page) {
 
     if (section.type === "faq") {
       return (
-        <section class="py-16 lg:py-24">
+        <section class="section-padding">
           <div class="container-narrow">
-            {section.heading && <h2 class="text-3xl font-heading font-bold text-center mb-12">{section.heading}</h2>}
-            <div class="space-y-4">
-              {section.faqs?.map((faq: any) => (
-                <details class="group bg-white rounded-lg border border-gray-200 p-4">
-                  <summary class="flex items-center justify-between cursor-pointer font-heading font-semibold">
+            {section.heading && (
+              <div class="text-center mb-12 reveal">
+                <h2 class="text-display-sm md:text-display-md font-heading text-gray-900">{section.heading}</h2>
+                <div class="divider-gold-center mt-5"></div>
+              </div>
+            )}
+            <div class="divide-y divide-gray-200">
+              {section.faqs?.map((faq: any, i: number) => (
+                <details class="group py-5 reveal" style={`transition-delay: ${i * 80}ms`}>
+                  <summary class="flex items-center justify-between cursor-pointer text-base font-semibold text-gray-900">
                     {faq.question}
-                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                     </svg>
                   </summary>
-                  <p class="mt-3 text-gray-600">{faq.answer}</p>
+                  <p class="mt-3 text-gray-500 leading-relaxed">{faq.answer}</p>
                 </details>
               ))}
             </div>
@@ -139,6 +169,7 @@ if (!page) {
       heading="Ready to Get Started?"
       buttonText={page.cta_text}
       buttonLink={page.cta_link}
+      variant="brand"
     />
   )}
 

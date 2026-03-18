@@ -4,37 +4,37 @@ const dropdowns = [
     label: "Services",
     href: "/services",
     items: [
-      { href: "/services", label: "Overview" },
-      { href: "/services/impact-assistants", label: "Impact Assistants" },
-      { href: "/services/intake-360", label: "Intake 360" },
-      { href: "/services/virtual-legal-assistants", label: "Virtual Legal Assistants" },
-      { href: "/services/admin-support", label: "Admin Support" },
-      { href: "/services/legal-receptionist", label: "Legal Receptionist" },
-      { href: "/services/executive-assistant", label: "Executive Assistant" },
-      { href: "/services/marketing-support", label: "Marketing Support" },
+      { href: "/services", label: "Overview", desc: "See all our services" },
+      { href: "/services/impact-assistants", label: "Dedicated Legal Support", desc: "Dedicated virtual assistants" },
+      { href: "/services/intake-360", label: "24/7 Intake", desc: "24/7 client intake" },
+      { href: "/services/virtual-legal-assistants", label: "Virtual Legal Assistants", desc: "Remote legal support" },
+      { href: "/services/admin-support", label: "Admin Support", desc: "Back-office operations" },
+      { href: "/services/legal-receptionist", label: "Legal Receptionist", desc: "Professional front desk" },
+      { href: "/services/executive-assistant", label: "Executive Assistant", desc: "High-level support" },
+      { href: "/services/marketing-support", label: "Marketing Support", desc: "Growth & visibility" },
     ],
   },
   {
     label: "Resources",
     href: "/resources",
     items: [
-      { href: "/resources", label: "Resources" },
-      { href: "/guides", label: "Guides" },
-      { href: "/webinars", label: "Webinars" },
-      { href: "/all-scripts-2025", label: "Scripts" },
-      { href: "/podcast", label: "Podcast" },
+      { href: "/resources", label: "Resources", desc: "All resources" },
+      { href: "/guides", label: "Guides", desc: "Downloadable guides" },
+      { href: "/webinars", label: "Webinars", desc: "Watch recordings" },
+      { href: "/all-scripts-2025", label: "Scripts", desc: "Ready-to-use scripts" },
+      { href: "/podcast", label: "Podcast", desc: "The Growth Code" },
     ],
   },
   {
     label: "About",
     href: "/about",
     items: [
-      { href: "/about", label: "About Us" },
-      { href: "/our-story", label: "Our Story" },
-      { href: "/our-team", label: "Our Team" },
-      { href: "/careers", label: "Careers" },
-      { href: "/faq", label: "FAQ" },
-      { href: "/reviews", label: "Reviews" },
+      { href: "/about", label: "About Us", desc: "Who we are" },
+      { href: "/our-story", label: "Our Story", desc: "How we started" },
+      { href: "/our-team", label: "Our Team", desc: "Meet the leadership" },
+      { href: "/careers", label: "Careers", desc: "Join our team" },
+      { href: "/faq", label: "FAQ", desc: "Common questions" },
+      { href: "/reviews", label: "Reviews", desc: "Client feedback" },
     ],
   },
 ];
@@ -46,177 +46,194 @@ function isActive(href: string) {
 }
 ---
 
-<header class="sticky top-0 z-50 bg-gray-200 border-b border-gray-300 shadow-sm">
-  <nav class="container-wide flex items-center justify-between h-16 lg:h-20">
-    <a href="/" class="flex items-center gap-2">
-      <img src="/brand/logos/Attorney%20Assistant_H_FC.svg" alt="Attorney Assistant" class="h-10 lg:h-14 w-auto" />
+<header class="header-root sticky top-0 z-50 border-b border-gray-200/60" id="site-header">
+  <nav class="container-wide flex items-center justify-between h-16 lg:h-[72px]">
+    <a href="/" class="flex items-center gap-2 shrink-0 group">
+      <img src="/brand/logos/Attorney%20Assistant_H_FC.svg" alt="Attorney Assistant" class="h-9 lg:h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02]" />
     </a>
 
     <!-- Desktop Nav -->
-    <ul class="hidden md:flex items-center gap-6">
-      <li>
-        <a
-          href="/"
-          class:list={[
-            "font-body text-base font-medium transition-colors duration-200",
-            isActive("/") && currentPath === "/" ? "text-brand-blue" : "text-brand-black hover:text-brand-blue",
-          ]}
-        >
-          Home
-        </a>
-      </li>
+    <div class="hidden lg:flex items-center gap-0.5">
+      <a
+        href="/"
+        class:list={[
+          "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
+          isActive("/") && currentPath === "/" ? "text-brand-navy" : "text-gray-500 hover:text-gray-900",
+        ]}
+      >
+        Home
+      </a>
 
       {dropdowns.map((dropdown) => (
-        <li class="relative group">
+        <div class="relative group">
           <button
             class:list={[
-              "font-body text-base font-medium transition-colors duration-200 flex items-center gap-1",
-              isActive(dropdown.href) ? "text-brand-blue" : "text-brand-black hover:text-brand-blue",
+              "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-1",
+              isActive(dropdown.href) ? "text-brand-navy" : "text-gray-500 hover:text-gray-900",
             ]}
             type="button"
           >
             {dropdown.label}
-            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <svg class="w-3.5 h-3.5 text-gray-400 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
             </svg>
           </button>
-          <ul class="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            {dropdown.items.map((item) => (
-              <li>
+          <div class="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 translate-y-1 group-hover:translate-y-0">
+            <div class="w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-2 ring-1 ring-black/5">
+              {dropdown.items.map((item) => (
                 <a
                   href={item.href}
                   class:list={[
-                    "block px-4 py-2 text-sm transition-colors",
-                    isActive(item.href) ? "text-brand-blue bg-blue-50" : "text-brand-black hover:bg-gray-50 hover:text-brand-blue",
+                    "flex flex-col gap-0.5 px-3 py-2.5 rounded-lg transition-all duration-200",
+                    isActive(item.href) ? "bg-brand-25 text-brand-700" : "hover:bg-gray-50",
                   ]}
                 >
-                  {item.label}
+                  <span class:list={["text-sm font-medium", isActive(item.href) ? "text-brand-700" : "text-gray-900"]}>{item.label}</span>
+                  <span class="text-xs text-gray-400">{item.desc}</span>
                 </a>
-              </li>
-            ))}
-          </ul>
-        </li>
+              ))}
+            </div>
+          </div>
+        </div>
       ))}
 
-      <li>
-        <a
-          href="/blog"
-          class:list={[
-            "font-body text-base font-medium transition-colors duration-200",
-            isActive("/blog") ? "text-brand-blue" : "text-brand-black hover:text-brand-blue",
-          ]}
-        >
-          Blog
-        </a>
-      </li>
+      <a
+        href="/blog"
+        class:list={[
+          "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
+          isActive("/blog") ? "text-brand-navy" : "text-gray-500 hover:text-gray-900",
+        ]}
+      >
+        Blog
+      </a>
 
-      <li>
-        <a
-          href="/contact"
-          class:list={[
-            "font-body text-base font-medium transition-colors duration-200",
-            isActive("/contact") ? "text-brand-blue" : "text-brand-black hover:text-brand-blue",
-          ]}
-        >
-          Contact
-        </a>
-      </li>
+      <a
+        href="/contact"
+        class:list={[
+          "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
+          isActive("/contact") ? "text-brand-navy" : "text-gray-500 hover:text-gray-900",
+        ]}
+      >
+        Contact
+      </a>
+    </div>
 
-      <li>
-        <a href="/contact" class="btn-primary text-base">Book a Call</a>
-      </li>
-    </ul>
+    <!-- Desktop CTA -->
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="/contact" class="btn-primary">
+        Book a Call
+        <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
 
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2"
+      class="lg:hidden p-2 -mr-2 rounded-lg text-gray-400 hover:text-gray-700 transition-colors"
       aria-label="Toggle menu"
       aria-expanded="false"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </nav>
 
   <!-- Mobile Nav -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100">
-    <ul class="px-4 py-4 space-y-1">
-      <li>
-        <a
-          href="/"
-          class:list={["block py-2 font-body text-base", currentPath === "/" ? "text-brand-blue font-medium" : "text-brand-black"]}
-        >
-          Home
-        </a>
-      </li>
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+    <div class="container-wide py-4 space-y-1">
+      <a
+        href="/"
+        class:list={["block px-3 py-2.5 rounded-lg text-sm font-medium", currentPath === "/" ? "text-brand-navy bg-brand-25" : "text-gray-700 hover:bg-gray-50"]}
+      >
+        Home
+      </a>
 
       {dropdowns.map((dropdown) => (
-        <li class="mobile-dropdown">
+        <div class="mobile-dropdown">
           <button
-            class="mobile-dropdown-btn w-full flex items-center justify-between py-2 font-body text-base text-brand-black"
+            class="mobile-dropdown-btn w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50"
             type="button"
           >
             {dropdown.label}
-            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
             </svg>
           </button>
-          <ul class="mobile-dropdown-menu hidden pl-4 space-y-1">
+          <div class="mobile-dropdown-menu hidden pl-3 mt-1 space-y-0.5">
             {dropdown.items.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  class:list={[
-                    "block py-1.5 text-sm",
-                    isActive(item.href) ? "text-brand-blue font-medium" : "text-gray-600 hover:text-brand-blue",
-                  ]}
-                >
-                  {item.label}
-                </a>
-              </li>
+              <a
+                href={item.href}
+                class:list={[
+                  "block px-3 py-2 rounded-lg text-sm",
+                  isActive(item.href) ? "text-brand-700 bg-brand-25 font-medium" : "text-gray-500 hover:text-gray-700 hover:bg-gray-50",
+                ]}
+              >
+                {item.label}
+              </a>
             ))}
-          </ul>
-        </li>
+          </div>
+        </div>
       ))}
 
-      <li>
-        <a
-          href="/blog"
-          class:list={["block py-2 font-body text-base", isActive("/blog") ? "text-brand-blue font-medium" : "text-brand-black"]}
-        >
-          Blog
-        </a>
-      </li>
+      <a
+        href="/blog"
+        class:list={["block px-3 py-2.5 rounded-lg text-sm font-medium", isActive("/blog") ? "text-brand-navy bg-brand-25" : "text-gray-700 hover:bg-gray-50"]}
+      >
+        Blog
+      </a>
 
-      <li>
-        <a
-          href="/contact"
-          class:list={["block py-2 font-body text-base", isActive("/contact") ? "text-brand-blue font-medium" : "text-brand-black"]}
-        >
-          Contact
-        </a>
-      </li>
+      <a
+        href="/contact"
+        class:list={["block px-3 py-2.5 rounded-lg text-sm font-medium", isActive("/contact") ? "text-brand-navy bg-brand-25" : "text-gray-700 hover:bg-gray-50"]}
+      >
+        Contact
+      </a>
 
-      <li class="pt-2">
-        <a href="/contact" class="btn-primary w-full text-center text-sm">Book a Call</a>
-      </li>
-    </ul>
+      <div class="pt-3 border-t border-gray-100">
+        <a href="/contact" class="btn-primary w-full justify-center">
+          Book a Call
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
+<style>
+  .header-root {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+  }
+
+  .header-scrolled {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+</style>
+
 <script>
-  // Mobile menu toggle
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
+  const openIcon = document.getElementById("menu-open-icon");
+  const closeIcon = document.getElementById("menu-close-icon");
+  const header = document.getElementById("site-header");
+
   btn?.addEventListener("click", () => {
     const expanded = btn.getAttribute("aria-expanded") === "true";
     btn.setAttribute("aria-expanded", String(!expanded));
     menu?.classList.toggle("hidden");
+    openIcon?.classList.toggle("hidden");
+    closeIcon?.classList.toggle("hidden");
   });
 
-  // Mobile dropdown toggles
   document.querySelectorAll(".mobile-dropdown-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const menu = btn.nextElementSibling;
@@ -224,5 +241,21 @@ function isActive(href: string) {
       menu?.classList.toggle("hidden");
       arrow?.classList.toggle("rotate-180");
     });
+  });
+
+  // Scroll shadow
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY > 8) {
+          header?.classList.add("header-scrolled");
+        } else {
+          header?.classList.remove("header-scrolled");
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 </script>

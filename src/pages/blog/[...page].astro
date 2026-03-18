@@ -27,23 +27,24 @@ const { tags } = Astro.props;
 <BaseLayout title={page.currentPage === 1 ? "Blog" : `Blog — Page ${page.currentPage}`} description="Legal industry insights, tips, and best practices from the Attorney Assistant team.">
 
   <Hero
+    badge="Blog"
     title="Blog"
     subtitle="Insights, tips, and best practices for running a more efficient law firm."
   />
 
-  <section class="py-12 lg:py-16">
+  <section class="section-padding">
     <div class="container-wide">
 
       {tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mb-10">
+        <div class="flex flex-wrap gap-2 mb-10 reveal" style="transition-delay:0.1s">
           <a href="/blog" class:list={[
-            "text-sm font-heading font-medium px-4 py-2 rounded-full transition-colors",
-            page.currentPage >= 1 ? "bg-brand-gold text-brand-black" : "bg-gray-100 text-gray-600 hover:bg-gray-200",
+            "text-sm font-semibold px-4 py-2 rounded-full transition-colors",
+            page.currentPage >= 1 ? "bg-brand-700 text-white" : "bg-gray-100 text-gray-500 hover:bg-gray-200",
           ]}>All Posts</a>
           {tags.map((tag: any) => (
             <a
               href={`/blog/category/${tag.slug}`}
-              class="text-sm font-heading font-medium px-4 py-2 rounded-full bg-gray-100 text-gray-600 hover:bg-brand-blue hover:text-white transition-colors"
+              class="text-sm font-medium px-4 py-2 rounded-full bg-gray-100 text-gray-500 hover:bg-brand-700 hover:text-white transition-colors"
             >
               {tag.name}
             </a>
@@ -55,8 +56,8 @@ const { tags } = Astro.props;
         <>
           {/* Featured post - first post gets bigger treatment on page 1 */}
           {page.currentPage === 1 && page.data.length > 0 && (
-            <div class="mb-10">
-              <a href={`/blog/${page.data[0].slug}`} class="group grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+            <div class="mb-10 reveal" style="transition-delay:0.2s">
+              <a href={`/blog/${page.data[0].slug}`} class="group grid grid-cols-1 lg:grid-cols-2 gap-0 card card-hover overflow-hidden">
                 <div class="overflow-hidden">
                   {page.data[0].featuredImage ? (
                     <img
@@ -65,7 +66,7 @@ const { tags } = Astro.props;
                       class="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div class="w-full h-64 lg:h-full min-h-[280px] bg-gradient-to-br from-brand-navy to-brand-blue flex items-center justify-center">
+                    <div class="w-full h-64 lg:h-full min-h-[280px] bg-gradient-to-br from-brand-700 to-brand-500 flex items-center justify-center">
                       <svg class="w-16 h-16 text-white/30" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
                     </div>
                   )}
@@ -73,28 +74,28 @@ const { tags } = Astro.props;
                 <div class="p-8 lg:p-10 flex flex-col justify-center">
                   <div class="flex items-center gap-3 mb-4">
                     {page.data[0].tags && page.data[0].tags.length > 0 && (
-                      <span class="text-xs font-semibold text-brand-blue uppercase tracking-wide">
+                      <span class="badge badge-brand text-xs">
                         {page.data[0].tags[0].name}
                       </span>
                     )}
                     {page.data[0].publishedDate && (
                       <>
                         {page.data[0].tags?.length > 0 && <span class="text-gray-300">&middot;</span>}
-                        <time class="text-xs text-gray-400">
+                        <time class="text-xs text-gray-500">
                           {new Date(page.data[0].publishedDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
                         </time>
                       </>
                     )}
                   </div>
-                  <h2 class="text-2xl lg:text-3xl font-heading font-bold text-brand-black mb-3 group-hover:text-brand-blue transition-colors leading-tight">
+                  <h2 class="text-display-xs lg:text-display-sm font-heading text-gray-900 mb-3 group-hover:text-brand-700 transition-colors leading-tight">
                     {page.data[0].title}
                   </h2>
                   {page.data[0].excerpt && (
-                    <p class="text-gray-500 leading-relaxed mb-4 line-clamp-3">{page.data[0].excerpt}</p>
+                    <p class="text-base text-gray-500 leading-relaxed mb-5 line-clamp-3">{page.data[0].excerpt}</p>
                   )}
-                  <span class="inline-flex items-center text-sm font-heading font-semibold text-brand-blue">
+                  <span class="inline-flex items-center text-sm font-semibold text-brand-700">
                     Read More
-                    <svg class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                   </span>
                 </div>
               </a>
@@ -102,7 +103,7 @@ const { tags } = Astro.props;
           )}
 
           {/* Remaining posts in grid */}
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal" style="transition-delay:0.3s">
             {(page.currentPage === 1 ? page.data.slice(1) : page.data).map((post: any) => (
               <BlogCard
                 title={post.title}
@@ -117,7 +118,12 @@ const { tags } = Astro.props;
         </>
       ) : (
         <div class="text-center py-16">
-          <p class="text-gray-500 text-lg">No blog posts yet. Check back soon!</p>
+          <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-4">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+          </div>
+          <p class="text-lg text-gray-500">No blog posts yet. Check back soon!</p>
         </div>
       )}
 
@@ -125,12 +131,12 @@ const { tags } = Astro.props;
       {page.lastPage > 1 && (
         <nav class="mt-14 flex items-center justify-center gap-2" aria-label="Blog pagination">
           {page.url.prev ? (
-            <a href={page.url.prev} class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-heading font-medium text-brand-black hover:bg-gray-50 transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+            <a href={page.url.prev} class="btn-secondary text-sm">
+              <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
               Previous
             </a>
           ) : (
-            <span class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-100 text-sm font-heading font-medium text-gray-300 cursor-not-allowed">
+            <span class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-300 cursor-not-allowed">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
               Previous
             </span>
@@ -140,10 +146,10 @@ const { tags } = Astro.props;
             <a
               href={num === 1 ? "/blog" : `/blog/${num}`}
               class:list={[
-                "inline-flex items-center justify-center w-10 h-10 rounded-lg text-sm font-heading font-medium transition-colors",
+                "inline-flex items-center justify-center w-10 h-10 rounded-lg text-sm font-medium transition-colors",
                 num === page.currentPage
-                  ? "bg-brand-gold text-brand-black font-bold"
-                  : "border border-gray-200 text-brand-black hover:bg-gray-50",
+                  ? "bg-brand-700 text-white font-semibold"
+                  : "border border-gray-200 text-gray-700 hover:bg-gray-50",
               ]}
             >
               {num}
@@ -151,12 +157,12 @@ const { tags } = Astro.props;
           ))}
 
           {page.url.next ? (
-            <a href={page.url.next} class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-heading font-medium text-brand-black hover:bg-gray-50 transition-colors">
+            <a href={page.url.next} class="btn-secondary text-sm">
               Next
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+              <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
             </a>
           ) : (
-            <span class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-100 text-sm font-heading font-medium text-gray-300 cursor-not-allowed">
+            <span class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-300 cursor-not-allowed">
               Next
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
             </span>

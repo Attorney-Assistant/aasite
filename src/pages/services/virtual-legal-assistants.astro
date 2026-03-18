@@ -8,25 +8,53 @@ import CTABanner from "@components/CTABanner.astro";
 <BaseLayout title="Virtual Legal Assistants" description="Full-time virtual legal staff placed exclusively for law firms. Free up time to focus on what you do best — practicing law.">
 
   <Hero
-    title="Virtual Legal Assistants"
+    badge="Virtual Legal Assistants"
+    title="Full-Time Legal Support, Virtually"
     subtitle="Full-time virtual legal staff placed exclusively for law firms. Free up time to focus on what you do best — practicing law."
-    ctaText="Get Started"
-    ctaLink="/contact"
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="View Capabilities"
+    secondaryButtonLink="#capabilities"
+    size="lg"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Features Grid -->
+  <section class="section-padding" id="capabilities">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">What Your Virtual Legal Assistant <em class="not-italic text-brand-gold italic">Can Do</em></h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Dedicated legal support tailored to your firm's needs — so you can focus on practicing law.</p>
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What Your Virtual Legal Assistant Can Do</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Dedicated legal support tailored to your firm's needs — so you can focus on practicing law.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard title="Legal Research Support" description="Efficient legal research support — statutes, case law summaries, and jurisdictional requirements delivered without breaking your workflow." icon="document" />
-        <FeatureCard title="Document Preparation & Collection" description="From discovery requests to client letters, your assistant collects, preps, and polishes documents — error-free and ready to go." icon="shield" />
-        <FeatureCard title="CRM Data Entry" description="All client records, forms, and case updates entered into your CRM system accurately and efficiently." icon="clock" />
-        <FeatureCard title="Billing Support" description="Track billable hours, prepare invoices, and manage billing follow-ups to maintain steady cash flow." icon="users" />
-        <FeatureCard title="E-Filing" description="Upload documents to court portals, double-check formatting, and confirm submissions — no missed deadlines." icon="chart" />
-        <FeatureCard title="Client Communication" description="Timely updates, appointment reminders, and status check-ins delivered with polished professionalism." icon="scale" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Legal Research Support" description="Efficient legal research support — statutes, case law summaries, and jurisdictional requirements delivered without breaking your workflow." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Document Preparation & Collection" description="From discovery requests to client letters, your assistant collects, preps, and polishes documents — error-free and ready to go." icon="folder" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="CRM Data Entry" description="All client records, forms, and case updates entered into your CRM system accurately and efficiently." icon="globe" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Billing Support" description="Track billable hours, prepare invoices, and manage billing follow-ups to maintain steady cash flow." icon="chart" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="E-Filing" description="Upload documents to court portals, double-check formatting, and confirm submissions — no missed deadlines." icon="shield" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Client Communication" description="Timely updates, appointment reminders, and status check-ins delivered with polished professionalism." icon="phone" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
+      <div class="reveal">
+        <span class="badge badge-brand">Built for Law Firms</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          The Cornerstone of Your Support Team
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          A Virtual Legal Assistant is often the cornerstone of a broader support package. We'll pair yours with admin, receptionist, or marketing coverage to build the ideal team for your firm.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/contact" class="btn-primary btn-lg group">Schedule Consultation</a>
+          <a href="/services" class="btn-secondary btn-lg group">View All Services</a>
+        </div>
       </div>
     </div>
   </section>
@@ -36,7 +64,7 @@ import CTABanner from "@components/CTABanner.astro";
     body="A Virtual Legal Assistant is often the cornerstone of a broader support package. We'll pair yours with admin, receptionist, or marketing coverage to build the ideal team for your firm."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
-    variant="blue"
+    variant="brand"
   />
 
 </BaseLayout>

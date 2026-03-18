@@ -1,0 +1,191 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HubSpotForm from "@components/HubSpotForm.astro";
+import FeatureCard from "@components/FeatureCard.astro";
+import CTABanner from "@components/CTABanner.astro";
+---
+
+<BaseLayout
+  title="Stop Wasting Money on Marketing That Doesn't Work | Attorney Assistant"
+  description="Most law firms waste thousands on marketing with no ROI. Learn how a dedicated marketing assistant can turn your budget into real results."
+>
+
+  <!-- Hero with Form -->
+  <section class="relative overflow-hidden bg-gray-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-gray-900 to-brand-800"></div>
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal">
+          <div class="mb-6">
+            <span class="badge bg-error-50 text-error-700 border border-error-300">Marketing ROI</span>
+          </div>
+          <h1 class="text-display-lg md:text-display-xl font-heading text-white leading-tight mb-6">
+            Stop Wasting Money on Marketing That Doesn't Work
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            Most law firms spend thousands every month on marketing with little to show for it. No follow-up. No consistency. No ROI. It's time to fix that.
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl reveal" style="transition-delay: 150ms">
+          <div class="mb-5">
+            <h2 class="text-xl font-heading text-gray-900 mb-1">Get Your Free Marketing Audit</h2>
+            <p class="text-sm text-gray-500">Find out how much your firm is leaving on the table.</p>
+          </div>
+          <HubSpotForm portalId="49161090" formId="bada185b-28a8-496a-9264-3b3dde17bd08" region="na1" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section-padding">
+    <div class="container-wide text-center">
+      <span class="badge bg-error-50 text-error-700 border border-error-300 mb-3 reveal">The Problem</span>
+      <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms">
+        The Marketing Problem Law Firms Won't Talk About
+      </h2>
+      <div class="divider-gold-center mt-5 reveal" style="transition-delay: 120ms"></div>
+      <p class="text-lg text-gray-500 max-w-3xl mx-auto mb-12 reveal" style="transition-delay: 160ms">
+        You've invested in a website, maybe even hired an agency. But leads still aren't converting, your social media is a ghost town, and nobody's following up on the opportunities you do get.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        <div class="card card-hover p-6 border-error-100 bg-error-25 reveal" style="transition-delay: 200ms">
+          <div class="text-display-sm font-heading text-error-600 mb-2">72%</div>
+          <p class="text-sm text-gray-700 font-medium">of law firms say they waste money on marketing that doesn't generate cases</p>
+        </div>
+        <div class="card card-hover p-6 border-error-100 bg-error-25 reveal" style="transition-delay: 300ms">
+          <div class="text-display-sm font-heading text-error-600 mb-2">5 min</div>
+          <p class="text-sm text-gray-700 font-medium">is all you have to respond to a lead before they move on to the next firm</p>
+        </div>
+        <div class="card card-hover p-6 border-error-100 bg-error-25 reveal" style="transition-delay: 400ms">
+          <div class="text-display-sm font-heading text-error-600 mb-2">$0</div>
+          <p class="text-sm text-gray-700 font-medium">is what inconsistent posting and no follow-up is worth to your bottom line</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Fix -->
+  <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(180,160,120,0.08),transparent_70%)] pointer-events-none"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-success mb-3">The Solution</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          The Fix: A Dedicated Marketing Assistant
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto mt-5">
+          Instead of throwing more money at agencies and tools, put a trained professional on your team who actually executes — every single day.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { title: "Consistent Social Media", description: "Your accounts stay active with on-brand posts scheduled daily — no more weeks of silence.", icon: "document" },
+          { title: "Lead Follow-Up", description: "Every inquiry gets a response within minutes, not hours. No more lost leads.", icon: "clock" },
+          { title: "Email Campaigns", description: "Newsletters and drip sequences that actually go out on schedule and get tracked.", icon: "chart" },
+          { title: "Review Management", description: "Automated review requests and monitoring to build your online reputation.", icon: "shield" },
+          { title: "CRM & Pipeline Tracking", description: "Your leads are logged, tagged, and tracked so nothing falls through the cracks.", icon: "users" },
+          { title: "Reporting That Makes Sense", description: "Monthly reports that show what's working and what's not — in plain English.", icon: "scale" },
+        ].map((f, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+            <FeatureCard title={f.title} description={f.description} icon={f.icon} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Comparison -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand mb-3">Compare</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900">
+          What You're Actually Spending
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="max-w-4xl mx-auto reveal" style="transition-delay: 100ms">
+        <div class="card card-hover overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr class="border-b border-gray-200">
+                  <th class="text-left py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500"></th>
+                  <th class="text-left py-4 px-6 text-xs font-semibold uppercase tracking-wider text-error-600 bg-error-25">The Waste</th>
+                  <th class="text-left py-4 px-6 text-xs font-semibold uppercase tracking-wider text-success-700 bg-success-25">With Us</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { feature: "Marketing Agency", waste: "$3,000–$10,000/mo", us: "Not needed" },
+                  { feature: "Social Media Manager", waste: "$4,000–$6,000/mo", us: "Included" },
+                  { feature: "Missed Lead Revenue", waste: "$5,000–$50,000+/yr", us: "$0 — we follow up" },
+                  { feature: "Your Time Managing It", waste: "10+ hrs/week", us: "We handle it" },
+                  { feature: "Total Monthly Cost", waste: "$7,000–$16,000+", us: "Starting at $1,500" },
+                ].map((row, i) => (
+                  <tr class:list={[i < 4 ? "border-b border-gray-100" : "", i === 4 ? "font-semibold" : ""]}>
+                    <td class="py-4 px-6 text-sm font-medium text-gray-900">{row.feature}</td>
+                    <td class="py-4 px-6 text-sm text-error-600 bg-error-25">{row.waste}</td>
+                    <td class="py-4 px-6 text-sm text-success-700 bg-success-25">
+                      <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-success-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                        </svg>
+                        {row.us}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(180,160,120,0.08),transparent_70%)] pointer-events-none"></div>
+    <div class="container-narrow relative">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand mb-3">Process</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900">How It Works</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="space-y-6">
+        {[
+          { step: "1", title: "Tell Us What's Broken", desc: "We'll audit your current marketing and show you exactly where the money is going." },
+          { step: "2", title: "We Build Your Plan", desc: "A custom marketing execution plan built around your firm's goals, practice areas, and budget." },
+          { step: "3", title: "Your Assistant Gets to Work", desc: "A trained marketing specialist starts executing — social media, email, follow-up, reporting — all of it." },
+        ].map((item, i) => (
+          <div class="card card-hover p-6 flex items-start gap-5 reveal" style={`transition-delay: ${i * 120}ms`}>
+            <div class="shrink-0 w-12 h-12 rounded-2xl bg-brand-navy text-white flex items-center justify-center font-semibold text-lg">
+              {item.step}
+            </div>
+            <div>
+              <h3 class="text-lg font-heading text-gray-900 mb-1">{item.title}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Stop the Waste. Start Getting Results."
+    body="Schedule a free consultation and find out how much your firm is leaving on the table."
+    buttonText="Get Your Free Marketing Audit"
+    buttonLink="/contact"
+    variant="brand"
+  />
+
+</BaseLayout>

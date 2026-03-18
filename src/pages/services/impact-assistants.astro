@@ -5,36 +5,49 @@ import FeatureCard from "@components/FeatureCard.astro";
 import CTABanner from "@components/CTABanner.astro";
 ---
 
-<BaseLayout title="Impact Assistants" description="Dedicated virtual assistants trained in legal operations. Integrate seamlessly with your team for administrative support.">
+<BaseLayout title="Dedicated Legal Support" description="Dedicated virtual assistants trained in legal operations. Integrate seamlessly with your team for administrative support.">
 
   <Hero
-    title="Impact Assistants"
-    subtitle="Dedicated virtual assistants trained in legal operations who become a seamless extension of your team."
-    ctaText="Get Started"
-    ctaLink="/contact"
+    badge="Dedicated Legal Support"
+    title="Your Dedicated Legal Support Team"
+    subtitle="Dedicated virtual assistants trained in legal operations who become a seamless extension of your team — handling the work so your attorneys can focus on clients."
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="See What They Handle"
+    secondaryButtonLink="#responsibilities"
+    size="lg"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Features Grid -->
+  <section class="section-padding">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Your Dedicated Legal Support</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Impact Assistants are more than virtual assistants — they're legal operations specialists dedicated to your firm.</p>
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Your Dedicated Legal Support</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Our dedicated assistants are more than virtual assistants — they're legal operations specialists dedicated to your firm.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard title="Dedicated to You" description="A single point of contact who learns your firm's processes, preferences, and clients." icon="users" />
-        <FeatureCard title="Legal-Trained" description="Every assistant completes specialized training in legal terminology, procedures, and compliance." icon="scale" />
-        <FeatureCard title="Calendar Management" description="Scheduling, court dates, depositions, and deadlines managed proactively and accurately." icon="clock" />
-        <FeatureCard title="Document Preparation" description="Draft correspondence, prepare filings, organize discovery, and manage document workflows." icon="document" />
-        <FeatureCard title="Client Communication" description="Professional client follow-up, status updates, and appointment confirmations in your firm's voice." icon="users" />
-        <FeatureCard title="Performance Metrics" description="Regular reporting on tasks completed, hours logged, and impact on your firm's efficiency." icon="chart" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Dedicated to You" description="A single point of contact who learns your firm's processes, preferences, and clients." icon="users" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Legal-Trained" description="Every assistant completes specialized training in legal terminology, procedures, and compliance." icon="scale" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Calendar Management" description="Scheduling, court dates, depositions, and deadlines managed proactively and accurately." icon="calendar" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Document Preparation" description="Draft correspondence, prepare filings, organize discovery, and manage document workflows." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Client Communication" description="Professional client follow-up, status updates, and appointment confirmations in your firm's voice." icon="phone" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Performance Metrics" description="Regular reporting on tasks completed, hours logged, and impact on your firm's efficiency." icon="chart" /></div>
       </div>
     </div>
   </section>
 
-  <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container-narrow">
-      <h2 class="text-3xl font-heading font-bold text-center mb-12">What Impact Assistants Handle</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- 8 Core Responsibilities -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden" id="responsibilities">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Core Responsibilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">What Your Dedicated Assistant Handles</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
         {[
           "Calendar and scheduling management",
           "Document drafting and preparation",
@@ -44,36 +57,43 @@ import CTABanner from "@components/CTABanner.astro";
           "Discovery document organization",
           "Billing and time entry support",
           "Case status tracking and updates",
-        ].map((item) => (
-          <div class="flex items-start gap-3 p-4 bg-white rounded-lg">
-            <svg class="w-6 h-6 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-700">{item}</span>
+        ].map((item, i) => (
+          <div class="card card-hover p-4 flex items-center gap-3 reveal" style={`transition-delay: ${i * 75}ms`}>
+            <div class="featured-icon featured-icon-sm featured-icon-brand flex-shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-gray-700">{item}</span>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-12 lg:py-16 bg-gray-50">
+  <!-- Better Together -->
+  <section class="section-padding">
     <div class="container-narrow text-center">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-black mb-4">
-        Even <em class="not-italic text-brand-gold italic">Better</em> Together
-      </h2>
-      <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-        Impact Assistants work great on their own — but most of our clients see the biggest results when they combine a dedicated assistant with per-task services like <a href="/services/intake-360" class="text-brand-blue underline hover:text-brand-navy">Intake 360</a>. Our team will recommend the ideal mix for your firm's needs and growth goals.
-      </p>
-      <a href="/contact" class="btn-primary mt-6 inline-block">Build Your Custom Solution</a>
+      <div class="reveal">
+        <span class="badge badge-brand">Better Together</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Even Better Together
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          Dedicated assistants work great on their own — but most of our clients see the biggest results when they combine a dedicated assistant with per-task services like <a href="/services/intake-360" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">our 24/7 intake</a>. Our team will recommend the ideal mix for your firm's needs and growth goals.
+        </p>
+        <a href="/contact" class="btn-primary btn-lg group">Build Your Custom Solution</a>
+      </div>
     </div>
   </section>
 
   <CTABanner
-    heading="Add an Impact Assistant to Your Team"
+    heading="Add a Dedicated Assistant to Your Team"
     body="Free up your attorneys to focus on practicing law while we handle the rest."
     buttonText="Get Started"
     buttonLink="/contact"
-    variant="blue"
+    variant="dark"
   />
 
 </BaseLayout>

@@ -3,119 +3,144 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
 
-const faqs = [
+const gettingStarted = [
   {
-    question: "What is an Impact Assistant?",
-    answer: "At Attorney Assistant, we call our virtual assistants Impact Assistants. They go through our rigorous recruiting process and are placed with law firms to handle administrative and operational tasks.",
-  },
-  {
-    question: "Can I select the schedule that the Impact Assistant works?",
-    answer: "Yes. Impact Assistants are flexible and can work the schedule that fits your firm's needs.",
-  },
-  {
-    question: "What type of experience do the Impact Assistants have?",
-    answer: "Impact Assistants are vetted based on the specific role requirements. Most come from strong customer service backgrounds with experience in legal or professional services.",
-  },
-  {
-    question: "How is client and firm data secured?",
-    answer: "Attorney Assistant uses enterprise-grade security through Black Talon Security, including endpoint protection and vulnerability monitoring. All Impact Assistants are HIPAA certified. Optional VPN access is available.",
-  },
-  {
-    question: "What is the next step after I sign my contract?",
-    answer: "After signing your contract, we schedule a Pre-Go-Live call with your Client Success Manager. This call covers your firm's workflows, tools, preferences, and any specific training requirements.",
-  },
-  {
-    question: "What are the Golden Hours?",
-    answer: "Golden Hours are 5-9 PM and weekends when answer and conversion rates are highest. Our Intake 360 service provides 24/7 intake and reception support to capture every lead.",
+    question: "What is a dedicated assistant?",
+    answer: "At Attorney Assistant, our dedicated assistants go through our rigorous recruiting process and are placed with law firms to handle administrative and operational tasks.",
   },
   {
     question: "How long does it take to get started?",
     answer: "Implementation typically takes at least 2 weeks from the time you sign your contract. This includes onboarding, training, and integration with your systems.",
   },
   {
-    question: "How will Impact Assistants be monitored?",
-    answer: "We use Time Doctor to track work hours, capture screenshots, and record activity videos. This ensures transparency and accountability.",
-  },
-  {
-    question: "Who is responsible for training?",
-    answer: "We provide initial training to prepare your Impact Assistant for legal operations. We also recommend having relevant documents and SOPs ready on their first day for firm-specific training.",
-  },
-  {
-    question: "How do they sound? What is their accent like?",
-    answer: "All Impact Assistants are vetted for minimal accent and strong command of the English language. We also offer the Krisp accent-suppression tool for $55 per month.",
-  },
-  {
-    question: "What happens if my Impact Assistant doesn't work out?",
-    answer: "We have a transition protocol in place to quickly address the situation and expedite a replacement at no additional cost.",
-  },
-  {
-    question: "What administrative tasks can Impact Assistants handle?",
-    answer: "Case file organization, medical records and billing support, intake follow-up, client communications, deadline tracking, reporting, and more.",
+    question: "What is the next step after I sign my contract?",
+    answer: "After signing your contract, we schedule a Pre-Go-Live call with your Client Success Manager. This call covers your firm's workflows, tools, preferences, and any specific training requirements.",
   },
   {
     question: "How long is the commitment?",
     answer: "Our standard agreement is a one-year contract, with the option to cancel at any time with 30 days' notice.",
   },
   {
-    question: "Who trains and manages day-to-day?",
-    answer: "Impact Assistants are supported by a dedicated IA Success Manager who helps with onboarding, ongoing performance, and communication between your firm and the assistant.",
-  },
-  {
-    question: "Do Impact Assistants use our phone system or CRM?",
-    answer: "A VoIP phone system is required for phone-based roles. CRM usage is determined by the client — we integrate with whatever systems you use.",
-  },
-  {
-    question: "What happens if they're out sick?",
-    answer: "Impact Assistants accrue up to 10 days of PTO per year. We work with your firm to minimize disruption during any time off.",
-  },
-  {
-    question: "How do you match me with a VA?",
-    answer: "After your Pre-Go-Live call, our placement team uses what they've learned about your firm's needs to match you with the best-fit Impact Assistant.",
-  },
-  {
-    question: "Do I need to choose between Impact Assistants and per-task services?",
+    question: "Do I need to choose between dedicated assistants and per-task services?",
     answer: "Not at all! Most of our clients benefit from a strategic combination of both. Our team will get to know your firm's needs and recommend the ideal solution.",
   },
 ];
+
+const assistants = [
+  {
+    question: "What type of experience do the dedicated assistants have?",
+    answer: "Dedicated assistants are vetted based on the specific role requirements. Most come from strong customer service backgrounds with experience in legal or professional services.",
+  },
+  {
+    question: "Can I select the schedule that the dedicated assistant works?",
+    answer: "Yes. Dedicated assistants are flexible and can work the schedule that fits your firm's needs.",
+  },
+  {
+    question: "How do you match me with a VA?",
+    answer: "After your Pre-Go-Live call, our placement team uses what they've learned about your firm's needs to match you with the best-fit dedicated assistant.",
+  },
+  {
+    question: "How do they sound? What is their accent like?",
+    answer: "All dedicated assistants are vetted for minimal accent and strong command of the English language. We also offer the Krisp accent-suppression tool for $55 per month.",
+  },
+  {
+    question: "What administrative tasks can dedicated assistants handle?",
+    answer: "Case file organization, medical records and billing support, intake follow-up, client communications, deadline tracking, reporting, and more.",
+  },
+  {
+    question: "What happens if my dedicated assistant doesn't work out?",
+    answer: "We have a transition protocol in place to quickly address the situation and expedite a replacement at no additional cost.",
+  },
+  {
+    question: "What happens if they're out sick?",
+    answer: "Dedicated assistants accrue up to 10 days of PTO per year. We work with your firm to minimize disruption during any time off.",
+  },
+];
+
+const operations = [
+  {
+    question: "How is client and firm data secured?",
+    answer: "Attorney Assistant uses enterprise-grade security through Black Talon Security, including endpoint protection and vulnerability monitoring. All dedicated assistants are HIPAA certified. Optional VPN access is available.",
+  },
+  {
+    question: "How will dedicated assistants be monitored?",
+    answer: "We use Time Doctor to track work hours, capture screenshots, and record activity videos. This ensures transparency and accountability.",
+  },
+  {
+    question: "Who is responsible for training?",
+    answer: "We provide initial training to prepare your dedicated assistant for legal operations. We also recommend having relevant documents and SOPs ready on their first day for firm-specific training.",
+  },
+  {
+    question: "Who trains and manages day-to-day?",
+    answer: "Dedicated assistants are supported by a dedicated IA Success Manager who helps with onboarding, ongoing performance, and communication between your firm and the assistant.",
+  },
+  {
+    question: "Do dedicated assistants use our phone system or CRM?",
+    answer: "A VoIP phone system is required for phone-based roles. CRM usage is determined by the client — we integrate with whatever systems you use.",
+  },
+  {
+    question: "What are the Golden Hours?",
+    answer: "Golden Hours are 5-9 PM and weekends when answer and conversion rates are highest. Our intake service provides 24/7 intake and reception support to capture every lead.",
+  },
+];
+
+const categories = [
+  { label: "Getting Started", faqs: gettingStarted },
+  { label: "Your Dedicated Assistant", faqs: assistants },
+  { label: "Operations & Security", faqs: operations },
+];
 ---
 
-<BaseLayout title="Frequently Asked Questions" description="Find answers to the most common questions about hiring an Impact Assistant for your law firm.">
+<BaseLayout title="Frequently Asked Questions" description="Find answers to the most common questions about working with Attorney Assistant for your law firm.">
 
   <Hero
+    badge="FAQ"
     title="Frequently Asked Questions"
-    subtitle="Find answers to the most common questions about hiring an Impact Assistant for your law firm."
+    subtitle="Find answers to the most common questions about working with Attorney Assistant for your law firm."
+    size="sm"
+    align="center"
   />
 
-  <section class="py-16 lg:py-24">
+  <section class="section-padding reveal" style="transition-delay: 0.1s;">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      {faqs.map((faq) => (
-        <details class="group border-b border-gray-200">
-          <summary class="py-5 px-2 font-heading font-semibold text-lg cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden text-brand-black hover:text-brand-blue transition-colors">
-            <span>{faq.question}</span>
-            <svg
-              class="w-5 h-5 flex-shrink-0 text-brand-gold transition-transform duration-200 group-open:rotate-45"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 5v14M5 12h14" />
-            </svg>
-          </summary>
-          <div class="pb-5 px-2 text-gray-600 leading-relaxed">
-            {faq.answer}
+      {categories.map((category, catIdx) => (
+        <div class="mb-16 last:mb-0 reveal" style={`transition-delay: ${0.1 + catIdx * 0.1}s;`}>
+          <div class="mb-6">
+            <span class="badge badge-brand">{category.label}</span>
           </div>
-        </details>
+
+          <div class="divide-y divide-gray-200 border-t border-b border-gray-100">
+            {category.faqs.map((faq) => (
+              <details class="group">
+                <summary class="py-5 px-1 font-heading text-base cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden text-gray-900 hover:text-brand-700 transition-colors">
+                  <span class="pr-4">{faq.question}</span>
+                  <svg
+                    class="w-5 h-5 flex-shrink-0 text-brand-500 transition-transform duration-200 group-open:rotate-45"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </summary>
+                <div class="pb-5 px-1 text-sm text-gray-500 leading-relaxed">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
       ))}
 
       <div class="mt-12 text-center">
-        <p class="text-gray-600">
+        <p class="text-gray-500">
           Have more questions? Hear answers directly from our CEO, Ethen Ostroff, on our{" "}
           <a
             href="https://www.youtube.com/@AttorneyAssistant"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-brand-blue font-semibold hover:underline"
+            class="text-brand-600 font-semibold hover:underline"
           >
             YouTube channel
           </a>.
@@ -129,6 +154,7 @@ const faqs = [
     body="Schedule a consultation and we'll recommend the right combination of services for your firm."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
+    variant="brand"
   />
 
 </BaseLayout>

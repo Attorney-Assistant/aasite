@@ -5,7 +5,7 @@ import CTABanner from "@components/CTABanner.astro";
 
 const webinars = [
   {
-    title: "The Future of Intake: Intake 360",
+    title: "The Future of Legal Intake",
     date: "October 28, 2025",
     duration: "56 min",
     desc: "Learn how to capture more leads, never miss a client call, and convert inquiries into signed cases with 24/7 live answering.",
@@ -40,48 +40,51 @@ const webinars = [
 <BaseLayout title="Webinars" description="Explore our library of recorded webinar sessions and gain valuable insights from industry leaders.">
 
   <Hero
+    badge="On-Demand"
     title="Webinars"
     subtitle="Explore our library of recorded sessions and gain valuable insights from industry leaders."
   />
 
-  <section class="py-16 lg:py-24">
+  <section class="section-padding reveal" style="transition-delay: 0.1s;">
     <div class="container-wide">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-navy mb-12 text-center">
-        Recorded Webinars
-      </h2>
+      <div class="text-center mb-12">
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">
+          Recorded Webinars
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {webinars.map((webinar) => (
-          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 flex flex-col">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
+          <div class="card card-hover p-8 flex flex-col">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="featured-icon featured-icon-sm featured-icon-brand">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-brand-navy/10 text-brand-navy">
-                {webinar.duration}
-              </span>
+              <span class="badge badge-brand">{webinar.duration}</span>
             </div>
 
-            <h3 class="text-xl font-heading font-bold text-brand-navy mb-2">
+            <h3 class="text-lg font-heading text-gray-900 mb-2">
               {webinar.title}
             </h3>
 
             <p class="text-sm text-gray-500 mb-3">{webinar.date}</p>
 
-            <p class="text-gray-600 leading-relaxed mb-6 flex-1">
+            <p class="text-base text-gray-500 leading-relaxed mb-6 flex-1">
               {webinar.desc}
             </p>
 
             <a
               href="/contact"
-              class="inline-flex items-center gap-2 text-brand-blue font-heading font-semibold hover:text-brand-navy transition-colors"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800 transition-colors group"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
               Watch Webinar
+              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </a>
           </div>
         ))}
@@ -94,7 +97,7 @@ const webinars = [
     body="Join our next webinar to learn how to streamline your firm's operations."
     buttonText="Contact Us"
     buttonLink="/contact"
-    variant="blue"
+    variant="dark"
   />
 
 </BaseLayout>

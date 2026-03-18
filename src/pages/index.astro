@@ -17,237 +17,283 @@ try {
 } catch {
   // Build continues with empty data if HubSpot is unreachable
 }
-
-// No services array needed — using inline SVG icons below
 ---
 
-<BaseLayout title="Attorney Assistant — Delegate to Achieve More" description="Expert legal support services helping law firms streamline operations with Intake 360 and Impact Assistants. Trusted by 200+ law firms.">
+<BaseLayout title="Attorney Assistant — Delegate to Achieve More" description="Expert legal support services helping law firms streamline operations with dedicated assistants and 24/7 intake. Trusted by 200+ law firms.">
 
-  <!-- ============================================ -->
-  <!-- 1. Hero + HubSpot Form                      -->
-  <!-- ============================================ -->
-  <section class="relative text-white overflow-hidden">
-    <!-- Background Image + Overlay -->
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-brand-950 grain-overlay">
+    <!-- Background elements -->
     <div class="absolute inset-0">
-      <img src="/brand/hero-bg.png" alt="" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+      <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-gold/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
     </div>
 
-    <div class="container-wide relative z-10 py-16 lg:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <!-- Left: Copy + Stats -->
-        <div class="pt-4 lg:pt-12">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6">
-            Delegate to<br />Achieve More.
+        <div class="pt-2 lg:pt-8">
+          <div class="mb-6 reveal">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-brand-200 border border-white/10 backdrop-blur-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
+              Trusted by 200+ law firms
+            </span>
+          </div>
+          <h1 class="text-display-lg md:text-display-xl lg:text-display-2xl text-white leading-tight mb-6 reveal" style="transition-delay: 100ms">
+            Delegate to<br /><span class="text-gradient-gold">Achieve More.</span>
           </h1>
-          <p class="text-lg md:text-xl text-white/80 mb-8 leading-relaxed max-w-lg">
-            At Attorney Assistant, we build custom combinations of dedicated assistants and per-task services for law firms — so you can scale your operations without the cost of in-house hiring. Our team learns your needs and recommends the ideal solution.
+          <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed max-w-lg reveal" style="transition-delay: 200ms">
+            We build custom combinations of dedicated assistants and per-task services for law firms — so you can scale without the cost of in-house hiring.
           </p>
-          <a href="/contact" class="btn-primary text-base">
-            Start Growing Your Firm &rarr;
-          </a>
+          <div class="flex flex-wrap gap-3 mb-12 reveal" style="transition-delay: 300ms">
+            <a href="/contact" class="btn-primary btn-lg group">
+              Start Growing Your Firm
+              <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="/services" class="btn-ghost-light btn-lg">
+              Explore Services
+            </a>
+          </div>
 
-          <!-- Stats Bar -->
-          <div class="mt-10 pt-8 border-t border-white/20">
-            <div class="grid grid-cols-3 gap-6">
-              <div class="text-center">
-                <svg class="w-10 h-10 mx-auto mb-2 text-white/70" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
-                <p class="text-2xl md:text-3xl font-heading font-bold">60%+</p>
-                <p class="text-sm text-white/70">Cost Savings</p>
-              </div>
-              <div class="text-center">
-                <svg class="w-10 h-10 mx-auto mb-2 text-white/70" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
-                <p class="text-2xl md:text-3xl font-heading font-bold">200+</p>
-                <p class="text-sm text-white/70">Law Firms</p>
-              </div>
-              <div class="text-center">
-                <svg class="w-10 h-10 mx-auto mb-2 text-white/70" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <p class="text-2xl md:text-3xl font-heading font-bold">1000s</p>
-                <p class="text-sm text-white/70">Hours saved</p>
-              </div>
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/10 reveal" style="transition-delay: 400ms">
+            <div>
+              <p class="text-display-xs md:text-display-sm text-white font-heading">60%+</p>
+              <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Cost Savings</p>
+            </div>
+            <div>
+              <p class="text-display-xs md:text-display-sm text-white font-heading">200+</p>
+              <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Law Firms</p>
+            </div>
+            <div>
+              <p class="text-display-xs md:text-display-sm text-white font-heading">1000s</p>
+              <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Hours Saved</p>
             </div>
           </div>
         </div>
 
-        <!-- Right: HubSpot Form (Gold Card) -->
-        <div class="bg-brand-gold rounded-2xl p-6 md:p-8 shadow-2xl">
+        <!-- Right: HubSpot Form Card -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl ring-1 ring-white/10 reveal-scale" style="transition-delay: 200ms">
+          <div class="mb-5">
+            <h2 class="text-xl font-heading text-gray-900 mb-1">Schedule a Consultation</h2>
+            <p class="text-sm text-gray-500">Fill out the form and our team will reach out within 24 hours.</p>
+          </div>
           <HubSpotForm portalId="49161090" formId="bada185b-28a8-496a-9264-3b3dde17bd08" region="na1" />
-          <p class="text-xs text-white/80 mt-4 leading-relaxed">
-            <strong>Disclaimer:</strong> By providing the information above, you agree to receive telephone calls and SMS or MMS text messages for marketing purposes at the phone number provided.
+          <p class="text-xs text-gray-400 mt-4 leading-relaxed">
+            By providing your information, you agree to receive telephone calls and SMS or MMS text messages for marketing purposes at the phone number provided.
           </p>
         </div>
       </div>
-
     </div>
+
+    <!-- Bottom gradient line -->
+    <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- 2. Trusted By Logo Scroller                 -->
-  <!-- ============================================ -->
+  <!-- Logo Scroller -->
   <LogoScroller />
 
-  <!-- ============================================ -->
-  <!-- 3. Transform Your Practice                  -->
-  <!-- ============================================ -->
-  <section class="py-16 lg:py-24 bg-white">
+  <!-- Transform Your Practice -->
+  <section class="section-padding bg-white">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4"><em class="not-italic text-brand-gold italic">Transform</em> Your Practice</h2>
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">Results</span>
+        <h2 class="text-display-sm md:text-display-md text-gray-900">Transform Your Practice</h2>
+        <div class="divider-gold-center mt-5"></div>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Left: Progress Bars -->
-        <div class="space-y-8">
-          <div>
-            <div class="flex justify-between mb-2">
-              <span class="font-heading font-semibold text-brand-black">Productivity Increase</span>
-              <span class="font-heading font-bold text-brand-gold">+40%</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Metric cards -->
+        <div class="space-y-6 reveal" style="transition-delay: 100ms">
+          <div class="card p-6 card-hover">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="featured-icon featured-icon-sm featured-icon-gold">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
+                </div>
+                <span class="text-sm font-medium text-gray-700">Productivity Increase</span>
+              </div>
+              <span class="text-lg font-heading text-brand-gold">+40%</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-              <div class="progress-bar bg-brand-gold h-4 rounded-full" style="--target-width: 80%"></div>
+            <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+              <div class="progress-bar bg-gradient-to-r from-brand-gold to-brand-gold-dark h-2 rounded-full" style="--target-width: 80%"></div>
             </div>
           </div>
-          <div>
-            <div class="flex justify-between mb-2">
-              <span class="font-heading font-semibold text-brand-black">Cost Reduction</span>
-              <span class="font-heading font-bold text-brand-blue">-60%</span>
+          <div class="card p-6 card-hover">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="featured-icon featured-icon-sm featured-icon-brand">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <span class="text-sm font-medium text-gray-700">Cost Reduction</span>
+              </div>
+              <span class="text-lg font-heading text-brand-600">-60%</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-              <div class="progress-bar bg-brand-blue h-4 rounded-full" style="--target-width: 90%"></div>
+            <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+              <div class="progress-bar bg-gradient-to-r from-brand-400 to-brand-600 h-2 rounded-full" style="--target-width: 90%"></div>
             </div>
           </div>
         </div>
         <!-- Right: Copy -->
-        <div>
-          <h3 class="text-2xl font-heading font-bold text-brand-black mb-4">Boost Efficiency, Cut Costs</h3>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Our clients see dramatic improvements in productivity while significantly reducing operational costs. With dedicated legal support professionals handling your back-office operations, your attorneys can focus on what they do best — practicing law and growing the firm.
+        <div class="reveal" style="transition-delay: 200ms">
+          <h3 class="text-display-xs font-heading text-gray-900 mb-4">Boost Efficiency, Cut Costs</h3>
+          <p class="text-gray-500 leading-relaxed mb-4">
+            Our clients see dramatic improvements in productivity while significantly reducing operational costs. With dedicated legal support professionals handling your back-office operations, your attorneys can focus on practicing law and growing the firm.
           </p>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-500 leading-relaxed mb-6">
             From intake and lead follow-up to case management and medical record acquisition, we streamline every aspect of your firm's operations.
           </p>
+          <a href="/services" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-all duration-200 group">
+            View all services
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- 4. Unlock Your Firm's Full Potential         -->
-  <!-- ============================================ -->
-  <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4">Unlock Your Firm's <em class="not-italic text-brand-blue italic">Full Potential</em></h2>
+  <!-- Unlock Your Firm's Full Potential -->
+  <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">Why us</span>
+        <h2 class="text-display-sm md:text-display-md text-gray-900">Unlock Your Firm's Full Potential</h2>
+        <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100">
-          <img src="/wp-content/uploads/2025/09/Overlay.png" alt="Eliminate Bottlenecks" class="w-20 h-20 mx-auto mb-6 object-contain" loading="lazy" />
-          <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Eliminate Bottlenecks</h3>
-          <p class="text-gray-600 leading-relaxed">Remove operational roadblocks that slow down your firm and frustrate your team and clients.</p>
+        <div class="card card-hover p-8 text-center reveal" style="transition-delay: 0ms">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-navy text-white mb-5 shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">Eliminate Bottlenecks</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Remove operational roadblocks that slow down your firm and frustrate your team and clients.</p>
         </div>
-        <div class="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100">
-          <img src="/wp-content/uploads/2025/09/Overlay-4.png" alt="Boost Profitability" class="w-20 h-20 mx-auto mb-6 object-contain" loading="lazy" />
-          <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Boost Profitability</h3>
-          <p class="text-gray-600 leading-relaxed">Cut overhead costs while increasing capacity — do more with less and keep more of what you earn.</p>
+        <div class="card card-hover p-8 text-center reveal" style="transition-delay: 100ms">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-navy text-white mb-5 shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">Boost Profitability</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Cut overhead costs while increasing capacity — do more with less and keep more of what you earn.</p>
         </div>
-        <div class="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-100">
-          <img src="/wp-content/uploads/2025/09/Overlay-5.png" alt="Gain a Strategic Partner" class="w-20 h-20 mx-auto mb-6 object-contain" loading="lazy" />
-          <h3 class="text-xl font-heading font-bold text-brand-black mb-3">Gain a Strategic Partner</h3>
-          <p class="text-gray-600 leading-relaxed">We don't just provide services — we become an extension of your firm, aligned with your goals.</p>
+        <div class="card card-hover p-8 text-center reveal" style="transition-delay: 200ms">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-navy text-white mb-5 shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">Gain a Strategic Partner</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">We don't just provide services — we become an extension of your firm, aligned with your goals.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- 5. Your Elite Back-Office Team (Services)    -->
-  <!-- ============================================ -->
-  <section class="py-16 lg:py-24 bg-gray-50 bg-dots">
+  <!-- Services Grid -->
+  <section class="section-padding bg-white">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4">Your <em class="not-italic text-brand-gold italic">Elite</em> Back-Office Team</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">We build a custom combination of these services to match your firm's needs — most clients benefit from a strategic mix.</p>
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">Services</span>
+        <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">Your Elite Back-Office Team</h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">We build a custom combination of these services to match your firm's needs — most clients benefit from a strategic mix.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ServiceCard title="Lead Follow-up" description="Never lose a lead again. Our team follows up with every prospect promptly and professionally.">
-          <svg slot="icon" class="w-8 h-8 text-brand-navy" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-        </ServiceCard>
-        <ServiceCard title="Intake" description="Comprehensive client intake that captures every detail and qualifies leads for your firm.">
-          <svg slot="icon" class="w-8 h-8 text-brand-navy" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-        </ServiceCard>
-        <ServiceCard title="Appointment Booking" description="Seamless scheduling that keeps your calendar full and your clients on track.">
-          <svg slot="icon" class="w-8 h-8 text-brand-navy" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-        </ServiceCard>
-        <ServiceCard title="Case Calling" description="Proactive case status updates and follow-up calls to keep clients informed and engaged.">
-          <svg slot="icon" class="w-8 h-8 text-brand-navy" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
-        </ServiceCard>
-        <ServiceCard title="File Organization" description="Meticulous document management and file organization to keep your cases running smoothly.">
-          <svg slot="icon" class="w-8 h-8 text-brand-navy" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
-        </ServiceCard>
-        <ServiceCard title="Medical Record Acquisition" description="Timely retrieval of medical records and documentation critical to your cases.">
-          <svg slot="icon" class="w-8 h-8 text-brand-navy" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
-        </ServiceCard>
+        <div class="reveal" style="transition-delay: 0ms">
+          <ServiceCard title="Lead Follow-up" description="Never lose a lead again. Our team follows up with every prospect promptly and professionally.">
+            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+          </ServiceCard>
+        </div>
+        <div class="reveal" style="transition-delay: 75ms">
+          <ServiceCard title="Intake" description="Comprehensive client intake that captures every detail and qualifies leads for your firm.">
+            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          </ServiceCard>
+        </div>
+        <div class="reveal" style="transition-delay: 150ms">
+          <ServiceCard title="Appointment Booking" description="Seamless scheduling that keeps your calendar full and your clients on track.">
+            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+          </ServiceCard>
+        </div>
+        <div class="reveal" style="transition-delay: 225ms">
+          <ServiceCard title="Case Calling" description="Proactive case status updates and follow-up calls to keep clients informed and engaged.">
+            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
+          </ServiceCard>
+        </div>
+        <div class="reveal" style="transition-delay: 300ms">
+          <ServiceCard title="File Organization" description="Meticulous document management and file organization to keep your cases running smoothly.">
+            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
+          </ServiceCard>
+        </div>
+        <div class="reveal" style="transition-delay: 375ms">
+          <ServiceCard title="Medical Record Acquisition" description="Timely retrieval of medical records and documentation critical to your cases.">
+            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+          </ServiceCard>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- 6. Simple. Fast. Effective. (3-Step Process) -->
-  <!-- ============================================ -->
+  <!-- Process Steps -->
   <ProcessSteps />
 
-  <!-- ============================================ -->
-  <!-- 7. Impact Assistant vs. In-House             -->
-  <!-- ============================================ -->
+  <!-- Comparison Table -->
   <ComparisonTable />
 
-  <!-- ============================================ -->
-  <!-- 8. Client Reviews + Video Testimonials       -->
-  <!-- ============================================ -->
+  <!-- Testimonials -->
   {testimonials.length > 0 && (
-    <section class="py-16 lg:py-24 bg-gray-50">
-      <div class="container-wide">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4">What Our <em class="not-italic text-brand-blue italic">Clients</em> Say</h2>
+    <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+      <div class="container-wide relative">
+        <div class="text-center mb-14 reveal">
+          <span class="badge badge-brand mb-4">Testimonials</span>
+          <h2 class="text-display-sm md:text-display-md text-gray-900">What Our Clients Say</h2>
+          <div class="divider-gold-center mt-5"></div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {testimonials.slice(0, 3).map((t: any) => (
-            <TestimonialCard {...t} />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.slice(0, 3).map((t: any, i: number) => (
+            <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+              <TestimonialCard {...t} />
+            </div>
           ))}
         </div>
       </div>
     </section>
   )}
 
-  <section class="py-16 lg:py-24 bg-white">
+  <!-- Video Testimonials -->
+  <section class="section-padding bg-white">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4"><em class="not-italic text-brand-gold italic">Video</em> Testimonials</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Hear directly from law firms about their experience working with Attorney Assistant.</p>
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">Video</span>
+        <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">Video Testimonials</h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Hear directly from law firms about their experience working with Attorney Assistant.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <YouTubeEmbed videoId="o3Fac0xRxCE" title="Client testimonial 1" />
-        <YouTubeEmbed videoId="EZbEo5HYDqg" title="Client testimonial 2" />
-        <YouTubeEmbed videoId="xQCIwMPlLMc" title="Client testimonial 3" />
+        <div class="reveal" style="transition-delay: 0ms">
+          <YouTubeEmbed videoId="o3Fac0xRxCE" title="Client testimonial 1" />
+        </div>
+        <div class="reveal" style="transition-delay: 100ms">
+          <YouTubeEmbed videoId="EZbEo5HYDqg" title="Client testimonial 2" />
+        </div>
+        <div class="reveal" style="transition-delay: 200ms">
+          <YouTubeEmbed videoId="xQCIwMPlLMc" title="Client testimonial 3" />
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================ -->
-  <!-- 9. Intake360 + Final CTA                    -->
-  <!-- ============================================ -->
+  <!-- CTA -->
   <CTABanner
     heading="Let Us Build Your Custom Solution"
-    body="Most firms see the biggest impact from a strategic combination of services. We'll learn your needs and recommend the ideal mix of Impact Assistants and per-task services like Intake 360."
+    body="Most firms see the biggest impact from a strategic combination of services. We'll learn your needs and recommend the ideal mix."
     buttonText="Explore Our Services"
     buttonLink="/services"
-    variant="blue"
-  />
-
-  <CTABanner
-    heading="Ready to Transform Your Practice?"
-    body="Get in touch and we'll recommend the ideal combination of services to streamline your operations and help you scale."
-    buttonText="Get Started"
-    buttonLink="/contact"
+    secondaryButtonText="Book a Call"
+    secondaryButtonLink="/contact"
+    variant="brand"
   />
 
 </BaseLayout>

@@ -8,25 +8,53 @@ import CTABanner from "@components/CTABanner.astro";
 <BaseLayout title="Legal Receptionist" description="A virtual receptionist for your law firm — freeing up your team to focus on high-priority tasks instead of answering calls.">
 
   <Hero
-    title="Legal Receptionist"
+    badge="Legal Receptionist"
+    title="Professional Front-Desk Support"
     subtitle="A virtual receptionist for your law firm — freeing up your team to focus on high-priority tasks instead of answering calls."
-    ctaText="Get Started"
-    ctaLink="/contact"
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="View Capabilities"
+    secondaryButtonLink="#capabilities"
+    size="lg"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Features Grid -->
+  <section class="section-padding" id="capabilities">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Professional Front-Desk <em class="not-italic text-brand-gold italic">Support</em></h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Every call answered, every appointment booked, every detail captured — without the overhead of a full-time hire.</p>
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Professional Front-Desk Support</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Every call answered, every appointment booked, every detail captured — without the overhead of a full-time hire.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard title="Answering Calls" description="Every caller greeted with care and professionalism. Clients and leads routed appropriately with important details captured accurately." icon="users" />
-        <FeatureCard title="Scheduling Appointments" description="Consultations, case updates, and internal meetings — bookings, reminders, and rescheduling handled seamlessly." icon="clock" />
-        <FeatureCard title="Administrative Tasks" description="Intake, call logging, CRM updates, and other admin tasks to keep front-desk operations running smoothly." icon="document" />
-        <FeatureCard title="Call Screening & Routing" description="Qualified calls routed to the right attorney. Non-urgent matters handled efficiently without interrupting your workflow." icon="shield" />
-        <FeatureCard title="Message Management" description="Detailed messages delivered promptly via your preferred channel — email, CRM notes, or chat." icon="chart" />
-        <FeatureCard title="Bilingual Support" description="English and Spanish-speaking receptionists serve your diverse client base without language barriers." icon="scale" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Answering Calls" description="Every caller greeted with care and professionalism. Clients and leads routed appropriately with important details captured accurately." icon="phone" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Scheduling Appointments" description="Consultations, case updates, and internal meetings — bookings, reminders, and rescheduling handled seamlessly." icon="calendar" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Administrative Tasks" description="Intake, call logging, CRM updates, and other admin tasks to keep front-desk operations running smoothly." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Call Screening & Routing" description="Qualified calls routed to the right attorney. Non-urgent matters handled efficiently without interrupting your workflow." icon="shield" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Message Management" description="Detailed messages delivered promptly via your preferred channel — email, CRM notes, or chat." icon="mail" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Bilingual Support" description="English and Spanish-speaking receptionists serve your diverse client base without language barriers." icon="globe" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
+      <div class="reveal">
+        <span class="badge badge-brand">Complete Coverage</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Seamless Coverage, End to End
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          Receptionist coverage pairs seamlessly with our other services. We'll build a custom combination — legal assistants, admin support, marketing — so your firm is covered end to end.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/contact" class="btn-primary btn-lg group">Schedule Consultation</a>
+          <a href="/services" class="btn-secondary btn-lg group">View All Services</a>
+        </div>
       </div>
     </div>
   </section>
@@ -36,7 +64,7 @@ import CTABanner from "@components/CTABanner.astro";
     body="Receptionist coverage pairs seamlessly with our other services. We'll build a custom combination — legal assistants, admin support, marketing — so your firm is covered end to end."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
-    variant="gold"
+    variant="brand"
   />
 
 </BaseLayout>

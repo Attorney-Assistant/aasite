@@ -37,14 +37,19 @@ const formattedDate = post.publishedDate
 
   <article>
     <!-- Header -->
-    <header class="py-12 lg:py-16 bg-gray-50">
-      <div class="container-narrow">
+    <header class="bg-white border-b border-gray-200 py-16 md:py-24">
+      <div class="container-narrow reveal" style="transition-delay:0.1s">
+        <a href="/blog" class="group inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:text-brand-800 transition-colors mb-8">
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+          Back to Blog
+        </a>
+
         {post.tags && post.tags.length > 0 && (
-          <div class="flex gap-2 mb-4">
+          <div class="flex flex-wrap gap-2 mb-5">
             {post.tags.map((tag: any) => (
               <a
                 href={`/blog/category/${tag.slug}`}
-                class="text-xs font-medium text-brand-blue bg-blue-50 px-2 py-1 rounded"
+                class="badge badge-brand"
               >
                 {tag.name}
               </a>
@@ -52,12 +57,12 @@ const formattedDate = post.publishedDate
           </div>
         )}
 
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
+        <h1 class="text-display-sm md:text-display-md lg:text-display-lg font-heading text-gray-900 mb-6">
           {post.title}
         </h1>
 
         {formattedDate && (
-          <div class="text-gray-500">
+          <div class="text-sm text-gray-500">
             <time datetime={post.publishedDate}>{formattedDate}</time>
           </div>
         )}
@@ -65,19 +70,51 @@ const formattedDate = post.publishedDate
     </header>
 
     {post.featuredImage && (
-      <div class="container-narrow mt-8">
+      <div class="container-narrow mt-10 reveal" style="transition-delay:0.2s">
         <img
           src={post.featuredImage}
           alt={post.title}
-          class="w-full rounded-xl"
+          class="w-full rounded-2xl border border-gray-200 shadow-xs"
         />
       </div>
     )}
 
     <!-- Body -->
-    <div class="container-narrow py-12 prose prose-lg max-w-none">
-      <Fragment set:html={post.postBody} />
+    <div class="container-narrow py-12 md:py-16 reveal" style="transition-delay:0.3s">
+      <div class="prose-brand blog-content" set:html={post.postBody} />
+    </div>
+
+    <!-- Back to blog -->
+    <div class="container-narrow pb-16">
+      <div class="border-t border-gray-200 pt-8">
+        <a href="/blog" class="group inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:text-brand-800 transition-colors">
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+          Back to Blog
+        </a>
+      </div>
     </div>
   </article>
+
+  <style>
+    .blog-content :global(img) {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+    .blog-content :global(iframe) {
+      max-width: 100%;
+      border-radius: 0.75rem;
+    }
+    .blog-content :global(table) {
+      max-width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+    .blog-content :global(pre) {
+      max-width: 100%;
+      overflow-x: auto;
+      border-radius: 0.75rem;
+    }
+  </style>
 
 </BaseLayout>

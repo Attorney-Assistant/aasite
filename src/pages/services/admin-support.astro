@@ -8,25 +8,53 @@ import CTABanner from "@components/CTABanner.astro";
 <BaseLayout title="Admin Support" description="Virtual legal administrative support to handle time-consuming, repetitive tasks — so your team can focus on managing the firm.">
 
   <Hero
-    title="Admin Support"
+    badge="Admin Support"
+    title="Administrative Support That Scales"
     subtitle="Virtual legal administrative support to handle time-consuming, repetitive tasks — so your team can focus on managing the firm."
-    ctaText="Get Started"
-    ctaLink="/contact"
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="View Capabilities"
+    secondaryButtonLink="#capabilities"
+    size="lg"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Features Grid -->
+  <section class="section-padding" id="capabilities">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">What Our Admin Assistants <em class="not-italic text-brand-gold italic">Handle</em></h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">From phones to filing, we take on the repetitive tasks that slow your team down.</p>
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What Our Admin Assistants Handle</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">From phones to filing, we take on the repetitive tasks that slow your team down.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard title="Answering Phones" description="Every call answered promptly and professionally. Every caller feels heard and is routed correctly." icon="users" />
-        <FeatureCard title="Scheduling Meetings" description="Coordinate internal meetings, client calls, and court dates to keep schedules aligned and conflict-free." icon="clock" />
-        <FeatureCard title="Filing" description="Maintain organized filing systems — motions, memos, everything labeled, stored, and easy to find." icon="document" />
-        <FeatureCard title="Document Collection" description="Track down signed fee agreements, request medical records, handle follow-ups so nothing falls through the cracks." icon="shield" />
-        <FeatureCard title="CRM Management" description="Case updates, client documents, and correspondence uploaded into your CRM accurately and efficiently." icon="chart" />
-        <FeatureCard title="Repetitive Task Handling" description="Data entry, email processing, form submissions — we handle the daily busywork so attorneys stay focused." icon="scale" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Answering Phones" description="Every call answered promptly and professionally. Every caller feels heard and is routed correctly." icon="phone" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Scheduling Meetings" description="Coordinate internal meetings, client calls, and court dates to keep schedules aligned and conflict-free." icon="calendar" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Filing" description="Maintain organized filing systems — motions, memos, everything labeled, stored, and easy to find." icon="folder" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Document Collection" description="Track down signed fee agreements, request medical records, handle follow-ups so nothing falls through the cracks." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="CRM Management" description="Case updates, client documents, and correspondence uploaded into your CRM accurately and efficiently." icon="chart" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Repetitive Task Handling" description="Data entry, email processing, form submissions — we handle the daily busywork so attorneys stay focused." icon="clock" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
+      <div class="reveal">
+        <span class="badge badge-brand">Custom Packages</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Part of a Complete Support System
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          Admin support works best as part of a custom service package. We'll combine it with legal assistant, receptionist, or marketing coverage to match your firm's exact needs.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/contact" class="btn-primary btn-lg group">Schedule Consultation</a>
+          <a href="/services" class="btn-secondary btn-lg group">View All Services</a>
+        </div>
       </div>
     </div>
   </section>
@@ -36,6 +64,7 @@ import CTABanner from "@components/CTABanner.astro";
     body="Admin support works best as part of a custom service package. We'll combine it with legal assistant, receptionist, or marketing coverage to match your firm's exact needs."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
+    variant="light"
   />
 
 </BaseLayout>

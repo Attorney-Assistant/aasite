@@ -15,16 +15,20 @@ try {
 <BaseLayout title="Reviews" description="Hear what law firms are saying about working with Attorney Assistant.">
 
   <Hero
+    badge="Testimonials"
     title="Reviews"
     subtitle="Hear what law firms are saying about working with Attorney Assistant."
   />
 
   <!-- Client Testimonials -->
-  <section class="py-16 lg:py-24">
+  <section class="section-padding reveal" style="transition-delay: 0.1s;">
     <div class="container-wide">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black text-center mb-12">
-        Client Testimonials
-      </h2>
+      <div class="text-center mb-12">
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">
+          Client Testimonials
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
 
       {testimonials.length > 0 ? (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -40,23 +44,20 @@ try {
           ))}
         </div>
       ) : (
-        <div class="max-w-xl mx-auto text-center py-12">
-          <div class="bg-gray-50 rounded-xl border border-gray-100 p-10">
-            <svg class="w-12 h-12 text-brand-gold mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-            </svg>
-            <h3 class="font-heading font-semibold text-xl text-brand-black mb-2">
+        <div class="max-w-xl mx-auto text-center">
+          <div class="card card-hover p-10">
+            <div class="featured-icon featured-icon-md featured-icon-brand mx-auto mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-heading text-gray-900 mb-2">
               Check back soon for client reviews
             </h3>
-            <p class="text-gray-600 leading-relaxed mb-6">
+            <p class="text-base text-gray-500 leading-relaxed mb-6">
               We're gathering testimonials from the 200+ law firms we work with. In the meantime, watch our video testimonials below or reach out to learn more.
             </p>
-            <a
-              href="/contact"
-              class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-heading font-semibold bg-brand-gold text-brand-black hover:bg-yellow-400 transition-colors"
-            >
-              Contact Us
-            </a>
+            <a href="/contact" class="btn-primary">Contact Us</a>
           </div>
         </div>
       )}
@@ -64,14 +65,19 @@ try {
   </section>
 
   <!-- Video Testimonials -->
-  <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container-wide">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black text-center mb-4">
-        Video Testimonials
-      </h2>
-      <p class="text-gray-600 text-center text-lg mb-12 max-w-2xl mx-auto">
-        See firsthand how Attorney Assistant has helped law firms streamline their operations.
-      </p>
+  <section class="section-padding bg-gray-50 relative overflow-hidden reveal" style="transition-delay: 0.2s;">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3">Video</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">
+          Video Testimonials
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          See firsthand how Attorney Assistant has helped law firms streamline their operations.
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <YouTubeEmbed videoId="o3Fac0xRxCE" title="Client testimonial video" />
@@ -86,7 +92,7 @@ try {
     body="Join 200+ law firms who trust Attorney Assistant with their operations."
     buttonText="Get Started"
     buttonLink="/contact"
-    variant="gold"
+    variant="brand"
   />
 
 </BaseLayout>

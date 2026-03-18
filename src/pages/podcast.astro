@@ -65,27 +65,32 @@ const platforms = [
 <BaseLayout title="The Growth Code Podcast" description="Discover the art of scaling smarter, not harder. Tech, automation, and strategies for entrepreneurs, law firm owners, and business leaders.">
 
   <Hero
+    badge="Podcast"
     title="The Growth Code Podcast"
     subtitle="Discover the art of scaling smarter, not harder. Tech, automation, and strategies for entrepreneurs, law firm owners, and business leaders."
   />
 
   <!-- Latest Episodes -->
-  <section class="py-16 lg:py-24">
+  <section class="section-padding reveal" style="transition-delay: 0.1s;">
     <div class="container-wide">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-12">Latest Episodes</h2>
+      <div class="mb-12">
+        <span class="badge badge-brand mb-3">New</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Latest Episodes</h2>
+        <div class="divider-gold mt-5"></div>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {latestEpisodes.map((episode) => (
-          <div class="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-gold/30 transition-all duration-200 overflow-hidden">
+          <div class="card card-hover overflow-hidden flex flex-col">
             <YouTubeEmbed videoId={episode.videoId} title={episode.title} />
-            <div class="p-6">
+            <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-center gap-3 mb-3">
-                <span class="text-xs font-heading font-semibold text-brand-blue bg-brand-blue/10 px-2 py-1 rounded-full">
+                <span class="badge badge-brand text-xs">
                   {episode.season}
                 </span>
                 <span class="text-xs text-gray-500">{episode.duration}</span>
                 <span class="text-xs text-gray-400">{episode.date}</span>
               </div>
-              <h3 class="font-heading font-bold text-lg text-brand-black leading-snug">
+              <h3 class="text-lg font-heading text-gray-900 leading-snug">
                 {episode.title}
               </h3>
             </div>
@@ -96,21 +101,26 @@ const platforms = [
   </section>
 
   <!-- Popular Episodes -->
-  <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container-wide">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-12">Popular Episodes</h2>
+  <section class="section-padding bg-gray-50 relative overflow-hidden reveal" style="transition-delay: 0.2s;">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="mb-12">
+        <span class="badge badge-gray mb-3">Popular</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Popular Episodes</h2>
+        <div class="divider-gold mt-5"></div>
+      </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
         {popularEpisodes.map((episode) => (
-          <div class="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-gold/30 transition-all duration-200 overflow-hidden">
+          <div class="card card-hover overflow-hidden flex flex-col">
             <YouTubeEmbed videoId={episode.videoId} title={episode.title} />
-            <div class="p-6">
+            <div class="p-6 flex-1 flex flex-col">
               <div class="flex items-center gap-3 mb-3">
-                <span class="text-xs font-heading font-semibold text-brand-blue bg-brand-blue/10 px-2 py-1 rounded-full">
+                <span class="badge badge-brand text-xs">
                   {episode.season}
                 </span>
                 <span class="text-xs text-gray-500">{episode.duration}</span>
               </div>
-              <h3 class="font-heading font-bold text-lg text-brand-black leading-snug">
+              <h3 class="text-lg font-heading text-gray-900 leading-snug">
                 {episode.title}
               </h3>
             </div>
@@ -121,17 +131,23 @@ const platforms = [
   </section>
 
   <!-- Never Miss an Episode -->
-  <section class="py-16 lg:py-24">
+  <section class="section-padding reveal" style="transition-delay: 0.3s;">
     <div class="container-wide text-center">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4">Never Miss an Episode</h2>
-      <p class="text-gray-600 text-lg mb-12 max-w-2xl mx-auto">Subscribe on your favorite platform and stay up to date with the latest episodes.</p>
+      <div class="featured-icon featured-icon-md featured-icon-brand mx-auto mb-5">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+        </svg>
+      </div>
+      <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">Never Miss an Episode</h2>
+      <div class="divider-gold-center mt-5"></div>
+      <p class="text-lg text-gray-500 mb-12 max-w-2xl mx-auto">Subscribe on your favorite platform and stay up to date with the latest episodes.</p>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
         {platforms.map((platform) => (
           <a
             href={platform.url}
             target="_blank"
             rel="noopener"
-            class="group flex flex-col items-center gap-4 bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md hover:border-brand-gold/30 transition-all duration-200"
+            class="card card-hover flex flex-col items-center gap-4 p-8 group"
           >
             {platform.icon === "apple" && (
               <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
@@ -154,7 +170,7 @@ const platforms = [
                 </svg>
               </div>
             )}
-            <span class="font-heading font-semibold text-brand-black group-hover:text-brand-gold transition-colors">
+            <span class="font-heading text-gray-900 group-hover:text-brand-700 transition-colors">
               {platform.name}
             </span>
           </a>
@@ -168,6 +184,7 @@ const platforms = [
     body="Get in touch to learn how Attorney Assistant can streamline your legal operations."
     buttonText="Get Started"
     buttonLink="/contact"
+    variant="brand"
   />
 
 </BaseLayout>

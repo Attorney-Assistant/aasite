@@ -12,58 +12,75 @@ try {
 } catch {}
 ---
 
-<BaseLayout title="Intake 360" description="Comprehensive 24/7 client intake services for law firms. Capture every lead, qualify prospects, and set cases up for success.">
+<BaseLayout title="24/7 Intake Services" description="Comprehensive 24/7 client intake services for law firms. Capture every lead, qualify prospects, and set cases up for success.">
 
   <Hero
-    title="Intake 360"
-    subtitle="Never miss another lead. Our comprehensive intake service captures every call, qualifies every prospect, and feeds your pipeline 24/7."
-    ctaText="Get Started"
-    ctaLink="/contact"
+    badge="24/7 Intake"
+    title="Never Miss Another Lead"
+    subtitle="Our comprehensive intake service captures every call, qualifies every prospect, and feeds your pipeline 24/7 — so no opportunity slips through the cracks."
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="See How It Works"
+    secondaryButtonLink="#how-it-works"
+    size="lg"
   />
 
-  <section class="py-16 lg:py-24">
+  <!-- Features Grid -->
+  <section class="section-padding">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Complete Intake Coverage</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Every touchpoint is an opportunity. Intake 360 ensures you capture them all.</p>
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Complete Intake Coverage</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Every touchpoint is an opportunity. Attorney Assistant's intake solution ensures you capture them all.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <FeatureCard title="24/7 Live Answering" description="Trained intake specialists answer every call, day or night, weekends and holidays included." icon="clock" />
-        <FeatureCard title="Lead Qualification" description="Custom qualification criteria ensure only viable leads reach your attorneys, saving valuable time." icon="shield" />
-        <FeatureCard title="Bilingual Support" description="English and Spanish-speaking specialists serve your diverse client base without language barriers." icon="users" />
-        <FeatureCard title="CRM Integration" description="Seamless integration with your existing case management and CRM systems for zero-friction handoff." icon="document" />
-        <FeatureCard title="Custom Scripts" description="Intake scripts tailored to your practice areas, ensuring consistent and thorough information capture." icon="document" />
-        <FeatureCard title="Real-Time Reporting" description="Live dashboards and detailed reports give you complete visibility into your intake pipeline." icon="chart" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="24/7 Live Answering" description="Trained intake specialists answer every call, day or night, weekends and holidays included." icon="clock" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Lead Qualification" description="Custom qualification criteria ensure only viable leads reach your attorneys, saving valuable time." icon="shield" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Bilingual Support" description="English and Spanish-speaking specialists serve your diverse client base without language barriers." icon="users" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="CRM Integration" description="Seamless integration with your existing case management and CRM systems for zero-friction handoff." icon="folder" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Custom Scripts" description="Intake scripts tailored to your practice areas, ensuring consistent and thorough information capture." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Real-Time Reporting" description="Live dashboards and detailed reports give you complete visibility into your intake pipeline." icon="chart" /></div>
       </div>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container-wide">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12">How It Works</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <section class="section-padding bg-gray-25 relative overflow-hidden" id="how-it-works">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Process</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">How It Works</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
         {[
-          { step: "1", title: "We Answer", desc: "Calls are answered by trained specialists using your custom scripts and branding." },
-          { step: "2", title: "We Qualify", desc: "Each prospect is evaluated against your criteria and detailed information is captured." },
-          { step: "3", title: "You Connect", desc: "Qualified leads are delivered to your team in real time via your preferred channel." },
-        ].map((item) => (
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand-gold text-brand-black font-heading font-bold text-xl mb-4">
-              {item.step}
+          { step: "01", title: "We Answer", desc: "Calls are answered by trained specialists using your custom scripts and branding." },
+          { step: "02", title: "We Qualify", desc: "Each prospect is evaluated against your criteria and detailed information is captured." },
+          { step: "03", title: "You Connect", desc: "Qualified leads are delivered to your team in real time via your preferred channel." },
+        ].map((item, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
+              <span class="text-lg font-semibold">{item.step}</span>
             </div>
-            <h3 class="font-heading font-semibold text-xl mb-2">{item.title}</h3>
-            <p class="text-gray-600">{item.desc}</p>
+            <h3 class="text-lg font-heading text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-500 leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- Testimonials -->
   {testimonials.length > 0 && (
-    <section class="py-16 lg:py-24">
+    <section class="section-padding">
       <div class="container-wide">
-        <h2 class="text-3xl font-heading font-bold text-center mb-12">Client Results</h2>
+        <div class="text-center mb-12 md:mb-16 reveal">
+          <span class="badge badge-brand">Results</span>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">Client Results</h2>
+          <div class="divider-gold-center mt-5"></div>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.slice(0, 3).map((t: any) => <TestimonialCard {...t} />)}
         </div>
@@ -71,23 +88,30 @@ try {
     </section>
   )}
 
-  <section class="py-12 lg:py-16 bg-gray-50">
-    <div class="container-narrow text-center">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-black mb-4">
-        <em class="not-italic text-brand-gold italic">Complete</em> Coverage for Your <em class="not-italic text-brand-blue italic">Firm</em>
-      </h2>
-      <p class="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-        Intake 360 captures every lead — and pairing it with a dedicated <a href="/services/impact-assistants" class="text-brand-blue underline hover:text-brand-navy">Impact Assistant</a> gives your firm comprehensive coverage from first call to case resolution. Most of our clients benefit from this strategic combination, and our team will help you find the right mix.
-      </p>
-      <a href="/contact" class="btn-primary mt-6 inline-block">Build Your Custom Solution</a>
+  <!-- Better Together -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
+      <div class="reveal">
+        <span class="badge badge-brand">Better Together</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Complete Coverage for Your Firm
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          Our intake solution captures every lead — and pairing it with a <a href="/services/impact-assistants" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">dedicated assistant</a> gives your firm comprehensive coverage from first call to case resolution. Most of our clients benefit from this strategic combination, and our team will help you find the right mix.
+        </p>
+        <a href="/contact" class="btn-primary btn-lg group">Build Your Custom Solution</a>
+      </div>
     </div>
   </section>
 
   <CTABanner
     heading="Start Capturing Every Lead"
-    body="Join the firms that have transformed their intake process with Intake 360."
+    body="Join the firms that have transformed their intake process with our intake solution."
     buttonText="Schedule a Demo"
     buttonLink="/contact"
+    variant="brand"
   />
 
 </BaseLayout>
