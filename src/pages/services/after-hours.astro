@@ -1,0 +1,157 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import FeatureCard from "@components/FeatureCard.astro";
+import CTABanner from "@components/CTABanner.astro";
+---
+
+<BaseLayout title="After-Hours Coverage" description="Your competitors close at 5pm. You don't have to. We handle calls, qualify leads, and book consultations around the clock.">
+
+  <Hero
+    badge="After-Hours Coverage"
+    title="24/7 Coverage"
+    subtitle="Your competitors close at 5pm. You don't have to. We handle calls, qualify leads, and book consultations around the clock."
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="See How It Works"
+    secondaryButtonLink="#how-it-works"
+    size="lg"
+  />
+
+  <!-- Stats Section -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {[
+          { stat: "40%", label: "of legal leads come in after business hours" },
+          { stat: "30%", label: "higher conversion rate on weekend leads" },
+          { stat: "90 sec", label: "our average answer time, day or night" },
+        ].map((item, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="text-4xl md:text-5xl font-heading text-brand-navy mb-3">{item.stat}</div>
+            <p class="text-gray-500 leading-relaxed">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The 10:47pm Scenario -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="reveal">
+        <div class="card p-8 md:p-12 border-l-4 border-brand-gold">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-3xl font-heading text-brand-navy">10:47pm</span>
+            <span class="badge badge-brand">Real Scenario</span>
+          </div>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            A potential client just got into an accident. They're scared, confused, and searching for a lawyer. They call the first number they find.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-red-50 rounded-xl p-6 border border-red-100">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center justify-center w-5 h-5 bg-red-100 rounded-full">
+                  <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="#d92d20" stroke-width="1.75" stroke-linecap="round"/></svg>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest text-red-700">Without Coverage</span>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                They reach your voicemail. They hang up and call the next firm on the list — one that answers. You wake up to a missed call that became someone else's case.
+              </p>
+            </div>
+            <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="inline-flex items-center justify-center w-5 h-5 bg-amber-100 rounded-full">
+                  <svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 3.5" stroke="#e69500" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-700">With Attorney Assistant</span>
+              </div>
+              <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                A live specialist answers within 90 seconds, gathers the details, qualifies the lead, and books a morning consultation. You wake up to a new client.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden" id="capabilities">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Complete Around-the-Clock Coverage</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">We cover every moment your office isn't open — so leads never face a voicemail when they need a lawyer.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Night & Weekend Coverage" description="Live answering every evening and all weekend long. Your firm stays open when your competitors go dark." icon="clock" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Holiday Coverage" description="Holidays are some of the busiest times for legal inquiries. We're on, even when your team isn't." icon="calendar" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Overflow Call Handling" description="When call volume spikes during business hours, we catch the overflow so no caller goes to voicemail." icon="phone" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Seamless Handoff Protocol" description="At the start of each business day, your team receives a complete summary of every after-hours interaction." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="After-Hours Reporting" description="Detailed logs of every call, inquiry, and outcome — so you always know what happened while you were away." icon="chart" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Bilingual Coverage" description="English and Spanish-speaking specialists available around the clock to serve your full client base." icon="users" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding" id="how-it-works">
+    <div class="container-wide">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Process</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">How After-Hours Coverage Works</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {[
+          { step: "01", title: "Seamless Handoff", desc: "At close of business, calls roll over to our team instantly. No gaps, no awkward transitions." },
+          { step: "02", title: "Live Answering", desc: "Every caller reaches a real person who knows your firm, your scripts, and your intake process." },
+          { step: "03", title: "Morning Summary", desc: "Your team arrives to a complete rundown of every after-hours lead — qualified, prioritized, and ready to act on." },
+        ].map((item, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
+              <span class="text-lg font-semibold">{item.step}</span>
+            </div>
+            <h3 class="text-lg font-heading text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-500 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-links -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
+      <div class="reveal">
+        <span class="badge badge-brand">Related Solutions</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Close the Gaps in Your Lead System
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          After-hours coverage pairs naturally with <a href="/services/lead-recovery" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">lead recovery</a> and <a href="/services/lead-follow-up" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">rapid follow-up</a> — giving your firm 24/7 capture, qualification, and outreach.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/services/lead-recovery" class="btn-secondary btn-lg group">Stop Losing Leads</a>
+          <a href="/services/lead-follow-up" class="btn-secondary btn-lg group">Never Miss a Follow-Up</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Your Firm Should Never Stop Converting"
+    body="The leads that come in at night and on weekends are just as valuable as the ones that call at 9am. Let us make sure every single one gets answered."
+    buttonText="Schedule Consultation"
+    buttonLink="/contact"
+    variant="brand"
+  />
+
+</BaseLayout>

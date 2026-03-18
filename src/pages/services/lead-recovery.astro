@@ -1,0 +1,115 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import FeatureCard from "@components/FeatureCard.astro";
+import CTABanner from "@components/CTABanner.astro";
+---
+
+<BaseLayout title="Lead Recovery" description="Every missed call is revenue walking out the door. We ensure every lead is captured, qualified, and followed up on — so no opportunity goes to waste.">
+
+  <Hero
+    badge="Lead Recovery"
+    title="Stop Losing Leads"
+    subtitle="Every missed call is revenue walking out the door. We ensure every lead is captured, qualified, and followed up on — so no opportunity goes to waste."
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="See How It Works"
+    secondaryButtonLink="#how-it-works"
+    size="lg"
+  />
+
+  <!-- Stats Section -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {[
+          { stat: "78%", label: "of leads go to the first responder" },
+          { stat: "5 min", label: "the window before a lead goes cold" },
+          { stat: "35–50%", label: "of sales go to the vendor that responds first" },
+        ].map((item, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="text-4xl md:text-5xl font-heading text-brand-navy mb-3">{item.stat}</div>
+            <p class="text-gray-500 leading-relaxed">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section-padding" id="capabilities">
+    <div class="container-wide">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Everything You Need to Capture Every Lead</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">From the first ring to the final follow-up, we make sure no lead slips through the cracks.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Live Call Answering" description="Every call answered by trained specialists, any time of day. No voicemail, no missed opportunities." icon="phone" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Instant Lead Capture" description="Complete lead data gathered on the first contact — name, case type, contact info, and key qualifying details." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Real-Time CRM Integration" description="Lead data flows directly into your CRM the moment contact is made. Zero manual entry, zero delay." icon="folder" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Call Recording & QA" description="Every call recorded and reviewed for quality. We refine scripts and improve performance continuously." icon="shield" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Lead Scoring & Prioritization" description="Not all leads are equal. We score and rank incoming prospects so your team focuses on the best opportunities first." icon="chart" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Real-Time Alerts" description="Instant notifications sent to your team when a high-value lead comes in — so you can act before they go elsewhere." icon="clock" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden" id="how-it-works">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Process</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">How Lead Recovery Works</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {[
+          { step: "01", title: "We Catch It", desc: "Every call, form, and chat inquiry is captured in real time — no missed connections, no voicemail black holes." },
+          { step: "02", title: "We Qualify It", desc: "Our specialists screen each lead against your criteria and gather the information your attorneys need to move forward." },
+          { step: "03", title: "You Get It", desc: "Qualified, prioritized leads delivered to your team instantly via your preferred channel with full context attached." },
+        ].map((item, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
+              <span class="text-lg font-semibold">{item.step}</span>
+            </div>
+            <h3 class="text-lg font-heading text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-500 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-links -->
+  <section class="section-padding">
+    <div class="container-narrow text-center">
+      <div class="reveal">
+        <span class="badge badge-brand">Related Solutions</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Pair Lead Recovery With These Services
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          Lead recovery works best alongside <a href="/services/intake-360" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">full intake coverage</a> and <a href="/services/after-hours" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">24/7 after-hours answering</a>. Together, they form a complete lead capture system that never sleeps.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/services/intake-360" class="btn-secondary btn-lg group">Fix Your Intake</a>
+          <a href="/services/after-hours" class="btn-secondary btn-lg group">24/7 Coverage</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Stop Letting Leads Slip Away"
+    body="Every missed call is a case someone else will take. Let us build a lead recovery system that ensures every opportunity is captured, qualified, and followed up on."
+    buttonText="Schedule Consultation"
+    buttonLink="/contact"
+    variant="brand"
+  />
+
+</BaseLayout>

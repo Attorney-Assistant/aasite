@@ -1,0 +1,115 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import FeatureCard from "@components/FeatureCard.astro";
+import CTABanner from "@components/CTABanner.astro";
+---
+
+<BaseLayout title="Lead Follow-Up" description="Speed wins cases. Consistency closes them. We ensure every lead gets contacted within minutes — not hours, not days.">
+
+  <Hero
+    badge="Lead Follow-Up"
+    title="Never Miss a Follow-Up"
+    subtitle="Speed wins cases. Consistency closes them. We ensure every lead gets contacted within minutes — not hours, not days."
+    buttonText="Get Started"
+    buttonLink="/contact"
+    secondaryButtonText="See How It Works"
+    secondaryButtonLink="#how-it-works"
+    size="lg"
+  />
+
+  <!-- Stats Section -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {[
+          { stat: "100×", label: "more likely to connect when responding within 5 minutes" },
+          { stat: "27%", label: "of leads ever get contacted by the average firm" },
+          { stat: "47 hrs", label: "average time for a firm to respond to a new lead" },
+        ].map((item, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="text-4xl md:text-5xl font-heading text-brand-navy mb-3">{item.stat}</div>
+            <p class="text-gray-500 leading-relaxed">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="section-padding" id="capabilities">
+    <div class="container-wide">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Capabilities</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Speed and Consistency, Built In</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">We turn slow, inconsistent follow-up into a competitive advantage — by making it fast, automatic, and thorough.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="5-Minute Response Guarantee" description="Every new lead receives a live outreach attempt within 5 minutes of their inquiry — day or night." icon="clock" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Multi-Channel Outreach" description="Phone, text, and email — we reach out on every channel to maximize the chance of making contact." icon="phone" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Automated Follow-Up Sequences" description="Leads that don't answer get a structured follow-up sequence over days and weeks until contact is made." icon="document" /></div>
+        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Status Tracking & Reporting" description="Full visibility into every lead's follow-up status, contact attempts, and outcome — all in one place." icon="chart" /></div>
+        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Custom Follow-Up Scripts" description="Scripts tailored to your practice areas and firm voice, so every outreach sounds on-brand and professional." icon="folder" /></div>
+        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Warm Handoff to Attorneys" description="When a lead is ready to convert, we warm-transfer or schedule the consultation directly — no dropped balls." icon="users" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden" id="how-it-works">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">Process</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">How It Works</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {[
+          { step: "01", title: "Lead Comes In", desc: "The moment a new lead is captured — call, form, chat — our follow-up system activates automatically." },
+          { step: "02", title: "We Reach Out", desc: "Within 5 minutes, a live specialist attempts contact via phone and text. If no answer, the sequence continues." },
+          { step: "03", title: "We Hand Off", desc: "Once connected, we qualify the lead and schedule or warm-transfer directly to your team — ready to close." },
+        ].map((item, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
+              <span class="text-lg font-semibold">{item.step}</span>
+            </div>
+            <h3 class="text-lg font-heading text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-gray-500 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-links -->
+  <section class="section-padding">
+    <div class="container-narrow text-center">
+      <div class="reveal">
+        <span class="badge badge-brand">Related Solutions</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
+          Build a Complete Lead System
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
+          Follow-up is most powerful when paired with <a href="/services/lead-recovery" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">lead recovery</a> and a streamlined <a href="/services/intake-360" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">intake process</a>. Together, they close the loop from first contact to signed client.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/services/lead-recovery" class="btn-secondary btn-lg group">Stop Losing Leads</a>
+          <a href="/services/intake-360" class="btn-secondary btn-lg group">Fix Your Intake</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Start Following Up Faster"
+    body="The firms that respond first win the most clients. Let us build a follow-up system that ensures every lead hears from you — within minutes, every time."
+    buttonText="Schedule Consultation"
+    buttonLink="/contact"
+    variant="brand"
+  />
+
+</BaseLayout>
