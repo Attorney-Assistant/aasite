@@ -36,6 +36,30 @@ import FeatureCard from "@components/FeatureCard.astro";
     </div>
   </section>
 
+  <!-- Stats Bar -->
+  <section class="py-12 bg-brand-950 grain-overlay relative overflow-hidden">
+    <div class="container-wide relative z-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-display-sm md:text-display-md font-heading text-white counter" data-target="200" data-suffix="+">0</p>
+          <p class="text-xs text-brand-200 mt-1 uppercase tracking-widest">Law Firms</p>
+        </div>
+        <div>
+          <p class="text-display-sm md:text-display-md font-heading text-white counter" data-target="60" data-suffix="%+">0</p>
+          <p class="text-xs text-brand-200 mt-1 uppercase tracking-widest">Cost Savings</p>
+        </div>
+        <div>
+          <p class="text-display-sm md:text-display-md font-heading text-white counter" data-target="24" data-suffix="/7">0</p>
+          <p class="text-xs text-brand-200 mt-1 uppercase tracking-widest">Coverage</p>
+        </div>
+        <div>
+          <p class="text-display-sm md:text-display-md font-heading text-white counter" data-target="5" data-suffix=" min">0</p>
+          <p class="text-xs text-brand-200 mt-1 uppercase tracking-widest">Response Time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Values Section -->
   <section class="section-padding bg-gray-25 reveal" style="transition-delay: 0.2s;">
     <div class="container-wide">
@@ -135,5 +159,31 @@ import FeatureCard from "@components/FeatureCard.astro";
     buttonLink="/contact"
     variant="brand"
   />
+
+<script>
+document.querySelectorAll('.counter').forEach(function(el) {
+  var target = Number(el.dataset.target);
+  var suffix = el.dataset.suffix || '';
+  var observed = false;
+
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !observed) {
+      observed = true;
+      var start = performance.now();
+      var duration = 2000;
+
+      function step(now) {
+        var t = Math.min((now - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * ease) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      observer.disconnect();
+    }
+  }, { threshold: 0.3 });
+  observer.observe(el);
+});
+</script>
 
 </BaseLayout>
