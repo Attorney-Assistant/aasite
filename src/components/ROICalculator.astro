@@ -1,0 +1,76 @@
+<div class="card p-6 md:p-8 roi-calculator">
+  <h3 class="font-heading text-lg text-gray-900 mb-1">See Your Growth Potential</h3>
+  <p class="text-sm text-gray-500 mb-6">Estimate how Attorney Assistant could impact your firm.</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+    <div>
+      <label for="roi-spend" class="label-base">Monthly Ad Spend</label>
+      <select id="roi-spend" class="input-base">
+        <option value="2000">$2,000</option>
+        <option value="5000" selected>$5,000</option>
+        <option value="10000">$10,000</option>
+        <option value="15000">$15,000</option>
+        <option value="20000">$20,000+</option>
+      </select>
+    </div>
+    <div>
+      <label for="roi-leads" class="label-base">Leads / Month</label>
+      <select id="roi-leads" class="input-base">
+        <option value="10">10</option>
+        <option value="25" selected>25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200+</option>
+      </select>
+    </div>
+    <div>
+      <label for="roi-rate" class="label-base">Conversion Rate</label>
+      <select id="roi-rate" class="input-base">
+        <option value="0.05">5%</option>
+        <option value="0.10" selected>10%</option>
+        <option value="0.15">15%</option>
+        <option value="0.20">20%</option>
+        <option value="0.25">25%+</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="roi-result bg-brand-25 rounded-xl p-5 border border-brand-100 text-center">
+    <p class="text-sm text-gray-500 mb-1">With Attorney Assistant, you could be converting</p>
+    <p class="text-display-xs font-heading text-brand-navy">
+      <span id="roi-leads-result">0</span> more leads/month
+    </p>
+    <p class="text-sm text-gray-500 mt-1">
+      worth an estimated <span id="roi-revenue-result" class="font-semibold text-brand-gold">$0</span> in additional monthly revenue
+    </p>
+  </div>
+
+  <noscript>
+    <div class="bg-brand-25 rounded-xl p-5 border border-brand-100 text-center mt-4">
+      <p class="text-sm text-gray-500">Most firms see a 2-3x improvement in lead conversion. Book a call to see what's possible for your firm.</p>
+    </div>
+  </noscript>
+</div>
+
+<script>
+const CONVERSION_MULTIPLIER = 2.5;
+const RATE_CAP = 0.45;
+const AVG_CASE_VALUE = 3500;
+
+function calculate() {
+  const leads = Number((document.getElementById('roi-leads') as HTMLSelectElement).value);
+  const rate = Number((document.getElementById('roi-rate') as HTMLSelectElement).value);
+  const improvedRate = Math.min(rate * CONVERSION_MULTIPLIER, RATE_CAP);
+  const additionalLeads = Math.round(leads * (improvedRate - rate));
+  const additionalRevenue = additionalLeads * AVG_CASE_VALUE;
+
+  document.getElementById('roi-leads-result')!.textContent = String(additionalLeads);
+  document.getElementById('roi-revenue-result')!.textContent =
+    '$' + additionalRevenue.toLocaleString();
+}
+
+document.querySelectorAll('.roi-calculator select').forEach(function(el) {
+  el.addEventListener('change', calculate);
+});
+calculate(); // initial calculation
+</script>

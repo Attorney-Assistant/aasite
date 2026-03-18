@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
+import ROICalculator from "@components/ROICalculator.astro";
 ---
 
 <BaseLayout title="Contact Us" description="Get in touch with Attorney Assistant. Schedule a consultation to learn how we can help your firm.">
@@ -18,6 +19,9 @@ import Hero from "@components/Hero.astro";
       <div class="grid md:grid-cols-5 gap-12">
         <!-- Contact Form -->
         <div class="md:col-span-3">
+          <div class="mb-8">
+            <ROICalculator />
+          </div>
           <h2 class="text-display-xs font-heading text-gray-900 mb-2">Send Us a Message</h2>
           <div class="divider-gold mt-5"></div>
           <p class="text-gray-500 mb-8">Fill out the form below and we'll get back to you within one business day.</p>
