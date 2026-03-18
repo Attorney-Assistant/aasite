@@ -27,7 +27,7 @@ export const TypeScale: Story = {
         </div>
         <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #f3f4f6;">
           <p style="font-family: monospace; font-size: 12px; color: #9ca3af; margin: 0 0 4px 0;">H3 — 24px/32px SemiBold</p>
-          <h3 style="font-family: Poppins, sans-serif; font-size: 24px; line-height: 32px; font-weight: 600; margin: 0; color: #0b0000;">Intake 360 Service</h3>
+          <h3 style="font-family: Poppins, sans-serif; font-size: 24px; line-height: 32px; font-weight: 600; margin: 0; color: #0b0000;">24/7 Intake Service</h3>
         </div>
         <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #f3f4f6;">
           <p style="font-family: monospace; font-size: 12px; color: #9ca3af; margin: 0 0 4px 0;">H4 — 20px/28px SemiBold</p>

@@ -53,7 +53,7 @@ export const TestimonialCard: Story = {
           `).join("")}
         </div>
         <blockquote style="font-family: Roboto, sans-serif; font-size: 16px; color: #374151; line-height: 1.6; margin: 0 0 16px 0;">
-          &ldquo;Attorney Assistant's Intake 360 service transformed our practice. We went from missing 40% of after-hours calls to capturing every single lead. Our revenue increased 35% in the first quarter.&rdquo;
+          &ldquo;Attorney Assistant's 24/7 intake service transformed our practice. We went from missing 40% of after-hours calls to capturing every single lead. Our revenue increased 35% in the first quarter.&rdquo;
         </blockquote>
         <div style="display: flex; align-items: center; gap: 12px;">
           <div style="width: 40px; height: 40px; border-radius: 50%; background: #588aa5; display: flex; align-items: center; justify-content: center; color: white; font-family: Poppins, sans-serif; font-weight: 600; font-size: 14px;">MR</div>

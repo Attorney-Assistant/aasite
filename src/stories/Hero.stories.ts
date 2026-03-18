@@ -42,7 +42,7 @@ export const HeroWithSubtitle: Story = {
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
           <div style="max-width: 700px;">
             <h1 style="font-family: Poppins, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; margin: 0 0 24px 0;">
-              Intake 360
+              24/7 Intake
             </h1>
             <p style="font-family: Roboto, sans-serif; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0 0 32px 0;">
               Never miss another lead. Our comprehensive intake service captures every call, qualifies every prospect, and feeds your pipeline 24/7.
@@ -112,7 +112,7 @@ export const CTABannerBlue: Story = {
       <section style="background: #50a7dd; padding: 64px 0; color: white; text-align: center;">
         <div style="max-width: 800px; margin: 0 auto; padding: 0 24px;">
           <h2 style="font-family: Poppins, sans-serif; font-weight: 700; font-size: 36px; margin: 0 0 16px 0;">
-            Add an Impact Assistant to Your Team
+            Add a Dedicated Assistant to Your Team
           </h2>
           <p style="font-family: Roboto, sans-serif; font-size: 18px; opacity: 0.9; margin: 0 0 32px 0;">
             Free up your attorneys to focus on practicing law while we handle the rest.
