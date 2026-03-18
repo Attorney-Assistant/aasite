@@ -190,32 +190,56 @@
     </div>
   </div>
 
-  <!-- ===== ACT 2: The overnight gap ===== -->
+  <!-- ===== ACT 2: The Overnight Story (merged from old Acts 2+3) ===== -->
   <div class="act act-2" id="act-2">
     <div class="act-sentinel" aria-hidden="true"></div>
+    <!-- Transition sentinel at 50% -->
+    <div class="act2-transform-sentinel" id="act2-transform-sentinel" aria-hidden="true"></div>
 
     <!-- Background act number -->
     <div class="act-bg-num" aria-hidden="true">02</div>
 
+    <!-- Gold radial overlay (visible when transformed) -->
+    <div class="act2-gold-overlay" aria-hidden="true"></div>
+
     <div class="act-inner">
       <div class="container-wide">
 
+        <!-- Header with moon→sun transition -->
         <div class="act-header">
-          <div class="act-eyebrow">
-            <span class="eyebrow-dot eyebrow-dot--gray"></span>
-            The Overnight Gap
+          <div class="act-eyebrow act2-eyebrow">
+            <span class="eyebrow-dot eyebrow-dot--gray act2-eyebrow-dot"></span>
+            <span class="act2-eyebrow-text">The Overnight Story</span>
           </div>
-          <!-- Moon icon -->
-          <div class="act-header-icon act-header-icon--gray" aria-hidden="true">
+          <!-- Moon icon (without state) -->
+          <div class="act-header-icon act-header-icon--gray act2-icon-moon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
             </svg>
           </div>
+          <!-- Sun icon (with state) -->
+          <div class="act-header-icon act-header-icon--gold act2-icon-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+          </div>
           <h2 class="act-title">
-            Every night, your firm<br />
-            <span class="text-gray-dim">goes dark.</span>
+            What happens<br />
+            <span class="text-gray-dim act2-title-highlight">after 5pm?</span>
           </h2>
-          <p class="act-subtitle">While you sleep, leads are choosing your competitors.</p>
+          <p class="act-subtitle act2-subtitle">While you sleep, leads are choosing your competitors.</p>
+        </div>
+
+        <!-- Toggle tabs (segmented control) -->
+        <div class="act2-toggle" role="group" aria-label="Compare without and with Attorney Assistant">
+          <button class="act2-toggle-btn act2-toggle-btn--without is-active-tab" id="toggle-without" type="button" aria-pressed="true">
+            <span class="act2-toggle-dot act2-toggle-dot--red"></span>
+            Without Attorney Assistant
+          </button>
+          <button class="act2-toggle-btn act2-toggle-btn--with" id="toggle-with" type="button" aria-pressed="false">
+            <span class="act2-toggle-dot act2-toggle-dot--gold"></span>
+            With Attorney Assistant
+          </button>
         </div>
 
         <!-- Timeline visualization -->
@@ -233,9 +257,10 @@
             <div class="timeline-active timeline-active--left">
               <span class="timeline-active-label">Open</span>
             </div>
-            <!-- Gap bar — animates from 0 to full -->
+            <!-- Gap bar — transitions from gray to gold -->
             <div class="timeline-gap" id="timeline-gap">
               <div class="timeline-gap-fill" aria-hidden="true"></div>
+              <div class="timeline-gap-gold-fill" aria-hidden="true"></div>
               <!-- Hover zones -->
               <div class="tl-hover-zone" style="left:15%" data-tip="8 PM — Most leads submit forms after dinner">
                 <span class="tl-hz-pip"></span>
@@ -249,21 +274,30 @@
                 <span class="tl-hz-pip"></span>
                 <span class="tl-hz-tooltip">2 AM — Emergency situations don't wait</span>
               </div>
-              <div class="timeline-gap-label">
+              <!-- Without state label -->
+              <div class="timeline-gap-label act2-without-content">
                 <svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                 </svg>
                 <span>Your firm goes offline</span>
               </div>
-              <div class="timeline-gap-hours">14 hours of silence</div>
+              <div class="timeline-gap-hours act2-without-content">14 hours of silence</div>
+              <!-- With state label -->
+              <div class="timeline-gap-label timeline-gap-label--gold act2-with-content">
+                <svg class="gap-icon gap-icon--gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                </svg>
+                <span>Attorney Assistant active</span>
+              </div>
+              <div class="timeline-gap-hours timeline-gap-hours--gold act2-with-content">24/7 coverage active</div>
             </div>
             <div class="timeline-active timeline-active--right">
               <span class="timeline-active-label">Open</span>
             </div>
           </div>
 
-          <!-- Lead scenario with typewriter -->
-          <div class="lead-scenario">
+          <!-- Lead scenario: Without state -->
+          <div class="lead-scenario act2-without-content">
 
             <div class="lead-event">
               <div class="lead-event-time">10:47 PM</div>
@@ -329,228 +363,215 @@
               </div>
             </div>
 
-          </div><!-- /lead-scenario -->
+          </div><!-- /lead-scenario without -->
 
-          <!-- Overnight counter -->
-          <div class="overnight-counter">
-            <div class="overnight-counter-label">Leads lost overnight this week</div>
-            <div class="overnight-counter-number">
-              <span class="counter" data-target="5" data-act="2">0</span>
-            </div>
-            <div class="overnight-counter-sub">and counting — every week</div>
-          </div>
+          <!-- Lead scenario: With state -->
+          <div class="lead-scenario act2-with-content">
 
-        </div><!-- /timeline-wrap -->
-
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== ACT 3: Now imagine every lead handled ===== -->
-  <div class="act act-3" id="act-3">
-    <div class="act-sentinel" aria-hidden="true"></div>
-
-    <!-- Background act number -->
-    <div class="act-bg-num act-bg-num--gold" aria-hidden="true">03</div>
-
-    <!-- Gold divider — thicker with glow -->
-    <div class="gold-divider" aria-hidden="true">
-      <div class="gold-divider-line"></div>
-    </div>
-
-    <div class="act-inner">
-      <div class="container-wide">
-
-        <div class="act-header">
-          <div class="act-eyebrow act-eyebrow--gold">
-            <span class="eyebrow-dot eyebrow-dot--gold"></span>
-            The Transformation
-          </div>
-          <!-- Rocket/sun icon -->
-          <div class="act-header-icon act-header-icon--gold" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.818m2.546-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7a18.897 18.897 0 01-4.244 0M9.632 8.41l-.118-.012M13.5 12c-.09.34-.189.67-.298.993" />
-            </svg>
-          </div>
-          <h2 class="act-title">
-            Now imagine<br />
-            <span class="text-gold-glow">every lead handled.</span>
-          </h2>
-          <p class="act-subtitle act-subtitle--light">Attorney Assistant's 24/7 intake team means no lead ever goes unanswered.</p>
-        </div>
-
-        <!-- Transformed counter cards with shimmer -->
-        <div class="counter-grid">
-
-          <!-- Card 1: Zero missed calls -->
-          <div class="counter-card counter-card--gold shimmer-card stagger-card-3" data-stagger="0">
-            <div class="shimmer-overlay" aria-hidden="true"></div>
-            <div class="counter-card-icon counter-card-icon--gold-fill">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="grad-check-gold" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#ffaa2b"/>
-                    <stop offset="100%" stop-color="#e69500"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="12" cy="12" r="10" fill="url(#grad-check-gold)"/>
-                <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="counter-card-body">
-              <div class="counter-label-row">
-                <svg class="inline-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <circle cx="8" cy="8" r="6" fill="#ffaa2b"/>
-                  <path d="M5 8l2.5 2.5 4-4.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Missed calls <span class="counter-sub counter-sub--green">this month</span>
+            <div class="lead-event">
+              <div class="lead-event-time" style="color:#ffaa2b">10:47 PM</div>
+              <div class="lead-event-connector">
+                <span class="lead-event-dot" style="background:#ffaa2b;box-shadow:0 0 10px rgba(255,170,43,0.6)"></span>
+                <span class="lead-event-line" style="background:rgba(255,170,43,0.2)"></span>
               </div>
-              <div class="counter-number text-green-400">
-                <span class="counter" data-target="0" data-start="99" data-act="3">99</span>
-              </div>
-              <div class="result-badge result-badge--green">
-                <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                24/7 always answered
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: 5 min intake -->
-          <div class="counter-card counter-card--gold shimmer-card stagger-card-3" data-stagger="150">
-            <div class="shimmer-overlay" aria-hidden="true"></div>
-            <div class="counter-card-icon counter-card-icon--gold-fill">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="grad-clock-gold" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#ffaa2b"/>
-                    <stop offset="100%" stop-color="#e69500"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="12" cy="12" r="10" fill="url(#grad-clock-gold)"/>
-                <path d="M12 7.5v4.5H15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="counter-card-body">
-              <div class="counter-label-row">
-                <svg class="inline-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <circle cx="8" cy="8" r="6" fill="#ffaa2b"/>
-                  <path d="M8 5v3.5H10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-                Avg intake <span class="counter-sub counter-sub--green">down from 47min</span>
-              </div>
-              <div class="counter-number text-green-400">
-                <span class="counter" data-target="5" data-start="47" data-act="3">47</span>
-                <span class="counter-unit">min</span>
-              </div>
-              <div class="result-badge result-badge--green">
-                <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                89% faster intake
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: 38% conversion -->
-          <div class="counter-card counter-card--gold shimmer-card stagger-card-3" data-stagger="300">
-            <div class="shimmer-overlay" aria-hidden="true"></div>
-            <div class="counter-card-icon counter-card-icon--gold-fill">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="grad-trend-gold" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#ffaa2b"/>
-                    <stop offset="100%" stop-color="#e69500"/>
-                  </linearGradient>
-                </defs>
-                <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#grad-trend-gold)"/>
-                <path d="M6 14l3.5-4.5 3 3 4-5.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div class="counter-card-body">
-              <div class="counter-label-row">
-                <svg class="inline-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <circle cx="8" cy="8" r="6" fill="#17b26a"/>
-                  <path d="M4 9l3-3.5 2.5 2.5 3-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-                Conversion rate <span class="counter-sub counter-sub--green">up from 12%</span>
-              </div>
-              <div class="counter-number text-green-400">
-                <span class="counter" data-target="38" data-start="12" data-act="3">12</span>
-                <span class="counter-unit">%</span>
-              </div>
-              <div class="counter-bar-wrap">
-                <div class="counter-bar counter-bar--gold" style="--bar-width: 38%"></div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /counter-grid -->
-
-        <!-- Act 3 scenario replay -->
-        <div class="act3-scenario">
-
-          <div class="act3-scenario-timeline">
-
-            <div class="act3-event">
-              <div class="act3-time">10:47 PM</div>
-              <div class="act3-connector">
-                <span class="act3-dot act3-dot--gold"></span>
-                <span class="act3-line"></span>
-              </div>
-              <div class="act3-card">
-                <p class="act3-card-title">Lead fills out your contact form</p>
-                <p class="act3-card-detail">"I need help with my case — it's urgent."</p>
+              <div class="lead-event-card" style="border-color:rgba(255,170,43,0.2);background:rgba(255,170,43,0.03)">
+                <div class="lead-event-icon lead-envelope-icon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="grad-env-gold" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#ffaa2b"/>
+                        <stop offset="100%" stop-color="#e69500"/>
+                      </linearGradient>
+                    </defs>
+                    <rect x="2" y="5" width="20" height="14" rx="2" fill="url(#grad-env-gold)"/>
+                    <path d="M2 7l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="lead-event-content">
+                  <p class="lead-event-title">Lead fills out your contact form</p>
+                  <p class="lead-event-detail" style="color:#98a2b3">"I need help with my case — it's urgent."</p>
+                </div>
               </div>
             </div>
 
-            <div class="act3-event">
-              <div class="act3-time act3-time--gold">10:49 PM</div>
-              <div class="act3-connector">
-                <span class="act3-dot act3-dot--green"></span>
-                <span class="act3-line act3-line--green"></span>
+            <div class="lead-event">
+              <div class="lead-event-time" style="color:#ffaa2b">10:49 PM</div>
+              <div class="lead-event-connector">
+                <span class="lead-event-dot" style="background:#17b26a;box-shadow:0 0 10px rgba(23,178,106,0.6)"></span>
+                <span class="lead-event-line" style="background:rgba(23,178,106,0.2)"></span>
               </div>
-              <div class="act3-card act3-card--highlight">
-                <div class="act3-card-badge">
+              <div class="lead-event-card" style="border-color:rgba(255,170,43,0.25);background:rgba(255,170,43,0.04)">
+                <div class="act3-card-badge" style="margin-bottom:0.5rem">
                   <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
                   Answered in 90 seconds
                 </div>
-                <p class="act3-card-title act3-card-title--gold">Attorney Assistant responds</p>
-                <p class="act3-card-detail">"Hi! I'm calling from the law firm about your inquiry…"</p>
+                <div class="lead-event-content">
+                  <p class="lead-event-title" style="color:#ffaa2b">Attorney Assistant responds</p>
+                  <p class="lead-event-detail" style="color:#667085">"Hi! I'm calling from the law firm about your inquiry…"</p>
+                </div>
               </div>
             </div>
 
-            <div class="act3-event">
-              <div class="act3-time act3-time--gold">9:00 AM</div>
-              <div class="act3-connector">
-                <span class="act3-dot act3-dot--green"></span>
+            <div class="lead-event">
+              <div class="lead-event-time" style="color:#ffaa2b">9:00 AM</div>
+              <div class="lead-event-connector">
+                <span class="lead-event-dot" style="background:#17b26a;box-shadow:0 0 10px rgba(23,178,106,0.6)"></span>
               </div>
-              <div class="act3-card act3-card--win">
-                <div class="act3-card-badge act3-card-badge--gold">
+              <div class="lead-event-card" style="border-color:rgba(23,178,106,0.25);background:rgba(23,178,106,0.05)">
+                <div class="act3-card-badge act3-card-badge--gold" style="margin-bottom:0.5rem">
                   <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
                   Consultation booked for 9am
                 </div>
-                <p class="act3-card-title act3-card-title--gold">New client secured.</p>
-                <p class="act3-card-detail">While your competitors slept, you won the case.</p>
+                <div class="lead-event-content">
+                  <p class="lead-event-title" style="color:#ffaa2b">New client secured.</p>
+                  <p class="lead-event-detail" style="color:#667085">While your competitors slept, you won the case.</p>
+                </div>
               </div>
             </div>
 
-          </div>
+          </div><!-- /lead-scenario with -->
 
-          <!-- Overnight glowing block -->
-          <div class="act3-overnight">
-            <div class="act3-overnight-glow" aria-hidden="true"></div>
-            <div class="act3-overnight-content">
-              <div class="act3-overnight-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+          <!-- Metrics comparison cards -->
+          <div class="counter-grid act2-metrics">
+
+            <!-- Card 1: Missed calls -->
+            <div class="counter-card act2-metric-card stagger-card-2" data-stagger="0" tabindex="0">
+              <div class="card-tooltip" role="tooltip">
+                Without 24/7 coverage, firms miss 3+ calls daily. With Attorney Assistant, every call is answered — day or night.
+              </div>
+              <div class="counter-card-icon act2-metric-icon">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="grad-phone-metric" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#ef4444"/>
+                      <stop offset="100%" stop-color="#dc2626"/>
+                    </linearGradient>
+                    <linearGradient id="grad-check-gold" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#ffaa2b"/>
+                      <stop offset="100%" stop-color="#e69500"/>
+                    </linearGradient>
+                  </defs>
+                  <circle class="act2-metric-icon-bg" cx="12" cy="12" r="10" fill="url(#grad-phone-metric)"/>
+                  <path class="act2-metric-icon-without" fill="#fff" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" transform="translate(3,2) scale(0.75)"/>
+                  <path class="act2-metric-icon-with" d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
                 </svg>
               </div>
-              <div>
-                <p class="act3-overnight-title">24/7 coverage active</p>
-                <p class="act3-overnight-sub">No lead goes unanswered — ever</p>
+              <div class="counter-card-body">
+                <div class="counter-label-row">
+                  <span class="act2-metric-label-without">Missed calls <span class="counter-sub">today</span></span>
+                  <span class="act2-metric-label-with">Missed calls <span class="counter-sub counter-sub--green">this month</span></span>
+                </div>
+                <div class="counter-number act2-metric-number">
+                  <span class="counter act2-counter" data-target-without="3" data-target-with="0" data-act="2">0</span>
+                </div>
+                <div class="act2-metric-badge-without">
+                  <div class="counter-pulse">
+                    <span class="pulse-ring pulse-ring--red"></span>
+                    <span class="pulse-dot pulse-dot--red"></span>
+                  </div>
+                </div>
+                <div class="act2-metric-badge-with">
+                  <div class="result-badge result-badge--green">
+                    <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                    24/7 always answered
+                  </div>
+                </div>
               </div>
             </div>
+
+            <!-- Card 2: Intake time -->
+            <div class="counter-card act2-metric-card stagger-card-2" data-stagger="150" tabindex="0">
+              <div class="card-tooltip" role="tooltip">
+                Industry average intake takes 40–55 minutes. Attorney Assistant completes intake in under 5 minutes — 89% faster.
+              </div>
+              <div class="counter-card-icon act2-metric-icon">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="grad-clock-metric" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#fb923c"/>
+                      <stop offset="100%" stop-color="#ea580c"/>
+                    </linearGradient>
+                  </defs>
+                  <circle class="act2-metric-icon-bg" cx="12" cy="12" r="10" fill="url(#grad-clock-metric)"/>
+                  <path d="M12 7v5h3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="counter-card-body">
+                <div class="counter-label-row">
+                  <span class="act2-metric-label-without">Avg intake time <span class="counter-sub">per lead</span></span>
+                  <span class="act2-metric-label-with">Avg intake <span class="counter-sub counter-sub--green">down from 47min</span></span>
+                </div>
+                <div class="counter-number act2-metric-number">
+                  <span class="counter act2-counter" data-target-without="47" data-target-with="5" data-act="2">0</span>
+                  <span class="counter-unit">min</span>
+                </div>
+                <div class="act2-metric-badge-without">
+                  <div class="counter-bar-wrap">
+                    <div class="counter-bar counter-bar--warn" style="--bar-width: 78%"></div>
+                  </div>
+                </div>
+                <div class="act2-metric-badge-with">
+                  <div class="result-badge result-badge--green">
+                    <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                    89% faster intake
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Conversion -->
+            <div class="counter-card act2-metric-card stagger-card-2" data-stagger="300" tabindex="0">
+              <div class="card-tooltip" role="tooltip">
+                The average firm converts only 10–15% of leads. Attorney Assistant clients average 35–40% after implementing 24/7 intake.
+              </div>
+              <div class="counter-card-icon act2-metric-icon">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="grad-chart-metric" x1="0" y1="1" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#50a7dd"/>
+                      <stop offset="100%" stop-color="#1a3a5c"/>
+                    </linearGradient>
+                  </defs>
+                  <rect class="act2-metric-icon-bg" x="2" y="2" width="20" height="20" rx="4" fill="url(#grad-chart-metric)"/>
+                  <path d="M6 14l3-4 3 3 4-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="counter-card-body">
+                <div class="counter-label-row">
+                  <span class="act2-metric-label-without">Conversion rate <span class="counter-sub">of marketing spend</span></span>
+                  <span class="act2-metric-label-with">Conversion rate <span class="counter-sub counter-sub--green">up from 12%</span></span>
+                </div>
+                <div class="counter-number act2-metric-number">
+                  <span class="counter act2-counter" data-target-without="12" data-target-with="38" data-act="2">0</span>
+                  <span class="counter-unit">%</span>
+                </div>
+                <div class="act2-metric-badge-without">
+                  <div class="counter-bar-wrap">
+                    <div class="counter-bar counter-bar--danger" style="--bar-width: 12%"></div>
+                  </div>
+                </div>
+                <div class="act2-metric-badge-with">
+                  <div class="counter-bar-wrap">
+                    <div class="counter-bar counter-bar--gold" style="--bar-width: 38%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /counter-grid -->
+
+          <!-- Overnight counter — transforms from "lost" to "captured" -->
+          <div class="overnight-counter act2-overnight-counter">
+            <div class="overnight-counter-label act2-without-content">Leads lost overnight this week</div>
+            <div class="overnight-counter-label act2-with-content overnight-counter-label--gold">Leads captured overnight this week</div>
+            <div class="overnight-counter-number">
+              <span class="counter act2-overnight-num" data-target-without="5" data-target-with="5" data-act="2">0</span>
+            </div>
+            <div class="overnight-counter-sub act2-without-content">and counting — every week</div>
+            <div class="overnight-counter-sub act2-with-content overnight-counter-sub--gold">every one a potential client</div>
           </div>
 
-        </div><!-- /act3-scenario -->
+        </div><!-- /timeline-wrap -->
 
         <!-- CTA -->
         <div class="act3-cta">
@@ -571,11 +592,12 @@
 <noscript>
   <style>
     .act { opacity: 1 !important; transform: none !important; }
-    .gold-divider-line { transform: scaleX(1) !important; }
     .counter-bar { width: var(--bar-width, 50%) !important; transition: none !important; }
     .timeline-gap-fill { width: 100% !important; }
-    .stagger-card, .stagger-card-3 { opacity: 1 !important; transform: none !important; }
+    .stagger-card, .stagger-card-2 { opacity: 1 !important; transform: none !important; }
     #tw-inner::after { content: 'I need help with my case — it\27s urgent.'; }
+    .act2-with-content { display: none !important; }
+    .act2-without-content { display: block !important; }
   </style>
 </noscript>
 
@@ -709,10 +731,6 @@
     letter-spacing: -0.04em;
   }
 
-  .act-bg-num--gold {
-    color: rgba(255, 170, 43, 0.04);
-  }
-
   /* =============================================
      FLOATING PARTICLES (CSS only)
   ============================================= */
@@ -777,7 +795,7 @@
   }
 
   /* =============================================
-     ACT 2 — GRAY/DARK
+     ACT 2 — MERGED OVERNIGHT STORY
   ============================================= */
   .act-2 {
     background-color: #0e1a24;
@@ -794,16 +812,8 @@
     z-index: 0;
   }
 
-  /* =============================================
-     ACT 3 — NAVY + GOLD
-  ============================================= */
-  .act-3 {
-    background-color: #091623;
-    position: relative;
-  }
-
-  .act-3::before {
-    content: '';
+  /* Gold radial overlay for transformed state */
+  .act2-gold-overlay {
     position: absolute;
     inset: 0;
     background:
@@ -811,6 +821,22 @@
       radial-gradient(ellipse 50% 40% at 80% 70%, rgba(26, 58, 92, 0.5) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .act-2.is-transformed .act2-gold-overlay {
+    opacity: 1;
+  }
+
+  /* Transform sentinel at 50% of section */
+  .act2-transform-sentinel {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    pointer-events: none;
   }
 
   /* =============================================
@@ -914,7 +940,7 @@
     text-shadow: 0 0 30px rgba(239,68,68,0.3);
   }
 
-  .text-gray-dim { color: #475467; }
+  .text-gray-dim { color: #475467; transition: color 0.4s ease, text-shadow 0.4s ease; }
 
   .text-gold-glow {
     color: #ffaa2b;
@@ -931,6 +957,269 @@
 
   .act-subtitle--light { color: #98a2b3; }
 
+  /* Act 2 header transitions */
+  .act2-icon-moon {
+    transition: opacity 0.4s ease, transform 0.3s ease;
+  }
+  .act2-icon-sun {
+    display: none;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+  }
+  .act-2.is-transformed .act2-icon-moon { display: none; }
+  .act-2.is-transformed .act2-icon-sun { display: inline-flex; }
+
+  .act-2.is-transformed .act2-title-highlight {
+    color: #ffaa2b;
+    text-shadow: 0 0 40px rgba(255,170,43,0.25);
+  }
+
+  .act-2.is-transformed .act2-subtitle {
+    color: #98a2b3;
+  }
+
+  .act-2.is-transformed .act2-eyebrow {
+    color: #ffaa2b;
+  }
+
+  .act-2.is-transformed .act2-eyebrow-dot {
+    background-color: #ffaa2b;
+    box-shadow: 0 0 8px rgba(255,170,43,0.6);
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  /* =============================================
+     TOGGLE TABS (Segmented Control)
+  ============================================= */
+  .act2-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .act2-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.625rem 1.25rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    color: #667085;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .act2-toggle-btn--without {
+    border-radius: 9999px 0 0 9999px;
+    border-right: none;
+  }
+
+  .act2-toggle-btn--with {
+    border-radius: 0 9999px 9999px 0;
+  }
+
+  .act2-toggle-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .act2-toggle-dot--red { background: #667085; }
+  .act2-toggle-dot--gold { background: #667085; }
+
+  .act2-toggle-btn.is-active-tab {
+    z-index: 1;
+  }
+
+  .act2-toggle-btn--without.is-active-tab {
+    background: rgba(239,68,68,0.08);
+    border-color: rgba(239,68,68,0.25);
+    color: #f04438;
+    border-right: 1px solid rgba(239,68,68,0.25);
+  }
+
+  .act2-toggle-btn--without.is-active-tab .act2-toggle-dot--red {
+    background: #ef4444;
+    box-shadow: 0 0 6px rgba(239,68,68,0.5);
+  }
+
+  .act2-toggle-btn--with.is-active-tab {
+    background: rgba(255,170,43,0.08);
+    border-color: rgba(255,170,43,0.3);
+    color: #ffaa2b;
+  }
+
+  .act2-toggle-btn--with.is-active-tab .act2-toggle-dot--gold {
+    background: #ffaa2b;
+    box-shadow: 0 0 6px rgba(255,170,43,0.5);
+  }
+
+  .act2-toggle-btn:hover:not(.is-active-tab) {
+    background: rgba(255,255,255,0.05);
+    color: #98a2b3;
+  }
+
+  /* =============================================
+     WITHOUT / WITH CONTENT VISIBILITY
+  ============================================= */
+  .act2-without-content {
+    transition: opacity 0.4s ease 0.1s, transform 0.3s ease 0.1s;
+  }
+
+  .act2-with-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease 0.1s, transform 0.3s ease 0.1s;
+  }
+
+  .act-2.is-transformed .act2-without-content {
+    display: none;
+    opacity: 0;
+  }
+
+  .act-2.is-transformed .act2-with-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* For flex containers that have act2-with-content */
+  .timeline-gap .act2-with-content {
+    display: none;
+  }
+
+  .act-2.is-transformed .timeline-gap .act2-without-content {
+    display: none;
+  }
+
+  .act-2.is-transformed .timeline-gap .act2-with-content {
+    display: flex;
+  }
+
+  /* =============================================
+     TIMELINE BAR GOLD FILL
+  ============================================= */
+  .timeline-gap-gold-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(180deg, rgba(255,170,43,0.18) 0%, rgba(255,170,43,0.06) 100%);
+    transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .act-2.is-transformed .timeline-gap-gold-fill {
+    width: 100%;
+  }
+
+  .timeline-gap-label--gold {
+    color: #ffaa2b !important;
+  }
+
+  .timeline-gap-label--gold .gap-icon--gold {
+    color: #ffaa2b;
+  }
+
+  .timeline-gap-hours--gold {
+    color: #ffaa2b !important;
+    letter-spacing: 0.1em;
+  }
+
+  /* =============================================
+     METRIC CARDS — BEFORE/AFTER TRANSITION
+  ============================================= */
+  .act2-metric-card {
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease 0.1s, border-color 0.4s ease 0.1s;
+    background: linear-gradient(135deg, rgba(239,68,68,0.06) 0%, rgba(9,22,35,0) 100%);
+    border: 1px solid rgba(239,68,68,0.15);
+  }
+
+  .act-2.is-transformed .act2-metric-card {
+    background: linear-gradient(135deg, rgba(255,170,43,0.09) 0%, rgba(9,22,35,0) 100%);
+    border-color: rgba(255,170,43,0.27);
+  }
+
+  .act2-metric-number {
+    transition: color 0.4s ease 0.2s;
+    color: #f04438;
+  }
+
+  .act-2.is-transformed .act2-metric-number {
+    color: #17b26a;
+  }
+
+  /* Without/With labels in metric cards */
+  .act2-metric-label-with { display: none; }
+  .act2-metric-label-without { display: inline; }
+  .act-2.is-transformed .act2-metric-label-with { display: inline; }
+  .act-2.is-transformed .act2-metric-label-without { display: none; }
+
+  /* Without/With badges */
+  .act2-metric-badge-with { display: none; opacity: 0; transition: opacity 0.3s ease 0.3s; }
+  .act2-metric-badge-without { transition: opacity 0.3s ease; }
+  .act-2.is-transformed .act2-metric-badge-with { display: block; opacity: 1; }
+  .act-2.is-transformed .act2-metric-badge-without { display: none; opacity: 0; }
+
+  /* Metric card icon transitions */
+  .act2-metric-icon-bg {
+    transition: fill 0.4s ease;
+  }
+
+  .act-2.is-transformed .act2-metric-card:nth-child(1) .act2-metric-icon-bg {
+    fill: url(#grad-check-gold);
+  }
+
+  .act2-metric-icon-without {
+    transition: opacity 0.3s ease;
+  }
+
+  .act2-metric-icon-with {
+    transition: opacity 0.3s ease 0.2s;
+  }
+
+  .act-2.is-transformed .act2-metric-icon-without {
+    opacity: 0;
+  }
+
+  .act-2.is-transformed .act2-metric-icon-with {
+    opacity: 1;
+  }
+
+  /* =============================================
+     OVERNIGHT COUNTER TRANSITIONS
+  ============================================= */
+  .act2-overnight-counter {
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+
+  .act-2.is-transformed .act2-overnight-counter {
+    background: rgba(255,170,43,0.06);
+    border-color: rgba(255,170,43,0.2);
+  }
+
+  .act-2.is-transformed .overnight-counter-number {
+    color: #ffaa2b;
+    transition: color 0.4s ease 0.2s;
+  }
+
+  .overnight-counter-label--gold {
+    color: #ffaa2b !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .overnight-counter-sub--gold {
+    color: #98a2b3 !important;
+  }
+
   /* =============================================
      COUNTER CARDS — STAGGER IN
   ============================================= */
@@ -946,7 +1235,7 @@
 
   /* Stagger cards start hidden */
   .stagger-card,
-  .stagger-card-3 {
+  .stagger-card-2 {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1),
@@ -954,7 +1243,7 @@
   }
 
   .stagger-card.card-visible,
-  .stagger-card-3.card-visible {
+  .stagger-card-2.card-visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -1031,42 +1320,6 @@
     border: 1px solid rgba(80,167,221,0.2);
   }
 
-  .counter-card--gold {
-    background: linear-gradient(135deg, rgba(255,170,43,0.09) 0%, rgba(9,22,35,0) 100%);
-    border: 1px solid rgba(255,170,43,0.27);
-  }
-
-  .counter-card--gold:hover {
-    box-shadow: 0 10px 36px rgba(255,170,43,0.14);
-  }
-
-  /* Shimmer overlay for Act 3 cards */
-  .shimmer-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      rgba(255,170,43,0.07) 50%,
-      transparent 60%
-    );
-    background-size: 200% 100%;
-    animation: shimmer-card-anim 3s linear infinite;
-    pointer-events: none;
-    border-radius: 16px;
-    opacity: 0;
-    transition: opacity 0.6s ease 0.8s;
-  }
-
-  .stagger-card-3.card-visible .shimmer-overlay {
-    opacity: 1;
-  }
-
-  @keyframes shimmer-card-anim {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-
   /* Card icons */
   .counter-card-icon {
     width: 48px;
@@ -1085,6 +1338,17 @@
   .counter-card-icon--blue { background: rgba(80,167,221,0.1); border: 1px solid rgba(80,167,221,0.15); }
   .counter-card-icon--gold { background: rgba(255,170,43,0.1); color: #ffaa2b; border: 1px solid rgba(255,170,43,0.2); }
   .counter-card-icon--gold-fill { background: rgba(255,170,43,0.1); border: 1px solid rgba(255,170,43,0.2); }
+
+  .act2-metric-icon {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+
+  .act-2.is-transformed .act2-metric-icon {
+    background: rgba(255,170,43,0.1);
+    border-color: rgba(255,170,43,0.2);
+  }
 
   .counter-card-body {
     display: flex;
@@ -1283,6 +1547,11 @@
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.06);
     margin-bottom: 2.5rem;
+    transition: border-color 0.4s ease;
+  }
+
+  .act-2.is-transformed .timeline-bar-wrap {
+    border-color: rgba(255,170,43,0.15);
   }
 
   .timeline-active {
@@ -1320,6 +1589,11 @@
     gap: 0.25rem;
     position: relative;
     overflow: hidden;
+    transition: background 0.6s ease;
+  }
+
+  .act-2.is-transformed .timeline-gap {
+    background: linear-gradient(180deg, rgba(255,170,43,0.06) 0%, rgba(255,170,43,0.02) 100%);
   }
 
   /* Animated fill bar */
@@ -1579,6 +1853,7 @@
     line-height: 1;
     color: #f04438;
     letter-spacing: -0.02em;
+    transition: color 0.4s ease 0.2s;
   }
 
   .overnight-counter-sub {
@@ -1587,119 +1862,7 @@
     margin-top: 0.375rem;
   }
 
-  /* =============================================
-     GOLD DIVIDER (Act 3 entry) — thicker + glow
-  ============================================= */
-  .gold-divider {
-    height: 6px;
-    background: transparent;
-    overflow: visible;
-    position: relative;
-  }
-
-  .gold-divider-line {
-    height: 100%;
-    background: linear-gradient(90deg, transparent, #ffaa2b 20%, #e69500 50%, #ffaa2b 80%, transparent);
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
-    box-shadow: 0 0 20px rgba(255,170,43,0.5), 0 0 40px rgba(255,170,43,0.2);
-  }
-
-  .act-3.is-active .gold-divider-line {
-    transform: scaleX(1);
-  }
-
-  /* =============================================
-     ACT 3 SCENARIO
-  ============================================= */
-  .act3-scenario {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 3.5rem;
-    max-width: 52rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (min-width: 768px) {
-    .act3-scenario {
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-  }
-
-  .act3-scenario-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .act3-event {
-    display: grid;
-    grid-template-columns: 76px 28px 1fr;
-    gap: 0.875rem;
-    align-items: start;
-  }
-
-  .act3-time {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #667085;
-    text-align: right;
-    padding-top: 0.625rem;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-
-  .act3-time--gold { color: #ffaa2b; }
-
-  .act3-connector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0.625rem;
-  }
-
-  .act3-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .act3-dot--gold { background: #ffaa2b; box-shadow: 0 0 10px rgba(255,170,43,0.6); }
-  .act3-dot--green { background: #17b26a; box-shadow: 0 0 10px rgba(23,178,106,0.6); }
-
-  .act3-line {
-    flex: 1;
-    width: 1px;
-    min-height: 2rem;
-    background: rgba(255,170,43,0.2);
-    margin-top: 4px;
-  }
-
-  .act3-line--green { background: rgba(23,178,106,0.2); }
-
-  .act3-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 10px;
-    padding: 0.875rem 1rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .act3-card--highlight {
-    border-color: rgba(255,170,43,0.25);
-    background: rgba(255,170,43,0.04);
-  }
-
-  .act3-card--win {
-    border-color: rgba(23,178,106,0.25);
-    background: rgba(23,178,106,0.05);
-  }
-
+  /* Act 3 card badge (reused in with-scenario) */
   .act3-card-badge {
     display: inline-flex;
     align-items: center;
@@ -1713,7 +1876,6 @@
     border: 1px solid rgba(23,178,106,0.2);
     border-radius: 9999px;
     padding: 0.2rem 0.5rem;
-    margin-bottom: 0.5rem;
   }
 
   .act3-card-badge--gold {
@@ -1722,85 +1884,18 @@
     border-color: rgba(255,170,43,0.2);
   }
 
-  .act3-card-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: #d0d5dd;
-    margin-bottom: 0.25rem;
-  }
-
-  .act3-card-title--gold { color: #ffaa2b; }
-
-  .act3-card-detail {
-    font-size: 0.8125rem;
-    color: #475467;
-    font-style: italic;
-  }
-
-  /* Overnight glow block */
-  .act3-overnight {
-    border-radius: 16px;
-    border: 1px solid rgba(255,170,43,0.25);
-    background: rgba(255,170,43,0.04);
-    padding: 2rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    align-content: center;
-  }
-
-  .act3-overnight-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,170,43,0.08) 0%, transparent 70%);
-    animation: overnight-pulse 3s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  @keyframes overnight-pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
-
-  .act3-overnight-content {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-  }
-
-  .act3-overnight-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 12px;
-    background: rgba(255,170,43,0.12);
-    border: 1px solid rgba(255,170,43,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffaa2b;
-    flex-shrink: 0;
-  }
-
-  .act3-overnight-icon svg { width: 26px; height: 26px; }
-
-  .act3-overnight-title {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 1.25rem;
-    color: #ffaa2b;
-    margin-bottom: 0.25rem;
-  }
-
-  .act3-overnight-sub { font-size: 0.875rem; color: #667085; }
-
   /* CTA */
   .act3-cta {
     display: flex;
     justify-content: center;
     margin-top: 3.5rem;
+  }
+
+  /* =============================================
+     ACT 2 METRICS AREA
+  ============================================= */
+  .act2-metrics {
+    margin-bottom: 2.5rem;
   }
 
   /* =============================================
@@ -1814,14 +1909,9 @@
     }
 
     .stagger-card,
-    .stagger-card-3 {
+    .stagger-card-2 {
       opacity: 1;
       transform: none;
-      transition: none;
-    }
-
-    .gold-divider-line {
-      transform: scaleX(1);
       transition: none;
     }
 
@@ -1829,8 +1919,6 @@
 
     .eyebrow-dot--gold,
     .eyebrow-dot--red { animation: none; }
-
-    .act3-overnight-glow { animation: none; opacity: 0.8; }
 
     .pulse-ring { animation: none; }
 
@@ -1843,20 +1931,27 @@
 
     .lead-envelope-icon { animation: none; }
 
-    .shimmer-overlay { display: none; }
-
     .timeline-gap-fill { width: 100%; transition: none; }
+
+    .timeline-gap-gold-fill { transition: none; }
+
+    .act2-gold-overlay { transition: none; }
+    .act2-without-content, .act2-with-content { transition: none; }
+    .act2-metric-card { transition: none; }
+    .act2-metric-number { transition: none; }
+    .act2-overnight-counter { transition: none; }
+    .overnight-counter-number { transition: none; }
   }
 </style>
 
 <script>
 (function () {
-  // ── Utility: ease-out cubic ──────────────────────────────────────────────
+  // -- Utility: ease-out cubic
   function easeOutCubic(t: number): number {
     return 1 - Math.pow(1 - t, 3);
   }
 
-  // ── Counter animation ────────────────────────────────────────────────────
+  // -- Counter animation
   function animateCounter(el: HTMLElement, start: number, target: number, duration: number = 2000): void {
     const startTime = performance.now();
 
@@ -1875,7 +1970,7 @@
     requestAnimationFrame(step);
   }
 
-  // ── Typewriter ────────────────────────────────────────────────────────────
+  // -- Typewriter
   const twInner = document.getElementById('tw-inner') as HTMLElement | null;
   const twParent = twInner?.parentElement as HTMLElement | null;
   let typewriterDone = false;
@@ -1895,10 +1990,10 @@
     }, 42);
   }
 
-  // ── Track which acts have animated ──────────────────────────────────────
+  // -- Track which acts have animated
   const animated = new WeakSet<Element>();
 
-  // ── Stagger counter cards ────────────────────────────────────────────────
+  // -- Stagger counter cards
   function staggerCards(act: Element, selector: string): void {
     const cards = act.querySelectorAll<HTMLElement>(selector);
     cards.forEach((card) => {
@@ -1909,7 +2004,58 @@
     });
   }
 
-  // ── Activate an act ─────────────────────────────────────────────────────
+  // -- Act 2 transform state
+  let isAct2Transformed = false;
+  const act2El = document.getElementById('act-2') as HTMLElement | null;
+  const toggleWithout = document.getElementById('toggle-without') as HTMLButtonElement | null;
+  const toggleWith = document.getElementById('toggle-with') as HTMLButtonElement | null;
+
+  function setAct2State(transformed: boolean): void {
+    if (!act2El) return;
+    isAct2Transformed = transformed;
+
+    if (transformed) {
+      act2El.classList.add('is-transformed');
+      toggleWithout?.classList.remove('is-active-tab');
+      toggleWith?.classList.add('is-active-tab');
+      toggleWithout?.setAttribute('aria-pressed', 'false');
+      toggleWith?.setAttribute('aria-pressed', 'true');
+    } else {
+      act2El.classList.remove('is-transformed');
+      toggleWithout?.classList.add('is-active-tab');
+      toggleWith?.classList.remove('is-active-tab');
+      toggleWithout?.setAttribute('aria-pressed', 'true');
+      toggleWith?.setAttribute('aria-pressed', 'false');
+    }
+
+    // Animate the act2 counters to new targets
+    const counters = act2El.querySelectorAll<HTMLElement>('.act2-counter');
+    counters.forEach((el) => {
+      const currentVal = parseInt(el.textContent || '0', 10);
+      const targetVal = parseInt(
+        transformed ? (el.dataset.targetWith || '0') : (el.dataset.targetWithout || '0'),
+        10
+      );
+      animateCounter(el, currentVal, targetVal, 1200);
+    });
+
+    // Animate overnight counter
+    const overnightNum = act2El.querySelector<HTMLElement>('.act2-overnight-num');
+    if (overnightNum) {
+      const currentVal = parseInt(overnightNum.textContent || '0', 10);
+      const targetVal = parseInt(
+        transformed ? (overnightNum.dataset.targetWith || '0') : (overnightNum.dataset.targetWithout || '0'),
+        10
+      );
+      animateCounter(overnightNum, currentVal, targetVal, 1200);
+    }
+  }
+
+  // Toggle button click handlers
+  toggleWithout?.addEventListener('click', () => setAct2State(false));
+  toggleWith?.addEventListener('click', () => setAct2State(true));
+
+  // -- Activate an act
   function activateAct(act: Element): void {
     if (animated.has(act)) return;
     animated.add(act);
@@ -1919,34 +2065,49 @@
     const actId = act.id;
 
     // Animate counters with stagger
-    act.querySelectorAll<HTMLElement>('.counter[data-target]').forEach((el) => {
-      const target = parseInt(el.dataset.target || '0', 10);
-      const start = parseInt(el.dataset.start || el.textContent || '0', 10);
-      const cardEl = el.closest<HTMLElement>('.stagger-card, .stagger-card-3');
-      const cardDelay = cardEl ? parseInt(cardEl.dataset.stagger || '0', 10) : 0;
-
-      setTimeout(() => {
-        animateCounter(el, start, target, 1800);
-      }, 200 + cardDelay);
-    });
-
-    // Stagger cards for Act 1
     if (actId === 'act-1') {
+      act.querySelectorAll<HTMLElement>('.counter[data-target]').forEach((el) => {
+        const target = parseInt(el.dataset.target || '0', 10);
+        const start = parseInt(el.dataset.start || el.textContent || '0', 10);
+        const cardEl = el.closest<HTMLElement>('.stagger-card');
+        const cardDelay = cardEl ? parseInt(cardEl.dataset.stagger || '0', 10) : 0;
+
+        setTimeout(() => {
+          animateCounter(el, start, target, 1800);
+        }, 200 + cardDelay);
+      });
+
       staggerCards(act, '.stagger-card');
     }
 
-    // Stagger + shimmer cards for Act 3
-    if (actId === 'act-3') {
-      staggerCards(act, '.stagger-card-3');
-    }
-
-    // Typewriter fires when Act 2 activates
+    // Act 2: animate the "without" state counters initially
     if (actId === 'act-2') {
       setTimeout(runTypewriter, 600);
+
+      staggerCards(act, '.stagger-card-2');
+
+      // Animate act2 counters to "without" values initially
+      act.querySelectorAll<HTMLElement>('.act2-counter').forEach((el) => {
+        const targetVal = parseInt(el.dataset.targetWithout || '0', 10);
+        const cardEl = el.closest<HTMLElement>('.stagger-card-2');
+        const cardDelay = cardEl ? parseInt(cardEl.dataset.stagger || '0', 10) : 0;
+        setTimeout(() => {
+          animateCounter(el, 0, targetVal, 1800);
+        }, 200 + cardDelay);
+      });
+
+      // Animate overnight counter
+      const overnightNum = act.querySelector<HTMLElement>('.act2-overnight-num');
+      if (overnightNum) {
+        const targetVal = parseInt(overnightNum.dataset.targetWithout || '0', 10);
+        setTimeout(() => {
+          animateCounter(overnightNum, 0, targetVal, 1800);
+        }, 400);
+      }
     }
   }
 
-  // ── Progress bar ─────────────────────────────────────────────────────────
+  // -- Progress bar
   const progressBar = document.getElementById('st-progress') as HTMLElement | null;
   const progressFill = document.getElementById('st-progress-fill') as HTMLElement | null;
   const section = document.querySelector('.scrollytelling-section') as HTMLElement | null;
@@ -1972,14 +2133,14 @@
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
-  // ── "See the difference" button ──────────────────────────────────────────
+  // -- "See the difference" button
   const seeDiffBtn = document.getElementById('see-diff-btn');
   seeDiffBtn?.addEventListener('click', () => {
-    const act3 = document.getElementById('act-3');
-    act3?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const act2 = document.getElementById('act-2');
+    act2?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // ── IntersectionObserver (own instance) ─────────────────────────────────
+  // -- IntersectionObserver for act activation
   const sentinels = document.querySelectorAll<HTMLElement>('.act-sentinel');
   if (!sentinels.length) return;
 
@@ -2004,5 +2165,24 @@
   sentinels.forEach((sentinel) => {
     observer.observe(sentinel);
   });
+
+  // -- IntersectionObserver for Act 2 transform (at 50% scroll point)
+  const transformSentinel = document.getElementById('act2-transform-sentinel');
+  if (transformSentinel) {
+    const transformObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isAct2Transformed) {
+            setAct2State(true);
+          }
+        });
+      },
+      {
+        threshold: [0],
+        rootMargin: '0px 0px 0px 0px',
+      }
+    );
+    transformObserver.observe(transformSentinel);
+  }
 })();
 </script>
