@@ -8,6 +8,7 @@ import ServiceCard from "@components/ServiceCard.astro";
 import YouTubeEmbed from "@components/YouTubeEmbed.astro";
 import TestimonialCard from "@components/TestimonialCard.astro";
 import CTABanner from "@components/CTABanner.astro";
+import Scrollytelling from "@components/Scrollytelling.astro";
 import { fetchFeaturedTestimonials } from "@lib/hubspot";
 
 let testimonials: any[] = [];
@@ -190,6 +191,9 @@ try {
       </div>
     </div>
   </section>
+
+  <!-- Scrollytelling -->
+  <Scrollytelling />
 
   <!-- Services Grid -->
   <section class="section-padding bg-white">
