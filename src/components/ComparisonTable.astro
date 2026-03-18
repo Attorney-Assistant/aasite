@@ -1,42 +1,60 @@
 ---
 const rows = [
-  { feature: "Monthly Cost", impact: "Starting at $1,500/mo", inHouse: "$4,000–$6,000+/mo" },
-  { feature: "Training & Onboarding", impact: "Fully trained & ready", inHouse: "Weeks to months" },
-  { feature: "Availability", impact: "24/7 coverage available", inHouse: "Business hours only" },
-  { feature: "Scalability", impact: "Scale up/down instantly", inHouse: "Hiring takes weeks" },
-  { feature: "Management Overhead", impact: "We handle everything", inHouse: "You manage directly" },
-  { feature: "Quality Assurance", impact: "Built-in QA process", inHouse: "Self-monitored" },
+  { feature: "Monthly Cost", impact: "Starting at $1,500/mo", inHouse: "$4,000–$6,000+/mo", winner: "impact" },
+  { feature: "Training & Onboarding", impact: "Fully trained & ready", inHouse: "Weeks to months", winner: "impact" },
+  { feature: "Availability", impact: "24/7 coverage available", inHouse: "Business hours only", winner: "impact" },
+  { feature: "Scalability", impact: "Scale up/down instantly", inHouse: "Hiring takes weeks", winner: "impact" },
+  { feature: "Management Overhead", impact: "We handle everything", inHouse: "You manage directly", winner: "impact" },
+  { feature: "Quality Assurance", impact: "Built-in QA process", inHouse: "Self-monitored", winner: "impact" },
 ];
 ---
 
-<section class="py-16 lg:py-24 bg-white">
+<section class="section-padding bg-white">
   <div class="container-wide">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4">
-        Your <em class="not-italic text-brand-gold italic">Custom</em> Team vs. <em class="not-italic text-brand-blue italic">In-House</em>
+    <div class="text-center mb-12 reveal">
+      <span class="badge badge-brand mb-4">Compare</span>
+      <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">
+        Your Custom Team vs. In-House
       </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">See how a tailored combination of Impact Assistants and per-task services compares to traditional in-house hires.</p>
+      <div class="divider-gold-center mt-4 mb-5"></div>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto">See how a tailored combination of dedicated assistants and per-task services compares to traditional in-house hires.</p>
     </div>
 
-    <div class="max-w-4xl mx-auto overflow-x-auto">
-      <table class="w-full border-collapse">
-        <thead>
-          <tr>
-            <th class="text-left py-4 px-6 bg-brand-navy text-white font-heading rounded-tl-lg">Feature</th>
-            <th class="text-left py-4 px-6 bg-brand-gold text-brand-black font-heading">Impact Assistant</th>
-            <th class="text-left py-4 px-6 bg-gray-200 text-gray-700 font-heading rounded-tr-lg">In-House Hire</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <tr class:list={[i % 2 === 0 ? "bg-gray-50" : "bg-white"]}>
-              <td class="py-4 px-6 font-semibold text-brand-black">{row.feature}</td>
-              <td class="py-4 px-6 text-brand-navy font-medium">{row.impact}</td>
-              <td class="py-4 px-6 text-gray-500">{row.inHouse}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div class="max-w-4xl mx-auto reveal" style="transition-delay: 150ms">
+      <div class="card overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-gray-200">
+                <th class="text-left py-4 px-6 text-xs font-semibold uppercase tracking-widest text-gray-400">Feature</th>
+                <th class="text-left py-4 px-6 text-xs font-semibold uppercase tracking-widest text-brand-navy bg-brand-25">
+                  <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" /></svg>
+                    Attorney Assistant
+                  </div>
+                </th>
+                <th class="text-left py-4 px-6 text-xs font-semibold uppercase tracking-widest text-gray-400">In-House Hire</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr class:list={["transition-colors hover:bg-gray-50/50", i < rows.length - 1 ? "border-b border-gray-100" : ""]}>
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900">{row.feature}</td>
+                  <td class="py-4 px-6 text-sm font-medium text-brand-700 bg-brand-25">
+                    <div class="flex items-center gap-2">
+                      <svg class="w-4 h-4 text-success-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                      </svg>
+                      {row.impact}
+                    </div>
+                  </td>
+                  <td class="py-4 px-6 text-sm text-gray-400">{row.inHouse}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </section>
