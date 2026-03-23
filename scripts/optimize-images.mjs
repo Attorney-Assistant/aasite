@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = join(__dirname, '..', 'public');
-const SKIP_DIRS = ['brand/logos']; // Already have WebP versions
+const SKIP_DIRS = ['brand/logos', 'legacy', 'wp-content/uploads'];
 const CONVERTIBLE_EXTS = new Set(['.png', '.jpg', '.jpeg']);
 const WEBP_QUALITY = 80;
 
