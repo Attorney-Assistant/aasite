@@ -11,6 +11,13 @@ const config: StorybookConfig = {
     name: "@storybook/html-vite",
     options: {},
   },
+  staticDirs: [
+    {
+      from: "../public",
+      to: "/",
+      globOptions: { ignore: ["**/wp-content/uploads/**"] },
+    },
+  ],
 };
 
 export default config;
