@@ -12,11 +12,8 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: [
-    {
-      from: "../public",
-      to: "/",
-      globOptions: { ignore: ["**/wp-content/uploads/**"] },
-    },
+    { from: "../public/brand", to: "/brand" },
+    { from: "../public/icons", to: "/icons" },
   ],
 };
 

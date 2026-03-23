@@ -1,6 +1,17 @@
 const API_KEY = import.meta.env.BABYLOVEGROWTH;
 const BASE_URL = "https://api.babylovegrowth.ai/api/integrations";
 
+function stripMarkdown(md: string): string {
+  return md
+    .replace(/!\[.*?\]\(.*?\)/g, "")     // images
+    .replace(/\[([^\]]+)\]\(.*?\)/g, "$1") // links → text
+    .replace(/#{1,6}\s+/g, "")            // headings
+    .replace(/[*_~`]/g, "")               // formatting
+    .replace(/\n+/g, " ")                 // newlines
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 interface BLGArticleSummary {
   id: string;
   title: string;
@@ -58,18 +69,23 @@ export async function fetchBLGArticles() {
     slug: article.slug,
     title: article.title,
     postBody: article.content_html,
-    excerpt: article.excerpt || article.meta_description || "",
+    excerpt: article.meta_description || stripMarkdown(article.excerpt) || "",
     featuredImage: article.hero_image_url || null,
     publishedDate: article.created_at,
     authorName: "Attorney Assistant",
     authorAvatar: null as string | null,
-    tags: article.keywords.map((kw, i) => ({
-      id: i,
-      name: kw,
-      slug: kw.toLowerCase().replace(/\s+/g, "-"),
-    })),
+    tags: [
+      ...(article.seedKeyword ? [{ id: -1, name: article.seedKeyword, slug: article.seedKeyword.toLowerCase().replace(/\s+/g, "-") }] : []),
+      ...article.keywords
+        .filter((kw) => kw.toLowerCase() !== article.seedKeyword?.toLowerCase())
+        .map((kw, i) => ({
+          id: i,
+          name: kw,
+          slug: kw.toLowerCase().replace(/\s+/g, "-"),
+        })),
+    ],
     seoTitle: article.title,
-    seoDescription: article.meta_description || article.excerpt || "",
+    seoDescription: article.meta_description || stripMarkdown(article.excerpt) || "",
     source: "babylovegrowth" as const,
   }));
 }
