@@ -77,13 +77,10 @@ const milestones = [
       <div class="os-founding-grid">
         <div class="os-founding-visual">
           <div class="os-visual-scene">
-            <!-- Animated gavel -->
-            <div class="os-icon-gavel">
-              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="22" y="60" width="36" height="6" rx="3" fill="#1a3a5c" opacity="0.15"/>
-                <rect x="36" y="48" width="8" height="16" rx="2" fill="#1a3a5c" opacity="0.3"/>
-                <rect x="18" y="22" width="44" height="14" rx="5" fill="#1a3a5c" transform="rotate(-35 40 29)" opacity="0.9"/>
-                <circle cx="56" cy="16" r="8" fill="#F9A630" opacity="0.8"/>
+            <!-- Floating scale icon -->
+            <div class="os-float-badge os-float-badge--4">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/>
               </svg>
             </div>
             <!-- Animated connection lines -->
@@ -374,20 +371,12 @@ const milestones = [
     height: 100%;
   }
 
-  .os-icon-gavel {
-    position: absolute;
-    top: 8%;
-    right: 12%;
-    width: 60px;
-    height: 60px;
-    animation: osGavel 4s ease-in-out infinite;
-  }
-
-  @keyframes osGavel {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-12deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(6deg); }
+  .os-float-badge--4 {
+    top: 10%;
+    right: 15%;
+    background: linear-gradient(135deg, #fef6e8, #fdedc8);
+    color: #b45309;
+    animation: osFloatBadge3 5.5s ease-in-out infinite;
   }
 
   .os-icon-center {
