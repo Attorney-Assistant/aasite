@@ -26,10 +26,14 @@ try {
   <section class="relative overflow-hidden bg-brand-950 grain-overlay">
     <!-- Background elements -->
     <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <!-- Subtle animated grid -->
+    <div class="hero-grid" aria-hidden="true"></div>
     <!-- Floating orbs sit above the gradient -->
     <div class="home-hero-orb home-hero-orb--1" aria-hidden="true"></div>
     <div class="home-hero-orb home-hero-orb--2" aria-hidden="true"></div>
     <div class="home-hero-orb home-hero-orb--3" aria-hidden="true"></div>
+    <!-- Horizontal scan line -->
+    <div class="hero-scanline" aria-hidden="true"></div>
 
     <div class="container-wide relative z-10 py-14 lg:py-20">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
@@ -67,24 +71,24 @@ try {
           </div>
 
           <!-- Stats -->
-          <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/10 reveal" style="transition-delay: 400ms">
+          <div class="hero-stats grid grid-cols-3 gap-6 pt-8 border-t border-white/10 reveal" style="transition-delay: 400ms">
             <div>
-              <p class="text-display-xs md:text-display-sm text-white font-heading">60%+</p>
+              <p class="text-display-xs md:text-display-sm text-white font-heading hero-stat" data-target="60" data-suffix="%+">0%+</p>
               <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Cost Savings</p>
             </div>
             <div>
-              <p class="text-display-xs md:text-display-sm text-white font-heading">200+</p>
+              <p class="text-display-xs md:text-display-sm text-white font-heading hero-stat" data-target="200" data-suffix="+">0+</p>
               <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Law Firms</p>
             </div>
             <div>
-              <p class="text-display-xs md:text-display-sm text-white font-heading">1000s</p>
+              <p class="text-display-xs md:text-display-sm text-white font-heading hero-stat" data-target="1000" data-suffix="s">0s</p>
               <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Hours Saved</p>
             </div>
           </div>
         </div>
 
         <!-- Right: HubSpot Form Card -->
-        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl ring-1 ring-white/10 reveal-scale" style="transition-delay: 200ms">
+        <div class="hero-form-card bg-white rounded-2xl p-6 md:p-8 shadow-2xl ring-1 ring-white/10 reveal-scale" style="transition-delay: 200ms">
           <div class="mb-5">
             <h2 class="text-xl font-heading text-gray-900 mb-1">Get Started</h2>
             <p class="text-sm text-gray-500"><a href="/book-call" class="text-brand-blue underline hover:text-brand-navy transition-colors">Book a call</a> or submit the form and we'll reach out.</p>
@@ -415,6 +419,74 @@ try {
   }
   @media (prefers-reduced-motion: reduce) {
     .home-hero-orb { animation: none; }
+    .hero-scanline { display: none; }
+    .hero-grid { display: none; }
+  }
+
+  /* ── Subtle grid pattern ── */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 80%);
+    animation: heroGridDrift 20s linear infinite;
+  }
+  @keyframes heroGridDrift {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 60px 60px, 60px 60px; }
+  }
+
+  /* ── Horizontal scan line ── */
+  .hero-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    z-index: 2;
+    background: linear-gradient(90deg, transparent 0%, rgba(249,166,48,0.15) 20%, rgba(80,167,221,0.2) 50%, rgba(249,166,48,0.15) 80%, transparent 100%);
+    animation: heroScan 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes heroScan {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* ── Gold text shimmer ── */
+  .text-gradient-gold {
+    background-size: 200% 100%;
+    animation: heroGoldShimmer 4s ease-in-out infinite;
+  }
+  @keyframes heroGoldShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ── Form card glow pulse ── */
+  .hero-form-card {
+    position: relative;
+  }
+  .hero-form-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(249,166,48,0.3), rgba(80,167,221,0.3), rgba(249,166,48,0.3));
+    background-size: 200% 200%;
+    z-index: -1;
+    animation: heroCardGlow 5s ease-in-out infinite;
+    opacity: 0.5;
+  }
+  @keyframes heroCardGlow {
+    0%, 100% { background-position: 0% 50%; opacity: 0.3; }
+    50% { background-position: 100% 50%; opacity: 0.6; }
   }
 
   /* ── Three Problems cards ── */
@@ -735,5 +807,38 @@ try {
   }
 
   var timer = setInterval(rotate, DISPLAY_MS + TRANSITION_MS);
+})();
+</script>
+
+<script is:inline>
+(function () {
+  var stats = document.querySelectorAll('.hero-stat');
+  if (!stats.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1600;
+        var start = performance.now();
+
+        function step(now) {
+          var elapsed = now - start;
+          var progress = Math.min(elapsed / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.round(eased * target);
+          el.textContent = current + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  stats.forEach(function (el) { observer.observe(el); });
 })();
 </script>

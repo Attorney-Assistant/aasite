@@ -57,7 +57,7 @@ Custom pricing based on firm size, services needed, and hours required. Options 
 - **Email**: info@attorneyassistant.com
 - **Address**: 21 East 5th Avenue Suite 102, Conshohocken, PA 19428
 - **Book a Call**: https://attorneyassistant.com/book-call
-- **LinkedIn**: https://www.linkedin.com/company/attorney-assistant
+- **LinkedIn**: https://www.linkedin.com/company/attorneyassistant/
 - **YouTube**: https://www.youtube.com/@attorneyassistant
 - **Instagram**: https://www.instagram.com/attorneyassistant
 - **Facebook**: https://web.facebook.com/attyassistant/

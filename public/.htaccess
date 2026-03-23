@@ -1,6 +1,8 @@
 # Redirect rules for Attorney Assistant
 # Auto-generated - do not edit manually
 
+ErrorDocument 404 /404.html
+
 RewriteEngine On
 
 # ── Capital-B /Blog/ → lowercase /blog/ redirects ──
