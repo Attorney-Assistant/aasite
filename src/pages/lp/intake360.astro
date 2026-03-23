@@ -1,0 +1,511 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Intake360 — 24/7 Pay-Per-Task Legal Intake | Attorney Assistant"
+  description="Never miss a call again. Intake360 offers 24/7 as-needed legal intake and reception services on a credit-based pricing model. Pay only for what you use."
+>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gray-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-gray-900 to-brand-800"></div>
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal">
+          <h1 class="text-display-lg md:text-display-xl font-heading text-white leading-tight mb-6">
+            Never Miss a Call Again&mdash;<br />
+            <span class="text-gradient-gold">24/7 Support, Pay Per Task</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            Every call is a potential client. Every missed call is a lost opportunity. Intake360 offers 24/7 as-needed legal intake and reception services to ensure no lead slips through the cracks.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#pricing" class="btn-primary btn-lg group">
+              View Pricing
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+            <a href="#get-started" class="btn-secondary-dark btn-lg">Get Started</a>
+          </div>
+        </div>
+        <!-- Credits Summary Card -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl reveal" style="transition-delay: 150ms" id="pricing">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="featured-icon featured-icon-md featured-icon-gold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-heading text-gray-900">Intake360 Starter Package</h2>
+              <p class="text-sm text-gray-500">Pay only for what you use</p>
+            </div>
+          </div>
+          <div class="bg-gradient-to-br from-brand-navy to-brand-800 rounded-xl p-6 mb-6 text-center">
+            <div class="text-display-md font-heading text-white mb-1">$3,600</div>
+            <div class="flex items-center justify-center gap-4 text-sm text-white/60">
+              <span><strong class="text-white">360</strong> Credits</span>
+              <span class="w-1 h-1 rounded-full bg-white/30"></span>
+              <span><strong class="text-white">$10.00</strong> per Credit</span>
+            </div>
+          </div>
+          <a href="#get-started" class="btn-primary w-full justify-center group mb-3">
+            Get Started
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+          <p class="text-xs text-gray-400 text-center">No long-term commitment required</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credits Breakdown Table -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3 reveal">Pricing</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms">How Credits Work</h2>
+        <div class="divider-gold-center mb-6"></div>
+        <p class="text-gray-500 max-w-2xl mx-auto reveal" style="transition-delay: 120ms">Simple, transparent pricing. You only pay for completed tasks — no hourly minimums, no wasted spend.</p>
+      </div>
+
+      <div class="overflow-x-auto reveal" style="transition-delay: 160ms">
+        <table class="i360-table">
+          <thead>
+            <tr>
+              <th>Service Category</th>
+              <th>What's Included</th>
+              <th>Common Use Case</th>
+              <th>Credits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="i360-category i360-category--reception">Reception</span>
+              </td>
+              <td>Non-Intake Call</td>
+              <td>
+                <ul class="i360-list">
+                  <li>Pure Reception</li>
+                  <li>Existing Client</li>
+                  <li>Admin Call</li>
+                </ul>
+              </td>
+              <td>
+                <div class="i360-credits">
+                  <span>Human: <strong>1.0</strong></span>
+                  <span>Warm Transfer: <strong>1.5</strong></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="i360-category i360-category--outbound">Unsuccessful Outbound</span>
+              </td>
+              <td>5 Attempts with No Contact</td>
+              <td class="text-gray-400">N/A</td>
+              <td>
+                <div class="i360-credits">
+                  <strong>1.0</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="i360-category i360-category--evaluation">Evaluation</span>
+              </td>
+              <td>Intake Call &mdash; Not Signed</td>
+              <td>
+                <ul class="i360-list">
+                  <li>Unsigned Qualified Lead</li>
+                  <li>Lead Flagged for Review</li>
+                  <li>Appointment Scheduled</li>
+                </ul>
+              </td>
+              <td>
+                <div class="i360-credits">
+                  <span>Inbound: <strong>3</strong></span>
+                  <span>Outbound: <strong>4</strong></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="i360-category i360-category--conversion">Conversion</span>
+              </td>
+              <td>Client Signed</td>
+              <td>
+                <ul class="i360-list">
+                  <li>Signed CFA</li>
+                </ul>
+              </td>
+              <td>
+                <div class="i360-credits">
+                  <span>Inbound: <strong>7</strong></span>
+                  <span>Outbound: <strong>8</strong></span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section class="section-padding bg-gray-50 border-y border-gray-200">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3 reveal">Full-Service Intake</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms">What You Get with Intake360</h2>
+        <div class="divider-gold-center mb-6"></div>
+        <p class="text-gray-500 max-w-2xl mx-auto reveal" style="transition-delay: 120ms">
+          Your on-demand legal intake and reception partner, ready to act as an extension of your team exactly when you need it most.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 24/7 Live Answering -->
+        <div class="card p-6 reveal" style="transition-delay: 0ms">
+          <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+          </div>
+          <h3 class="font-heading text-lg text-gray-900 mb-2">24/7 Live Answering & Web Form Response</h3>
+          <p class="text-sm text-gray-500">We cover your phones and web submissions day, night, weekends, and holidays.</p>
+        </div>
+
+        <!-- Inbound Call Handling -->
+        <div class="card p-6 reveal" style="transition-delay: 80ms">
+          <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0l-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.055.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z" /></svg>
+          </div>
+          <h3 class="font-heading text-lg text-gray-900 mb-2">Inbound Call Handling</h3>
+          <ul class="text-sm text-gray-500 space-y-1">
+            <li>Live client intake</li>
+            <li>Appointment scheduling</li>
+            <li>Retainer signature coordination</li>
+          </ul>
+        </div>
+
+        <!-- Outbound Follow-up -->
+        <div class="card p-6 reveal" style="transition-delay: 160ms">
+          <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
+          </div>
+          <h3 class="font-heading text-lg text-gray-900 mb-2">Outbound Follow-up</h3>
+          <ul class="text-sm text-gray-500 space-y-1">
+            <li>Form submissions</li>
+            <li>Campaign responses</li>
+            <li>CRM-triggered leads</li>
+          </ul>
+        </div>
+
+        <!-- Case Pre-Qualification -->
+        <div class="card p-6 reveal" style="transition-delay: 0ms">
+          <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+          </div>
+          <h3 class="font-heading text-lg text-gray-900 mb-2">Case Pre-Qualification & Warm Transfers</h3>
+          <p class="text-sm text-gray-500">We assess potential cases based on your firm's criteria, ensuring strong leads reach you fast.</p>
+        </div>
+
+        <!-- Google Review Retrieval -->
+        <div class="card p-6 reveal" style="transition-delay: 80ms">
+          <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
+          </div>
+          <h3 class="font-heading text-lg text-gray-900 mb-2">Google Review Retrieval</h3>
+          <p class="text-sm text-gray-500">By request, we'll help secure client reviews to boost your firm's online reputation.</p>
+        </div>
+
+        <!-- CRM Integration -->
+        <div class="card p-6 reveal" style="transition-delay: 160ms">
+          <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>
+          </div>
+          <h3 class="font-heading text-lg text-gray-900 mb-2">Seamless CRM Integration</h3>
+          <ul class="text-sm text-gray-500 space-y-1">
+            <li>Call recordings</li>
+            <li>Intake notes</li>
+            <li>Client details synced via Zapier or Make</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hiring Closers -->
+  <section class="relative overflow-hidden bg-brand-950 grain-overlay">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent"></div>
+      <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-brand-gold/[0.03] blur-3xl"></div>
+    </div>
+    <div class="container-wide relative z-10 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">The Intake360 Difference</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-6">
+            You're Hiring Closers&mdash;<br />
+            <span class="text-gradient-gold">Not Call Answerers</span>
+          </h2>
+          <p class="text-white/60 text-lg leading-relaxed mb-8">
+            Every lead matters. Intake360 is built on a team of professional intake specialists who have collectively conducted tens of thousands of legal intakes &mdash; not just answering phones, but converting leads into signed cases.
+          </p>
+          <p class="text-white/50 leading-relaxed">
+            This isn't a call center &mdash; it's a battle-tested intake team trained at Ethen Ostroff Law, now working full-time inside Intake360.
+          </p>
+        </div>
+        <div class="reveal" style="transition-delay: 150ms">
+          <div class="grid grid-cols-1 gap-4">
+            <div class="flex items-center gap-4 bg-white/[0.06] backdrop-blur-sm rounded-xl p-5 border border-white/[0.08]">
+              <div class="featured-icon featured-icon-md featured-icon-gold flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+              </div>
+              <div>
+                <p class="font-heading text-white">Human Closers</p>
+                <p class="text-sm text-white/40">Real people trained in legal intake, not bots</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-white/[0.06] backdrop-blur-sm rounded-xl p-5 border border-white/[0.08]">
+              <div class="featured-icon featured-icon-md featured-icon-gold flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+              </div>
+              <div>
+                <p class="font-heading text-white">Legal Fluency</p>
+                <p class="text-sm text-white/40">Trained in terminology, compliance, and workflows</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 bg-white/[0.06] backdrop-blur-sm rounded-xl p-5 border border-white/[0.08]">
+              <div class="featured-icon featured-icon-md featured-icon-gold flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+              </div>
+              <div>
+                <p class="font-heading text-white">Proven Results</p>
+                <p class="text-sm text-white/40">Tens of thousands of intakes completed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="section-padding bg-white">
+    <div class="container-narrow text-center reveal">
+      <div class="flex justify-center gap-1 text-brand-gold mb-6">
+        {[1,2,3,4,5].map(() => (
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+        ))}
+      </div>
+      <blockquote class="text-xl md:text-2xl font-heading text-gray-900 mb-8 leading-relaxed">
+        &ldquo;10/10 would recommend AA to any firm looking for extra help on operations, accounting, marketing, etc.&rdquo;
+      </blockquote>
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-brand-navy flex items-center justify-center text-white font-heading text-sm">BL</div>
+        <div class="text-left">
+          <p class="font-heading text-gray-900 text-sm">Brianne Lee</p>
+          <div class="flex items-center gap-2">
+            <img src="/wp-content/uploads/logos/RCG-logo.webp" alt="RCG Law Group" class="h-4 w-auto opacity-60" />
+            <span class="text-xs text-gray-400">RCG Law Group</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started Form -->
+  <section class="section-padding bg-gray-50 border-t border-gray-200" id="get-started">
+    <div class="container-narrow">
+      <div class="text-center mb-10">
+        <span class="badge badge-brand mb-3 reveal">Ready to Get Started?</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms">
+          Fill Out the Form Below
+        </h2>
+        <div class="divider-gold-center mb-6"></div>
+        <p class="text-gray-500 max-w-lg mx-auto reveal" style="transition-delay: 120ms">
+          Our team will be in touch within one business day.
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto reveal" style="transition-delay: 160ms">
+        <div class="card p-6 md:p-8">
+          <div id="form-container-e4e626f5-36fa-4f8c-891d-d9ce0646f58d"></div>
+        </div>
+        <p class="text-xs text-gray-400 text-center mt-4">
+          By submitting, you agree to our <a href="/intake-360-terms" class="text-brand-700 hover:text-brand-800 underline">Intake360 Terms & Conditions</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PandaDoc Form Embed -->
+  <script is:inline>
+    (function () {
+      var config = {
+        nodeId: 'form-container-e4e626f5-36fa-4f8c-891d-d9ce0646f58d',
+        width: '100%',
+        height: '700px',
+        url: 'https://eform.pandadoc.com/?eform=1997647d-97ee-4b78-b55f-87969dc499f0',
+        events: {
+          loaded: function () {},
+          started: function (data) {},
+          completed: function (data) {
+            if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+            if (typeof mixpanel !== 'undefined') mixpanel.track('Intake360 Form Completed');
+          },
+          exception: function (data) {}
+        },
+        data: {},
+      };
+      var dataQueryString = config.data ? Object.keys(config.data)
+        .map(function (key) {
+          return '&' + key + '=' + encodeURIComponent(JSON.stringify(config.data[key]));
+        })
+        .join('') : '';
+      var iframe = document.createElement('iframe');
+      iframe.frameBorder = 0;
+      iframe.src = config.url + dataQueryString;
+      if (config.nodeId) {
+        var node = document.getElementById(config.nodeId);
+        node.style.height = config.height;
+        node.style.width = config.width;
+        iframe.height = '100%';
+        iframe.width = '100%';
+        node.append(iframe);
+      }
+      var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
+      var messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
+      window[eventMethod](messageEvent, function (e) {
+        if (e && e.data && config && iframe && e.source === iframe.contentWindow) {
+          try {
+            var message = JSON.parse(e.data);
+            if (message && message.event) {
+              var event = message.event.replace('embed.form.', '');
+              var callback = config.events ? config.events[event] : null;
+              if (callback) {
+                callback(message.data);
+              }
+            }
+          } catch (e) {}
+        }
+      }, false);
+    })();
+  </script>
+
+</BaseLayout>
+
+<style>
+  /* Credits Table */
+  .i360-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #eaecf0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+
+  .i360-table thead {
+    background: #f9fafb;
+  }
+
+  .i360-table th {
+    padding: 0.875rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: #344054;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #eaecf0;
+  }
+
+  .i360-table td {
+    padding: 1rem 1.25rem;
+    color: #475467;
+    border-bottom: 1px solid #f2f4f7;
+    vertical-align: top;
+  }
+
+  .i360-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .i360-table tbody tr:hover {
+    background: #f9fafb;
+  }
+
+  .i360-category {
+    display: inline-flex;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .i360-category--reception {
+    background: #ecfdf3;
+    color: #027a48;
+  }
+
+  .i360-category--outbound {
+    background: #fef3f2;
+    color: #b42318;
+  }
+
+  .i360-category--evaluation {
+    background: #eff8ff;
+    color: #175cd3;
+  }
+
+  .i360-category--conversion {
+    background: #fef6e8;
+    color: #b54708;
+  }
+
+  .i360-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .i360-list li {
+    position: relative;
+    padding-left: 0.875rem;
+    font-size: 0.8125rem;
+    line-height: 1.75;
+    color: #667085;
+  }
+
+  .i360-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.625rem;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #d0d5dd;
+  }
+
+  .i360-credits {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.8125rem;
+    color: #667085;
+  }
+
+  .i360-credits strong {
+    color: #1a3a5c;
+    font-weight: 700;
+  }
+</style>
