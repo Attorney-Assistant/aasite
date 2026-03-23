@@ -11,10 +11,7 @@ const config: StorybookConfig = {
     name: "@storybook/html-vite",
     options: {},
   },
-  staticDirs: [
-    { from: "../public/brand", to: "/brand" },
-    { from: "../public/icons", to: "/icons" },
-  ],
+  staticDirs: [],
 };
 
 export default config;

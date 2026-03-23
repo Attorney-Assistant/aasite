@@ -1,6 +1,21 @@
 const API_KEY = import.meta.env.BABYLOVEGROWTH;
 const BASE_URL = "https://api.babylovegrowth.ai/api/integrations";
 
+function cleanContentHtml(html: string, heroImageUrl: string | null): string {
+  let cleaned = html;
+  // Remove leading <h1> (duplicates the page title)
+  cleaned = cleaned.replace(/^\s*<h1[^>]*>.*?<\/h1>\s*/i, "");
+  // Remove leading hero image (duplicates the featured image)
+  if (heroImageUrl) {
+    cleaned = cleaned.replace(/^\s*<p>\s*<img[^>]*>\s*<\/p>\s*/i, "");
+  }
+  // Remove BabyLoveGrowth attribution link
+  cleaned = cleaned.replace(/<p>\s*<a[^>]*babylovegrowth[^>]*>.*?<\/a>\s*<\/p>/gi, "");
+  // Add lazy loading to all remaining images
+  cleaned = cleaned.replace(/<img(?![^>]*loading=)/gi, '<img loading="lazy" decoding="async"');
+  return cleaned.trim();
+}
+
 function stripMarkdown(md: string): string {
   return md
     .replace(/!\[.*?\]\(.*?\)/g, "")     // images
@@ -68,7 +83,7 @@ export async function fetchBLGArticles() {
     id: `blg-${article.id}`,
     slug: article.slug,
     title: article.title,
-    postBody: article.content_html,
+    postBody: cleanContentHtml(article.content_html, article.hero_image_url),
     excerpt: article.meta_description || stripMarkdown(article.excerpt) || "",
     featuredImage: article.hero_image_url || null,
     publishedDate: article.created_at,
