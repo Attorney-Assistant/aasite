@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
-import { fetchAllBlogPosts } from "@lib/hubspot";
+import { fetchAllBlogPosts } from "@lib/blog";
 
 export async function GET(context: APIContext) {
   let posts: any[] = [];

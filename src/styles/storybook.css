@@ -2,23 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
   --color-brand-black: #0b0000;
   --color-brand-white: #ffffff;
-  --color-brand-gold: #ffaa2b;
+  --color-brand-gold: #F9A630;
   --color-brand-blue: #50a7dd;
   --color-brand-steel: #588aa5;
+  --color-brand-navy: #1a3a5c;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
   color: #0b0000;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Sora", -apple-system, "Segoe UI", sans-serif;
   font-weight: 700;
 }

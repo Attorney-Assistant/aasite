@@ -35,9 +35,22 @@ const webinars = [
     desc: "How to increase signed cases by up to 200% with a flawless intake strategy.",
   },
 ];
+
+const webinarSchema = webinars.map((w) => ({
+  "@type": "Event",
+  "name": w.title,
+  "description": w.desc,
+  "startDate": new Date(w.date).toISOString().split("T")[0],
+  "eventStatus": "https://schema.org/EventMovedOnline",
+  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+  "organizer": { "@id": "https://attorneyassistant.com/#organization" },
+  "location": { "@type": "VirtualLocation", "url": "https://attorneyassistant.com/webinars" },
+  "duration": `PT${parseInt(w.duration)}M`,
+  "isAccessibleForFree": true,
+}));
 ---
 
-<BaseLayout title="Webinars" description="Explore our library of recorded webinar sessions and gain valuable insights from industry leaders.">
+<BaseLayout title="Free Law Firm Webinars & Training" description="Watch recorded webinars on legal intake, remote team management, cybersecurity, and firm growth. Free on-demand training for law firm owners." schema={webinarSchema}>
 
   <Hero
     badge="On-Demand"

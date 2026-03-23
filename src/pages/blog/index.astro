@@ -1,0 +1,450 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BlogCard from "@components/BlogCard.astro";
+import { fetchAllBlogPosts } from "@lib/blog";
+import { fetchBlogTags } from "@lib/hubspot";
+
+let posts: any[] = [];
+let tags: any[] = [];
+try {
+  posts = await fetchAllBlogPosts();
+  tags = await fetchBlogTags();
+} catch (e) {
+  console.error("Failed to fetch blog posts:", e);
+}
+
+const featuredPost = posts[0];
+const editorsPicks = posts.slice(1, 4);
+const remainingPosts = posts.slice(4);
+
+const formatDate = (date: string) =>
+  new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+const shortDate = (date: string) =>
+  new Date(date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+---
+
+<BaseLayout
+  title="Blog | Attorney Assistant"
+  description="Insights, strategies, and tips for law firms looking to streamline operations, improve intake, and grow their practice."
+>
+
+  <!-- Masthead -->
+  <section class="blog-masthead grain-overlay">
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-navy via-brand-900 to-brand-950"></div>
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-gold/[0.03] blur-3xl"></div>
+      <div class="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-brand-blue/[0.04] blur-3xl"></div>
+      <!-- Thin gold rule -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent"></div>
+    </div>
+
+    <div class="container-wide relative z-10 py-16 md:py-20">
+      <!-- Publication header -->
+      <div class="text-center reveal">
+        <div class="inline-flex items-center gap-3 mb-6">
+          <span class="h-px w-8 bg-brand-gold/60"></span>
+          <span class="text-[0.6875rem] font-semibold tracking-[0.2em] uppercase text-brand-gold/80">Insights & Strategy</span>
+          <span class="h-px w-8 bg-brand-gold/60"></span>
+        </div>
+        <h1 class="text-display-lg md:text-display-xl font-heading text-white mb-4">
+          The Brief
+        </h1>
+        <p class="text-base md:text-lg text-white/40 max-w-lg mx-auto leading-relaxed">
+          Operational intelligence for law firms that refuse to leave money on the table.
+        </p>
+      </div>
+    </div>
+    <!-- Bottom edge -->
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  </section>
+
+  <!-- Tag Navigation -->
+  {tags.length > 0 && (
+    <nav class="blog-tag-nav" aria-label="Blog categories">
+      <div class="container-wide">
+        <div class="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-hide">
+          <a href="/blog" class="blog-tag-link blog-tag-link--active" aria-current="page">All</a>
+          {tags.slice(0, 10).map((tag: any) => (
+            <a href={`/blog/category/${tag.slug}`} class="blog-tag-link">{tag.name}</a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  )}
+
+  <!-- Featured Article — Full Spread -->
+  {featuredPost && (
+    <section class="bg-white py-12 md:py-16">
+      <div class="container-wide">
+        <a href={`/blog/${featuredPost.slug}`} class="group block reveal">
+          <div class="blog-featured">
+            <!-- Image -->
+            <div class="blog-featured__image">
+              {featuredPost.featuredImage ? (
+                <img
+                  src={featuredPost.featuredImage}
+                  alt={featuredPost.title}
+                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  loading="eager"
+                />
+              ) : (
+                <div class="w-full h-full bg-gradient-to-br from-brand-navy via-brand-800 to-brand-900 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-white/[0.06]" fill="none" stroke="currentColor" stroke-width="0.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                </div>
+              )}
+              <!-- Gradient overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <!-- Featured badge -->
+              <div class="absolute top-5 left-5">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-[0.625rem] font-bold tracking-[0.15em] uppercase bg-brand-gold text-brand-900 shadow-lg">
+                  Featured
+                </span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="blog-featured__content">
+              <div class="flex items-center gap-3 mb-4">
+                {featuredPost.tags && featuredPost.tags.length > 0 && (
+                  <span class="text-[0.6875rem] font-bold tracking-[0.12em] uppercase text-brand-700">{featuredPost.tags[0].name}</span>
+                )}
+                {featuredPost.tags && featuredPost.tags.length > 0 && featuredPost.publishedDate && (
+                  <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                )}
+                {featuredPost.publishedDate && (
+                  <time datetime={featuredPost.publishedDate} class="text-[0.75rem] text-gray-400 tracking-wide">
+                    {formatDate(featuredPost.publishedDate)}
+                  </time>
+                )}
+              </div>
+
+              <h2 class="text-display-xs md:text-display-sm lg:text-display-md font-heading text-gray-900 mb-4 group-hover:text-brand-700 transition-colors duration-300">
+                {featuredPost.title}
+              </h2>
+
+              {featuredPost.excerpt && (
+                <p class="text-gray-500 leading-relaxed text-base md:text-lg mb-6 line-clamp-3">
+                  {featuredPost.excerpt}
+                </p>
+              )}
+
+              <div class="flex items-center gap-2 text-brand-700 font-semibold text-sm">
+                <span>Read full article</span>
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Editor's Picks — Asymmetric Three-Column -->
+  {editorsPicks.length > 0 && (
+    <section class="blog-editors-section">
+      <div class="container-wide">
+        <!-- Section divider -->
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <div class="h-px flex-1 bg-gray-200"></div>
+          <span class="text-[0.6875rem] font-bold tracking-[0.2em] uppercase text-gray-400">Latest</span>
+          <div class="h-px flex-1 bg-gray-200"></div>
+        </div>
+
+        <div class="blog-editors-grid">
+          {editorsPicks.map((post: any, i: number) => (
+            <article class={`blog-editors-card ${i === 0 ? 'blog-editors-card--lead' : ''} reveal`} style={`transition-delay: ${i * 120}ms`}>
+              <a href={`/blog/${post.slug}`} class="group block h-full">
+                {i === 0 ? (
+                  <!-- Lead card — tall with image -->
+                  <div class="flex flex-col h-full">
+                    {post.featuredImage && (
+                      <div class="aspect-[4/3] overflow-hidden rounded-xl mb-5">
+                        <img
+                          src={post.featuredImage}
+                          alt={post.title}
+                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div class="flex-1 flex flex-col">
+                      {post.tags && post.tags[0] && (
+                        <span class="text-[0.625rem] font-bold tracking-[0.12em] uppercase text-brand-600 mb-2">{post.tags[0].name}</span>
+                      )}
+                      <h3 class="text-xl font-heading text-gray-900 mb-2 group-hover:text-brand-700 transition-colors leading-snug">
+                        {post.title}
+                      </h3>
+                      {post.excerpt && (
+                        <p class="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-3">{post.excerpt}</p>
+                      )}
+                      <div class="mt-auto flex items-center gap-2 text-xs text-gray-400">
+                        {post.publishedDate && <time datetime={post.publishedDate}>{shortDate(post.publishedDate)}</time>}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <!-- Side cards — compact, horizontal -->
+                  <div class="flex gap-4 items-start h-full">
+                    {post.featuredImage && (
+                      <div class="w-24 h-24 md:w-28 md:h-28 shrink-0 overflow-hidden rounded-lg">
+                        <img
+                          src={post.featuredImage}
+                          alt={post.title}
+                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div class="flex-1 min-w-0 flex flex-col">
+                      {post.tags && post.tags[0] && (
+                        <span class="text-[0.5625rem] font-bold tracking-[0.12em] uppercase text-brand-600 mb-1.5">{post.tags[0].name}</span>
+                      )}
+                      <h3 class="text-sm md:text-base font-heading text-gray-900 group-hover:text-brand-700 transition-colors leading-snug line-clamp-2 mb-1.5">
+                        {post.title}
+                      </h3>
+                      {post.excerpt && (
+                        <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-1.5">{post.excerpt}</p>
+                      )}
+                      <div class="mt-auto text-[0.6875rem] text-gray-400">
+                        {post.publishedDate && <time datetime={post.publishedDate}>{shortDate(post.publishedDate)}</time>}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- All Articles Grid -->
+  {remainingPosts.length > 0 && (
+    <section class="section-padding bg-gray-25">
+      <div class="container-wide">
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <div class="h-px flex-1 bg-gray-200"></div>
+          <span class="text-[0.6875rem] font-bold tracking-[0.2em] uppercase text-gray-400">All Articles</span>
+          <div class="h-px flex-1 bg-gray-200"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {remainingPosts.map((post: any, i: number) => (
+            <div class="reveal" style={`transition-delay: ${(i % 6) * 80}ms`}>
+              <BlogCard
+                title={post.title}
+                slug={post.slug}
+                excerpt={post.excerpt}
+                featuredImage={post.featuredImage}
+                publishedDate={post.publishedDate}
+                tags={post.tags}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Empty State -->
+  {posts.length === 0 && (
+    <section class="section-padding bg-white">
+      <div class="container-wide text-center">
+        <div class="max-w-md mx-auto">
+          <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+          </div>
+          <h2 class="text-xl font-heading text-gray-900 mb-2">Articles coming soon</h2>
+          <p class="text-gray-500 mb-6">We're preparing insights to help your firm grow. Check back shortly.</p>
+          <a href="/book-call" class="btn-primary">Book a Call</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA — Dark Editorial -->
+  <section class="relative overflow-hidden bg-brand-950 grain-overlay">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent"></div>
+      <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-brand-gold/[0.03] blur-3xl"></div>
+    </div>
+    <div class="container-wide relative z-10 py-16 md:py-24">
+      <div class="max-w-2xl mx-auto text-center reveal">
+        <div class="inline-flex items-center gap-3 mb-6">
+          <span class="h-px w-6 bg-brand-gold/50"></span>
+          <span class="text-[0.625rem] font-bold tracking-[0.2em] uppercase text-brand-gold/70">Take the Next Step</span>
+          <span class="h-px w-6 bg-brand-gold/50"></span>
+        </div>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-white mb-4">
+          Stop reading about growth.<br />
+          <span class="text-gradient-gold">Start building it.</span>
+        </h2>
+        <p class="text-white/40 mb-8 max-w-md mx-auto">
+          Book a diagnostic call and we'll show you exactly where your firm is losing revenue — and how to fix it.
+        </p>
+        <a href="/book-call" class="btn-primary btn-lg group">
+          Book a Diagnostic Call
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Masthead */
+  .blog-masthead {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Tag Navigation */
+  .blog-tag-nav {
+    background: white;
+    border-bottom: 1px solid #eaecf0;
+    padding: 0.875rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .blog-tag-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #667085;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .blog-tag-link:hover {
+    color: #1a3a5c;
+    background: #f0f7fc;
+  }
+
+  .blog-tag-link--active {
+    color: #1a3a5c;
+    background: #e1eff9;
+    border-color: #c3dff3;
+    font-weight: 700;
+  }
+
+  /* Featured Article */
+  .blog-featured {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .blog-featured {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .blog-featured__image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #f2f4f7;
+  }
+
+  @media (min-width: 768px) {
+    .blog-featured__image {
+      aspect-ratio: 4 / 3;
+      border-radius: 1.25rem;
+    }
+  }
+
+  .blog-featured__content {
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    .blog-featured__content {
+      padding: 1rem 0;
+    }
+  }
+
+  /* Editor's Picks */
+  .blog-editors-section {
+    padding: 3rem 0 4rem;
+    background: white;
+    border-top: 1px solid #f2f4f7;
+  }
+
+  .blog-editors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .blog-editors-grid {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .blog-editors-card--lead {
+      grid-row: span 2;
+    }
+  }
+
+  .blog-editors-card {
+    position: relative;
+  }
+
+  .blog-editors-card:not(.blog-editors-card--lead) + .blog-editors-card:not(.blog-editors-card--lead) {
+    padding-top: 1.5rem;
+    border-top: 1px solid #f2f4f7;
+  }
+
+  /* Scrollbar hide */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Line clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -10,9 +10,39 @@ let testimonials: any[] = [];
 try {
   testimonials = (await fetchFeaturedTestimonials()) || [];
 } catch {}
+
+// Load Google Reviews from build-time JSON
+let googleReviews: any = { reviews: [], overallRating: 0, totalReviews: 0 };
+try {
+  googleReviews = await import("../../scripts/output/google-reviews.json");
+} catch {}
+const hasGoogleReviews = googleReviews.reviews && googleReviews.reviews.length > 0;
+
+// Build review schema
+const reviewSchema: Record<string, any>[] = [];
+if (hasGoogleReviews && googleReviews.overallRating > 0) {
+  reviewSchema.push({
+    "@type": "LocalBusiness",
+    "name": "Attorney Assistant",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": googleReviews.overallRating,
+      "reviewCount": googleReviews.totalReviews,
+      "bestRating": 5,
+      "worstRating": 1,
+    },
+    "review": googleReviews.reviews.map((r: any) => ({
+      "@type": "Review",
+      "author": { "@type": "Person", "name": r.author },
+      "reviewRating": { "@type": "Rating", "ratingValue": r.rating, "bestRating": 5 },
+      "reviewBody": r.text,
+      ...(r.publishTime ? { "datePublished": r.publishTime } : {}),
+    })),
+  });
+}
 ---
 
-<BaseLayout title="Reviews" description="Hear what law firms are saying about working with Attorney Assistant.">
+<BaseLayout title="Client Reviews & Testimonials" description="Read what 200+ law firms say about Attorney Assistant. Real client reviews, Google ratings, and video testimonials from firms that improved their operations." schema={reviewSchema}>
 
   <Hero
     badge="Testimonials"
@@ -20,10 +50,113 @@ try {
     subtitle="Hear what law firms are saying about working with Attorney Assistant."
   />
 
+  <!-- Google Reviews -->
+  {hasGoogleReviews && (
+    <section class="section-padding reveal" style="transition-delay: 0.05s;">
+      <div class="container-wide">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <svg class="w-7 h-7 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+            </svg>
+            <span class="text-display-xs font-heading text-gray-900">Google Reviews</span>
+          </div>
+          {googleReviews.overallRating > 0 && (
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <span class="text-3xl font-heading font-bold text-gray-900">{googleReviews.overallRating}</span>
+              <div class="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    class:list={["w-5 h-5", i < Math.round(googleReviews.overallRating) ? "text-brand-gold" : "text-gray-200"]}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              {googleReviews.totalReviews > 0 && (
+                <span class="text-sm text-gray-500">({googleReviews.totalReviews} reviews)</span>
+              )}
+            </div>
+          )}
+          <div class="divider-gold-center mt-3"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {googleReviews.reviews.map((review: any) => (
+            <div class="card p-6 md:p-8 flex flex-col card-hover group">
+              <div class="flex gap-0.5 mb-5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    class:list={["w-4 h-4", i < review.rating ? "text-brand-gold" : "text-gray-200"]}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+
+              <blockquote class="text-gray-600 text-base leading-relaxed flex-1 mb-6 italic">
+                &ldquo;{review.text.length > 280 ? review.text.slice(0, 280) + "..." : review.text}&rdquo;
+              </blockquote>
+
+              <div class="flex items-center gap-3 pt-5 border-t border-gray-100">
+                {review.authorPhoto ? (
+                  <img
+                    src={review.authorPhoto}
+                    alt={review.author}
+                    class="w-10 h-10 rounded-full object-cover bg-gray-100 ring-2 ring-white shadow-sm"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-medium text-sm ring-2 ring-white shadow-sm">
+                    {review.author.split(" ").map((n: string) => n[0]).join("").slice(0, 2)}
+                  </div>
+                )}
+                <div>
+                  <p class="text-sm font-semibold text-gray-900">{review.author}</p>
+                  {review.relativeTime && (
+                    <p class="text-xs text-gray-400">{review.relativeTime}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <!-- 6th card: See All Reviews CTA -->
+          <a
+            href="https://search.google.com/local/reviews?placeid=ChIJKSqaqoG_xokRw6mNcCWmxcI"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="card p-6 md:p-8 flex flex-col items-center justify-center card-hover group text-center border-2 border-dashed border-gray-200 hover:border-brand-gold/50 transition-colors duration-300"
+          >
+            <div class="w-14 h-14 rounded-full bg-brand-gold/10 flex items-center justify-center mb-4 group-hover:bg-brand-gold/20 transition-colors">
+              <svg class="w-7 h-7 text-brand-gold" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+              </svg>
+            </div>
+            <span class="text-lg font-heading text-gray-900 mb-2">See All Reviews</span>
+            {googleReviews.totalReviews > 0 && (
+              <span class="text-sm text-gray-500 mb-4">{googleReviews.totalReviews} reviews on Google</span>
+            )}
+            <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 group-hover:text-brand-800 transition-colors">
+              View on Google
+              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Client Testimonials -->
-  <section class="section-padding reveal" style="transition-delay: 0.1s;">
-    <div class="container-wide">
+  <section class:list={["section-padding reveal", hasGoogleReviews ? "bg-gray-50 relative overflow-hidden" : ""]} style="transition-delay: 0.1s;">
+    {hasGoogleReviews && <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>}
+    <div class:list={["container-wide", hasGoogleReviews ? "relative" : ""]}>
       <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3">From Our Clients</span>
         <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">
           Client Testimonials
         </h2>
@@ -57,7 +190,7 @@ try {
             <p class="text-base text-gray-500 leading-relaxed mb-6">
               We're gathering testimonials from the 200+ law firms we work with. In the meantime, watch our video testimonials below or reach out to learn more.
             </p>
-            <a href="/contact" class="btn-primary">Contact Us</a>
+            <a href="/book-call" class="btn-primary">Book a Call</a>
           </div>
         </div>
       )}
@@ -65,11 +198,11 @@ try {
   </section>
 
   <!-- Video Testimonials -->
-  <section class="section-padding bg-gray-50 relative overflow-hidden reveal" style="transition-delay: 0.2s;">
-    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+  <section class:list={["section-padding relative overflow-hidden reveal", hasGoogleReviews ? "" : "bg-gray-50"]} style="transition-delay: 0.2s;">
+    {!hasGoogleReviews && <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>}
     <div class="container-wide relative">
       <div class="text-center mb-12">
-        <span class="badge badge-brand mb-3">Video</span>
+        <span class="badge badge-brand mb-3">Watch & Listen</span>
         <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">
           Video Testimonials
         </h2>
@@ -90,8 +223,8 @@ try {
   <CTABanner
     heading="Experience the Difference"
     body="Join 200+ law firms who trust Attorney Assistant with their operations."
-    buttonText="Get Started"
-    buttonLink="/contact"
+    buttonText="Book a Call"
+    buttonLink="/book-call"
     variant="brand"
   />
 

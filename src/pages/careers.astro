@@ -4,26 +4,28 @@ import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
 import YouTubeEmbed from "@components/YouTubeEmbed.astro";
 
+const applyUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfgVKM3FZQ3grla9pCjr-v2T5dfI6ztsu2v4z4oVGmjUN3LGg/viewform";
+
 const perks = [
   {
     title: "Remote Environment",
     desc: "Be part of an innovative virtual team, constantly updating to the latest technologies.",
-    icon: "globe",
+    icon: "/icons/law and legal_online law.svg",
   },
   {
     title: "Professional Growth",
     desc: "Continuous learning and professional development opportunities to advance your career.",
-    icon: "chart",
+    icon: "/icons/buiness & finance_bullish.svg",
   },
   {
     title: "Collaborative Culture",
     desc: "Collaborate and thrive in a supportive work culture with experienced professionals.",
-    icon: "people",
+    icon: "/icons/buiness & finance_group.svg",
   },
   {
     title: "Competitive Pay",
     desc: "We believe in paying our employees fairly and treating people right.",
-    icon: "dollar",
+    icon: "/icons/buiness & finance_wallet.svg",
   },
 ];
 
@@ -43,127 +45,94 @@ const videoIds = ["LWL_3pD5oWk", "Ood5iNtf7VY", "en3ZncZTeZQ"];
     badge="We're Hiring"
     title="Careers at Attorney Assistant"
     subtitle="Join our mission to help law firms operate more efficiently. We're looking for passionate, driven people."
-    buttonText="View Open Positions"
-    buttonLink="#apply"
+    buttonText="Apply Now"
+    buttonLink={applyUrl}
   />
 
-  <!-- Why Work With Us -->
-  <section class="section-padding reveal" style="transition-delay: 0.1s;">
+  <!-- Company Video + Perks — side by side -->
+  <section class="py-12 md:py-16 reveal" style="transition-delay: 0.1s;">
     <div class="container-wide">
-      <div class="text-center mb-12">
-        <span class="badge badge-brand mb-3">Benefits</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">
-          Why Work With Us
-        </h2>
-        <div class="divider-gold-center mt-5"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {perks.map((perk) => (
-          <div class="card card-hover p-8">
-            <div class="featured-icon featured-icon-md featured-icon-brand mb-5">
-              {perk.icon === "globe" && (
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-              )}
-              {perk.icon === "chart" && (
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path d="M3 3v18h18" />
-                  <path d="M18 9l-5 5-2-2-4 4" />
-                </svg>
-              )}
-              {perk.icon === "people" && (
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              )}
-              {perk.icon === "dollar" && (
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <line x1="12" y1="1" x2="12" y2="23" />
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
-              )}
-            </div>
-            <h3 class="text-lg font-heading text-gray-900 mb-2">
-              {perk.title}
-            </h3>
-            <p class="text-base text-gray-500 leading-relaxed">
-              {perk.desc}
-            </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <!-- Video -->
+        <div>
+          <span class="badge badge-brand mb-3">Who We Are</span>
+          <h2 class="text-display-xs font-heading text-gray-900 mb-5">Discover What's Possible</h2>
+          <YouTubeEmbed videoId="oISoqSqsHYU" title="Discover what's possible with Attorney Assistant" />
+        </div>
+        <!-- Perks -->
+        <div>
+          <span class="badge badge-brand mb-3">Benefits</span>
+          <h2 class="text-display-xs font-heading text-gray-900 mb-5">Why Work With Us</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {perks.map((perk) => (
+              <div class="card p-5 flex gap-4 items-start">
+                <div class="featured-icon featured-icon-sm featured-icon-brand flex-shrink-0">
+                  <img src={perk.icon} alt="" aria-hidden="true" class="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 class="text-sm font-heading text-gray-900 mb-1">{perk.title}</h3>
+                  <p class="text-xs text-gray-500 leading-relaxed">{perk.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Great Fit -->
-  <section class="section-padding bg-gray-50 relative overflow-hidden reveal" style="transition-delay: 0.2s;">
+  <!-- Great Fit + Team Testimonials -->
+  <section class="py-12 md:py-16 bg-gray-50 relative overflow-hidden reveal" style="transition-delay: 0.2s;">
     <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
-    <div class="container-narrow relative">
-      <div class="text-center mb-10">
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">
-          You're A Great Fit If You...
-        </h2>
-        <div class="divider-gold-center mt-5"></div>
-      </div>
-
-      <div class="max-w-xl mx-auto space-y-4">
-        {fitItems.map((item) => (
-          <div class="card flex items-start gap-4 p-5">
-            <div class="featured-icon featured-icon-sm featured-icon-brand flex-shrink-0 mt-0.5">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <p class="text-base text-gray-700 font-medium">{item}</p>
+    <div class="container-wide relative">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+        <!-- Great Fit — narrower -->
+        <div class="lg:col-span-2">
+          <h2 class="text-display-xs font-heading text-gray-900 mb-5">
+            You're A Great Fit If You...
+          </h2>
+          <div class="space-y-3">
+            {fitItems.map((item) => (
+              <div class="card flex items-center gap-3 p-4">
+                <div class="featured-icon featured-icon-sm featured-icon-brand flex-shrink-0">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p class="text-sm text-gray-700 font-medium">{item}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Testimonials -->
-  <section class="section-padding reveal" style="transition-delay: 0.3s;">
-    <div class="container-wide">
-      <div class="text-center mb-12">
-        <span class="badge badge-brand mb-3">Our Team</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">
-          Hear From Our Team
-        </h2>
-        <div class="divider-gold-center mt-5"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {videoIds.map((id) => (
-          <YouTubeEmbed videoId={id} title="Team testimonial" />
-        ))}
+        </div>
+        <!-- Team Testimonials — wider -->
+        <div class="lg:col-span-3">
+          <span class="badge badge-brand mb-3">Our Team</span>
+          <h2 class="text-display-xs font-heading text-gray-900 mb-5">Hear From Our Team</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {videoIds.map((id) => (
+              <YouTubeEmbed videoId={id} title="Team testimonial" />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Apply Now -->
-  <section id="apply" class="section-padding bg-gray-50 relative overflow-hidden reveal" style="transition-delay: 0.4s;">
-    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
-    <div class="container-narrow text-center relative">
-      <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0" />
-        </svg>
+  <section id="apply" class="py-12 md:py-16 reveal" style="transition-delay: 0.3s;">
+    <div class="container-narrow text-center">
+      <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-4">
+        <img src="/icons/buiness & finance_business bag.svg" alt="" aria-hidden="true" class="w-7 h-7" />
       </div>
-      <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-5">
+      <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">
         Apply Now
       </h2>
-      <div class="divider-gold-center mt-5"></div>
-      <p class="text-lg text-gray-500 leading-relaxed mb-8 max-w-2xl mx-auto">
+      <div class="divider-gold-center mt-3"></div>
+      <p class="text-base text-gray-500 leading-relaxed mb-6 max-w-2xl mx-auto">
         At Attorney Assistant, we are committed to providing high-quality talent to law firms.
         Join our team and make an impact in the legal industry.
       </p>
-      <a href="/contact" class="btn-primary btn-lg">Get in Touch</a>
+      <a href={applyUrl} target="_blank" rel="noopener noreferrer" class="btn-primary btn-lg">Apply Now</a>
     </div>
   </section>
 
@@ -171,7 +140,7 @@ const videoIds = ["LWL_3pD5oWk", "Ood5iNtf7VY", "en3ZncZTeZQ"];
     heading="Ready to Make an Impact?"
     body="Join the Attorney Assistant team and help transform how law firms operate."
     buttonText="Apply Now"
-    buttonLink="/contact"
+    buttonLink={applyUrl}
     variant="dark"
   />
 

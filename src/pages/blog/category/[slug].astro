@@ -1,97 +1,40 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Hero from "@components/Hero.astro";
-import BlogCard from "@components/BlogCard.astro";
-import { fetchAllBlogPosts, fetchBlogTags } from "@lib/hubspot";
+/**
+ * Redirect legacy /Blog/category/slug (capital B) URLs
+ * to the new /blog/category/slug (lowercase) equivalents.
+ */
+import { fetchBlogTags } from "@lib/hubspot";
 
 export async function getStaticPaths() {
   let tags: any[] = [];
   try {
     tags = await fetchBlogTags();
   } catch {}
-  return tags.map((tag) => ({ params: { slug: tag.slug } }));
+  return tags.map((tag) => ({
+    params: { slug: tag.slug },
+    props: { name: tag.name },
+  }));
+}
+
+interface Props {
+  name: string;
 }
 
 const { slug } = Astro.params;
-let allPosts: any[] = [];
-let tags: any[] = [];
-
-try {
-  allPosts = (await fetchAllBlogPosts()) || [];
-  tags = (await fetchBlogTags()) || [];
-} catch {}
-
-const currentTag = tags.find((t: any) => t.slug === slug);
-const posts = allPosts.filter((post: any) =>
-  post.tags.some((t: any) => t.slug === slug)
-);
+const { name } = Astro.props;
+const destination = `/blog/category/${slug}`;
+const canonicalUrl = `https://attorneyassistant.com${destination}`;
 ---
 
-<BaseLayout
-  title={currentTag ? `${currentTag.name} — Blog` : "Category — Blog"}
-  description={`Browse articles in the ${currentTag?.name || ""} category.`}
->
-
-  <Hero
-    badge={currentTag?.name || "Category"}
-    title={currentTag?.name || "Category"}
-    subtitle={`Browse all articles in the ${currentTag?.name || ""} category.`}
-    size="sm"
-  />
-
-  <section class="section-padding">
-    <div class="container-wide">
-      <div class="mb-10 reveal" style="transition-delay:0.1s">
-        <a href="/blog" class="group inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:text-brand-800 transition-colors">
-          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
-          All Posts
-        </a>
-      </div>
-
-      {tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mb-10 reveal" style="transition-delay:0.2s">
-          <a href="/blog" class="text-sm font-medium px-4 py-2 rounded-full bg-gray-100 text-gray-500 hover:bg-brand-700 hover:text-white transition-colors">All</a>
-          {tags.map((tag: any) => (
-            <a
-              href={`/blog/category/${tag.slug}`}
-              class:list={[
-                "text-sm font-medium px-4 py-2 rounded-full transition-colors",
-                tag.slug === slug
-                  ? "bg-brand-700 text-white"
-                  : "bg-gray-100 text-gray-500 hover:bg-brand-700 hover:text-white",
-              ]}
-            >
-              {tag.name}
-            </a>
-          ))}
-        </div>
-      )}
-
-      {posts.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal" style="transition-delay:0.3s">
-          {posts.map((post: any) => (
-            <BlogCard
-              title={post.title}
-              slug={post.slug}
-              excerpt={post.excerpt}
-              featuredImage={post.featuredImage}
-              publishedDate={post.publishedDate}
-              author={{ name: post.authorName }}
-              tags={post.tags}
-            />
-          ))}
-        </div>
-      ) : (
-        <div class="text-center py-16">
-          <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-4">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-          </div>
-          <p class="text-lg text-gray-500">No posts in this category yet.</p>
-        </div>
-      )}
-    </div>
-  </section>
-
-</BaseLayout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{`Redirecting — ${name}`}</title>
+  </head>
+  <body>
+    <p>This page has moved. <a href={destination}>Click here</a> if you are not redirected.</p>
+  </body>
+</html>

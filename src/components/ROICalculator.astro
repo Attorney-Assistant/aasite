@@ -1,48 +1,70 @@
 <div class="card p-6 md:p-8 roi-calculator">
-  <h3 class="font-heading text-lg text-gray-900 mb-1">See Your Growth Potential</h3>
-  <p class="text-sm text-gray-500 mb-6">Estimate how Attorney Assistant could impact your firm.</p>
+  <div class="flex items-start gap-4 mb-6">
+    <div class="featured-icon featured-icon-lg featured-icon-gold flex-shrink-0">
+      <img src="/icons/buiness & finance_cahs out.svg" alt="" aria-hidden="true" class="w-7 h-7" style="filter: brightness(0) saturate(100%) invert(58%) sepia(98%) saturate(1000%) hue-rotate(6deg) brightness(103%) contrast(101%);" />
+    </div>
+    <div>
+      <h3 class="font-heading text-lg text-gray-900 mb-1">How Much Revenue Are You Leaving on the Table?</h3>
+      <p class="text-sm text-gray-500">See how much missed revenue poor intake is costing your firm every month.</p>
+    </div>
+  </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-    <div>
-      <label for="roi-spend" class="label-base">Monthly Ad Spend</label>
-      <select id="roi-spend" class="input-base">
-        <option value="2000">$2,000</option>
-        <option value="5000" selected>$5,000</option>
-        <option value="10000">$10,000</option>
-        <option value="15000">$15,000</option>
-        <option value="20000">$20,000+</option>
-      </select>
-    </div>
     <div>
       <label for="roi-leads" class="label-base">Leads / Month</label>
       <select id="roi-leads" class="input-base">
         <option value="10">10</option>
-        <option value="25" selected>25</option>
-        <option value="50">50</option>
+        <option value="25">25</option>
+        <option value="50" selected>50</option>
+        <option value="75">75</option>
         <option value="100">100</option>
+        <option value="150">150</option>
         <option value="200">200+</option>
       </select>
     </div>
     <div>
-      <label for="roi-rate" class="label-base">Conversion Rate</label>
+      <label for="roi-rate" class="label-base">Current Conversion Rate</label>
       <select id="roi-rate" class="input-base">
         <option value="0.05">5%</option>
         <option value="0.10" selected>10%</option>
         <option value="0.15">15%</option>
         <option value="0.20">20%</option>
-        <option value="0.25">25%+</option>
+        <option value="0.25">25%</option>
+        <option value="0.30">30%</option>
+      </select>
+    </div>
+    <div>
+      <label for="roi-case-value" class="label-base">Avg. Case Value</label>
+      <select id="roi-case-value" class="input-base">
+        <option value="5000">$5,000</option>
+        <option value="8000" selected>$8,000</option>
+        <option value="10000">$10,000</option>
+        <option value="15000">$15,000</option>
+        <option value="20000">$20,000</option>
+        <option value="25000">$25,000</option>
+        <option value="50000">$50,000+</option>
       </select>
     </div>
   </div>
 
   <div class="roi-result bg-brand-25 rounded-xl p-5 border border-brand-100 text-center">
-    <p class="text-sm text-gray-500 mb-1">With Attorney Assistant, you could be converting</p>
+    <p class="text-sm text-gray-500 mb-1">You're currently missing out on an estimated</p>
     <p class="text-display-xs font-heading text-brand-navy">
-      <span id="roi-leads-result">0</span> more leads/month
+      <span id="roi-revenue-result" class="text-brand-gold">$0</span>
+      <span class="text-lg text-gray-500 font-body font-normal"> / month</span>
     </p>
-    <p class="text-sm text-gray-500 mt-1">
-      worth an estimated <span id="roi-revenue-result" class="font-semibold text-brand-gold">$0</span> in additional monthly revenue
+    <p class="text-sm text-gray-500 mt-2">
+      That's <span id="roi-leads-result" class="font-semibold text-brand-navy">0</span> leads slipping through the cracks every month.
     </p>
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="/book-call" class="btn-primary group">
+      Book a Call
+      <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+      </svg>
+    </a>
   </div>
 
   <noscript>
@@ -53,24 +75,32 @@
 </div>
 
 <script>
-const CONVERSION_MULTIPLIER = 2.5;
-const RATE_CAP = 0.45;
-const AVG_CASE_VALUE = 3500;
+const IMPROVED_RATE_MULTIPLIER = 2.5;
+const RATE_CAP = 0.50;
 
 function calculate() {
   const leads = Number((document.getElementById('roi-leads') as HTMLSelectElement).value);
-  const rate = Number((document.getElementById('roi-rate') as HTMLSelectElement).value);
-  const improvedRate = Math.min(rate * CONVERSION_MULTIPLIER, RATE_CAP);
-  const additionalLeads = Math.round(leads * (improvedRate - rate));
-  const additionalRevenue = additionalLeads * AVG_CASE_VALUE;
+  const currentRate = Number((document.getElementById('roi-rate') as HTMLSelectElement).value);
+  const caseValue = Number((document.getElementById('roi-case-value') as HTMLSelectElement).value);
 
-  document.getElementById('roi-leads-result')!.textContent = String(additionalLeads);
+  // Current: converting leads * rate = signed clients
+  const currentClients = leads * currentRate;
+
+  // With AA: improved conversion rate (capped)
+  const improvedRate = Math.min(currentRate * IMPROVED_RATE_MULTIPLIER, RATE_CAP);
+  const improvedClients = leads * improvedRate;
+
+  // Missed clients = difference
+  const missedClients = Math.round(improvedClients - currentClients);
+  const missedRevenue = missedClients * caseValue;
+
+  document.getElementById('roi-leads-result')!.textContent = String(missedClients);
   document.getElementById('roi-revenue-result')!.textContent =
-    '$' + additionalRevenue.toLocaleString();
+    '$' + missedRevenue.toLocaleString();
 }
 
 document.querySelectorAll('.roi-calculator select').forEach(function(el) {
   el.addEventListener('change', calculate);
 });
-calculate(); // initial calculation
+calculate();
 </script>

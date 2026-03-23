@@ -6,7 +6,7 @@ import CTABanner from "@components/CTABanner.astro";
 const gettingStarted = [
   {
     question: "What is a dedicated assistant?",
-    answer: "At Attorney Assistant, our dedicated assistants go through our rigorous recruiting process and are placed with law firms to handle administrative and operational tasks.",
+    answer: "Our dedicated assistants are legal operations specialists who go through a rigorous vetting process and integrate directly into your firm's workflows to handle administrative and operational tasks.",
   },
   {
     question: "How long does it take to get started?",
@@ -22,7 +22,7 @@ const gettingStarted = [
   },
   {
     question: "Do I need to choose between dedicated assistants and per-task services?",
-    answer: "Not at all! Most of our clients benefit from a strategic combination of both. Our team will get to know your firm's needs and recommend the ideal solution.",
+    answer: "Not at all! Most firms benefit from a strategic combination of both. We diagnose your firm's specific operational gaps and recommend the right mix to solve them.",
   },
 ];
 
@@ -37,7 +37,7 @@ const assistants = [
   },
   {
     question: "How do you match me with a VA?",
-    answer: "After your Pre-Go-Live call, our placement team uses what they've learned about your firm's needs to match you with the best-fit dedicated assistant.",
+    answer: "After your Pre-Go-Live call, our team uses what they've learned about your firm's workflows and operational needs to match you with the best-fit dedicated assistant.",
   },
   {
     question: "How do they sound? What is their accent like?",
@@ -89,9 +89,22 @@ const categories = [
   { label: "Your Dedicated Assistant", faqs: assistants },
   { label: "Operations & Security", faqs: operations },
 ];
+
+const allFaqs = [...gettingStarted, ...assistants, ...operations];
+const faqSchema = {
+  "@type": "FAQPage",
+  "mainEntity": allFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer,
+    },
+  })),
+};
 ---
 
-<BaseLayout title="Frequently Asked Questions" description="Find answers to the most common questions about working with Attorney Assistant for your law firm.">
+<BaseLayout title="Frequently Asked Questions" description="Find answers to the most common questions about working with Attorney Assistant for your law firm." schema={faqSchema}>
 
   <Hero
     badge="FAQ"

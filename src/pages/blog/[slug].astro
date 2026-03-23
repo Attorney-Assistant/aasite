@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { fetchBlogPostSlugs, fetchBlogPostBySlug } from "@lib/hubspot";
+import { fetchBlogPostSlugs, fetchBlogPostBySlug, fetchAllBlogPosts } from "@lib/blog";
+import BlogCard from "@components/BlogCard.astro";
+import ROICalculator from "@components/ROICalculator.astro";
 
 export async function getStaticPaths() {
   let slugs: { slug: string }[] = [];
@@ -24,6 +26,17 @@ const formattedDate = post.publishedDate
       day: "numeric",
     })
   : null;
+
+// Related posts: prefer same tag, fall back to most recent
+const allPosts = await fetchAllBlogPosts();
+const currentTagSlugs = new Set((post.tags || []).map((t: any) => t.slug));
+const otherPosts = allPosts.filter((p: any) => p.slug !== slug);
+const tagMatches = otherPosts.filter((p: any) =>
+  (p.tags || []).some((t: any) => currentTagSlugs.has(t.slug))
+);
+const relatedPosts = tagMatches.length >= 3
+  ? tagMatches.slice(0, 3)
+  : [...tagMatches, ...otherPosts.filter((p: any) => !tagMatches.includes(p))].slice(0, 3);
 ---
 
 <BaseLayout
@@ -33,6 +46,17 @@ const formattedDate = post.publishedDate
   type="article"
   publishedDate={post.publishedDate}
   author={post.authorName}
+  schema={{
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.seoDescription || post.excerpt,
+    "image": post.featuredImage || undefined,
+    "datePublished": post.publishedDate,
+    "author": { "@type": "Person", "name": post.authorName || "Attorney Assistant" },
+    "publisher": { "@id": "https://attorneyassistant.com/#organization" },
+    "mainEntityOfPage": `https://attorneyassistant.com/blog/${slug}`,
+    "keywords": post.tags?.map((t: any) => t.name).join(", ") || undefined,
+  }}
 >
 
   <article>
@@ -46,7 +70,7 @@ const formattedDate = post.publishedDate
 
         {post.tags && post.tags.length > 0 && (
           <div class="flex flex-wrap gap-2 mb-5">
-            {post.tags.map((tag: any) => (
+            {post.tags.slice(0, 5).map((tag: any) => (
               <a
                 href={`/blog/category/${tag.slug}`}
                 class="badge badge-brand"
@@ -80,9 +104,16 @@ const formattedDate = post.publishedDate
     )}
 
     <!-- Body -->
-    <div class="container-narrow py-12 md:py-16 reveal" style="transition-delay:0.3s">
+    <div class="container-narrow py-12 md:py-16">
       <div class="prose-brand blog-content" set:html={post.postBody} />
     </div>
+
+    <!-- ROI Calculator (HubSpot posts only) -->
+    {post.source === "hubspot" && (
+      <div class="container-narrow pb-12">
+        <ROICalculator />
+      </div>
+    )}
 
     <!-- Back to blog -->
     <div class="container-narrow pb-16">
@@ -93,6 +124,28 @@ const formattedDate = post.publishedDate
         </a>
       </div>
     </div>
+
+    <!-- Related Posts -->
+    {relatedPosts.length > 0 && (
+      <section class="section-padding">
+        <div class="container-wide">
+          <h2 class="text-display-xs font-heading text-center text-gray-900 mb-4">Related Articles</h2>
+          <div class="divider-gold-center mb-12"></div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {relatedPosts.map((p: any) => (
+              <BlogCard
+                title={p.title}
+                slug={p.slug}
+                excerpt={p.excerpt}
+                featuredImage={p.featuredImage}
+                publishedDate={p.publishedDate}
+                tags={p.tags}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
   </article>
 
   <style>

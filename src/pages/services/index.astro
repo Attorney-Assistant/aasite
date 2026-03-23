@@ -2,15 +2,32 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
-import DayTimeline from "@components/DayTimeline.astro";
+import Scrollytelling from "@components/Scrollytelling.astro";
 ---
 
-<BaseLayout title="Services" description="Custom solutions built around the problems that cost law firms money — from lead recovery to 24/7 coverage and beyond.">
+<BaseLayout title="Services" description="Custom solutions built around the problems that cost law firms money — from lead recovery to 24/7 coverage and beyond." schema={{
+  "@type": "Service",
+  "serviceType": "Legal Operations Support",
+  "provider": { "@id": "https://attorneyassistant.com/#organization" },
+  "areaServed": { "@type": "Country", "name": "United States" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Law Firm Operations Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Recovery", "url": "https://attorneyassistant.com/services/lead-recovery" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intake 360", "url": "https://attorneyassistant.com/services/intake-360" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Follow-Up", "url": "https://attorneyassistant.com/services/lead-follow-up" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "After-Hours Coverage", "url": "https://attorneyassistant.com/services/after-hours" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Admin Support", "url": "https://attorneyassistant.com/services/admin-support" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Support", "url": "https://attorneyassistant.com/services/marketing-support" } },
+    ]
+  }
+}}>
 
   <Hero
     badge="Our Services"
     title="We Solve the Problems That Cost Your Firm Money"
-    subtitle="We build custom combinations of services tailored to your firm's unique needs — so you can focus on practicing law while we handle the rest."
+    subtitle="Most firms don't need more services — they need someone to fix the operational failures that are already costing them revenue. That's what we do."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
     secondaryButtonText="Explore Solutions"
@@ -133,27 +150,12 @@ import DayTimeline from "@components/DayTimeline.astro";
     </div>
   </section>
 
-  <!-- Day Timeline -->
-  <section class="section-padding bg-gray-25 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
-    <div class="container-wide relative">
-      <div class="text-center mb-12 md:mb-16 reveal">
-        <span class="badge badge-brand">A Day in the Life</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
-          See What Changes When We're In Your Corner
-        </h2>
-        <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto">
-          Walk through a real day at a law firm — with and without our support — and see the difference it makes.
-        </p>
-      </div>
-      <DayTimeline />
-    </div>
-  </section>
+  <!-- Scrollytelling -->
+  <Scrollytelling />
 
   <CTABanner
-    heading="Let Us Build Your Custom Solution"
-    body="Every firm is different. We'll learn how your practice operates and recommend the ideal combination of services to help you capture more leads, convert more clients, and scale with confidence."
+    heading="Stop Losing Revenue to Broken Operations"
+    body="We'll diagnose the specific operational failures costing your firm money and build a co-managed solution around them — so you can grow without adding chaos."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
     variant="brand"

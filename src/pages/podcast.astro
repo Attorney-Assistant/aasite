@@ -43,6 +43,32 @@ const popularEpisodes = [
   },
 ];
 
+const allEpisodes = [...latestEpisodes, ...popularEpisodes];
+const podcastSchema = [
+  {
+    "@type": "PodcastSeries",
+    "name": "The Growth Code Podcast",
+    "description": "Discover the art of scaling smarter, not harder. Tech, automation, and strategies for entrepreneurs, law firm owners, and business leaders.",
+    "url": "https://attorneyassistant.com/podcast",
+    "author": { "@type": "Organization", "@id": "https://attorneyassistant.com/#organization" },
+    "webFeed": "https://growthcodepodcast.podbean.com/feed.xml",
+  },
+  ...allEpisodes.map((ep) => ({
+    "@type": "PodcastEpisode",
+    "name": ep.title,
+    "url": `https://www.youtube.com/watch?v=${ep.videoId}`,
+    "timeRequired": `PT${parseInt(ep.duration)}M`,
+    "partOfSeries": { "@type": "PodcastSeries", "name": "The Growth Code Podcast" },
+    "associatedMedia": {
+      "@type": "VideoObject",
+      "name": ep.title,
+      "thumbnailUrl": `https://img.youtube.com/vi/${ep.videoId}/maxresdefault.jpg`,
+      "embedUrl": `https://www.youtube.com/embed/${ep.videoId}`,
+      "uploadDate": "date" in ep && ep.date ? new Date(ep.date).toISOString().split("T")[0] : undefined,
+    },
+  })),
+];
+
 const platforms = [
   {
     name: "Apple Podcasts",
@@ -62,7 +88,7 @@ const platforms = [
 ];
 ---
 
-<BaseLayout title="The Growth Code Podcast" description="Discover the art of scaling smarter, not harder. Tech, automation, and strategies for entrepreneurs, law firm owners, and business leaders.">
+<BaseLayout title="The Growth Code Podcast for Law Firms" description="Discover the art of scaling smarter, not harder. Tech, automation, and strategies for entrepreneurs, law firm owners, and business leaders." schema={podcastSchema}>
 
   <Hero
     badge="Podcast"

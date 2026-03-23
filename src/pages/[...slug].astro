@@ -20,6 +20,8 @@ export function getStaticPaths() {
     "legal-receptionist",
     "executive-assistant",
     "marketing-support",
+    "intake-reception",
+    "intake360",
     "resources",
     "guides",
     "webinars",
@@ -30,6 +32,11 @@ export function getStaticPaths() {
     "careers",
     "faq",
     "reviews",
+    "book-call",
+    "new-book-a-call",
+    "storybook",
+    "styleguide",
+    "signaturegenerator",
   ]);
   return wpPages
     .filter((page: any) => !existingSlugs.has(page.slug))

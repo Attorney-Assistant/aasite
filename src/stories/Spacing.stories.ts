@@ -13,28 +13,28 @@ export const SpacingAndContainers: Story = {
     const container = document.createElement("div");
     container.style.maxWidth = "900px";
     container.innerHTML = `
-      <h2 style="font-family: Poppins, sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 32px;">Spacing & Layout</h2>
+      <h2 style="font-family: Sora, sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 32px;">Spacing & Layout</h2>
 
-      <h3 style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Container Widths</h3>
+      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Container Widths</h3>
       <div style="margin-bottom: 40px;">
         <div style="background: rgba(80,167,221,0.1); border: 2px dashed #50a7dd; border-radius: 8px; padding: 16px; max-width: 1280px; margin-bottom: 12px;">
           <p style="font-family: monospace; font-size: 12px; color: #50a7dd; margin: 0;"><strong>.container-wide</strong> — max-width: 1280px (80rem)</p>
-          <p style="font-family: Roboto, sans-serif; font-size: 13px; color: #6b7280; margin: 4px 0 0 0;">Feature sections, blog grids, service overviews</p>
+          <p style="font-family: Inter, sans-serif; font-size: 13px; color: #6b7280; margin: 4px 0 0 0;">Feature sections, blog grids, service overviews</p>
         </div>
-        <div style="background: rgba(255,170,43,0.1); border: 2px dashed #ffaa2b; border-radius: 8px; padding: 16px; max-width: 896px; margin-bottom: 12px;">
-          <p style="font-family: monospace; font-size: 12px; color: #ffaa2b; margin: 0;"><strong>.container-narrow</strong> — max-width: 896px (56rem)</p>
-          <p style="font-family: Roboto, sans-serif; font-size: 13px; color: #6b7280; margin: 4px 0 0 0;">Blog post body, static page content, long-form text</p>
+        <div style="background: rgba(249,166,48,0.1); border: 2px dashed #F9A630; border-radius: 8px; padding: 16px; max-width: 896px; margin-bottom: 12px;">
+          <p style="font-family: monospace; font-size: 12px; color: #F9A630; margin: 0;"><strong>.container-narrow</strong> — max-width: 896px (56rem)</p>
+          <p style="font-family: Inter, sans-serif; font-size: 13px; color: #6b7280; margin: 4px 0 0 0;">Blog post body, static page content, long-form text</p>
         </div>
       </div>
 
-      <h3 style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Section Spacing</h3>
+      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Section Spacing</h3>
       <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 40px;">
         <thead>
           <tr style="border-bottom: 2px solid #e5e7eb;">
-            <th style="text-align: left; padding: 8px; font-family: Poppins, sans-serif;">Element</th>
-            <th style="text-align: left; padding: 8px; font-family: Poppins, sans-serif;">Desktop</th>
-            <th style="text-align: left; padding: 8px; font-family: Poppins, sans-serif;">Mobile</th>
-            <th style="text-align: left; padding: 8px; font-family: Poppins, sans-serif;">Tailwind</th>
+            <th style="text-align: left; padding: 8px; font-family: Sora, sans-serif;">Element</th>
+            <th style="text-align: left; padding: 8px; font-family: Sora, sans-serif;">Desktop</th>
+            <th style="text-align: left; padding: 8px; font-family: Sora, sans-serif;">Mobile</th>
+            <th style="text-align: left; padding: 8px; font-family: Sora, sans-serif;">Tailwind</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +46,7 @@ export const SpacingAndContainers: Story = {
         </tbody>
       </table>
 
-      <h3 style="font-family: Poppins, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Border Radius</h3>
+      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Border Radius</h3>
       <div style="display: flex; gap: 24px; margin-bottom: 40px;">
         ${[
           { radius: "4px", name: "sm", use: "Tags, badges" },

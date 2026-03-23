@@ -1,25 +1,17 @@
 # Attorney Assistant — Marketing Website
 
-Production-ready static marketing website for Attorney Assistant, built with **Astro**, **HubSpot**, **Tailwind CSS**, and **TypeScript**.
+Production-ready static marketing site for [Attorney Assistant](https://attorneyassistant.com), built with **Astro**, **Tailwind CSS**, and **TypeScript**. Content is sourced from **HubSpot CMS** (blog posts, testimonials), **BabyLoveGrowth.ai** (AI-generated articles), and **Google Places API** (reviews) at build time.
 
-## Why Astro?
-
-Astro was chosen as the SSG because it:
-
-- **Ships zero JavaScript by default** — pages are pure static HTML
-- **Generates one HTML file per route** (`/about/index.html`, `/blog/my-post/index.html`)
-- **First-class content site support** — built-in sitemap, RSS, and image optimization
-- **Islands architecture** — add interactivity only where needed without a full SPA
-- **Fast builds** — parallel data fetching and incremental compilation
-- **Strong TypeScript support** — end-to-end type safety
-
-## Architecture Overview
+## Architecture
 
 ```
-HubSpot API ──▶ Astro SSG ──static HTML──▶ GitHub Pages
+HubSpot API ────┐
+                ├──▶ Astro SSG ──static HTML──▶ Hostinger FTP
+BabyLoveGrowth ─┤
+Google API ─────┘
 ```
 
-On every build (triggered by git push), Astro fetches testimonial data via the HubSpot API, generates static HTML pages, and deploys them.
+GitHub Actions builds and deploys on push to `main`, daily at 6 AM EST, on `repository_dispatch`, or manually.
 
 ## Quick Start
 
@@ -31,8 +23,8 @@ On every build (triggered by git push), Astro fetches testimonial data via the H
 ### 1. Clone & Install
 
 ```bash
-git clone <repo-url>
-cd attorney-assistant
+git clone https://github.com/Attorney-Assistant/aasite.git
+cd aasite
 npm install
 ```
 
@@ -46,7 +38,9 @@ Edit `.env` with your credentials:
 
 ```
 HUBSPOT_ACCESS_TOKEN=your_hubspot_access_token
+BABYLOVEGROWTH=your_babylovegrowth_api_key
 SITE_URL=https://attorneyassistant.com
+GOOGLE_PLACES_API_KEY=your_google_places_api_key
 ```
 
 ### 3. Run Locally
@@ -55,102 +49,97 @@ SITE_URL=https://attorneyassistant.com
 npm run dev
 ```
 
-- Site: http://localhost:4321
+Site: http://localhost:4321
 
 ### 4. Build for Production
 
 ```bash
-npm run build
-npm run preview  # Preview the build locally
+npm run build      # Fetches reviews, optimizes images, builds site + Storybook
+npm run preview    # Preview the build locally
 ```
 
-Output goes to `dist/`.
+Output goes to `dist/` (site) and `dist/storybook/` (component library).
 
 ## Project Structure
 
 ```
-├── .github/workflows/     # CI/CD pipeline
+├── .github/workflows/     # CI/CD pipeline (build + FTP deploy)
 ├── .storybook/            # Storybook configuration
-├── docs/                  # Architecture documentation
 ├── public/
-│   ├── brand/logos/        # Brand logo assets
-│   └── wp-content/        # Migrated WordPress images
-├── scripts/               # WordPress migration tools
+│   ├── brand/logos/        # Logo assets (SVG, PNG)
+│   ├── brand/icons/        # Icon library (48 SVGs)
+│   └── wp-content/         # Migrated WordPress images
+├── scripts/
+│   ├── fetch-google-reviews.mjs   # Google Places API → JSON
+│   ├── optimize-images.mjs        # Image optimization pipeline
+│   └── output/                    # Build-time data (JSON)
 ├── src/
-│   ├── components/        # Astro components (Header, Footer, BlogCard, etc.)
-│   ├── layouts/           # Page layouts
+│   ├── components/        # Astro components
+│   ├── layouts/           # BaseLayout (SEO, structured data, GTM)
 │   ├── lib/
-│   │   └── hubspot.ts     # HubSpot client and fetch helpers
+│   │   ├── blog.ts            # Unified blog layer (merges all sources)
+│   │   ├── hubspot.ts         # HubSpot API client
+│   │   └── babylovegrowth.ts  # BabyLoveGrowth.ai API client
 │   ├── pages/             # File-based routing
-│   │   ├── blog/
-│   │   ├── services/
-│   │   ├── landing/[slug].astro
-│   │   ├── signaturegenerator.astro
-│   │   ├── styleguide.astro
-│   │   ├── rss.xml.ts
+│   │   ├── blog/          # Blog (HubSpot + BabyLoveGrowth)
+│   │   ├── services/      # Service pages
+│   │   ├── landing/       # Landing pages
 │   │   └── ...
 │   ├── stories/           # Storybook stories
 │   └── styles/
-│       └── global.css     # Tailwind + design tokens
+│       ├── global.css     # Tailwind + design tokens
+│       └── wp-compat.css  # WordPress content compatibility
 ├── astro.config.mjs
 ├── tailwind.config.mjs
 └── package.json
 ```
 
-## Content Management
+## Scripts
 
-### Adding a Blog Post
-
-Blog posts are managed as Astro MDX files or fetched from HubSpot at build time.
-
-### Adding a Page
-
-Static pages (About, Services, etc.) are Astro files in `src/pages/`. To add a new static page:
-
-1. Create `src/pages/your-page.astro`
-2. Import and use `BaseLayout`
-3. Add content directly in the template
+```bash
+npm run dev              # Astro dev server on :4321
+npm run build            # Full production build
+npm run preview          # Preview production build
+npm run storybook        # Storybook dev on :6006
+npm run fetch:reviews    # Fetch Google Reviews
+npm run optimize-images  # Optimize images in public/
+```
 
 ## Deployment
 
-### GitHub Actions (default)
+### GitHub Actions
 
-The CI/CD pipeline in `.github/workflows/deploy.yml`:
+The CI/CD pipeline (`.github/workflows/deploy.yml`) runs on push to `main`:
+
 1. Installs dependencies
-2. Builds the static site
-3. Deploys to GitHub Pages
+2. Fetches Google Reviews via Places API
+3. Optimizes images
+4. Builds Astro site + Storybook
+5. Deploys to FTP server
 
-**Required GitHub Secrets:**
+### Required GitHub Secrets
 
 | Secret | Description |
 |--------|-------------|
-| `HUBSPOT_ACCESS_TOKEN` | HubSpot private app read token |
-| `SITE_URL` | Production URL (defaults to `https://attorneyassistant.com`) |
-| `FTP_SERVER` | FTP deployment server |
+| `HUBSPOT_ACCESS_TOKEN` | HubSpot private app token |
+| `BABYLOVEGROWTH` | BabyLoveGrowth.ai API key |
+| `GOOGLE_MAPS_API` | Google Places API key (for reviews) |
+| `FTP_SERVER` | FTP deployment server (Hostinger) |
 | `FTP_USERNAME` | FTP username |
 | `FTP_PASSWORD` | FTP password |
+| `SITE_URL` | Production URL (defaults to `https://attorneyassistant.com`) |
 
-Set these at **Settings** → **Secrets and variables** → **Actions** in your GitHub repo.
-
-## Brand Assets
+## Brand Tokens
 
 | Token | Value |
 |-------|-------|
+| Navy | `#1a3a5c` |
+| Gold | `#F9A630` |
+| Blue | `#50a7dd` |
 | Black | `#0b0000` |
 | White | `#ffffff` |
-| Gold | `#ffaa2b` |
-| Blue | `#50a7dd` |
 | Steel | `#588aa5` |
-| Heading Font | Poppins |
-| Body Font | Roboto |
+| Heading Font | Sora |
+| Body Font | System sans-serif |
 
-Design tokens are defined in `tailwind.config.mjs` and available as `brand-*` classes.
-
-## Development
-
-```bash
-npm run dev        # Astro dev server on :4321
-npm run build      # Production build
-npm run preview    # Preview production build
-npm run storybook  # Storybook on :6006
-```
+Design tokens are defined in `tailwind.config.mjs` and available as `brand-*` utility classes. See the [Style Guide](/styleguide) or Storybook for the full component library.

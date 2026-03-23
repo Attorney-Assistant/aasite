@@ -1,0 +1,738 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HubSpotForm from "@components/HubSpotForm.astro";
+import CTABanner from "@components/CTABanner.astro";
+---
+
+<BaseLayout
+  title="Your Marketing Budget Is Leaking Revenue | Attorney Assistant"
+  description="Law firms pour money into marketing but lose leads to broken follow-up, dead social accounts, and zero tracking. We fix the operational gaps so your spend actually converts."
+>
+
+  <!-- Hero with Form -->
+  <section class="relative overflow-hidden bg-brand-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="lp-orb lp-orb--1" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--2" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal">
+          <div class="mb-6">
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-error-50/10 text-red-400 border border-red-500/20 backdrop-blur-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
+              Marketing ROI Crisis
+            </span>
+          </div>
+          <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-6">
+            Your Marketing Budget Is <span class="text-gradient-gold">Leaking Revenue</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-lg">
+            You're spending thousands on ads, SEO, and agencies — but leads go cold, social media goes quiet, and nobody tracks what's working. The problem isn't your marketing. It's the operations behind it.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Free audit
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              No commitment
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Results in 30 days
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl ring-1 ring-white/10 reveal" style="transition-delay: 150ms">
+          <div class="mb-5">
+            <h2 class="text-xl font-heading text-gray-900 mb-1">Get Your Free Marketing Audit</h2>
+            <p class="text-sm text-gray-500">We'll show you exactly where your budget is leaking.</p>
+          </div>
+          <HubSpotForm portalId="49161090" formId="bada185b-28a8-496a-9264-3b3dde17bd08" region="na1" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Leak -->
+  <section class="lp-leak">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <span class="badge bg-error-50 text-error-700 border border-error-300 mb-3 reveal">The Leak</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms">
+          Where Your Marketing Dollars Actually Go
+        </h2>
+        <div class="divider-gold-center mt-5 reveal" style="transition-delay: 120ms"></div>
+        <p class="text-lg text-gray-500 max-w-3xl mx-auto mt-5 reveal" style="transition-delay: 160ms">
+          Most law firms blame their agency or their ads. But the real waste happens after the click — in the operational gaps nobody's watching.
+        </p>
+      </div>
+
+      <!-- Waste flow diagram -->
+      <div class="lp-flow reveal" style="transition-delay: 200ms">
+        <div class="lp-flow-step lp-flow-step--green">
+          <div class="lp-flow-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+          </div>
+          <span class="lp-flow-label">You spend $5K–$15K/mo on marketing</span>
+        </div>
+        <div class="lp-flow-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </div>
+        <div class="lp-flow-step lp-flow-step--amber">
+          <div class="lp-flow-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          </div>
+          <span class="lp-flow-label">Leads come in</span>
+        </div>
+        <div class="lp-flow-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </div>
+        <div class="lp-flow-step lp-flow-step--red">
+          <div class="lp-flow-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
+          </div>
+          <span class="lp-flow-label">Nobody follows up, tracks, or converts</span>
+        </div>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div class="lp-stat-card reveal" style="transition-delay: 300ms">
+          <div class="lp-stat-num text-error-600">78%</div>
+          <p class="text-sm text-gray-700 font-medium">of leads go to the first firm that responds — not the best firm</p>
+        </div>
+        <div class="lp-stat-card reveal" style="transition-delay: 400ms">
+          <div class="lp-stat-num text-error-600">$150K+</div>
+          <p class="text-sm text-gray-700 font-medium">in annual revenue lost by firms with no after-hours follow-up system</p>
+        </div>
+        <div class="lp-stat-card reveal" style="transition-delay: 500ms">
+          <div class="lp-stat-num text-error-600">67%</div>
+          <p class="text-sm text-gray-700 font-medium">of law firm marketing spend generates zero attributable cases</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Real Problem -->
+  <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(26,58,92,0.06),transparent_70%)] pointer-events-none"></div>
+    <div class="container-narrow relative">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand mb-3">The Real Problem</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          It's Not a Marketing Problem.<br />It's an Operations Problem.
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+
+      <div class="lp-problems-list">
+        {[
+          {
+            icon: "M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0",
+            title: "Leads come in — nobody follows up fast enough",
+            desc: "A lead that waits more than 5 minutes is already calling your competitor. If you don't have a system that responds instantly, your ad spend is subsidizing someone else's caseload."
+          },
+          {
+            icon: "M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5",
+            title: "Social media goes quiet for weeks",
+            desc: "You paid for a website rebrand and a content strategy, but nobody's posting. Your firm looks inactive. Potential clients check your profiles and see radio silence — that's a trust killer."
+          },
+          {
+            icon: "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z",
+            title: "No tracking — you can't tell what works",
+            desc: "You're spending money across 4 channels but nobody's tracking which ones generate actual cases. Without attribution, you're guessing. And guessing is expensive."
+          },
+          {
+            icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
+            title: "Your team doesn't have time to execute",
+            desc: "Partners shouldn't be scheduling posts. Paralegals shouldn't be chasing intake forms. The marketing execution falls through the cracks because it's nobody's dedicated job."
+          },
+        ].map((item, i) => (
+          <div class="lp-problem-row reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="lp-problem-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-base font-heading text-gray-900 mb-1">{item.title}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Fix -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-success mb-3">The Fix</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          We Fix the Operations So Your Marketing Actually Converts
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto mt-5">
+          We don't run your ads. We make sure the money you're already spending actually turns into clients.
+        </p>
+      </div>
+
+      <div class="lp-fix-grid">
+        {[
+          { num: "01", title: "Instant Lead Response", desc: "Every inquiry gets acknowledged within minutes — nights, weekends, holidays. No lead goes cold.", color: "brand-gold" },
+          { num: "02", title: "Consistent Content Execution", desc: "Your social media, email campaigns, and blog stay active with on-brand content posted on schedule.", color: "brand-blue" },
+          { num: "03", title: "Pipeline Tracking & Attribution", desc: "We track every lead from first touch to signed retainer so you know exactly which spend generates cases.", color: "brand-gold" },
+          { num: "04", title: "Follow-Up Sequences", desc: "Automated and human-driven follow-up that nurtures leads who aren't ready to sign today.", color: "brand-blue" },
+          { num: "05", title: "Review & Reputation Management", desc: "Consistent review requests and monitoring that builds your online presence without you thinking about it.", color: "brand-gold" },
+          { num: "06", title: "Monthly ROI Reporting", desc: "Clear reports that show what's working, what isn't, and where to shift budget — in plain English.", color: "brand-blue" },
+        ].map((item, i) => (
+          <div class="lp-fix-card reveal" style={`transition-delay: ${i * 80}ms`}>
+            <span class={`lp-fix-num text-${item.color}`}>{item.num}</span>
+            <h3 class="text-base font-heading text-gray-900 mb-1">{item.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After Comparison -->
+  <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,rgba(26,58,92,0.06),transparent_70%)] pointer-events-none"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand mb-3">Compare</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900">
+          The Math on Marketing Waste
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto reveal" style="transition-delay: 100ms">
+        <div class="lp-compare">
+          <div class="lp-compare-col lp-compare-col--red">
+            <div class="lp-compare-header lp-compare-header--red">
+              <span class="lp-compare-dot lp-compare-dot--red"></span>
+              Without Us
+            </div>
+            <ul class="lp-compare-list">
+              <li>
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                <span>$5K–$15K/mo marketing spend</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                <span>30% of leads never contacted</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                <span>No idea which channels convert</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                <span>Social media dead for weeks</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                <span>Partners managing campaigns themselves</span>
+              </li>
+            </ul>
+            <div class="lp-compare-bottom">
+              <span class="text-xs uppercase tracking-wider text-red-400 font-semibold">Estimated Annual Waste</span>
+              <span class="text-display-xs font-heading text-red-500">$60K–$180K</span>
+            </div>
+          </div>
+
+          <div class="lp-compare-col lp-compare-col--gold">
+            <div class="lp-compare-header lp-compare-header--gold">
+              <span class="lp-compare-dot lp-compare-dot--gold"></span>
+              With Attorney Assistant
+            </div>
+            <ul class="lp-compare-list">
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                <span>Same marketing spend, 2–3x the conversions</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                <span>Every lead contacted within minutes</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                <span>Full attribution — know what works</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                <span>Consistent content published daily</span>
+              </li>
+              <li>
+                <svg class="w-4 h-4 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                <span>Your team focuses on practicing law</span>
+              </li>
+            </ul>
+            <div class="lp-compare-bottom">
+              <span class="text-xs uppercase tracking-wider text-brand-gold font-semibold">Starting At</span>
+              <span class="text-display-xs font-heading text-brand-gold">$1,500/mo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand mb-3">How It Works</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900">Three Steps to Stop the Leak</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="lp-steps">
+        {[
+          { step: "1", title: "We Audit Your Marketing Operations", desc: "We look at your current spend, lead flow, follow-up process, and tracking. We show you exactly where money is leaking." },
+          { step: "2", title: "We Build Your Execution System", desc: "A custom operations plan: who responds to leads, what gets posted, how campaigns get tracked, and who's accountable." },
+          { step: "3", title: "We Execute — You Practice Law", desc: "Our team handles the daily marketing execution, lead follow-up, and reporting. You get monthly proof that your budget is working." },
+        ].map((item, i) => (
+          <div class="lp-step reveal" style={`transition-delay: ${i * 120}ms`}>
+            <div class="lp-step-num">{item.step}</div>
+            <div class="lp-step-content">
+              <h3 class="text-lg font-heading text-gray-900 mb-1">{item.title}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+            </div>
+            {i < 2 && <div class="lp-step-connector" aria-hidden="true"></div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section-padding bg-brand-navy relative overflow-hidden grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-narrow relative z-10">
+      <div class="text-center mb-10 reveal">
+        <div class="divider-gold-center mb-6"></div>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          200+ Law Firms Stopped the Bleeding
+        </h2>
+        <p class="text-lg text-brand-200">
+          Here's what happens when your marketing budget has operations behind it.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        {[
+          { stat: "3x", label: "increase in lead-to-client conversion", firm: "Personal Injury Firm, TX" },
+          { stat: "60%", label: "reduction in cost per signed case", firm: "Family Law Practice, FL" },
+          { stat: "47", label: "new clients in first 90 days", firm: "Criminal Defense Firm, CA" },
+        ].map((item, i) => (
+          <div class="lp-proof-card reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="text-display-sm font-heading text-brand-gold mb-2">{item.stat}</div>
+            <p class="text-sm text-gray-300 mb-3">{item.label}</p>
+            <span class="text-xs text-gray-500 uppercase tracking-wider">{item.firm}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA with form -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          Stop Subsidizing Your Competitors' Caseload
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Every day without an operations system behind your marketing, you're paying for leads that call someone else. Let's fix that.
+        </p>
+        <div class="divider-gold-center mt-6"></div>
+      </div>
+      <div class="max-w-lg mx-auto bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-200 reveal" style="transition-delay: 100ms">
+        <div class="mb-5 text-center">
+          <h3 class="text-xl font-heading text-gray-900 mb-1">Get Your Free Marketing Audit</h3>
+          <p class="text-sm text-gray-500">Takes 30 seconds. We'll follow up within 24 hours.</p>
+        </div>
+        <HubSpotForm portalId="49161090" formId="bada185b-28a8-496a-9264-3b3dde17bd08" region="na1" />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* =============================================
+     HERO ORBS
+  ============================================= */
+  .lp-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+    z-index: 1;
+  }
+  .lp-orb--1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(80,167,221,0.3) 0%, rgba(80,167,221,0) 70%);
+    top: -25%;
+    right: -10%;
+    animation: lpFloat1 10s ease-in-out infinite;
+  }
+  .lp-orb--2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(249,166,48,0.25) 0%, rgba(249,166,48,0) 70%);
+    bottom: -20%;
+    left: -8%;
+    animation: lpFloat2 12s ease-in-out infinite;
+  }
+  @keyframes lpFloat1 {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(-100px, 50px) scale(1.25); }
+    40% { transform: translate(-30px, -60px) scale(0.85); }
+    60% { transform: translate(80px, 25px) scale(1.15); }
+    80% { transform: translate(30px, -40px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+  @keyframes lpFloat2 {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(90px, -45px) scale(1.3); }
+    50% { transform: translate(30px, 60px) scale(0.8); }
+    75% { transform: translate(-60px, -20px) scale(1.15); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lp-orb { animation: none; }
+  }
+
+  /* =============================================
+     LEAK SECTION
+  ============================================= */
+  .lp-leak {
+    padding: 4rem 0;
+  }
+  @media (min-width: 768px) {
+    .lp-leak { padding: 5rem 0; }
+  }
+
+  /* Flow diagram */
+  .lp-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .lp-flow { flex-wrap: nowrap; gap: 1rem; }
+  }
+
+  .lp-flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .lp-flow-step--green {
+    background: rgba(23,178,106,0.06);
+    border: 1px solid rgba(23,178,106,0.15);
+  }
+  .lp-flow-step--amber {
+    background: rgba(249,166,48,0.06);
+    border: 1px solid rgba(249,166,48,0.15);
+  }
+  .lp-flow-step--red {
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.15);
+  }
+
+  .lp-flow-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .lp-flow-step--green .lp-flow-icon { color: #17b26a; }
+  .lp-flow-step--amber .lp-flow-icon { color: #F9A630; }
+  .lp-flow-step--red .lp-flow-icon { color: #ef4444; }
+
+  .lp-flow-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #344054;
+    line-height: 1.4;
+  }
+
+  .lp-flow-arrow {
+    flex-shrink: 0;
+    width: 24px;
+    color: #d0d5dd;
+  }
+  .lp-flow-arrow svg { width: 100%; }
+
+  @media (max-width: 767px) {
+    .lp-flow { flex-direction: column; }
+    .lp-flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* Stat cards */
+  .lp-stat-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .lp-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  .lp-stat-num {
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  /* =============================================
+     PROBLEMS LIST
+  ============================================= */
+  .lp-problems-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .lp-problem-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .lp-problem-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .lp-problem-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(239,68,68,0.08);
+    color: #ef4444;
+    border: 1px solid rgba(239,68,68,0.12);
+  }
+
+  /* =============================================
+     FIX GRID
+  ============================================= */
+  .lp-fix-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .lp-fix-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .lp-fix-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .lp-fix-card {
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .lp-fix-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+
+  .lp-fix-num {
+    display: inline-block;
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+  }
+
+  /* =============================================
+     COMPARE COLUMNS
+  ============================================= */
+  .lp-compare {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .lp-compare { grid-template-columns: 1fr 1fr; }
+  }
+
+  .lp-compare-col {
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lp-compare-col--red {
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+  }
+  .lp-compare-col--gold {
+    background: #fffbf0;
+    border: 1px solid #ffe8b2;
+  }
+
+  .lp-compare-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .lp-compare-header--red {
+    background: #fee2e2;
+    color: #b91c1c;
+  }
+  .lp-compare-header--gold {
+    background: rgba(249,166,48,0.2);
+    color: #92600a;
+  }
+
+  .lp-compare-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .lp-compare-dot--red { background: #ef4444; }
+  .lp-compare-dot--gold { background: #F9A630; }
+
+  .lp-compare-list {
+    list-style: none;
+    padding: 1.25rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    flex: 1;
+  }
+  .lp-compare-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    color: #344054;
+    line-height: 1.4;
+  }
+
+  .lp-compare-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1.25rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* =============================================
+     STEPS
+  ============================================= */
+  .lp-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .lp-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    position: relative;
+  }
+
+  .lp-step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1a3a5c, #0f2337);
+    color: #F9A630;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(26,58,92,0.25);
+  }
+
+  .lp-step-content {
+    flex: 1;
+    padding-top: 0.25rem;
+  }
+
+  .lp-step-connector {
+    position: absolute;
+    left: 23px;
+    top: calc(1.5rem + 48px);
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #1a3a5c 0%, #d0d5dd 100%);
+  }
+
+  /* =============================================
+     PROOF CARDS
+  ============================================= */
+  .lp-proof-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: background 0.3s ease;
+  }
+  .lp-proof-card:hover {
+    background: rgba(255,255,255,0.08);
+  }
+</style>

@@ -2,12 +2,7 @@
 // No props — content is self-contained
 ---
 
-<!-- Progress bar -->
-<div class="st-progress-bar" id="st-progress" aria-hidden="true">
-  <div class="st-progress-fill" id="st-progress-fill"></div>
-</div>
-
-<section class="scrollytelling-section" aria-label="Revenue impact story">
+<section class="st-section" aria-label="Revenue impact comparison">
 
   <!-- Intro label -->
   <div class="st-intro">
@@ -23,559 +18,226 @@
     </div>
   </div>
 
-  <!-- ===== ACT 1: Right now, your firm is leaking revenue ===== -->
-  <div class="act act-1" id="act-1">
-    <div class="act-sentinel" aria-hidden="true"></div>
+  <!-- Single unified strip -->
+  <div class="st-strip" id="st-strip">
+    <div class="st-sentinel" aria-hidden="true"></div>
 
-    <!-- Floating particles (CSS-only) -->
+    <!-- Floating particles -->
     <div class="particles" aria-hidden="true">
-      <span class="particle particle-1"></span>
-      <span class="particle particle-2"></span>
-      <span class="particle particle-3"></span>
-      <span class="particle particle-4"></span>
-      <span class="particle particle-5"></span>
-      <span class="particle particle-6"></span>
-      <span class="particle particle-7"></span>
-      <span class="particle particle-8"></span>
+      <span class="particle p1"></span>
+      <span class="particle p2"></span>
+      <span class="particle p3"></span>
+      <span class="particle p4"></span>
+      <span class="particle p5"></span>
+      <span class="particle p6"></span>
     </div>
 
-    <!-- Background act number -->
-    <div class="act-bg-num" aria-hidden="true">01</div>
+    <!-- Gold overlay for transformed state -->
+    <div class="st-gold-overlay" aria-hidden="true"></div>
 
-    <div class="act-inner">
+    <div class="st-inner">
       <div class="container-wide">
 
-        <div class="act-header">
-          <div class="act-eyebrow">
-            <span class="eyebrow-dot eyebrow-dot--red"></span>
-            The Reality
+        <!-- Header -->
+        <div class="st-header">
+          <div class="st-eyebrow" id="st-eyebrow">
+            <span class="st-eyebrow-dot" id="st-eyebrow-dot"></span>
+            <span id="st-eyebrow-text">The Reality</span>
           </div>
-          <!-- Alarm bell icon -->
-          <div class="act-header-icon act-header-icon--red" aria-hidden="true">
+          <!-- Icon: alarm (without) / sun (with) -->
+          <div class="st-header-icon st-icon-alarm" id="st-icon-alarm" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
             </svg>
           </div>
-          <h2 class="act-title">
-            Right now, your firm<br />
-            <span class="text-red-glow">is leaking revenue.</span>
+          <div class="st-header-icon st-icon-sun" id="st-icon-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            </svg>
+          </div>
+          <h2 class="st-title">
+            Your firm is
+            <span class="st-title-accent" id="st-title-accent">leaking revenue.</span>
           </h2>
-          <p class="act-subtitle">Every hour you're not available, leads choose someone who is.</p>
+          <p class="st-subtitle" id="st-subtitle">Every hour you're not available, leads choose someone who is.</p>
         </div>
 
-        <!-- Counter cards with stagger -->
-        <div class="counter-grid">
+        <!-- Toggle -->
+        <div class="st-toggle" role="group" aria-label="Compare without and with Attorney Assistant">
+          <button class="st-toggle-btn st-toggle-btn--without is-active-tab" id="toggle-without" type="button" aria-pressed="true">
+            <span class="st-toggle-dot st-toggle-dot--red"></span>
+            Without Attorney Assistant
+          </button>
+          <button class="st-toggle-btn st-toggle-btn--with" id="toggle-with" type="button" aria-pressed="false">
+            <span class="st-toggle-dot st-toggle-dot--gold"></span>
+            With Attorney Assistant
+          </button>
+        </div>
+
+        <!-- Stat cards — morph between states -->
+        <div class="stat-grid">
 
           <!-- Card 1: Missed calls -->
-          <div class="counter-card counter-card--danger stagger-card" data-stagger="0" tabindex="0">
-            <div class="card-tooltip" role="tooltip">
-              Based on average law firm data from ABA 2024 research — most firms miss 3–5 inbound calls per day during business hours due to capacity limits.
+          <div class="stat-card stagger-card" data-stagger="0" tabindex="0">
+            <div class="stat-tooltip" role="tooltip">
+              Based on ABA 2024 research — most firms miss 3–5 inbound calls per day during business hours.
             </div>
-            <div class="counter-card-icon counter-card-icon--red">
-              <!-- Phone + gradient fill -->
+            <div class="stat-icon stat-icon--red" id="stat-icon-1">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <defs>
-                  <linearGradient id="grad-phone-red" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#ef4444"/>
-                    <stop offset="100%" stop-color="#dc2626"/>
+                  <linearGradient id="g-phone-red" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#dc2626"/>
+                  </linearGradient>
+                  <linearGradient id="g-check-gold" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#F9A630"/><stop offset="100%" stop-color="#e69500"/>
                   </linearGradient>
                 </defs>
-                <path fill="url(#grad-phone-red)" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                <line x1="15" y1="9" x2="19" y2="13" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="19" y1="9" x2="15" y2="13" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                <path class="icon-without" fill="url(#g-phone-red)" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                <line class="icon-without" x1="15" y1="9" x2="19" y2="13" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                <line class="icon-without" x1="19" y1="9" x2="15" y2="13" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                <circle class="icon-with" cx="12" cy="12" r="10" fill="url(#g-check-gold)" opacity="0"/>
+                <path class="icon-with" d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
               </svg>
             </div>
-            <div class="counter-card-body">
-              <div class="counter-label-row">
-                <svg class="inline-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path fill="#ef4444" d="M2.25 5.25C2.25 11.462 7.287 16.5 13.5 16.5H15a1.5 1.5 0 001.5-1.5v-.914a.75.75 0 00-.568-.727l-2.949-.737a.75.75 0 00-.782.278l-.647.863a.75.75 0 01-.807.253 8.024 8.024 0 01-4.762-4.762.75.75 0 01.253-.807l.863-.647a.75.75 0 00.278-.782L5.632 4.07a.75.75 0 00-.727-.569H4a1.5 1.5 0 00-1.5 1.5v.75-.75z"/>
-                </svg>
-                Missed calls <span class="counter-sub">today</span>
+            <div class="stat-body">
+              <div class="stat-label">
+                <span class="label-without">Missed calls <span class="stat-sub">today</span></span>
+                <span class="label-with">Missed calls <span class="stat-sub stat-sub--green">this month</span></span>
               </div>
-              <div class="counter-number text-red-400">
-                <span class="counter" data-target="3" data-act="1">0</span>
+              <div class="stat-number" id="stat-num-1">
+                <span class="counter morph-counter" data-without="3" data-with="0">0</span>
               </div>
-              <div class="counter-pulse">
-                <span class="pulse-ring pulse-ring--red"></span>
-                <span class="pulse-dot pulse-dot--red"></span>
+              <div class="stat-badge badge-without">
+                <span class="pulse-ring"></span>
+                <span class="pulse-dot"></span>
+              </div>
+              <div class="stat-badge badge-with">
+                <div class="result-badge">
+                  <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  24/7 always answered
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Card 2: Intake time -->
-          <div class="counter-card counter-card--warn stagger-card" data-stagger="150" tabindex="0">
-            <div class="card-tooltip" role="tooltip">
-              Industry research shows the average law firm intake process takes 40–55 minutes. Slow intake frustrates potential clients and reduces conversion rates significantly.
+          <div class="stat-card stagger-card" data-stagger="150" tabindex="0">
+            <div class="stat-tooltip" role="tooltip">
+              Average law firm intake: 40–55 minutes. Attorney Assistant completes intake in under 5 minutes — 89% faster.
             </div>
-            <div class="counter-card-icon counter-card-icon--orange">
+            <div class="stat-icon stat-icon--orange">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <defs>
-                  <linearGradient id="grad-clock-orange" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#fb923c"/>
-                    <stop offset="100%" stop-color="#ea580c"/>
+                  <linearGradient id="g-clock" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#ea580c"/>
                   </linearGradient>
                 </defs>
-                <circle cx="12" cy="12" r="9" fill="url(#grad-clock-orange)" opacity="0.9"/>
+                <circle cx="12" cy="12" r="9" fill="url(#g-clock)" opacity="0.9"/>
                 <path d="M12 7v5h3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="counter-card-body">
-              <div class="counter-label-row">
-                <svg class="inline-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <circle cx="8" cy="8" r="6" fill="#fb923c"/>
-                  <path d="M8 5v3.5H10.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-                Avg intake time <span class="counter-sub">per lead</span>
+            <div class="stat-body">
+              <div class="stat-label">
+                <span class="label-without">Avg intake time <span class="stat-sub">per lead</span></span>
+                <span class="label-with">Avg intake <span class="stat-sub stat-sub--green">down from 47min</span></span>
               </div>
-              <div class="counter-number text-orange-400">
-                <span class="counter" data-target="47" data-act="1">0</span>
-                <span class="counter-unit">min</span>
+              <div class="stat-number" id="stat-num-2">
+                <span class="counter morph-counter" data-without="47" data-with="5">0</span>
+                <span class="stat-unit">min</span>
               </div>
-              <div class="counter-bar-wrap">
-                <div class="counter-bar counter-bar--warn" style="--bar-width: 78%"></div>
+              <div class="stat-badge badge-without">
+                <div class="stat-bar-wrap"><div class="stat-bar stat-bar--warn" style="--bar-w:78%"></div></div>
+              </div>
+              <div class="stat-badge badge-with">
+                <div class="result-badge">
+                  <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+                  89% faster intake
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Card 3: Marketing conversion -->
-          <div class="counter-card counter-card--neutral stagger-card" data-stagger="300" tabindex="0">
-            <div class="card-tooltip" role="tooltip">
-              The average law firm converts only 10–15% of marketing-driven leads into paying clients. Attorney Assistant clients average 35–40% after implementing 24/7 intake.
+          <!-- Card 3: Conversion rate -->
+          <div class="stat-card stagger-card" data-stagger="300" tabindex="0">
+            <div class="stat-tooltip" role="tooltip">
+              Average firm converts 10–15% of leads. Attorney Assistant clients average 35–40% after implementing 24/7 intake.
             </div>
-            <div class="counter-card-icon counter-card-icon--blue">
+            <div class="stat-icon stat-icon--blue">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <defs>
-                  <linearGradient id="grad-chart-blue" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#50a7dd"/>
-                    <stop offset="100%" stop-color="#1a3a5c"/>
+                  <linearGradient id="g-chart" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#50a7dd"/><stop offset="100%" stop-color="#1a3a5c"/>
                   </linearGradient>
                 </defs>
-                <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#grad-chart-blue)" opacity="0.9"/>
+                <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#g-chart)" opacity="0.9"/>
                 <path d="M6 14l3-4 3 3 4-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="counter-card-body">
-              <div class="spend-row">
-                <svg class="inline-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <circle cx="8" cy="8" r="6" fill="#50a7dd"/>
-                  <path d="M8 4v8M6 6h3a1 1 0 010 2H6m0 0h3.5a1 1 0 010 2H6" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
-                </svg>
-                <span class="spend-amount">$4,200</span>
-                <span class="spend-arrow">→</span>
-                <span class="counter-number text-red-400">
-                  <span class="counter" data-target="12" data-act="1">0</span>
-                  <span class="counter-unit">%</span>
-                </span>
+            <div class="stat-body">
+              <div class="stat-label">
+                <span class="label-without">Conversion rate <span class="stat-sub">of marketing spend</span></span>
+                <span class="label-with">Conversion rate <span class="stat-sub stat-sub--green">up from 12%</span></span>
               </div>
-              <div class="counter-label-row">Marketing spend <span class="counter-sub">converted</span></div>
-              <div class="counter-bar-wrap">
-                <div class="counter-bar counter-bar--danger" style="--bar-width: 12%"></div>
+              <div class="stat-number" id="stat-num-3">
+                <span class="counter morph-counter" data-without="12" data-with="38">0</span>
+                <span class="stat-unit">%</span>
+              </div>
+              <div class="stat-badge badge-without">
+                <div class="stat-bar-wrap"><div class="stat-bar stat-bar--danger" style="--bar-w:12%"></div></div>
+              </div>
+              <div class="stat-badge badge-with">
+                <div class="stat-bar-wrap"><div class="stat-bar stat-bar--gold" style="--bar-w:38%"></div></div>
               </div>
             </div>
           </div>
 
-        </div><!-- /counter-grid -->
+        </div><!-- /stat-grid -->
 
-        <!-- "See the difference" CTA -->
-        <div class="act1-cta">
-          <button class="see-diff-btn" id="see-diff-btn" type="button">
-            See the difference
-            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-            </svg>
-          </button>
+        <!-- Divider -->
+        <div class="st-divider" aria-hidden="true">
+          <div class="st-divider-line"></div>
+          <span class="st-divider-label" id="st-divider-label">What happens after 5 PM?</span>
+          <div class="st-divider-line"></div>
         </div>
 
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== ACT 2: The Overnight Story (merged from old Acts 2+3) ===== -->
-  <div class="act act-2" id="act-2">
-    <div class="act-sentinel" aria-hidden="true"></div>
-    <!-- Transition sentinel at 50% -->
-    <div class="act2-transform-sentinel" id="act2-transform-sentinel" aria-hidden="true"></div>
-
-    <!-- Background act number -->
-    <div class="act-bg-num" aria-hidden="true">02</div>
-
-    <!-- Gold radial overlay (visible when transformed) -->
-    <div class="act2-gold-overlay" aria-hidden="true"></div>
-
-    <div class="act-inner">
-      <div class="container-wide">
-
-        <!-- Header with moon→sun transition -->
-        <div class="act-header">
-          <div class="act-eyebrow act2-eyebrow">
-            <span class="eyebrow-dot eyebrow-dot--gray act2-eyebrow-dot"></span>
-            <span class="act2-eyebrow-text">The Overnight Story</span>
+        <!-- Simple before/after story -->
+        <div class="st-story">
+          <!-- Without -->
+          <div class="st-story-block st-story-block--without content-without">
+            <div class="st-story-time">10:47 PM</div>
+            <h3 class="st-story-headline">A lead fills out your contact form.</h3>
+            <p class="st-story-body">Your firm is closed. Nobody responds. By 8 AM, they've already called another firm.</p>
+            <div class="st-story-result st-story-result--red">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+              <span>Client lost. Revenue gone.</span>
+            </div>
           </div>
-          <!-- Moon icon (without state) -->
-          <div class="act-header-icon act-header-icon--gray act2-icon-moon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-            </svg>
+          <!-- With -->
+          <div class="st-story-block st-story-block--with content-with">
+            <div class="st-story-time st-story-time--gold">10:47 PM</div>
+            <h3 class="st-story-headline">A lead fills out your contact form.</h3>
+            <p class="st-story-body">Attorney Assistant responds in 90 seconds. By morning, you have a consultation booked.</p>
+            <div class="st-story-result st-story-result--gold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>New client secured.</span>
+            </div>
           </div>
-          <!-- Sun icon (with state) -->
-          <div class="act-header-icon act-header-icon--gold act2-icon-sun" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-            </svg>
-          </div>
-          <h2 class="act-title">
-            What happens<br />
-            <span class="text-gray-dim act2-title-highlight">after 5pm?</span>
-          </h2>
-          <p class="act-subtitle act2-subtitle">While you sleep, leads are choosing your competitors.</p>
         </div>
 
-        <!-- Toggle tabs (segmented control) -->
-        <div class="act2-toggle" role="group" aria-label="Compare without and with Attorney Assistant">
-          <button class="act2-toggle-btn act2-toggle-btn--without is-active-tab" id="toggle-without" type="button" aria-pressed="true">
-            <span class="act2-toggle-dot act2-toggle-dot--red"></span>
-            Without Attorney Assistant
-          </button>
-          <button class="act2-toggle-btn act2-toggle-btn--with" id="toggle-with" type="button" aria-pressed="false">
-            <span class="act2-toggle-dot act2-toggle-dot--gold"></span>
-            With Attorney Assistant
-          </button>
+        <!-- Overnight counter -->
+        <div class="overnight" id="overnight">
+          <div class="overnight-label content-without">Leads lost overnight this week</div>
+          <div class="overnight-label overnight-label--gold content-with">Leads captured overnight this week</div>
+          <div class="overnight-num">
+            <span class="counter morph-counter" data-without="5" data-with="5" id="overnight-counter">0</span>
+          </div>
+          <div class="overnight-sub content-without">and counting — every week</div>
+          <div class="overnight-sub overnight-sub--gold content-with">every one a potential client</div>
         </div>
-
-        <!-- Timeline visualization -->
-        <div class="timeline-wrap">
-          <div class="timeline-header">
-            <span class="timeline-time">6:00 PM</span>
-            <span class="timeline-label">Firm closes</span>
-            <span class="timeline-spacer"></span>
-            <span class="timeline-label">Firm opens</span>
-            <span class="timeline-time">8:00 AM</span>
-          </div>
-
-          <div class="timeline-bar-wrap">
-            <!-- Active hours -->
-            <div class="timeline-active timeline-active--left">
-              <span class="timeline-active-label">Open</span>
-            </div>
-            <!-- Gap bar — transitions from gray to gold -->
-            <div class="timeline-gap" id="timeline-gap">
-              <div class="timeline-gap-fill" aria-hidden="true"></div>
-              <div class="timeline-gap-gold-fill" aria-hidden="true"></div>
-              <!-- Hover zones -->
-              <div class="tl-hover-zone" style="left:15%" data-tip="8 PM — Most leads submit forms after dinner">
-                <span class="tl-hz-pip"></span>
-                <span class="tl-hz-tooltip">8 PM — Most leads submit forms after dinner</span>
-              </div>
-              <div class="tl-hover-zone" style="left:40%" data-tip="10:47 PM — Peak legal-distress search time">
-                <span class="tl-hz-pip"></span>
-                <span class="tl-hz-tooltip">10:47 PM — Peak legal-distress search time</span>
-              </div>
-              <div class="tl-hover-zone" style="left:68%" data-tip="2 AM — Emergency situations don't wait">
-                <span class="tl-hz-pip"></span>
-                <span class="tl-hz-tooltip">2 AM — Emergency situations don't wait</span>
-              </div>
-              <!-- Without state label -->
-              <div class="timeline-gap-label act2-without-content">
-                <svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-                </svg>
-                <span>Your firm goes offline</span>
-              </div>
-              <div class="timeline-gap-hours act2-without-content">14 hours of silence</div>
-              <!-- With state label -->
-              <div class="timeline-gap-label timeline-gap-label--gold act2-with-content">
-                <svg class="gap-icon gap-icon--gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                </svg>
-                <span>Attorney Assistant active</span>
-              </div>
-              <div class="timeline-gap-hours timeline-gap-hours--gold act2-with-content">24/7 coverage active</div>
-            </div>
-            <div class="timeline-active timeline-active--right">
-              <span class="timeline-active-label">Open</span>
-            </div>
-          </div>
-
-          <!-- Lead scenario: Without state -->
-          <div class="lead-scenario act2-without-content">
-
-            <div class="lead-event">
-              <div class="lead-event-time">10:47 PM</div>
-              <div class="lead-event-connector">
-                <span class="lead-event-dot lead-event-dot--active"></span>
-                <span class="lead-event-line"></span>
-              </div>
-              <div class="lead-event-card">
-                <!-- Animated envelope icon -->
-                <div class="lead-event-icon lead-envelope-icon">
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <defs>
-                      <linearGradient id="grad-env" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#50a7dd"/>
-                        <stop offset="100%" stop-color="#1a3a5c"/>
-                      </linearGradient>
-                    </defs>
-                    <rect x="2" y="5" width="20" height="14" rx="2" fill="url(#grad-env)"/>
-                    <path d="M2 7l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <div class="lead-event-content">
-                  <p class="lead-event-title">Lead fills out your contact form</p>
-                  <p class="lead-event-detail typewriter" id="typewriter-text" aria-label="Quote: I need help with my case — it's urgent.">"<span id="tw-inner"></span>"</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="lead-event lead-event--silence">
-              <div class="lead-event-time">…</div>
-              <div class="lead-event-connector">
-                <span class="lead-event-dot lead-event-dot--dim"></span>
-                <span class="lead-event-line lead-event-line--dashed"></span>
-              </div>
-              <div class="lead-event-card lead-event-card--dim">
-                <div class="lead-event-icon lead-event-icon--dim">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                  </svg>
-                </div>
-                <div class="lead-event-content">
-                  <p class="lead-event-title">No response. Radio silence.</p>
-                  <p class="lead-event-detail">Your firm is closed. No one picks up.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="lead-event lead-event--lost">
-              <div class="lead-event-time">8:02 AM</div>
-              <div class="lead-event-connector">
-                <span class="lead-event-dot lead-event-dot--red"></span>
-              </div>
-              <div class="lead-event-card lead-event-card--lost">
-                <div class="lead-event-icon lead-event-icon--red">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.75 3.75 0 11-6.75 0 3.75 3.75 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                  </svg>
-                </div>
-                <div class="lead-event-content">
-                  <p class="lead-event-title lead-event-title--red">They've already called another firm.</p>
-                  <p class="lead-event-detail">9+ hours later — the moment is gone.</p>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /lead-scenario without -->
-
-          <!-- Lead scenario: With state -->
-          <div class="lead-scenario act2-with-content">
-
-            <div class="lead-event">
-              <div class="lead-event-time" style="color:#ffaa2b">10:47 PM</div>
-              <div class="lead-event-connector">
-                <span class="lead-event-dot" style="background:#ffaa2b;box-shadow:0 0 10px rgba(255,170,43,0.6)"></span>
-                <span class="lead-event-line" style="background:rgba(255,170,43,0.2)"></span>
-              </div>
-              <div class="lead-event-card" style="border-color:rgba(255,170,43,0.2);background:rgba(255,170,43,0.03)">
-                <div class="lead-event-icon lead-envelope-icon">
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <defs>
-                      <linearGradient id="grad-env-gold" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#ffaa2b"/>
-                        <stop offset="100%" stop-color="#e69500"/>
-                      </linearGradient>
-                    </defs>
-                    <rect x="2" y="5" width="20" height="14" rx="2" fill="url(#grad-env-gold)"/>
-                    <path d="M2 7l10 7 10-7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <div class="lead-event-content">
-                  <p class="lead-event-title">Lead fills out your contact form</p>
-                  <p class="lead-event-detail" style="color:#98a2b3">"I need help with my case — it's urgent."</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="lead-event">
-              <div class="lead-event-time" style="color:#ffaa2b">10:49 PM</div>
-              <div class="lead-event-connector">
-                <span class="lead-event-dot" style="background:#17b26a;box-shadow:0 0 10px rgba(23,178,106,0.6)"></span>
-                <span class="lead-event-line" style="background:rgba(23,178,106,0.2)"></span>
-              </div>
-              <div class="lead-event-card" style="border-color:rgba(255,170,43,0.25);background:rgba(255,170,43,0.04)">
-                <div class="act3-card-badge" style="margin-bottom:0.5rem">
-                  <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                  Answered in 90 seconds
-                </div>
-                <div class="lead-event-content">
-                  <p class="lead-event-title" style="color:#ffaa2b">Attorney Assistant responds</p>
-                  <p class="lead-event-detail" style="color:#667085">"Hi! I'm calling from the law firm about your inquiry…"</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="lead-event">
-              <div class="lead-event-time" style="color:#ffaa2b">9:00 AM</div>
-              <div class="lead-event-connector">
-                <span class="lead-event-dot" style="background:#17b26a;box-shadow:0 0 10px rgba(23,178,106,0.6)"></span>
-              </div>
-              <div class="lead-event-card" style="border-color:rgba(23,178,106,0.25);background:rgba(23,178,106,0.05)">
-                <div class="act3-card-badge act3-card-badge--gold" style="margin-bottom:0.5rem">
-                  <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                  Consultation booked for 9am
-                </div>
-                <div class="lead-event-content">
-                  <p class="lead-event-title" style="color:#ffaa2b">New client secured.</p>
-                  <p class="lead-event-detail" style="color:#667085">While your competitors slept, you won the case.</p>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /lead-scenario with -->
-
-          <!-- Metrics comparison cards -->
-          <div class="counter-grid act2-metrics">
-
-            <!-- Card 1: Missed calls -->
-            <div class="counter-card act2-metric-card stagger-card-2" data-stagger="0" tabindex="0">
-              <div class="card-tooltip" role="tooltip">
-                Without 24/7 coverage, firms miss 3+ calls daily. With Attorney Assistant, every call is answered — day or night.
-              </div>
-              <div class="counter-card-icon act2-metric-icon">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="grad-phone-metric" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#ef4444"/>
-                      <stop offset="100%" stop-color="#dc2626"/>
-                    </linearGradient>
-                    <linearGradient id="grad-check-gold" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#ffaa2b"/>
-                      <stop offset="100%" stop-color="#e69500"/>
-                    </linearGradient>
-                  </defs>
-                  <circle class="act2-metric-icon-bg" cx="12" cy="12" r="10" fill="url(#grad-phone-metric)"/>
-                  <path class="act2-metric-icon-without" fill="#fff" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" transform="translate(3,2) scale(0.75)"/>
-                  <path class="act2-metric-icon-with" d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
-                </svg>
-              </div>
-              <div class="counter-card-body">
-                <div class="counter-label-row">
-                  <span class="act2-metric-label-without">Missed calls <span class="counter-sub">today</span></span>
-                  <span class="act2-metric-label-with">Missed calls <span class="counter-sub counter-sub--green">this month</span></span>
-                </div>
-                <div class="counter-number act2-metric-number">
-                  <span class="counter act2-counter" data-target-without="3" data-target-with="0" data-act="2">0</span>
-                </div>
-                <div class="act2-metric-badge-without">
-                  <div class="counter-pulse">
-                    <span class="pulse-ring pulse-ring--red"></span>
-                    <span class="pulse-dot pulse-dot--red"></span>
-                  </div>
-                </div>
-                <div class="act2-metric-badge-with">
-                  <div class="result-badge result-badge--green">
-                    <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                    24/7 always answered
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 2: Intake time -->
-            <div class="counter-card act2-metric-card stagger-card-2" data-stagger="150" tabindex="0">
-              <div class="card-tooltip" role="tooltip">
-                Industry average intake takes 40–55 minutes. Attorney Assistant completes intake in under 5 minutes — 89% faster.
-              </div>
-              <div class="counter-card-icon act2-metric-icon">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="grad-clock-metric" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#fb923c"/>
-                      <stop offset="100%" stop-color="#ea580c"/>
-                    </linearGradient>
-                  </defs>
-                  <circle class="act2-metric-icon-bg" cx="12" cy="12" r="10" fill="url(#grad-clock-metric)"/>
-                  <path d="M12 7v5h3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="counter-card-body">
-                <div class="counter-label-row">
-                  <span class="act2-metric-label-without">Avg intake time <span class="counter-sub">per lead</span></span>
-                  <span class="act2-metric-label-with">Avg intake <span class="counter-sub counter-sub--green">down from 47min</span></span>
-                </div>
-                <div class="counter-number act2-metric-number">
-                  <span class="counter act2-counter" data-target-without="47" data-target-with="5" data-act="2">0</span>
-                  <span class="counter-unit">min</span>
-                </div>
-                <div class="act2-metric-badge-without">
-                  <div class="counter-bar-wrap">
-                    <div class="counter-bar counter-bar--warn" style="--bar-width: 78%"></div>
-                  </div>
-                </div>
-                <div class="act2-metric-badge-with">
-                  <div class="result-badge result-badge--green">
-                    <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                    89% faster intake
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3: Conversion -->
-            <div class="counter-card act2-metric-card stagger-card-2" data-stagger="300" tabindex="0">
-              <div class="card-tooltip" role="tooltip">
-                The average firm converts only 10–15% of leads. Attorney Assistant clients average 35–40% after implementing 24/7 intake.
-              </div>
-              <div class="counter-card-icon act2-metric-icon">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="grad-chart-metric" x1="0" y1="1" x2="1" y2="0">
-                      <stop offset="0%" stop-color="#50a7dd"/>
-                      <stop offset="100%" stop-color="#1a3a5c"/>
-                    </linearGradient>
-                  </defs>
-                  <rect class="act2-metric-icon-bg" x="2" y="2" width="20" height="20" rx="4" fill="url(#grad-chart-metric)"/>
-                  <path d="M6 14l3-4 3 3 4-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="counter-card-body">
-                <div class="counter-label-row">
-                  <span class="act2-metric-label-without">Conversion rate <span class="counter-sub">of marketing spend</span></span>
-                  <span class="act2-metric-label-with">Conversion rate <span class="counter-sub counter-sub--green">up from 12%</span></span>
-                </div>
-                <div class="counter-number act2-metric-number">
-                  <span class="counter act2-counter" data-target-without="12" data-target-with="38" data-act="2">0</span>
-                  <span class="counter-unit">%</span>
-                </div>
-                <div class="act2-metric-badge-without">
-                  <div class="counter-bar-wrap">
-                    <div class="counter-bar counter-bar--danger" style="--bar-width: 12%"></div>
-                  </div>
-                </div>
-                <div class="act2-metric-badge-with">
-                  <div class="counter-bar-wrap">
-                    <div class="counter-bar counter-bar--gold" style="--bar-width: 38%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /counter-grid -->
-
-          <!-- Overnight counter — transforms from "lost" to "captured" -->
-          <div class="overnight-counter act2-overnight-counter">
-            <div class="overnight-counter-label act2-without-content">Leads lost overnight this week</div>
-            <div class="overnight-counter-label act2-with-content overnight-counter-label--gold">Leads captured overnight this week</div>
-            <div class="overnight-counter-number">
-              <span class="counter act2-overnight-num" data-target-without="5" data-target-with="5" data-act="2">0</span>
-            </div>
-            <div class="overnight-counter-sub act2-without-content">and counting — every week</div>
-            <div class="overnight-counter-sub act2-with-content overnight-counter-sub--gold">every one a potential client</div>
-          </div>
-
-        </div><!-- /timeline-wrap -->
 
         <!-- CTA -->
-        <div class="act3-cta">
-          <a href="/contact" class="btn-primary btn-lg group">
+        <div class="st-cta">
+          <a href="/book-call" class="btn-primary btn-lg group">
             Start Capturing Every Lead
             <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
@@ -591,66 +253,32 @@
 
 <noscript>
   <style>
-    .act { opacity: 1 !important; transform: none !important; }
-    .counter-bar { width: var(--bar-width, 50%) !important; transition: none !important; }
-    .timeline-gap-fill { width: 100% !important; }
-    .stagger-card, .stagger-card-2 { opacity: 1 !important; transform: none !important; }
-    #tw-inner::after { content: 'I need help with my case — it\27s urgent.'; }
-    .act2-with-content { display: none !important; }
-    .act2-without-content { display: block !important; }
+    .st-strip { opacity: 1 !important; transform: none !important; }
+    .stagger-card { opacity: 1 !important; transform: none !important; }
+    .stat-bar { width: var(--bar-w, 50%) !important; transition: none !important; }
+    .content-with { display: none !important; }
+    .content-without { display: block !important; }
   </style>
 </noscript>
 
 <style>
   /* =============================================
-     PROGRESS BAR
+     INTRO
   ============================================= */
-  .st-progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    z-index: 9999;
-    background: rgba(255,255,255,0.06);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
+  .st-section { overflow: hidden; background: #132d46; }
 
-  .st-progress-bar.visible {
-    opacity: 1;
-  }
-
-  .st-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #ffaa2b, #e69500, #ffaa2b);
-    background-size: 200% 100%;
-    width: 0%;
-    transition: width 0.1s linear;
-    animation: shimmer-bar 2s linear infinite;
-  }
-
-  @keyframes shimmer-bar {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-
-  /* =============================================
-     INTRO LABEL
-  ============================================= */
   .st-intro {
-    background: #091623;
-    padding: 2.5rem 0 1.5rem;
+    background: #132d46;
+    padding: 1.5rem 0 1rem;
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
 
   .st-intro-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   .st-intro-label {
@@ -659,22 +287,19 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #667085;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+    color: #98a2b3;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 9999px;
     padding: 0.4rem 1.25rem;
   }
 
   .st-intro-chevron {
-    color: #475467;
+    color: #667085;
     animation: bounce-down 1.6s ease-in-out infinite;
   }
 
-  .st-intro-chevron svg {
-    width: 22px;
-    height: 22px;
-  }
+  .st-intro-chevron svg { width: 22px; height: 22px; }
 
   @keyframes bounce-down {
     0%, 100% { transform: translateY(0); opacity: 0.5; }
@@ -682,57 +307,71 @@
   }
 
   /* =============================================
-     BASE SECTION
+     STRIP (single unified section)
   ============================================= */
-  .scrollytelling-section {
-    overflow: hidden;
-  }
-
-  /* =============================================
-     ACT REVEAL SYSTEM
-  ============================================= */
-  .act {
+  .st-strip {
+    background: #132d46;
+    position: relative;
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                transform 0.8s cubic-bezier(0.16,1,0.3,1);
   }
 
-  .act.is-active {
+  .st-strip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(80,167,221,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(80,167,221,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .st-strip.is-active {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .act-sentinel {
+  .st-strip.is-transformed::before { opacity: 0; }
+
+  .st-gold-overlay {
     position: absolute;
-    top: 15%;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(249,166,48,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(26,58,92,0.5) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .st-strip.is-transformed .st-gold-overlay { opacity: 1; }
+
+  .st-sentinel {
+    position: absolute;
+    top: 12%;
     left: 0;
     width: 100%;
     height: 1px;
     pointer-events: none;
   }
 
-  /* =============================================
-     BACKGROUND ACT NUMBERS
-  ============================================= */
-  .act-bg-num {
-    position: absolute;
-    top: 50%;
-    right: -0.05em;
-    transform: translateY(-50%);
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(8rem, 20vw, 18rem);
-    line-height: 1;
-    color: rgba(255,255,255,0.015);
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-    letter-spacing: -0.04em;
+  .st-inner {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .st-inner { padding: 4rem 0; }
   }
 
   /* =============================================
-     FLOATING PARTICLES (CSS only)
+     FLOATING PARTICLES
   ============================================= */
   .particles {
     position: absolute;
@@ -745,18 +384,21 @@
   .particle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(239, 68, 68, 0.15);
+    background: rgba(80,167,221,0.15);
     will-change: transform, opacity;
   }
 
-  .particle-1 { width: 4px; height: 4px; left: 10%; top: 20%; animation: float-p 11s ease-in-out infinite 0s; }
-  .particle-2 { width: 3px; height: 3px; left: 25%; top: 65%; animation: float-p 14s ease-in-out infinite 2s; background: rgba(239,68,68,0.1); }
-  .particle-3 { width: 5px; height: 5px; left: 50%; top: 35%; animation: float-p 9s ease-in-out infinite 1s; }
-  .particle-4 { width: 3px; height: 3px; left: 72%; top: 75%; animation: float-p 13s ease-in-out infinite 3s; background: rgba(251,146,60,0.15); }
-  .particle-5 { width: 4px; height: 4px; left: 85%; top: 25%; animation: float-p 10s ease-in-out infinite 0.5s; }
-  .particle-6 { width: 3px; height: 3px; left: 38%; top: 82%; animation: float-p 12s ease-in-out infinite 4s; background: rgba(239,68,68,0.08); }
-  .particle-7 { width: 6px; height: 6px; left: 60%; top: 55%; animation: float-p 15s ease-in-out infinite 1.5s; background: rgba(251,146,60,0.08); }
-  .particle-8 { width: 3px; height: 3px; left: 90%; top: 60%; animation: float-p 8s ease-in-out infinite 2.5s; }
+  .st-strip.is-transformed .particle {
+    background: rgba(249,166,48,0.12);
+    transition: background 0.6s ease;
+  }
+
+  .p1 { width: 4px; height: 4px; left: 10%; top: 20%; animation: float-p 11s ease-in-out infinite 0s; }
+  .p2 { width: 3px; height: 3px; left: 25%; top: 65%; animation: float-p 14s ease-in-out infinite 2s; background: rgba(80,167,221,0.1); }
+  .p3 { width: 5px; height: 5px; left: 50%; top: 35%; animation: float-p 9s ease-in-out infinite 1s; }
+  .p4 { width: 3px; height: 3px; left: 72%; top: 75%; animation: float-p 13s ease-in-out infinite 3s; background: rgba(249,166,48,0.15); }
+  .p5 { width: 4px; height: 4px; left: 85%; top: 25%; animation: float-p 10s ease-in-out infinite 0.5s; }
+  .p6 { width: 3px; height: 3px; left: 38%; top: 82%; animation: float-p 12s ease-in-out infinite 4s; background: rgba(80,167,221,0.08); }
 
   @keyframes float-p {
     0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.4; }
@@ -766,105 +408,85 @@
   }
 
   /* =============================================
-     ACT 1 — DARK NAVY / RED
+     HEADER
   ============================================= */
-  .act-1 {
-    background-color: #091623;
-    position: relative;
-  }
-
-  .act-1::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(239, 68, 68, 0.09) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(26, 58, 92, 0.4) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .act-inner {
-    position: relative;
-    z-index: 1;
-    padding: 5rem 0;
-  }
-
-  @media (min-width: 768px) {
-    .act-inner { padding: 7rem 0; }
-  }
-
-  /* =============================================
-     ACT 2 — MERGED OVERNIGHT STORY
-  ============================================= */
-  .act-2 {
-    background-color: #0e1a24;
-    position: relative;
-  }
-
-  .act-2::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 50% 40% at 50% 0%, rgba(26, 58, 92, 0.3) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Gold radial overlay for transformed state */
-  .act2-gold-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(255, 170, 43, 0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(26, 58, 92, 0.5) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
-
-  .act-2.is-transformed .act2-gold-overlay {
-    opacity: 1;
-  }
-
-  /* Transform sentinel at 50% of section */
-  .act2-transform-sentinel {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    pointer-events: none;
-  }
-
-  /* =============================================
-     ACT HEADER
-  ============================================= */
-  .act-header {
+  .st-header {
     text-align: center;
-    margin-bottom: 3.5rem;
-  }
-
-  .act-header-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
     margin-bottom: 1.25rem;
   }
 
-  .act-header-icon svg { width: 28px; height: 28px; }
+  .st-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7fb8d4;
+    margin-bottom: 0.5rem;
+    transition: color 0.4s ease;
+  }
 
-  .act-header-icon--red {
-    background: rgba(239, 68, 68, 0.12);
-    border: 1px solid rgba(239, 68, 68, 0.2);
+  .st-strip.is-transformed .st-eyebrow { color: #F9A630; }
+
+  .st-eyebrow-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ef4444;
+    box-shadow: 0 0 8px rgba(239,68,68,0.6);
+    animation: ping-red 1.5s ease-in-out infinite;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .st-strip.is-transformed .st-eyebrow-dot {
+    background: #F9A630;
+    box-shadow: 0 0 8px rgba(249,166,48,0.6);
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  @keyframes ping-red {
+    0%, 100% { box-shadow: 0 0 8px rgba(239,68,68,0.6); }
+    50% { box-shadow: 0 0 16px rgba(239,68,68,0.9), 0 0 24px rgba(239,68,68,0.4); }
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 8px rgba(249,166,48,0.6); }
+    50% { box-shadow: 0 0 16px rgba(249,166,48,0.9); }
+  }
+
+  .st-header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .st-header-icon svg { width: 22px; height: 22px; }
+
+  .st-icon-alarm {
+    background: rgba(239,68,68,0.12);
+    border: 1px solid rgba(239,68,68,0.2);
     color: #ef4444;
     animation: alarm-shake 3s ease-in-out infinite;
   }
+
+  .st-icon-sun {
+    display: none;
+    background: rgba(249,166,48,0.12);
+    border: 1px solid rgba(249,166,48,0.25);
+    color: #F9A630;
+    animation: pulse-gold-icon 2.5s ease-in-out infinite;
+  }
+
+  .st-strip.is-transformed .st-icon-alarm { display: none; }
+  .st-strip.is-transformed .st-icon-sun { display: inline-flex; }
 
   @keyframes alarm-shake {
     0%, 90%, 100% { transform: rotate(0deg); }
@@ -873,408 +495,205 @@
     98% { transform: rotate(-4deg); }
   }
 
-  .act-header-icon--gray {
-    background: rgba(71, 84, 103, 0.15);
-    border: 1px solid rgba(71, 84, 103, 0.2);
-    color: #667085;
-  }
-
-  .act-header-icon--gold {
-    background: rgba(255, 170, 43, 0.12);
-    border: 1px solid rgba(255, 170, 43, 0.25);
-    color: #ffaa2b;
-    animation: pulse-gold-icon 2.5s ease-in-out infinite;
-  }
-
   @keyframes pulse-gold-icon {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(255,170,43,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(255,170,43,0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(249,166,48,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(249,166,48,0); }
   }
 
-  .act-eyebrow {
+  .st-title {
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .st-title-accent {
+    color: #ef4444;
+    text-shadow: 0 0 30px rgba(239,68,68,0.3);
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+
+  .st-strip.is-transformed .st-title-accent {
+    color: #F9A630;
+    text-shadow: 0 0 40px rgba(249,166,48,0.25);
+  }
+
+  .st-subtitle {
+    font-size: 0.9375rem;
+    color: #98a2b3;
+    max-width: 32rem;
+    margin: 0 auto;
+    line-height: 1.6;
+    transition: color 0.4s ease;
+  }
+
+  .st-strip.is-transformed .st-subtitle { color: #98a2b3; }
+
+  /* =============================================
+     TOGGLE
+  ============================================= */
+  .st-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .st-toggle-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #588aa5;
-    margin-bottom: 1rem;
-  }
-
-  .act-eyebrow--gold { color: #ffaa2b; }
-
-  .eyebrow-dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-
-  .eyebrow-dot--red { background-color: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.6); animation: ping-red 1.5s ease-in-out infinite; }
-  .eyebrow-dot--gray { background-color: #475467; }
-  .eyebrow-dot--gold { background-color: #ffaa2b; box-shadow: 0 0 8px rgba(255,170,43,0.6); animation: pulse-gold 2s ease-in-out infinite; }
-
-  @keyframes ping-red {
-    0%, 100% { box-shadow: 0 0 8px rgba(239,68,68,0.6); }
-    50% { box-shadow: 0 0 16px rgba(239,68,68,0.9), 0 0 24px rgba(239,68,68,0.4); }
-  }
-
-  @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 8px rgba(255,170,43,0.6); }
-    50% { box-shadow: 0 0 16px rgba(255,170,43,0.9); }
-  }
-
-  .act-title {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-    margin-bottom: 1rem;
-  }
-
-  .text-red-glow {
-    color: #ef4444;
-    text-shadow: 0 0 30px rgba(239,68,68,0.3);
-  }
-
-  .text-gray-dim { color: #475467; transition: color 0.4s ease, text-shadow 0.4s ease; }
-
-  .text-gold-glow {
-    color: #ffaa2b;
-    text-shadow: 0 0 40px rgba(255,170,43,0.25);
-  }
-
-  .act-subtitle {
-    font-size: 1.125rem;
-    color: #667085;
-    max-width: 32rem;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  .act-subtitle--light { color: #98a2b3; }
-
-  /* Act 2 header transitions */
-  .act2-icon-moon {
-    transition: opacity 0.4s ease, transform 0.3s ease;
-  }
-  .act2-icon-sun {
-    display: none;
-    transition: opacity 0.4s ease, transform 0.3s ease;
-  }
-  .act-2.is-transformed .act2-icon-moon { display: none; }
-  .act-2.is-transformed .act2-icon-sun { display: inline-flex; }
-
-  .act-2.is-transformed .act2-title-highlight {
-    color: #ffaa2b;
-    text-shadow: 0 0 40px rgba(255,170,43,0.25);
-  }
-
-  .act-2.is-transformed .act2-subtitle {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
     color: #98a2b3;
-  }
-
-  .act-2.is-transformed .act2-eyebrow {
-    color: #ffaa2b;
-  }
-
-  .act-2.is-transformed .act2-eyebrow-dot {
-    background-color: #ffaa2b;
-    box-shadow: 0 0 8px rgba(255,170,43,0.6);
-    animation: pulse-gold 2s ease-in-out infinite;
-  }
-
-  /* =============================================
-     TOGGLE TABS (Segmented Control)
-  ============================================= */
-  .act2-toggle {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
-  }
-
-  .act2-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    padding: 0.625rem 1.25rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(255,255,255,0.03);
-    color: #667085;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
   }
 
-  .act2-toggle-btn--without {
+  .st-toggle-btn--without {
     border-radius: 9999px 0 0 9999px;
     border-right: none;
   }
 
-  .act2-toggle-btn--with {
+  .st-toggle-btn--with {
     border-radius: 0 9999px 9999px 0;
   }
 
-  .act2-toggle-dot {
+  .st-toggle-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  .act2-toggle-dot--red { background: #667085; }
-  .act2-toggle-dot--gold { background: #667085; }
+  .st-toggle-dot--red { background: #667085; }
+  .st-toggle-dot--gold { background: #667085; }
 
-  .act2-toggle-btn.is-active-tab {
-    z-index: 1;
-  }
+  .st-toggle-btn.is-active-tab { z-index: 1; }
 
-  .act2-toggle-btn--without.is-active-tab {
+  .st-toggle-btn--without.is-active-tab {
     background: rgba(239,68,68,0.08);
     border-color: rgba(239,68,68,0.25);
     color: #f04438;
     border-right: 1px solid rgba(239,68,68,0.25);
   }
 
-  .act2-toggle-btn--without.is-active-tab .act2-toggle-dot--red {
+  .st-toggle-btn--without.is-active-tab .st-toggle-dot--red {
     background: #ef4444;
     box-shadow: 0 0 6px rgba(239,68,68,0.5);
   }
 
-  .act2-toggle-btn--with.is-active-tab {
-    background: rgba(255,170,43,0.08);
-    border-color: rgba(255,170,43,0.3);
-    color: #ffaa2b;
+  .st-toggle-btn--with.is-active-tab {
+    background: rgba(249,166,48,0.08);
+    border-color: rgba(249,166,48,0.3);
+    color: #F9A630;
   }
 
-  .act2-toggle-btn--with.is-active-tab .act2-toggle-dot--gold {
-    background: #ffaa2b;
-    box-shadow: 0 0 6px rgba(255,170,43,0.5);
+  .st-toggle-btn--with.is-active-tab .st-toggle-dot--gold {
+    background: #F9A630;
+    box-shadow: 0 0 6px rgba(249,166,48,0.5);
   }
 
-  .act2-toggle-btn:hover:not(.is-active-tab) {
+  .st-toggle-btn:hover:not(.is-active-tab) {
     background: rgba(255,255,255,0.05);
     color: #98a2b3;
   }
 
   /* =============================================
-     WITHOUT / WITH CONTENT VISIBILITY
+     WITHOUT / WITH VISIBILITY
   ============================================= */
-  .act2-without-content {
+  .content-without {
     transition: opacity 0.4s ease 0.1s, transform 0.3s ease 0.1s;
   }
 
-  .act2-with-content {
+  .content-with {
     display: none;
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.4s ease 0.1s, transform 0.3s ease 0.1s;
   }
 
-  .act-2.is-transformed .act2-without-content {
+  .st-strip.is-transformed .content-without {
     display: none;
     opacity: 0;
   }
 
-  .act-2.is-transformed .act2-with-content {
+  .st-strip.is-transformed .content-with {
     display: block;
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* For flex containers that have act2-with-content */
-  .timeline-gap .act2-with-content {
-    display: none;
-  }
+  /* Flex items that use content-with */
+  .tl-gap .content-with { display: none; }
+  .st-strip.is-transformed .tl-gap .content-without { display: none; }
+  .st-strip.is-transformed .tl-gap .content-with { display: flex; }
 
-  .act-2.is-transformed .timeline-gap .act2-without-content {
-    display: none;
-  }
-
-  .act-2.is-transformed .timeline-gap .act2-with-content {
-    display: flex;
-  }
+  /* Scenario split — always show both columns side-by-side */
 
   /* =============================================
-     TIMELINE BAR GOLD FILL
+     STAT CARDS
   ============================================= */
-  .timeline-gap-gold-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(180deg, rgba(255,170,43,0.18) 0%, rgba(255,170,43,0.06) 100%);
-    transition: width 0.8s cubic-bezier(0.16,1,0.3,1);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .act-2.is-transformed .timeline-gap-gold-fill {
-    width: 100%;
-  }
-
-  .timeline-gap-label--gold {
-    color: #ffaa2b !important;
-  }
-
-  .timeline-gap-label--gold .gap-icon--gold {
-    color: #ffaa2b;
-  }
-
-  .timeline-gap-hours--gold {
-    color: #ffaa2b !important;
-    letter-spacing: 0.1em;
-  }
-
-  /* =============================================
-     METRIC CARDS — BEFORE/AFTER TRANSITION
-  ============================================= */
-  .act2-metric-card {
-    border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease 0.1s, border-color 0.4s ease 0.1s;
-    background: linear-gradient(135deg, rgba(239,68,68,0.06) 0%, rgba(9,22,35,0) 100%);
-    border: 1px solid rgba(239,68,68,0.15);
-  }
-
-  .act-2.is-transformed .act2-metric-card {
-    background: linear-gradient(135deg, rgba(255,170,43,0.09) 0%, rgba(9,22,35,0) 100%);
-    border-color: rgba(255,170,43,0.27);
-  }
-
-  .act2-metric-number {
-    transition: color 0.4s ease 0.2s;
-    color: #f04438;
-  }
-
-  .act-2.is-transformed .act2-metric-number {
-    color: #17b26a;
-  }
-
-  /* Without/With labels in metric cards */
-  .act2-metric-label-with { display: none; }
-  .act2-metric-label-without { display: inline; }
-  .act-2.is-transformed .act2-metric-label-with { display: inline; }
-  .act-2.is-transformed .act2-metric-label-without { display: none; }
-
-  /* Without/With badges */
-  .act2-metric-badge-with { display: none; opacity: 0; transition: opacity 0.3s ease 0.3s; }
-  .act2-metric-badge-without { transition: opacity 0.3s ease; }
-  .act-2.is-transformed .act2-metric-badge-with { display: block; opacity: 1; }
-  .act-2.is-transformed .act2-metric-badge-without { display: none; opacity: 0; }
-
-  /* Metric card icon transitions */
-  .act2-metric-icon-bg {
-    transition: fill 0.4s ease;
-  }
-
-  .act-2.is-transformed .act2-metric-card:nth-child(1) .act2-metric-icon-bg {
-    fill: url(#grad-check-gold);
-  }
-
-  .act2-metric-icon-without {
-    transition: opacity 0.3s ease;
-  }
-
-  .act2-metric-icon-with {
-    transition: opacity 0.3s ease 0.2s;
-  }
-
-  .act-2.is-transformed .act2-metric-icon-without {
-    opacity: 0;
-  }
-
-  .act-2.is-transformed .act2-metric-icon-with {
-    opacity: 1;
-  }
-
-  /* =============================================
-     OVERNIGHT COUNTER TRANSITIONS
-  ============================================= */
-  .act2-overnight-counter {
-    transition: background 0.4s ease, border-color 0.4s ease;
-  }
-
-  .act-2.is-transformed .act2-overnight-counter {
-    background: rgba(255,170,43,0.06);
-    border-color: rgba(255,170,43,0.2);
-  }
-
-  .act-2.is-transformed .overnight-counter-number {
-    color: #ffaa2b;
-    transition: color 0.4s ease 0.2s;
-  }
-
-  .overnight-counter-label--gold {
-    color: #ffaa2b !important;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .overnight-counter-sub--gold {
-    color: #98a2b3 !important;
-  }
-
-  /* =============================================
-     COUNTER CARDS — STAGGER IN
-  ============================================= */
-  .counter-grid {
+  .stat-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 
   @media (min-width: 768px) {
-    .counter-grid { grid-template-columns: repeat(3, 1fr); }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
-  /* Stagger cards start hidden */
-  .stagger-card,
-  .stagger-card-2 {
+  .stagger-card {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1),
                 transform 0.55s cubic-bezier(0.16,1,0.3,1);
   }
 
-  .stagger-card.card-visible,
-  .stagger-card-2.card-visible {
+  .stagger-card.card-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .counter-card {
-    border-radius: 16px;
-    padding: 2rem;
+  .stat-card {
+    border-radius: 10px;
+    padding: 0.875rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.375rem;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease 0.1s, border-color 0.4s ease 0.1s;
   }
 
-  /* Hover tooltip trigger */
-  .counter-card:hover .card-tooltip,
-  .counter-card:focus .card-tooltip {
+  .st-strip.is-transformed .stat-card {
+    background: rgba(249,166,48,0.08);
+    border-color: rgba(249,166,48,0.25);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  .stat-card:hover .stat-tooltip,
+  .stat-card:focus .stat-tooltip {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
 
-  .counter-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-  }
-
-  /* Tooltip */
-  .card-tooltip {
+  .stat-tooltip {
     position: absolute;
     bottom: calc(100% + 8px);
     left: 50%;
@@ -1295,7 +714,7 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   }
 
-  .card-tooltip::after {
+  .stat-tooltip::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -1305,70 +724,43 @@
     border-top-color: #1a3a5c;
   }
 
-  .counter-card--danger {
-    background: linear-gradient(135deg, rgba(239,68,68,0.09) 0%, rgba(9,22,35,0) 100%);
-    border: 1px solid rgba(239,68,68,0.22);
-  }
-
-  .counter-card--warn {
-    background: linear-gradient(135deg, rgba(251,146,60,0.09) 0%, rgba(9,22,35,0) 100%);
-    border: 1px solid rgba(251,146,60,0.22);
-  }
-
-  .counter-card--neutral {
-    background: linear-gradient(135deg, rgba(80,167,221,0.08) 0%, rgba(9,22,35,0) 100%);
-    border: 1px solid rgba(80,167,221,0.2);
-  }
-
-  /* Card icons */
-  .counter-card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+  .stat-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-  }
-
-  .counter-card-icon svg { width: 26px; height: 26px; }
-
-  .counter-card-icon--red { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.18); }
-  .counter-card-icon--orange { background: rgba(251,146,60,0.12); border: 1px solid rgba(251,146,60,0.18); }
-  .counter-card-icon--blue { background: rgba(80,167,221,0.1); border: 1px solid rgba(80,167,221,0.15); }
-  .counter-card-icon--gold { background: rgba(255,170,43,0.1); color: #ffaa2b; border: 1px solid rgba(255,170,43,0.2); }
-  .counter-card-icon--gold-fill { background: rgba(255,170,43,0.1); border: 1px solid rgba(255,170,43,0.2); }
-
-  .act2-metric-icon {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
     transition: background 0.4s ease, border-color 0.4s ease;
   }
 
-  .act-2.is-transformed .act2-metric-icon {
-    background: rgba(255,170,43,0.1);
-    border-color: rgba(255,170,43,0.2);
+  .stat-icon svg { width: 15px; height: 15px; }
+
+  .stat-icon--red { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.18); }
+  .stat-icon--orange { background: rgba(251,146,60,0.12); border: 1px solid rgba(251,146,60,0.18); }
+  .stat-icon--blue { background: rgba(80,167,221,0.1); border: 1px solid rgba(80,167,221,0.15); }
+
+  .st-strip.is-transformed .stat-icon {
+    background: rgba(249,166,48,0.1);
+    border-color: rgba(249,166,48,0.2);
   }
 
-  .counter-card-body {
+  /* Icon without/with transition */
+  .icon-without { transition: opacity 0.3s ease; }
+  .icon-with { transition: opacity 0.3s ease 0.2s; }
+  .st-strip.is-transformed .icon-without { opacity: 0; }
+  .st-strip.is-transformed .icon-with { opacity: 1; }
+
+  .stat-body {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
   }
 
-  /* Inline icons in labels */
-  .inline-icon {
-    width: 14px;
-    height: 14px;
-    display: inline;
-    vertical-align: middle;
-    margin-right: 4px;
-    flex-shrink: 0;
-  }
-
-  .counter-label-row {
-    font-size: 0.875rem;
-    color: #667085;
+  .stat-label {
+    font-size: 0.75rem;
+    color: #98a2b3;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -1376,73 +768,68 @@
     gap: 0.25rem;
   }
 
-  .counter-number {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 3.5rem;
+  .label-with { display: none; }
+  .label-without { display: inline; }
+  .st-strip.is-transformed .label-with { display: inline; }
+  .st-strip.is-transformed .label-without { display: none; }
+
+  .stat-number {
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
+    font-size: 2.25rem;
     line-height: 1;
     letter-spacing: -0.02em;
     display: flex;
     align-items: baseline;
     gap: 0.25rem;
+    color: #f04438;
+    transition: color 0.4s ease 0.2s;
   }
 
-  .counter-unit {
-    font-size: 1.5rem;
-    opacity: 0.7;
-  }
+  .st-strip.is-transformed .stat-number { color: #17b26a; }
 
-  .counter-sub {
+  .stat-unit { font-size: 0.875rem; opacity: 0.7; }
+
+  .stat-sub {
     display: block;
     font-size: 0.75rem;
-    color: #475467;
+    color: #667085;
     font-weight: 400;
     margin-top: 0.125rem;
   }
 
-  .counter-sub--green { color: #17b26a; }
+  .stat-sub--green { color: #17b26a; }
 
-  .spend-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.625rem;
-    flex-wrap: wrap;
+  /* Stat badges (without / with) */
+  .badge-with { display: none; opacity: 0; transition: opacity 0.3s ease 0.3s; }
+  .badge-without { transition: opacity 0.3s ease; }
+  .st-strip.is-transformed .badge-with { display: block; opacity: 1; }
+  .st-strip.is-transformed .badge-without { display: none; opacity: 0; }
+
+  /* Pulse dot */
+  .stat-badge .pulse-ring,
+  .stat-badge .pulse-dot {
+    display: inline-block;
   }
 
-  .spend-amount {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 1.5rem;
-    color: #667085;
-    letter-spacing: -0.01em;
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ef4444;
+    position: relative;
+    z-index: 1;
   }
 
-  .spend-arrow { color: #475467; font-size: 1.25rem; }
-
-  /* Progress bars */
-  .counter-bar-wrap {
-    height: 4px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 9999px;
-    overflow: hidden;
-    margin-top: 0.5rem;
+  .pulse-ring {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(239,68,68,0.3);
+    animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite;
   }
 
-  .counter-bar {
-    height: 100%;
-    border-radius: 9999px;
-    width: 0;
-    transition: width 1.5s cubic-bezier(0.16,1,0.3,1) 0.5s;
-  }
-
-  .act.is-active .counter-bar {
-    width: var(--bar-width, 50%);
-  }
-
-  .counter-bar--danger { background: linear-gradient(90deg, #ef4444, #dc2626); }
-  .counter-bar--warn { background: linear-gradient(90deg, #fb923c, #ea580c); width: 0; }
-  .counter-bar--gold { background: linear-gradient(90deg, #ffaa2b, #e69500); }
-
-  /* Pulse indicator */
-  .counter-pulse {
+  .badge-without {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -1451,16 +838,10 @@
     margin-top: 0.25rem;
   }
 
-  .pulse-dot { width: 8px; height: 8px; border-radius: 50%; position: relative; z-index: 1; }
-  .pulse-ring { position: absolute; inset: 0; border-radius: 50%; animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite; }
-  .pulse-dot--red { background: #ef4444; }
-  .pulse-ring--red { background: rgba(239,68,68,0.3); }
-
   @keyframes ping {
     75%, 100% { transform: scale(2.5); opacity: 0; }
   }
 
-  /* Result badge */
   .result-badge {
     display: inline-flex;
     align-items: center;
@@ -1471,374 +852,157 @@
     border-radius: 9999px;
     margin-top: 0.25rem;
     width: fit-content;
-  }
-
-  .result-badge--green {
     background: rgba(23,178,106,0.12);
     color: #17b26a;
     border: 1px solid rgba(23,178,106,0.25);
   }
 
-  /* Act 1 bottom CTA */
-  .act1-cta {
-    display: flex;
-    justify-content: center;
-    margin-top: 2.5rem;
-  }
-
-  .see-diff-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #98a2b3;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
+  /* Progress bars */
+  .stat-bar-wrap {
+    height: 4px;
+    background: rgba(255,255,255,0.06);
     border-radius: 9999px;
-    padding: 0.5rem 1.25rem;
-    cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  }
-
-  .see-diff-btn:hover {
-    color: #ffaa2b;
-    border-color: rgba(255,170,43,0.35);
-    background: rgba(255,170,43,0.05);
-  }
-
-  .see-diff-btn svg { width: 16px; height: 16px; }
-
-  /* =============================================
-     ACT 2 — TIMELINE
-  ============================================= */
-  .timeline-wrap { max-width: 52rem; margin: 0 auto; }
-
-  .timeline-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.8125rem;
-    color: #667085;
-  }
-
-  .timeline-time {
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    color: #98a2b3;
-    white-space: nowrap;
-  }
-
-  .timeline-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #475467;
-  }
-
-  .timeline-spacer { flex: 1; }
-
-  .timeline-bar-wrap {
-    display: flex;
-    align-items: stretch;
-    height: 72px;
-    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.06);
-    margin-bottom: 2.5rem;
-    transition: border-color 0.4s ease;
+    margin-top: 0.5rem;
   }
 
-  .act-2.is-transformed .timeline-bar-wrap {
-    border-color: rgba(255,170,43,0.15);
-  }
-
-  .timeline-active {
-    flex: 0 0 8%;
-    background: linear-gradient(180deg, rgba(80,167,221,0.22) 0%, rgba(80,167,221,0.1) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px solid rgba(80,167,221,0.2);
-    position: relative;
-  }
-
-  .timeline-active--right {
-    border-right: none;
-    border-left: 1px solid rgba(80,167,221,0.2);
-  }
-
-  .timeline-active-label {
-    font-size: 0.625rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #50a7dd;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-  }
-
-  .timeline-gap {
-    flex: 1;
-    background: linear-gradient(180deg, #0e1829 0%, #091623 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.25rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.6s ease;
-  }
-
-  .act-2.is-transformed .timeline-gap {
-    background: linear-gradient(180deg, rgba(255,170,43,0.06) 0%, rgba(255,170,43,0.02) 100%);
-  }
-
-  /* Animated fill bar */
-  .timeline-gap-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .stat-bar {
     height: 100%;
+    border-radius: 9999px;
     width: 0;
-    background: repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 12px,
-      rgba(255,255,255,0.015) 12px,
-      rgba(255,255,255,0.015) 13px
-    );
-    transition: width 1.4s cubic-bezier(0.16,1,0.3,1) 0.3s;
-    pointer-events: none;
+    transition: width 1.5s cubic-bezier(0.16,1,0.3,1) 0.5s;
   }
 
-  .act-2.is-active .timeline-gap-fill {
-    width: 100%;
-  }
+  .st-strip.is-active .stat-bar { width: var(--bar-w, 50%); }
 
-  /* Hover zones on the timeline bar */
-  .tl-hover-zone {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 32px;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: default;
-    z-index: 3;
-  }
-
-  .tl-hz-pip {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-
-  .tl-hover-zone:hover .tl-hz-pip {
-    background: #ffaa2b;
-    border-color: #ffaa2b;
-    transform: scale(1.5);
-  }
-
-  .tl-hz-tooltip {
-    position: absolute;
-    bottom: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    background: #1a3a5c;
-    border: 1px solid rgba(255,170,43,0.2);
-    border-radius: 8px;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.6875rem;
-    color: #d0d5dd;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-  }
-
-  .tl-hover-zone:hover .tl-hz-tooltip {
-    opacity: 1;
-  }
-
-  .timeline-gap-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #475467;
-    position: relative;
-    z-index: 1;
-  }
-
-  .gap-icon { width: 14px; height: 14px; color: #344054; }
-
-  .timeline-gap-hours {
-    font-size: 0.6875rem;
-    color: #344054;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    position: relative;
-    z-index: 1;
-  }
+  .stat-bar--danger { background: linear-gradient(90deg, #ef4444, #dc2626); }
+  .stat-bar--warn { background: linear-gradient(90deg, #fb923c, #ea580c); }
+  .stat-bar--gold { background: linear-gradient(90deg, #F9A630, #e69500); }
 
   /* =============================================
-     LEAD SCENARIO (Act 2)
+     DIVIDER
   ============================================= */
-  .lead-scenario {
+  .st-divider {
     display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 2.5rem;
-  }
-
-  .lead-event {
-    display: grid;
-    grid-template-columns: 80px 32px 1fr;
+    align-items: center;
     gap: 1rem;
-    align-items: start;
+    margin-bottom: 1.75rem;
+    max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .lead-event-time {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #667085;
-    text-align: right;
-    padding-top: 0.75rem;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-
-  .lead-event-connector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0.75rem;
-  }
-
-  .lead-event-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .lead-event-dot--active { background: #50a7dd; box-shadow: 0 0 8px rgba(80,167,221,0.5); }
-  .lead-event-dot--dim { background: #1d2d3e; border: 1px solid #344054; }
-  .lead-event-dot--red { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.5); }
-
-  .lead-event-line {
+  .st-divider-line {
     flex: 1;
-    width: 1px;
-    min-height: 2rem;
-    background: #1d2d3e;
-    margin-top: 4px;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
   }
 
-  .lead-event-line--dashed {
-    background: repeating-linear-gradient(
-      to bottom,
-      #1d2d3e 0px, #1d2d3e 4px,
-      transparent 4px, transparent 8px
-    );
-  }
-
-  .lead-event-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .lead-event-card--dim { opacity: 0.5; }
-
-  .lead-event-card--lost {
-    border-color: rgba(239,68,68,0.2);
-    background: rgba(239,68,68,0.04);
-  }
-
-  .lead-event-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+  .st-divider-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: #667085;
+    white-space: nowrap;
+    transition: color 0.4s ease;
   }
 
-  .lead-event-icon svg { width: 16px; height: 16px; }
+  .st-strip.is-transformed .st-divider-label { color: #F9A630; }
+  .st-strip.is-transformed .st-divider-line { background: rgba(249,166,48,0.15); }
 
-  /* Animated envelope icon */
-  .lead-envelope-icon {
-    animation: envelope-bounce 2.5s ease-in-out infinite;
+  /* =============================================
+     STORY BLOCK (simple before/after)
+  ============================================= */
+  .st-story {
+    max-width: 36rem;
+    margin: 0 auto 2rem;
   }
 
-  @keyframes envelope-bounce {
-    0%, 100% { transform: translateY(0) scale(1); }
-    30% { transform: translateY(-3px) scale(1.05); }
-    60% { transform: translateY(1px) scale(0.98); }
-  }
-
-  .lead-event-icon--dim { background: rgba(255,255,255,0.02); color: #344054; }
-  .lead-event-icon--red { background: rgba(239,68,68,0.1); color: #ef4444; }
-
-  .lead-event-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: #d0d5dd;
-    margin-bottom: 0.25rem;
-  }
-
-  .lead-event-title--red { color: #f04438; }
-
-  .lead-event-detail {
-    font-size: 0.8125rem;
-    color: #475467;
-    font-style: italic;
-    min-height: 1.2em;
-  }
-
-  /* Typewriter cursor */
-  .typewriter::after {
-    content: '|';
-    display: inline;
-    color: #50a7dd;
-    animation: blink-cursor 0.7s step-end infinite;
-  }
-
-  .typewriter.done::after { display: none; }
-
-  @keyframes blink-cursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  /* Overnight counter */
-  .overnight-counter {
-    background: rgba(239,68,68,0.06);
-    border: 1px solid rgba(239,68,68,0.15);
-    border-radius: 16px;
-    padding: 1.75rem 2rem;
+  .st-story-block {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 2rem 2.25rem;
     text-align: center;
   }
 
-  .overnight-counter-label {
+  .st-story-time {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #667085;
+    margin-bottom: 0.75rem;
+  }
+  .st-story-time--gold { color: #F9A630; }
+
+  .st-story-headline {
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
+    font-size: 1.375rem;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .st-story-body {
+    font-size: 1rem;
+    color: #98a2b3;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .st-story-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+  }
+  .st-story-result--red {
+    color: #f04438;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.2);
+  }
+  .st-story-result--gold {
+    color: #F9A630;
+    background: rgba(249,166,48,0.1);
+    border: 1px solid rgba(249,166,48,0.2);
+  }
+
+  /* hide story blocks via toggle */
+  .st-story-block--with { display: none; }
+  .st-strip.is-transformed .st-story-block--without { display: none; }
+  .st-strip.is-transformed .st-story-block--with { display: block; }
+
+  /* =============================================
+     LEGACY — keep tl-wrap reference for JS compat
+  ============================================= */
+  .tl-wrap { display: none; }
+
+
+  /* =============================================
+     OVERNIGHT COUNTER
+  ============================================= */
+  .overnight {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    max-width: 52rem;
+    margin: 0 auto;
+    transition: background 0.4s ease, border-color 0.4s ease;
+  }
+
+  .st-strip.is-transformed .overnight {
+    background: rgba(249,166,48,0.06);
+    border-color: rgba(249,166,48,0.2);
+  }
+
+  .overnight-label {
     font-size: 0.875rem;
     font-weight: 500;
     color: #98a2b3;
@@ -1847,114 +1011,78 @@
     margin-bottom: 0.5rem;
   }
 
-  .overnight-counter-number {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 4.5rem;
+  .overnight-label--gold { color: #F9A630 !important; }
+
+  .overnight-num {
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
+    font-size: 3.5rem;
     line-height: 1;
     color: #f04438;
     letter-spacing: -0.02em;
     transition: color 0.4s ease 0.2s;
   }
 
-  .overnight-counter-sub {
+  .st-strip.is-transformed .overnight-num { color: #F9A630; }
+
+  .overnight-sub {
     font-size: 0.8125rem;
-    color: #475467;
+    color: #667085;
     margin-top: 0.375rem;
   }
 
-  /* Act 3 card badge (reused in with-scenario) */
-  .act3-card-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #17b26a;
-    background: rgba(23,178,106,0.1);
-    border: 1px solid rgba(23,178,106,0.2);
-    border-radius: 9999px;
-    padding: 0.2rem 0.5rem;
-  }
-
-  .act3-card-badge--gold {
-    color: #ffaa2b;
-    background: rgba(255,170,43,0.1);
-    border-color: rgba(255,170,43,0.2);
-  }
-
-  /* CTA */
-  .act3-cta {
-    display: flex;
-    justify-content: center;
-    margin-top: 3.5rem;
-  }
+  .overnight-sub--gold { color: #98a2b3 !important; }
 
   /* =============================================
-     ACT 2 METRICS AREA
+     CTA
   ============================================= */
-  .act2-metrics {
-    margin-bottom: 2.5rem;
+  .st-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 
   /* =============================================
      REDUCED MOTION
   ============================================= */
   @media (prefers-reduced-motion: reduce) {
-    .act {
+    .st-strip {
       opacity: 1;
       transform: none;
       transition: none;
     }
 
-    .stagger-card,
-    .stagger-card-2 {
+    .stagger-card {
       opacity: 1;
       transform: none;
       transition: none;
     }
 
-    .counter-bar { transition: none; }
+    .stat-bar { transition: none; }
 
-    .eyebrow-dot--gold,
-    .eyebrow-dot--red { animation: none; }
-
+    .st-eyebrow-dot { animation: none; }
     .pulse-ring { animation: none; }
-
     .particle { animation: none; }
-
     .st-intro-chevron { animation: none; }
-
-    .act-header-icon--red { animation: none; }
-    .act-header-icon--gold { animation: none; }
-
-    .lead-envelope-icon { animation: none; }
-
-    .timeline-gap-fill { width: 100%; transition: none; }
-
-    .timeline-gap-gold-fill { transition: none; }
-
-    .act2-gold-overlay { transition: none; }
-    .act2-without-content, .act2-with-content { transition: none; }
-    .act2-metric-card { transition: none; }
-    .act2-metric-number { transition: none; }
-    .act2-overnight-counter { transition: none; }
-    .overnight-counter-number { transition: none; }
+    .st-icon-alarm { animation: none; }
+    .st-icon-sun { animation: none; }
+    .lead-envelope { animation: none; }
+    .st-gold-overlay { transition: none; }
+    .content-without, .content-with { transition: none; }
+    .stat-card { transition: none; }
+    .stat-number { transition: none; }
+    .overnight { transition: none; }
+    .overnight-num { transition: none; }
   }
 </style>
 
 <script>
 (function () {
-  // -- Utility: ease-out cubic
   function easeOutCubic(t: number): number {
     return 1 - Math.pow(1 - t, 3);
   }
 
-  // -- Counter animation
-  function animateCounter(el: HTMLElement, start: number, target: number, duration: number = 2000): void {
+  function animateCounter(el: HTMLElement, start: number, target: number, duration = 2000): void {
     const startTime = performance.now();
-
     function step(now: number): void {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
@@ -1966,223 +1094,95 @@
         el.textContent = String(target);
       }
     }
-
     requestAnimationFrame(step);
   }
 
-  // -- Typewriter
-  const twInner = document.getElementById('tw-inner') as HTMLElement | null;
-  const twParent = twInner?.parentElement as HTMLElement | null;
-  let typewriterDone = false;
-
-  function runTypewriter(): void {
-    if (typewriterDone || !twInner || !twParent) return;
-    typewriterDone = true;
-    const text = "I need help with my case — it's urgent.";
-    let idx = 0;
-    twInner.textContent = '';
-    const interval = setInterval(() => {
-      twInner.textContent = text.slice(0, ++idx);
-      if (idx >= text.length) {
-        clearInterval(interval);
-        twParent?.classList.add('done');
-      }
-    }, 42);
-  }
-
-  // -- Track which acts have animated
-  const animated = new WeakSet<Element>();
-
-  // -- Stagger counter cards
-  function staggerCards(act: Element, selector: string): void {
-    const cards = act.querySelectorAll<HTMLElement>(selector);
-    cards.forEach((card) => {
-      const delay = parseInt(card.dataset.stagger || '0', 10);
-      setTimeout(() => {
-        card.classList.add('card-visible');
-      }, delay);
-    });
-  }
-
-  // -- Act 2 transform state
-  let isAct2Transformed = false;
-  const act2El = document.getElementById('act-2') as HTMLElement | null;
+  // State management
+  const strip = document.getElementById('st-strip') as HTMLElement | null;
   const toggleWithout = document.getElementById('toggle-without') as HTMLButtonElement | null;
   const toggleWith = document.getElementById('toggle-with') as HTMLButtonElement | null;
+  const eyebrowText = document.getElementById('st-eyebrow-text') as HTMLElement | null;
+  const titleAccent = document.getElementById('st-title-accent') as HTMLElement | null;
+  const subtitle = document.getElementById('st-subtitle') as HTMLElement | null;
+  let isTransformed = false;
+  let hasActivated = false;
 
-  function setAct2State(transformed: boolean): void {
-    if (!act2El) return;
-    isAct2Transformed = transformed;
+  function setState(transformed: boolean): void {
+    if (!strip) return;
+    isTransformed = transformed;
 
     if (transformed) {
-      act2El.classList.add('is-transformed');
+      strip.classList.add('is-transformed');
       toggleWithout?.classList.remove('is-active-tab');
       toggleWith?.classList.add('is-active-tab');
       toggleWithout?.setAttribute('aria-pressed', 'false');
       toggleWith?.setAttribute('aria-pressed', 'true');
+      if (eyebrowText) eyebrowText.textContent = 'The Outcome';
+      if (titleAccent) titleAccent.textContent = 'capturing every lead.';
+      if (subtitle) subtitle.textContent = 'Attorney Assistant works while you sleep, while you\u2019re busy, while you\u2019re in court \u2014 so no lead goes unanswered.';
     } else {
-      act2El.classList.remove('is-transformed');
+      strip.classList.remove('is-transformed');
       toggleWithout?.classList.add('is-active-tab');
       toggleWith?.classList.remove('is-active-tab');
       toggleWithout?.setAttribute('aria-pressed', 'true');
       toggleWith?.setAttribute('aria-pressed', 'false');
+      if (eyebrowText) eyebrowText.textContent = 'The Reality';
+      if (titleAccent) titleAccent.textContent = 'leaking revenue.';
+      if (subtitle) subtitle.textContent = "Every hour you're not available, leads choose someone who is.";
     }
 
-    // Animate the act2 counters to new targets
-    const counters = act2El.querySelectorAll<HTMLElement>('.act2-counter');
-    counters.forEach((el) => {
+    // Morph counters
+    strip.querySelectorAll<HTMLElement>('.morph-counter').forEach((el) => {
       const currentVal = parseInt(el.textContent || '0', 10);
       const targetVal = parseInt(
-        transformed ? (el.dataset.targetWith || '0') : (el.dataset.targetWithout || '0'),
+        transformed ? (el.dataset.with || '0') : (el.dataset.without || '0'),
         10
       );
       animateCounter(el, currentVal, targetVal, 1200);
     });
-
-    // Animate overnight counter
-    const overnightNum = act2El.querySelector<HTMLElement>('.act2-overnight-num');
-    if (overnightNum) {
-      const currentVal = parseInt(overnightNum.textContent || '0', 10);
-      const targetVal = parseInt(
-        transformed ? (overnightNum.dataset.targetWith || '0') : (overnightNum.dataset.targetWithout || '0'),
-        10
-      );
-      animateCounter(overnightNum, currentVal, targetVal, 1200);
-    }
   }
 
-  // Toggle button click handlers
-  toggleWithout?.addEventListener('click', () => setAct2State(false));
-  toggleWith?.addEventListener('click', () => setAct2State(true));
+  toggleWithout?.addEventListener('click', () => setState(false));
+  toggleWith?.addEventListener('click', () => setState(true));
 
-  // -- Activate an act
-  function activateAct(act: Element): void {
-    if (animated.has(act)) return;
-    animated.add(act);
+  // Activate section
+  function activate(): void {
+    if (hasActivated || !strip) return;
+    hasActivated = true;
 
-    act.classList.add('is-active');
+    strip.classList.add('is-active');
 
-    const actId = act.id;
+    // Stagger cards
+    strip.querySelectorAll<HTMLElement>('.stagger-card').forEach((card) => {
+      const delay = parseInt(card.dataset.stagger || '0', 10);
+      setTimeout(() => card.classList.add('card-visible'), delay);
+    });
 
-    // Animate counters with stagger
-    if (actId === 'act-1') {
-      act.querySelectorAll<HTMLElement>('.counter[data-target]').forEach((el) => {
-        const target = parseInt(el.dataset.target || '0', 10);
-        const start = parseInt(el.dataset.start || el.textContent || '0', 10);
-        const cardEl = el.closest<HTMLElement>('.stagger-card');
-        const cardDelay = cardEl ? parseInt(cardEl.dataset.stagger || '0', 10) : 0;
+    // Animate counters to "without" values
+    strip.querySelectorAll<HTMLElement>('.morph-counter').forEach((el) => {
+      const targetVal = parseInt(el.dataset.without || '0', 10);
+      const cardEl = el.closest<HTMLElement>('.stagger-card');
+      const cardDelay = cardEl ? parseInt(cardEl.dataset.stagger || '0', 10) : 0;
+      setTimeout(() => animateCounter(el, 0, targetVal, 1800), 200 + cardDelay);
+    });
 
-        setTimeout(() => {
-          animateCounter(el, start, target, 1800);
-        }, 200 + cardDelay);
-      });
-
-      staggerCards(act, '.stagger-card');
-    }
-
-    // Act 2: animate the "without" state counters initially
-    if (actId === 'act-2') {
-      setTimeout(runTypewriter, 600);
-
-      staggerCards(act, '.stagger-card-2');
-
-      // Animate act2 counters to "without" values initially
-      act.querySelectorAll<HTMLElement>('.act2-counter').forEach((el) => {
-        const targetVal = parseInt(el.dataset.targetWithout || '0', 10);
-        const cardEl = el.closest<HTMLElement>('.stagger-card-2');
-        const cardDelay = cardEl ? parseInt(cardEl.dataset.stagger || '0', 10) : 0;
-        setTimeout(() => {
-          animateCounter(el, 0, targetVal, 1800);
-        }, 200 + cardDelay);
-      });
-
-      // Animate overnight counter
-      const overnightNum = act.querySelector<HTMLElement>('.act2-overnight-num');
-      if (overnightNum) {
-        const targetVal = parseInt(overnightNum.dataset.targetWithout || '0', 10);
-        setTimeout(() => {
-          animateCounter(overnightNum, 0, targetVal, 1800);
-        }, 400);
-      }
-    }
   }
 
-  // -- Progress bar
-  const progressBar = document.getElementById('st-progress') as HTMLElement | null;
-  const progressFill = document.getElementById('st-progress-fill') as HTMLElement | null;
-  const section = document.querySelector('.scrollytelling-section') as HTMLElement | null;
-
-  function updateProgress(): void {
-    if (!section || !progressBar || !progressFill) return;
-    const rect = section.getBoundingClientRect();
-    const sectionHeight = section.offsetHeight;
-    const viewH = window.innerHeight;
-
-    // Section is in view?
-    if (rect.top < viewH && rect.bottom > 0) {
-      progressBar.classList.add('visible');
-      const scrolled = Math.max(0, -rect.top);
-      const total = Math.max(1, sectionHeight - viewH);
-      const pct = Math.min(100, (scrolled / total) * 100);
-      progressFill.style.width = pct + '%';
-    } else {
-      progressBar.classList.remove('visible');
-    }
-  }
-
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
-
-  // -- "See the difference" button
-  const seeDiffBtn = document.getElementById('see-diff-btn');
-  seeDiffBtn?.addEventListener('click', () => {
-    const act2 = document.getElementById('act-2');
-    act2?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-
-  // -- IntersectionObserver for act activation
-  const sentinels = document.querySelectorAll<HTMLElement>('.act-sentinel');
-  if (!sentinels.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio >= 0.25) {
-          const act = entry.target.closest<HTMLElement>('.act');
-          if (act) {
-            activateAct(act);
-            observer.unobserve(entry.target);
-          }
-        }
-      });
-    },
-    {
-      threshold: [0, 0.25, 0.5, 0.75],
-      rootMargin: '0px 0px -10% 0px',
-    }
-  );
-
-  sentinels.forEach((sentinel) => {
-    observer.observe(sentinel);
-  });
-
-  // -- IntersectionObserver for Act 2 transform (at 50% scroll point)
-  const transformSentinel = document.getElementById('act2-transform-sentinel');
-  if (transformSentinel) {
-    const transformObserver = new IntersectionObserver(
+  // Observer
+  const sentinel = strip?.querySelector('.st-sentinel');
+  if (sentinel) {
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !isAct2Transformed) {
-            setAct2State(true);
+          if (entry.intersectionRatio >= 0.25) {
+            activate();
+            observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: [0],
-        rootMargin: '0px 0px 0px 0px',
-      }
+      { threshold: [0, 0.25, 0.5, 0.75], rootMargin: '0px 0px -10% 0px' }
     );
-    transformObserver.observe(transformSentinel);
+    observer.observe(sentinel);
   }
 })();
 </script>

@@ -12,9 +12,11 @@ export interface Props {
   type?: "website" | "article";
   publishedDate?: string;
   author?: string;
+  noindex?: boolean;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
-const { title, description, image, type, publishedDate, author } = Astro.props;
+const { title, description, image, type, publishedDate, author, noindex, schema } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,6 +32,9 @@ const { title, description, image, type, publishedDate, author } = Astro.props;
     <link rel="apple-touch-icon" href="/brand/logos/color_icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Attorney Assistant Blog" href="/rss.xml" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://js.hs-scripts.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
     <SEO
       title={title}
       description={description}
@@ -37,19 +42,89 @@ const { title, description, image, type, publishedDate, author } = Astro.props;
       type={type}
       publishedDate={publishedDate}
       author={author}
+      noindex={noindex}
+      schema={schema}
     />
 
-    <!-- Structured Data -->
+    <!-- Site-wide Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://attorneyassistant.com/#organization",
+      "name": "Attorney Assistant",
+      "legalName": "Attorney Assistant LLC",
+      "url": "https://attorneyassistant.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://attorneyassistant.com/brand/logos/long_color_logo.svg",
+        "width": 600,
+        "height": 120
+      },
+      "image": "https://attorneyassistant.com/brand/logos/long_color_logo.svg",
+      "description": "Attorney Assistant solves the operational problems that prevent law firms from growing — intake failure, follow-up gaps, admin chaos, and scaling bottlenecks.",
+      "telephone": "+1-215-337-2677",
+      "email": "info@attorneyassistant.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21 East 5th Avenue Suite 102",
+        "addressLocality": "Conshohocken",
+        "addressRegion": "PA",
+        "postalCode": "19428",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.0795,
+        "longitude": -75.3016
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@attorneyassistant",
+        "https://www.linkedin.com/company/attorney-assistant",
+        "https://www.instagram.com/attorneyassistant",
+        "https://web.facebook.com/attyassistant/"
+      ],
+      "foundingDate": "2021",
+      "founder": [
+        { "@type": "Person", "name": "Ethen Ostroff" },
+        { "@type": "Person", "name": "James DiBitetto" }
+      ],
+      "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 200 },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-215-337-2677",
+        "contactType": "sales",
+        "email": "info@attorneyassistant.com",
+        "availableLanguage": ["English", "Spanish"]
+      }
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://attorneyassistant.com/#website",
       "name": "Attorney Assistant",
       "url": "https://attorneyassistant.com",
-      "logo": "https://attorneyassistant.com/brand/logos/Attorney%20Assistant_H_FC.svg",
-      "description": "Expert legal support services helping law firms streamline operations with dedicated assistants and 24/7 intake solutions.",
-      "sameAs": [
-        "https://www.youtube.com/@attorneyassistant1173"
-      ]
+      "publisher": { "@id": "https://attorneyassistant.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://attorneyassistant.com/blog?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     })} />
 
     <!-- Google Tag Manager -->
@@ -63,10 +138,12 @@ const { title, description, image, type, publishedDate, author } = Astro.props;
     <script is:inline type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49161090.js"></script>
   </head>
   <body class="flex flex-col min-h-screen">
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCB9JXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <Header />
-    <main class="flex-1">
+    <main class="flex-1" id="main-content">
       <slot />
     </main>
     <Footer />

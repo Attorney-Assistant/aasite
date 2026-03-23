@@ -31,7 +31,8 @@ const dropdowns = [
       { href: "/about", label: "About Us", desc: "Who we are" },
       { href: "/our-story", label: "Our Story", desc: "How we started" },
       { href: "/our-team", label: "Our Team", desc: "Meet the leadership" },
-      { href: "/careers", label: "Careers", desc: "Join our team" },
+      { href: "/affiliate", label: "Become an Affiliate", desc: "Partner with us" },
+      { href: "/referral-program", label: "Referral Program", desc: "Earn $1,000 per referral" },
       { href: "/faq", label: "FAQ", desc: "Common questions" },
       { href: "/reviews", label: "Reviews", desc: "Client feedback" },
     ],
@@ -48,7 +49,7 @@ function isActive(href: string) {
 <header class="header-root sticky top-0 z-50 border-b border-gray-200/60" id="site-header">
   <nav class="container-wide flex items-center justify-between h-16 lg:h-[72px]">
     <a href="/" class="flex items-center gap-2 shrink-0 group">
-      <img src="/brand/logos/Attorney%20Assistant_H_FC.svg" alt="Attorney Assistant" class="h-9 lg:h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02]" />
+      <img src="/brand/logos/long_color_logo.svg" alt="Attorney Assistant" class="h-9 lg:h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02]" />
     </a>
 
     <!-- Desktop Nav -->
@@ -64,24 +65,26 @@ function isActive(href: string) {
       </a>
 
       {dropdowns.map((dropdown) => (
-        <div class="relative group">
+        <div class="desktop-dropdown relative group">
           <button
             class:list={[
-              "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-1",
+              "desktop-dropdown-btn px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-1",
               isActive(dropdown.href) ? "text-brand-navy" : "text-gray-500 hover:text-gray-900",
             ]}
             type="button"
+            aria-expanded="false"
           >
             {dropdown.label}
             <svg class="w-3.5 h-3.5 text-gray-400 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
             </svg>
           </button>
-          <div class="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 translate-y-1 group-hover:translate-y-0">
+          <div class="desktop-dropdown-menu absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 translate-y-1 group-hover:translate-y-0" role="menu">
             <div class="w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-2 ring-1 ring-black/5">
               {dropdown.items.map((item) => (
                 <a
                   href={item.href}
+                  role="menuitem"
                   class:list={[
                     "flex flex-col gap-0.5 px-3 py-2.5 rounded-lg transition-all duration-200",
                     isActive(item.href) ? "bg-brand-25 text-brand-700" : "hover:bg-gray-50",
@@ -107,6 +110,16 @@ function isActive(href: string) {
       </a>
 
       <a
+        href="/careers"
+        class:list={[
+          "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
+          isActive("/careers") ? "text-brand-navy" : "text-gray-500 hover:text-gray-900",
+        ]}
+      >
+        Careers
+      </a>
+
+      <a
         href="/contact"
         class:list={[
           "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
@@ -119,7 +132,7 @@ function isActive(href: string) {
 
     <!-- Desktop CTA -->
     <div class="hidden lg:flex items-center gap-3">
-      <a href="/contact" class="btn-primary">
+      <a href="/book-call" class="btn-primary">
         Book a Call
         <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
@@ -158,6 +171,7 @@ function isActive(href: string) {
           <button
             class="mobile-dropdown-btn w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50"
             type="button"
+            aria-expanded="false"
           >
             {dropdown.label}
             <svg class="w-4 h-4 text-gray-400 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
@@ -185,6 +199,13 @@ function isActive(href: string) {
         class:list={["block px-3 py-2.5 rounded-lg text-sm font-medium", isActive("/blog") ? "text-brand-navy bg-brand-25" : "text-gray-700 hover:bg-gray-50"]}
       >
         Blog
+      </a>
+
+      <a
+        href="/careers"
+        class:list={["block px-3 py-2.5 rounded-lg text-sm font-medium", isActive("/careers") ? "text-brand-navy bg-brand-25" : "text-gray-700 hover:bg-gray-50"]}
+      >
+        Careers
       </a>
 
       <a
@@ -216,6 +237,16 @@ function isActive(href: string) {
   .header-scrolled {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   }
+
+  /* Keyboard-opened desktop dropdown */
+  .desktop-dropdown.is-open .desktop-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .desktop-dropdown.is-open .desktop-dropdown-btn svg {
+    transform: rotate(180deg);
+  }
 </style>
 
 <script>
@@ -233,13 +264,99 @@ function isActive(href: string) {
     closeIcon?.classList.toggle("hidden");
   });
 
+  // Mobile dropdown toggles
   document.querySelectorAll(".mobile-dropdown-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const menu = btn.nextElementSibling;
       const arrow = btn.querySelector("svg");
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
       menu?.classList.toggle("hidden");
       arrow?.classList.toggle("rotate-180");
     });
+  });
+
+  // Desktop dropdown keyboard support
+  function closeAllDesktopDropdowns() {
+    document.querySelectorAll(".desktop-dropdown").forEach((dd) => {
+      dd.classList.remove("is-open");
+      const b = dd.querySelector(".desktop-dropdown-btn") as HTMLElement;
+      b?.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  document.querySelectorAll(".desktop-dropdown").forEach((dropdown) => {
+    const trigger = dropdown.querySelector(".desktop-dropdown-btn") as HTMLElement;
+    const menuPanel = dropdown.querySelector(".desktop-dropdown-menu") as HTMLElement;
+
+    if (!trigger || !menuPanel) return;
+
+    // Toggle on Enter/Space
+    trigger.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const isOpen = dropdown.classList.contains("is-open");
+        closeAllDesktopDropdowns();
+        if (!isOpen) {
+          dropdown.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+          const firstLink = menuPanel.querySelector("a") as HTMLElement;
+          firstLink?.focus();
+        }
+      }
+      if (e.key === "Escape") {
+        closeAllDesktopDropdowns();
+        trigger.focus();
+      }
+      // Arrow down opens and focuses first item
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (!dropdown.classList.contains("is-open")) {
+          closeAllDesktopDropdowns();
+          dropdown.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+        const firstLink = menuPanel.querySelector("a") as HTMLElement;
+        firstLink?.focus();
+      }
+    });
+
+    // Keyboard navigation within menu
+    menuPanel.addEventListener("keydown", (e: KeyboardEvent) => {
+      const items = Array.from(menuPanel.querySelectorAll("a")) as HTMLElement[];
+      const currentIndex = items.indexOf(document.activeElement as HTMLElement);
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        const next = items[currentIndex + 1] || items[0];
+        next?.focus();
+      }
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        const prev = items[currentIndex - 1] || items[items.length - 1];
+        prev?.focus();
+      }
+      if (e.key === "Escape") {
+        closeAllDesktopDropdowns();
+        trigger.focus();
+      }
+      if (e.key === "Tab") {
+        // Close dropdown when tabbing out of last item (or shift-tab from first)
+        if (!e.shiftKey && currentIndex === items.length - 1) {
+          closeAllDesktopDropdowns();
+        }
+        if (e.shiftKey && currentIndex === 0) {
+          closeAllDesktopDropdowns();
+        }
+      }
+    });
+  });
+
+  // Close desktop dropdowns on outside click
+  document.addEventListener("click", (e) => {
+    if (!(e.target as Element)?.closest(".desktop-dropdown")) {
+      closeAllDesktopDropdowns();
+    }
   });
 
   // Scroll shadow

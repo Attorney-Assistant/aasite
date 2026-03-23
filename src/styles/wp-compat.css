@@ -46,10 +46,10 @@
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Sora', sans-serif;
   text-decoration: none;
   transition: all 0.2s;
-  background-color: #ffaa2b;
+  background-color: #F9A630;
   color: #0b0000;
 }
 
@@ -92,7 +92,7 @@
 /* Elementor headings and text */
 .elementor-heading-title {
   margin-bottom: 0.75rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-weight: 700;
   color: #0b0000;
 }
@@ -156,7 +156,7 @@
 }
 
 .elementor-icon-box-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-weight: 600;
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
@@ -208,7 +208,7 @@
 }
 
 .wp-block-quote {
-  border-left: 4px solid #ffaa2b;
+  border-left: 4px solid #F9A630;
   padding-left: 1.5rem;
   margin: 1.5rem 0;
   font-style: italic;
@@ -231,7 +231,7 @@
 .wp-block-table th {
   background-color: #f9fafb;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Sora', sans-serif;
 }
 
 /* ─── WP Video / Embed ────────────────────────────────────── */
@@ -265,7 +265,7 @@
 .wp-content h2,
 .wp-content h3,
 .wp-content h4 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-weight: 700;
   color: #0b0000;
   margin-top: 2rem;

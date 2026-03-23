@@ -4,32 +4,73 @@ export interface Props {
   body?: string;
   buttonText?: string;
   buttonLink?: string;
-  variant?: "default" | "gold" | "blue";
+  secondaryButtonText?: string;
+  secondaryButtonLink?: string;
+  variant?: "brand" | "light" | "dark";
 }
 
-const { heading, body, buttonText = "Get Started", buttonLink = "/contact", variant = "default" } = Astro.props;
+const {
+  heading,
+  body,
+  buttonText = "Get Started",
+  buttonLink = "/contact",
+  secondaryButtonText,
+  secondaryButtonLink,
+  variant = "brand",
+} = Astro.props;
 
-const bgClasses: Record<string, string> = {
-  default: "bg-brand-navy text-white",
-  gold: "bg-brand-gold text-brand-black",
-  blue: "bg-brand-blue text-white",
+const variantClasses: Record<string, string> = {
+  brand: "bg-brand-navy grain-overlay",
+  light: "bg-gray-50 border-y border-gray-200",
+  dark: "bg-brand-950 grain-overlay",
 };
+
+const textColors: Record<string, { heading: string; body: string }> = {
+  brand: { heading: "text-white", body: "text-brand-200" },
+  light: { heading: "text-gray-900", body: "text-gray-600" },
+  dark: { heading: "text-white", body: "text-gray-400" },
+};
+
+const colors = textColors[variant];
+const isDark = variant === "brand" || variant === "dark";
 ---
 
-<section class:list={["py-16 lg:py-20", bgClasses[variant]]}>
-  <div class="container-wide text-center">
-    <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">{heading}</h2>
-    {body && <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">{body}</p>}
-    <a
-      href={buttonLink}
-      class:list={[
-        "inline-flex items-center justify-center px-8 py-4 rounded-lg font-heading font-semibold transition-colors",
-        variant === "gold"
-          ? "bg-gray-900 text-white hover:bg-gray-800"
-          : "bg-brand-gold text-brand-black hover:bg-yellow-400",
-      ]}
-    >
-      {buttonText}
-    </a>
+<section class:list={[variantClasses[variant], "relative overflow-hidden"]}>
+  {isDark && (
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+  )}
+
+  <div class="container-wide section-padding text-center relative z-10">
+    <div class="max-w-2xl mx-auto">
+      {isDark && <div class="divider-gold-center mb-6"></div>}
+      <h2 class={`text-display-sm md:text-display-md ${colors.heading} mb-4`}>
+        {heading}
+      </h2>
+      {body && (
+        <p class={`text-lg ${colors.body} leading-relaxed mb-8`}>
+          {body}
+        </p>
+      )}
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href={buttonLink} class="btn-primary btn-lg group">
+          {buttonText}
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        {secondaryButtonText && secondaryButtonLink && (
+          <a href={secondaryButtonLink} class:list={[
+            isDark
+              ? "btn-ghost-light btn-lg"
+              : "btn-secondary btn-lg"
+          ]}>
+            {secondaryButtonText}
+          </a>
+        )}
+      </div>
+    </div>
   </div>
 </section>

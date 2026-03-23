@@ -1,4 +1,20 @@
+# Attorney Assistant - Robots.txt
+# https://attorneyassistant.com
+
 User-agent: *
 Allow: /
+Disallow: /storybook/
+Disallow: /styleguide
+Disallow: /signaturegenerator
+Disallow: /checkout-*
+Disallow: /order-confirmation*
+Disallow: /thankyou
+Disallow: /thank-you
 
+# Sitemaps
 Sitemap: https://attorneyassistant.com/sitemap-index.xml
+
+# LLM Discoverability
+# See https://llmstxt.org
+# llms.txt: https://attorneyassistant.com/llms.txt
+# llms-full.txt: https://attorneyassistant.com/llms-full.txt

@@ -1,0 +1,20 @@
+---
+/**
+ * Redirect old /new-book-a-call to /book-call
+ */
+const destination = "/book-call";
+const canonicalUrl = `https://attorneyassistant.com${destination}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>Redirecting to Book a Call</title>
+  </head>
+  <body>
+    <p>This page has moved. <a href={destination}>Click here</a> if you are not redirected.</p>
+  </body>
+</html>

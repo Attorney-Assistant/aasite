@@ -1,0 +1,21 @@
+---
+/**
+ * Redirect old /virtual-legal-assistants WordPress slug to the services page.
+ * The dedicated service page now lives at /services/virtual-legal-assistants.
+ */
+const destination = "/services/virtual-legal-assistants";
+const canonicalUrl = "https://attorneyassistant.com/services/virtual-legal-assistants";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>Redirecting — Virtual Legal Assistants</title>
+  </head>
+  <body>
+    <p>This page has moved. <a href={destination}>Click here</a> if you are not redirected.</p>
+  </body>
+</html>

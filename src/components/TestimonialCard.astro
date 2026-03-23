@@ -11,12 +11,12 @@ export interface Props {
 const { clientName, company, role, testimonialQuote, headshot, rating } = Astro.props;
 ---
 
-<div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-  {rating && (
-    <div class="flex gap-1 mb-3">
+<div class="card p-6 md:p-8 flex flex-col card-hover group">
+  {rating && rating > 0 && (
+    <div class="flex gap-0.5 mb-5">
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
-          class:list={["w-5 h-5", i < rating ? "text-brand-gold" : "text-gray-200"]}
+          class:list={["w-4 h-4", i < rating ? "text-brand-gold" : "text-gray-200"]}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -26,24 +26,28 @@ const { clientName, company, role, testimonialQuote, headshot, rating } = Astro.
     </div>
   )}
 
-  <blockquote class="text-gray-700 text-base leading-relaxed mb-4">
+  <blockquote class="text-gray-600 text-base leading-relaxed flex-1 mb-6 italic">
     &ldquo;{testimonialQuote}&rdquo;
   </blockquote>
 
-  <div class="flex items-center gap-3">
-    {headshot && (
+  <div class="flex items-center gap-3 pt-5 border-t border-gray-100">
+    {headshot ? (
       <img
         src={headshot}
         alt={clientName}
-        class="w-10 h-10 rounded-full object-cover"
+        class="w-10 h-10 rounded-full object-cover bg-gray-100 ring-2 ring-white shadow-sm"
         loading="lazy"
       />
+    ) : (
+      <div class="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-medium text-sm ring-2 ring-white shadow-sm">
+        {clientName.split(" ").map((n: string) => n[0]).join("").slice(0, 2)}
+      </div>
     )}
     <div>
-      <p class="font-heading font-semibold text-sm text-brand-black">{clientName}</p>
+      <p class="text-sm font-semibold text-gray-900">{clientName}</p>
       {(role || company) && (
-        <p class="text-xs text-gray-500">
-          {role}{role && company && ", "}{company}
+        <p class="text-xs text-gray-400">
+          {role}{role && company ? ", " : ""}{company}
         </p>
       )}
     </div>

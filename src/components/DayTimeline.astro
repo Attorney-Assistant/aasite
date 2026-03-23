@@ -1,51 +1,56 @@
 ---
 const scenarios = [
   {
-    time: "7:30am",
+    time: "7:30 AM",
     label: "Morning Arrival",
     without: "Staff arrives to 6 overnight voicemails. Starts returning calls manually. 2 leads already called competitors.",
     with: "All 6 leads already qualified. Intake complete. Appointments booked.",
+    isEvening: false,
   },
   {
-    time: "9:00am",
+    time: "9:00 AM",
     label: "Peak Call Volume",
     without: "Receptionist juggling 4 simultaneous calls. 2 go to voicemail.",
     with: "All calls answered live. Leads qualified in real-time.",
+    isEvening: false,
   },
   {
-    time: "10:00am",
+    time: "10:00 AM",
     label: "Intake Bottleneck",
     without: "Paralegal spends 45 min on intake paperwork for one client.",
     with: "Intake data already captured and organized. Paralegal works on case.",
+    isEvening: false,
   },
   {
-    time: "12:30pm",
+    time: "12:30 PM",
     label: "Follow-Up Gap",
     without: "Lead from Tuesday still hasn't received follow-up call.",
     with: "All follow-ups completed within 5 minutes of initial contact.",
+    isEvening: false,
   },
   {
-    time: "2:00pm",
+    time: "2:00 PM",
     label: "Lead Prioritization",
     without: "Attorney manually reviews which leads to prioritize.",
     with: "Qualified leads scored and prioritized. Attorney focuses on best cases.",
+    isEvening: false,
   },
   {
-    time: "5:30pm",
+    time: "5:30 PM",
     label: "Office Closing",
     without: "Office closes. Phones go to generic voicemail.",
     with: "Seamless handoff. Live coverage continues.",
     isEvening: true,
   },
   {
-    time: "9:30pm",
+    time: "9:30 PM",
     label: "After-Hours Lead",
     without: "Potential client calls after seeing a TV ad. Gets voicemail. Calls competitor.",
     with: "Live answer. Lead qualified. Consultation booked for morning.",
     isEvening: true,
   },
   {
-    time: "11:45pm",
+    time: "11:45 PM",
     label: "Late Night Form",
     without: "Website form submitted. Auto-reply sent. No follow-up until morning.",
     with: "Form triggers immediate call-back. Lead converted same night.",
@@ -54,566 +59,338 @@ const scenarios = [
 ];
 ---
 
-<div class="day-timeline">
-  <!-- Toggle -->
-  <div class="flex justify-center mb-10">
-    <button
-      class="timeline-toggle"
-      aria-pressed="false"
-      id="timeline-toggle"
-      aria-label="Toggle between Without and With Attorney Assistant views"
-    >
-      <span class="toggle-option toggle-without">Without Attorney Assistant</span>
-      <span class="toggle-option toggle-with">With Attorney Assistant</span>
-    </button>
-  </div>
-
-  <!-- Legend -->
-  <div class="flex items-center justify-center gap-6 mb-8 text-sm" id="timeline-legend">
-    <span class="legend-without flex items-center gap-2">
-      <span class="inline-block w-3 h-3 rounded-sm bg-red-400"></span>
-      <span class="text-gray-500 font-medium">Without</span>
-    </span>
-    <span class="legend-with flex items-center gap-2">
-      <span class="inline-block w-3 h-3 rounded-sm bg-brand-gold"></span>
-      <span class="text-gray-500 font-medium">With Attorney Assistant</span>
-    </span>
-  </div>
-
-  <!-- Timeline bar -->
-  <div class="timeline-bar" role="list">
+<div class="dt" id="day-timeline">
+  <div class="dt-list" role="list">
     {scenarios.map((s, i) => (
-      <div
-        class:list={["timeline-block", s.isEvening ? "is-evening" : ""]}
-        data-index={i}
-        role="listitem"
-      >
-        <button
-          class="timeline-trigger"
-          aria-expanded="false"
-          aria-controls={`detail-${i}`}
-        >
-          <span class="time-label">{s.time}</span>
-          <div class="block-bar" aria-hidden="true"></div>
-          <span class="block-label">{s.label}</span>
-          <span class="expand-icon" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <div class:list={["dt-item", s.isEvening && "dt-item--evening"]} data-index={i} role="listitem">
+        <button class="dt-trigger" aria-expanded={i === 0 ? "true" : "false"} aria-controls={`dt-detail-${i}`}>
+          <span class="dt-time">{s.time}</span>
+          <span class="dt-bar-pip" aria-hidden="true"></span>
+          <span class="dt-label">{s.label}</span>
+          <span class="dt-chevron" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </button>
-
-        <div class="timeline-detail" id={`detail-${i}`} hidden>
-          <div class="detail-without">
-            <div class="detail-header">
-              <span class="detail-icon detail-icon-without" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 2L12 12M12 2L2 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
-                </svg>
-              </span>
-              <h4>Without</h4>
+        <div class:list={["dt-detail", i === 0 && "dt-detail--open"]} id={`dt-detail-${i}`} {...(i !== 0 ? { hidden: true } : {})} style={i === 0 ? "max-height: none;" : ""}>
+          <div class="dt-compare">
+            <div class="dt-side dt-side--without">
+              <div class="dt-side-head">
+                <span class="dt-side-icon dt-side-icon--red" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 2L8 8M8 2L2 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                Without Attorney Assistant
+              </div>
+              <p>{s.without}</p>
             </div>
-            <p>{s.without}</p>
-          </div>
-          <div class="detail-with">
-            <div class="detail-header">
-              <span class="detail-icon detail-icon-with" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-              <h4>With Attorney Assistant</h4>
+            <div class="dt-side dt-side--with">
+              <div class="dt-side-head">
+                <span class="dt-side-icon dt-side-icon--green" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                With Attorney Assistant
+              </div>
+              <p>{s.with}</p>
             </div>
-            <p>{s.with}</p>
           </div>
         </div>
       </div>
     ))}
   </div>
 
-  <noscript>
-    <style>
-      .timeline-detail { display: grid !important; }
-      .timeline-detail[hidden] { display: grid !important; }
-    </style>
-  </noscript>
+  <!-- Running progress line -->
+  <div class="dt-progress" aria-hidden="true">
+    <div class="dt-progress-track"></div>
+    <div class="dt-progress-fill"></div>
+  </div>
 </div>
 
+<noscript>
+  <style>
+    .dt-detail { display: block !important; max-height: none !important; }
+    .dt-detail[hidden] { display: block !important; }
+  </style>
+</noscript>
+
 <style>
-  /* ── Root & Toggle ─────────────────────────────────────────────── */
-
-  .day-timeline {
-    --color-without: #f87171; /* red-400 */
-    --color-with: #ffaa2b;    /* brand-gold */
-    --color-navy: #1a3a5c;
-    --color-navy-900: #0e2236;
-    --transition-speed: 300ms;
-  }
-
-  .timeline-toggle {
-    display: inline-flex;
-    align-items: center;
-    background: #f2f4f7; /* gray-100 */
-    border-radius: 9999px;
-    padding: 4px;
-    border: 1px solid #d0d5dd; /* gray-300 */
-    gap: 2px;
-    cursor: pointer;
-    transition: box-shadow var(--transition-speed) ease;
-  }
-
-  .timeline-toggle:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.2);
-  }
-
-  .toggle-option {
-    padding: 8px 20px;
-    border-radius: 9999px;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: #475467; /* gray-600 */
-    transition: background var(--transition-speed) ease, color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    white-space: nowrap;
-  }
-
-  /* Default (without mode): "Without" segment is active */
-  .toggle-without {
-    background: var(--color-navy);
-    color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  }
-
-  .toggle-with {
-    background: transparent;
-    color: #475467;
-  }
-
-  /* With mode: "With" segment is active */
-  .day-timeline.is-with .toggle-without {
-    background: transparent;
-    color: #475467;
-    box-shadow: none;
-  }
-
-  .day-timeline.is-with .toggle-with {
-    background: var(--color-with);
-    color: #0e2236;
-    box-shadow: 0 1px 3px rgba(255, 170, 43, 0.4);
-  }
-
-  /* ── Timeline Bar Layout ───────────────────────────────────────── */
-
-  .timeline-bar {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 6px;
-    align-items: start;
-  }
-
-  /* ── Individual Blocks ─────────────────────────────────────────── */
-
-  .timeline-block {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-  }
-
-  /* Evening blocks (5:30pm–11:45pm) get subtle visual distinction */
-  .timeline-block.is-evening .timeline-trigger {
-    border-color: rgba(26, 58, 92, 0.18);
-    background: rgba(26, 58, 92, 0.04);
-  }
-
-  .timeline-block.is-evening .block-label {
-    color: #1a3a5c;
-    font-weight: 600;
-  }
-
-  .timeline-block.is-evening .time-label {
-    color: #1a3a5c;
-    font-weight: 700;
-  }
-
-  .timeline-trigger {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 10px 8px 12px;
-    background: #ffffff;
-    border: 1px solid #eaecf0; /* gray-200 */
-    border-radius: 12px;
-    cursor: pointer;
-    gap: 6px;
-    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background var(--transition-speed) ease;
+  .dt {
     position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
   }
 
-  .timeline-trigger:hover {
-    border-color: #98a2b3; /* gray-400 */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  /* ── List ── */
+  .dt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    z-index: 1;
   }
 
-  .timeline-trigger:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(26, 58, 92, 0.2);
+  .dt-item {
+    border-bottom: 1px solid #eaecf0;
   }
 
-  .timeline-trigger[aria-expanded="true"] {
-    border-color: #1a3a5c;
-    box-shadow: 0 0 0 2px rgba(26, 58, 92, 0.12);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
+  .dt-item:last-child { border-bottom: none; }
 
-  .day-timeline.is-with .timeline-trigger[aria-expanded="true"] {
-    border-color: #ffaa2b;
-    box-shadow: 0 0 0 2px rgba(255, 170, 43, 0.2);
-  }
-
-  .time-label {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #667085; /* gray-500 */
-    text-transform: uppercase;
-    white-space: nowrap;
-    line-height: 1;
-  }
-
-  .block-label {
-    font-size: 0.6875rem;
-    font-weight: 500;
-    color: #475467; /* gray-600 */
-    text-align: center;
-    line-height: 1.3;
-    min-height: 2.2em;
+  /* ── Trigger row ── */
+  .dt-trigger {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
-
-  /* ── Colored Bar ───────────────────────────────────────────────── */
-
-  .block-bar {
     width: 100%;
-    height: 6px;
-    border-radius: 3px;
-    background: var(--color-without);
-    transition: background var(--transition-speed) ease, transform 200ms ease;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
   }
 
-  .day-timeline.is-with .block-bar {
-    background: var(--color-with);
+  .dt-trigger:hover {
+    background: rgba(26,58,92,0.02);
   }
 
-  .timeline-trigger:hover .block-bar {
-    transform: scaleY(1.5);
+  .dt-trigger:focus-visible {
+    outline: 2px solid rgba(26,58,92,0.2);
+    outline-offset: -2px;
+    border-radius: 6px;
   }
 
-  /* ── Expand Icon ───────────────────────────────────────────────── */
+  .dt-time {
+    flex: 0 0 72px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
 
-  .expand-icon {
+  .dt-item--evening .dt-time {
+    color: #475467;
+  }
+
+  .dt-bar-pip {
+    flex: 0 0 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f87171;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #e5e7eb;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dt-item--evening .dt-bar-pip {
+    background: #1a3a5c;
+  }
+
+  .dt-trigger[aria-expanded="true"] .dt-bar-pip {
+    background: #1a3a5c;
+    box-shadow: 0 0 0 1px #1a3a5c, 0 0 0 4px rgba(26,58,92,0.12);
+  }
+
+  .dt-label {
+    flex: 1;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #344054;
+    text-align: left;
+  }
+
+  .dt-chevron {
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
     color: #98a2b3;
-    transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
+    transition: transform 0.25s ease, color 0.25s ease;
   }
 
-  .timeline-trigger[aria-expanded="true"] .expand-icon {
+  .dt-trigger[aria-expanded="true"] .dt-chevron {
     transform: rotate(180deg);
     color: #1a3a5c;
   }
 
-  .day-timeline.is-with .timeline-trigger[aria-expanded="true"] .expand-icon {
-    color: #e69500;
+  /* ── Detail panel ── */
+  .dt-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
   }
 
-  /* ── Detail Panel ──────────────────────────────────────────────── */
+  .dt-detail[hidden] {
+    display: block;
+    max-height: 0 !important;
+  }
 
-  .timeline-detail {
+  .dt-compare {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    max-height: 0;
+    margin: 0 0 0.75rem 82px;
+    border-radius: 8px;
     overflow: hidden;
-    transition: max-height 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid #1a3a5c;
-    border-top: none;
-    border-radius: 0 0 12px 12px;
-    background: #ffffff;
+    border: 1px solid #e5e7eb;
   }
 
-  .timeline-detail[hidden] {
-    display: grid; /* keep grid for measurement; height=0 hides it */
-    max-height: 0 !important;
-    border-color: transparent;
+  .dt-side {
+    padding: 0.75rem 1rem;
   }
 
-  .day-timeline.is-with .timeline-detail {
-    border-color: #ffaa2b;
+  .dt-side--without {
+    background: #fef3f2;
+    border-right: 1px solid #e5e7eb;
   }
 
-  .day-timeline.is-with .timeline-detail[hidden] {
-    border-color: transparent;
+  .dt-side--with {
+    background: #f0fdf4;
   }
 
-  .detail-without,
-  .detail-with {
-    padding: 14px 14px 16px;
-  }
-
-  .detail-without {
-    border-right: 1px solid #eaecf0;
-    background: #fff5f5;
-  }
-
-  .detail-with {
-    background: #fffcf0;
-  }
-
-  .detail-header {
+  .dt-side-head {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 6px;
-  }
-
-  .detail-header h4 {
-    font-size: 0.6875rem;
+    gap: 0.375rem;
+    font-size: 0.625rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
     text-transform: uppercase;
-    margin: 0;
-    line-height: 1;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.375rem;
   }
 
-  .detail-without .detail-header h4 {
-    color: #b42318; /* error-700 */
-  }
+  .dt-side--without .dt-side-head { color: #b42318; }
+  .dt-side--with .dt-side-head { color: #15803d; }
 
-  .detail-with .detail-header h4 {
-    color: #e69500; /* gold-dark */
-  }
-
-  .detail-icon {
+  .dt-side-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  .detail-icon-without {
-    background: #fee4e2; /* error-100 */
-    color: #d92d20;     /* error-600 */
-  }
+  .dt-side-icon--red { background: #fee4e2; color: #d92d20; }
+  .dt-side-icon--green { background: #dcfce7; color: #15803d; }
 
-  .detail-icon-with {
-    background: #fff8ec;
-    color: #e69500;
-  }
-
-  .detail-without p,
-  .detail-with p {
-    font-size: 0.75rem;
-    line-height: 1.55;
-    color: #475467; /* gray-600 */
+  .dt-side p {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #475467;
     margin: 0;
   }
 
-  .detail-without p {
-    color: #667085;
-  }
-
-  .detail-with p {
-    color: #344054; /* gray-700 */
+  .dt-side--with p {
+    color: #344054;
     font-weight: 500;
   }
 
-  /* ── Mobile Layout ─────────────────────────────────────────────── */
-
-  @media (max-width: 768px) {
-    .timeline-bar {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .timeline-trigger {
-      flex-direction: row;
-      align-items: center;
-      padding: 14px 16px;
-      gap: 12px;
-      border-radius: 12px;
-      min-height: 56px; /* comfortable tap target */
-    }
-
-    .timeline-trigger[aria-expanded="true"] {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    .time-label {
-      font-size: 0.6875rem;
-      min-width: 52px;
-      text-align: left;
-    }
-
-    .block-bar {
-      width: 4px;
-      height: 28px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .timeline-trigger:hover .block-bar {
-      transform: none;
-    }
-
-    .block-label {
-      flex: 1;
-      font-size: 0.875rem;
-      text-align: left;
-      min-height: unset;
-      font-weight: 600;
-      color: #344054;
-    }
-
-    .expand-icon {
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-
-    .timeline-detail {
-      grid-template-columns: 1fr;
-      border-radius: 0 0 12px 12px;
-    }
-
-    .detail-without {
-      border-right: none;
-      border-bottom: 1px solid #eaecf0;
-    }
-
-    .detail-without p,
-    .detail-with p {
-      font-size: 0.8125rem;
-    }
-
-    .toggle-option {
-      padding: 8px 14px;
-      font-size: 0.75rem;
-    }
+  /* ── Progress line (vertical, behind pips) ── */
+  .dt-progress {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 77px;
+    width: 2px;
+    z-index: 0;
   }
 
-  @media (max-width: 480px) {
-    .toggle-option {
-      padding: 7px 11px;
-      font-size: 0.6875rem;
+  .dt-progress-track {
+    position: absolute;
+    inset: 0;
+    background: #eaecf0;
+    border-radius: 1px;
+  }
+
+  .dt-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 62.5%;
+    background: linear-gradient(180deg, #f87171 0%, #1a3a5c 100%);
+    border-radius: 1px;
+    transition: background 0.3s ease;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .dt-time { flex: 0 0 60px; font-size: 0.6875rem; }
+
+    .dt-compare {
+      grid-template-columns: 1fr;
+      margin-left: 70px;
     }
+
+    .dt-side--without {
+      border-right: none;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .dt-progress { left: 65px; }
   }
 </style>
 
 <script>
-  (function () {
-    const root = document.querySelector(".day-timeline") as HTMLElement | null;
-    if (!root) return;
+(function () {
+  const root = document.getElementById("day-timeline") as HTMLElement | null;
+  if (!root) return;
 
-    const toggle = root.querySelector("#timeline-toggle") as HTMLButtonElement | null;
-    const bar = root.querySelector(".timeline-bar") as HTMLElement | null;
+  root.addEventListener("click", (e: Event) => {
+    const target = e.target as HTMLElement;
+    const trigger = target.closest(".dt-trigger") as HTMLButtonElement | null;
+    if (!trigger) return;
 
-    // ── Toggle: switch between "without" and "with" modes ──────────
-    if (toggle) {
-      toggle.addEventListener("click", () => {
-        const isWith = toggle.getAttribute("aria-pressed") === "true";
-        const next = !isWith;
-        toggle.setAttribute("aria-pressed", String(next));
-        root.classList.toggle("is-with", next);
-      });
-    }
+    const controlsId = trigger.getAttribute("aria-controls");
+    const detail = controlsId ? root.querySelector(`#${controlsId}`) as HTMLElement | null : null;
+    if (!detail) return;
 
-    // ── Block expand/collapse (event delegation) ───────────────────
-    if (bar) {
-      bar.addEventListener("click", (e: Event) => {
-        const target = e.target as HTMLElement;
-        const trigger = target.closest(".timeline-trigger") as HTMLButtonElement | null;
-        if (!trigger) return;
+    const isExpanded = trigger.getAttribute("aria-expanded") === "true";
 
-        const block = trigger.closest(".timeline-block") as HTMLElement | null;
-        if (!block) return;
-
-        const controlsId = trigger.getAttribute("aria-controls");
-        const detail = controlsId ? (root.querySelector(`#${controlsId}`) as HTMLElement | null) : null;
-        if (!detail) return;
-
-        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
-
-        // Collapse all other open blocks first
-        const allTriggers = bar.querySelectorAll<HTMLButtonElement>(".timeline-trigger[aria-expanded='true']");
-        allTriggers.forEach((t) => {
-          if (t === trigger) return;
-          const otherId = t.getAttribute("aria-controls");
-          const otherDetail = otherId ? (root.querySelector(`#${otherId}`) as HTMLElement | null) : null;
-          t.setAttribute("aria-expanded", "false");
-          if (otherDetail) {
-            otherDetail.style.maxHeight = "0";
-            // After transition, restore hidden attribute
-            otherDetail.addEventListener(
-              "transitionend",
-              () => {
-                if (otherDetail.style.maxHeight === "0px" || otherDetail.style.maxHeight === "0") {
-                  otherDetail.setAttribute("hidden", "");
-                  otherDetail.style.maxHeight = "";
-                }
-              },
-              { once: true }
-            );
+    // Collapse all others
+    root.querySelectorAll<HTMLButtonElement>('.dt-trigger[aria-expanded="true"]').forEach((t) => {
+      if (t === trigger) return;
+      t.setAttribute("aria-expanded", "false");
+      const otherId = t.getAttribute("aria-controls");
+      const other = otherId ? root.querySelector(`#${otherId}`) as HTMLElement | null : null;
+      if (other) {
+        other.style.maxHeight = other.scrollHeight + "px";
+        other.getBoundingClientRect();
+        other.style.maxHeight = "0";
+        other.addEventListener("transitionend", () => {
+          if (other.style.maxHeight === "0px" || other.style.maxHeight === "0") {
+            other.setAttribute("hidden", "");
+            other.style.maxHeight = "";
           }
-        });
+        }, { once: true });
+      }
+    });
 
-        if (isExpanded) {
-          // Collapse this block
-          trigger.setAttribute("aria-expanded", "false");
-          detail.style.maxHeight = detail.scrollHeight + "px";
-          // Force reflow to ensure transition fires
-          detail.getBoundingClientRect();
-          detail.style.maxHeight = "0";
-          detail.addEventListener(
-            "transitionend",
-            () => {
-              if (detail.style.maxHeight === "0px" || detail.style.maxHeight === "0") {
-                detail.setAttribute("hidden", "");
-                detail.style.maxHeight = "";
-              }
-            },
-            { once: true }
-          );
-        } else {
-          // Expand this block
-          trigger.setAttribute("aria-expanded", "true");
-          detail.removeAttribute("hidden");
-          // Measure and animate
-          const targetHeight = detail.scrollHeight;
-          detail.style.maxHeight = "0";
-          detail.getBoundingClientRect(); // force reflow
-          detail.style.maxHeight = targetHeight + "px";
-          detail.addEventListener(
-            "transitionend",
-            () => {
-              // Remove fixed max-height so content can grow freely
-              if (detail.style.maxHeight !== "0px") {
-                detail.style.maxHeight = "";
-              }
-            },
-            { once: true }
-          );
+    if (isExpanded) {
+      trigger.setAttribute("aria-expanded", "false");
+      detail.style.maxHeight = detail.scrollHeight + "px";
+      detail.getBoundingClientRect();
+      detail.style.maxHeight = "0";
+      detail.addEventListener("transitionend", () => {
+        if (detail.style.maxHeight === "0px" || detail.style.maxHeight === "0") {
+          detail.setAttribute("hidden", "");
+          detail.style.maxHeight = "";
         }
-      });
+      }, { once: true });
+    } else {
+      trigger.setAttribute("aria-expanded", "true");
+      detail.removeAttribute("hidden");
+      const h = detail.scrollHeight;
+      detail.style.maxHeight = "0";
+      detail.getBoundingClientRect();
+      detail.style.maxHeight = h + "px";
+      detail.addEventListener("transitionend", () => {
+        if (detail.style.maxHeight !== "0px" && detail.style.maxHeight !== "0") {
+          detail.style.maxHeight = "none";
+        }
+      }, { once: true });
     }
-  })();
+  });
+})();
 </script>

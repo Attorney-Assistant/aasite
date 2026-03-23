@@ -2,14 +2,17 @@
 
 ## System Overview
 
-Attorney Assistant's marketing website is a statically generated site using the Jamstack architecture pattern. Testimonial data is fetched from HubSpot at build time by Astro, and the site is deployed as static HTML.
+Attorney Assistant's marketing website is a statically generated site using the Jamstack architecture pattern. Content is fetched from multiple sources at build time, merged into a unified feed, and deployed as static HTML via FTP to Hostinger.
 
 ```
-┌──────────────┐     ┌─────────────┐     ┌──────────────────┐
-│              │     │             │     │                  │
-│  HubSpot API │────▶│  Astro SSG  │────▶│  Static Hosting  │
-│              │     │  (Build)    │     │  (GitHub Pages)  │
-└──────────────┘     └─────────────┘     └──────────────────┘
+┌──────────────┐
+│  HubSpot API │──┐
+│  (Blog/CRM)  │  │   ┌─────────────┐     ┌──────────────────┐
+└──────────────┘  ├──▶│  Astro SSG  │────▶│  Hostinger FTP   │
+┌──────────────┐  │   │  (Build)    │     │  (Static Host)   │
+│ BabyLove     │──┘   └─────────────┘     └──────────────────┘
+│ Growth.ai    │
+└──────────────┘
                            │
                            ├── HTML pages
                            ├── sitemap.xml
@@ -23,22 +26,24 @@ Attorney Assistant's marketing website is a statically generated site using the 
 
 | Type | Description | Route Pattern |
 |------|-------------|---------------|
-| **Blog Post** | Articles managed as Astro/MDX content | `/blog/{slug}` |
+| **Blog Post** | Articles from HubSpot CMS + BabyLoveGrowth.ai | `/blog/{slug}` |
 | **Landing Page** | Campaign pages with flexible sections | `/landing/{slug}` |
 | **Static Page** | Standard pages (About, Contact, etc.) | `/{slug}` |
 | **Service Page** | Service-specific pages | `/services/{slug}` |
 
-### HubSpot-Managed Data
+### Build-Time Content Sources
 
-- **Testimonials** — fetched via HubSpot API at build time (`src/lib/hubspot.ts`)
+- **HubSpot CMS** — Blog posts, testimonials, landing pages, tags (`src/lib/hubspot.ts`)
+- **BabyLoveGrowth.ai** — AI-generated blog articles (`src/lib/babylovegrowth.ts`)
+- **Unified blog layer** — Merges both sources, sorted by date (`src/lib/blog.ts`)
 
 ## Data Flow
 
 ### Build-Time Data Fetching
 
 1. **Astro build starts** — `npm run build` triggers the Astro compiler
-2. **Pages request data** — Each `.astro` page's frontmatter runs `fetch*` functions from `src/lib/hubspot.ts`
-3. **HubSpot API responds** — Testimonial data is fetched and resolved
+2. **Pages request data** — Blog pages import from `src/lib/blog.ts` which merges HubSpot + BabyLoveGrowth
+3. **APIs respond** — Blog posts, testimonials, and AI articles are fetched in parallel
 4. **HTML renders** — Astro templates produce complete HTML with all data embedded
 5. **Static files output** — Final HTML, CSS, and assets go to `dist/`
 
@@ -64,7 +69,7 @@ npm run build
   │
   ├── 2. getStaticPaths() fetches slugs for dynamic routes
   │
-  ├── 3. Each page fetches its content (HubSpot API for testimonials)
+  ├── 3. Each page fetches its content (HubSpot + BabyLoveGrowth APIs)
   │
   ├── 4. Astro renders HTML with Tailwind CSS
   │
@@ -91,13 +96,14 @@ npm run build
 ### GitHub Actions Pipeline
 
 ```
-Push to main
+Push to main / Daily 6 AM EST / repository_dispatch / manual
   │
-  ├── Install dependencies (npm ci)
+  ├── Install dependencies (npm install)
   ├── Build site (npm run build)
-  │     └── Fetches testimonials from HubSpot API during build
-  ├── Upload artifact
-  └── Deploy to GitHub Pages
+  │     ├── Fetches blog posts from HubSpot CMS + BabyLoveGrowth.ai
+  │     ├── Fetches testimonials from HubSpot
+  │     └── Fetches Google Reviews via Places API
+  └── Deploy dist/ to Hostinger via FTP
 ```
 
 ### Environment Variables
@@ -105,8 +111,10 @@ Push to main
 | Variable | Where Set | Purpose |
 |----------|-----------|---------|
 | `HUBSPOT_ACCESS_TOKEN` | GitHub Secrets + `.env` | HubSpot private app read token |
+| `BABYLOVEGROWTH` | GitHub Secrets + `.env` | BabyLoveGrowth.ai API key |
+| `GOOGLE_MAPS_API` | GitHub Secrets + `.env` | Google Places API key (reviews) |
 | `SITE_URL` | GitHub Secrets + `.env` | Canonical site URL for sitemap/RSS |
-| `FTP_SERVER` | GitHub Secrets | FTP deployment server |
+| `FTP_SERVER` | GitHub Secrets | FTP deployment server (Hostinger) |
 | `FTP_USERNAME` | GitHub Secrets | FTP deployment username |
 | `FTP_PASSWORD` | GitHub Secrets | FTP deployment password |
 
@@ -141,12 +149,12 @@ Brand colors and fonts are defined in `tailwind.config.mjs`:
 ```
 brand-black: #0b0000
 brand-white: #ffffff
-brand-gold:  #ffaa2b
+brand-gold:  #F9A630
 brand-blue:  #50a7dd
 brand-steel: #588aa5
 
-font-heading: Poppins
-font-body:    Roboto
+font-heading: Sora
+font-body:    system sans-serif
 ```
 
 ### CSS Layers
@@ -163,8 +171,9 @@ Components use Tailwind utility classes directly in templates. No CSS modules or
 
 ## Error Handling
 
-- All HubSpot fetch calls are wrapped in `try/catch` blocks
-- If HubSpot is unreachable during build, pages render with empty content (build doesn't fail)
+- All API fetch calls (HubSpot, BabyLoveGrowth, Google Places) are wrapped in `try/catch` blocks
+- If any API is unreachable during build, pages render with empty content (build doesn't fail)
+- BabyLoveGrowth gracefully returns empty array if API key is not set
 - The site is fully functional even without HubSpot configured
 
 ## Performance

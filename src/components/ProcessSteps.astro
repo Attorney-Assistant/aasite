@@ -4,45 +4,258 @@ const steps = [
     number: 1,
     title: "Tell Us Your Needs",
     description: "Share your firm's requirements and we'll design a custom solution tailored to your practice areas and workflow.",
-    image: "/wp-content/uploads/2025/09/Overlay-1.png",
+    icon: "M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z",
   },
   {
     number: 2,
     title: "Get Matched",
     description: "We pair you with trained legal support professionals who specialize in your areas of practice.",
-    image: "/wp-content/uploads/2025/09/Overlay-2.png",
+    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
   },
   {
     number: 3,
     title: "Start Working",
     description: "Your team integrates seamlessly with your firm and starts delivering results from day one.",
-    image: "/wp-content/uploads/2025/09/Overlay-3.png",
+    icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z",
   },
 ];
 ---
 
-<section class="py-16 lg:py-24 bg-gray-50">
-  <div class="container-wide">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand-black mb-4">
-        <em class="not-italic text-brand-gold italic">Simple.</em> Fast. <em class="not-italic text-brand-blue italic">Effective.</em>
+<section class="section-padding bg-gray-50 relative overflow-hidden" id="process-steps">
+  <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+
+  <div class="container-wide relative">
+    <div class="text-center mb-16 reveal">
+      <span class="badge badge-brand mb-4">How it works</span>
+      <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">
+        Simple. Fast. Effective.
       </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">Getting started is easy — here's how it works.</p>
+      <div class="divider-gold-center mt-4 mb-5"></div>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto">Getting started is easy — here's how it works.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-      {steps.map((step) => (
-        <div class="text-center">
-          <div class="relative w-48 h-48 mx-auto mb-6">
-            <img src={step.image} alt={step.title} class="w-full h-full object-contain" loading="lazy" />
-          </div>
-          <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-brand-gold text-brand-black font-heading font-bold text-lg mb-4">
-            {step.number}
-          </div>
-          <h3 class="text-xl font-heading font-bold text-brand-black mb-3">{step.title}</h3>
-          <p class="text-gray-600 leading-relaxed">{step.description}</p>
+    <div class="max-w-4xl mx-auto">
+      <div class="ps-grid">
+        <!-- Connector line (desktop only) -->
+        <div class="ps-connector" aria-hidden="true">
+          <div class="ps-connector-track"></div>
+          <div class="ps-connector-fill"></div>
         </div>
-      ))}
+
+        {steps.map((step, i) => (
+          <div class="ps-card reveal" data-step={i} style={`transition-delay: ${i * 150}ms`}>
+            <div class="ps-icon-ring">
+              <div class="ps-icon-bg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={step.icon} />
+                </svg>
+              </div>
+              <svg class="ps-ring-svg" viewBox="0 0 60 60" aria-hidden="true">
+                <circle cx="30" cy="30" r="28" fill="none" stroke="rgba(249,166,48,0.15)" stroke-width="2" />
+                <circle cx="30" cy="30" r="28" fill="none" stroke="#F9A630" stroke-width="2"
+                  stroke-dasharray="175.93"
+                  stroke-dashoffset="175.93"
+                  stroke-linecap="round"
+                  class="ps-ring-progress" />
+              </svg>
+            </div>
+            <div class="mb-2">
+              <span class="ps-step-label">Step {step.number}</span>
+            </div>
+            <h3 class="text-xl font-heading text-gray-900 mb-3">{step.title}</h3>
+            <p class="text-gray-500 leading-relaxed">{step.description}</p>
+
+            <div class="ps-glow" aria-hidden="true"></div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .ps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .ps-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  /* ── Card ── */
+  .ps-card {
+    text-align: center;
+    position: relative;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(234,236,240,0.8);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.4s ease;
+    overflow: hidden;
+  }
+
+  .ps-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px -12px rgba(26,58,92,0.12), 0 8px 24px -8px rgba(249,166,48,0.08);
+    border-color: rgba(249,166,48,0.25);
+  }
+
+  /* ── Glow on hover ── */
+  .ps-glow {
+    position: absolute;
+    bottom: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 60%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(249,166,48,0.12) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .ps-card:hover .ps-glow {
+    opacity: 1;
+  }
+
+  /* ── Icon ring ── */
+  .ps-icon-ring {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.25rem;
+  }
+
+  .ps-icon-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #1a3a5c;
+    color: white;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 14px -2px rgba(26,58,92,0.35);
+  }
+
+  .ps-ring-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform: rotate(-90deg);
+  }
+
+  .ps-ring-progress {
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .ps-card.is-visible .ps-ring-progress {
+    stroke-dashoffset: 0;
+  }
+
+  /* ── Step label ── */
+  .ps-step-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #F9A630;
+    background: rgba(249,166,48,0.08);
+    padding: 0.125rem 0.625rem;
+    border-radius: 999px;
+  }
+
+  /* ── Connector ── */
+  .ps-connector {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .ps-connector {
+      display: block;
+      position: absolute;
+      top: 4.5rem;
+      left: calc(16.66% + 30px);
+      right: calc(16.66% + 30px);
+      height: 2px;
+      z-index: 0;
+    }
+
+    .ps-connector-track {
+      position: absolute;
+      inset: 0;
+      background: #eaecf0;
+      border-radius: 1px;
+    }
+
+    .ps-connector-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #F9A630, #50a7dd);
+      border-radius: 1px;
+      transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .ps-connector.is-visible .ps-connector-fill {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ps-card { transition: none; }
+    .ps-ring-progress { transition: none; }
+    .ps-connector-fill { transition: none; }
+    .ps-glow { display: none; }
+  }
+</style>
+
+<script>
+(function () {
+  const section = document.getElementById("process-steps");
+  if (!section) return;
+
+  const cards = section.querySelectorAll<HTMLElement>(".ps-card");
+  const connector = section.querySelector<HTMLElement>(".ps-connector");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delay = parseInt(el.dataset.step || "0", 10) * 300;
+          setTimeout(() => el.classList.add("is-visible"), delay);
+
+          if (connector && el.dataset.step === "0") {
+            setTimeout(() => connector.classList.add("is-visible"), 200);
+          }
+
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+})();
+</script>

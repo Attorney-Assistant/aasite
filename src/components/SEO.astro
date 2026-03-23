@@ -7,20 +7,53 @@ export interface Props {
   type?: "website" | "article";
   publishedDate?: string;
   author?: string;
+  noindex?: boolean;
+  schema?: Record<string, any> | Record<string, any>[];
 }
 
 const {
   title,
-  description = "Attorney Assistant provides expert legal support services — dedicated assistants and 24/7 intake — to help law firms streamline operations and convert more leads.",
-  image = "/brand/logos/Attorney%20Assistant_H_FC.svg",
+  description = "Attorney Assistant solves the operational problems that prevent law firms from growing — intake failure, admin chaos, and inconsistent follow-up. We handle the work firms need but hate to manage.",
+  image = "/brand/logos/long_color_logo.svg",
   canonicalUrl = Astro.url.href,
   type = "website",
   publishedDate,
   author,
+  noindex = false,
+  schema,
 } = Astro.props;
 
 const siteName = "Attorney Assistant";
+const siteUrl = "https://attorneyassistant.com";
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const resolvedImage = image || "/brand/logos/long_color_logo.svg";
+const absoluteImage = resolvedImage.startsWith("http") ? resolvedImage : new URL(resolvedImage, Astro.site).href;
+
+// Build breadcrumb from URL path
+const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+const breadcrumbItems = [
+  { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+  ...pathSegments.map((seg, i) => ({
+    "@type": "ListItem",
+    position: i + 2,
+    name: seg.replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase()),
+    item: `${siteUrl}/${pathSegments.slice(0, i + 1).join("/")}`,
+  })),
+];
+
+const breadcrumbSchema = pathSegments.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems,
+} : null;
+
+// Merge page-specific schemas
+const schemas: Record<string, any>[] = [];
+if (breadcrumbSchema) schemas.push(breadcrumbSchema);
+if (schema) {
+  if (Array.isArray(schema)) schemas.push(...schema);
+  else schemas.push(schema);
+}
 ---
 
 <!-- Primary Meta Tags -->
@@ -28,20 +61,27 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <!-- Open Graph -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.site).href} />
+<meta property="og:image" content={absoluteImage} />
 <meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={new URL(image, Astro.site).href} />
+<meta name="twitter:image" content={absoluteImage} />
 
 {publishedDate && <meta property="article:published_time" content={publishedDate} />}
 {author && <meta name="author" content={author} />}
+
+<!-- Page-level structured data -->
+{schemas.map((s) => (
+  <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", ...s })} />
+))}

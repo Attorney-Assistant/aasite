@@ -1,0 +1,40 @@
+# Attorney Assistant
+
+> Attorney Assistant solves the operational problems that prevent law firms from growing — intake failure, admin chaos, inconsistent follow-up, and scaling bottlenecks.
+
+## About
+
+Attorney Assistant was co-founded by Ethen Ostroff (CEO) and James DiBitetto (COO) in 2021. Based in Conshohocken, PA, we provide dedicated virtual assistants and operational support to over 200 law firms across the United States.
+
+We don't just add headcount — we diagnose and fix the operational failures that cost law firms revenue. Our services include intake management, lead follow-up, after-hours coverage, administrative support, and marketing operations.
+
+## Services
+
+- [Lead Recovery](/services/lead-recovery): Capture every inbound lead with rapid response and structured follow-up
+- [Intake 360](/services/intake-360): End-to-end intake management platform for law firms
+- [Lead Follow-Up](/services/lead-follow-up): Speed-to-lead and consistent multi-touch follow-up sequences
+- [After-Hours Coverage](/services/after-hours): 24/7 live intake and reception — nights, weekends, holidays
+- [Admin Support](/services/admin-support): Back-office operations including case management, scheduling, and document handling
+- [Marketing Support](/services/marketing-support): Align marketing spend with intake results
+
+## Key Pages
+
+- [About Us](/about)
+- [Our Story](/our-story)
+- [Our Team](/our-team)
+- [Reviews](/reviews)
+- [Blog](/blog)
+- [FAQ](/faq)
+- [Contact](/contact)
+- [Book a Call](/book-call)
+- [Careers](/careers)
+
+## Contact
+
+- Phone: +1 (215) 337-2677
+- Email: info@attorneyassistant.com
+- Address: 21 East 5th Avenue Suite 102, Conshohocken, PA 19428
+
+## Optional
+
+- [Full details](llms-full.txt): Comprehensive information about all services, team, and offerings

@@ -10,27 +10,64 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
 ---
 
 <div id={containerId} class="hubspot-form"></div>
+<div id={`${containerId}-errors`} class="hubspot-form-errors" aria-live="polite" role="status"></div>
 
 <script is:inline define:vars={{ portalId, formId, region, containerId }}>
   function loadHubSpotForm() {
-    if (window.hbspt) {
+    var errorRegion = document.getElementById(containerId + "-errors");
+
+    function createForm() {
       window.hbspt.forms.create({
-        portalId,
-        formId,
-        region,
-        target: `#${containerId}`,
+        portalId: portalId,
+        formId: formId,
+        region: region,
+        target: "#" + containerId,
+        onFormSubmitError: function () {
+          if (errorRegion) {
+            errorRegion.textContent = "There was an error submitting the form. Please try again.";
+          }
+        },
+        onFormSubmit: function () {
+          if (errorRegion) {
+            errorRegion.textContent = "";
+          }
+        },
+        onFormReady: function () {
+          // Observe for HubSpot validation error messages and announce them
+          var formContainer = document.getElementById(containerId);
+          if (!formContainer || !errorRegion) return;
+
+          var observer = new MutationObserver(function () {
+            var errors = formContainer.querySelectorAll(".hs-error-msg");
+            if (errors.length > 0) {
+              var messages = [];
+              errors.forEach(function (el) {
+                if (el.textContent.trim()) messages.push(el.textContent.trim());
+              });
+              if (messages.length > 0) {
+                errorRegion.textContent = messages.join(". ");
+              }
+            } else {
+              errorRegion.textContent = "";
+            }
+          });
+
+          observer.observe(formContainer, { childList: true, subtree: true });
+        },
       });
+    }
+
+    if (window.hbspt) {
+      createForm();
     } else {
-      const script = document.createElement("script");
+      var script = document.createElement("script");
       script.src = "//js.hsforms.net/forms/embed/v2.js";
       script.charset = "utf-8";
-      script.onload = function () {
-        window.hbspt.forms.create({
-          portalId,
-          formId,
-          region,
-          target: `#${containerId}`,
-        });
+      script.onload = createForm;
+      script.onerror = function () {
+        if (errorRegion) {
+          errorRegion.textContent = "Unable to load the form. Please refresh the page or try again later.";
+        }
       };
       document.head.appendChild(script);
     }
@@ -45,54 +82,119 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
 
 <style>
   .hubspot-form :global(.hs-form) {
-    font-family: inherit;
+    font-family: 'Inter', -apple-system, sans-serif;
   }
   .hubspot-form :global(.hs-form fieldset) {
-    max-width: 100%;
+    max-width: 100% !important;
+  }
+  .hubspot-form :global(.hs-form fieldset.form-columns-2) {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .hubspot-form :global(.hs-form fieldset.form-columns-2 .hs-form-field) {
+    flex: 1;
   }
   .hubspot-form :global(.hs-form label) {
-    color: #ffffff;
-    font-weight: 600;
+    color: #344054;
+    font-weight: 500;
     font-size: 0.875rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.375rem;
     display: block;
   }
+  /* Style the required asterisk */
+  .hubspot-form :global(.hs-form label .hs-form-required) {
+    color: #F04438;
+    margin-left: 2px;
+  }
+  /* Hide empty labels that just have an asterisk */
+  .hubspot-form :global(.hs-form label:empty) {
+    display: none;
+  }
   .hubspot-form :global(.hs-form .hs-error-msg) {
-    color: #7f1d1d;
+    color: #D92D20;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+  .hubspot-form :global(.hs-form .hs-error-msgs) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
   .hubspot-form :global(.hs-form .hs-input) {
-    width: 100%;
+    width: 100% !important;
     padding: 0.625rem 0.875rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
+    border: 1px solid #D0D5DD;
+    border-radius: 0.5rem;
     font-size: 0.875rem;
+    background-color: #F9FAFB;
+    color: #101828;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    transition: all 0.15s ease;
+  }
+  .hubspot-form :global(.hs-form .hs-input::placeholder) {
+    color: #98A2B3;
+  }
+  .hubspot-form :global(.hs-form .hs-input:focus) {
     background-color: #ffffff;
-    color: #0b0000;
+    border-color: #50a7dd;
+    box-shadow: 0 0 0 4px rgba(80, 167, 221, 0.12);
+    outline: none;
   }
   .hubspot-form :global(.hs-form select.hs-input) {
     appearance: auto;
   }
   .hubspot-form :global(.hs-form .hs-button) {
-    background-color: #50a7dd;
-    color: #ffffff;
+    width: 100%;
+    background-color: #F9A630;
+    color: #101828;
     font-weight: 600;
-    padding: 0.75rem 2rem;
-    border-radius: 0.375rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
     border: none;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.2s;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    transition: all 0.15s ease;
   }
   .hubspot-form :global(.hs-form .hs-button:hover) {
-    background-color: #3b8abf;
+    background-color: #e69500;
   }
   .hubspot-form :global(.hs-form .hs-richtext) {
-    color: #ffffff;
+    color: #475467;
     font-size: 0.75rem;
+    line-height: 1.5;
   }
-  .hubspot-form :global(.hs-form .hs-fieldtype-text),
-  .hubspot-form :global(.hs-form .hs-fieldtype-phonenumber),
-  .hubspot-form :global(.hs-form .hs-fieldtype-select) {
-    margin-bottom: 0.5rem;
+  .hubspot-form :global(.hs-form .hs-form-field) {
+    margin-bottom: 0.875rem;
+  }
+  /* Legal consent / GDPR styling */
+  .hubspot-form :global(.hs-form .legal-consent-container) {
+    margin-top: 0.5rem;
+  }
+  .hubspot-form :global(.hs-form .legal-consent-container p) {
+    font-size: 0.75rem;
+    color: #667085;
+    line-height: 1.5;
+  }
+  /* Recaptcha */
+  .hubspot-form :global(.hs-form .grecaptcha-badge) {
+    margin-top: 0.5rem;
+  }
+  /* Submit button container */
+  .hubspot-form :global(.hs-form .hs-submit) {
+    margin-top: 0.5rem;
+  }
+  .hubspot-form :global(.hs-form .actions) {
+    padding: 0;
+    margin: 0;
+  }
+  .hubspot-form-errors {
+    color: #D92D20;
+    font-size: 0.8125rem;
+    margin-top: 0.5rem;
+    min-height: 0;
+  }
+  .hubspot-form-errors:empty {
+    display: none;
   }
 </style>

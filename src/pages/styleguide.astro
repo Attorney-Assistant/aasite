@@ -1,57 +1,147 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const colors = [
-  { name: "Brand Gold", value: "#ffaa2b", css: "brand-gold", usage: "Primary CTA buttons, accents, highlights" },
-  { name: "Brand Blue", value: "#50a7dd", css: "brand-blue", usage: "Links, secondary buttons, active states" },
-  { name: "Brand Black", value: "#0b0000", css: "brand-black", usage: "Body text, headings (not footer)" },
-  { name: "Footer Gray", value: "#111827", css: "gray-900", usage: "Footer background" },
-  { name: "Brand Navy", value: "#1a3a5c", css: "brand-navy", usage: "Hero overlays, dark backgrounds" },
-  { name: "Brand Steel", value: "#588aa5", css: "brand-steel", usage: "Subtle accents, secondary text" },
-  { name: "Brand White", value: "#ffffff", css: "brand-white", usage: "Backgrounds, reversed text" },
+const brandColors = [
+  { name: "Navy", value: "#1a3a5c", token: "brand-navy / brand-700", usage: "Hero backgrounds, dark sections, primary brand color" },
+  { name: "Gold", value: "#F9A630", token: "brand-gold", usage: "Primary CTAs, accents, dividers, highlights" },
+  { name: "Gold Dark", value: "#d98a00", token: "brand-gold-dark", usage: "Hover states for gold buttons" },
+  { name: "Gold Light", value: "#fef6e8", token: "brand-gold-light", usage: "Gold icon backgrounds, light gold surfaces" },
+  { name: "Blue", value: "#50a7dd", token: "brand-blue / brand-400", usage: "Links, badges, secondary accents" },
+  { name: "Steel", value: "#588aa5", token: "brand-steel", usage: "Subtle accents, secondary text on dark" },
+];
+
+const navyScale = [
+  { name: "25", value: "#f0f7fc" },
+  { name: "50", value: "#e1eff9" },
+  { name: "100", value: "#c3dff3" },
+  { name: "200", value: "#96c7e8" },
+  { name: "300", value: "#6aafdd" },
+  { name: "400", value: "#50a7dd" },
+  { name: "500", value: "#3a8fc4" },
+  { name: "600", value: "#2d7aab" },
+  { name: "700", value: "#1a3a5c" },
+  { name: "800", value: "#142e49" },
+  { name: "900", value: "#0e2236" },
+  { name: "950", value: "#091623" },
+];
+
+const grayScale = [
+  { name: "25", value: "#FCFCFD" },
+  { name: "50", value: "#F9FAFB" },
+  { name: "100", value: "#F2F4F7" },
+  { name: "200", value: "#EAECF0" },
+  { name: "300", value: "#D0D5DD" },
+  { name: "400", value: "#98A2B3" },
+  { name: "500", value: "#667085" },
+  { name: "600", value: "#475467" },
+  { name: "700", value: "#344054" },
+  { name: "800", value: "#182230" },
+  { name: "900", value: "#101828" },
+  { name: "950", value: "#0C111D" },
 ];
 
 const logos = [
-  { file: "Attorney%20Assistant_H_FC.svg", label: "Horizontal — Full Color", bg: "bg-white", darkBg: false },
-  { file: "Attorney%20Assistant_H_Black.svg", label: "Horizontal — Black", bg: "bg-white", darkBg: false },
-  { file: "Attorney%20Assistant_H_White.svg", label: "Horizontal — White", bg: "bg-brand-navy", darkBg: true },
-  { file: "Attorney%20Assistant_V_FC.svg", label: "Vertical — Full Color", bg: "bg-white", darkBg: false },
-  { file: "Attorney%20Assistant_V_Black.svg", label: "Vertical — Black", bg: "bg-white", darkBg: false },
-  { file: "Attorney%20Assistant_V_White.svg", label: "Vertical — White", bg: "bg-brand-navy", darkBg: true },
-  { file: "color_icon.svg", label: "Icon — Color (Favicon)", bg: "bg-white", darkBg: false },
-  { file: "color_icon.png", label: "Icon — Color PNG", bg: "bg-white", darkBg: false },
+  { file: "long_color_logo.svg", label: "Horizontal — Full Color", bg: "light" },
+  { file: "long_black_logo.svg", label: "Horizontal — Black", bg: "light" },
+  { file: "long_white_logo.svg", label: "Horizontal — White", bg: "dark" },
+  { file: "tall_color_logo.svg", label: "Vertical — Full Color", bg: "light" },
+  { file: "tall_black_logo.svg", label: "Vertical — Black", bg: "light" },
+  { file: "tall_white_logo.svg", label: "Vertical — White", bg: "dark" },
+  { file: "square_fullcolor_logo.svg", label: "Square — Full Color", bg: "light" },
+  { file: "color_icon.svg", label: "Icon — Color", bg: "light" },
+  { file: "black_icon.svg", label: "Icon — Black", bg: "light" },
+  { file: "white_icon.svg", label: "Icon — White", bg: "dark" },
+];
+
+const iconsBusiness = [
+  "analityc", "bank", "bearish", "bullish", "business bag", "business document",
+  "cahs out", "chart", "coins", "exchange", "finance guard", "fund",
+  "group", "hand shake", "investation", "locker", "money bag", "piggy bank",
+  "refund money", "report business", "stick chart", "target", "transfer money", "wallet",
+];
+
+const iconsLegal = [
+  "banking law", "book law", "business law", "certificate", "crime",
+  "document police", "gender equality", "hammer", "international law", "law scale",
+  "lawyer 1", "lawyer 2", "online law", "paten law", "police file",
+  "police note", "prison", "property law", "research file", "shield",
+  "trust", "umbrella", "withness 1", "withness 2",
+];
+
+const displaySizes = [
+  { name: "display-2xl", size: "4.5rem / 72px", sample: "Aa" },
+  { name: "display-xl", size: "3.75rem / 60px", sample: "Aa" },
+  { name: "display-lg", size: "3rem / 48px", sample: "Aa" },
+  { name: "display-md", size: "2.25rem / 36px", sample: "Aa" },
+  { name: "display-sm", size: "1.875rem / 30px", sample: "Aa" },
+  { name: "display-xs", size: "1.5rem / 24px", sample: "Aa" },
 ];
 ---
 
-<BaseLayout title="Style Guide" description="Attorney Assistant brand style guide — logos, colors, typography, and marketing assets.">
+<BaseLayout title="Style Guide" description="Attorney Assistant brand style guide — logos, colors, typography, components, and iconography." noindex={true}>
 
-  <!-- Header -->
-  <section class="py-16 lg:py-20 bg-gray-900 text-white">
-    <div class="container-wide">
-      <p class="text-brand-gold font-heading font-semibold text-sm uppercase tracking-wider mb-4">Internal Reference</p>
-      <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">Style Guide</h1>
-      <p class="text-white/70 text-lg max-w-2xl">Brand assets, colors, typography, and usage guidelines for creating consistent marketing materials.</p>
+  <!-- Masthead -->
+  <section class="relative overflow-hidden bg-brand-950 grain-overlay">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-brand-gold/[0.04] blur-3xl"></div>
+      <div class="absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full bg-brand-blue/[0.05] blur-3xl"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent"></div>
     </div>
+    <div class="container-wide relative z-10 py-16 md:py-24">
+      <div class="reveal">
+        <div class="inline-flex items-center gap-3 mb-5">
+          <span class="h-px w-8 bg-brand-gold/60"></span>
+          <span class="text-[0.6875rem] font-semibold tracking-[0.2em] uppercase text-brand-gold/80">Internal Reference</span>
+          <span class="h-px w-8 bg-brand-gold/60"></span>
+        </div>
+        <h1 class="text-display-lg md:text-display-xl font-heading text-white mb-4">Style Guide</h1>
+        <p class="text-lg text-white/40 max-w-2xl leading-relaxed">
+          Brand assets, color system, typography, components, iconography, and usage guidelines for Attorney Assistant.
+        </p>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
   </section>
 
-  <!-- Logos -->
-  <section class="py-16 lg:py-20">
+  <!-- Quick Nav -->
+  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200">
     <div class="container-wide">
-      <h2 class="text-3xl font-heading font-bold text-brand-black mb-2">Logos</h2>
-      <p class="text-gray-600 mb-8">Download and use the appropriate logo variant for your context. Always maintain clear space around the logo.</p>
+      <div class="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+        {["Logos", "Colors", "Typography", "Buttons", "Components", "Icons", "Patterns", "Voice"].map((item) => (
+          <a href={`#${item.toLowerCase()}`} class="text-xs font-semibold text-gray-500 hover:text-brand-navy px-3 py-1.5 rounded-full hover:bg-gray-50 transition-colors whitespace-nowrap">
+            {item}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- ═══════════════════════════ LOGOS ═══════════════════════════ -->
+  <section id="logos" class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">Brand Identity</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Logos</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+        <p class="text-gray-500 max-w-xl">Use the appropriate logo variant for your context. Always maintain clear space around the logo equal to the height of the icon mark.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
         {logos.map((logo) => (
-          <div class="border border-gray-200 rounded-xl overflow-hidden">
-            <div class:list={[logo.bg, "p-8 flex items-center justify-center min-h-[140px]"]}>
-              <img src={`/brand/logos/${logo.file}`} alt={logo.label} class="max-h-20 max-w-full" />
+          <div class="card overflow-hidden group">
+            <div class:list={[
+              "flex items-center justify-center min-h-[140px] p-8 transition-colors",
+              logo.bg === "dark" ? "bg-brand-navy" : "bg-gray-50"
+            ]}>
+              <img src={`/brand/logos/${logo.file}`} alt={logo.label} class="max-h-16 max-w-full" loading="lazy" />
             </div>
-            <div class="p-4 border-t border-gray-200 flex items-center justify-between">
-              <span class="text-sm text-gray-600">{logo.label}</span>
+            <div class="px-4 py-3 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs text-gray-500 font-medium">{logo.label}</span>
               <a
                 href={`/brand/logos/${logo.file}`}
                 download
-                class="text-xs text-brand-blue border border-brand-blue rounded-md px-3 py-1.5 hover:bg-brand-blue hover:text-white transition-colors"
+                class="text-[0.6875rem] font-semibold text-brand-700 hover:text-brand-600 transition-colors"
               >
                 Download
               </a>
@@ -60,172 +150,521 @@ const logos = [
         ))}
       </div>
 
-      <div class="mt-8 p-6 bg-gray-50 rounded-xl">
-        <h3 class="font-heading font-semibold text-brand-black mb-2">Logo Usage Guidelines</h3>
-        <ul class="text-sm text-gray-600 space-y-1.5">
-          <li>Use the full-color logo on white or light backgrounds</li>
-          <li>Use the white logo on dark or photo backgrounds</li>
-          <li>Use the icon/favicon variant for small spaces (social avatars, browser tabs)</li>
-          <li>Never stretch, rotate, or alter the logo colors</li>
-          <li>Maintain minimum clear space equal to the height of the "A" icon around the logo</li>
+      <div class="mt-8 bg-gray-50 rounded-xl p-6 border border-gray-100 reveal">
+        <h3 class="font-heading text-sm text-gray-900 mb-3">Usage Guidelines</h3>
+        <ul class="text-sm text-gray-500 space-y-1.5 list-disc list-inside">
+          <li>Full-color logo on white or light backgrounds</li>
+          <li>White logo on dark, navy, or photo backgrounds</li>
+          <li>Icon variant for small spaces — social avatars, browser tabs, app icons</li>
+          <li>Never stretch, rotate, recolor, or add effects to the logo</li>
+          <li>PNG and WebP variants available at same paths (swap extension)</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Colors -->
-  <section class="py-16 lg:py-20 bg-gray-50">
+  <!-- ═══════════════════════════ COLORS ═══════════════════════════ -->
+  <section id="colors" class="section-padding bg-gray-25">
     <div class="container-wide">
-      <h2 class="text-3xl font-heading font-bold text-brand-black mb-2">Colors</h2>
-      <p class="text-gray-600 mb-8">Our brand palette. Use these exact values to maintain consistency across all materials.</p>
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">Color System</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Colors</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+        <p class="text-gray-500 max-w-xl">The full brand palette with Tailwind tokens. All colors are defined in <code class="text-xs bg-gray-100 px-1.5 py-0.5 rounded">tailwind.config.mjs</code>.</p>
+      </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {colors.map((color) => (
-          <div class="bg-white rounded-xl overflow-hidden border border-gray-200">
-            <div class="h-24" style={`background-color: ${color.value};`}></div>
-            <div class="p-4">
-              <h3 class="font-heading font-semibold text-brand-black">{color.name}</h3>
-              <div class="flex items-center gap-3 mt-1 mb-2">
-                <code class="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">{color.value}</code>
-                <code class="text-xs bg-gray-100 px-2 py-0.5 rounded font-mono">{color.css}</code>
-              </div>
-              <p class="text-xs text-gray-500">{color.usage}</p>
+      <!-- Brand Colors -->
+      <h3 class="font-heading text-sm text-gray-900 mb-4 reveal">Brand Colors</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-12 reveal">
+        {brandColors.map((color) => (
+          <div class="card overflow-hidden">
+            <div class="h-20 relative" style={`background-color: ${color.value};`}>
+              <span class="absolute bottom-2 right-2 text-[0.625rem] font-mono px-1.5 py-0.5 rounded bg-black/20 text-white/80">{color.value}</span>
+            </div>
+            <div class="p-3">
+              <p class="text-sm font-heading text-gray-900">{color.name}</p>
+              <p class="text-[0.6875rem] text-gray-400 font-mono mt-0.5">{color.token}</p>
+              <p class="text-[0.6875rem] text-gray-500 mt-1.5">{color.usage}</p>
             </div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- Typography -->
-  <section class="py-16 lg:py-20">
-    <div class="container-wide">
-      <h2 class="text-3xl font-heading font-bold text-brand-black mb-2">Typography</h2>
-      <p class="text-gray-600 mb-8">Two typefaces form the foundation of our brand voice.</p>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Headings -->
-        <div class="bg-white rounded-xl border border-gray-200 p-8">
-          <p class="text-xs text-brand-gold font-heading font-semibold uppercase tracking-wider mb-4">Headings</p>
-          <h3 class="text-4xl font-heading font-bold text-brand-black mb-2">Poppins</h3>
-          <p class="text-sm text-gray-500 mb-6">Used for all headings, buttons, and UI labels.</p>
-          <div class="space-y-3 border-t border-gray-100 pt-6">
-            <p class="font-heading font-bold text-3xl text-brand-black">Bold 700 — Headlines</p>
-            <p class="font-heading font-semibold text-xl text-brand-black">SemiBold 600 — Subheads</p>
-            <p class="font-heading font-medium text-lg text-brand-black">Medium 500 — Labels</p>
-            <p class="font-heading font-normal text-base text-brand-black">Regular 400 — Supporting</p>
+      <!-- Navy Scale -->
+      <h3 class="font-heading text-sm text-gray-900 mb-4 reveal">Brand Scale (Navy → Blue)</h3>
+      <div class="flex rounded-xl overflow-hidden mb-2 reveal">
+        {navyScale.map((step) => (
+          <div class="flex-1 h-14 relative group" style={`background-color: ${step.value};`}>
+            <span class="absolute inset-0 flex items-center justify-center text-[0.5rem] font-mono opacity-0 group-hover:opacity-100 transition-opacity" style={`color: ${parseInt(step.name) < 400 ? '#1a3a5c' : '#ffffff'};`}>
+              {step.name}
+            </span>
           </div>
-        </div>
-
-        <!-- Body -->
-        <div class="bg-white rounded-xl border border-gray-200 p-8">
-          <p class="text-xs text-brand-blue font-heading font-semibold uppercase tracking-wider mb-4">Body</p>
-          <h3 class="text-4xl font-body font-bold text-brand-black mb-2">Roboto</h3>
-          <p class="text-sm text-gray-500 mb-6">Used for body text, paragraphs, and long-form content.</p>
-          <div class="space-y-3 border-t border-gray-100 pt-6">
-            <p class="font-body font-bold text-lg text-brand-black">Bold 700 — Emphasis</p>
-            <p class="font-body font-medium text-base text-brand-black">Medium 500 — Strong body</p>
-            <p class="font-body font-normal text-base text-brand-black">Regular 400 — Body text. The quick brown fox jumps over the lazy dog.</p>
-            <p class="font-body font-light text-base text-gray-600">Light 300 — Captions and fine print</p>
-          </div>
-        </div>
+        ))}
       </div>
-    </div>
-  </section>
+      <p class="text-[0.625rem] text-gray-400 font-mono mb-10 reveal">brand-25 → brand-950</p>
 
-  <!-- Buttons -->
-  <section class="py-16 lg:py-20 bg-gray-50">
-    <div class="container-wide">
-      <h2 class="text-3xl font-heading font-bold text-brand-black mb-2">Buttons</h2>
-      <p class="text-gray-600 mb-8">Button styles used across the site and marketing materials.</p>
-
-      <div class="bg-white rounded-xl border border-gray-200 p-8">
-        <div class="flex flex-wrap items-center gap-4 mb-6">
-          <a href="#" class="btn-primary">Primary Button</a>
-          <a href="#" class="btn-secondary">Secondary Button</a>
-        </div>
-        <div class="text-sm text-gray-500 space-y-1">
-          <p><strong>Primary:</strong> Gold background (#ffaa2b), black text, Poppins SemiBold. Used for main CTAs.</p>
-          <p><strong>Secondary:</strong> Blue border (#50a7dd), blue text, fills on hover. Used for secondary actions.</p>
-        </div>
+      <!-- Gray Scale -->
+      <h3 class="font-heading text-sm text-gray-900 mb-4 reveal">Gray Scale</h3>
+      <div class="flex rounded-xl overflow-hidden mb-2 reveal">
+        {grayScale.map((step) => (
+          <div class="flex-1 h-14 relative group" style={`background-color: ${step.value};`}>
+            <span class="absolute inset-0 flex items-center justify-center text-[0.5rem] font-mono opacity-0 group-hover:opacity-100 transition-opacity" style={`color: ${parseInt(step.name) < 400 ? '#101828' : '#ffffff'};`}>
+              {step.name}
+            </span>
+          </div>
+        ))}
       </div>
+      <p class="text-[0.625rem] text-gray-400 font-mono reveal">gray-25 → gray-950</p>
     </div>
   </section>
 
-  <!-- Patterns -->
-  <section class="py-16 lg:py-20">
+  <!-- ═══════════════════════════ TYPOGRAPHY ═══════════════════════════ -->
+  <section id="typography" class="section-padding bg-white">
     <div class="container-wide">
-      <h2 class="text-3xl font-heading font-bold text-brand-black mb-2">Design Patterns</h2>
-      <p class="text-gray-600 mb-8">Reusable visual patterns used across the site.</p>
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">Type System</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Typography</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+        <p class="text-gray-500 max-w-xl">Two typefaces — Sora for headings and display, Inter for body and UI.</p>
+      </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- H2 Accent Treatment -->
-        <div class="bg-white rounded-xl border border-gray-200 p-8">
-          <p class="text-xs text-brand-gold font-heading font-semibold uppercase tracking-wider mb-4">H2 Accent Text</p>
-          <div class="space-y-4 mb-6">
-            <h2 class="text-3xl font-heading font-bold text-brand-black">
-              <em class="not-italic text-brand-gold italic">Simple.</em> Fast. <em class="not-italic text-brand-blue italic">Effective.</em>
-            </h2>
-            <h2 class="text-3xl font-heading font-bold text-brand-black">
-              <em class="not-italic text-brand-gold italic">Transform</em> Your Practice
-            </h2>
-            <h2 class="text-3xl font-heading font-bold text-brand-black">
-              Unlock Your Firm's <em class="not-italic text-brand-blue italic">Full Potential</em>
-            </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12 reveal">
+        <!-- Sora -->
+        <div class="card p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded">Headings</span>
           </div>
-          <div class="text-sm text-gray-500 space-y-1 border-t border-gray-100 pt-4">
-            <p><strong>Usage:</strong> Apply to key H2 headings for visual interest. Use 1–2 accent words per heading.</p>
-            <p><strong>Gold accent:</strong> <code class="text-xs bg-gray-100 px-1.5 py-0.5 rounded">&lt;em class="not-italic text-brand-gold italic"&gt;</code></p>
-            <p><strong>Blue accent:</strong> <code class="text-xs bg-gray-100 px-1.5 py-0.5 rounded">&lt;em class="not-italic text-brand-blue italic"&gt;</code></p>
-          </div>
-        </div>
-
-        <!-- Dotted Background -->
-        <div class="bg-white rounded-xl border border-gray-200 p-8">
-          <p class="text-xs text-brand-blue font-heading font-semibold uppercase tracking-wider mb-4">Dotted Background</p>
-          <div class="bg-gray-50 bg-dots rounded-lg p-8 mb-6 min-h-[160px] flex items-center justify-center">
-            <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 text-center">
-              <p class="font-heading font-semibold text-brand-black">Content card on dotted background</p>
+          <h3 class="text-display-md font-heading text-gray-900 mb-1">Sora</h3>
+          <p class="text-sm text-gray-400 font-mono mb-6">font-heading · font-display</p>
+          <div class="space-y-4 border-t border-gray-100 pt-6">
+            <div>
+              <p class="font-heading font-extrabold text-4xl text-gray-900">The quick brown fox</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">800 · ExtraBold</p>
+            </div>
+            <div>
+              <p class="font-heading font-bold text-2xl text-gray-900">The quick brown fox</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">700 · Bold (primary heading weight)</p>
+            </div>
+            <div>
+              <p class="font-heading font-semibold text-lg text-gray-900">The quick brown fox</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">600 · SemiBold</p>
+            </div>
+            <div>
+              <p class="font-heading font-normal text-base text-gray-900">The quick brown fox jumps over the lazy dog</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">400 · Regular</p>
             </div>
           </div>
-          <div class="text-sm text-gray-500 space-y-1 border-t border-gray-100 pt-4">
-            <p><strong>Usage:</strong> Behind service grids and card sections for subtle texture.</p>
-            <p><strong>CSS class:</strong> <code class="text-xs bg-gray-100 px-1.5 py-0.5 rounded">bg-dots</code> (pair with <code class="text-xs bg-gray-100 px-1.5 py-0.5 rounded">bg-gray-50</code>)</p>
-            <p><strong>Pattern:</strong> 1px gray dots on a 24px grid</p>
+        </div>
+
+        <!-- Inter -->
+        <div class="card p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-700 bg-brand-50 px-2.5 py-1 rounded">Body</span>
+          </div>
+          <h3 class="text-display-md font-body text-gray-900 mb-1">Inter</h3>
+          <p class="text-sm text-gray-400 font-mono mb-6">font-body · font-sans</p>
+          <div class="space-y-4 border-t border-gray-100 pt-6">
+            <div>
+              <p class="font-body font-bold text-lg text-gray-900">The quick brown fox jumps over the lazy dog</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">700 · Bold — emphasis</p>
+            </div>
+            <div>
+              <p class="font-body font-semibold text-base text-gray-900">The quick brown fox jumps over the lazy dog</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">600 · SemiBold — buttons, labels</p>
+            </div>
+            <div>
+              <p class="font-body font-medium text-base text-gray-900">The quick brown fox jumps over the lazy dog</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">500 · Medium — strong body</p>
+            </div>
+            <div>
+              <p class="font-body font-normal text-base text-gray-600">The quick brown fox jumps over the lazy dog. Attorney Assistant solves the operational problems that prevent law firms from growing.</p>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-1">400 · Regular — body text</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display Scale -->
+      <h3 class="font-heading text-sm text-gray-900 mb-4 reveal">Display Scale</h3>
+      <div class="card p-8 reveal">
+        <div class="space-y-6">
+          {displaySizes.map((size) => (
+            <div class="flex items-baseline gap-6 pb-4 border-b border-gray-50 last:border-0 last:pb-0">
+              <span class="text-[0.625rem] text-gray-400 font-mono w-32 shrink-0">{size.name}<br />{size.size}</span>
+              <p class={`font-heading font-bold text-gray-900 text-${size.name}`}>{size.sample}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ BUTTONS ═══════════════════════════ -->
+  <section id="buttons" class="section-padding bg-gray-25">
+    <div class="container-wide">
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">Interactive</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Buttons</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+      </div>
+
+      <!-- Light background buttons -->
+      <div class="card p-8 mb-6 reveal">
+        <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-400 mb-6">On Light Backgrounds</p>
+        <div class="flex flex-wrap items-center gap-4 mb-4">
+          <a href="#" class="btn-primary">Primary</a>
+          <a href="#" class="btn-primary btn-lg">Primary Large</a>
+          <a href="#" class="btn-secondary">Secondary</a>
+          <a href="#" class="btn-tertiary">Tertiary</a>
+          <a href="#" class="btn-brand">Brand Navy</a>
+        </div>
+        <div class="text-xs text-gray-400 space-y-1 border-t border-gray-100 pt-4 font-mono">
+          <p>.btn-primary — Gold bg, dark text, hover lift + glow</p>
+          <p>.btn-secondary — White bg, gray border, hover lift</p>
+          <p>.btn-tertiary — No bg, hover gray-50</p>
+          <p>.btn-brand — Navy bg, white text, hover lift + glow</p>
+          <p>.btn-lg / .btn-xl — Size modifiers</p>
+        </div>
+      </div>
+
+      <!-- Dark background buttons -->
+      <div class="relative overflow-hidden rounded-2xl p-8 reveal grain-overlay">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+        <div class="relative z-10">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-white/40 mb-6">On Dark Backgrounds</p>
+          <div class="flex flex-wrap items-center gap-4 mb-4">
+            <a href="#" class="btn-primary">Primary</a>
+            <a href="#" class="btn-ghost-light">Ghost Light</a>
+          </div>
+          <div class="text-xs text-white/30 space-y-1 border-t border-white/10 pt-4 font-mono">
+            <p>.btn-primary — Same gold button, works on all backgrounds</p>
+            <p>.btn-ghost-light — White border, transparent fill, hover white/10</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Brand Voice -->
-  <section class="py-16 lg:py-20">
+  <!-- ═══════════════════════════ COMPONENTS ═══════════════════════════ -->
+  <section id="components" class="section-padding bg-white">
     <div class="container-wide">
-      <h2 class="text-3xl font-heading font-bold text-brand-black mb-2">Brand Voice</h2>
-      <p class="text-gray-600 mb-8">Guidelines for how we communicate across marketing materials.</p>
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">UI Kit</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Components</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-xl border border-gray-200 p-6">
-          <h3 class="font-heading font-semibold text-brand-black mb-3 text-lg">We Are</h3>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span> Professional yet approachable</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span> Confident and direct</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span> Results-oriented</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span> Empowering, not salesy</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span> Consultative — we build custom solutions, not one-size-fits-all</li>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Badges -->
+        <div class="card p-6 reveal">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-400 mb-5">Badges</p>
+          <div class="flex flex-wrap gap-3 mb-5">
+            <span class="badge badge-brand">Brand</span>
+            <span class="badge badge-gray">Gray</span>
+            <span class="badge badge-gold">Gold</span>
+            <span class="badge badge-navy">Navy</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-warning">Warning</span>
+          </div>
+          <p class="text-xs text-gray-400 font-mono">.badge + .badge-{'{variant}'}</p>
+        </div>
+
+        <!-- Cards -->
+        <div class="card p-6 reveal">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-400 mb-5">Cards</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="card p-4">
+              <p class="text-xs text-gray-500">.card</p>
+            </div>
+            <div class="card card-hover p-4 cursor-pointer">
+              <p class="text-xs text-gray-500">.card .card-hover</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 font-mono mt-3">Rounded-2xl, gray-200 border, shadow-xs. Hover adds lift + shadow.</p>
+        </div>
+
+        <!-- Featured Icons -->
+        <div class="card p-6 reveal">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-400 mb-5">Featured Icons</p>
+          <div class="flex items-end gap-4 mb-5">
+            <div>
+              <div class="featured-icon featured-icon-sm featured-icon-brand">
+                <img src="/icons/law and legal_law scale.svg" alt="" aria-hidden="true" class="w-4 h-4" />
+              </div>
+              <p class="text-[0.5rem] text-gray-400 text-center mt-2">sm</p>
+            </div>
+            <div>
+              <div class="featured-icon featured-icon-md featured-icon-brand">
+                <img src="/icons/law and legal_shield.svg" alt="" aria-hidden="true" class="w-5 h-5" />
+              </div>
+              <p class="text-[0.5rem] text-gray-400 text-center mt-2">md</p>
+            </div>
+            <div>
+              <div class="featured-icon featured-icon-lg featured-icon-brand">
+                <img src="/icons/law and legal_hammer.svg" alt="" aria-hidden="true" class="w-7 h-7" />
+              </div>
+              <p class="text-[0.5rem] text-gray-400 text-center mt-2">lg</p>
+            </div>
+            <span class="w-px h-10 bg-gray-200 mx-2"></span>
+            <div class="featured-icon featured-icon-md featured-icon-gold">
+              <img src="/icons/buiness & finance_target.svg" alt="" aria-hidden="true" class="w-5 h-5" />
+            </div>
+            <div class="featured-icon featured-icon-md featured-icon-gray">
+              <img src="/icons/buiness & finance_chart.svg" alt="" aria-hidden="true" class="w-5 h-5" />
+            </div>
+            <div class="featured-icon featured-icon-md featured-icon-navy">
+              <img src="/icons/buiness & finance_analityc.svg" alt="" aria-hidden="true" class="w-5 h-5" style="filter: brightness(0) invert(1);" />
+            </div>
+            <div class="featured-icon featured-icon-md featured-icon-success">
+              <img src="/icons/law and legal_certificate.svg" alt="" aria-hidden="true" class="w-5 h-5" />
+            </div>
+          </div>
+          <p class="text-xs text-gray-400 font-mono">.featured-icon + size + variant</p>
+        </div>
+
+        <!-- Dividers -->
+        <div class="card p-6 reveal">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-400 mb-5">Dividers & Accents</p>
+          <div class="space-y-6">
+            <div>
+              <div class="divider-gold"></div>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-2">.divider-gold</p>
+            </div>
+            <div class="text-center">
+              <div class="divider-gold-center"></div>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-2">.divider-gold-center</p>
+            </div>
+            <div>
+              <span class="text-gradient-gold font-heading font-bold text-xl">Gold accent text</span>
+              <p class="text-[0.625rem] text-gray-400 font-mono mt-2">.text-gradient-gold</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grain Overlay -->
+        <div class="card p-6 reveal">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-400 mb-5">Grain Overlay</p>
+          <div class="relative rounded-lg overflow-hidden min-h-[120px] flex items-center justify-center grain-overlay">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+            <p class="text-white font-heading text-sm relative z-10">Dark section with grain texture</p>
+          </div>
+          <p class="text-xs text-gray-400 font-mono mt-3">.grain-overlay — adds noise texture via SVG filter</p>
+        </div>
+
+        <!-- Reveal Animations -->
+        <div class="card p-6 reveal">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-400 mb-5">Scroll Reveal</p>
+          <div class="space-y-3 mb-4">
+            <div class="bg-gray-50 rounded-lg p-3 text-center opacity-30 translate-y-1.5">
+              <p class="text-xs text-gray-500">.reveal (before)</p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-3 text-center">
+              <p class="text-xs text-gray-700 font-medium">.reveal.is-visible (after)</p>
+            </div>
+          </div>
+          <div class="text-xs text-gray-400 font-mono space-y-1">
+            <p>.reveal — fade up 24px</p>
+            <p>.reveal-left — slide from left 24px</p>
+            <p>.reveal-scale — scale from 0.95</p>
+            <p>Stagger: style="transition-delay: 100ms"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ ICONS ═══════════════════════════ -->
+  <section id="icons" class="section-padding bg-gray-25">
+    <div class="container-wide">
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">Iconography</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Icons</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+        <p class="text-gray-500 max-w-xl">48 custom SVG icons in two categories. All icons are line-style and can be recolored via CSS filter or by editing the SVG fill/stroke.</p>
+      </div>
+
+      <!-- Business & Finance -->
+      <h3 class="font-heading text-sm text-gray-900 mb-4 reveal">Business & Finance</h3>
+      <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-3 mb-10 reveal">
+        {iconsBusiness.map((name) => (
+          <div class="group flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all cursor-default">
+            <img src={`/icons/buiness & finance_${name}.svg`} alt={name} class="w-7 h-7" loading="lazy" />
+            <span class="text-[0.5rem] text-gray-400 text-center leading-tight opacity-0 group-hover:opacity-100 transition-opacity truncate w-full">{name}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Law & Legal -->
+      <h3 class="font-heading text-sm text-gray-900 mb-4 reveal">Law & Legal</h3>
+      <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-12 gap-3 mb-8 reveal">
+        {iconsLegal.map((name) => (
+          <div class="group flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all cursor-default">
+            <img src={`/icons/law and legal_${name}.svg`} alt={name} class="w-7 h-7" loading="lazy" />
+            <span class="text-[0.5rem] text-gray-400 text-center leading-tight opacity-0 group-hover:opacity-100 transition-opacity truncate w-full">{name}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-white rounded-xl p-5 border border-gray-100 reveal">
+        <h3 class="font-heading text-sm text-gray-900 mb-2">Usage</h3>
+        <div class="text-xs text-gray-500 space-y-1.5 font-mono">
+          <p>&lt;img src="/icons/law and legal_shield.svg" class="w-7 h-7" /&gt;</p>
+          <p>Recolor: style="filter: brightness(0) invert(1);" for white</p>
+          <p>Sizes: w-5 h-5 (small), w-7 h-7 (standard), w-9 h-9 (large)</p>
+          <p>Wrap in .featured-icon container for backgrounds</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PATTERNS ═══════════════════════════ -->
+  <section id="patterns" class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">Page Patterns</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Design Patterns</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Hero Rotating Headline -->
+        <div class="card p-6 reveal">
+          <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold mb-3 block">Homepage Hero</span>
+          <p class="text-sm text-gray-600 mb-3">Static anchor line + rotating diagnostic statement that cycles through 3 problems and stops on the final one.</p>
+          <ul class="text-xs text-gray-500 space-y-1 font-mono">
+            <li>Line 1 (static, white): "You don't have a lead problem."</li>
+            <li>Line 2 (rotating, gold): intake → follow-up → operations</li>
+            <li>Cadence: 2.2s display + 0.5s transition</li>
+            <li>Stops on final statement (no loop)</li>
           </ul>
         </div>
-        <div class="bg-white rounded-xl border border-gray-200 p-6">
-          <h3 class="font-heading font-semibold text-brand-black mb-3 text-lg">We Avoid</h3>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span> Overly corporate or stiff language</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span> Jargon without explanation</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span> Making promises we can't back up</li>
-            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-gray-300 flex-shrink-0"></span> Diminishing competitors</li>
+
+        <!-- DayTimeline -->
+        <div class="card p-6 reveal">
+          <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-700 mb-3 block">DayTimeline</span>
+          <p class="text-sm text-gray-600 mb-3">Accordion timeline showing 8 time slots (7:30 AM–11:45 PM). Each row expands to show without/with comparison.</p>
+          <ul class="text-xs text-gray-500 space-y-1 font-mono">
+            <li>Location: Homepage only</li>
+            <li>First item pre-expanded</li>
+            <li>One row open at a time</li>
+            <li>Evening rows: muted time color, navy pip</li>
           </ul>
+        </div>
+
+        <!-- Scrollytelling -->
+        <div class="card p-6 reveal">
+          <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-700 mb-3 block">Scrollytelling</span>
+          <p class="text-sm text-gray-600 mb-3">Toggle-based before/after section on Services page. Morphs stat counters, text, and color scheme between states.</p>
+          <ul class="text-xs text-gray-500 space-y-1 font-mono">
+            <li>Location: Services page only</li>
+            <li>Background: #132d46</li>
+            <li>Particles shift blue → gold on toggle</li>
+            <li>Stats: 3→0 missed calls, 47→5 min intake, 12→38% conversion</li>
+          </ul>
+        </div>
+
+        <!-- Blog Editorial -->
+        <div class="card p-6 reveal">
+          <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-700 mb-3 block">Blog — "The Brief"</span>
+          <p class="text-sm text-gray-600 mb-3">Editorial publication layout with featured article spread, asymmetric editor's picks grid, and sticky tag navigation.</p>
+          <ul class="text-xs text-gray-500 space-y-1 font-mono">
+            <li>Masthead: dark navy with gold rules</li>
+            <li>Featured: 2-col asymmetric (image 1.2fr + content 1fr)</li>
+            <li>Editor's picks: lead card spans 2 rows, side cards horizontal</li>
+            <li>Tag nav: sticky, frosted glass</li>
+          </ul>
+        </div>
+
+        <!-- Landing Pages -->
+        <div class="card p-6 reveal">
+          <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-500 mb-3 block">Landing Pages</span>
+          <p class="text-sm text-gray-600 mb-3">High-conversion pages at /landing/[slug]. No site nav or footer. Problem → solution → proof narrative.</p>
+          <ul class="text-xs text-gray-500 space-y-1 font-mono">
+            <li>Dark hero + orbs + inline lead form</li>
+            <li>Flow diagram, stat cards, problem list</li>
+            <li>Side-by-side without/with comparison</li>
+            <li>Dark proof cards with testimonials</li>
+          </ul>
+        </div>
+
+        <!-- 404 -->
+        <div class="card p-6 reveal">
+          <span class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-gray-500 mb-3 block">404 Page</span>
+          <p class="text-sm text-gray-600 mb-3">Dark navy error page with floating orbs, gradient "404" display text, and two CTAs.</p>
+          <ul class="text-xs text-gray-500 space-y-1 font-mono">
+            <li>Background: brand-950 + grain + radial mesh</li>
+            <li>2 orbs at 0.22 opacity, multi-stop keyframes</li>
+            <li>btn-primary + btn-ghost-light CTAs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ VOICE ═══════════════════════════ -->
+  <section id="voice" class="section-padding bg-gray-25">
+    <div class="container-wide">
+      <div class="mb-10 reveal">
+        <span class="badge badge-brand mb-3">Messaging</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Brand Voice</h2>
+        <div class="divider-gold mt-3 mb-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+        <div class="card p-6">
+          <h3 class="font-heading text-gray-900 mb-4">We Are</h3>
+          <ul class="space-y-2.5 text-sm text-gray-600">
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0 mt-1.5"></span> An operations problem-solver, not a staffing vendor</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0 mt-1.5"></span> Confident and direct — we name the problem clearly</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0 mt-1.5"></span> Co-managed — we embed in firms, not outsource from a distance</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0 mt-1.5"></span> Results-oriented — lead with outcomes, not features</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold flex-shrink-0 mt-1.5"></span> Empowering, not salesy</li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h3 class="font-heading text-gray-900 mb-4">We Avoid</h3>
+          <ul class="space-y-2.5 text-sm text-gray-600">
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0 mt-1.5"></span> Staffing/vendor language ("dedicated assistants," "custom combinations")</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0 mt-1.5"></span> Calling ourselves a "staffing company"</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0 mt-1.5"></span> Overly corporate or stiff language</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0 mt-1.5"></span> Jargon without explanation</li>
+            <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0 mt-1.5"></span> Making promises we can't back up</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card p-6 mt-6 reveal">
+        <h3 class="font-heading text-gray-900 mb-4">Key Phrases</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+          <div class="flex items-center gap-3">
+            <span class="text-brand-gold text-lg">&#10003;</span>
+            <span class="text-sm text-gray-600">"You don't have a lead problem. You have an operations problem."</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-brand-gold text-lg">&#10003;</span>
+            <span class="text-sm text-gray-600">"Delegate to achieve more."</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-brand-gold text-lg">&#10003;</span>
+            <span class="text-sm text-gray-600">"We fix the problems that cost your firm money."</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-brand-gold text-lg">&#10003;</span>
+            <span class="text-sm text-gray-600">"Stop losing revenue to broken operations."</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 </BaseLayout>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>

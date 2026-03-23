@@ -8,18 +8,26 @@ This Storybook documents the complete brand system for Attorney Assistant's mark
 
 ## Brand Identity
 
-Attorney Assistant provides expert legal support services including 24/7 intake and dedicated assistants to help law firms streamline operations.
+Attorney Assistant solves the operational problems that prevent law firms from growing — intake failure, follow-up gaps, admin chaos, and scaling bottlenecks. We handle the work firms need but hate to manage.
+
+## Core Positioning
+
+- We are an **operations problem-solver**, not a staffing vendor
+- We **co-manage** operations alongside firm teams — we don't outsource from a distance
+- The three problems we solve: **intake failure**, **admin chaos**, **growth stagnation**
+- Firms think they need more leads — they actually need to stop leaking the ones they have
 
 ## Contents
 
 - **Colors** — Brand color palette with hex values, usage guidelines, and accessibility contrast ratios
-- **Typography** — Font families, weights, and heading/body hierarchy
+- **Typography** — Font families (Sora + Inter), weights, and heading/body hierarchy
 - **Buttons** — Primary, secondary, and variant button styles
 - **Cards** — Blog cards, testimonial cards, and feature cards
-- **Hero** — Hero banner variations
+- **Hero** — Hero banner variations with floating orb animations
 - **CTA Banner** — Call-to-action section variants
 - **Logo** — Logo usage and placement guidelines
 - **Icons** — Icon set used across the site
+- **Patterns** — Reusable design patterns including floating orbs, scroll reveal, grain overlays, DayTimeline, Scrollytelling, 404 page, and landing page patterns
 
 ## Design Tokens
 
@@ -29,8 +37,34 @@ All design tokens are defined in `tailwind.config.mjs` and available via Tailwin
 |-------|---------------|-------|
 | Brand Black | `text-brand-black`, `bg-brand-black` | `#0b0000` |
 | Brand White | `text-brand-white`, `bg-brand-white` | `#ffffff` |
-| Brand Gold | `text-brand-gold`, `bg-brand-gold` | `#ffaa2b` |
+| Brand Gold | `text-brand-gold`, `bg-brand-gold` | `#F9A630` |
 | Brand Blue | `text-brand-blue`, `bg-brand-blue` | `#50a7dd` |
 | Brand Steel | `text-brand-steel`, `bg-brand-steel` | `#588aa5` |
-| Heading Font | `font-heading` | Poppins |
-| Body Font | `font-body` | Roboto |
+| Brand Navy | `text-brand-navy`, `bg-brand-navy` | `#1a3a5c` |
+| Heading Font | `font-heading` | Sora |
+| Body Font | `font-body` | Inter |
+
+## Ambient Animations
+
+Hero sections use floating gradient orbs for subtle depth:
+- **Blue orb**: `radial-gradient(circle, rgba(80,167,221,0.15–0.22) ...)` — multi-stop keyframe animation
+- **Orange orb**: `radial-gradient(circle, rgba(249,166,48,0.12–0.22) ...)` — multi-stop keyframe animation
+- **Placement**: Homepage hero has 3 orbs (custom inline). All subpage heroes (`Hero.astro`) have 2 orbs. 404 page has 2 orbs. Landing pages have their own orb instances.
+- All animations respect `prefers-reduced-motion: reduce`
+
+## Component Placement
+
+| Component | Page | Notes |
+|-----------|------|-------|
+| `DayTimeline` | Homepage (`/`) | Moved from services page. First item starts expanded. Accordion expand/collapse. 8 time slots from 7:30 AM–11:45 PM. |
+| `Scrollytelling` | Services page (`/services`) | Moved from homepage. Lightened navy background (`#132d46`), blue-tinted particles, toggle between without/with states. |
+| `Hero.astro` | All subpage heroes | 2 floating orbs, white background with mesh gradient. |
+
+## Special Pages
+
+- **404 page** — Dark navy (`bg-brand-950`) with grain overlay, 2 floating orbs (`rgba(80,167,221,0.22)` + `rgba(249,166,48,0.22)`), multi-stop keyframe animations, gradient "404" text (white → gold → blue), two CTAs.
+- **Landing page** (`/landing/lp-marketing-waste`) — Dark hero with inline form, flow diagram, stat cards, problem list, numbered fix grid, side-by-side comparison columns, numbered steps with connectors, dark proof cards section.
+
+## Brand Positioning
+
+We are an **operations problem-solver**, not a staffing vendor. Avoid language like "dedicated assistants" or "staffing company." We co-manage operations alongside firm teams — we don't outsource from a distance.
