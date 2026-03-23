@@ -30,5 +30,7 @@ export async function fetchBlogPostBySlug(slug: string) {
 
 export async function fetchBlogPostSlugs(): Promise<{ slug: string }[]> {
   const posts = await fetchAllBlogPosts();
-  return posts.map((p) => ({ slug: p.slug }));
+  return posts
+    .filter((p) => p.slug)
+    .map((p) => ({ slug: p.slug }));
 }

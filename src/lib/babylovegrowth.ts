@@ -50,7 +50,10 @@ export async function fetchBLGArticles() {
     articles.map((a) => blgFetch<BLGArticleFull>(`/v1/articles/${a.id}`))
   );
 
-  return full.map((article) => ({
+  // Filter out any failed/empty fetches
+  const valid = full.filter((article) => article && article.slug);
+
+  return valid.map((article) => ({
     id: `blg-${article.id}`,
     slug: article.slug,
     title: article.title,
