@@ -14,7 +14,7 @@ try {
 }
 
 const featuredPost = posts[0];
-const editorsPicks = posts.slice(1, 4);
+const latestPosts = posts.slice(1, 4);
 const remainingPosts = posts.slice(4);
 
 const formatDate = (date: string) =>
@@ -150,80 +150,28 @@ const shortDate = (date: string) =>
     </section>
   )}
 
-  <!-- Editor's Picks — Asymmetric Three-Column -->
-  {editorsPicks.length > 0 && (
-    <section class="blog-editors-section">
+  <!-- Latest Posts -->
+  {latestPosts.length > 0 && (
+    <section class="py-12 md:py-16 bg-white border-t border-gray-100">
       <div class="container-wide">
-        <!-- Section divider -->
         <div class="flex items-center gap-4 mb-10 reveal">
           <div class="h-px flex-1 bg-gray-200"></div>
           <span class="text-[0.6875rem] font-bold tracking-[0.2em] uppercase text-gray-400">Latest</span>
           <div class="h-px flex-1 bg-gray-200"></div>
         </div>
 
-        <div class="blog-editors-grid">
-          {editorsPicks.map((post: any, i: number) => (
-            <article class={`blog-editors-card ${i === 0 ? 'blog-editors-card--lead' : ''} reveal`} style={`transition-delay: ${i * 120}ms`}>
-              <a href={`/blog/${post.slug}`} class="group block h-full">
-                {i === 0 ? (
-                  <!-- Lead card — tall with image -->
-                  <div class="flex flex-col h-full">
-                    {post.featuredImage && (
-                      <div class="aspect-[4/3] overflow-hidden rounded-xl mb-5">
-                        <img
-                          src={post.featuredImage}
-                          alt={post.title}
-                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                    <div class="flex-1 flex flex-col">
-                      {post.tags && post.tags[0] && (
-                        <span class="text-[0.625rem] font-bold tracking-[0.12em] uppercase text-brand-600 mb-2">{post.tags[0].name}</span>
-                      )}
-                      <h3 class="text-xl font-heading text-gray-900 mb-2 group-hover:text-brand-700 transition-colors leading-snug">
-                        {post.title}
-                      </h3>
-                      {post.excerpt && (
-                        <p class="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-3">{post.excerpt}</p>
-                      )}
-                      <div class="mt-auto flex items-center gap-2 text-xs text-gray-400">
-                        {post.publishedDate && <time datetime={post.publishedDate}>{shortDate(post.publishedDate)}</time>}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <!-- Side cards — compact, horizontal -->
-                  <div class="flex gap-4 items-start h-full">
-                    {post.featuredImage && (
-                      <div class="w-24 h-24 md:w-28 md:h-28 shrink-0 overflow-hidden rounded-lg">
-                        <img
-                          src={post.featuredImage}
-                          alt={post.title}
-                          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                    <div class="flex-1 min-w-0 flex flex-col">
-                      {post.tags && post.tags[0] && (
-                        <span class="text-[0.5625rem] font-bold tracking-[0.12em] uppercase text-brand-600 mb-1.5">{post.tags[0].name}</span>
-                      )}
-                      <h3 class="text-sm md:text-base font-heading text-gray-900 group-hover:text-brand-700 transition-colors leading-snug line-clamp-2 mb-1.5">
-                        {post.title}
-                      </h3>
-                      {post.excerpt && (
-                        <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-1.5">{post.excerpt}</p>
-                      )}
-                      <div class="mt-auto text-[0.6875rem] text-gray-400">
-                        {post.publishedDate && <time datetime={post.publishedDate}>{shortDate(post.publishedDate)}</time>}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </a>
-            </article>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {latestPosts.map((post: any, i: number) => (
+            <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+              <BlogCard
+                title={post.title}
+                slug={post.slug}
+                excerpt={post.excerpt}
+                featuredImage={post.featuredImage}
+                publishedDate={post.publishedDate}
+                tags={post.tags}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -390,39 +338,6 @@ const shortDate = (date: string) =>
     .blog-featured__content {
       padding: 1rem 0;
     }
-  }
-
-  /* Editor's Picks */
-  .blog-editors-section {
-    padding: 3rem 0 4rem;
-    background: white;
-    border-top: 1px solid #f2f4f7;
-  }
-
-  .blog-editors-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  @media (min-width: 768px) {
-    .blog-editors-grid {
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2.5rem;
-    }
-
-    .blog-editors-card--lead {
-      grid-row: span 2;
-    }
-  }
-
-  .blog-editors-card {
-    position: relative;
-  }
-
-  .blog-editors-card:not(.blog-editors-card--lead) + .blog-editors-card:not(.blog-editors-card--lead) {
-    padding-top: 1.5rem;
-    border-top: 1px solid #f2f4f7;
   }
 
   /* Scrollbar hide */

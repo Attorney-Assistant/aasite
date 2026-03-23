@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Thank You | Attorney Assistant"
+  description="Thanks for reaching out. A member of our team will be in touch shortly."
+  noindex={true}
+>
+
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-narrow relative py-20 md:py-28">
+      <div class="text-center reveal">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold/15 mb-6">
+          <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">Received</span>
+        <h1 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Thank You for Reaching Out
+        </h1>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-white/60 max-w-xl mx-auto">
+          We've received your message. A member of our team will be in touch shortly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-white">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-display-xs font-heading text-gray-900 mb-4 reveal">In the Meantime</h2>
+        <div class="divider-gold-center mb-10"></div>
+        <p class="text-gray-500 mb-10 reveal" style="transition-delay: 0.1s;">
+          While you wait, explore how we help law firms fix the operational problems that hold them back.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay: 0.2s;">
+          <a href="/services" class="btn-primary">
+            Explore Our Services
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a href="/blog" class="btn-secondary">
+            Read Our Blog
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion tracking -->
+  <script is:inline>
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+    if (typeof mixpanel !== 'undefined') mixpanel.track('Contact Form Submitted');
+  </script>
+
+</BaseLayout>

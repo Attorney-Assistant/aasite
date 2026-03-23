@@ -6,6 +6,7 @@ Allow: /
 Disallow: /storybook/
 Disallow: /styleguide
 Disallow: /signaturegenerator
+Disallow: /thank-you
 Disallow: /checkout-*
 Disallow: /order-confirmation*
 Disallow: /thankyou

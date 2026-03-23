@@ -31,6 +31,8 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
           if (errorRegion) {
             errorRegion.textContent = "";
           }
+          if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+          if (typeof mixpanel !== 'undefined') mixpanel.track('Form Submitted', { form_id: formId });
         },
         onFormReady: function () {
           // Observe for HubSpot validation error messages and announce them

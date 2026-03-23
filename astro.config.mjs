@@ -9,7 +9,12 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap({
-      filter: (page) => !page.includes("undefined"),
+      filter: (page) =>
+        !page.includes("undefined") &&
+        !page.includes("/styleguide") &&
+        !page.includes("/signaturegenerator") &&
+        !page.includes("/storybook") &&
+        !page.includes("/thank-you"),
     }),
     mdx(),
   ],
