@@ -6,29 +6,68 @@ import YouTubeEmbed from "@components/YouTubeEmbed.astro";
 
 const latestEpisodes = [
   {
+    title: "Debunking Offshore Team Myths: How One VA Built a Law Firm Operation From Scratch",
+    duration: "25 min",
+    date: "Mar 2026",
+    videoId: "wU--594ElcY",
+    season: "S1 EP11",
+  },
+  {
+    title: "Cost Per Case, Not Cost Per Lead: The Intake Follow-Up Mistake Costing Law Firms Millions",
+    duration: "28 min",
+    date: "Feb 2026",
+    videoId: "Ksh1kkVBPaw",
+    season: "S1 EP10",
+  },
+  {
+    title: "From Car Salesman to Law Firm Owner: Jimmy Lai's Journey from Rejection to Success",
+    duration: "30 min",
+    date: "Jan 2026",
+    videoId: "3MyMaGPoJEw",
+    season: "S1 EP9",
+  },
+  {
+    title: "Scaling Law Firms: Entrepreneurship, AI Innovations and Mastering Intake with Bill Hauser",
+    duration: "24 min",
+    date: "Dec 2025",
+    videoId: "357DWVC6LhE",
+    season: "S1 EP8",
+  },
+  {
+    title: "Scaling Your Mindset for Business & Law Success: Insights with Brian Glass",
+    duration: "22 min",
+    date: "Nov 2025",
+    videoId: "P9-j-d317hQ",
+    season: "S1 EP7",
+  },
+  {
+    title: "The 24-Hour Law Firm: Breaking the Traditional Office Mold",
+    duration: "20 min",
+    date: "Oct 2025",
+    videoId: "sE7UZAUQtNc",
+    season: "S1 EP6",
+  },
+];
+
+const popularEpisodes = [
+  {
     title: "How Family Lawyer Deidra Haynes Grew Her Law Firm Fast",
     duration: "17 min",
-    date: "Jun 16, 2025",
     videoId: "MHvos0nNwqw",
     season: "S1 EP5",
   },
   {
     title: "From Frustration To Law Firm Founder - Meet Alan Kaplan!",
     duration: "33 min",
-    date: "May 21, 2025",
     videoId: "pul5DW0gqGA",
     season: "S1 EP4",
   },
   {
     title: "Mastering Legal Success with Ethen & Bob",
     duration: "26 min",
-    date: "Apr 24, 2025",
     videoId: "cUEPjMTfNKQ",
     season: "S1 EP3",
   },
-];
-
-const popularEpisodes = [
   {
     title: "Inside Mass Torts & Class Actions with Joe & Ethen",
     duration: "38 min",
@@ -135,7 +174,7 @@ const platforms = [
         <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Popular Episodes</h2>
         <div class="divider-gold mt-5"></div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {popularEpisodes.map((episode) => (
           <div class="card card-hover overflow-hidden flex flex-col">
             <YouTubeEmbed videoId={episode.videoId} title={episode.title} />
