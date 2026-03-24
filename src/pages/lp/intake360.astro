@@ -335,7 +335,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
       <div class="max-w-2xl mx-auto reveal" style="transition-delay: 160ms">
         <div class="card p-6 md:p-8">
-          <div id="form-container-e4e626f5-36fa-4f8c-891d-d9ce0646f58d"></div>
+          <div id="form-container-64ed61df-607b-4462-a219-0281d8bbee59"></div>
         </div>
         <p class="text-xs text-gray-400 text-center mt-4">
           By submitting, you agree to our <a href="/intake-360-terms" class="text-brand-700 hover:text-brand-800 underline">Intake360 Terms & Conditions</a>.
@@ -348,10 +348,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   <script is:inline>
     (function () {
       var config = {
-        nodeId: 'form-container-e4e626f5-36fa-4f8c-891d-d9ce0646f58d',
+        nodeId: 'form-container-64ed61df-607b-4462-a219-0281d8bbee59',
         width: '100%',
         height: '700px',
-        url: 'https://eform.pandadoc.com/?eform=1997647d-97ee-4b78-b55f-87969dc499f0',
+        url: 'https://eform.pandadoc.com/?eform=cf99210c-7ec0-4f50-96cd-9d06fafa9983',
         events: {
           loaded: function () {},
           started: function (data) {},
@@ -363,14 +363,17 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         },
         data: {},
       };
-      var dataQueryString = config.data ? Object.keys(config.data)
+
+      const dataQueryString = config.data ? Object.keys(config.data)
         .map(function (key) {
           return '&' + key + '=' + encodeURIComponent(JSON.stringify(config.data[key]));
         })
         .join('') : '';
+
       var iframe = document.createElement('iframe');
       iframe.frameBorder = 0;
       iframe.src = config.url + dataQueryString;
+
       if (config.nodeId) {
         var node = document.getElementById(config.nodeId);
         node.style.height = config.height;
@@ -378,9 +381,15 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         iframe.height = '100%';
         iframe.width = '100%';
         node.append(iframe);
+      } else {
+        iframe.height = config.height;
+        iframe.width = config.width;
+        document.body.append(iframe);
       }
+
       var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
       var messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
+
       window[eventMethod](messageEvent, function (e) {
         if (e && e.data && config && iframe && e.source === iframe.contentWindow) {
           try {
