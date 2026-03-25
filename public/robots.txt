@@ -7,15 +7,35 @@ Disallow: /storybook/
 Disallow: /styleguide
 Disallow: /signaturegenerator
 Disallow: /thank-you
+Disallow: /thankyou
 Disallow: /checkout-*
 Disallow: /order-confirmation*
-Disallow: /thankyou
-Disallow: /thank-you
 
 # Sitemaps
 Sitemap: https://attorneyassistant.com/sitemap-index.xml
 
-# LLM Discoverability
+# LLM Discoverability — explicitly allow AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 # See https://llmstxt.org
 # llms.txt: https://attorneyassistant.com/llms.txt
 # llms-full.txt: https://attorneyassistant.com/llms-full.txt

@@ -46,12 +46,26 @@ function mapVariant(style: string): "brand" | "light" | "dark" {
   {page.sections?.map((section: any) => {
     if (section.type === "hero") {
       return (
-        <Hero
-          title={section.heading}
-          subtitle={section.subheading}
-          buttonText={section.cta_text}
-          buttonLink={section.cta_link}
-        />
+        <section class="relative bg-white overflow-hidden py-16 md:py-24">
+          <div class="container-wide relative text-center">
+            <div class="max-w-3xl mx-auto">
+              <h2 class="text-display-md md:text-display-lg text-gray-900 reveal">{section.heading}</h2>
+              {section.subheading && (
+                <p class="mt-5 text-lg md:text-xl text-gray-500 leading-relaxed reveal" style="transition-delay: 100ms;">{section.subheading}</p>
+              )}
+              {section.cta_text && section.cta_link && (
+                <div class="mt-8 flex flex-wrap gap-3 justify-center reveal" style="transition-delay: 200ms;">
+                  <a href={section.cta_link} class="btn-primary btn-lg group">
+                    {section.cta_text}
+                    <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
       );
     }
 

@@ -1,0 +1,423 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import YouTubeEmbed from "@components/YouTubeEmbed.astro";
+
+// Load Google Reviews from build-time JSON
+let googleReviews: any = { reviews: [], overallRating: 0, totalReviews: 0 };
+try {
+  googleReviews = await import("../../../scripts/output/google-reviews.json");
+} catch {}
+const topReviews = (googleReviews.reviews || [])
+  .filter((r: any) => r.rating === 5 && r.text && r.text.length > 60)
+  .slice(0, 3);
+
+const auditItems = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+    title: "Speed to Lead",
+    description: "How fast does your team respond to new inquiries? We benchmark against the 5-minute window that wins PI cases.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0l-6 6m3 6v4.5m0-4.5h4.5m-4.5 0l6 6M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0l6-6m6-6V3.75m0 0h-4.5m4.5 0l-6 6" />`,
+    title: "After-Hours Coverage",
+    description: "Are you losing cases at night and on weekends? We evaluate your availability outside business hours.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />`,
+    title: "Follow-Up Cadence",
+    description: "Most PI leads need 5-8 touches before converting. We analyze how persistent and consistent your follow-up is.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />`,
+    title: "Lead Qualification",
+    description: "Is your team screening for case value and merit? We evaluate your qualification criteria and process.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />`,
+    title: "CRM & Workflow",
+    description: "We assess your intake technology stack — CRM setup, routing, handoffs, and where leads get stuck or lost.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />`,
+    title: "Conversion Benchmarking",
+    description: "We compare your intake-to-retained rate against PI industry benchmarks to quantify your revenue gap.",
+  },
+];
+
+const stats = [
+  { value: "78%", label: "of PI leads hire the first firm that responds" },
+  { value: "35%+", label: "of inbound calls go unanswered at the average firm" },
+  { value: "<5 min", label: "speed-to-lead window before conversion rates plummet" },
+];
+---
+
+<BaseLayout
+  title="Free PI Intake Audit — Find Where Your Firm Is Losing Cases"
+  description="Get a free, no-obligation audit of your personal injury firm's intake process. Discover exactly where qualified cases are falling through the cracks and how to fix it."
+  noindex={true}
+>
+
+  <!-- Hero Section -->
+  <section class="relative bg-brand-navy grain-overlay overflow-hidden py-20 md:py-28">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/8 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-blue/8 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-5 reveal">Free Intake Audit for PI Firms</span>
+        <h1 class="text-display-md md:text-display-lg text-white reveal" style="transition-delay: 80ms;">
+          Your PI Firm Is Losing Cases Before You Ever See Them
+        </h1>
+        <p class="mt-5 text-lg md:text-xl text-brand-200 leading-relaxed reveal" style="transition-delay: 160ms;">
+          Every missed call, slow follow-up, and dropped lead is a case worth tens of thousands of dollars walking out your door. Most firms don't know how much revenue their intake process is costing them.
+        </p>
+        <div class="mt-8 reveal" style="transition-delay: 240ms;">
+          <button type="button" class="btn-primary btn-lg group js-open-audit-modal">
+            Audit My Intake
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <p class="mt-3 text-sm text-brand-300/70">Free. No obligation. Takes 2 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Stats Section -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3 reveal">The Reality</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 reveal" style="transition-delay: 80ms;">
+          The Numbers Most PI Firms Don't Want to Face
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {stats.map((stat, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="text-display-md md:text-display-lg font-heading text-brand-gold mb-2">{stat.value}</div>
+            <p class="text-base text-gray-600 leading-relaxed">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="max-w-2xl mx-auto text-center mt-12 reveal" style="transition-delay: 300ms;">
+        <p class="text-lg text-gray-500 leading-relaxed">
+          If your firm spends $10,000/month on marketing but converts fewer than 1 in 3 qualified leads, you're not overspending on ads — you're <strong class="text-gray-900">leaking revenue at intake</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What the Audit Covers -->
+  <section class="section-padding bg-gray-50 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3 reveal">What You'll Get</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 reveal" style="transition-delay: 80ms;">
+          A Complete Audit of Your Intake Process
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto mt-4 reveal" style="transition-delay: 120ms;">
+          We analyze six critical areas where PI firms lose cases — and show you exactly where to improve.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {auditItems.map((item, i) => (
+          <div class="card p-6 reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <Fragment set:html={item.icon} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-heading text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10 reveal" style="transition-delay: 500ms;">
+        <button type="button" class="btn-primary btn-lg group js-open-audit-modal">
+          Audit My Intake
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof: Google Reviews -->
+  {topReviews.length > 0 && (
+    <section class="section-padding bg-white">
+      <div class="container-wide">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-3 mb-4 reveal">
+            <svg class="w-7 h-7 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+            </svg>
+            <span class="text-display-xs font-heading text-gray-900">Trusted by 200+ Law Firms</span>
+          </div>
+          {googleReviews.overallRating > 0 && (
+            <div class="flex items-center justify-center gap-3 mb-4 reveal" style="transition-delay: 80ms;">
+              <span class="text-3xl font-heading font-bold text-gray-900">{googleReviews.overallRating}</span>
+              <div class="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    class:list={["w-5 h-5", i < Math.round(googleReviews.overallRating) ? "text-brand-gold" : "text-gray-200"]}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              {googleReviews.totalReviews > 0 && (
+                <span class="text-sm text-gray-500">({googleReviews.totalReviews} reviews)</span>
+              )}
+            </div>
+          )}
+          <div class="divider-gold-center mt-3"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {topReviews.map((review: any, i: number) => (
+            <div class="card p-6 md:p-8 flex flex-col reveal" style={`transition-delay: ${i * 100}ms`}>
+              <div class="flex gap-0.5 mb-5">
+                {Array.from({ length: 5 }).map((_, si) => (
+                  <svg
+                    class:list={["w-4 h-4", si < review.rating ? "text-brand-gold" : "text-gray-200"]}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote class="text-gray-600 text-base leading-relaxed flex-1 mb-6 italic">
+                &ldquo;{review.text.length > 280 ? review.text.slice(0, 280) + "..." : review.text}&rdquo;
+              </blockquote>
+              <div class="flex items-center gap-3 pt-5 border-t border-gray-100">
+                {review.authorPhoto ? (
+                  <img
+                    src={review.authorPhoto}
+                    alt={review.author}
+                    class="w-10 h-10 rounded-full object-cover bg-gray-100 ring-2 ring-white shadow-sm"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white font-medium text-sm ring-2 ring-white shadow-sm">
+                    {review.author.split(" ").map((n: string) => n[0]).join("").slice(0, 2)}
+                  </div>
+                )}
+                <div>
+                  <p class="text-sm font-semibold text-gray-900">{review.author}</p>
+                  {review.relativeTime && (
+                    <p class="text-xs text-gray-400">{review.relativeTime}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Video Testimonials -->
+  <section class="section-padding bg-gray-50 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3 reveal">Watch & Listen</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms;">
+          Hear From Firms Like Yours
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="reveal"><YouTubeEmbed videoId="o3Fac0xRxCE" title="Client testimonial — law firm intake results" /></div>
+        <div class="reveal" style="transition-delay: 100ms;"><YouTubeEmbed videoId="EZbEo5HYDqg" title="Client testimonial — PI firm operations" /></div>
+        <div class="reveal" style="transition-delay: 200ms;"><YouTubeEmbed videoId="xQCIwMPlLMc" title="Client testimonial — firm growth with Attorney Assistant" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="relative bg-brand-navy grain-overlay overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container-wide section-padding text-center relative z-10">
+      <div class="max-w-2xl mx-auto">
+        <div class="divider-gold-center mb-6"></div>
+        <h2 class="text-display-sm md:text-display-md text-white mb-4">
+          Stop Guessing. Start Knowing.
+        </h2>
+        <p class="text-lg text-brand-200 leading-relaxed mb-8">
+          Get a clear, data-backed picture of where your intake process is losing cases — and a roadmap to fix it.
+        </p>
+        <button type="button" class="btn-primary btn-lg group js-open-audit-modal">
+          Audit My Intake
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Form Modal -->
+  <div id="audit-modal" class="audit-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Request your free intake audit">
+    <div class="audit-modal__backdrop js-close-audit-modal"></div>
+    <div class="audit-modal__container">
+      <div class="audit-modal__content">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-heading text-gray-900">Request Your Free Intake Audit</h3>
+          <button type="button" class="js-close-audit-modal w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-600" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div id="audit-form-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal + Form Script -->
+  <script is:inline>
+    (function () {
+      var modal = document.getElementById('audit-modal');
+      var formLoaded = false;
+
+      function openModal() {
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (!formLoaded) {
+          loadForm();
+          formLoaded = true;
+        }
+      }
+
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function loadForm() {
+        var script = document.createElement('script');
+        script.src = '//js.hsforms.net/forms/embed/v2.js';
+        script.charset = 'utf-8';
+        script.onload = function () {
+          hbspt.forms.create({
+            portalId: '49161090',
+            formId: 'a81ad3de-ab54-440c-9e00-2c950cd620db',
+            region: 'na1',
+            target: '#audit-form-container',
+            onFormSubmitted: function () {
+              if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+              if (typeof mixpanel !== 'undefined') mixpanel.track('PI Intake Audit Form Submitted');
+            }
+          });
+        };
+        document.head.appendChild(script);
+      }
+
+      // Open buttons
+      document.querySelectorAll('.js-open-audit-modal').forEach(function (btn) {
+        btn.addEventListener('click', openModal);
+      });
+
+      // Close buttons + backdrop
+      document.querySelectorAll('.js-close-audit-modal').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+      });
+
+      // Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+
+</BaseLayout>
+
+<style>
+  /* ── Modal ── */
+  .audit-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .audit-modal[aria-hidden="false"] {
+    pointer-events: auto;
+    opacity: 1;
+  }
+  .audit-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+  }
+  .audit-modal__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 540px;
+    max-height: 90vh;
+    margin: 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateY(12px);
+    transition: transform 0.2s ease;
+  }
+  .audit-modal[aria-hidden="false"] .audit-modal__container {
+    transform: translateY(0);
+  }
+  .audit-modal__content {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Mobile: full-screen modal */
+  @media (max-width: 640px) {
+    .audit-modal {
+      align-items: flex-end;
+    }
+    .audit-modal__container {
+      max-width: 100%;
+      max-height: 95vh;
+      margin: 0;
+      border-radius: 0;
+      transform: translateY(100%);
+    }
+    .audit-modal[aria-hidden="false"] .audit-modal__container {
+      transform: translateY(0);
+    }
+    .audit-modal__content {
+      border-radius: 1rem 1rem 0 0;
+      padding-bottom: env(safe-area-inset-bottom, 1.5rem);
+    }
+  }
+</style>
