@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forever Task Map — Attorney Assistant</title>
+<meta name="description" content="Every task, every role, every person. The complete operational accountability map for your law firm.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Forever Task Map — Attorney Assistant">
+<meta property="og:description" content="Every task, every role, every person. Map accountability across your entire firm.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="https://e.attorneyassistant.com/brand/logos/color_icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WCB9JXDC');</script>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','819356476465129');fbq('track','PageView');</script>
+<!-- Mixpanel -->
+<script>(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);mixpanel.init("b7fe2528f751e145148b504188edff97",{track_pageview:"full-url",persistence:"localStorage"});</script>
+<!-- HubSpot -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49161090.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"DM Sans",system-ui,sans-serif;font-size:13px;color:#18171a;background:#faf9f7;padding:20px}
+h1{font-size:22px;font-weight:600;margin-bottom:4px}
+.sub{font-size:12.5px;color:#5a5869;margin-bottom:14px}
+.tabs{display:flex;gap:0;margin-bottom:14px;border-bottom:1px solid rgba(0,0,0,.09)}
+.tab{padding:8px 18px;font-size:13px;font-weight:500;color:#5a5869;background:none;border:none;border-bottom:2.5px solid transparent;cursor:pointer;font-family:"DM Sans",system-ui,sans-serif;margin-bottom:-1px}
+.tab:hover{color:#18171a}
+.tab.active{color:#18171a;border-bottom-color:#18171a;font-weight:600}
+.shell{display:flex;height:820px;border:1px solid rgba(0,0,0,.09);border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.view{display:none;flex:1;min-width:0}
+.view.active{display:flex}
+#sidebar{width:190px;min-width:190px;border-right:1px solid rgba(0,0,0,.09);background:#f4f2ef;overflow-y:auto;display:flex;flex-direction:column}
+.sec{display:block;padding:4px 0}.sec+.sec{border-top:1px solid rgba(0,0,0,.09)}
+.sec-lbl{display:block;padding:9px 13px 3px;font-size:10px;font-weight:600;color:#9997a3;letter-spacing:.09em;text-transform:uppercase}
+.dept-btn{display:flex;align-items:center;gap:8px;width:100%;padding:7px 13px;background:none;border:none;border-left:2.5px solid transparent;cursor:pointer;font-size:12.5px;font-family:"DM Sans",system-ui,sans-serif;color:#5a5869;text-align:left;line-height:1.25}
+.dept-btn:hover{background:#eceae6;color:#18171a}
+.dept-btn.active{background:#fff;color:#18171a;font-weight:600;border-left-color:#18171a}
+.dept-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;display:inline-block}
+.dept-name{flex:1}
+.live-badge{font-size:10px;font-weight:700;color:#0a7a5e;padding:1px 5px;border-radius:8px;background:#d0ede4}
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:#fff}
+#topbar{padding:12px 18px 8px;border-bottom:1px solid rgba(0,0,0,.09);flex-shrink:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#topbar h2{font-size:16px;font-weight:600;flex:1;letter-spacing:-.2px}
+.pill{padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;white-space:nowrap}
+.pill-sh{background:#edf5e0;color:#3a6b12}.pill-pi{background:#fdeaea;color:#9b2020}.pill-wc{background:#e8f0fb;color:#1a5fa8}.pill-lc{background:#eeedfb;color:#4d3faf}
+#dhead{padding:8px 18px;border-bottom:1px solid rgba(0,0,0,.09);flex-shrink:0;background:#f4f2ef;display:none;align-items:center;gap:14px}
+.dh-lbl{font-size:10px;font-weight:700;color:#9997a3;text-transform:uppercase;letter-spacing:.09em;white-space:nowrap}
+#dhead-select{flex:1;max-width:260px;padding:5px 9px;font-size:13px;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;border:1px solid rgba(0,0,0,.18);border-radius:6px;background:#fff;color:#18171a;cursor:pointer}
+#dhead-select:focus{outline:none;border-color:#1a5fa8}
+.dh-note{font-size:11px;color:#9997a3;font-style:italic;flex:1}
+#controls{padding:6px 18px;border-bottom:1px solid rgba(0,0,0,.09);flex-shrink:0;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+#search{flex:1;min-width:120px;padding:5px 9px;font-size:12.5px;font-family:"DM Sans",system-ui,sans-serif;border:1px solid rgba(0,0,0,.12);border-radius:6px;background:#f4f2ef;color:#18171a}
+#search:focus{outline:none;border-color:#1a5fa8}
+.ctrl-btn{padding:4px 10px;font-size:11.5px;font-family:"DM Sans",system-ui,sans-serif;border:1px solid rgba(0,0,0,.18);border-radius:6px;background:transparent;cursor:pointer;color:#5a5869;font-weight:500;white-space:nowrap}
+.ctrl-btn:hover{background:#f4f2ef}
+.ctrl-btn.on{background:#e8f0fb;border-color:#1a5fa8;color:#1a5fa8}
+.ctrl-btn.on-live{background:#e6f4ef;border-color:#0a7a5e;color:#0a7a5e}
+.save-btn{padding:4px 12px;font-size:11.5px;font-family:"DM Sans",system-ui,sans-serif;font-weight:600;border:1px solid rgba(0,0,0,.18);border-radius:6px;background:transparent;cursor:pointer;color:#18171a}
+.save-btn:hover{background:#f4f2ef}
+.export-btn{padding:4px 12px;font-size:11.5px;font-family:"DM Sans",system-ui,sans-serif;font-weight:600;border:1px solid #0a7a5e;border-radius:6px;background:transparent;cursor:pointer;color:#0a7a5e}
+.export-btn:hover{background:#e6f4ef}
+#saved-msg{font-size:11px;color:#0a7a5e;font-weight:500}
+#table-area{flex:1;overflow-y:auto}
+.sub-hdr{padding:6px 18px;font-size:10px;font-weight:700;color:#5a5869;text-transform:uppercase;letter-spacing:.08em;background:#f4f2ef;border-bottom:1px solid rgba(0,0,0,.09);border-top:1px solid rgba(0,0,0,.09);position:sticky;top:0;z-index:2}
+.task-tbl{width:100%;border-collapse:collapse;table-layout:fixed}
+.task-tbl th{font-size:10px;font-weight:700;color:#9997a3;text-align:left;padding:5px 8px;border-bottom:1px solid rgba(0,0,0,.09);background:#fff;position:sticky;top:29px;z-index:1;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.task-tbl td{padding:0;border-bottom:1px solid rgba(0,0,0,.09);vertical-align:middle}
+.task-tbl tr:hover td{background:#f9f8f6}
+.task-tbl tr.row-live td{background:#f0faf6}
+.task-tbl tr.row-live:hover td{background:#e3f5ee}
+.tc{padding:6px 8px;font-size:12.5px;font-weight:500;line-height:1.3}
+.role-pill-wrap{padding:0 8px 5px;line-height:1}
+.role-pill{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;cursor:pointer;white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis}
+.role-pill:hover{opacity:.85}
+.dc{padding:5px 8px;font-size:11.5px;color:#5a5869;line-height:1.35}
+.teamc{padding:3px 8px}
+.team-tag{display:inline-block;padding:2px 6px;border-radius:11px;font-size:10.5px;font-weight:600;background:#eceae6;color:#5a5869}
+.rc{padding:3px 5px}
+.role-in{width:100%;padding:3px 5px;font-size:11.5px;font-family:"DM Sans",system-ui,sans-serif;border:1px solid transparent;border-radius:4px;background:transparent;color:#18171a}
+.role-in:hover{border-color:rgba(0,0,0,.18);background:#f4f2ef}
+.role-in:focus{border-color:#1a5fa8;background:#f4f2ef;outline:none}
+.role-in::placeholder{color:#bbb;font-size:11px}
+.role-in.assigned{background:#eef4ff;border-color:rgba(26,95,168,.25);color:#185FA5;font-weight:500}
+.doer-cell{padding:3px 5px;min-height:32px}
+.doer-chips{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:3px}
+.doer-chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:10px;background:#eef4ff;color:#185FA5;font-size:11px;font-weight:500;border:1px solid rgba(26,95,168,.2)}
+.doer-chip-x{cursor:pointer;font-size:11px;color:#185FA5;opacity:.6;line-height:1;padding:0 1px}
+.doer-chip-x:hover{opacity:1}
+.doer-add{width:100%;padding:2px 5px;font-size:11px;font-family:"DM Sans",system-ui,sans-serif;border:1px solid transparent;border-radius:4px;background:transparent;color:#18171a}
+.doer-add:hover{border-color:rgba(0,0,0,.18);background:#f4f2ef}
+.doer-add:focus{border-color:#1a5fa8;background:#f4f2ef;outline:none}
+.doer-add::placeholder{color:#bbb;font-size:11px}
+.ai-wrap{position:relative;display:inline-block}
+.ai-cap-yes{display:inline-flex;align-items:center;gap:3px;padding:3px 6px;border-radius:11px;font-size:10px;font-weight:700;background:#d0ede4;color:#0a7a5e;line-height:1.3;text-align:center;border-bottom:1px dashed rgba(10,122,94,.4);cursor:default}
+.ai-cap-no{font-size:12px;color:#ccc}
+.pri-h{display:inline-block;padding:2px 6px;border-radius:10px;font-size:10px;font-weight:700;background:#fee2e2;color:#b91c1c}
+.pri-m{display:inline-block;padding:2px 6px;border-radius:10px;font-size:10px;font-weight:700;background:#fef3c7;color:#92400e}
+.pri-l{display:inline-block;padding:2px 6px;border-radius:10px;font-size:10px;font-weight:700;background:#e0f2fe;color:#0369a1}
+.ai-sel{width:100%;padding:3px 5px;font-size:11px;font-family:"DM Sans",system-ui,sans-serif;border:1px solid rgba(0,0,0,.18);border-radius:5px;background:#fff;color:#18171a;cursor:pointer}
+.ai-sel:focus{outline:none;border-color:#1a5fa8}
+.s-queued{background:#fdf2de!important;color:#8a5800!important;border-color:rgba(138,88,0,.3)!important;font-weight:600!important}
+.s-training{background:#fef0e6!important;color:#b84f00!important;border-color:rgba(184,79,0,.3)!important;font-weight:600!important}
+.s-live{background:#e6f4ef!important;color:#0a7a5e!important;border-color:rgba(10,122,94,.35)!important;font-weight:700!important}
+#legend{padding:6px 18px;border-top:1px solid rgba(0,0,0,.09);flex-shrink:0;display:flex;gap:10px;align-items:center;font-size:11px;color:#5a5869;background:#f4f2ef;flex-wrap:wrap}
+.leg-div{width:1px;height:13px;background:rgba(0,0,0,.18);flex-shrink:0}
+.leg-q{padding:2px 6px;border-radius:5px;font-size:11px;font-weight:600;background:#fdf2de;color:#8a5800}
+.leg-t{padding:2px 6px;border-radius:5px;font-size:11px;font-weight:600;background:#fef0e6;color:#b84f00}
+.leg-l{padding:2px 6px;border-radius:5px;font-size:11px;font-weight:700;background:#e6f4ef;color:#0a7a5e}
+#roster-view{flex:1;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.roster-top{padding:14px 22px 10px;border-bottom:1px solid rgba(0,0,0,.09);flex-shrink:0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.roster-top h2{font-size:16px;font-weight:600;flex:1}
+.add-btn{padding:6px 14px;font-size:12.5px;font-weight:600;font-family:"DM Sans",system-ui,sans-serif;background:#18171a;color:#fff;border:none;border-radius:7px;cursor:pointer}
+.add-btn:hover{background:#333}
+.roster-scroll{flex:1;overflow-y:auto;padding:14px 22px}
+.roster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:9px}
+.person-card{border:1px solid rgba(0,0,0,.09);border-radius:8px;padding:11px 13px;background:#fff;display:flex;align-items:center;gap:10px}
+.person-card:hover{border-color:rgba(0,0,0,.2)}
+.avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;color:#fff}
+.person-info{flex:1;min-width:0}
+.person-name{font-size:13px;font-weight:600;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.person-title{font-size:11.5px;color:#5a5869;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.person-dept{font-size:11px;color:#9997a3}
+.person-actions{display:flex;gap:5px;flex-shrink:0}
+.icon-btn{padding:3px 7px;font-size:11px;border:1px solid rgba(0,0,0,.14);border-radius:5px;background:transparent;cursor:pointer;color:#5a5869;font-family:"DM Sans",system-ui,sans-serif}
+.icon-btn:hover{background:#f4f2ef}
+.icon-btn.del:hover{background:#fdeaea;border-color:rgba(155,32,32,.3);color:#9b2020}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:12px;padding:22px;width:380px;max-width:90vw;box-shadow:0 8px 40px rgba(0,0,0,.2)}
+.modal h3{font-size:15px;font-weight:600;margin-bottom:14px}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:11px;font-weight:600;color:#5a5869;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.field input{width:100%;padding:7px 9px;font-size:13px;font-family:"DM Sans",system-ui,sans-serif;border:1px solid rgba(0,0,0,.18);border-radius:7px;background:#fff;color:#18171a}
+.field input:focus{outline:none;border-color:#1a5fa8}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.modal-btns button{padding:7px 16px;font-size:13px;font-weight:600;font-family:"DM Sans",system-ui,sans-serif;border-radius:7px;cursor:pointer}
+.btn-cancel{background:transparent;border:1px solid rgba(0,0,0,.18);color:#5a5869}
+.btn-cancel:hover{background:#f4f2ef}
+.btn-ok{background:#18171a;border:none;color:#fff}
+.btn-ok:hover{background:#333}
+#person-view{flex:1;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.pv-top{padding:12px 22px 10px;border-bottom:1px solid rgba(0,0,0,.09);flex-shrink:0;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pv-top h2{font-size:16px;font-weight:600}
+#pv-select{padding:6px 10px;font-size:13px;font-family:"DM Sans",system-ui,sans-serif;border:1px solid rgba(0,0,0,.18);border-radius:7px;background:#fff;color:#18171a;cursor:pointer;min-width:200px}
+.pv-stats{display:flex;gap:7px;margin-left:auto}
+.pv-stat{text-align:center;padding:5px 12px;border-radius:8px;background:#f4f2ef;min-width:58px}
+.pv-stat-n{font-size:19px;font-weight:600;color:#18171a;line-height:1}
+.pv-stat-l{font-size:10px;color:#5a5869;margin-top:1px;text-transform:uppercase;letter-spacing:.05em}
+.pv-scroll{flex:1;overflow-y:auto;padding:14px 22px}
+.pv-section{margin-bottom:18px}
+.pv-sec-hdr{font-size:11px;font-weight:700;color:#5a5869;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid rgba(0,0,0,.09);display:flex;align-items:center;gap:7px}
+.pv-sec-cnt{background:#f4f2ef;color:#5a5869;border-radius:8px;padding:1px 7px;font-size:11px;font-weight:600}
+.pv-tasks{display:flex;flex-direction:column;gap:4px}
+.pv-task{display:flex;align-items:center;gap:10px;padding:7px 11px;border:1px solid rgba(0,0,0,.09);border-radius:7px}
+.pv-task:hover{background:#f9f8f6;border-color:rgba(0,0,0,.15)}
+.pv-task-name{font-size:13px;font-weight:500;flex:1}
+.pv-dept{font-size:11px;color:#9997a3;white-space:nowrap}
+.pv-sub{font-size:11px;color:#b0adb8;white-space:nowrap;max-width:180px;overflow:hidden;text-overflow:ellipsis}
+.seat-badge{padding:2px 7px;border-radius:8px;font-size:10.5px;font-weight:700;white-space:nowrap}
+.sb-head{background:#eeedfb;color:#4d3faf}.sb-owner{background:#e8f0fb;color:#1a5fa8}
+.sb-mgr{background:#fdf2de;color:#8a5800}.sb-doer{background:#edf5e0;color:#3a6b12}
+#roles-view{flex:1;overflow:hidden;background:#fff;display:flex}
+#roles-sidebar{width:220px;min-width:220px;border-right:1px solid rgba(0,0,0,.09);background:#f4f2ef;overflow-y:auto;display:flex;flex-direction:column}
+.rs-sec{padding:4px 0}.rs-sec+.rs-sec{border-top:1px solid rgba(0,0,0,.09)}
+.rs-sec-lbl{padding:9px 13px 3px;font-size:10px;font-weight:600;color:#9997a3;letter-spacing:.09em;text-transform:uppercase;display:block}
+.role-btn{display:flex;align-items:center;gap:7px;width:100%;padding:7px 13px;background:none;border:none;border-left:2.5px solid transparent;cursor:pointer;font-size:12.5px;font-family:"DM Sans",system-ui,sans-serif;color:#5a5869;text-align:left;line-height:1.2}
+.role-btn:hover{background:#eceae6;color:#18171a}
+.role-btn.active{background:#fff;color:#18171a;font-weight:600}
+.role-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;display:inline-block}
+.role-btn-name{flex:1}
+.role-assigned-cnt{font-size:10px;font-weight:700;padding:1px 5px;border-radius:8px}
+#roles-detail{flex:1;overflow-y:auto;background:#fff;display:flex;flex-direction:column}
+.rd-header{padding:16px 22px 12px;border-bottom:1px solid rgba(0,0,0,.09);flex-shrink:0}
+.rd-name{font-size:18px;font-weight:600;margin-bottom:4px;letter-spacing:-.2px}
+.rd-desc{font-size:13px;color:#5a5869;line-height:1.5;margin-bottom:10px}
+.rd-assign{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.rd-assign-lbl{font-size:11px;font-weight:700;color:#9997a3;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap;padding-top:4px}
+.rd-people{display:flex;flex-wrap:wrap;gap:5px;flex:1}
+.rd-person-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:12px;font-size:12px;font-weight:500;border:1px solid rgba(0,0,0,.12)}
+.rd-chip-x{cursor:pointer;opacity:.5;font-size:12px;margin-left:1px}
+.rd-chip-x:hover{opacity:1}
+.rd-add-person{padding:4px 9px;font-size:11.5px;font-family:"DM Sans",system-ui,sans-serif;border:1px dashed rgba(0,0,0,.25);border-radius:12px;background:transparent;cursor:pointer;color:#5a5869}
+.rd-add-person:hover{background:#f4f2ef;border-style:solid}
+.rd-tasks-hdr{padding:10px 22px 6px;font-size:10px;font-weight:700;color:#9997a3;text-transform:uppercase;letter-spacing:.09em;border-bottom:1px solid rgba(0,0,0,.09);display:flex;align-items:center;gap:8px;flex-shrink:0}
+.rd-tasks-hdr-cnt{background:#eceae6;color:#5a5869;border-radius:8px;padding:1px 7px;font-size:11px;font-weight:600}
+.rd-task-list{flex:1;overflow-y:auto;padding:8px 22px 16px}
+.rd-task-row{display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid rgba(0,0,0,.09);border-radius:7px;margin-bottom:4px}
+.rd-task-row:hover{background:#f9f8f6}
+.rd-task-name{font-size:13px;font-weight:500;flex:1}
+.rd-task-dept{font-size:11px;color:#9997a3;white-space:nowrap}
+.rd-task-ai{padding:2px 6px;border-radius:9px;font-size:10px;font-weight:700;background:#d0ede4;color:#0a7a5e;white-space:nowrap}
+.rd-task-pri-h{padding:2px 6px;border-radius:9px;font-size:10px;font-weight:700;background:#fee2e2;color:#b91c1c}
+.rd-task-pri-m{padding:2px 6px;border-radius:9px;font-size:10px;font-weight:700;background:#fef3c7;color:#92400e}
+#role-person-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;align-items:center;justify-content:center}
+#role-person-modal-bg.open{display:flex}
+.empty,.pv-empty{padding:60px 40px;text-align:center;color:#5a5869;font-size:14px;line-height:1.7}
+.empty strong,.pv-empty strong{display:block;font-size:16px;color:#18171a;margin-bottom:10px}
+.notion-badge{display:inline-flex;align-items:center;gap:3px;padding:1px 6px;border-radius:8px;font-size:9.5px;font-weight:700;background:#e8f0fb;color:#1a5fa8;letter-spacing:.02em}
+.notion-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#1a5fa8;flex-shrink:0}
+.person-email{font-size:10.5px;color:#9997a3;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sync-btn{padding:5px 12px;font-size:12px;font-weight:600;font-family:"DM Sans",system-ui,sans-serif;border:1.5px solid #1a5fa8;border-radius:7px;background:transparent;cursor:pointer;color:#1a5fa8;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.sync-btn:hover{background:#e8f0fb}
+.sync-btn:disabled{opacity:.5;cursor:not-allowed}
+.sync-status{font-size:11px;color:#0a7a5e;font-weight:500}
+.person-card-meta{display:flex;align-items:center;gap:5px;margin-top:2px;flex-wrap:wrap}
+.brand-header{display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px;margin-bottom:4px;border-bottom:2px solid #F9A630;gap:16px;flex-wrap:wrap}
+.brand-left{display:flex;align-items:center;gap:14px}
+.brand-logo{height:34px;width:auto}
+.brand-h1{font-family:'Sora',-apple-system,sans-serif;font-size:22px;font-weight:700;color:#1a3a5c;letter-spacing:-.3px;line-height:1.2}
+.brand-h1 em{font-style:italic;color:#F9A630}
+.brand-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn-aa{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;font-family:'Inter',-apple-system,sans-serif;font-size:13px;font-weight:600;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .2s;white-space:nowrap}
+.btn-aa-primary{background:#F9A630;color:#1a3a5c;border:none;box-shadow:0 1px 3px rgba(249,166,48,.3)}
+.btn-aa-primary:hover{background:#d98a00;transform:translateY(-1px);box-shadow:0 4px 12px rgba(249,166,48,.35)}
+.btn-aa-secondary{background:#fff;color:#344054;border:1px solid #D0D5DD}
+.btn-aa-secondary:hover{background:#F9FAFB;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.cta-banner{background:linear-gradient(135deg,#1a3a5c 0%,#142e49 100%);border-radius:12px;padding:20px 28px;margin-top:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(249,166,48,.15) 0%,transparent 65%);pointer-events:none}
+.cta-banner::after{content:'';position:absolute;bottom:-60px;left:20%;width:200px;height:200px;background:radial-gradient(circle,rgba(80,167,221,.1) 0%,transparent 65%);pointer-events:none}
+.cta-text{flex:1;min-width:200px;position:relative;z-index:1}
+.cta-text h3{font-family:'Sora',-apple-system,sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.cta-text p{font-family:'Inter',-apple-system,sans-serif;font-size:13px;color:#98A2B3;line-height:1.5}
+.cta-actions{display:flex;gap:8px;position:relative;z-index:1;flex-wrap:wrap}
+.dl-wrap{position:relative;display:inline-block}
+.dl-menu{display:none;position:absolute;top:100%;right:0;margin-top:4px;background:#fff;border:1px solid #EAECF0;border-radius:10px;padding:4px;min-width:220px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:100}
+.dl-menu.open{display:block}
+.dl-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:7px;border:none;background:transparent;font-family:'Inter',-apple-system,sans-serif;font-size:13px;color:#344054;cursor:pointer;width:100%;text-align:left;transition:background .12s}
+.dl-item:hover{background:#F9FAFB}
+.dl-item-sub{font-size:11px;color:#667085}
+@media(max-width:768px){
+  .shell{flex-direction:column;height:auto;min-height:600px}
+  #sidebar{width:100%;min-width:100%;max-height:200px;border-right:none;border-bottom:1px solid rgba(0,0,0,.09)}
+  #roles-view{flex-direction:column}
+  #roles-sidebar{width:100%;min-width:100%;max-height:200px;border-right:none;border-bottom:1px solid rgba(0,0,0,.09)}
+  .brand-header{flex-direction:column;align-items:flex-start}
+  .brand-right{width:100%}
+  .cta-banner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCB9JXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="brand-header">
+  <div class="brand-left">
+    <a href="https://attorneyassistant.com" target="_blank" rel="noopener"><img src="https://e.attorneyassistant.com/brand/logos/long_color_logo.svg" alt="Attorney Assistant" class="brand-logo"></a>
+    <div><h1 class="brand-h1">Forever <em>Task Map</em></h1></div>
+  </div>
+  <div class="brand-right">
+    <div class="dl-wrap">
+      <button class="btn-aa btn-aa-secondary" onclick="toggleDLMenu()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Spreadsheet
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="dl-menu" id="dl-menu">
+        <button class="dl-item" onclick="exportCSV();closeDLMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div><div>Full Task Map (CSV)</div><div class="dl-item-sub">All tasks, roles, assignments, AI status</div></div></button>
+        <button class="dl-item" onclick="exportRosterCSV();closeDLMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg><div><div>People Roster (CSV)</div><div class="dl-item-sub">Names, titles, departments, emails</div></div></button>
+        <button class="dl-item" onclick="exportRolesCSV();closeDLMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><div><div>Roles &amp; Descriptions (CSV)</div><div class="dl-item-sub">All roles with task counts and descriptions</div></div></button>
+      </div>
+    </div>
+    <a href="https://attorneyassistant.com" target="_blank" rel="noopener" class="btn-aa btn-aa-primary">Visit Attorney Assistant <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</div>
+<p class="sub" style="font-family:'Inter',-apple-system,sans-serif;color:#667085;">Every task, every role, every person. Assign accountability across your entire firm.</p>
+<div class="tabs">
+  <button class="tab active" id="tab-map" onclick="switchTab('map')">Task Map</button>
+  <button class="tab" id="tab-roles" onclick="switchTab('roles')">Roles</button>
+  <button class="tab" id="tab-roster" onclick="switchTab('roster')">People Roster</button>
+  <button class="tab" id="tab-person" onclick="switchTab('person')">View by Person</button>
+</div>
+<div class="shell">
+  <div class="view active" id="view-map">
+    <div id="sidebar"></div>
+    <div id="main">
+      <div id="topbar"><h2 id="dept-title">Select a department</h2><span class="pill" id="dept-pill" style="display:none"></span><span id="task-count" style="font-size:11px;color:#5a5869"></span><span id="live-count" style="font-size:11px;color:#0a7a5e;font-weight:600"></span></div>
+      <div id="dhead"><span class="dh-lbl">Dept Head</span><select id="dhead-select"><option value="">— Unassigned —</option></select><span class="dh-note">Accountable for this entire department's process quality and output.</span></div>
+      <div id="controls"><input type="text" id="search" placeholder="Search tasks..."><button class="ctrl-btn" id="btn-cap">AI-capable only</button><button class="ctrl-btn" id="btn-live">AI Live only</button><button class="ctrl-btn" id="btn-queue">Queued / Training</button><button class="save-btn" id="btn-save">Save</button><button class="export-btn" id="btn-export">Export CSV</button><span id="saved-msg" style="display:none">Saved ✓</span></div>
+      <div id="table-area"><div class="empty"><strong>Select a department to begin</strong>Role badges appear on each task — click any role badge to jump to that role definition.</div></div>
+      <div id="legend"><div style="display:flex;gap:5px;align-items:center"><span class="pri-h">High</span><span class="pri-m">Med</span><span class="pri-l">Low</span>&nbsp;AI priority</div><div class="leg-div"></div><div style="display:flex;gap:5px;align-items:center"><span class="leg-q">Queued</span><span class="leg-t">In Training</span><span class="leg-l">AI Live</span>&nbsp;AI status</div><div class="leg-div"></div><span class="pill pill-sh">Shared</span>&nbsp;<span class="pill pill-pi">PI</span>&nbsp;<span class="pill pill-wc">WC</span>&nbsp;<span class="pill pill-lc">Lifecycle</span></div>
+    </div>
+  </div>
+  <div class="view" id="view-roles"><div id="roles-view"><div id="roles-sidebar"></div><div id="roles-detail"><div class="empty"><strong>Select a role to view its tasks and assign people</strong>Click any role on the left.</div></div></div></div>
+  <div class="view" id="view-roster"><div id="roster-view"><div class="roster-top"><h2>People Roster</h2><span id="roster-count" style="font-size:12px;color:#5a5869"></span><input type="text" id="roster-search" placeholder="Search by name, title, or dept..." style="padding:5px 9px;font-size:12.5px;font-family:'DM Sans',system-ui,sans-serif;border:1px solid rgba(0,0,0,.12);border-radius:6px;background:#f4f2ef;color:#18171a;min-width:200px"><button class="add-btn" onclick="openPersonModal(-1)">+ Add Person</button></div><div class="roster-scroll"><div class="roster-grid" id="roster-grid"></div></div></div></div>
+  <div class="view" id="view-person"><div id="person-view"><div class="pv-top"><h2>View by Person</h2><select id="pv-select"><option value="">— Select a person —</option></select><div class="pv-stats" id="pv-stats" style="display:none"><div class="pv-stat"><div class="pv-stat-n" id="pvn-head">0</div><div class="pv-stat-l">Dept Head</div></div><div class="pv-stat"><div class="pv-stat-n" id="pvn-owner">0</div><div class="pv-stat-l">Owner</div></div><div class="pv-stat"><div class="pv-stat-n" id="pvn-mgr">0</div><div class="pv-stat-l">Manager</div></div><div class="pv-stat"><div class="pv-stat-n" id="pvn-doer">0</div><div class="pv-stat-l">Doer</div></div><div class="pv-stat"><div class="pv-stat-n" id="pvn-total">0</div><div class="pv-stat-l">Total</div></div></div></div><div class="pv-scroll" id="pv-content"><div class="pv-empty"><strong>Select a person to view all their assignments</strong></div></div></div></div>
+</div>
+<div class="modal-bg" id="person-modal"><div class="modal"><h3 id="pm-title">Add Person</h3><div class="field"><label>Full Name</label><input type="text" id="pm-name" placeholder="e.g. Jane Smith"></div><div class="field"><label>Title / Role</label><input type="text" id="pm-title-f" placeholder="e.g. Paralegal"></div><div class="field"><label>Department</label><input type="text" id="pm-dept" placeholder="e.g. Legal — PI"></div><div class="field"><label>Email</label><input type="email" id="pm-email" placeholder="e.g. jane@firm.com" style="font-size:12.5px"></div><div class="modal-btns"><button class="btn-cancel" onclick="closePersonModal()">Cancel</button><button class="btn-ok" onclick="savePersonModal()">Save Person</button></div></div></div>
+<div class="modal-bg" id="role-person-modal-bg"><div class="modal"><h3>Add Person to Role</h3><div class="field"><label>Person</label><input type="text" list="ppl-list" id="rpm-input" autocomplete="off" placeholder="Type a name..."></div><div class="modal-btns"><button class="btn-cancel" onclick="closeRolePersonModal()">Cancel</button><button class="btn-ok" onclick="saveRolePersonModal()">Add to Role</button></div></div></div>
+<datalist id="ppl-list"></datalist>
+<div class="cta-banner">
+  <div class="cta-text"><h3>Stop losing revenue to broken operations.</h3><p>Attorney Assistant fixes intake failure, follow-up gaps, and admin chaos so your firm can scale. We embed in your firm — not outsource from a distance.</p></div>
+  <div class="cta-actions"><a href="https://attorneyassistant.com/book-call" target="_blank" rel="noopener" class="btn-aa btn-aa-primary">Book a Call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="https://attorneyassistant.com" target="_blank" rel="noopener" class="btn-aa" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25)">Learn More</a></div>
+</div>
+<div style="text-align:center;padding:14px 0 4px;font-family:'Inter',-apple-system,sans-serif;font-size:11px;color:#98A2B3">Built by <a href="https://attorneyassistant.com" target="_blank" rel="noopener" style="color:#50a7dd;text-decoration:none;font-weight:500">Attorney Assistant</a> &middot; (215) 337-2677 &middot; info@attorneyassistant.com</div>
+<script src="forever-task-map-data.js"></script>
+<script src="forever-task-map-app.js"></script>
+</body>
+</html>

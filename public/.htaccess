@@ -16,6 +16,11 @@ RewriteRule ^Blog/category/(.*)$ /blog/category/$1 [R=301,L]
 RewriteRule ^Blog/page/(.*)$ /blog [R=301,L]
 RewriteRule ^Blog/(.+)$ /blog/$1 [R=301,L]
 
+# ── Landing page consolidation (landing/ → lp/) ──
+RewriteRule ^landing/lp-marketing-waste/?$ /lp/marketing-waste [R=301,L]
+RewriteRule ^landing/stop-marketing-waste/?$ /lp/stop-marketing-waste [R=301,L]
+RewriteRule ^landing/(.+)$ /lp/$1 [R=301,L]
+
 # ── Legacy page redirects ──
 RewriteRule ^attorney-assistant-home/?$ / [R=301,L]
 RewriteRule ^home-old/?$ / [R=301,L]
