@@ -399,8 +399,8 @@ export const LandingPagePattern: Story = {
     container.innerHTML = `
       <h2 style="font-family: 'Sora', sans-serif; font-size: 24px; margin-bottom: 8px;">Landing Page Pattern</h2>
       <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #6b7280; margin-bottom: 24px;">
-        High-conversion landing pages at <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">/landing/[slug]</code>.
-        Example: <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">/landing/lp-marketing-waste</code>.
+        High-conversion landing pages at <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">/lp/[slug]</code>.
+        Example: <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;">/lp/marketing-waste</code>.
       </p>
 
       <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
@@ -422,7 +422,7 @@ export const LandingPagePattern: Story = {
       </div>
 
       <div style="padding: 16px; background: white; border: 1px solid #e5e7eb; border-radius: 8px;">
-        <p style="font-family: monospace; font-size: 13px; color: #374151; margin: 0; white-space: pre-wrap;">Route: /landing/lp-marketing-waste (standalone .astro, no nav/footer)
+        <p style="font-family: monospace; font-size: 13px; color: #374151; margin: 0; white-space: pre-wrap;">Route: /lp/marketing-waste (standalone .astro, no nav/footer)
 Brand voice: operations problem-solver — avoid "staffing" / "dedicated assistants"
 Hero: dark navy + floating orbs + inline form (no external CTA redirect)
 Sections follow a problem→solution→proof narrative arc</p>

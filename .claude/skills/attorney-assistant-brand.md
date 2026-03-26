@@ -400,7 +400,7 @@ When building dark navy sections:
 - **Phone:** (215) 337-2677
 - **Email:** info@attorneyassistant.com
 - **Address:** 7900 Old York Rd, Elkins Park, PA 19027
-- **Calendly:** https://calendly.com/attorneyassistant-ethen/30min
+- **Book a Call:** https://attorneyassistant.com/book-call
 - **LinkedIn:** https://www.linkedin.com/company/attorneyassistant
 - **Facebook:** https://web.facebook.com/attyassistant/
 - **Instagram:** https://www.instagram.com/attorneyassistant

@@ -5,7 +5,7 @@ function getDoers(id,t){try{return JSON.parse(A[gkd(id,t)]||'[]');}catch(e){retu
 function setDoers(id,t,arr){A[gkd(id,t)]=JSON.stringify(arr);}
 
 function load(){
-  try{const s=localStorage.getItem('ftm10');if(s){const d=JSON.parse(s);A=d.A||{};ROSTER=d.R||[...ROSTER_DEFAULT.map(p=>({...p}))];}}
+  try{const s=localStorage.getItem('ftm11');if(s){const d=JSON.parse(s);A=d.A||{};ROSTER=d.R||[...ROSTER_DEFAULT.map(p=>({...p}))];}}
   catch(e){ROSTER=[...ROSTER_DEFAULT.map(p=>({...p}))];}
   if(!ROSTER.length)ROSTER=[...ROSTER_DEFAULT.map(p=>({...p}))];
   ROSTER.forEach(p=>{
@@ -16,7 +16,7 @@ function load(){
   });
 }
 function doSave(){
-  try{localStorage.setItem('ftm10',JSON.stringify({A,R:ROSTER}));}catch(e){}
+  try{localStorage.setItem('ftm11',JSON.stringify({A,R:ROSTER}));}catch(e){}
   const m=document.getElementById('saved-msg');if(m){m.style.display='inline';setTimeout(()=>m.style.display='none',2000);}
 }
 function liveCnt(d){return d.subdepts.reduce((n,s)=>n+s.tasks.filter(t=>t.ai&&(A[gk(d.id,t.t,'st')]||'none')==='live').length,0);}
@@ -88,7 +88,9 @@ function renderMain(){
   cur.subdepts.forEach(sub=>{
     const tasks=sub.tasks.filter(t=>{
       const st=A[gk(cur.id,t.t,'st')]||'none';
-      if(fCap&&!t.ai)return false;
+      const aiOv=A[gk(cur.id,t.t,'ai')];
+      const taskIsAI=aiOv!==undefined?(aiOv==='true'):t.ai;
+      if(fCap&&!taskIsAI)return false;
       if(fLive&&st!=='live')return false;
       if(fQueue&&st!=='queued'&&st!=='training')return false;
       if(srch&&!t.t.toLowerCase().includes(srch)&&!t.d.toLowerCase().includes(srch))return false;
@@ -118,9 +120,22 @@ function renderMain(){
       const rolePill=rname
         ?'<div class="role-pill-wrap"><span class="role-pill" data-role="'+esc(rid)+'" style="background:'+rcolor+'22;color:'+rcolor+';border:1px solid '+rcolor+'44">'+esc(rname)+'</span></div>'
         :'';
-      const aiH=t.ai?'<div class="ai-wrap"><span class="ai-cap-yes">&#10003; AI enabled</span></div>':'<span class="ai-cap-no">&mdash;</span>';
-      const prH=!t.ai?'<span style="color:#ccc">&mdash;</span>':t.p==='h'?'<span class="pri-h">High</span>':t.p==='m'?'<span class="pri-m">Med</span>':'<span class="pri-l">Low</span>';
-      const stH=t.ai?'<div style="padding:3px 6px"><select class="ai-sel '+(so?so.c:'')+'" data-ks="'+ks+'">'+SOPTS.map(o=>'<option value="'+o.v+'"'+(st===o.v?' selected':'')+'>'+o.l+'</option>').join('')+'</select></div>':'<div style="padding:4px 8px;font-size:11px;color:#ccc">&mdash;</div>';
+      // AI Capable: editable toggle for all tasks
+      const aiKey=gk(cur.id,t.t,'ai');
+      const aiOverride=A[aiKey];
+      const isAI=aiOverride!==undefined?(aiOverride==='true'):t.ai;
+      const aiH='<div style="padding:3px 6px"><select class="ai-sel'+(isAI?' s-live':'')+'" data-aik="'+aiKey+'" style="font-size:10px">'+
+        '<option value="yes"'+(isAI?' selected':'')+'>Yes</option>'+
+        '<option value="no"'+(!isAI?' selected':'')+'>No</option></select></div>';
+      // Priority: editable for all tasks
+      const prKey=gk(cur.id,t.t,'pr');
+      const prOverride=A[prKey];
+      const prVal=prOverride||(t.ai?t.p:'')||'';
+      const PROPTS=[{v:'',l:'—'},{v:'h',l:'High'},{v:'m',l:'Medium'},{v:'l',l:'Low'}];
+      const prCls=prVal==='h'?' s-queued':prVal==='m'?' s-training':'';
+      const prH='<div style="padding:3px 6px"><select class="ai-sel'+prCls+'" data-prk="'+prKey+'" style="font-size:10px">'+PROPTS.map(o=>'<option value="'+o.v+'"'+(prVal===o.v?' selected':'')+'>'+o.l+'</option>').join('')+'</select></div>';
+      // AI Status: editable for all tasks
+      const stH='<div style="padding:3px 6px"><select class="ai-sel '+(so?so.c:'')+'" data-ks="'+ks+'">'+SOPTS.map(o=>'<option value="'+o.v+'"'+(st===o.v?' selected':'')+'>'+o.l+'</option>').join('')+'</select></div>';
       const chipHtml=doers.map((name,i)=>'<span class="doer-chip">'+esc(name)+'<span class="doer-chip-x" data-did="'+cur.id+'" data-dt="'+esc(t.t)+'" data-di="'+i+'">&times;</span></span>').join('');
       html+='<tr class="'+(isLv?'row-live':'')+'">'
         +'<td style="width:175px"><div class="tc">'+esc(t.t)+'</div>'+rolePill+'</td>'
@@ -180,6 +195,23 @@ function renderMain(){
       e.target.className='ai-sel '+(so?so.c:'');
       const row=e.target.closest('tr');if(row)row.className=e.target.value==='live'?'row-live':'';
       doSave();renderSidebar();
+    });
+  });
+  // AI Capable toggle
+  ta.querySelectorAll('select[data-aik]').forEach(sel=>{
+    sel.addEventListener('change',e=>{
+      A[e.target.dataset.aik]=e.target.value==='yes'?'true':'false';
+      e.target.className='ai-sel'+(e.target.value==='yes'?' s-live':'');
+      doSave();renderSidebar();
+    });
+  });
+  // Priority select
+  ta.querySelectorAll('select[data-prk]').forEach(sel=>{
+    sel.addEventListener('change',e=>{
+      A[e.target.dataset.prk]=e.target.value;
+      const cls=e.target.value==='h'?' s-queued':e.target.value==='m'?' s-training':'';
+      e.target.className='ai-sel'+cls;
+      doSave();
     });
   });
 }
@@ -369,10 +401,13 @@ function exportCSV(){
     d.subdepts.forEach(s=>{s.tasks.forEach(t=>{
       const st=A[gk(d.id,t.t,'st')]||'none';
       const stl=(SOPTS.find(o=>o.v===st)||{l:'Not started'}).l;
-      const pr=t.ai?(t.p==='h'?'High':t.p==='m'?'Medium':'Low'):'';
+      const aiOv=A[gk(d.id,t.t,'ai')];
+      const taskIsAI=aiOv!==undefined?(aiOv==='true'):t.ai;
+      const prOv=A[gk(d.id,t.t,'pr')]||t.p||'';
+      const pr=prOv==='h'?'High':prOv==='m'?'Medium':prOv==='l'?'Low':'';
       const rid=TASK_ROLE_OVERRIDE[t.t]||t.role||'';
       const doers=getDoers(d.id,t.t).join('; ');
-      rows.push([d.name,TLBL[d.type],dh,s.name,t.t,roleName(rid),t.team||'',t.ai?'Yes':'No',pr,stl,
+      rows.push([d.name,TLBL[d.type],dh,s.name,t.t,roleName(rid),t.team||'',taskIsAI?'Yes':'No',pr,stl,
         A[gk(d.id,t.t,'o')]||'',A[gk(d.id,t.t,'m')]||'',doers]);
     });});
   });
