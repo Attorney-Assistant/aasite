@@ -426,12 +426,59 @@ function exportRolesCSV(){
   });
   dlCSV(rows,'roles_and_descriptions');
 }
+function exportToGoogleSheets(){
+  // Build TSV (tab-separated) — Google Sheets auto-parses tabs on paste
+  const rows=[['Department','Practice Area','Dept Head','Sub-Department','Task','Role','Team','AI Capable','AI Priority','AI Status','Process Owner','Manager','Doers']];
+  D.forEach(d=>{
+    const dh=A['__hd__'+d.id]||'';
+    d.subdepts.forEach(s=>{s.tasks.forEach(t=>{
+      const st=A[gk(d.id,t.t,'st')]||'none';
+      const stl=(SOPTS.find(o=>o.v===st)||{l:'Not started'}).l;
+      const aiOv=A[gk(d.id,t.t,'ai')];
+      const taskIsAI=aiOv!==undefined?(aiOv==='true'):t.ai;
+      const prOv=A[gk(d.id,t.t,'pr')]||t.p||'';
+      const pr=prOv==='h'?'High':prOv==='m'?'Medium':prOv==='l'?'Low':'';
+      const rid=TASK_ROLE_OVERRIDE[t.t]||t.role||'';
+      const doers=getDoers(d.id,t.t).join(', ');
+      rows.push([d.name,TLBL[d.type],dh,s.name,t.t,roleName(rid),t.team||'',taskIsAI?'Yes':'No',pr,stl,
+        A[gk(d.id,t.t,'o')]||'',A[gk(d.id,t.t,'m')]||'',doers]);
+    });});
+  });
+  const tsv=rows.map(r=>r.map(c=>String(c).replace(/\t/g,' ')).join('\t')).join('\n');
+  navigator.clipboard.writeText(tsv).then(()=>{
+    showToast('Data copied! Paste (Ctrl+V / ⌘+V) into the new Google Sheet.');
+    setTimeout(()=>{window.open('https://docs.google.com/spreadsheets/create?title=Forever%20Task%20Map','_blank');},400);
+  }).catch(()=>{
+    // Fallback: download as TSV which Google Sheets can open
+    const blob=new Blob([tsv],{type:'text/tab-separated-values'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='forever_task_map.tsv';
+    a.click();
+    showToast('Downloaded TSV — open it with Google Sheets to import.');
+  });
+}
+function showToast(msg){
+  let t=document.getElementById('gs-toast');
+  if(!t){
+    t=document.createElement('div');
+    t.id='gs-toast';
+    t.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#18171a;color:#fff;padding:12px 24px;border-radius:10px;font-family:"Inter",-apple-system,sans-serif;font-size:13px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none;max-width:90vw;text-align:center';
+    document.body.appendChild(t);
+  }
+  t.textContent=msg;
+  t.style.opacity='1';
+  setTimeout(()=>{t.style.opacity='0';},5000);
+}
 function toggleDLMenu(){document.getElementById('dl-menu').classList.toggle('open');}
 function closeDLMenu(){document.getElementById('dl-menu').classList.remove('open');}
 document.addEventListener('click',e=>{if(!e.target.closest('.dl-wrap'))closeDLMenu();});
 
 // Initialize
-load();rebuildDL();renderSidebar();
+load();rebuildDL();
+// Default to Intake department so users see data immediately
+cur=D.find(d=>d.id==='intake');
+renderSidebar();renderMain();
 document.getElementById('search').addEventListener('input',e=>{srch=e.target.value.toLowerCase().trim();renderMain();});
 document.getElementById('btn-cap').addEventListener('click',()=>{fCap=!fCap;fLive=false;fQueue=false;document.getElementById('btn-cap').classList.toggle('on',fCap);document.getElementById('btn-live').classList.remove('on-live');document.getElementById('btn-queue').classList.remove('on');renderMain();});
 document.getElementById('btn-live').addEventListener('click',()=>{fLive=!fLive;fCap=false;fQueue=false;document.getElementById('btn-live').classList.toggle('on-live',fLive);document.getElementById('btn-cap').classList.remove('on');document.getElementById('btn-queue').classList.remove('on');renderMain();});
