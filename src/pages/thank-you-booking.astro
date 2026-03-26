@@ -1,0 +1,96 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Call Booked — See You Soon | Attorney Assistant"
+  description="Your call with Attorney Assistant has been booked. We look forward to speaking with you."
+  noindex={true}
+>
+
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-narrow relative py-20 md:py-28">
+      <div class="text-center reveal">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold/15 mb-6">
+          <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+          </svg>
+        </div>
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">Confirmed</span>
+        <h1 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Your Call Is Booked
+        </h1>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-white/60 max-w-xl mx-auto">
+          You should receive a calendar invite shortly. We're looking forward to learning about your firm and showing you how we can help.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-white">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-display-xs font-heading text-gray-900 mb-4 text-center reveal">Before Your Call</h2>
+        <div class="divider-gold-center mb-10"></div>
+        <p class="text-gray-500 mb-8 text-center reveal" style="transition-delay: 0.1s;">
+          Here are a few things you can do to get the most out of our conversation:
+        </p>
+
+        <div class="space-y-4 mb-12 reveal" style="transition-delay: 0.15s;">
+          <div class="flex gap-4 items-start p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 flex items-center justify-center mt-0.5">
+              <span class="text-sm font-heading font-bold text-brand-gold">1</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-gray-900 mb-1">Know your numbers</h3>
+              <p class="text-sm text-gray-500">How many new leads come in per month? What's your current sign-up rate? Having these numbers handy helps us give you specific, actionable advice.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 flex items-center justify-center mt-0.5">
+              <span class="text-sm font-heading font-bold text-brand-gold">2</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-gray-900 mb-1">Think about your biggest bottleneck</h3>
+              <p class="text-sm text-gray-500">Intake? Follow-up? Admin overwhelm? Knowing what keeps you up at night lets us focus the conversation where it matters most.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 flex items-center justify-center mt-0.5">
+              <span class="text-sm font-heading font-bold text-brand-gold">3</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-gray-900 mb-1">Browse our services</h3>
+              <p class="text-sm text-gray-500">Take a quick look at what we offer so you can ask targeted questions about the services that interest you most.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay: 0.2s;">
+          <a href="/services" class="btn-primary">
+            Explore Our Services
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+          <a href="/blog" class="btn-secondary">
+            Read Our Blog
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion tracking -->
+  <script is:inline>
+    if (typeof fbq !== 'undefined') fbq('track', 'Schedule');
+    if (typeof mixpanel !== 'undefined') mixpanel.track('Call Booked');
+  </script>
+
+</BaseLayout>
