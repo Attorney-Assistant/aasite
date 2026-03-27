@@ -151,6 +151,25 @@ body{font-family:"DM Sans",system-ui,sans-serif;font-size:13px;color:#18171a;bac
 .cta-text p{font-family:'Inter',-apple-system,sans-serif;font-size:13px;color:#98A2B3;line-height:1.5}
 .cta-actions{display:flex;gap:8px;position:relative;z-index:1;flex-wrap:wrap}
 
+/* Edit flyout */
+.ef-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:900;opacity:0;pointer-events:none;transition:opacity .2s}
+.ef-overlay.open{opacity:1;pointer-events:auto}
+.ef-panel{position:fixed;top:0;right:0;width:300px;height:100%;background:#fff;z-index:910;box-shadow:-4px 0 24px rgba(0,0,0,.15);transform:translateX(100%);transition:transform .25s ease;padding:24px 20px;overflow-y:auto;display:flex;flex-direction:column}
+.ef-panel.open{transform:translateX(0)}
+.ef-icon{font-size:16px;font-weight:700;color:#1a3a5c;margin-bottom:18px;font-family:'Sora',-apple-system,sans-serif}
+.ef-field{margin-bottom:14px}
+.ef-field label{display:block;font-size:11px;font-weight:700;color:#344054;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;font-family:'Inter',-apple-system,sans-serif}
+.ef-field input,.ef-field select,.ef-field textarea{width:100%;padding:8px 10px;font-size:13px;font-family:'DM Sans',system-ui,sans-serif;border:1px solid #D0D5DD;border-radius:7px;background:#fff;color:#18171a;transition:border-color .15s}
+.ef-field input:focus,.ef-field select:focus,.ef-field textarea:focus{outline:none;border-color:#50a7dd}
+.ef-field textarea{resize:vertical}
+.ef-actions{display:flex;gap:8px;margin-top:auto;padding-top:16px}
+.ef-save{flex:1;padding:10px;background:#1a3a5c;color:#fff;border:none;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',-apple-system,sans-serif;transition:background .15s}
+.ef-save:hover{background:#50a7dd}
+.ef-del{padding:10px 14px;background:#fee2e2;color:#991b1b;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',-apple-system,sans-serif;transition:background .15s}
+.ef-del:hover{background:#fecaca}
+.ef-close{padding:10px 14px;background:#f3f4f6;color:#374151;border:none;border-radius:7px;font-size:16px;font-weight:600;cursor:pointer;line-height:1;transition:background .15s}
+.ef-close:hover{background:#e5e7eb}
+
 @media(max-width:768px){
   body{padding:10px}
   .brand-header{flex-direction:column;align-items:flex-start}

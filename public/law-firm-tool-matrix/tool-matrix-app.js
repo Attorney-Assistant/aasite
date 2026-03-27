@@ -195,23 +195,76 @@ function renderAgentTab(tabId){
   });
 }
 
-/* add/edit tool */
+/* ========== EDIT FLYOUT ========== */
+let editingTool=null,isNewTool=false;
+
 function addTool(){
-  const name=prompt('Tool name:');
-  if(!name||!name.trim())return;
-  TOOLS.push({name:name.trim(),status:'active',description:''});
-  save();renderAll();
+  const t={name:'',status:'active',description:'',cost:'',expires:''};
+  TOOLS.push(t);
+  editingTool=t;isNewTool=true;
+  showEditFlyout();
 }
+
 function editTool(t){
-  const name=prompt('Tool name:',t.name);
-  if(name===null)return;
-  const desc=prompt('Description:',t.description);
-  const status=prompt('Status (active/future/rolling-off/expiring):',t.status);
-  if(name.trim())t.name=name.trim();
-  if(desc!==null)t.description=desc;
-  if(status&&STATUS_META[status])t.status=status;
-  if(t.status==='expiring'){const exp=prompt('Expiry date:',t.expires||'');if(exp!==null)t.expires=exp;}
-  save();selectedTool=t;renderAll();
+  editingTool=t;isNewTool=false;
+  showEditFlyout();
+}
+
+function showEditFlyout(){
+  let overlay=document.getElementById('edit-overlay');
+  if(!overlay){overlay=document.createElement('div');overlay.id='edit-overlay';document.body.appendChild(overlay);}
+  overlay.className='ef-overlay open';
+  overlay.onclick=function(e){if(e.target===overlay)closeEditFlyout();};
+
+  let panel=document.getElementById('edit-panel');
+  if(!panel){panel=document.createElement('div');panel.id='edit-panel';document.body.appendChild(panel);}
+  panel.className='ef-panel open';
+
+  const t=editingTool;
+  panel.innerHTML='<div class="ef-icon">\u270f\ufe0f '+esc(t.name||'New Tool')+'</div>'
+    +'<div class="ef-field"><label>Tool Name</label><input type="text" id="ef-name" value="'+esc(t.name)+'" placeholder="e.g. Litify"></div>'
+    +'<div class="ef-field"><label>Monthly Cost</label><input type="text" id="ef-cost" value="'+esc(t.cost||'')+'" placeholder="e.g. $299/mo"></div>'
+    +'<div class="ef-field"><label>Contract Expiration</label><input type="text" id="ef-expires" value="'+esc(t.expires||'')+'" placeholder="e.g. Sep 2025"></div>'
+    +'<div class="ef-field"><label>Status</label><select id="ef-status">'
+    +Object.entries(STATUS_META).map(([k,v])=>'<option value="'+k+'"'+(t.status===k?' selected':'')+'>'+v.label+'</option>').join('')
+    +'</select></div>'
+    +'<div class="ef-field"><label>Notes</label><textarea id="ef-notes" rows="3" placeholder="What does this tool do?">'+esc(t.description||'')+'</textarea></div>'
+    +'<div class="ef-actions"><button class="ef-save" id="ef-save">Save</button><button class="ef-del" id="ef-del">Del</button><button class="ef-close" id="ef-close">\u00d7</button></div>';
+
+  document.getElementById('ef-save').onclick=saveEditFlyout;
+  document.getElementById('ef-del').onclick=deleteFromFlyout;
+  document.getElementById('ef-close').onclick=closeEditFlyout;
+  document.getElementById('ef-name').focus();
+}
+
+function saveEditFlyout(){
+  const t=editingTool;
+  const name=document.getElementById('ef-name').value.trim();
+  if(!name){if(isNewTool){TOOLS.splice(TOOLS.indexOf(t),1);}closeEditFlyout();return;}
+  t.name=name;
+  t.cost=document.getElementById('ef-cost').value.trim();
+  t.expires=document.getElementById('ef-expires').value.trim();
+  t.status=document.getElementById('ef-status').value;
+  t.description=document.getElementById('ef-notes').value.trim();
+  selectedTool=t;
+  save();closeEditFlyout();renderAll();
+}
+
+function deleteFromFlyout(){
+  if(!confirm('Delete "'+editingTool.name+'"?'))return;
+  const idx=TOOLS.indexOf(editingTool);
+  if(idx>-1)TOOLS.splice(idx,1);
+  if(selectedTool===editingTool)selectedTool=null;
+  save();closeEditFlyout();renderAll();
+}
+
+function closeEditFlyout(){
+  if(isNewTool&&editingTool&&!editingTool.name){
+    const idx=TOOLS.indexOf(editingTool);if(idx>-1)TOOLS.splice(idx,1);
+  }
+  editingTool=null;isNewTool=false;
+  const overlay=document.getElementById('edit-overlay');if(overlay)overlay.className='ef-overlay';
+  const panel=document.getElementById('edit-panel');if(panel)panel.className='ef-panel';
 }
 
 /* ========== EXPORTS ========== */
