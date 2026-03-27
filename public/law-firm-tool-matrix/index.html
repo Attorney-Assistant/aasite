@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Law Firm Tool Matrix — Attorney Assistant</title>
+<meta name="description" content="Map every tool in your PI law firm to every task. 30+ tools, 38 tasks, 71 AI agent ideas.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Law Firm Tool Matrix — Attorney Assistant">
+<meta property="og:description" content="Map every tool to every task. See where AI agents can take over.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="https://e.attorneyassistant.com/brand/logos/color_icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WCB9JXDC');</script>
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','819356476465129');fbq('track','PageView');</script>
+<!-- Mixpanel -->
+<script>(function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);mixpanel.init("b7fe2528f751e145148b504188edff97",{track_pageview:"full-url",persistence:"localStorage"});</script>
+<!-- HubSpot -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49161090.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"DM Sans",system-ui,sans-serif;font-size:13px;color:#18171a;background:#faf9f7;padding:20px}
+
+/* Brand header */
+.brand-header{display:flex;align-items:center;justify-content:space-between;padding:16px 0 12px;margin-bottom:4px;border-bottom:2px solid #F9A630;gap:16px;flex-wrap:wrap}
+.brand-left{display:flex;align-items:center;gap:14px}
+.brand-logo{height:34px;width:auto}
+.brand-h1{font-family:'Sora',-apple-system,sans-serif;font-size:22px;font-weight:700;color:#1a3a5c;letter-spacing:-.3px;line-height:1.2}
+.brand-h1 em{font-style:italic;color:#F9A630}
+.brand-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn-aa{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;font-family:'Inter',-apple-system,sans-serif;font-size:13px;font-weight:600;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .2s;white-space:nowrap}
+.btn-aa-primary{background:#F9A630;color:#1a3a5c;border:none;box-shadow:0 1px 3px rgba(249,166,48,.3)}
+.btn-aa-primary:hover{background:#d98a00;transform:translateY(-1px);box-shadow:0 4px 12px rgba(249,166,48,.35)}
+.btn-aa-secondary{background:#fff;color:#344054;border:1px solid #D0D5DD}
+.btn-aa-secondary:hover{background:#F9FAFB;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.btn-aa-sheets{background:#34A853;color:#fff;border:none;font-size:14px;padding:10px 22px;box-shadow:0 1px 3px rgba(52,168,83,.3)}
+.btn-aa-sheets:hover{background:#2d9249;transform:translateY(-1px);box-shadow:0 4px 12px rgba(52,168,83,.35)}
+.dl-wrap{position:relative;display:inline-block}
+.dl-menu{display:none;position:absolute;top:100%;right:0;margin-top:4px;background:#fff;border:1px solid #EAECF0;border-radius:10px;padding:4px;min-width:240px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:100}
+.dl-menu.open{display:block}
+.dl-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:7px;border:none;background:transparent;font-family:'Inter',-apple-system,sans-serif;font-size:13px;color:#344054;cursor:pointer;width:100%;text-align:left;transition:background .12s}
+.dl-item:hover{background:#F9FAFB}
+.dl-item-sub{font-size:11px;color:#667085}
+
+.sub{font-family:'Inter',-apple-system,sans-serif;font-size:12.5px;color:#667085;margin-bottom:14px}
+
+/* Tab bar */
+.tm-tabbar{display:flex;gap:0;overflow-x:auto;background:#1a3a5c;border-radius:10px 10px 0 0;margin-top:10px}
+.tm-tab{padding:10px 16px;border:none;border-bottom:2.5px solid transparent;background:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:12px;font-weight:500;white-space:nowrap;font-family:'DM Sans',system-ui,sans-serif;margin-bottom:-1px;transition:all .15s}
+.tm-tab:hover{color:#fff;background:rgba(255,255,255,.06)}
+.tm-tab.active{color:#F9A630;border-bottom-color:#F9A630;font-weight:700;background:rgba(249,166,48,.08)}
+
+/* Shell */
+.tm-shell{border:1px solid rgba(0,0,0,.09);border-top:none;border-radius:0 0 10px 10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.07);background:#fff;min-height:650px}
+#tm-main{min-height:600px;overflow:auto}
+
+/* Stats bar */
+.tm-statsbar{background:#152e4a;color:rgba(255,255,255,.6);padding:6px 16px;font-size:11px;display:flex;align-items:center;gap:8px}
+#saved-ind{color:#F9A630;font-weight:600;opacity:0;transition:opacity .3s;margin-left:auto}
+
+/* ===== GRID VIEW ===== */
+.tm-toolbar{background:#f4f2ef;border-bottom:1px solid rgba(0,0,0,.09);padding:8px 14px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:40}
+.tm-select{font-size:12px;border:1px solid #d1d5db;border-radius:6px;padding:4px 10px;font-family:'DM Sans',system-ui,sans-serif}
+.tm-btn-add{background:#1a3a5c;color:#fff;border:none;border-radius:6px;padding:5px 14px;cursor:pointer;font-size:12px;font-weight:600;font-family:'DM Sans',system-ui,sans-serif;transition:background .15s}
+.tm-btn-add:hover{background:#50a7dd}
+.tm-hint{margin-left:auto;font-size:11px;color:#9ca3af}
+
+.tm-table-wrap{overflow:auto;flex:1;display:inline-block}
+.tm-table{border-collapse:collapse;min-width:max-content}
+.tm-th-tool{position:sticky;left:0;z-index:20;border:1px solid #e5e7eb;background:#f1f5f9;min-width:215px;padding:6px 12px;text-align:left;color:#475569;font-weight:700;font-size:11px;letter-spacing:.04em}
+.tm-th-group{padding:5px 8px;border:1px solid #e5e7eb;text-align:center;background:linear-gradient(135deg,#1a3a5c 0%,#152e4a 100%);color:#F9A630;font-size:10px;font-weight:700;white-space:nowrap;letter-spacing:.03em}
+.tm-th-task{border:1px solid #e5e7eb;padding:2px;min-width:30px;max-width:30px;height:115px;vertical-align:bottom;background:#fafafa}
+.tm-task-label{writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;font-weight:500;color:#374151;white-space:nowrap;padding-bottom:4px}
+
+.tm-td-tool{position:sticky;left:0;z-index:10;border:1px solid #e5e7eb;padding:6px 12px;cursor:pointer;min-width:215px;transition:filter .15s}
+.tm-td-tool:hover{filter:brightness(.96)}
+.tm-tool-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.tm-tool-name{font-weight:600;color:#111827}
+.tm-status-badge{font-size:9px;padding:2px 7px;border-radius:10px;font-weight:700;display:inline-block}
+.tm-exp-warn{font-size:10px;color:#f59e0b;margin-top:2px}
+
+.tm-td-cell{min-width:30px;max-width:30px;border:1px solid #e5e7eb;padding:0;text-align:center;transition:background .12s;cursor:pointer}
+.tm-td-cell:hover{background:#dbeafe!important}
+.tm-td-cell.mapped{background:#e0edff}
+.tm-cell-btn{width:100%;height:30px;border:none;background:transparent;cursor:pointer;color:#1a3a5c;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* Grid sidebar */
+.tm-grid-sidebar{position:fixed;right:20px;top:50%;transform:translateY(-50%);width:280px;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.12);z-index:50;max-height:80vh;overflow-y:auto}
+.tm-sb-empty{color:#9ca3af;font-size:13px;text-align:center;padding:30px 10px}
+.tm-sb-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.tm-sb-title{font-family:'Sora',-apple-system,sans-serif;font-weight:700;font-size:16px;color:#1a3a5c}
+.tm-sb-edit{background:#1a3a5c;color:#F9A630;border:none;border-radius:4px;padding:3px 10px;cursor:pointer;font-size:11px;font-weight:600}
+.tm-sb-desc{margin-top:10px;padding:9px 12px;background:#f8fafc;border-radius:6px;font-size:12px;color:#374151;line-height:1.55;border-left:3px solid #F9A630}
+.tm-sb-section{margin-top:14px}
+.tm-sb-section-title{font-size:11px;font-weight:700;margin-bottom:6px;color:#1a3a5c;text-transform:uppercase;letter-spacing:.06em}
+.tm-sb-list{list-style:none;padding:0;margin:0}
+.tm-sb-list li{font-size:11px;padding:3px 0;color:#374151;border-bottom:1px solid #f3f4f6}
+.tm-sb-list li::before{content:'\2714';margin-right:6px;color:#F9A630;font-weight:700}
+.tm-sb-none{font-size:11px;color:#9ca3af;font-style:italic}
+.tm-sb-close{margin-top:14px;width:100%;background:#f3f4f6;border:none;border-radius:6px;padding:8px;cursor:pointer;font-size:12px;color:#374151;font-family:'DM Sans',system-ui,sans-serif}
+.tm-sb-close:hover{background:#e5e7eb}
+.tm-empty{padding:60px 40px;text-align:center;color:#5a5869;font-size:14px}
+
+/* ===== AGENT TAB VIEW ===== */
+.ag-view{padding:28px 32px;max-width:1100px;margin:0 auto}
+.ag-header{margin-bottom:24px}
+.ag-title{font-family:'Sora',-apple-system,sans-serif;font-size:24px;font-weight:700;color:#1a3a5c;margin-bottom:6px}
+.ag-desc{font-family:'Inter',-apple-system,sans-serif;font-size:14px;color:#667085;line-height:1.6;margin-bottom:16px;max-width:700px}
+
+.ag-filters{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.ag-filter-label{font-size:13px;font-weight:600;color:#344054}
+.ag-filter-btn{padding:5px 14px;border:1.5px solid #D0D5DD;border-radius:20px;background:#fff;cursor:pointer;font-size:12px;font-weight:500;font-family:'Inter',-apple-system,sans-serif;color:#344054;transition:all .15s}
+.ag-filter-btn:hover{border-color:#1a3a5c;color:#1a3a5c}
+.ag-filter-btn.active{background:#1a3a5c;color:#fff;border-color:#1a3a5c}
+
+.ag-counts{display:flex;gap:18px;font-size:13px;color:#667085;font-family:'Inter',-apple-system,sans-serif}
+.ag-counts span{display:inline-flex;align-items:center;gap:4px}
+.ag-counts em{font-style:normal;font-weight:400}
+
+.ag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.ag-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:12px;padding:18px 20px;transition:all .2s;border-left:4px solid #1a3a5c}
+.ag-card:hover{border-color:#50a7dd;box-shadow:0 4px 16px rgba(0,0,0,.08);border-left-color:#50a7dd}
+
+.ag-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.ag-card-name{font-family:'Sora',-apple-system,sans-serif;font-size:15px;font-weight:700;color:#1a3a5c;line-height:1.3}
+.ag-card-meta{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
+.ag-pri{font-size:11px;font-weight:700;padding:2px 10px;border-radius:12px;white-space:nowrap}
+.pri-high{background:#fee2e2;color:#b91c1c}
+.pri-med{background:#fef3c7;color:#92400e}
+.pri-low{background:#dcfce7;color:#166534}
+.ag-complexity{font-size:10px;color:#9ca3af;white-space:nowrap}
+.ag-card-desc{font-size:13px;color:#374151;line-height:1.55;margin-bottom:10px}
+.ag-toggle{background:none;border:none;color:#50a7dd;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',-apple-system,sans-serif;padding:0;transition:color .15s}
+.ag-toggle:hover{color:#1a3a5c}
+.ag-expand{margin-top:12px;padding-top:12px;border-top:1px solid #f3f4f6}
+.ag-impact{font-size:12px;color:#374151;line-height:1.55;margin-bottom:10px;padding:8px 12px;background:#f0fdf4;border-radius:6px;border-left:3px solid #22c55e}
+.ag-impact strong{color:#166534}
+.ag-tools-label{font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.ag-tools-list{display:flex;flex-wrap:wrap;gap:5px}
+.ag-tool-chip{font-size:10px;padding:3px 9px;border-radius:10px;font-weight:700}
+
+/* CTA Banner */
+.cta-banner{background:linear-gradient(135deg,#1a3a5c 0%,#142e49 100%);border-radius:12px;padding:20px 28px;margin-top:16px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(249,166,48,.15) 0%,transparent 65%);pointer-events:none}
+.cta-banner::after{content:'';position:absolute;bottom:-60px;left:20%;width:200px;height:200px;background:radial-gradient(circle,rgba(80,167,221,.1) 0%,transparent 65%);pointer-events:none}
+.cta-text{flex:1;min-width:200px;position:relative;z-index:1}
+.cta-text h3{font-family:'Sora',-apple-system,sans-serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+.cta-text p{font-family:'Inter',-apple-system,sans-serif;font-size:13px;color:#98A2B3;line-height:1.5}
+.cta-actions{display:flex;gap:8px;position:relative;z-index:1;flex-wrap:wrap}
+
+@media(max-width:768px){
+  body{padding:10px}
+  .brand-header{flex-direction:column;align-items:flex-start}
+  .brand-right{width:100%}
+  .cta-banner{flex-direction:column}
+  .ag-grid{grid-template-columns:1fr}
+  .tm-grid-sidebar{position:static;transform:none;width:100%;margin-top:12px;max-height:none}
+  .ag-view{padding:16px}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCB9JXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="brand-header">
+  <div class="brand-left">
+    <a href="https://attorneyassistant.com" target="_blank" rel="noopener"><img src="https://e.attorneyassistant.com/brand/logos/long_color_logo.svg" alt="Attorney Assistant" class="brand-logo"></a>
+    <div><h1 class="brand-h1">Tool <em>Matrix</em></h1></div>
+  </div>
+  <div class="brand-right">
+    <div class="dl-wrap">
+      <button class="btn-aa btn-aa-secondary" onclick="toggleDLMenu()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="dl-menu" id="dl-menu">
+        <button class="dl-item" onclick="exportCSV();closeDLMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div><div>Tool Matrix (CSV)</div><div class="dl-item-sub">All tools, tasks, and mappings</div></div></button>
+        <button class="dl-item" onclick="exportAgentsCSV();closeDLMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg><div><div>AI Agent Ideas (CSV)</div><div class="dl-item-sub">All 71 agents with priority &amp; tools</div></div></button>
+        <div style="border-top:1px solid #EAECF0;margin:4px 0"></div>
+        <button class="dl-item" onclick="exportToGoogleSheets();closeDLMenu()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#34A853" opacity="0.15"/><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#34A853" stroke-width="2" stroke-linecap="round"/></svg><div><div>Open in Google Sheets</div><div class="dl-item-sub">Copies matrix + agents &amp; opens Sheets</div></div></button>
+      </div>
+    </div>
+    <a href="https://attorneyassistant.com?utm_source=tool-matrix&utm_medium=tool&utm_campaign=law-firm-tool-matrix&utm_content=header-visit" target="_blank" rel="noopener" class="btn-aa btn-aa-primary">Visit Attorney Assistant <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</div>
+
+<p class="sub">Map every tool to every task. See where AI agents can take over your firm's operations.</p>
+
+<!-- Tab bar -->
+<div class="tm-tabbar" id="tab-bar"></div>
+
+<!-- Stats bar -->
+<div class="tm-statsbar">
+  <span id="tm-stats">Loading...</span>
+  <span id="saved-ind">Saved &#10003;</span>
+</div>
+
+<!-- Main shell -->
+<div class="tm-shell">
+  <div id="tm-main"></div>
+</div>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+  <div class="cta-text">
+    <h3>Stop paying for tools you don't use. Start deploying AI where it matters.</h3>
+    <p>Attorney Assistant helps PI firms eliminate tool sprawl, automate with AI agents, and build the operations layer that scales.</p>
+  </div>
+  <div class="cta-actions">
+    <a href="https://attorneyassistant.com/book-call?utm_source=tool-matrix&utm_medium=tool&utm_campaign=law-firm-tool-matrix&utm_content=cta-book-call" target="_blank" rel="noopener" class="btn-aa btn-aa-primary">Book a Call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a href="https://attorneyassistant.com?utm_source=tool-matrix&utm_medium=tool&utm_campaign=law-firm-tool-matrix&utm_content=cta-learn-more" target="_blank" rel="noopener" class="btn-aa" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25)">Learn More</a>
+  </div>
+</div>
+
+<div style="text-align:center;padding:14px 0 4px;font-family:'Inter',-apple-system,sans-serif;font-size:11px;color:#98A2B3">Built by <a href="https://attorneyassistant.com?utm_source=tool-matrix&utm_medium=tool&utm_campaign=law-firm-tool-matrix&utm_content=footer" target="_blank" rel="noopener" style="color:#50a7dd;text-decoration:none;font-weight:500">Attorney Assistant</a> &middot; (215) 337-2677 &middot; info@attorneyassistant.com</div>
+
+<script src="tool-matrix-data.js"></script>
+<script src="tool-matrix-app.js"></script>
+</body>
+</html>
