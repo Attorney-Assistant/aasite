@@ -2,37 +2,43 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
+import YouTubeEmbed from "@components/YouTubeEmbed.astro";
 
 const webinars = [
   {
-    title: "The Future of Legal Intake",
-    date: "October 28, 2025",
-    duration: "56 min",
-    desc: "Learn how to capture more leads, never miss a client call, and convert inquiries into signed cases with 24/7 live answering.",
-  },
-  {
-    title: "Mastering Remote Team Management",
-    date: "September 10, 2025",
-    duration: "48 min",
-    desc: "Building and maintaining company culture remotely. With speakers Elley Thomas and Michelle Scherer.",
-  },
-  {
-    title: "Intake Webinar: Cutting Costs & Boosting Conversions",
-    date: "July 19, 2025",
-    duration: "58 min",
-    desc: "How Ethen's team signed over 4,700 cases in three years while cutting intake costs by 40% and increasing conversion rates by 15%.",
-  },
-  {
-    title: "Safeguarding Client Data",
-    date: "October 15, 2024",
+    title: "Cybersecurity Isn't Optional | Safeguarding Client Data From Breaches",
+    date: "January 2026",
     duration: "73 min",
-    desc: "Cybersecurity for law firms — ransomware, email intrusion, social engineering, and third-party data exposure.",
+    videoId: "3yObVdiTE8o",
+    desc: "Ethen Ostroff and Gary from Black Talon discuss remote team management and cybersecurity in the legal field — protecting sensitive data while utilizing virtual legal assistants.",
+  },
+  {
+    title: "Revolutionizing Law Firm Intakes | Boost Success with AI & Staffing",
+    date: "November 2025",
+    duration: "58 min",
+    videoId: "QKewPdqQj8c",
+    desc: "Ethen dives deep into legal intake processes — blending AI with human interaction, effective staffing strategies, and scheduling techniques to enhance conversion rates.",
+  },
+  {
+    title: "How to Build a High-Performing Remote Team",
+    date: "October 2025",
+    duration: "48 min",
+    videoId: "cahXK0ezkaU",
+    desc: "Michelle and Ellie Thomas cover the essentials of building a thriving remote team — fostering trust, setting clear expectations, onboarding timelines, and accountability without micromanagement.",
+  },
+  {
+    title: "Law Firm Intake Strategy",
+    date: "August 2025",
+    duration: "58 min",
+    videoId: "Ue_O0XyM1dE",
+    desc: "Ethen Ostroff covers how to enhance the profitability, efficiency, and work quality of your law firm through virtual assistants — maximizing success with VAs to help you scale.",
   },
   {
     title: "The Flawless Intake Deep Dive",
-    date: "May 08, 2024",
+    date: "May 2024",
     duration: "120 min",
-    desc: "How to increase signed cases by up to 200% with a flawless intake strategy.",
+    videoId: "mmIDMcLHu7A",
+    desc: "How to increase signed cases by up to 200% with a flawless intake strategy — staffing, scripts, follow-up cadences, and the operational systems behind it all.",
   },
 ];
 
@@ -47,6 +53,13 @@ const webinarSchema = webinars.map((w) => ({
   "location": { "@type": "VirtualLocation", "url": "https://attorneyassistant.com/webinars" },
   "duration": `PT${parseInt(w.duration)}M`,
   "isAccessibleForFree": true,
+  "video": {
+    "@type": "VideoObject",
+    "name": w.title,
+    "description": w.desc,
+    "thumbnailUrl": `https://img.youtube.com/vi/${w.videoId}/maxresdefault.jpg`,
+    "embedUrl": `https://www.youtube.com/embed/${w.videoId}`,
+  },
 }));
 ---
 
@@ -67,38 +80,34 @@ const webinarSchema = webinars.map((w) => ({
         <div class="divider-gold-center mt-5"></div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {webinars.map((webinar) => (
-          <div class="card card-hover p-8 flex flex-col">
-            <div class="flex items-center gap-3 mb-5">
-              <div class="featured-icon featured-icon-sm featured-icon-brand">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <span class="badge badge-brand">{webinar.duration}</span>
+      <!-- Featured (first webinar) -->
+      <div class="max-w-4xl mx-auto mb-16 reveal" style="transition-delay: 0.15s;">
+        <div class="card overflow-hidden">
+          <YouTubeEmbed videoId={webinars[0].videoId} title={webinars[0].title} />
+          <div class="p-6 md:p-8">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span class="badge badge-brand">{webinars[0].duration}</span>
+              <span class="text-sm text-gray-400">{webinars[0].date}</span>
             </div>
+            <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">{webinars[0].title}</h3>
+            <p class="text-gray-500 leading-relaxed">{webinars[0].desc}</p>
+          </div>
+        </div>
+      </div>
 
-            <h3 class="text-lg font-heading text-gray-900 mb-2">
-              {webinar.title}
-            </h3>
-
-            <p class="text-sm text-gray-500 mb-3">{webinar.date}</p>
-
-            <p class="text-base text-gray-500 leading-relaxed mb-6 flex-1">
-              {webinar.desc}
-            </p>
-
-            <a
-              href="/contact"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800 transition-colors group"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-              Watch Webinar
-              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </a>
+      <!-- Rest of webinars -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {webinars.slice(1).map((webinar, i) => (
+          <div class="card card-hover overflow-hidden flex flex-col reveal" style={`transition-delay: ${(i + 1) * 100}ms`}>
+            <YouTubeEmbed videoId={webinar.videoId} title={webinar.title} />
+            <div class="p-6 flex-1 flex flex-col">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="badge badge-brand text-xs">{webinar.duration}</span>
+                <span class="text-xs text-gray-400">{webinar.date}</span>
+              </div>
+              <h3 class="text-lg font-heading text-gray-900 leading-snug mb-2">{webinar.title}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed flex-1">{webinar.desc}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -108,8 +117,8 @@ const webinarSchema = webinars.map((w) => ({
   <CTABanner
     heading="Want to See It Live?"
     body="Join our next webinar to learn how to streamline your firm's operations."
-    buttonText="Contact Us"
-    buttonLink="/contact"
+    buttonText="Book a Call"
+    buttonLink="/book-call"
     variant="dark"
   />
 
