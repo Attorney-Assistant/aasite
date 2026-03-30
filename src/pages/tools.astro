@@ -1,12 +1,11 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
 
 const tools = [
   {
     title: "Intake Audit Checklist",
-    description: "A 10-minute self-assessment that reveals where your firm is losing cases. Score your intake operations across five critical areas — speed to lead, call coverage, follow-up persistence, intake quality, and systems visibility — and find out whether you're ahead of the curve or actively bleeding revenue.",
+    description: "A 10-minute self-assessment that reveals where your firm is losing cases. Score your intake operations across five critical areas — speed to lead, call coverage, follow-up persistence, intake quality, and systems visibility.",
     highlights: [
       "25 yes/no/sometimes questions across 5 intake categories",
       "Instant scoring: strong operations, operational gaps, or active revenue loss",
@@ -22,6 +21,7 @@ const tools = [
       { value: "25", label: "questions" },
       { value: "5", label: "intake areas scored" },
     ],
+    accent: "gold",
   },
   {
     title: "Forever Task Map",
@@ -41,6 +41,7 @@ const tools = [
       { value: "40+", label: "roles defined" },
       { value: "14", label: "departments" },
     ],
+    accent: "blue",
   },
   {
     title: "PI Law Firm Tool Matrix",
@@ -60,6 +61,7 @@ const tools = [
       { value: "38", label: "tasks covered" },
       { value: "71", label: "AI agent ideas" },
     ],
+    accent: "navy",
   },
 ];
 ---
@@ -69,111 +71,160 @@ const tools = [
   description="Free diagnostic tools to help law firms identify operational gaps, optimize intake, and stop losing cases. Built by Attorney Assistant."
 >
 
-  <Hero
-    badge="Tools"
-    title="Diagnostic Tools for Law Firms"
-    subtitle="Free, practical tools to help you identify operational gaps and stop losing the cases you're already paying for."
-    size="sm"
-    align="center"
-  />
-
-  <section class="section-padding">
-    <div class="container-wide">
-      <div class="max-w-4xl mx-auto space-y-8">
-        {tools.map((tool, i) => (
-          <div class="card p-0 overflow-hidden reveal" style={`transition-delay: ${i * 100}ms`}>
-            <div class="p-8 md:p-10">
-              <div class="flex flex-wrap items-center gap-3 mb-5">
-                <div class="featured-icon featured-icon-md featured-icon-gold">
-                  {tool.icon === "clipboard-check" && (
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
-                    </svg>
-                  )}
-                  {tool.icon === "map" && (
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
-                    </svg>
-                  )}
-                  {tool.icon === "grid" && (
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-                    </svg>
-                  )}
-                </div>
-                {tool.badge && (
-                  <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold-dark bg-brand-gold-light border border-brand-gold/20 rounded-full px-3 py-0.5">{tool.badge}</span>
-                )}
-              </div>
-
-              <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">{tool.title}</h2>
-              <p class="text-lg text-gray-500 leading-relaxed mb-6">{tool.description}</p>
-
-              <ul class="space-y-3 mb-8">
-                {tool.highlights.map((item) => (
-                  <li class="flex items-start gap-3 text-gray-600">
-                    <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={tool.href}
-                {...(tool.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                class="btn-primary btn-lg group inline-flex"
-              >
-                {tool.cta}
-                <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-
-            <!-- Stats bar -->
-            {tool.stats && (
-              <div class="border-t border-gray-100 bg-gray-50 px-8 md:px-10 py-5">
-                <div class="grid grid-cols-3 gap-6 text-center">
-                  {tool.stats.map((stat: any) => (
-                    <div>
-                      <p class="text-xl font-heading text-gray-900">{stat.value}</p>
-                      <p class="text-xs text-gray-500 mt-0.5">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+  <!-- Dark Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-wide relative z-10 py-16 md:py-24">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-5 reveal">Free Tools</span>
+        <h1 class="text-display-md md:text-display-lg font-heading text-white mb-5 reveal" style="transition-delay: 50ms;">
+          Diagnostic Tools for Law Firms
+        </h1>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg md:text-xl text-white/60 leading-relaxed reveal" style="transition-delay: 100ms;">
+          Free, practical tools to help you identify operational gaps and stop losing the cases you're already paying for.
+        </p>
       </div>
     </div>
+    <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
   </section>
 
-  <!-- Why Audit Section -->
-  <section class="section-padding bg-gray-50 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
-    <div class="container-wide relative">
+  <!-- Tools -->
+  {tools.map((tool, i) => (
+    <section class:list={[
+      "relative overflow-hidden",
+      i % 2 === 0 ? "bg-white" : "bg-gray-50"
+    ]}>
+      {i % 2 === 1 && <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>}
+      <div class="container-wide relative py-16 md:py-20">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center reveal" style={`transition-delay: ${i * 50}ms`}>
+          <!-- Content -->
+          <div class:list={[i % 2 === 1 ? "lg:order-2" : ""]}>
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+              <div class:list={[
+                "featured-icon featured-icon-md",
+                tool.accent === "gold" ? "featured-icon-gold" : tool.accent === "blue" ? "featured-icon-brand" : "featured-icon-navy"
+              ]}>
+                {tool.icon === "clipboard-check" && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
+                  </svg>
+                )}
+                {tool.icon === "map" && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+                  </svg>
+                )}
+                {tool.icon === "grid" && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                  </svg>
+                )}
+              </div>
+              {tool.badge && (
+                <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold-dark bg-brand-gold-light border border-brand-gold/20 rounded-full px-3 py-0.5">{tool.badge}</span>
+              )}
+            </div>
+
+            <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">{tool.title}</h2>
+            <p class="text-lg text-gray-500 leading-relaxed mb-6">{tool.description}</p>
+
+            <ul class="space-y-3 mb-8">
+              {tool.highlights.map((item) => (
+                <li class="flex items-start gap-3 text-gray-600">
+                  <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={tool.href}
+              {...(tool.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              class="btn-primary btn-lg group inline-flex"
+            >
+              {tool.cta}
+              <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Stats Card -->
+          <div class:list={[i % 2 === 1 ? "lg:order-1" : ""]}>
+            <div class="rounded-2xl border border-gray-200 overflow-hidden shadow-lg">
+              <div class:list={[
+                "px-8 py-6",
+                tool.accent === "gold" ? "bg-gradient-to-br from-brand-gold/10 to-brand-gold/5" :
+                tool.accent === "blue" ? "bg-gradient-to-br from-brand-blue/10 to-brand-blue/5" :
+                "bg-gradient-to-br from-brand-navy/10 to-brand-navy/5"
+              ]}>
+                <h3 class="font-heading text-gray-900 text-center mb-1">At a Glance</h3>
+                <div class:list={[
+                  "w-8 h-0.5 mx-auto rounded-full",
+                  tool.accent === "gold" ? "bg-brand-gold" : tool.accent === "blue" ? "bg-brand-blue" : "bg-brand-navy"
+                ]}></div>
+              </div>
+              {tool.stats && (
+                <div class="bg-white px-8 py-8">
+                  <div class="grid grid-cols-3 gap-6 text-center">
+                    {tool.stats.map((stat: any) => (
+                      <div>
+                        <p class:list={[
+                          "text-display-xs font-heading mb-1",
+                          tool.accent === "gold" ? "text-brand-gold" : tool.accent === "blue" ? "text-brand-blue" : "text-brand-navy"
+                        ]}>{stat.value}</p>
+                        <p class="text-xs text-gray-500">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div class="border-t border-gray-100 bg-gray-50 px-8 py-4 text-center">
+                <p class="text-xs text-gray-400">Free &mdash; no credit card required</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {i < tools.length - 1 && (
+        <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+      )}
+    </section>
+  ))}
+
+  <!-- Why It Matters -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-wide relative z-10 py-16 md:py-20">
       <div class="text-center mb-12 reveal">
-        <span class="badge badge-brand mb-4">Why It Matters</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">You Don't Have a Lead Problem</h2>
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-4">Why It Matters</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-white mb-4">You Don't Have a Lead Problem</h2>
         <div class="divider-gold-center mt-4 mb-5"></div>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Most firms think they need more leads. They actually need to stop losing the ones they already paid for.</p>
+        <p class="text-lg text-white/60 max-w-2xl mx-auto">Most firms think they need more leads. They actually need to stop losing the ones they already paid for.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        <div class="text-center p-8 rounded-2xl bg-white border border-gray-200 reveal" style="transition-delay: 0.1s;">
+        <div class="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 reveal" style="transition-delay: 0.1s;">
           <p class="text-display-sm font-heading text-brand-gold mb-2">20-40%</p>
-          <p class="text-gray-500">of inbound opportunities lost before a conversation even starts</p>
+          <p class="text-white/50">of inbound opportunities lost before a conversation even starts</p>
         </div>
-        <div class="text-center p-8 rounded-2xl bg-white border border-gray-200 reveal" style="transition-delay: 0.2s;">
+        <div class="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 reveal" style="transition-delay: 0.2s;">
           <p class="text-display-sm font-heading text-brand-gold mb-2">15 min</p>
-          <p class="text-gray-500">maximum response window before lead quality drops sharply</p>
+          <p class="text-white/50">maximum response window before lead quality drops sharply</p>
         </div>
-        <div class="text-center p-8 rounded-2xl bg-white border border-gray-200 reveal" style="transition-delay: 0.3s;">
+        <div class="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 reveal" style="transition-delay: 0.3s;">
           <p class="text-display-sm font-heading text-brand-gold mb-2">8-12x</p>
-          <p class="text-gray-500">follow-up attempts needed to convert a qualified lead</p>
+          <p class="text-white/50">follow-up attempts needed to convert a qualified lead</p>
         </div>
       </div>
     </div>
@@ -184,7 +235,7 @@ const tools = [
     body="We'll secret-shop your firm as a real prospect, document exactly what happens, and show you where you're losing cases. No pitch — just data."
     buttonText="Get a Free Intake Audit"
     buttonLink="/book-call"
-    variant="brand"
+    variant="light"
   />
 
 </BaseLayout>
