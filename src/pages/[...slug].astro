@@ -38,7 +38,7 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<BaseLayout title={page.title}>
+<BaseLayout title={page.title} description={`${page.title} — Attorney Assistant helps law firms streamline operations, fix intake, and grow faster.`}>
   <Hero title={page.title} />
 
   <article class="wp-content">

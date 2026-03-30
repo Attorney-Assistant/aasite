@@ -14,7 +14,8 @@ export default defineConfig({
         !page.includes("/styleguide") &&
         !page.includes("/signaturegenerator") &&
         !page.includes("/storybook") &&
-        !page.includes("/thank-you"),
+        !page.endsWith("/thank-you") &&
+        !page.endsWith("/thank-you/"),
     }),
     mdx(),
   ],
