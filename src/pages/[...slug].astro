@@ -4,46 +4,21 @@ import Hero from "@components/Hero.astro";
 import wpPages from "../../scripts/output/wp-xml-pages.json";
 
 export function getStaticPaths() {
-  const existingSlugs = new Set([
-    "home",
-    "attorney-assistant-home",
-    "home-old",
-    "about",
-    "contact",
-    "privacy-policy",
-    "blog",
-    "services",
-    "intake-360",
-    "impact-assistants",
-    "virtual-legal-assistants",
-    "admin-support",
-    "legal-receptionist",
-    "executive-assistant",
-    "marketing-support",
-    "intake-reception",
-    "intake360",
-    "resources",
-    "guides",
-    "webinars",
-    "all-scripts-2025",
-    "podcast",
-    "our-story",
-    "our-team",
-    "careers",
-    "faq",
-    "reviews",
-    "book-call",
-    "new-book-a-call",
-    "pricing",
-    "storybook",
-    "styleguide",
-    "signaturegenerator",
-    "thank-you",
-    "thank-you-booking",
-    "intake-360-terms",
+  // Only build WP XML pages that are still needed as live content.
+  // Everything else is either migrated to a dedicated Astro page or
+  // handled by an .htaccess redirect.
+  const liveLegacySlugs = new Set([
+    "attorney-assistant-contract-terms",
+    "attorney-assistant-contract-terms-for-100",
+    "testimonials-and-case-studies",
+    "recruitment-onboarding",
+    "cost-comparison",
+    "affiliate",
+    "events",
+    "new-events",
   ]);
   return wpPages
-    .filter((page: any) => !existingSlugs.has(page.slug))
+    .filter((page: any) => liveLegacySlugs.has(page.slug))
     .map((page: any) => ({
       params: { slug: page.slug },
       props: { page },

@@ -1,0 +1,330 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+let googleReviews: any = { reviews: [], overallRating: 0, totalReviews: 0 };
+try {
+  googleReviews = await import("../../../scripts/output/google-reviews.json");
+} catch {}
+const topReviews = (googleReviews.reviews || [])
+  .filter((r: any) => r.rating === 5 && r.text && r.text.length > 60)
+  .slice(0, 3);
+
+const auditSections = [
+  {
+    number: 1,
+    title: "Speed to Lead",
+    teaser: "How fast does your firm actually respond to new inquiries? The data says you have 15 minutes — or less.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  },
+  {
+    number: 2,
+    title: "Call Coverage",
+    teaser: "If calls go to voicemail, the lead is already gone. Are you answering 100% of the time — including nights and weekends?",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />`,
+  },
+  {
+    number: 3,
+    title: "Follow-Up Persistence",
+    teaser: "The average firm makes 1.3 follow-up attempts. Conversion requires 8-12. That gap is where your marketing budget disappears.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />`,
+  },
+  {
+    number: 4,
+    title: "Intake Quality",
+    teaser: "Intake is a sales conversation. An unstructured call is a missed conversion opportunity — every single time.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />`,
+  },
+  {
+    number: 5,
+    title: "Systems & Visibility",
+    teaser: "You can't fix what you can't see. Most firms make marketing decisions based on instinct. That's expensive instinct.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />`,
+  },
+];
+
+const stats = [
+  { value: "20–40%", label: "of inbound opportunities lost before a conversation starts" },
+  { value: "15 min", label: "maximum response window before lead quality drops sharply" },
+  { value: "8–12x", label: "follow-up attempts needed to convert a qualified lead" },
+];
+---
+
+<BaseLayout
+  title="Audit My Intake — Free Secret Shopper Test for Law Firms | Atlanta"
+  description="Find out exactly where your law firm is losing cases. We'll call your firm as a real prospect, document what happens, and show you the gaps — free, no pitch."
+  noindex={true}
+>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-wide relative py-16 md:py-24">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-5 reveal">Intake Operations Diagnostic</span>
+        <h1 class="text-display-md md:text-display-lg font-heading text-white mb-6 reveal" style="transition-delay: 50ms;">
+          Where Are Your Leads Going to Die?
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 leading-relaxed mb-4 reveal" style="transition-delay: 100ms;">
+          Most law firms think they need more leads. They actually need to stop losing the ones they already paid for.
+        </p>
+        <p class="text-base text-white/50 mb-8 reveal" style="transition-delay: 150ms;">
+          We'll call your firm as a real prospect, document exactly what happens, and walk you through where you're losing cases. No pitch. Just data.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center reveal" style="transition-delay: 200ms;">
+          <a href="#book-audit" class="btn-primary btn-lg group">
+            Get Your Free Intake Audit
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-white border-b border-gray-100">
+    <div class="container-wide py-10 md:py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {stats.map((stat, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 100}ms`}>
+            <p class="text-display-xs md:text-display-sm font-heading text-brand-gold mb-1">{stat.value}</p>
+            <p class="text-sm text-gray-500">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Real Problem -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <span class="badge badge-brand mb-4">The Real Problem</span>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">You Don't Have a Lead Problem. You Have an Operations Problem.</h2>
+          <div class="divider-gold-center mt-4 mb-6"></div>
+          <p class="text-lg text-gray-500 leading-relaxed">
+            Every dollar you spend on marketing assumes someone is ready to catch the lead on the other end. Most firms aren't. The intake process — the moment between a prospect reaching out and a case being booked — is where revenue disappears quietly, every single day.
+          </p>
+        </div>
+
+        <!-- Lead Death Funnel -->
+        <div class="card p-6 md:p-8 reveal" style="transition-delay: 0.1s;">
+          <h3 class="font-heading text-base text-gray-900 mb-6 text-center">Where Your Leads Actually Go</h3>
+          <div class="space-y-0">
+            {[
+              { label: "Inbound Lead", sub: "Paid or organic — you spent money to get here", color: "bg-brand-500" },
+              { label: "Missed Call", sub: "No live answer. Voicemail. No callback within 15 min.", color: "bg-orange-400" },
+              { label: "No Follow-Up", sub: "1-2 attempts. Lead goes cold. Staff moves on.", color: "bg-orange-500" },
+              { label: "No Booking", sub: "Consultation never scheduled. Case never evaluated.", color: "bg-red-400" },
+              { label: "Lost Case", sub: "Competitor answered. They signed the client. You paid for the lead.", color: "bg-red-600" },
+            ].map((step, i) => (
+              <div class="flex items-start gap-4">
+                <div class="flex flex-col items-center flex-shrink-0">
+                  <div class={`w-3 h-3 rounded-full ${step.color} ring-4 ring-white`}></div>
+                  {i < 4 && <div class="w-px h-10 bg-gray-200"></div>}
+                </div>
+                <div class="pb-4">
+                  <p class="text-sm font-semibold text-gray-900">{step.label}</p>
+                  <p class="text-xs text-gray-500">{step.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="text-center text-sm text-gray-400 mt-4 italic">This happens every day at firms that haven't fixed their intake operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Audit -->
+  <section class="section-padding bg-gray-50 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand mb-4">What We Audit</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">Five Areas. One Clear Picture.</h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Our intake audit scores your firm across the five areas that determine whether leads become clients — or become someone else's clients.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {auditSections.map((section, i) => (
+          <div class={`card p-6 reveal ${i === 4 ? 'sm:col-span-2 lg:col-span-1' : ''}`} style={`transition-delay: ${i * 80}ms`}>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-brand-navy text-white shadow-sm flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <Fragment set:html={section.icon} />
+                </svg>
+              </div>
+              <span class="text-[0.625rem] font-bold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2 py-0.5 rounded-full">Section {section.number}</span>
+            </div>
+            <h3 class="font-heading text-gray-900 mb-2">{section.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{section.teaser}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10 reveal">
+        <a href="#book-audit" class="btn-primary btn-lg group">
+          Get Your Free Audit
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="max-w-3xl mx-auto text-center mb-12 reveal">
+        <span class="badge badge-brand mb-4">What You Get</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">A Real Test. Real Data. No Guesswork.</h2>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {[
+          {
+            title: "Secret Shopper Call",
+            desc: "We call your firm as a prospective client and document exactly what happens — response time, tone, follow-up, everything.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />`,
+          },
+          {
+            title: "Gap Analysis Report",
+            desc: "A clear breakdown of where leads are dropping off in your intake funnel, scored against industry benchmarks.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />`,
+          },
+          {
+            title: "Action Plan Walkthrough",
+            desc: "We walk you through exactly what to fix and in what order — prioritized by revenue impact, not complexity.",
+            icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />`,
+          },
+        ].map((item, i) => (
+          <div class="text-center p-8 rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-300 reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-brand-gold-light text-brand-gold-dark border border-brand-gold/20 mb-5">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <Fragment set:html={item.icon} />
+              </svg>
+            </div>
+            <h3 class="text-lg font-heading text-gray-900 mb-3">{item.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  {topReviews.length > 0 && (
+    <section class="section-padding bg-gray-50 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+      <div class="container-wide relative">
+        <div class="text-center mb-12 reveal">
+          <span class="badge badge-brand mb-4">Trusted by 200+ Law Firms</span>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">What Firms Are Saying</h2>
+          <div class="divider-gold-center mt-4"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {topReviews.map((review: any, i: number) => (
+            <div class="card p-6 reveal" style={`transition-delay: ${i * 100}ms`}>
+              <div class="flex gap-0.5 mb-3">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed mb-3 line-clamp-4">{review.text}</p>
+              <p class="text-xs font-medium text-gray-900">{review.authorName}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Calendly Booking Section -->
+  <section id="book-audit" class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-wide relative py-16 md:py-20">
+      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-4">Free — No Obligation</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Book Your Free Intake Audit
+        </h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-white/60">
+          Pick a time below and we'll schedule your secret shopper test. You'll get a complete report showing exactly where your intake process breaks down.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-12 items-start">
+        <!-- Calendly Embed -->
+        <div class="lg:col-span-3 reveal" style="transition-delay: 0.1s;">
+          <div style="max-width: 720px; margin: 0 auto;">
+            <div
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/aa-sales-team/attorney-assistant-diagnostic-call-with-team?hide_event_type_details=1&hide_gdpr_banner=1"
+              style="min-width:320px;height:660px;"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-2 reveal" style="transition-delay: 0.2s;">
+          <div class="space-y-6">
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+              <h3 class="font-heading text-lg text-white mb-4">What Happens Next</h3>
+              <ul class="space-y-4">
+                {[
+                  { step: "1", text: "We schedule your secret shopper test" },
+                  { step: "2", text: "Our team calls your firm as a real prospect" },
+                  { step: "3", text: "We document response time, follow-up, and quality" },
+                  { step: "4", text: "You get a full report + action plan walkthrough" },
+                ].map((item) => (
+                  <li class="flex gap-3 items-start">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-gold/15 text-brand-gold text-xs font-bold flex items-center justify-center mt-0.5">{item.step}</span>
+                    <p class="text-sm text-white/70">{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+              <h3 class="font-heading text-sm text-white mb-3">Prefer to reach out directly?</h3>
+              <div class="space-y-3">
+                <a href="tel:+12153372677" class="flex items-center gap-3 text-sm text-white/60 hover:text-brand-gold transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                  (215) 337-2677
+                </a>
+                <a href="mailto:info@attorneyassistant.com" class="flex items-center gap-3 text-sm text-white/60 hover:text-brand-gold transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                  info@attorneyassistant.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendly script -->
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+</BaseLayout>

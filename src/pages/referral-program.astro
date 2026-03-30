@@ -1,0 +1,218 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import CTABanner from "@components/CTABanner.astro";
+
+const steps = [
+  {
+    number: 1,
+    title: "Send an Introduction",
+    description: "Introduce your friend or contact to us via email. Just CC or send a message to referral@attorneyassistant.com with their details.",
+    icon: "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75",
+  },
+  {
+    number: 2,
+    title: "We Take It From There",
+    description: "Our team reaches out to your referral and makes sure they receive top-notch service — no effort needed on your end.",
+    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
+  },
+  {
+    number: 3,
+    title: "Get Rewarded",
+    description: "After your referral has been an active client for 60 days, you receive your account credit automatically.",
+    icon: "M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+];
+
+const faqs = [
+  {
+    question: "How do I refer someone?",
+    answer: "Simply send an introduction email to referral@attorneyassistant.com with the contact details of the person you're referring. We'll take it from there!",
+  },
+  {
+    question: "What kind of reward will I receive?",
+    answer: "Current clients receive a $1,000 account credit for each successful referral. Non-clients receive $500 for each referral that becomes an active client.",
+  },
+  {
+    question: "Is there a limit to how many people I can refer?",
+    answer: "No limit! You can refer as many people as you like. Each successful referral earns its own reward.",
+  },
+  {
+    question: "When will I receive my bonus?",
+    answer: "You'll receive your account credit after the referred client has been active with Attorney Assistant for 60 days.",
+  },
+  {
+    question: "Can I refer someone outside of the legal industry?",
+    answer: "Yes! Our staffing services benefit a wide range of industries, so feel free to refer anyone who could use our support.",
+  },
+  {
+    question: "How will I know if my referral was successful?",
+    answer: "We'll notify you via email once your referral has signed up and become an active client.",
+  },
+  {
+    question: "What if my referral doesn't become a client?",
+    answer: "No worries — you won't be charged or penalized. You're welcome to refer others at any time.",
+  },
+  {
+    question: "Can I participate if I'm not a current client?",
+    answer: "Absolutely! Our referral program is open to everyone. Non-clients earn $500 per successful referral instead of $1,000.",
+  },
+];
+---
+
+<BaseLayout
+  title="Referral Program"
+  description="Refer a friend to Attorney Assistant and earn up to $1,000 in account credit. No limits on referrals — the more you share, the more you earn."
+>
+
+  <Hero
+    badge="Referral Program"
+    title="Share the Secret. Get Rewarded."
+    subtitle="Refer a friend to Attorney Assistant and earn up to $1,000 in account credit for every successful referral. No limits — the more you share, the more you earn."
+    buttonText="Refer a Friend Now"
+    buttonLink="mailto:referral@attorneyassistant.com"
+    secondaryButtonText="Learn How It Works"
+    secondaryButtonLink="#how-it-works"
+    size="md"
+    align="center"
+  />
+
+  <!-- Reward Highlight -->
+  <section class="section-padding bg-gray-50 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Current Clients -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-8 text-center relative overflow-hidden reveal" style="transition-delay: 0.1s;">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-gold to-brand-gold-dark"></div>
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-brand-gold-light text-brand-gold-dark border border-brand-gold/20 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+            </svg>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-gold-dark mb-2">Current Clients</p>
+          <p class="text-display-sm md:text-display-md font-heading text-gray-900 mb-2">$1,000</p>
+          <p class="text-gray-500">account credit per referral</p>
+        </div>
+
+        <!-- Non-Clients -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-8 text-center relative overflow-hidden reveal" style="transition-delay: 0.2s;">
+          <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-500 to-brand-700"></div>
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-brand-50 text-brand-600 border border-brand-100 mb-5">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-600 mb-2">Non-Clients</p>
+          <p class="text-display-sm md:text-display-md font-heading text-gray-900 mb-2">$500</p>
+          <p class="text-gray-500">cash reward per referral</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding relative overflow-hidden" id="how-it-works">
+    <div class="container-wide">
+      <div class="text-center mb-16 reveal">
+        <span class="badge badge-brand mb-4">How It Works</span>
+        <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">Three Simple Steps</h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Earning rewards is easy — no forms, no portals, just a quick email.</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+          {steps.map((step, i) => (
+            <div class="text-center relative p-8 rounded-2xl bg-white border border-gray-200 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-gray-300 reveal" style={`transition-delay: ${i * 150}ms`}>
+              <div class="relative inline-flex items-center justify-center w-[60px] h-[60px] mb-5">
+                <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-brand-navy text-white shadow-lg relative z-10">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d={step.icon} />
+                  </svg>
+                </div>
+              </div>
+              <span class="inline-block text-[0.6875rem] font-bold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-0.5 rounded-full mb-2">Step {step.number}</span>
+              <h3 class="text-xl font-heading text-gray-900 mb-3">{step.title}</h3>
+              <p class="text-gray-500 leading-relaxed">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email CTA -->
+  <section class="bg-brand-navy grain-overlay relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container-wide section-padding text-center relative z-10">
+      <div class="max-w-2xl mx-auto">
+        <div class="divider-gold-center mb-6"></div>
+        <h2 class="text-display-sm md:text-display-md text-white mb-4">Ready to Refer?</h2>
+        <p class="text-lg text-brand-200 leading-relaxed mb-4">
+          Send an introduction email with your referral's name and contact info to:
+        </p>
+        <a
+          href="mailto:referral@attorneyassistant.com"
+          class="inline-block text-xl md:text-2xl font-heading text-brand-gold hover:text-brand-gold-dark transition-colors mb-8"
+        >
+          referral@attorneyassistant.com
+        </a>
+        <div>
+          <a href="mailto:referral@attorneyassistant.com" class="btn-primary btn-lg group">
+            Send Referral Email
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding reveal" style="transition-delay: 0.1s;">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-4">FAQ</span>
+        <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">Common Questions</h2>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+
+      <div class="divide-y divide-gray-200 border-t border-b border-gray-100">
+        {faqs.map((faq) => (
+          <details class="group">
+            <summary class="py-5 px-1 font-heading text-base cursor-pointer flex justify-between items-center list-none [&::-webkit-details-marker]:hidden text-gray-900 hover:text-brand-700 transition-colors">
+              <span class="pr-4">{faq.question}</span>
+              <svg
+                class="w-5 h-5 flex-shrink-0 text-brand-500 transition-transform duration-200 group-open:rotate-45"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </summary>
+            <div class="pb-5 px-1 text-sm text-gray-500 leading-relaxed">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Questions? Let's Talk."
+    body="Not sure if the referral program is right for you? Schedule a quick call and we'll walk you through everything."
+    buttonText="Schedule a Call"
+    buttonLink="/book-call"
+    variant="brand"
+  />
+
+</BaseLayout>

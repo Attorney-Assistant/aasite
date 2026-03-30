@@ -1,0 +1,142 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import CTABanner from "@components/CTABanner.astro";
+
+const tools = [
+  {
+    title: "Intake Audit Checklist",
+    description: "A 10-minute self-assessment that reveals where your firm is losing cases. Score your intake operations across five critical areas — speed to lead, call coverage, follow-up persistence, intake quality, and systems visibility — and find out whether you're ahead of the curve or actively bleeding revenue.",
+    highlights: [
+      "25 yes/no/sometimes questions across 5 intake categories",
+      "Instant scoring: strong operations, operational gaps, or active revenue loss",
+      "Backed by data — 20-40% of inbound opportunities are lost before a conversation starts",
+      "Identifies the exact stage where leads drop off in your funnel",
+    ],
+    href: "https://hubs.ly/Q048T91H0",
+    cta: "Take the Audit",
+    icon: "clipboard-check",
+    badge: "Most Popular",
+  },
+];
+---
+
+<BaseLayout
+  title="Free Tools for Law Firms"
+  description="Free diagnostic tools to help law firms identify operational gaps, optimize intake, and stop losing cases. Built by Attorney Assistant."
+>
+
+  <Hero
+    badge="Tools"
+    title="Diagnostic Tools for Law Firms"
+    subtitle="Free, practical tools to help you identify operational gaps and stop losing the cases you're already paying for."
+    size="sm"
+    align="center"
+  />
+
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="max-w-4xl mx-auto space-y-8">
+        {tools.map((tool, i) => (
+          <div class="card p-0 overflow-hidden reveal" style={`transition-delay: ${i * 100}ms`}>
+            <div class="p-8 md:p-10">
+              <div class="flex flex-wrap items-center gap-3 mb-5">
+                <div class="featured-icon featured-icon-md featured-icon-gold">
+                  {tool.icon === "clipboard-check" && (
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
+                    </svg>
+                  )}
+                </div>
+                {tool.badge && (
+                  <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold-dark bg-brand-gold-light border border-brand-gold/20 rounded-full px-3 py-0.5">{tool.badge}</span>
+                )}
+              </div>
+
+              <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">{tool.title}</h2>
+              <p class="text-lg text-gray-500 leading-relaxed mb-6">{tool.description}</p>
+
+              <ul class="space-y-3 mb-8">
+                {tool.highlights.map((item) => (
+                  <li class="flex items-start gap-3 text-gray-600">
+                    <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={tool.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary btn-lg group inline-flex"
+              >
+                {tool.cta}
+                <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Stats bar -->
+            <div class="border-t border-gray-100 bg-gray-50 px-8 md:px-10 py-5">
+              <div class="grid grid-cols-3 gap-6 text-center">
+                <div>
+                  <p class="text-xl font-heading text-gray-900">10 min</p>
+                  <p class="text-xs text-gray-500 mt-0.5">to complete</p>
+                </div>
+                <div>
+                  <p class="text-xl font-heading text-gray-900">25</p>
+                  <p class="text-xs text-gray-500 mt-0.5">questions</p>
+                </div>
+                <div>
+                  <p class="text-xl font-heading text-gray-900">5</p>
+                  <p class="text-xs text-gray-500 mt-0.5">intake areas scored</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Audit Section -->
+  <section class="section-padding bg-gray-50 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand mb-4">Why It Matters</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">You Don't Have a Lead Problem</h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Most firms think they need more leads. They actually need to stop losing the ones they already paid for.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center p-8 rounded-2xl bg-white border border-gray-200 reveal" style="transition-delay: 0.1s;">
+          <p class="text-display-sm font-heading text-brand-gold mb-2">20-40%</p>
+          <p class="text-gray-500">of inbound opportunities lost before a conversation even starts</p>
+        </div>
+        <div class="text-center p-8 rounded-2xl bg-white border border-gray-200 reveal" style="transition-delay: 0.2s;">
+          <p class="text-display-sm font-heading text-brand-gold mb-2">15 min</p>
+          <p class="text-gray-500">maximum response window before lead quality drops sharply</p>
+        </div>
+        <div class="text-center p-8 rounded-2xl bg-white border border-gray-200 reveal" style="transition-delay: 0.3s;">
+          <p class="text-display-sm font-heading text-brand-gold mb-2">8-12x</p>
+          <p class="text-gray-500">follow-up attempts needed to convert a qualified lead</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Want a Professional Intake Audit?"
+    body="We'll secret-shop your firm as a real prospect, document exactly what happens, and show you where you're losing cases. No pitch — just data."
+    buttonText="Get a Free Intake Audit"
+    buttonLink="/book-call"
+    variant="brand"
+  />
+
+</BaseLayout>

@@ -148,6 +148,101 @@ const relatedPosts = tagMatches.length >= 3
     )}
   </article>
 
+  <script>
+    // Transform FAQ sections in blog posts into styled accordions
+    function transformBlogFAQs() {
+      const content = document.querySelector('.blog-content');
+      if (!content) return;
+
+      // Find FAQ heading (h2 containing "frequently asked questions")
+      const headings = content.querySelectorAll('h2');
+      let faqH2: HTMLElement | null = null;
+      headings.forEach((h) => {
+        if (h.textContent?.toLowerCase().includes('frequently asked questions')) {
+          faqH2 = h as HTMLElement;
+        }
+      });
+      if (!faqH2) return;
+
+      // Collect all FAQ items (h3 + following content until next h3/h2 or end)
+      const items: { question: string; answerEls: Element[] }[] = [];
+      let sibling = (faqH2 as HTMLElement).nextElementSibling;
+      let current: { question: string; answerEls: Element[] } | null = null;
+
+      while (sibling) {
+        const tag = sibling.tagName;
+        if (tag === 'H2') break; // next major section
+        if (tag === 'H3') {
+          if (current) items.push(current);
+          current = { question: sibling.textContent || '', answerEls: [] };
+        } else if (current) {
+          current.answerEls.push(sibling);
+        }
+        sibling = sibling.nextElementSibling;
+      }
+      if (current) items.push(current);
+      if (items.length === 0) return;
+
+      // Build the styled FAQ container
+      const section = document.createElement('div');
+      section.className = 'blog-faq-section not-prose';
+
+      // Badge
+      const badge = document.createElement('span');
+      badge.className = 'blog-faq-badge';
+      badge.textContent = 'FAQ';
+      section.appendChild(badge);
+
+      // Heading with icon
+      const heading = document.createElement('h2');
+      heading.className = 'blog-faq-heading';
+      heading.innerHTML = `<svg class="w-6 h-6 text-brand-gold flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18.75h.008v.008H12v-.008z"/><circle cx="12" cy="12" r="10" stroke-linecap="round"/></svg> Frequently Asked Questions`;
+      section.appendChild(heading);
+
+      // Gold divider
+      const divider = document.createElement('div');
+      divider.className = 'blog-faq-divider';
+      section.appendChild(divider);
+
+      // Accordion items
+      const list = document.createElement('div');
+      list.className = 'divide-y divide-gray-200 border-t border-gray-100';
+
+      items.forEach((item) => {
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.innerHTML = `<span class="pr-4">${item.question}</span><svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>`;
+        details.appendChild(summary);
+
+        const answer = document.createElement('div');
+        answer.className = 'faq-answer';
+        item.answerEls.forEach((el) => {
+          answer.appendChild(el.cloneNode(true));
+        });
+        details.appendChild(answer);
+        list.appendChild(details);
+      });
+
+      section.appendChild(list);
+
+      // Remove original FAQ elements from the DOM
+      // Remove h3s and their content between faqH2 and next h2
+      const toRemove: Element[] = [];
+      sibling = (faqH2 as HTMLElement).nextElementSibling;
+      while (sibling) {
+        if (sibling.tagName === 'H2') break;
+        toRemove.push(sibling);
+        sibling = sibling.nextElementSibling;
+      }
+      toRemove.forEach((el) => el.remove());
+
+      // Replace the original h2 with the styled section
+      (faqH2 as HTMLElement).replaceWith(section);
+    }
+
+    transformBlogFAQs();
+  </script>
+
   <style>
     .blog-content :global(img) {
       max-width: 100%;

@@ -148,6 +148,52 @@
            prose-blockquote:border-brand-gold prose-blockquote:text-gray-700;
   }
 
+  /* Blog FAQ section — styled by client-side script */
+  .blog-faq-section {
+    @apply my-12 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8;
+  }
+
+  .blog-faq-section .blog-faq-heading {
+    @apply flex items-center gap-3 text-xl font-heading text-gray-900 mb-1;
+  }
+
+  .blog-faq-section .blog-faq-badge {
+    @apply inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold-dark bg-brand-gold-light border border-brand-gold/20 rounded-full px-3 py-0.5 mb-4;
+  }
+
+  .blog-faq-section .blog-faq-divider {
+    @apply w-12 h-0.5 bg-brand-gold rounded-full mb-6;
+  }
+
+  .blog-faq-section details {
+    @apply border-b border-gray-200 last:border-b-0;
+  }
+
+  .blog-faq-section details summary {
+    @apply py-4 px-1 font-heading text-base cursor-pointer flex justify-between items-center text-gray-900 transition-colors;
+    list-style: none;
+  }
+
+  .blog-faq-section details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .blog-faq-section details summary:hover {
+    @apply text-brand-700;
+  }
+
+  .blog-faq-section details summary .faq-icon {
+    @apply w-5 h-5 flex-shrink-0 text-brand-500 transition-transform duration-200;
+  }
+
+  .blog-faq-section details[open] summary .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .blog-faq-section details .faq-answer {
+    @apply pb-4 px-1 text-sm text-gray-500 leading-relaxed;
+  }
+
   /* Card base */
   .card {
     @apply bg-white rounded-2xl border border-gray-200 shadow-xs;
