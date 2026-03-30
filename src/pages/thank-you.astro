@@ -58,6 +58,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   <script is:inline>
     if (typeof fbq !== 'undefined') fbq('track', 'Lead');
     if (typeof mixpanel !== 'undefined') mixpanel.track('Contact Form Submitted');
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'form_submission', conversion_type: 'lead' });
   </script>
 
 </BaseLayout>
