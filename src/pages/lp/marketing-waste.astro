@@ -1043,12 +1043,15 @@ import CTABanner from "@components/CTABanner.astro";
     }
 
     resultsDiv.innerHTML = badge +
-      '<h3 class="text-xl font-heading text-gray-900 mb-3">' + title + '</h3>' +
-      '<p class="text-sm text-gray-500 leading-relaxed">' + desc + '</p>';
+      '<h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">' + title + '</h2>' +
+      '<p class="text-base text-gray-500 leading-relaxed">' + desc + '</p>';
 
     document.getElementById('form-step').classList.add('hidden');
     document.querySelector('#quiz-card .mb-6').classList.add('hidden'); // hide progress
     document.getElementById('results-step').classList.remove('hidden');
+
+    // Scroll to results
+    document.getElementById('quiz-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function loadHubSpotForm() {
