@@ -12,9 +12,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     <div class="container-wide relative z-10 py-20 md:py-28 text-center">
       <div class="max-w-2xl mx-auto">
 
-        <!-- 404 Label -->
-        <p class="text-sm font-semibold uppercase tracking-widest text-white/30 mb-2">404 Page Not Found</p>
-        <p class="text-sm text-white/20 mb-12 max-w-md mx-auto">The page you were looking for doesn't exist. Neither does your second chance with that lead.</p>
+        <!-- 404 -->
+        <p class="notfound-code">404</p>
+        <p class="text-sm text-white/60 mb-10 max-w-md mx-auto">The page you were looking for doesn't exist. Neither does your second chance with that lead.</p>
 
         <!-- Phone Animation -->
         <div class="phone-scene" aria-hidden="true">
@@ -60,6 +60,20 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
+  /* ── Big 404 ── */
+  .notfound-code {
+    font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: clamp(6rem, 15vw, 10rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(249,166,48,0.3) 50%, rgba(80,167,221,0.2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
   /* ── Ambient orbs ── */
   .notfound-orb {
     position: absolute;
