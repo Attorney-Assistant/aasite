@@ -946,6 +946,16 @@ import CTABanner from "@components/CTABanner.astro";
     color: #b45309;
     border: 1px solid rgba(249,166,48,0.2);
   }
+  /* Hide quiz hidden fields rendered by HubSpot */
+  #hs-form-target .hs_marketing_spend,
+  #hs-form-target .hs_net_fee_per_case,
+  #hs-form-target .hs_afterhours_close,
+  #hs-form-target .hs_n15minute_speed_to_lead,
+  #hs-form-target .hs_saturday_persistence,
+  #hs-form-target .hs_operational_count {
+    display: none !important;
+  }
+
   .result-score-badge.aligned {
     background: rgba(34,197,94,0.1);
     color: #16a34a;

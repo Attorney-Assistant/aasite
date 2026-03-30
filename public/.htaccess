@@ -6,7 +6,7 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 
 # ── Sitemap alias ──
-RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L]
+RewriteRule ^sitemap\.xml$ /sitemap-index.xml [R=301,L]
 
 # ── Force HTTPS and non-www ──
 RewriteCond %{HTTPS} off [OR]
