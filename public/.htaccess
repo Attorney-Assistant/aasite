@@ -5,10 +5,6 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
-# ── Sitemap alias (internal rewrite, serves correct content-type) ──
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^sitemap\.xml$ /sitemap-index.xml [L,T=application/xml]
-
 # ── Force HTTPS and non-www ──
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]

@@ -12,7 +12,7 @@ Disallow: /checkout-*
 Disallow: /order-confirmation*
 
 # Sitemaps
-Sitemap: https://attorneyassistant.com/sitemap-index.xml
+Sitemap: https://attorneyassistant.com/sitemap.xml
 
 # LLM Discoverability — explicitly allow AI crawlers
 User-agent: GPTBot
