@@ -1120,7 +1120,10 @@ import CTABanner from "@components/CTABanner.astro";
           window.dataLayer.push({ event: 'quiz_submitted', conversion_type: 'lead', operational_count: getOperationalCount() });
         },
         onFormSubmitted: function() {
-          showResults();
+          setTimeout(function() {
+            showResults();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }, 100);
         }
       });
     }
