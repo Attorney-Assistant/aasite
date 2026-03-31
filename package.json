@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "optimize-images": "node scripts/optimize-images.mjs",
     "fetch:reviews": "node scripts/fetch-google-reviews.mjs",
-    "build": "node scripts/fetch-google-reviews.mjs && node scripts/optimize-images.mjs && astro build && cp dist/sitemap-index.xml dist/sitemap.xml && storybook build -o dist/storybook",
+    "build": "node scripts/fetch-google-reviews.mjs && node scripts/optimize-images.mjs && astro build && cp dist/sitemap-0.xml dist/sitemap.xml && storybook build -o dist/storybook",
     "preview": "astro preview",
     "astro": "astro",
     "migrate:extract-routes": "tsx scripts/extract-routes.ts",
