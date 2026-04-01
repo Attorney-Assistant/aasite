@@ -37,6 +37,21 @@ const tagMatches = otherPosts.filter((p: any) =>
 const relatedPosts = tagMatches.length >= 3
   ? tagMatches.slice(0, 3)
   : [...tagMatches, ...otherPosts.filter((p: any) => !tagMatches.includes(p))].slice(0, 3);
+
+// Strip duplicate leading h1 and first image from BLG post bodies
+// (BLG posts embed the title + featured image at the top of postBody,
+//  but our template already renders them in the header section)
+let cleanBody = post.postBody || "";
+if (post.source === "blg" || cleanBody.match(/^<h1[^>]*>/i)) {
+  // Remove the leading h1 tag
+  cleanBody = cleanBody.replace(/^(\s*<h1[^>]*>[\s\S]*?<\/h1>\s*)/i, "");
+  // Remove the first img tag if it matches the featured image
+  if (post.featuredImage) {
+    cleanBody = cleanBody.replace(/^(\s*<img[^>]*>\s*)/i, "");
+    // Also handle img wrapped in a figure or p tag
+    cleanBody = cleanBody.replace(/^(\s*<(figure|p)>\s*<img[^>]*>\s*<\/(figure|p)>\s*)/i, "");
+  }
+}
 ---
 
 <BaseLayout
@@ -105,7 +120,7 @@ const relatedPosts = tagMatches.length >= 3
 
     <!-- Body -->
     <div class="container-narrow py-12 md:py-16">
-      <div class="prose-brand blog-content" set:html={post.postBody} />
+      <div class="prose-brand blog-content" set:html={cleanBody} />
     </div>
 
     <!-- ROI Calculator (HubSpot posts only) -->
