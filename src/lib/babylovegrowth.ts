@@ -3,11 +3,14 @@ const BASE_URL = "https://api.babylovegrowth.ai/api/integrations";
 
 function cleanContentHtml(html: string, heroImageUrl: string | null): string {
   let cleaned = html;
+  // Remove embedded JSON-LD schema script (BLG injects its own)
+  cleaned = cleaned.replace(/<script\s+type="application\/ld\+json"[\s\S]*?<\/script>\s*/gi, "");
   // Remove leading <h1> (duplicates the page title)
-  cleaned = cleaned.replace(/^\s*<h1[^>]*>.*?<\/h1>\s*/i, "");
+  cleaned = cleaned.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, "");
   // Remove leading hero image (duplicates the featured image)
   if (heroImageUrl) {
     cleaned = cleaned.replace(/^\s*<p>\s*<img[^>]*>\s*<\/p>\s*/i, "");
+    cleaned = cleaned.replace(/^\s*<img[^>]*>\s*/i, "");
   }
   // Remove BabyLoveGrowth attribution link
   cleaned = cleaned.replace(/<p>\s*<a[^>]*babylovegrowth[^>]*>.*?<\/a>\s*<\/p>/gi, "");
