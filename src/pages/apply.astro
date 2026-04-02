@@ -1,0 +1,1305 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Apply Now — Attorney Assistant"
+  description="Apply for a position with Attorney Assistant. Fill out our interview form to start your career in the legal industry."
+>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge badge-gold mb-4">We're Hiring</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Interview Application
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">
+        Thank you for your interest in a role with our company. Please fill out this form to continue with the interview process.
+      </p>
+    </div>
+  </section>
+
+  <!-- Progress Bar -->
+  <div class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-xs">
+    <div class="container-narrow py-3">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs font-medium text-gray-500" id="step-label">Step 1 of 6</span>
+        <span class="text-xs font-medium text-brand-gold" id="step-name">Personal Information</span>
+      </div>
+      <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+        <div id="progress-bar" class="h-full bg-brand-gold rounded-full transition-all duration-500 ease-out" style="width: 16.67%"></div>
+      </div>
+      <div class="flex justify-between mt-2">
+        {["Personal Info", "Position", "Experience", "Tech Specs", "Video", "Assessment"].map((name, i) => (
+          <button
+            type="button"
+            class="step-dot flex flex-col items-center gap-1 group"
+            data-step-nav={i}
+            disabled
+          >
+            <div class={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${i === 0 ? 'bg-brand-gold border-brand-gold' : 'bg-white border-gray-300'}`}></div>
+            <span class="text-[10px] text-gray-400 hidden sm:block group-disabled:text-gray-300">{name}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <section class="py-10 md:py-14">
+    <div class="container-narrow max-w-3xl">
+      <form
+        id="application-form"
+        method="POST"
+        action="https://formspree.io/f/mbdpakyp"
+        enctype="multipart/form-data"
+      >
+
+        <!-- ============ STEP 1: Personal Information ============ -->
+        <div class="form-step active" data-step="0">
+          <div class="mb-8">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+            </div>
+            <h2 class="text-display-xs font-heading text-gray-900 mb-1">Personal Information</h2>
+            <p class="text-sm text-gray-500">Let's start with your basic information.</p>
+          </div>
+
+          <div class="space-y-5">
+            <div>
+              <label for="full_name" class="label-base">Full Name <span class="text-error-500">*</span></label>
+              <input type="text" id="full_name" name="full_name" data-required class="input-base" placeholder="Your full name" />
+            </div>
+
+            <div>
+              <label for="date_of_birth" class="label-base">Date of Birth <span class="text-error-500">*</span></label>
+              <input type="date" id="date_of_birth" name="date_of_birth" data-required class="input-base" />
+            </div>
+
+            <div>
+              <label for="email" class="label-base">Email Address <span class="text-error-500">*</span></label>
+              <input type="email" id="email" name="email" data-required class="input-base" placeholder="you@example.com" />
+            </div>
+
+            <div>
+              <label for="street_address" class="label-base">Street Address <span class="text-error-500">*</span></label>
+              <input type="text" id="street_address" name="street_address" data-required class="input-base" placeholder="123 Main Street" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="city" class="label-base">City <span class="text-error-500">*</span></label>
+                <input type="text" id="city" name="city" data-required class="input-base" placeholder="City" />
+              </div>
+              <div>
+                <label for="zip_code" class="label-base">Zip/Postal Code <span class="text-error-500">*</span></label>
+                <input type="text" id="zip_code" name="zip_code" data-required class="input-base" placeholder="12345" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="state" class="label-base">State/Province <span class="text-error-500">*</span></label>
+                <input type="text" id="state" name="state" data-required class="input-base" placeholder="State" />
+              </div>
+              <div>
+                <label for="country" class="label-base">Country <span class="text-error-500">*</span></label>
+                <input type="text" id="country" name="country" data-required class="input-base" placeholder="Country" />
+              </div>
+            </div>
+
+            <div id="belize-question" class="card p-5 bg-brand-25 border-brand-100 hidden transition-all duration-300">
+              <label class="label-base text-brand-700">For candidates from Belize only: Are you interested in working at our San Ignacio, Belize office location at #3 Moriah Street, San Ignacio Town, Cayo District (in front of Codd's Drug Store)?</label>
+              <div class="flex gap-6 mt-2">
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="belize_office" value="Yes" class="form-radio text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">Yes</span>
+                </label>
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="belize_office" value="No" class="form-radio text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">No</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="referral" class="label-base">Were you referred by an existing Attorney Assistant employee? If yes, please put their name below.</label>
+              <input type="text" id="referral" name="referral" class="input-base" placeholder="Employee name (if applicable)" />
+            </div>
+
+            <fieldset>
+              <legend class="label-base">Preferred Communication Method <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">Please ensure you actively monitor this. Select all that apply.</p>
+              <div class="flex gap-6">
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" name="communication_method" value="Email" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">Email</span>
+                </label>
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" name="communication_method" value="WhatsApp" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">WhatsApp</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div id="whatsapp-field" class="hidden transition-all duration-300">
+              <label for="whatsapp_number" class="label-base">WhatsApp Number</label>
+              <p class="text-xs text-gray-400 mb-1.5">Provide your number with area code (e.g. +16101234567)</p>
+              <input type="tel" id="whatsapp_number" name="whatsapp_number" class="input-base" placeholder="+16101234567" />
+            </div>
+
+            <fieldset>
+              <legend class="label-base">Languages You Are Fluent In <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">Select all that apply.</p>
+              <div class="flex flex-wrap gap-4">
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" name="languages" value="English" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">English</span>
+                </label>
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" name="languages" value="Spanish" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">Spanish</span>
+                </label>
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" name="languages" value="Other" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">Other</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- ============ STEP 2: Position & Availability ============ -->
+        <div class="form-step" data-step="1">
+          <div class="mb-8">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
+            </div>
+            <h2 class="text-display-xs font-heading text-gray-900 mb-1">Position & Availability</h2>
+            <p class="text-sm text-gray-500">Select the role(s) you're interested in and your availability.</p>
+          </div>
+
+          <!-- Position descriptions -->
+          <div class="card p-5 mb-6 bg-gray-25">
+            <h3 class="text-sm font-heading text-gray-900 mb-3">We offer the following positions:</h3>
+            <div class="space-y-3 text-xs text-gray-600 leading-relaxed">
+              <div><strong class="text-gray-800">1. General Legal Impact Assistant (IA):</strong> Assist attorneys and other legal professionals with administrative support including document management, organizing case materials, handling basic client inquiries via email and phone, data entry, drafting letters, gathering important documentation, basic research, and other clerical tasks.</div>
+              <div><strong class="text-gray-800">2. Receptionist:</strong> Answer incoming calls, assist clients with their inquiries, route calls as necessary, and maintain thorough documentation of client interactions. Create a positive first impression for law firm clients by delivering exceptional customer service, empathy, patience, and professionalism.</div>
+              <div><strong class="text-gray-800">3. Intake Specialist:</strong> Work in a critical role as the first point of contact for potential clients responsible for handling client inquiries, gathering essential information, and qualifying potential cases for eligibility. Conduct detailed intake interviews to gather relevant client information in the CRM or case management software, schedule appointments, and follow up on leads.</div>
+              <div><strong class="text-gray-800">4. Intake Specialist-Closer:</strong> Work as an Intake Specialist (described above), but MOST IMPORTANTLY convert and close leads, sign clients up for services, and onboard them into the law firm system. Sales experience and a genuine interest in sales are paramount in this role.</div>
+              <div><strong class="text-gray-800">5. Medical Records Retrieval:</strong> Request and retrieve medical records and bills from healthcare providers, hospitals, and insurance companies; track, monitor, and follow up on pending requests to ensure timely delivery of documents; maintain an organized database of records. Organization, attention to detail, and effective communication are the keys to success in this role.</div>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+            <fieldset>
+              <legend class="label-base">Position(s) You're Applying For <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">Check all that apply.</p>
+              <div class="space-y-2">
+                {["General Legal Impact Assistant (IA)", "Receptionist", "Intake Specialist", "Intake Specialist-Closer", "Medical Records Retrieval"].map((pos) => (
+                  <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-25 transition-colors cursor-pointer">
+                    <input type="checkbox" name="positions" value={pos} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{pos}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="label-base">Are you available to work full-time (at least 40 hours per week)? <span class="text-error-500">*</span></legend>
+              <div class="flex gap-6 mt-1">
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="full_time" value="Yes" data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">Yes</span>
+                </label>
+                <label class="inline-flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="full_time" value="No" class="form-radio text-brand-gold focus:ring-brand-gold" />
+                  <span class="text-sm text-gray-700">No</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="label-base">Which shifts would you be willing and able to work? <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">During standard US time zones. Select all that apply.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {["Weekday Business Hours", "Weekday Evenings", "Weekday Overnight", "Weekend Day", "Weekend Evening", "Weekend Overnight"].map((shift) => (
+                  <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-25 transition-colors cursor-pointer">
+                    <input type="checkbox" name="shifts" value={shift} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{shift}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="label-base">Are you available to work part-time?</legend>
+              <div class="flex gap-6 mt-1">
+                {["Yes", "No", "Maybe"].map((opt) => (
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="part_time" value={opt} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <div id="part-time-hours-field" class="hidden transition-all duration-300">
+              <label for="part_time_hours" class="label-base">If open to part-time, how many hours per week?</label>
+              <input type="text" id="part_time_hours" name="part_time_hours" class="input-base" placeholder="e.g. 20" />
+            </div>
+
+            <fieldset>
+              <legend class="label-base">Pay rate is $5 USD/hr for bilingual (English & Spanish) and $4/hr for English-only. Does that work for you? <span class="text-error-500">*</span></legend>
+              <div class="flex gap-6 mt-1">
+                {["Yes", "No", "Maybe"].map((opt) => (
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="pay_rate_ok" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- ============ STEP 3: Experience & Skills ============ -->
+        <div class="form-step" data-step="2">
+          <div class="mb-8">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" /></svg>
+            </div>
+            <h2 class="text-display-xs font-heading text-gray-900 mb-1">Experience & Skills</h2>
+            <p class="text-sm text-gray-500">Tell us about your work experience and proficiencies.</p>
+          </div>
+
+          <div class="space-y-5">
+            <div>
+              <label for="experience" class="label-base">Customer Service / Call Center / Law Firm Experience <span class="text-error-500">*</span></label>
+              <p class="text-xs text-gray-400 mb-1.5">Please include number of years in the industry and companies for whom you've worked.</p>
+              <textarea id="experience" name="experience" data-required rows="4" class="input-base resize-y" placeholder="Describe your relevant experience..."></textarea>
+            </div>
+
+            <fieldset>
+              <legend class="label-base">Tasks, fields of study, or industries in which you have experience <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">Select all that apply.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {["BPO", "Customer service", "Legal", "Intake", "Sales", "Data analysis", "Quality assurance", "Data management", "Medical/nursing", "Records management", "Document management", "Appointment-setting", "Executive Assistant", "Marketing", "Supervisor", "Accounting"].map((item) => (
+                  <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-25 transition-colors cursor-pointer">
+                    <input type="checkbox" name="experience_areas" value={item} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{item}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="label-base">Tools in which you are proficient <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">Select all that apply.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {["Microsoft Office", "Microsoft Teams", "Google Sheets", "Google Docs", "Advanced Excel", "Advanced Powerpoint"].map((tool) => (
+                  <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-25 transition-colors cursor-pointer">
+                    <input type="checkbox" name="tools" value={tool} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{tool}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <div>
+              <label for="crm_systems" class="label-base">CRM Systems Experience</label>
+              <input type="text" id="crm_systems" name="crm_systems" class="input-base" placeholder="e.g. Salesforce, HubSpot, Clio..." />
+            </div>
+
+            <div>
+              <label for="legal_software" class="label-base">Legal Software Experience</label>
+              <input type="text" id="legal_software" name="legal_software" class="input-base" placeholder="e.g. Clio, MyCase, PracticePanther..." />
+            </div>
+
+            <div>
+              <label for="resume" class="label-base">Resume/CV <span class="text-error-500">*</span></label>
+              <p class="text-xs text-gray-400 mb-1.5">Must be in English. Use the provided <a href="https://www.canva.com" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Canva template</a> to update your resume. Max 10 MB.</p>
+              <div class="file-upload-area" id="resume-upload-area">
+                <input type="file" id="resume" name="resume" data-required accept=".pdf,.doc,.docx" class="file-input" />
+                <div class="file-upload-content">
+                  <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+                  <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>
+                  <p class="text-xs text-gray-400">PDF, DOC, DOCX up to 10 MB</p>
+                </div>
+              </div>
+              <p id="resume-filename" class="text-xs text-success-600 mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label for="id_card" class="label-base">Identification Card</label>
+              <p class="text-xs text-gray-400 mb-1.5">For identification purposes only. PDF, document, or image. Max 10 MB.</p>
+              <div class="file-upload-area" id="id-upload-area">
+                <input type="file" id="id_card" name="id_card" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" class="file-input" />
+                <div class="file-upload-content">
+                  <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+                  <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>
+                  <p class="text-xs text-gray-400">PDF, DOC, JPG, PNG up to 10 MB</p>
+                </div>
+              </div>
+              <p id="id-filename" class="text-xs text-success-600 mt-1 hidden"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ STEP 4: Technology Specifications ============ -->
+        <div class="form-step" data-step="3">
+          <div class="mb-8">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" /></svg>
+            </div>
+            <h2 class="text-display-xs font-heading text-gray-900 mb-1">Technology Specifications</h2>
+            <p class="text-sm text-gray-500">Confirm that you meet the minimum technology requirements.</p>
+          </div>
+
+          <div class="card p-5 mb-6 bg-warning-25 border-warning-300">
+            <div class="flex gap-3">
+              <svg class="w-5 h-5 text-warning-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
+              <div class="text-xs text-warning-700 leading-relaxed">
+                <p class="font-semibold mb-1">Minimum Requirements:</p>
+                <ul class="list-disc list-inside space-y-0.5">
+                  <li>OS: macOS 11+ or Windows 10 (latest version) or equivalent</li>
+                  <li>Processor: Intel i3 or above (no Pentium)</li>
+                  <li>RAM: At least 8 GB</li>
+                  <li>Internet: Download speed min 50 Mbps, upload min 20 Mbps</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-5">
+            <div>
+              <label for="computer_specs" class="label-base">Computer Specifications <span class="text-error-500">*</span></label>
+              <p class="text-xs text-gray-400 mb-1.5">Include operating system, memory, internet speed, and processor.</p>
+              <textarea id="computer_specs" name="computer_specs" data-required rows="4" class="input-base resize-y" placeholder="e.g. Windows 11, Intel i5-12400, 16 GB RAM, 100 Mbps download / 30 Mbps upload"></textarea>
+            </div>
+
+            <div>
+              <label for="speed_test" class="label-base">Internet Speed Test Screenshot <span class="text-error-500">*</span></label>
+              <p class="text-xs text-gray-400 mb-1.5">Run a speed test on the network you plan to use for work, then upload a screenshot of the results.</p>
+              <div class="flex flex-wrap gap-2 mb-3">
+                <a href="https://www.speedtest.net" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-25 border border-brand-100 rounded-full px-3 py-1 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                  Speedtest.net
+                </a>
+                <a href="https://fast.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-25 border border-brand-100 rounded-full px-3 py-1 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                  Fast.com
+                </a>
+                <a href="https://speed.cloudflare.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-25 border border-brand-100 rounded-full px-3 py-1 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                  Cloudflare Speed Test
+                </a>
+              </div>
+              <div class="file-upload-area" id="speed-upload-area">
+                <input type="file" id="speed_test" name="speed_test" data-required accept=".jpg,.jpeg,.png,.webp,.gif,.pdf" class="file-input" />
+                <div class="file-upload-content">
+                  <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+                  <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>
+                  <p class="text-xs text-gray-400">JPG, PNG, PDF up to 10 MB</p>
+                </div>
+              </div>
+              <p id="speed-filename" class="text-xs text-success-600 mt-1 hidden"></p>
+            </div>
+
+            <div>
+              <label for="tech_certification" class="label-base">Certification <span class="text-error-500">*</span></label>
+              <p class="text-xs text-gray-400 mb-1.5">I certify that the computer specifications and internet speed check shared are from the computer from which I will work with an AA/TKO client. I also commit to report any changes in my computer specifications or internet speed to the placement team should they occur at any time.</p>
+              <input type="text" id="tech_certification" name="tech_certification" data-required class="input-base" placeholder="Type your full name as your signature" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ STEP 5: Introduction Video ============ -->
+        <div class="form-step" data-step="4">
+          <div class="mb-8">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
+            </div>
+            <h2 class="text-display-xs font-heading text-gray-900 mb-1">Introduction Video</h2>
+            <p class="text-sm text-gray-500">Record a short introduction video using the background below.</p>
+          </div>
+
+          <div class="space-y-5">
+            <!-- Background image preview -->
+            <div class="card overflow-hidden">
+              <img src="/images/video-background.png" alt="Video recording background — use this as your virtual background" class="w-full" loading="lazy" />
+              <div class="p-4 bg-gray-50">
+                <p class="text-xs text-gray-500">Use this image as your virtual background when recording your video.</p>
+              </div>
+            </div>
+
+            <!-- Example video link -->
+            <div class="card p-5 bg-brand-25 border-brand-100">
+              <h3 class="text-sm font-heading text-gray-900 mb-2">Tips for a great video:</h3>
+              <ul class="text-xs text-gray-600 space-y-1.5 list-disc list-inside">
+                <li>Ensure you have great lighting and a clear picture when you record.</li>
+                <li>Record in a quiet, distraction-free environment. Eliminate background noise as much as possible. You can use a noise cancellation tool such as <a href="https://krisp.ai/noise-cancellation/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Krisp</a> to assist.</li>
+                <li>Dress to impress in business casual or professional attire.</li>
+                <li>Briefly discuss your relevant work experience and why you think you are a good fit for a role with Attorney Assistant.</li>
+              </ul>
+              <a href="https://drive.google.com/file/d/1cDarP9quVVQlKVWaNw2Ja2IMsZ35htan/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+                Watch an example intro video
+              </a>
+            </div>
+
+            <div>
+              <label for="intro_video_url" class="label-base">Link to Your Introduction Video <span class="text-error-500">*</span></label>
+              <p class="text-xs text-gray-400 mb-1.5">Upload your video to one of the services below, then paste the share link here.</p>
+              <input type="url" id="intro_video_url" name="intro_video_url" data-required class="input-base" placeholder="https://drive.google.com/file/d/..." />
+              <div class="mt-3 flex flex-wrap gap-2">
+                <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-25 border border-brand-100 rounded-full px-3 py-1 transition-colors">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M7.71 3.5L1.15 15l4.58 7.5h13.54l4.58-7.5L17.29 3.5H7.71zm.58 1h8.42l5.06 9.5H3.23l5.06-9.5zM6.41 15h11.18l-3.47 5.5H9.88L6.41 15z"/></svg>
+                  Google Drive
+                </a>
+                <a href="https://www.loom.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-25 border border-brand-100 rounded-full px-3 py-1 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
+                  Loom
+                </a>
+                <a href="https://www.youtube.com/upload" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-25 border border-brand-100 rounded-full px-3 py-1 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+                  YouTube (Unlisted)
+                </a>
+                <a href="https://www.dropbox.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium text-brand-600 hover:text-brand-700 bg-brand-25 border border-brand-100 rounded-full px-3 py-1 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+                  Dropbox
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ STEP 6: Skills Assessment ============ -->
+        <div class="form-step" data-step="5">
+          <div class="mb-8">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            </div>
+            <h2 class="text-display-xs font-heading text-gray-900 mb-1">Skills Assessment</h2>
+            <p class="text-sm text-gray-500">Test your computer literacy skills. Choose the most appropriate answer for each question.</p>
+          </div>
+
+          <div class="space-y-6" id="assessment-questions">
+
+            <!-- Q1 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">1. Which keystrokes can be used to undo the last operation in an MS Office program? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["CTRL + U (PC) or CMD + U (Mac)", "CTRL + SHIFT (PC) or CMD + SHIFT (Mac)", "CTRL + Z (PC) or CMD + Z (Mac)", "CTRL + Backspace (PC) or CMD + Backspace (Mac)"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q1" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q2 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">2. Most efficient way to add the same title to every page in a Word document? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["Adding the title manually to each page.", "Using the \"Header\" option.", "Using the \"Footnote\" option.", "Using the \"Bookmark\" option."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q2" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q3 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">3. You typed a word and a wavy red line appeared under it. What does this mean? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["The word is in a different font size than the rest of the sentence.", "The word is misspelled or not recognized by Word.", "The meaning of the word does not seem to fit into the sentence.", "The word does not fit grammatically into the sentence."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q3" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q4 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">4. You want a colleague to know exactly what changes you made to their Word document. Best way? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["Turn on \"Track Changes\" before you start editing the file.", "Highlight every word you've changed using the text highlighting option.", "Add a comment next to every change explaining the original and why you changed it.", "Ask your colleague to review the revised file next to the original one."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q4" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q5 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">5. In Excel, which sign is used at the beginning of every formula or function? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["*", "@", "=", "#"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q5" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q6 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">6. Which Excel function finds how many numeric entries are in a range? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["COUNTA", "CHKNUM", "NUM", "COUNT"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q6" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q7 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">7. How do you add a new slide to an existing PowerPoint presentation? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["File → New", "Insert → Page Break", "Insert → New Slide", "File → Open"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q7" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q8 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">8. Which is a valid Outlook email address? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["example.outlook@com", "example@outlook.com", "www.example.outlook", "www.outlook@example"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q8" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q9 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">9. How can you add an attachment to an email in Outlook? <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">There may be more than one correct option.</p>
+              <div class="space-y-2">
+                {["By clicking the paperclip icon in the email composer.", "By copying and pasting the file into the email composer.", "By dragging and dropping the file into the email composer."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="checkbox" name="q9" value={opt} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q10 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">10. You want to find an email by words in its subject line. Which folders can you search? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["Inbox", "Sent", "Trash", "All of the above"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q10" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q11 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">11. About saving emails in an organized manner — which statement is true? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["You can create folders and sub-folders within Outlook.", "You can create folders within Outlook, but not sub-folders.", "You cannot create folders or subfolders within Outlook."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q11" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q12 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">12. Simplest way to change the font size of text when composing an email in Outlook? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["Using a third-party extension or add-on.", "There is no way to change the font size in Outlook.", "Manually typing in the font size using HTML code.", "Using the formatting options in the email composer toolbar."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q12" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q13 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">13. You can sort emails in Outlook by all of the following, EXCEPT: <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["The date you received the email", "The attachments included in the email", "The sender's email address", "The email's subject line"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q13" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q14 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">14. True or False: When you create a new meeting in Outlook's calendar and invite others, you must manually email them about it. <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["True", "False"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q14" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q15 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">15. Which keystrokes do you use to cut and paste text from one file to another? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["CTRL + X & CTRL + V", "CTRL + C & CTRL + V", "CTRL + X & CTRL + P", "CTRL + C & CTRL + P"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q15" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q16 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">16. Best way to select all 100 files in a folder to copy them? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["You cannot mark all the files at once. Copy each one separately.", "Press SHIFT + A", "Press CTRL + A", "Mark a file, press CTRL and mark the next one, repeat for all 100."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q16" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q17 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">17. How can you make a file available on a different home PC? <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">There may be more than one correct option.</p>
+              <div class="space-y-2">
+                {["Copy the file to a removable USB storage device.", "Send yourself the file via email.", "Upload the file to a cloud storage service such as Google Drive or Dropbox."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="checkbox" name="q17" value={opt} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q18 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">18. A program stops working on your Windows PC. Which keystrokes open the Task Manager? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["SHIFT + ALT + DEL", "SHIFT + ALT + ESC", "CTRL + ALT + DEL", "CTRL + ALT + ESC"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q18" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q19 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">19. You right-click a Desktop shortcut and choose "delete". What happens? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["The program will be deleted from its folder, but not uninstalled.", "The shortcut will be deleted, but you can still access the program from its folder.", "The program will be uninstalled from your PC."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q19" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q20 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">20. Which web browsers can be used on a Windows PC? <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">There may be more than one correct option.</p>
+              <div class="space-y-2">
+                {["Internet Explorer", "Microsoft Edge", "Google Chrome", "Mozilla Firefox"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="checkbox" name="q20" value={opt} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q21 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">21. Your PC is in Full Screen mode. Which key reverts to regular mode? <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["F11", "F1", "F12", "F2"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q21" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q22 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">22. To rename a folder on your PC, you point to the folder and: <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["Double-click the left mouse button", "Press CTRL + R on your keyboard", "Click the left mouse button", "Click the right mouse button"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q22" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q23 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">23. Windows 10 is an example of: <span class="text-error-500">*</span></legend>
+              <div class="space-y-2">
+                {["A hard drive", "A web browser", "A type of PC", "An operating system"].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="radio" name="q23" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- Q24 -->
+            <fieldset class="assessment-q card p-5">
+              <legend class="label-base mb-2">24. You see video but hear nothing from a media file. What could be the problem? <span class="text-error-500">*</span></legend>
+              <p class="text-xs text-gray-400 mb-2">There may be more than one correct option.</p>
+              <div class="space-y-2">
+                {["The computer audio might be muted.", "The media player's audio might be muted.", "Your computer doesn't have speakers, and you are not using earphones.", "You are using earphones, but your computer does not recognize them."].map((opt) => (
+                  <label class="flex items-center gap-3 p-2.5 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input type="checkbox" name="q24" value={opt} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <!-- Upload note -->
+        <div id="upload-note" class="hidden mt-6 card p-4 bg-brand-25 border-brand-100">
+          <div class="flex gap-3 items-start">
+            <svg class="w-5 h-5 text-brand-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
+            <p class="text-xs text-brand-700 leading-relaxed"><strong>Please note:</strong> Submission may take a moment while your files (resume, ID, speed test screenshot) are uploaded. Please don't close the page until you see the confirmation message.</p>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-200">
+          <button type="button" id="prev-btn" class="btn-secondary hidden" onclick="prevStep()">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" /></svg>
+            Previous
+          </button>
+          <div class="ml-auto flex gap-3">
+            <button type="button" id="next-btn" class="btn-primary btn-lg" onclick="nextStep()">
+              Continue
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </button>
+            <button type="submit" id="submit-btn" class="btn-primary btn-lg hidden">
+              Submit Application
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Success message (hidden by default) -->
+      <div id="success-message" class="hidden text-center py-16">
+        <div class="featured-icon featured-icon-lg featured-icon-success mx-auto mb-5">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+        </div>
+        <h2 class="text-display-xs font-heading text-gray-900 mb-2">Application Submitted!</h2>
+        <p class="text-base text-gray-500 max-w-md mx-auto mb-6">Thank you for your interest in joining Attorney Assistant. We'll review your application and be in touch via your preferred communication method.</p>
+        <a href="/careers" class="btn-secondary">Back to Careers</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .form-step {
+    display: none;
+  }
+  .form-step.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .file-upload-area {
+    position: relative;
+    border: 2px dashed #D0D5DD;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .file-upload-area:hover,
+  .file-upload-area.dragover {
+    border-color: #F9A630;
+    background-color: #fef6e8;
+  }
+  .file-upload-area .file-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .file-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  /* Custom radio/checkbox styling */
+  .form-radio,
+  .form-checkbox {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    accent-color: #F9A630;
+  }
+
+  .field-error {
+    border-color: #F04438 !important;
+  }
+  .field-error:focus {
+    ring-color: rgba(240, 68, 56, 0.3) !important;
+  }
+  .error-message {
+    color: #F04438;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+</style>
+
+<script is:inline>
+  // ── TEST MODE: set to false to re-enable validation ──
+  const TEST_MODE = true;
+
+  const TOTAL_STEPS = 6;
+  const STEP_NAMES = ["Personal Information", "Position & Availability", "Experience & Skills", "Technology Specifications", "Introduction Video", "Skills Assessment"];
+  let currentStep = 0;
+  let highestVisited = 0;
+
+  const form = document.getElementById('application-form');
+  const steps = document.querySelectorAll('.form-step');
+  const progressBar = document.getElementById('progress-bar');
+  const stepLabel = document.getElementById('step-label');
+  const stepName = document.getElementById('step-name');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const submitBtn = document.getElementById('submit-btn');
+  const stepDots = document.querySelectorAll('.step-dot');
+  const dots = document.querySelectorAll('.step-dot div');
+
+  // ── Conditional field visibility ──
+
+  // WhatsApp number: show when WhatsApp is checked
+  document.querySelectorAll('input[name="communication_method"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const whatsappChecked = document.querySelector('input[name="communication_method"][value="WhatsApp"]').checked;
+      const field = document.getElementById('whatsapp-field');
+      field.classList.toggle('hidden', !whatsappChecked);
+      if (!whatsappChecked) document.getElementById('whatsapp_number').value = '';
+    });
+  });
+
+  // Belize office: show when country contains "belize"
+  const countryInput = document.getElementById('country');
+  countryInput.addEventListener('input', () => {
+    const isBelize = countryInput.value.trim().toLowerCase().includes('belize');
+    document.getElementById('belize-question').classList.toggle('hidden', !isBelize);
+  });
+
+  // Part-time hours: show when part-time = Yes or Maybe
+  document.querySelectorAll('input[name="part_time"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const val = document.querySelector('input[name="part_time"]:checked')?.value;
+      const show = val === 'Yes' || val === 'Maybe';
+      document.getElementById('part-time-hours-field').classList.toggle('hidden', !show);
+      if (!show) document.getElementById('part_time_hours').value = '';
+    });
+  });
+
+  // ── Step navigation ──
+
+  function updateUI() {
+    steps.forEach((step, i) => step.classList.toggle('active', i === currentStep));
+
+    const pct = ((currentStep + 1) / TOTAL_STEPS) * 100;
+    progressBar.style.width = pct + '%';
+    stepLabel.textContent = `Step ${currentStep + 1} of ${TOTAL_STEPS}`;
+    stepName.textContent = STEP_NAMES[currentStep];
+
+    if (currentStep > highestVisited) highestVisited = currentStep;
+
+    dots.forEach((dot, i) => {
+      if (i < currentStep) {
+        dot.className = 'w-3 h-3 rounded-full border-2 transition-all duration-300 bg-brand-gold border-brand-gold';
+      } else if (i === currentStep) {
+        dot.className = 'w-3 h-3 rounded-full border-2 transition-all duration-300 bg-brand-gold border-brand-gold ring-4 ring-brand-gold/20';
+      } else {
+        dot.className = 'w-3 h-3 rounded-full border-2 transition-all duration-300 bg-white border-gray-300';
+      }
+    });
+
+    // Enable clicking on visited step dots
+    stepDots.forEach((btn, i) => {
+      btn.disabled = i > highestVisited;
+    });
+
+    prevBtn.classList.toggle('hidden', currentStep === 0);
+    nextBtn.classList.toggle('hidden', currentStep === TOTAL_STEPS - 1);
+    submitBtn.classList.toggle('hidden', currentStep !== TOTAL_STEPS - 1);
+    document.getElementById('upload-note').classList.toggle('hidden', currentStep !== TOTAL_STEPS - 1);
+
+    window.scrollTo({ top: document.querySelector('.sticky').offsetTop, behavior: 'smooth' });
+  }
+
+  // Click on step dots to navigate
+  stepDots.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      if (i <= highestVisited) {
+        currentStep = i;
+        updateUI();
+      }
+    });
+  });
+
+  // ── Validation ──
+
+  function addError(container, message) {
+    if (!container.querySelector('.error-message')) {
+      const msg = document.createElement('p');
+      msg.className = 'error-message';
+      msg.textContent = message;
+      container.appendChild(msg);
+    }
+  }
+
+  function validateCurrentStep() {
+    if (TEST_MODE) return true;
+
+    const step = steps[currentStep];
+    let valid = true;
+
+    // Clear previous errors
+    step.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
+    step.querySelectorAll('.error-message').forEach(el => el.remove());
+    step.querySelectorAll('.file-upload-area').forEach(el => { el.style.borderColor = ''; });
+
+    // Validate [data-required] inputs
+    const reqInputs = step.querySelectorAll('[data-required]');
+    const processed = new Set();
+
+    reqInputs.forEach(input => {
+      if (input.type === 'radio') {
+        if (processed.has(input.name)) return;
+        processed.add(input.name);
+        const group = step.querySelectorAll(`input[name="${input.name}"]`);
+        if (!Array.from(group).some(r => r.checked)) {
+          valid = false;
+          addError(input.closest('fieldset') || input.closest('div'), 'This field is required.');
+        }
+      } else if (input.type === 'file') {
+        if (!input.files || input.files.length === 0) {
+          valid = false;
+          const area = input.closest('.file-upload-area');
+          area.style.borderColor = '#F04438';
+          addError(area.parentElement, 'Please upload the required file.');
+        }
+      } else {
+        if (!input.value.trim()) {
+          valid = false;
+          input.classList.add('field-error');
+          addError(input.parentElement, 'This field is required.');
+        }
+      }
+    });
+
+    // Email format check
+    if (currentStep === 0) {
+      const emailInput = step.querySelector('#email');
+      if (emailInput && emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+        valid = false;
+        emailInput.classList.add('field-error');
+        addError(emailInput.parentElement, 'Please enter a valid email address.');
+      }
+    }
+
+    // Checkbox group minimums (require at least one checked)
+    const checkboxGroups = {
+      0: ['communication_method', 'languages'],
+      1: ['positions', 'shifts'],
+      2: ['experience_areas', 'tools'],
+    };
+
+    const groups = checkboxGroups[currentStep] || [];
+    groups.forEach(name => {
+      const checked = step.querySelectorAll(`input[name="${name}"]:checked`);
+      if (checked.length === 0) {
+        valid = false;
+        const fieldset = step.querySelector(`input[name="${name}"]`).closest('fieldset');
+        addError(fieldset, 'Please select at least one option.');
+      }
+    });
+
+    if (!valid) {
+      const firstError = step.querySelector('.field-error, .error-message');
+      if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    return valid;
+  }
+
+  function nextStep() {
+    if (!validateCurrentStep()) return;
+    if (currentStep < TOTAL_STEPS - 1) {
+      currentStep++;
+      updateUI();
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 0) {
+      currentStep--;
+      updateUI();
+    }
+  }
+
+  // ── File uploads ──
+
+  document.querySelectorAll('.file-input').forEach(input => {
+    input.addEventListener('change', function() {
+      const area = this.closest('.file-upload-area');
+      const filenameEl = area.parentElement.querySelector('[id$="-filename"]');
+      if (this.files.length > 0) {
+        const file = this.files[0];
+        const sizeMB = (file.size / 1024 / 1024).toFixed(1);
+        area.style.borderColor = '#17B26A';
+        area.style.backgroundColor = '#F6FEF9';
+        if (filenameEl) {
+          filenameEl.textContent = `✓ ${file.name} (${sizeMB} MB)`;
+          filenameEl.classList.remove('hidden');
+        }
+      }
+    });
+  });
+
+  document.querySelectorAll('.file-upload-area').forEach(area => {
+    area.addEventListener('dragover', (e) => { e.preventDefault(); area.classList.add('dragover'); });
+    area.addEventListener('dragleave', () => area.classList.remove('dragover'));
+    area.addEventListener('drop', () => area.classList.remove('dragover'));
+  });
+
+  // ── Submission ──
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!TEST_MODE && !validateCurrentStep()) return;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Uploading &amp; submitting&hellip;';
+    document.getElementById('upload-note').innerHTML = '<div class="flex gap-3 items-start"><svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg><p class="text-xs text-brand-700 leading-relaxed"><strong>Uploading your files&hellip;</strong> This may take a minute depending on file sizes and your internet speed. Please don\'t close or refresh this page.</p></div>';
+
+    try {
+      const formData = new FormData(form);
+
+      // Remove empty file fields — Formspree rejects empty file parts
+      for (const [key, value] of [...formData.entries()]) {
+        if (value instanceof File && value.size === 0) {
+          formData.delete(key);
+        }
+      }
+
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        document.querySelector('.sticky').classList.add('hidden');
+        document.getElementById('success-message').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+        if (typeof mixpanel !== 'undefined') mixpanel.track('Job Application Submitted');
+      } else {
+        console.error('Formspree error:', response.status, data);
+        throw new Error(data.error || data.errors?.map(e => e.message).join(', ') || `Server responded with ${response.status}`);
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Application <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>';
+      alert('Error: ' + err.message + '\n\nPlease try again or email nicolehall@attorneyassistant.com directly.');
+    }
+  });
+
+  // ── Keyboard: Enter to advance ──
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      if (currentStep < TOTAL_STEPS - 1) nextStep();
+    }
+  });
+
+  // ── Selected state styling for checkbox/radio cards ──
+  form.addEventListener('change', (e) => {
+    const input = e.target;
+    if ((input.type === 'checkbox' || input.type === 'radio') && input.closest('.rounded-lg.border')) {
+      // For radios, clear siblings first
+      if (input.type === 'radio') {
+        const group = form.querySelectorAll(`input[name="${input.name}"]`);
+        group.forEach(r => {
+          const card = r.closest('.rounded-lg.border');
+          if (card) {
+            card.classList.remove('border-brand-400', 'bg-brand-25');
+            card.classList.add('border-gray-200');
+          }
+        });
+      }
+      const card = input.closest('.rounded-lg.border');
+      if (card) {
+        if (input.checked) {
+          card.classList.remove('border-gray-200');
+          card.classList.add('border-brand-400', 'bg-brand-25');
+        } else {
+          card.classList.remove('border-brand-400', 'bg-brand-25');
+          card.classList.add('border-gray-200');
+        }
+      }
+    }
+  });
+
+  // ── Inline field validation on blur/change ──
+
+  function clearFieldError(input) {
+    input.classList.remove('field-error');
+    const errMsg = input.parentElement?.querySelector('.error-message');
+    if (errMsg) errMsg.remove();
+    // Clear file upload error styling
+    const area = input.closest?.('.file-upload-area');
+    if (area) area.style.borderColor = '';
+  }
+
+  function showFieldError(input, message) {
+    input.classList.add('field-error');
+    const container = input.parentElement;
+    if (container && !container.querySelector('.error-message')) {
+      const msg = document.createElement('p');
+      msg.className = 'error-message';
+      msg.textContent = message;
+      container.appendChild(msg);
+    }
+  }
+
+  // Validate text/email/url/date/tel on blur
+  form.addEventListener('focusout', (e) => {
+    if (TEST_MODE) return;
+    const input = e.target;
+    if (!input.matches('input, textarea')) return;
+    if (input.type === 'radio' || input.type === 'checkbox' || input.type === 'file') return;
+
+    clearFieldError(input);
+
+    // Required check
+    if (input.hasAttribute('data-required') && !input.value.trim()) {
+      showFieldError(input, 'This field is required.');
+      return;
+    }
+
+    if (!input.value.trim()) return;
+
+    // Email format
+    if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+      showFieldError(input, 'Please enter a valid email address.');
+      return;
+    }
+
+    // URL format
+    if (input.type === 'url') {
+      try { new URL(input.value); } catch {
+        showFieldError(input, 'Please enter a valid URL (e.g. https://...)');
+        return;
+      }
+    }
+
+    // Phone format (WhatsApp)
+    if (input.id === 'whatsapp_number' && input.value && !/^\+?\d[\d\s-]{7,}$/.test(input.value.trim())) {
+      showFieldError(input, 'Please enter a valid phone number with country code (e.g. +16101234567).');
+      return;
+    }
+
+    // Zip code — basic check
+    if (input.id === 'zip_code' && input.value && input.value.trim().length < 3) {
+      showFieldError(input, 'Please enter a valid zip/postal code.');
+      return;
+    }
+  });
+
+  // Clear errors on input (while typing)
+  form.addEventListener('input', (e) => {
+    const input = e.target;
+    if (input.classList.contains('field-error')) {
+      clearFieldError(input);
+    }
+  });
+
+  // Clear checkbox group errors on change
+  form.addEventListener('change', (e) => {
+    const input = e.target;
+    if (input.type === 'checkbox' || input.type === 'radio') {
+      const fieldset = input.closest('fieldset');
+      if (fieldset) {
+        const errMsg = fieldset.querySelector('.error-message');
+        if (errMsg) errMsg.remove();
+      }
+    }
+  });
+
+  updateUI();
+</script>
