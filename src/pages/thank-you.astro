@@ -56,7 +56,16 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <!-- Conversion tracking -->
   <script is:inline>
-    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+    // Fire CompleteRegistration + Contact via pixel + CAPI with dedup
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('CompleteRegistration', { content_name: 'Contact Form' }, {});
+      window.__metaCAPI.track('Contact', {}, {});
+    } else {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'CompleteRegistration');
+        fbq('track', 'Contact');
+      }
+    }
     if (typeof mixpanel !== 'undefined') mixpanel.track('Contact Form Submitted');
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'form_submission', conversion_type: 'lead' });

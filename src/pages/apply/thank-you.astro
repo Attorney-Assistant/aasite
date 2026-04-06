@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
 ---
 
 <BaseLayout
   title="Application Received — Attorney Assistant"
   description="Thank you for applying to Attorney Assistant. We've received your application and will be in touch soon."
   noindex={true}
+  suppressMainPixel={true}
 >
 
   <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
@@ -87,17 +89,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <!-- Meta Pixel: Application Submitted conversion -->
-  <script is:inline>
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'CompleteRegistration', {
-        content_name: 'Job Application',
-        status: 'submitted'
-      });
-    }
-    if (typeof mixpanel !== 'undefined') {
-      mixpanel.track('Job Application Submitted');
-    }
-  </script>
+  <CareersPixel event="SubmitApplication" />
 
 </BaseLayout>

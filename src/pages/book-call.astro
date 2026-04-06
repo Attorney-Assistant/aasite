@@ -104,4 +104,46 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   <!-- Calendly script -->
   <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
+  <!-- Calendly funnel events → Meta CAPI -->
+  <script is:inline>
+    // Fire ViewContent for the booking page itself
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('ViewContent', { content_name: 'Book a Call', content_category: 'Booking' }, {});
+    }
+
+    // Listen for Calendly postMessage events
+    window.addEventListener('message', function(e) {
+      if (!e.data || !e.data.event) return;
+      if (!e.data.event.startsWith('calendly')) return;
+
+      var capi = window.__metaCAPI;
+      if (!capi) return;
+
+      // Extract invitee data from Calendly payload when available
+      var invitee = (e.data.payload && e.data.payload.invitee) || {};
+      var ud = {};
+      if (invitee.name) {
+        var parts = invitee.name.split(' ');
+        ud.fn = parts[0] || '';
+        ud.ln = parts.slice(1).join(' ') || '';
+      }
+      if (invitee.email) ud.em = invitee.email;
+
+      switch (e.data.event) {
+        case 'calendly.event_type_viewed':
+          capi.trackCustom('invitee_event_type_page', { content_name: 'Diagnostic Call' }, ud);
+          break;
+        case 'calendly.date_and_time_selected':
+          capi.trackCustom('invitee_select_day', { content_name: 'Diagnostic Call' }, ud);
+          capi.trackCustom('invitee_select_time', { content_name: 'Diagnostic Call' }, ud);
+          break;
+        case 'calendly.event_scheduled':
+          capi.track('Schedule', { content_name: 'Diagnostic Call Booked' }, ud);
+          capi.trackCustom('invitee_meeting_scheduled', { content_name: 'Diagnostic Call' }, ud);
+          if (typeof mixpanel !== 'undefined') mixpanel.track('Call Booked (Inline)');
+          break;
+      }
+    });
+  </script>
+
 </BaseLayout>

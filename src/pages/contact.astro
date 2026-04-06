@@ -118,4 +118,11 @@ import ROICalculator from "@components/ROICalculator.astro";
     </div>
   </section>
 
+  <!-- Contact page ViewContent event -->
+  <script is:inline>
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('ViewContent', { content_name: 'Contact Page', content_category: 'Contact' }, {});
+    }
+  </script>
+
 </BaseLayout>

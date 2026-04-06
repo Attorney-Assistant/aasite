@@ -27,11 +27,38 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
             errorRegion.textContent = "There was an error submitting the form. Please try again.";
           }
         },
-        onFormSubmit: function () {
+        onFormSubmit: function (form) {
           if (errorRegion) {
             errorRegion.textContent = "";
           }
-          if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+          // Extract form field values for CAPI matching
+          var userData = {};
+          try {
+            var fields = form ? (form.querySelectorAll ? form : document.getElementById(containerId)) : document.getElementById(containerId);
+            if (fields) {
+              var emailEl = fields.querySelector('input[name="email"]');
+              var fnEl = fields.querySelector('input[name="firstname"]');
+              var lnEl = fields.querySelector('input[name="lastname"]');
+              var phoneEl = fields.querySelector('input[name="phone"], input[name="mobilephone"]');
+              var cityEl = fields.querySelector('input[name="city"]');
+              var stateEl = fields.querySelector('input[name="state"], select[name="state"]');
+              var zipEl = fields.querySelector('input[name="zip"], input[name="zip_code"]');
+              if (emailEl && emailEl.value) userData.em = emailEl.value;
+              if (fnEl && fnEl.value) userData.fn = fnEl.value;
+              if (lnEl && lnEl.value) userData.ln = lnEl.value;
+              if (phoneEl && phoneEl.value) userData.ph = phoneEl.value;
+              if (cityEl && cityEl.value) userData.ct = cityEl.value;
+              if (stateEl && stateEl.value) userData.st = stateEl.value;
+              if (zipEl && zipEl.value) userData.zp = zipEl.value;
+            }
+          } catch(e) {}
+
+          // Fire Lead via browser pixel + CAPI with deduplication
+          if (window.__metaCAPI) {
+            window.__metaCAPI.track('Lead', { content_name: formId }, userData);
+          } else {
+            if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+          }
           if (typeof mixpanel !== 'undefined') mixpanel.track('Form Submitted', { form_id: formId });
         },
         onFormReady: function () {

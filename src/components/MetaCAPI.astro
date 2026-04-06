@@ -1,0 +1,195 @@
+---
+/**
+ * Meta Conversions API (CAPI) — Main Site Pixel (819356476465129)
+ * Loaded via BaseLayout on ALL pages EXCEPT careers/apply/apply-thank-you.
+ *
+ * Provides:
+ * - Automatic PageView CAPI event on every page load
+ * - window.__metaCAPI.send(eventName, extraUserData) for other components
+ *
+ * Events implemented:
+ * - PageView (every page)
+ * - ViewContent (landing pages, blog, services)
+ * - Lead (HubSpot form submissions)
+ * - Contact (contact form)
+ * - CompleteRegistration (thank-you pages)
+ * - Schedule / invitee_meeting_scheduled (booking confirmed)
+ * - SubscribedButtonClick (CTA clicks)
+ * - invitee_event_type_page, invitee_select_day, invitee_select_time (Calendly funnel)
+ */
+const PIXEL_ID = "819356476465129";
+const CAPI_TOKEN = import.meta.env.FB_PIXEL_DATA_ACCESS_TOKEN || "";
+---
+
+<script is:inline define:vars={{ PIXEL_ID, CAPI_TOKEN }}>
+(function() {
+  'use strict';
+
+  // ── SHA-256 hashing for PII fields ──
+  async function sha256(str) {
+    if (!str) return undefined;
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str.trim().toLowerCase()));
+    return Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+
+  // ── Get client IP (cached per session) ──
+  var clientIpPromise = null;
+  function getClientIp() {
+    if (!clientIpPromise) {
+      clientIpPromise = fetch('https://api.ipify.org?format=json')
+        .then(function(r) { return r.json(); })
+        .then(function(d) { return d.ip || ''; })
+        .catch(function() { return ''; });
+    }
+    return clientIpPromise;
+  }
+
+  // ── Get fbp/fbc cookies ──
+  function getCookie(name) {
+    var match = document.cookie.split(';').map(function(c) { return c.trim(); })
+      .find(function(c) { return c.startsWith(name + '='); });
+    return match ? match.split('=')[1] : undefined;
+  }
+
+  // ── Generate event ID for deduplication ──
+  function genEventId() {
+    return 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  }
+
+  // ── Core CAPI send function ──
+  // eventName: string
+  // extraUserData: { em, ph, fn, ln, ct, st, zp } (raw, unhashed)
+  // options: { eventId, customData }
+  async function sendCapiEvent(eventName, extraUserData, options) {
+    if (!CAPI_TOKEN) return;
+    options = options || {};
+
+    var eventId = options.eventId || genEventId();
+    var ip = await getClientIp();
+
+    // Build user_data with hashing
+    var ud = extraUserData || {};
+    var userData = {
+      client_user_agent: navigator.userAgent,
+      client_ip_address: ip
+    };
+
+    // Add fbp/fbc for better matching
+    var fbp = getCookie('_fbp');
+    var fbc = getCookie('_fbc');
+    if (fbp) userData.fbp = fbp;
+    if (fbc) userData.fbc = fbc;
+
+    // Hash PII fields
+    if (ud.em) userData.em = [await sha256(ud.em)];
+    if (ud.ph) userData.ph = [await sha256(ud.ph.replace(/[\s\-\(\)]/g, ''))];
+    if (ud.fn) userData.fn = [await sha256(ud.fn)];
+    if (ud.ln) userData.ln = [await sha256(ud.ln)];
+    if (ud.ct) userData.ct = [await sha256(ud.ct)];
+    if (ud.st) userData.st = [await sha256(ud.st)];
+    if (ud.zp) userData.zp = [await sha256(ud.zp)];
+
+    var eventData = {
+      event_name: eventName,
+      event_time: Math.floor(Date.now() / 1000),
+      event_id: eventId,
+      event_source_url: window.location.href,
+      action_source: 'website',
+      user_data: userData
+    };
+
+    if (options.customData) {
+      eventData.custom_data = options.customData;
+    }
+
+    var payload = { data: [eventData] };
+
+    try {
+      fetch('https://graph.facebook.com/v21.0/' + PIXEL_ID + '/events?access_token=' + CAPI_TOKEN, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res) {
+        if (!res.ok) res.json().then(function(d) { console.warn('CAPI error [' + eventName + ']:', d); });
+      });
+    } catch(e) {
+      console.warn('CAPI send failed [' + eventName + ']:', e);
+    }
+
+    return eventId;
+  }
+
+  // ── Expose global API for other components ──
+  window.__metaCAPI = {
+    send: sendCapiEvent,
+    genEventId: genEventId,
+
+    // Convenience: fire browser pixel + CAPI together with deduplication
+    track: function(eventName, pixelData, capiUserData, options) {
+      options = options || {};
+      var eventId = options.eventId || genEventId();
+
+      // Browser pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', eventName, pixelData || {}, { eventID: eventId });
+      }
+
+      // Server-side CAPI
+      sendCapiEvent(eventName, capiUserData || {}, Object.assign({}, options, { eventId: eventId }));
+
+      return eventId;
+    },
+
+    // For custom events (not standard Meta events)
+    trackCustom: function(eventName, pixelData, capiUserData, options) {
+      options = options || {};
+      var eventId = options.eventId || genEventId();
+
+      if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', eventName, pixelData || {}, { eventID: eventId });
+      }
+
+      sendCapiEvent(eventName, capiUserData || {}, Object.assign({}, options, { eventId: eventId }));
+
+      return eventId;
+    }
+  };
+
+  // ── Auto-fire PageView CAPI (complements the pixel PageView in BaseLayout) ──
+  var pageViewId = genEventId();
+  sendCapiEvent('PageView', {}, { eventId: pageViewId });
+
+  // ── Auto-fire ViewContent on landing pages, blog posts, services, pricing ──
+  var path = window.location.pathname;
+  var viewContentPages = ['/lp/', '/blog/', '/services', '/pricing', '/intake360', '/contact', '/book-call'];
+  var isViewContent = viewContentPages.some(function(p) { return path.indexOf(p) !== -1; });
+
+  if (isViewContent) {
+    var contentName = document.title.split('|')[0].split('—')[0].trim();
+    var category = 'Page';
+    if (path.indexOf('/lp/') !== -1) category = 'Landing Page';
+    else if (path.indexOf('/blog/') !== -1) category = 'Blog';
+    else if (path.indexOf('/services') !== -1) category = 'Services';
+    else if (path.indexOf('/pricing') !== -1) category = 'Pricing';
+    else if (path.indexOf('/book-call') !== -1) category = 'Booking';
+
+    window.__metaCAPI.track('ViewContent', {
+      content_name: contentName,
+      content_category: category
+    }, {});
+  }
+
+  // ── Auto-fire SubscribedButtonClick on CTA clicks to /book-call ──
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href*="/book-call"], a[href*="calendly.com"]');
+    if (!link) return;
+    if (window.__metaCAPI) {
+      window.__metaCAPI.trackCustom('SubscribedButtonClick', {
+        content_name: link.textContent.trim().slice(0, 100),
+        content_category: 'CTA Click'
+      }, {});
+    }
+  });
+
+})();
+</script>

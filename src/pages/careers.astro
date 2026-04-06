@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
 import YouTubeEmbed from "@components/YouTubeEmbed.astro";
+import CareersPixel from "@components/CareersPixel.astro";
 
 const applyUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfgVKM3FZQ3grla9pCjr-v2T5dfI6ztsu2v4z4oVGmjUN3LGg/viewform";
 
@@ -39,7 +40,7 @@ const fitItems = [
 const videoIds = ["LWL_3pD5oWk", "Ood5iNtf7VY", "en3ZncZTeZQ"];
 ---
 
-<BaseLayout title="Careers at Attorney Assistant" description="Join our mission to help law firms operate more efficiently. We're looking for passionate, driven people.">
+<BaseLayout title="Careers at Attorney Assistant" description="Join our mission to help law firms operate more efficiently. We're looking for passionate, driven people." suppressMainPixel={true}>
 
   <Hero
     badge="We're Hiring"
@@ -143,5 +144,7 @@ const videoIds = ["LWL_3pD5oWk", "Ood5iNtf7VY", "en3ZncZTeZQ"];
     buttonLink={applyUrl}
     variant="dark"
   />
+
+  <CareersPixel event="ViewContent" />
 
 </BaseLayout>

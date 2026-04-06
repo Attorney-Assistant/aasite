@@ -1,0 +1,124 @@
+---
+/**
+ * Careers-specific Meta Pixel (ID: 1461622248739350)
+ * Only loaded on: /careers, /apply, /apply/thank-you
+ * Events: ViewContent, SubmitApplication
+ * Also sends server-side Conversions API events for deduplication.
+ *
+ * The CAPI token is injected at build time from the FB_CAREERS_PIXEL_DATA_ACCESS_TOKEN env var.
+ * In production (GitHub Actions), it comes from the repo secret.
+ */
+export interface Props {
+  event: "ViewContent" | "SubmitApplication";
+}
+
+const { event } = Astro.props;
+const PIXEL_ID = "1461622248739350";
+const CAPI_TOKEN = import.meta.env.FB_CAREERS_PIXEL_DATA_ACCESS_TOKEN || "";
+---
+
+<!-- Careers Meta Pixel -->
+<script is:inline define:vars={{ PIXEL_ID, event, CAPI_TOKEN }}>
+  // Load fbevents.js if not already loaded
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', PIXEL_ID);
+  fbq('track', 'PageView');
+
+  // Generate a unique event ID for deduplication between pixel and CAPI
+  var eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+
+  // ── Browser pixel events ──
+
+  if (event === 'ViewContent') {
+    fbq('track', 'ViewContent', {
+      content_name: 'Careers Page',
+      content_category: 'Careers'
+    }, { eventID: eventId });
+  }
+
+  if (event === 'SubmitApplication') {
+    fbq('track', 'SubmitApplication', {
+      content_name: 'Job Application',
+      status: 'submitted'
+    }, { eventID: eventId });
+  }
+
+  // ── Conversions API (server-side deduplication) ──
+
+  (async function sendCapiEvent() {
+    if (!CAPI_TOKEN) return;
+
+    // SHA-256 hash for PII fields
+    async function sha256(str) {
+      if (!str) return undefined;
+      var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str.trim().toLowerCase()));
+      return Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+    }
+
+    // Get client IP for better event match quality
+    var clientIp = '';
+    try {
+      var ipRes = await fetch('https://api.ipify.org?format=json');
+      var ipData = await ipRes.json();
+      clientIp = ipData.ip || '';
+    } catch(e) {}
+
+    // Build user_data
+    var userData = {
+      client_user_agent: navigator.userAgent,
+      client_ip_address: clientIp
+    };
+
+    // For SubmitApplication, add hashed PII from sessionStorage
+    if (event === 'SubmitApplication') {
+      var applicantData = {};
+      try { applicantData = JSON.parse(sessionStorage.getItem('aa_applicant_data') || '{}'); } catch(e) {}
+
+      if (applicantData.email) userData.em = [await sha256(applicantData.email)];
+      if (applicantData.phone) userData.ph = [await sha256(applicantData.phone.replace(/[\s\-\(\)]/g, ''))];
+      if (applicantData.city) userData.ct = [await sha256(applicantData.city)];
+
+      // Also grab fbp and fbc cookies for better matching
+      var fbp = document.cookie.split(';').map(function(c){return c.trim();}).find(function(c){return c.startsWith('_fbp=');});
+      var fbc = document.cookie.split(';').map(function(c){return c.trim();}).find(function(c){return c.startsWith('_fbc=');});
+      if (fbp) userData.fbp = fbp.split('=')[1];
+      if (fbc) userData.fbc = fbc.split('=')[1];
+
+      // Clear stored data
+      try { sessionStorage.removeItem('aa_applicant_data'); } catch(e) {}
+    }
+
+    var payload = {
+      data: [{
+        event_name: event,
+        event_time: Math.floor(Date.now() / 1000),
+        event_id: eventId,
+        event_source_url: window.location.href,
+        action_source: 'website',
+        user_data: userData
+      }]
+    };
+
+    try {
+      var url = 'https://graph.facebook.com/v21.0/' + PIXEL_ID + '/events?access_token=' + CAPI_TOKEN;
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res) {
+        if (!res.ok) res.json().then(function(d) { console.warn('CAPI error:', d); });
+      });
+    } catch(e) {
+      console.warn('CAPI event send failed:', e);
+    }
+  })();
+</script>
+<noscript><img height="1" width="1" style="display:none" src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`} /></noscript>

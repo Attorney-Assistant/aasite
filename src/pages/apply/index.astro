@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
 ---
 
 <BaseLayout
   title="Apply Now — Attorney Assistant"
   description="Apply for a position with Attorney Assistant. Fill out our interview form to start your career in the legal industry."
+  suppressMainPixel={true}
 >
 
   <!-- Hero -->
@@ -846,18 +848,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <!-- Meta Pixel: Landing Page View for /apply -->
-  <script is:inline>
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'ViewContent', {
-        content_name: 'Job Application Form',
-        content_category: 'Careers'
-      });
-    }
-    if (typeof mixpanel !== 'undefined') {
-      mixpanel.track('Application Form Viewed');
-    }
-  </script>
+  <CareersPixel event="ViewContent" />
 
 </BaseLayout>
 
@@ -1151,6 +1142,15 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     e.preventDefault();
     if (!TEST_MODE && !validateCurrentStep()) return;
 
+    // Store applicant data for CAPI SubmitApplication event on thank-you page
+    try {
+      sessionStorage.setItem('aa_applicant_data', JSON.stringify({
+        email: (form.querySelector('#email')?.value || '').trim(),
+        phone: (form.querySelector('#whatsapp_number')?.value || '').trim(),
+        city: (form.querySelector('#city')?.value || '').trim()
+      }));
+    } catch(err) {}
+
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Uploading &amp; submitting&hellip;';
     document.getElementById('upload-note').innerHTML = '<div class="flex gap-3 items-start"><svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg><p class="text-xs text-brand-700 leading-relaxed"><strong>Uploading your files&hellip;</strong> This may take a minute depending on file sizes and your internet speed. Please don\'t close or refresh this page.</p></div>';
@@ -1178,8 +1178,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         document.querySelector('.sticky').classList.add('hidden');
         document.getElementById('success-message').classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-        if (typeof mixpanel !== 'undefined') mixpanel.track('Job Application Submitted');
+        // Conversion events fire on the /apply/thank-you page via CareersPixel
       } else {
         console.error('Formspree error:', response.status, data);
         throw new Error(data.error || data.errors?.map(e => e.message).join(', ') || `Server responded with ${response.status}`);
