@@ -846,6 +846,19 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </div>
   </section>
 
+  <!-- Meta Pixel: Landing Page View for /apply -->
+  <script is:inline>
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'ViewContent', {
+        content_name: 'Job Application Form',
+        content_category: 'Careers'
+      });
+    }
+    if (typeof mixpanel !== 'undefined') {
+      mixpanel.track('Application Form Viewed');
+    }
+  </script>
+
 </BaseLayout>
 
 <style>
