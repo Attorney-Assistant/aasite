@@ -335,10 +335,10 @@ import CareersPixel from "@components/CareersPixel.astro";
             </div>
 
             <div>
-              <label for="id_card" class="label-base">Identification Card</label>
+              <label for="id_card" class="label-base">Identification Card <span class="text-error-500">*</span></label>
               <p class="text-xs text-gray-400 mb-1.5">For identification purposes only. PDF, document, or image. Max 10 MB.</p>
               <div class="file-upload-area" id="id-upload-area">
-                <input type="file" id="id_card" name="id_card" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" class="file-input" />
+                <input type="file" id="id_card" name="id_card" data-required accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" class="file-input" />
                 <div class="file-upload-content">
                   <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
                   <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>

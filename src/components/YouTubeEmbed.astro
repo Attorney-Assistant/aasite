@@ -2,11 +2,25 @@
 export interface Props {
   videoId: string;
   title?: string;
+  uploadDate?: string;
 }
 
-const { videoId, title = "Video testimonial" } = Astro.props;
+const { videoId, title = "Video testimonial", uploadDate = "2024-01-01" } = Astro.props;
 const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": title,
+  "description": title,
+  "thumbnailUrl": thumbnailUrl,
+  "uploadDate": uploadDate,
+  "contentUrl": watchUrl,
+  "embedUrl": embedUrl
+})} />
 
 <div class="youtube-facade group relative aspect-video rounded-2xl overflow-hidden bg-brand-950 shadow-xl ring-1 ring-white/10" data-video-id={videoId}>
   <img
