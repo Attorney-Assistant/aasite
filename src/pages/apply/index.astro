@@ -40,7 +40,7 @@ import CareersPixel from "@components/CareersPixel.astro";
             <span class="badge badge-gold text-[10px]">New</span>
             <div>
               <h3 class="text-sm font-heading text-gray-900">Bilingual Intake360 Agent (English/Spanish)</h3>
-              <p class="text-xs text-gray-500 mt-0.5">Full-time &middot; Remote</p>
+              <p class="text-xs text-gray-500 mt-0.5">Full-time &middot; Remote &middot; <span class="font-semibold text-brand-gold">$6/hr + Performance Bonuses</span></p>
             </div>
           </div>
           <svg class="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
@@ -84,6 +84,15 @@ import CareersPixel from "@components/CareersPixel.astro";
               <li>Staying agile and responsive to frequent updates and changes</li>
               <li>Contributing to a positive, team-oriented environment while maintaining individual accountability</li>
             </ul>
+          </div>
+
+          <div class="card p-4 bg-brand-gold/10 border-brand-gold/30">
+            <div class="flex items-center gap-2 mb-1">
+              <svg class="w-5 h-5 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z" clip-rule="evenodd" /></svg>
+              <h4 class="font-heading text-gray-900 text-sm">Compensation</h4>
+            </div>
+            <p class="text-sm text-gray-800 font-semibold">$6/hour USD + performance bonuses</p>
+            <p class="text-xs text-gray-600 mt-1">Earn more as you hit your targets. Top performers consistently earn above base through our bonus structure.</p>
           </div>
 
           <div class="card p-4 bg-brand-25 border-brand-100">
@@ -325,17 +334,6 @@ import CareersPixel from "@components/CareersPixel.astro";
               <input type="text" id="part_time_hours" name="part_time_hours" class="input-base" placeholder="e.g. 20" />
             </div>
 
-            <fieldset>
-              <legend class="label-base">Pay rate is $5 USD/hr for bilingual (English & Spanish) and $4/hr for English-only. Does that work for you? <span class="text-error-500">*</span></legend>
-              <div class="flex gap-6 mt-1">
-                {["Yes", "No", "Maybe"].map((opt) => (
-                  <label class="inline-flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="pay_rate_ok" value={opt} data-required class="form-radio text-brand-gold focus:ring-brand-gold" />
-                    <span class="text-sm text-gray-700">{opt}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
           </div>
         </div>
 
