@@ -89,13 +89,16 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <!-- Conversion tracking -->
   <script is:inline>
-    // Fire Schedule + invitee_meeting_scheduled via pixel + CAPI with dedup
+    // Fire Schedule + Lead + invitee_meeting_scheduled via pixel + CAPI with dedup
+    // Lead event powers the "Book A Call" Meta custom conversion (ID 2696279927395549)
     if (window.__metaCAPI) {
       window.__metaCAPI.track('Schedule', { content_name: 'Diagnostic Call Booked' }, {});
+      window.__metaCAPI.track('Lead', { content_name: 'Book A Call' }, {});
       window.__metaCAPI.trackCustom('invitee_meeting_scheduled', { content_name: 'Diagnostic Call' }, {});
     } else {
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Schedule');
+        fbq('track', 'Lead', { content_name: 'Book A Call' });
         fbq('trackCustom', 'invitee_meeting_scheduled');
       }
     }
