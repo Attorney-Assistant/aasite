@@ -1,0 +1,207 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Book a Forever Task Map Walkthrough | Attorney Assistant"
+  description="Schedule a live walkthrough of the Forever Task Map — see how to map every task, role, and AI opportunity across your entire law firm."
+  noindex={true}
+  schema={{
+    "@type": "WebPage",
+    "name": "Book a Forever Task Map Walkthrough",
+    "description": "Schedule a live walkthrough of the Forever Task Map for your law firm.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Attorney Assistant"
+    }
+  }}
+>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gray-900">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-gray-900 to-brand-800"></div>
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="reveal">
+          <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">Free Walkthrough</span>
+          <h1 class="text-display-lg md:text-display-xl font-heading text-white leading-tight mb-6">
+            See How to Map<br />
+            <span class="text-gradient-gold">Every Task in Your Firm.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            Book a live walkthrough of the Forever Task Map &mdash; we'll show you how to map every recurring task, assign accountability to every seat, and identify exactly where AI can take over in your firm.
+          </p>
+          <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              300+ tasks mapped
+            </span>
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              40+ roles defined
+            </span>
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              14 departments
+            </span>
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              AI-readiness scoring
+            </span>
+          </div>
+        </div>
+
+        <!-- Booking Widget -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl reveal" style="transition-delay: 150ms" id="book-now">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="featured-icon featured-icon-md featured-icon-gold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+            </div>
+            <div>
+              <h2 class="text-xl font-heading text-gray-900">Book Your Walkthrough</h2>
+              <p class="text-sm text-gray-500">Free &mdash; pick a time that works</p>
+            </div>
+          </div>
+          <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/rr?embed=true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12">
+        <span class="badge badge-brand mb-3 reveal">What You'll Learn</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms">
+          What We'll Cover in Your Walkthrough
+        </h2>
+        <div class="divider-gold-center mb-6"></div>
+        <p class="text-gray-500 max-w-2xl mx-auto reveal" style="transition-delay: 120ms">
+          In one session, we'll walk you through the entire Forever Task Map and show you how it applies to your firm's specific operations.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal" style="transition-delay: 160ms">
+        <div class="card card-hover p-6">
+          <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">300+ Tasks Across 14 Departments</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            See the full map of every recurring task — from Intake through Legal, Finance, Marketing, Tech, HR, and Admin. Understand how it all connects.
+          </p>
+        </div>
+
+        <div class="card card-hover p-6">
+          <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">Accountability for Every Seat</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Learn how to assign owners, managers, and doers to every task. End the "I thought someone else was handling that" problem for good.
+          </p>
+        </div>
+
+        <div class="card card-hover p-6">
+          <div class="featured-icon featured-icon-md featured-icon-navy mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">AI Automation Opportunities</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            We'll show you exactly which tasks in your firm are AI-ready, their priority level, and a realistic deployment timeline.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-narrow">
+      <div class="text-center mb-12">
+        <span class="badge badge-gray mb-3 reveal">Who It's For</span>
+        <h2 class="text-display-sm font-heading text-gray-900 mb-4 reveal" style="transition-delay: 80ms">
+          Built for Law Firm Operators
+        </h2>
+        <div class="divider-gold-center mb-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 reveal" style="transition-delay: 120ms">
+        <div class="flex gap-4 p-5 bg-white rounded-xl border border-gray-200">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" /></svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-gray-900 mb-1">Managing Partners</h3>
+            <p class="text-sm text-gray-500">See every operational task across your firm. Know exactly who is accountable for what.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-5 bg-white rounded-xl border border-gray-200">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-blue/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" /></svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-gray-900 mb-1">COOs &amp; Firm Administrators</h3>
+            <p class="text-sm text-gray-500">Get a single source of truth for operations. Balance workloads and track AI deployment.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-5 bg-white rounded-xl border border-gray-200">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-navy/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-gray-900 mb-1">Department Heads</h3>
+            <p class="text-sm text-gray-500">See every task your team is responsible for and which are candidates for AI automation.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 p-5 bg-white rounded-xl border border-gray-200">
+          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
+          </div>
+          <div>
+            <h3 class="font-heading text-gray-900 mb-1">Growing Firms</h3>
+            <p class="text-sm text-gray-500">Scaling from 10 to 50+ people? Define every seat before you hire for it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-wide relative py-16 md:py-20">
+      <div class="max-w-2xl mx-auto text-center reveal">
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Ready to See Your Firm Mapped?
+        </h2>
+        <div class="divider-gold-center mb-6"></div>
+        <p class="text-lg text-white/60 mb-8">
+          Book your free walkthrough and see exactly how the Forever Task Map applies to your firm's operations.
+        </p>
+        <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+          Book Your Walkthrough
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script -->
+  <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+
+</BaseLayout>
