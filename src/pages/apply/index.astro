@@ -152,6 +152,14 @@ import CareersPixel from "@components/CareersPixel.astro";
 
           <div class="space-y-5">
             <div>
+              <label for="position" class="label-base">Which position are you applying for? <span class="text-error-500">*</span></label>
+              <select id="position" name="position" data-required class="input-base">
+                <option value="" disabled selected>Select a position</option>
+                <option value="Bilingual Intake360 Agent (English/Spanish)">Bilingual Intake360 Agent (English/Spanish)</option>
+              </select>
+            </div>
+
+            <div>
               <label for="full_name" class="label-base">Full Name <span class="text-error-500">*</span></label>
               <input type="text" id="full_name" name="full_name" data-required class="input-base" placeholder="Your full name" />
             </div>
