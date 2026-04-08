@@ -920,6 +920,26 @@ import CareersPixel from "@components/CareersPixel.astro";
 
   <CareersPixel event="ViewContent" />
 
+  <!-- Salesforce Agentforce Chat (careers + apply only) -->
+  <script is:inline>
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'en_US';
+        embeddedservice_bootstrap.init(
+          '00D8c000005xL1L',
+          'Agentforce_Service_Agent_https_attorneyassistant_com_careers',
+          'https://turnkeyops.my.site.com/ESWAgentforceServiceAge1742499916572',
+          {
+            scrt2URL: 'https://turnkeyops.my.salesforce-scrt.com'
+          }
+        );
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    }
+  </script>
+  <script is:inline src="https://turnkeyops.my.site.com/ESWAgentforceServiceAge1742499916572/assets/js/bootstrap.min.js" onload="initEmbeddedMessaging()"></script>
+
 </BaseLayout>
 
 <style>
