@@ -1,7 +1,7 @@
 {
   "placeName": "Attorney Assistant",
   "overallRating": 4.9,
-  "totalReviews": 71,
+  "totalReviews": 72,
   "reviews": [
     {
       "author": "Richard Gantt",
@@ -32,7 +32,7 @@
       "authorPhoto": "https://lh3.googleusercontent.com/a/ACg8ocLktlqR9cRY0fSdhqw1XVhqF7YwTXLAseVJUuJ7y1deNZmp2w=s128-c0x00000000-cc-rp-mo",
       "rating": 5,
       "text": "Attorney Assist is truly like no other. You won’t find another company that provides the tools, guidance, and confidence needed to successfully hire a virtual assistant. Working with Andrew and Ellie has been an amazing experience—they made the entire hiring process seamless and stress-free. I honestly wish I could spend more time with them because they were so amazing.\n\nWhat really sets Attorney Assist apart is that this is not a typical virtual assistant service. Our new hire has become a true part of our team. Unlike other companies where a VA simply answers phones without being integrated into daily operations, our VA is fully incorporated into our office workflow. She is a true teammate and absolutely exceptional.\n\nIf you’re looking to bring on a virtual assistant who will genuinely become part of your team, look no further. Attorney Assist is the go-to.",
-      "relativeTime": "a month ago",
+      "relativeTime": "2 months ago",
       "publishTime": "2026-02-04T18:05:14.642488248Z"
     },
     {
@@ -44,6 +44,6 @@
       "publishTime": "2026-02-12T19:17:43.766070625Z"
     }
   ],
-  "fetchedAt": "2026-04-02T14:17:02.427Z",
+  "fetchedAt": "2026-04-08T12:42:45.989Z",
   "source": "google_places_api"
 }
