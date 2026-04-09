@@ -16,6 +16,9 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://attorneyassistant.com%{REQUEST_URI} [R=301,L]
 
+# ── Marketing-Waste redirect (case-insensitive) ──
+RewriteRule ^Marketing-Waste/?$ /lp/marketing-waste [R=301,L,NC]
+
 # ── Capital-B /Blog/ → lowercase /blog/ redirects ──
 RewriteRule ^Blog/?$ /blog [R=301,L]
 RewriteRule ^Blog/category/(.*)$ /blog/category/$1 [R=301,L]
