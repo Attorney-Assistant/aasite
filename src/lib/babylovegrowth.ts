@@ -66,7 +66,19 @@ async function blgFetch<T>(path: string, params?: Record<string, string>): Promi
   return res.json() as Promise<T>;
 }
 
-export async function fetchBLGArticles() {
+let blgPromise: Promise<Awaited<ReturnType<typeof _fetchBLGArticles>>> | null = null;
+
+export function fetchBLGArticles() {
+  if (!blgPromise) {
+    blgPromise = _fetchBLGArticles().catch((e) => {
+      blgPromise = null; // Clear cache on failure so next call retries
+      throw e;
+    });
+  }
+  return blgPromise;
+}
+
+async function _fetchBLGArticles() {
   const articles = await blgFetch<BLGArticleSummary[]>("/v1/articles", {
     limit: "500",
     offset: "0",

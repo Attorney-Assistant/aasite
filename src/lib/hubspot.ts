@@ -63,7 +63,19 @@ export async function fetchBlogTags(): Promise<HubSpotTag[]> {
   return tagCache;
 }
 
-export async function fetchAllBlogPosts() {
+let blogPostPromise: Promise<Awaited<ReturnType<typeof _fetchAllBlogPosts>>> | null = null;
+
+export function fetchAllBlogPosts() {
+  if (!blogPostPromise) {
+    blogPostPromise = _fetchAllBlogPosts().catch((e) => {
+      blogPostPromise = null;
+      throw e;
+    });
+  }
+  return blogPostPromise;
+}
+
+async function _fetchAllBlogPosts() {
   const allPosts: HubSpotBlogPost[] = [];
   let offset = 0;
   const limit = 100;

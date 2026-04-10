@@ -8,11 +8,18 @@ export async function GET(context: APIContext) {
     posts = (await fetchAllBlogPosts()) || [];
   } catch {}
 
+  // Filter to posts with valid dates and slugs
+  const validPosts = posts.filter((post: any) => {
+    if (!post.slug || !post.title) return false;
+    const d = new Date(post.publishedDate);
+    return !isNaN(d.getTime());
+  });
+
   return rss({
     title: "Attorney Assistant Blog",
     description: "Legal industry insights, tips, and best practices from Attorney Assistant.",
     site: context.site!.toString(),
-    items: posts.map((post: any) => ({
+    items: validPosts.map((post: any) => ({
       title: post.title,
       pubDate: new Date(post.publishedDate),
       description: post.excerpt || "",

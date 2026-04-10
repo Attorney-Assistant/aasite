@@ -6,7 +6,14 @@
 import { fetchAllBlogPosts as fetchHubSpotPosts } from "./hubspot";
 import { fetchBLGArticles } from "./babylovegrowth";
 
-export async function fetchAllBlogPosts() {
+let allPostsPromise: Promise<any[]> | null = null;
+
+export function fetchAllBlogPosts() {
+  if (!allPostsPromise) allPostsPromise = _fetchAllBlogPosts();
+  return allPostsPromise;
+}
+
+async function _fetchAllBlogPosts() {
   const [hubspot, blg] = await Promise.all([
     fetchHubSpotPosts().catch(() => []),
     fetchBLGArticles().catch(() => []),
