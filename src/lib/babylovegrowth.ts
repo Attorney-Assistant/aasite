@@ -86,10 +86,26 @@ async function _fetchBLGArticles() {
 
   if (!articles || articles.length === 0) return [];
 
-  // Fetch full content for each article
-  const full = await Promise.all(
-    articles.map((a) => blgFetch<BLGArticleFull>(`/v1/articles/${a.id}`))
-  );
+  // Fetch full content for each article — throttled to respect BLG's 5 req/sec rate limit.
+  // Batch in groups of 4 with a 1-second pause between batches.
+  const BATCH_SIZE = 4;
+  const full: BLGArticleFull[] = [];
+  for (let i = 0; i < articles.length; i += BATCH_SIZE) {
+    const batch = articles.slice(i, i + BATCH_SIZE);
+    const results = await Promise.all(
+      batch.map((a) =>
+        blgFetch<BLGArticleFull>(`/v1/articles/${a.id}`).catch((e) => {
+          console.error(`[BLG] Failed to fetch article ${a.id} (${a.slug}):`, e.message);
+          return null;
+        })
+      )
+    );
+    full.push(...results.filter((r): r is BLGArticleFull => r !== null));
+    // Pause between batches unless this was the last one
+    if (i + BATCH_SIZE < articles.length) {
+      await new Promise((resolve) => setTimeout(resolve, 1100));
+    }
+  }
 
   // Filter out any failed/empty fetches
   const valid = full.filter((article) => article && article.slug);

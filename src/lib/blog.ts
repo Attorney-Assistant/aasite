@@ -15,9 +15,11 @@ export function fetchAllBlogPosts() {
 
 async function _fetchAllBlogPosts() {
   const [hubspot, blg] = await Promise.all([
-    fetchHubSpotPosts().catch(() => []),
-    fetchBLGArticles().catch(() => []),
+    fetchHubSpotPosts().catch((e) => { console.error("[blog] HubSpot fetch failed:", e.message); return []; }),
+    fetchBLGArticles().catch((e) => { console.error("[blog] BLG fetch failed:", e.message); return []; }),
   ]);
+  console.log(`[blog] Fetched ${hubspot.length} HubSpot + ${blg.length} BLG = ${hubspot.length + blg.length} total`);
+
 
   // Tag HubSpot posts with source
   const hsTagged = hubspot.map((p) => ({ ...p, source: "hubspot" as const }));
