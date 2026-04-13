@@ -5,7 +5,8 @@ import CTABanner from "@components/CTABanner.astro";
 import YouTubeEmbed from "@components/YouTubeEmbed.astro";
 import CareersPixel from "@components/CareersPixel.astro";
 
-const applyUrl = "/apply";
+// No open positions at this time — hiring paused.
+// To re-enable: restore applyUrl = "/apply" and swap the Hero/CTAs back to "Apply Now".
 
 const perks = [
   {
@@ -43,11 +44,9 @@ const videoIds = ["LWL_3pD5oWk", "Ood5iNtf7VY", "en3ZncZTeZQ"];
 <BaseLayout title="Careers at Attorney Assistant" description="Join our mission to help law firms operate more efficiently. We're looking for passionate, driven people." suppressMainPixel={true}>
 
   <Hero
-    badge="We're Hiring"
+    badge="Not Currently Hiring"
     title="Careers at Attorney Assistant"
-    subtitle="Join our mission to help law firms operate more efficiently. We're looking for passionate, driven people."
-    buttonText="Apply Now"
-    buttonLink={applyUrl}
+    subtitle="We don't have any open positions at this time, but our team is always growing. Learn more about who we are and check back soon."
   />
 
   <!-- Company Video + Perks — side by side -->
@@ -119,29 +118,29 @@ const videoIds = ["LWL_3pD5oWk", "Ood5iNtf7VY", "en3ZncZTeZQ"];
     </div>
   </section>
 
-  <!-- Apply Now -->
+  <!-- No Open Positions -->
   <section id="apply" class="py-12 md:py-16 reveal" style="transition-delay: 0.3s;">
     <div class="container-narrow text-center">
       <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-4">
         <img src="/icons/buiness & finance_business bag.svg" alt="" aria-hidden="true" class="w-7 h-7" />
       </div>
       <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">
-        Apply Now
+        No Open Positions at This Time
       </h2>
       <div class="divider-gold-center mt-3"></div>
       <p class="text-base text-gray-500 leading-relaxed mb-6 max-w-2xl mx-auto">
-        At Attorney Assistant, we are committed to providing high-quality talent to law firms.
-        Join our team and make an impact in the legal industry.
+        We're not actively hiring right now, but our team is always growing.
+        Thank you for your interest in Attorney Assistant &mdash; please check back soon.
       </p>
-      <a href={applyUrl} class="btn-primary btn-lg">Apply Now</a>
+      <a href="/" class="btn-primary btn-lg">Return Home</a>
     </div>
   </section>
 
   <CTABanner
-    heading="Ready to Make an Impact?"
-    body="Join the Attorney Assistant team and help transform how law firms operate."
-    buttonText="Apply Now"
-    buttonLink={applyUrl}
+    heading="Not Hiring Right Now"
+    body="We don't have any open positions at this time. Thanks for your interest in joining our team — check back soon."
+    buttonText="Return Home"
+    buttonLink="/"
     variant="dark"
   />
 
