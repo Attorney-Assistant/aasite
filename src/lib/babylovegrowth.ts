@@ -79,12 +79,22 @@ export function fetchBLGArticles() {
 }
 
 async function _fetchBLGArticles() {
-  const articles = await blgFetch<BLGArticleSummary[]>("/v1/articles", {
-    limit: "500",
-    offset: "0",
-  });
+  // BLG API accepts max 50 per request — paginate to get all articles
+  const PAGE_SIZE = 50;
+  const articles: BLGArticleSummary[] = [];
+  let offset = 0;
+  while (true) {
+    const page = await blgFetch<BLGArticleSummary[]>("/v1/articles", {
+      limit: String(PAGE_SIZE),
+      offset: String(offset),
+    });
+    if (!page || page.length === 0) break;
+    articles.push(...page);
+    if (page.length < PAGE_SIZE) break; // last page
+    offset += PAGE_SIZE;
+  }
 
-  if (!articles || articles.length === 0) return [];
+  if (articles.length === 0) return [];
 
   // Fetch full content for each article — throttled to respect BLG's 5 req/sec rate limit.
   // Batch in groups of 4 with a 1-second pause between batches.
