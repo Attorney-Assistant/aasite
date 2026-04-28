@@ -15,11 +15,21 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <div class="comic-page">
 
-    <!-- ─── MASTHEAD ─── -->
+    <!-- ─── MASTHEAD (replaces site header on this page) ─── -->
     <header class="comic-masthead">
       <div class="comic-wrap">
         <div class="masthead-inner">
-          <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="masthead-logo" />
+          <a href="/" class="masthead-logo-link">
+            <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="masthead-logo" />
+          </a>
+          <nav class="masthead-nav">
+            <a href="/">Home</a>
+            <a href="/services">Services</a>
+            <a href="/blog">Blog</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/book-call" class="masthead-nav-cta">Book a Call</a>
+          </nav>
           <div class="masthead-right">
             <span class="masthead-issue">BOARDWALK SEMINAR EDITION &bull; 2026</span>
             <span class="masthead-tagline">Operations problem-solvers for 200+ law firms</span>
@@ -48,129 +58,155 @@ import BaseLayout from "@layouts/BaseLayout.astro";
           <a href="#book" class="comic-btn comic-reveal comic-reveal--d3 comic-btn--pulse">BOOK YOUR FREE AUDIT</a>
         </div>
       </div>
-      <!-- City skyline SVG -->
+      <!-- City skyline SVG — tall skyscrapers as hero backdrop -->
       <div class="skyline">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="none" class="skyline-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 480" preserveAspectRatio="xMidYMax slice" class="skyline-svg">
           <defs>
             <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#1a2d4d"/>
               <stop offset="100%" stop-color="#0F1B33"/>
             </linearGradient>
+            <linearGradient id="towerGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#12203a"/>
+              <stop offset="100%" stop-color="#0F1B33"/>
+            </linearGradient>
           </defs>
-          <!-- Back layer — distant buildings -->
+
+          <!-- Back layer — distant mid-rise buildings -->
           <path fill="#162440" d="
-            M0 200 L0 140 L20 140 L20 125 L35 125 L35 110 L40 110 L40 95 L55 95 L55 110 L70 110 L70 130 L90 130
-            L90 115 L100 115 L100 100 L110 100 L110 85 L120 85 L120 70 L130 70 L130 85 L145 85 L145 105 L160 105 L160 120
-            L180 120 L180 105 L195 105 L195 88 L210 88 L210 72 L218 72 L218 60 L226 60 L226 75 L240 75 L240 95 L260 95
-            L260 110 L280 110 L280 95 L295 95 L295 78 L310 78 L310 65 L320 65 L320 52 L328 52 L328 68 L340 68 L340 85
-            L360 85 L360 100 L380 100 L380 115 L400 115 L400 100 L415 100 L415 82 L430 82 L430 68 L440 68 L440 55
-            L448 55 L448 42 L455 42 L455 58 L468 58 L468 75 L485 75 L485 95 L505 95 L505 110
-            L525 110 L525 95 L540 95 L540 78 L555 78 L555 92 L575 92 L575 108 L595 108 L595 95 L610 95
-            L610 80 L625 80 L625 65 L632 65 L632 50 L640 50 L640 38 L648 38 L648 55 L660 55 L660 72 L675 72
-            L675 90 L695 90 L695 105 L715 105 L715 118
-            L735 118 L735 102 L750 102 L750 85 L765 85 L765 70 L775 70 L775 58 L782 58 L782 72 L795 72 L795 90
-            L815 90 L815 108 L835 108 L835 95 L850 95 L850 80 L865 80 L865 92 L885 92 L885 110
-            L905 110 L905 95 L920 95 L920 78 L935 78 L935 62 L945 62 L945 48 L952 48 L952 35 L960 35
-            L960 52 L972 52 L972 70 L990 70 L990 88 L1010 88 L1010 105 L1030 105
-            L1030 90 L1045 90 L1045 75 L1060 75 L1060 88 L1080 88 L1080 105 L1100 105 L1100 118
-            L1120 118 L1120 105 L1135 105 L1135 88 L1148 88 L1148 72 L1158 72 L1158 58 L1168 58 L1168 72
-            L1180 72 L1180 90 L1200 90 L1200 108
-            L1220 108 L1220 95 L1235 95 L1235 80 L1250 80 L1250 95 L1270 95 L1270 112
-            L1290 112 L1290 100 L1305 100 L1305 85 L1318 85 L1318 98 L1335 98 L1335 115
-            L1355 115 L1355 105 L1370 105 L1370 90 L1385 90 L1385 75 L1395 75 L1395 62 L1405 62 L1405 78
-            L1420 78 L1420 95 L1440 95 L1440 200 Z
+            M0 480 L0 340 L25 340 L25 310 L45 310 L45 290 L60 290 L60 270 L75 270 L75 250 L85 250 L85 270 L100 270 L100 300 L120 300 L120 330
+            L140 330 L140 300 L155 300 L155 275 L170 275 L170 255 L182 255 L182 240 L192 240 L192 260 L205 260 L205 285 L225 285 L225 310
+            L245 310 L245 285 L260 285 L260 260 L275 260 L275 240 L285 240 L285 260 L300 260 L300 290 L320 290 L320 320
+            L340 320 L340 295 L355 295 L355 270 L370 270 L370 290 L390 290 L390 315 L410 315 L410 335
+            L430 335 L430 310 L445 310 L445 285 L460 285 L460 265 L472 265 L472 280 L488 280 L488 305 L510 305 L510 330
+            L530 330 L530 305 L545 305 L545 280 L560 280 L560 260 L572 260 L572 280 L590 280 L590 310
+            L610 310 L610 335 L630 335 L630 310 L645 310 L645 285 L660 285 L660 265 L672 265 L672 285 L690 285 L690 315
+            L710 315 L710 340 L730 340 L730 315 L745 315 L745 290 L760 290 L760 270 L772 270 L772 255 L782 255 L782 270 L795 270 L795 295 L815 295 L815 325
+            L835 325 L835 300 L850 300 L850 280 L865 280 L865 295 L885 295 L885 320 L905 320 L905 340
+            L925 340 L925 315 L940 315 L940 290 L955 290 L955 270 L968 270 L968 285 L985 285 L985 310
+            L1005 310 L1005 335 L1025 335 L1025 310 L1040 310 L1040 285 L1055 285 L1055 265 L1068 265 L1068 280 L1085 280 L1085 305
+            L1105 305 L1105 330 L1125 330 L1125 305 L1140 305 L1140 280 L1155 280 L1155 295 L1175 295 L1175 320
+            L1195 320 L1195 340 L1215 340 L1215 315 L1230 315 L1230 290 L1245 290 L1245 270 L1258 270 L1258 290 L1275 290 L1275 315
+            L1295 315 L1295 340 L1315 340 L1315 320 L1330 320 L1330 295 L1345 295 L1345 310 L1365 310 L1365 330
+            L1385 330 L1385 310 L1400 310 L1400 290 L1415 290 L1415 305 L1440 305 L1440 480 Z
           "/>
-          <!-- Front layer — main buildings with windows -->
+
+          <!-- Front layer — main buildings + tall skyscraper towers -->
           <path fill="url(#skyGrad)" d="
-            M0 200 L0 155 L30 155 L30 135 L45 135
-            L45 120 L52 120 L52 105 L58 105 L58 90 L68 90 L68 78 L78 78 L78 90 L88 90 L88 108 L100 108
-            L100 125 L115 125 L115 108 L128 108 L128 90 L138 90 L138 75 L148 75 L148 62 L155 62 L155 52 L162 52
-            L162 62 L172 62 L172 78 L185 78 L185 98 L200 98 L200 118 L218 118
-            L218 102 L232 102 L232 85 L245 85 L245 98 L262 98 L262 115 L280 115
-            L280 100 L295 100 L295 82 L308 82 L308 68 L315 68 L315 55 L322 55 L322 42 L328 42 L328 32 L335 32
-            L335 45 L345 45 L345 62 L358 62 L358 80 L375 80 L375 100 L395 100 L395 118
-            L410 118 L410 102 L425 102 L425 85 L435 85 L435 70 L445 70 L445 85 L460 85 L460 102 L478 102 L478 118
-            L495 118 L495 100 L508 100 L508 82 L520 82 L520 68 L528 68 L528 55 L535 55 L535 42 L542 42 L542 30 L548 30
-            L548 22 L555 22 L555 35 L565 35 L565 52 L578 52 L578 72 L595 72 L595 92 L615 92 L615 112
-            L632 112 L632 95 L645 95 L645 80 L658 80 L658 95 L675 95 L675 115 L695 115
-            L695 100 L710 100 L710 82 L722 82 L722 68 L730 68 L730 55 L738 55 L738 68 L752 68 L752 85 L768 85 L768 105
-            L788 105 L788 120 L808 120
-            L808 105 L822 105 L822 88 L835 88 L835 72 L842 72 L842 58 L850 58 L850 45 L858 45 L858 35 L865 35
-            L865 48 L875 48 L875 65 L888 65 L888 82 L905 82 L905 100 L925 100 L925 118
-            L942 118 L942 102 L955 102 L955 88 L968 88 L968 102 L985 102 L985 118
-            L1005 118 L1005 100 L1018 100 L1018 82 L1030 82 L1030 68 L1038 68 L1038 52 L1045 52 L1045 40 L1052 40
-            L1052 52 L1065 52 L1065 72 L1080 72 L1080 90 L1098 90 L1098 110
-            L1118 110 L1118 95 L1132 95 L1132 78 L1145 78 L1145 62 L1152 62 L1152 48 L1158 48 L1158 62
-            L1172 62 L1172 82 L1188 82 L1188 100 L1208 100
-            L1208 115 L1225 115 L1225 100 L1238 100 L1238 85 L1250 85 L1250 100 L1268 100 L1268 118
-            L1288 118 L1288 105 L1302 105 L1302 88 L1315 88 L1315 72 L1322 72 L1322 85 L1338 85 L1338 105
-            L1355 105 L1355 120 L1375 120
-            L1375 108 L1388 108 L1388 92 L1400 92 L1400 78 L1410 78 L1410 65 L1418 65 L1418 78 L1428 78 L1428 95
-            L1440 95 L1440 200 Z
+            M0 480 L0 360 L20 360 L20 340 L35 340 L35 320 L50 320 L50 300 L60 300 L60 320 L75 320 L75 345 L95 345
+            L95 320 L110 320 L110 295 L125 295 L125 275 L135 275 L135 295 L150 295 L150 325 L170 325 L170 350
+            L188 350 L188 330 L200 330 L200 305 L212 305 L212 285 L220 285 L220 300 L235 300 L235 330 L255 330 L255 355
+            L275 355 L275 335 L290 335 L290 310 L305 310 L305 285 L315 285 L315 300 L330 300 L330 330 L350 330 L350 355
+            L368 355 L368 335 L380 335 L380 310 L392 310 L392 290 L400 290 L400 310 L415 310 L415 340 L435 340
+            L435 360 L450 360 L450 340 L462 340 L462 315 L475 315 L475 295 L482 295 L482 275 L490 275 L490 295 L505 295 L505 325 L525 325 L525 350
+            L542 350 L542 330 L555 330 L555 305 L568 305 L568 285 L575 285 L575 265 L582 265 L582 285 L598 285 L598 315 L618 315 L618 345
+            L638 345 L638 365 L655 365 L655 345 L668 345 L668 320 L680 320 L680 300 L688 300 L688 280 L698 280 L698 300 L712 300 L712 330 L732 330 L732 358
+            L750 358 L750 340 L762 340 L762 315 L775 315 L775 295 L782 295 L782 275 L790 275 L790 295 L805 295 L805 325 L825 325 L825 355
+            L845 355 L845 335 L858 335 L858 310 L870 310 L870 290 L878 290 L878 310 L895 310 L895 340 L915 340 L915 360
+            L932 360 L932 340 L945 340 L945 315 L958 315 L958 295 L965 295 L965 275 L972 275 L972 295 L988 295 L988 325 L1008 325 L1008 355
+            L1028 355 L1028 370 L1045 370 L1045 350 L1058 350 L1058 325 L1070 325 L1070 305 L1078 305 L1078 325 L1095 325 L1095 355
+            L1115 355 L1115 375 L1132 375 L1132 355 L1145 355 L1145 330 L1158 330 L1158 310 L1168 310 L1168 295 L1175 295 L1175 310 L1190 310 L1190 340 L1210 340
+            L1210 360 L1228 360 L1228 340 L1240 340 L1240 315 L1255 315 L1255 295 L1262 295 L1262 315 L1280 315 L1280 345
+            L1300 345 L1300 365 L1318 365 L1318 345 L1330 345 L1330 320 L1345 320 L1345 340 L1365 340 L1365 360
+            L1385 360 L1385 345 L1398 345 L1398 320 L1410 320 L1410 340 L1425 340 L1425 360 L1440 360 L1440 480 Z
           "/>
-          <!-- Window lights -->
-          <g fill="#F7941D" opacity="0.35">
-            <rect x="155" y="56" width="3" height="4" rx="0.5"/>
-            <rect x="159" y="56" width="3" height="4" rx="0.5"/>
-            <rect x="155" y="64" width="3" height="4" rx="0.5"/>
-            <rect x="159" y="64" width="3" height="4" rx="0.5"/>
-            <rect x="328" y="36" width="3" height="4" rx="0.5"/>
-            <rect x="332" y="36" width="3" height="4" rx="0.5"/>
-            <rect x="328" y="48" width="3" height="4" rx="0.5"/>
-            <rect x="332" y="48" width="3" height="4" rx="0.5"/>
-            <rect x="335" y="48" width="3" height="4" rx="0.5"/>
-            <rect x="548" y="26" width="3" height="4" rx="0.5"/>
-            <rect x="552" y="26" width="3" height="4" rx="0.5"/>
-            <rect x="548" y="38" width="3" height="4" rx="0.5"/>
-            <rect x="552" y="38" width="3" height="4" rx="0.5"/>
-            <rect x="548" y="50" width="3" height="4" rx="0.5"/>
-            <rect x="552" y="50" width="3" height="4" rx="0.5"/>
-            <rect x="858" y="40" width="3" height="4" rx="0.5"/>
-            <rect x="862" y="40" width="3" height="4" rx="0.5"/>
-            <rect x="858" y="52" width="3" height="4" rx="0.5"/>
-            <rect x="862" y="52" width="3" height="4" rx="0.5"/>
-            <rect x="1045" y="45" width="3" height="4" rx="0.5"/>
-            <rect x="1049" y="45" width="3" height="4" rx="0.5"/>
-            <rect x="1045" y="56" width="3" height="4" rx="0.5"/>
-            <rect x="1049" y="56" width="3" height="4" rx="0.5"/>
-            <rect x="1152" y="52" width="3" height="4" rx="0.5"/>
-            <rect x="1156" y="52" width="3" height="4" rx="0.5"/>
-            <rect x="1152" y="64" width="3" height="4" rx="0.5"/>
-            <rect x="1156" y="64" width="3" height="4" rx="0.5"/>
-            <rect x="68" y="82" width="3" height="4" rx="0.5"/>
-            <rect x="72" y="82" width="3" height="4" rx="0.5"/>
-            <rect x="68" y="92" width="3" height="4" rx="0.5"/>
-            <rect x="138" y="78" width="3" height="4" rx="0.5"/>
-            <rect x="142" y="78" width="3" height="4" rx="0.5"/>
-            <rect x="308" y="72" width="3" height="4" rx="0.5"/>
-            <rect x="312" y="72" width="3" height="4" rx="0.5"/>
-            <rect x="520" y="72" width="3" height="4" rx="0.5"/>
-            <rect x="524" y="72" width="3" height="4" rx="0.5"/>
-            <rect x="730" y="60" width="3" height="4" rx="0.5"/>
-            <rect x="734" y="60" width="3" height="4" rx="0.5"/>
-            <rect x="730" y="72" width="3" height="4" rx="0.5"/>
-            <rect x="734" y="72" width="3" height="4" rx="0.5"/>
-            <rect x="1322" y="76" width="3" height="4" rx="0.5"/>
-            <rect x="1326" y="76" width="3" height="4" rx="0.5"/>
-            <rect x="1410" y="70" width="3" height="4" rx="0.5"/>
-            <rect x="1414" y="70" width="3" height="4" rx="0.5"/>
+
+          <!-- Skyscraper towers — tall narrow buildings that reach high -->
+          <g fill="url(#towerGrad)">
+            <!-- Tower 1: left side -->
+            <path d="M120 275 L120 110 L126 105 L132 100 L138 105 L144 110 L144 275 Z"/>
+            <!-- Tower 2: left-center, tallest -->
+            <path d="M310 285 L310 55 L316 50 L320 42 L324 50 L330 55 L330 285 Z"/>
+            <!-- Tower 3: center-left -->
+            <path d="M488 275 L488 90 L495 82 L500 78 L505 82 L512 90 L512 275 Z"/>
+            <!-- Tower 4: center, second tallest -->
+            <path d="M680 300 L680 30 L685 22 L690 18 L695 22 L700 30 L700 300 Z"/>
+            <!-- Tower 5: center-right -->
+            <path d="M860 290 L860 70 L866 62 L872 58 L878 62 L884 70 L884 290 Z"/>
+            <!-- Tower 6: right-center -->
+            <path d="M1055 305 L1055 100 L1060 92 L1065 88 L1070 92 L1075 100 L1075 305 Z"/>
+            <!-- Tower 7: right side -->
+            <path d="M1250 295 L1250 120 L1255 112 L1260 108 L1265 112 L1270 120 L1270 295 Z"/>
           </g>
-          <!-- Antenna spires -->
-          <g stroke="#0F1B33" stroke-width="1.5" fill="none">
-            <line x1="548" y1="22" x2="548" y2="10"/>
-            <line x1="551" y1="22" x2="551" y2="14"/>
-            <line x1="328" y1="32" x2="328" y2="18"/>
-            <line x1="860" y1="35" x2="860" y2="22"/>
-            <line x1="1048" y1="40" x2="1048" y2="28"/>
-            <line x1="155" y1="52" x2="155" y2="40"/>
+
+          <!-- Tower window grids -->
+          <g fill="#F7941D" opacity="0.25">
+            <!-- Tower 1 windows -->
+            <rect x="126" y="120" width="3" height="4"/><rect x="132" y="120" width="3" height="4"/>
+            <rect x="126" y="132" width="3" height="4"/><rect x="132" y="132" width="3" height="4"/>
+            <rect x="126" y="144" width="3" height="4"/><rect x="132" y="144" width="3" height="4"/>
+            <rect x="126" y="156" width="3" height="4"/><rect x="132" y="156" width="3" height="4"/>
+            <rect x="126" y="168" width="3" height="4"/><rect x="132" y="168" width="3" height="4"/>
+            <rect x="126" y="200" width="3" height="4"/><rect x="132" y="200" width="3" height="4"/>
+            <rect x="126" y="230" width="3" height="4"/><rect x="132" y="230" width="3" height="4"/>
+            <!-- Tower 2 windows (tallest) -->
+            <rect x="315" y="65" width="3" height="4"/><rect x="321" y="65" width="3" height="4"/>
+            <rect x="315" y="78" width="3" height="4"/><rect x="321" y="78" width="3" height="4"/>
+            <rect x="315" y="91" width="3" height="4"/><rect x="321" y="91" width="3" height="4"/>
+            <rect x="315" y="104" width="3" height="4"/><rect x="321" y="104" width="3" height="4"/>
+            <rect x="315" y="117" width="3" height="4"/><rect x="321" y="117" width="3" height="4"/>
+            <rect x="315" y="140" width="3" height="4"/><rect x="321" y="140" width="3" height="4"/>
+            <rect x="315" y="165" width="3" height="4"/><rect x="321" y="165" width="3" height="4"/>
+            <rect x="315" y="195" width="3" height="4"/><rect x="321" y="195" width="3" height="4"/>
+            <rect x="315" y="230" width="3" height="4"/><rect x="321" y="230" width="3" height="4"/>
+            <!-- Tower 3 windows -->
+            <rect x="495" y="100" width="3" height="4"/><rect x="501" y="100" width="3" height="4"/>
+            <rect x="495" y="113" width="3" height="4"/><rect x="501" y="113" width="3" height="4"/>
+            <rect x="495" y="126" width="3" height="4"/><rect x="501" y="126" width="3" height="4"/>
+            <rect x="495" y="155" width="3" height="4"/><rect x="501" y="155" width="3" height="4"/>
+            <rect x="495" y="190" width="3" height="4"/><rect x="501" y="190" width="3" height="4"/>
+            <rect x="495" y="230" width="3" height="4"/><rect x="501" y="230" width="3" height="4"/>
+            <!-- Tower 4 windows (second tallest) -->
+            <rect x="685" y="40" width="3" height="4"/><rect x="691" y="40" width="3" height="4"/>
+            <rect x="685" y="53" width="3" height="4"/><rect x="691" y="53" width="3" height="4"/>
+            <rect x="685" y="66" width="3" height="4"/><rect x="691" y="66" width="3" height="4"/>
+            <rect x="685" y="79" width="3" height="4"/><rect x="691" y="79" width="3" height="4"/>
+            <rect x="685" y="92" width="3" height="4"/><rect x="691" y="92" width="3" height="4"/>
+            <rect x="685" y="115" width="3" height="4"/><rect x="691" y="115" width="3" height="4"/>
+            <rect x="685" y="145" width="3" height="4"/><rect x="691" y="145" width="3" height="4"/>
+            <rect x="685" y="180" width="3" height="4"/><rect x="691" y="180" width="3" height="4"/>
+            <rect x="685" y="220" width="3" height="4"/><rect x="691" y="220" width="3" height="4"/>
+            <rect x="685" y="260" width="3" height="4"/><rect x="691" y="260" width="3" height="4"/>
+            <!-- Tower 5 windows -->
+            <rect x="866" y="80" width="3" height="4"/><rect x="872" y="80" width="3" height="4"/>
+            <rect x="866" y="93" width="3" height="4"/><rect x="872" y="93" width="3" height="4"/>
+            <rect x="866" y="106" width="3" height="4"/><rect x="872" y="106" width="3" height="4"/>
+            <rect x="866" y="135" width="3" height="4"/><rect x="872" y="135" width="3" height="4"/>
+            <rect x="866" y="170" width="3" height="4"/><rect x="872" y="170" width="3" height="4"/>
+            <rect x="866" y="215" width="3" height="4"/><rect x="872" y="215" width="3" height="4"/>
+            <!-- Tower 6 windows -->
+            <rect x="1060" y="110" width="3" height="4"/><rect x="1066" y="110" width="3" height="4"/>
+            <rect x="1060" y="123" width="3" height="4"/><rect x="1066" y="123" width="3" height="4"/>
+            <rect x="1060" y="150" width="3" height="4"/><rect x="1066" y="150" width="3" height="4"/>
+            <rect x="1060" y="190" width="3" height="4"/><rect x="1066" y="190" width="3" height="4"/>
+            <rect x="1060" y="240" width="3" height="4"/><rect x="1066" y="240" width="3" height="4"/>
+            <!-- Tower 7 windows -->
+            <rect x="1255" y="130" width="3" height="4"/><rect x="1261" y="130" width="3" height="4"/>
+            <rect x="1255" y="143" width="3" height="4"/><rect x="1261" y="143" width="3" height="4"/>
+            <rect x="1255" y="170" width="3" height="4"/><rect x="1261" y="170" width="3" height="4"/>
+            <rect x="1255" y="210" width="3" height="4"/><rect x="1261" y="210" width="3" height="4"/>
           </g>
+
+          <!-- Antenna spires on towers -->
+          <g stroke="#0F1B33" stroke-width="2" fill="none">
+            <line x1="132" y1="100" x2="132" y2="78"/>
+            <line x1="320" y1="42" x2="320" y2="8"/>
+            <line x1="500" y1="78" x2="500" y2="52"/>
+            <line x1="690" y1="18" x2="690" y2="-15"/>
+            <line x1="872" y1="58" x2="872" y2="30"/>
+            <line x1="1065" y1="88" x2="1065" y2="62"/>
+            <line x1="1260" y1="108" x2="1260" y2="82"/>
+          </g>
+
           <!-- Blinking antenna lights -->
           <g class="antenna-lights">
-            <circle cx="548" cy="10" r="2" fill="#ff3333" class="blink-1"/>
-            <circle cx="328" cy="18" r="1.5" fill="#ff3333" class="blink-2"/>
-            <circle cx="860" cy="22" r="2" fill="#ff3333" class="blink-1"/>
-            <circle cx="1048" cy="28" r="1.5" fill="#ff3333" class="blink-2"/>
-            <circle cx="155" cy="40" r="1.5" fill="#ff3333" class="blink-1"/>
+            <circle cx="132" cy="78" r="2" fill="#ff3333" class="blink-2"/>
+            <circle cx="320" cy="8" r="2.5" fill="#ff3333" class="blink-1"/>
+            <circle cx="500" cy="52" r="2" fill="#ff3333" class="blink-2"/>
+            <circle cx="690" cy="-15" r="3" fill="#ff3333" class="blink-1"/>
+            <circle cx="872" cy="30" r="2" fill="#ff3333" class="blink-2"/>
+            <circle cx="1065" cy="62" r="2" fill="#ff3333" class="blink-1"/>
+            <circle cx="1260" cy="82" r="2" fill="#ff3333" class="blink-2"/>
           </g>
         </svg>
       </div>
@@ -335,6 +371,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
        STYLES — TRUE COMIC BOOK AESTHETIC
        ═══════════════════════════════════════ -->
   <style is:global>
+    /* ── Hide the default site header on this page ── */
+    #site-header { display: none !important; }
+
     /* ── Reset & Page Wrapper ── */
     .comic-page {
       --orange: #F7941D;
@@ -354,7 +393,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     }
 
     /* ── Comic Typography ── */
-    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=DM+Sans:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap');
 
     .comic-page h1,
     .comic-page h2,
@@ -375,7 +414,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     .speech-bubble span,
     .stat-bubble strong {
-      font-family: 'Bangers', cursive;
+      font-family: 'Anton', 'Impact', 'Arial Black', sans-serif;
+      text-transform: uppercase;
       letter-spacing: 0.04em;
     }
 
@@ -413,18 +453,55 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .comic-masthead {
       background: var(--navy);
       border-bottom: 5px solid var(--ink);
-      padding: 0.75rem 0;
+      padding: 0.85rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
     .masthead-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
     }
+    .masthead-logo-link {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
     .masthead-logo {
-      height: 30px;
+      height: 40px;
       width: auto;
+    }
+    .masthead-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .masthead-nav a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .masthead-nav a:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+    .masthead-nav-cta {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+      font-weight: 700 !important;
+      padding: 0.4rem 1rem !important;
+      border-radius: 4px !important;
+      margin-left: 0.25rem;
+    }
+    .masthead-nav-cta:hover {
+      background: var(--orange-bright) !important;
     }
     .masthead-right {
       text-align: right;
@@ -433,13 +510,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       gap: 0.15rem;
     }
     .masthead-issue {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       letter-spacing: 0.12em;
       color: var(--orange);
     }
     .masthead-tagline {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.55);
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.45);
       font-weight: 500;
       letter-spacing: 0.02em;
     }
@@ -469,8 +546,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       box-shadow: 3px 3px 0 var(--ink);
     }
     .speech-bubble span {
-      font-size: 1.15rem;
+      font-size: 1.3rem;
       color: var(--navy);
+      letter-spacing: 0.06em;
     }
     .speech-bubble::after {
       content: '';
@@ -551,7 +629,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       bottom: 0;
       left: 0;
       right: 0;
-      height: 200px;
+      height: 65%;
+      max-height: 500px;
+      min-height: 280px;
       z-index: 1;
     }
     .skyline-svg {
@@ -736,9 +816,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       padding: 0.5rem;
     }
     .stat-bubble strong {
-      font-size: 1.65rem;
+      font-size: 1.85rem;
       color: var(--navy-deep);
-      line-height: 1.1;
+      line-height: 1.05;
       display: block;
     }
     .stat-bubble span {
@@ -905,6 +985,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       }
       .stat-bubble strong { font-size: 1.3rem; }
       .stat-bubble span { font-size: 0.58rem; }
+      .masthead-nav { display: none; }
       .masthead-right { display: none; }
       .footer-inner {
         flex-direction: column;
@@ -914,7 +995,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         flex-direction: column;
         gap: 0.5rem;
       }
-      .skyline { height: 100px; }
+      .skyline { height: 50%; min-height: 180px; }
     }
     @media (max-width: 480px) {
       .service-grid {
