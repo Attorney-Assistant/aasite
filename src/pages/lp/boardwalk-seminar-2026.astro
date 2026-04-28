@@ -443,7 +443,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 420px;
+      grid-template-columns: 1fr 520px;
       gap: 2.5rem;
       align-items: start;
     }
@@ -481,9 +481,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     }
     .hero-booking-panel .meetings-iframe-container {
       padding: 0.5rem;
+      max-height: 380px;
+      overflow: hidden;
     }
     .hero-booking-panel .meetings-iframe-container iframe {
       background: #fff !important;
+      max-height: 370px;
     }
 
     /* Speech bubble */
