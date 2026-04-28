@@ -260,30 +260,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       </div>
     </section>
 
-    <!-- ─── CONTACT BAR ─── -->
-    <footer class="comic-footer">
-      <div class="comic-wrap footer-inner">
-        <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="footer-logo" loading="lazy" />
-        <div class="footer-links">
-          <a href="tel:+12153372677">Call: +1 (215) 337-2677</a>
-          <a href="mailto:info@attorneyassistant.com">Email: info@attorneyassistant.com</a>
-          <span>21 East 5th Ave, Suite 102, Conshohocken, PA 19428</span>
-        </div>
-        <span class="footer-url">attorneyassistant.com</span>
-      </div>
-    </footer>
-
   </div><!-- .comic-page -->
 
   <!-- ═══════════════════════════════════════
        STYLES — TRUE COMIC BOOK AESTHETIC
        ═══════════════════════════════════════ -->
   <style is:global>
-    /* ── Hide the default site header & footer on this page ── */
+    /* ── Hide the default site header on this page ── */
     #site-header { display: none !important; }
-    .comic-page ~ footer,
-    main + footer,
-    footer.bg-brand-950 { display: none !important; }
 
     /* ── Reset & Page Wrapper ── */
     .comic-page {
@@ -445,7 +429,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       display: grid;
       grid-template-columns: 1fr 520px;
       gap: 2.5rem;
-      align-items: start;
+      align-items: stretch;
     }
     .hero-left {
       max-width: 760px;
@@ -455,16 +439,26 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       padding: 2rem 2.25rem;
       border: 4px solid var(--ink);
       box-shadow: 6px 6px 0 var(--ink);
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-left .comic-btn {
+      margin-top: auto;
     }
     .hero-right {
       position: relative;
       z-index: 3;
+      display: flex;
+      flex-direction: column;
     }
     .hero-booking-panel {
       background: var(--white);
       border: 4px solid var(--ink);
       box-shadow: 8px 8px 0 var(--ink);
       overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     .hero-booking-header {
       background: var(--navy);
@@ -487,11 +481,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     }
     .hero-booking-panel .meetings-iframe-container {
       padding: 0.5rem;
-      min-height: 480px;
+      flex: 1;
     }
     .hero-booking-panel .meetings-iframe-container iframe {
       background: #fff !important;
-      min-height: 470px;
+      height: 100%;
     }
 
     /* Speech bubble */
@@ -884,41 +878,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       line-height: 1.45;
       max-width: 500px;
       margin: 0 auto;
-    }
-
-    /* ── FOOTER ── */
-    .comic-footer {
-      background: var(--navy-deep);
-      padding: 1.25rem 0;
-      border-top: 5px solid var(--orange);
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .footer-logo {
-      height: 26px;
-      width: auto;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.5);
-    }
-    .footer-links a {
-      color: var(--orange);
-      text-decoration: none;
-    }
-    .footer-links a:hover { text-decoration: underline; }
-    .footer-url {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.04em;
     }
 
     /* ──────────────────────────
