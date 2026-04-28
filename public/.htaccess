@@ -16,6 +16,9 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://attorneyassistant.com%{REQUEST_URI} [R=301,L]
 
+# ── Hero page redirects (old /lp/ path → /hero/) ──
+RewriteRule ^lp/boardwalk-seminar-2026/?$ /hero/boardwalk-seminar-2026 [R=301,L]
+
 # ── Landing page vanity redirects (case-insensitive) ──
 RewriteRule ^Marketing-Waste/?$ /lp/marketing-waste [R=301,L,NC]
 RewriteRule ^ForeverTaskMap/?$ /lp/forever-task-map [R=301,L,NC]
