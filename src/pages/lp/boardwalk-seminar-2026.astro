@@ -33,29 +33,154 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <div class="halftone"></div>
       <div class="comic-wrap panel-hero-wrap">
         <div class="hero-left">
-          <div class="speech-bubble speech-bubble--shout hero-bubble">
+          <div class="speech-bubble speech-bubble--shout hero-bubble comic-reveal">
             <span>WE OWN THE OUTCOME</span>
           </div>
-          <h1 class="hero-headline">
+          <h1 class="hero-headline comic-reveal comic-reveal--d1">
             WE EVOLVE LAW FIRMS WITH ELITE TEAMS + AI&nbsp;SOLUTIONS.
           </h1>
-          <p class="hero-sub">
+          <p class="hero-sub comic-reveal comic-reveal--d2">
             We own the outcome, not just the task. So your nights stop getting hijacked by missed calls, chaos, and "just one more thing."
           </p>
-          <p class="hero-detail">
+          <p class="hero-detail comic-reveal comic-reveal--d2">
             More control. Less fire-drilling. The kind of operation that lets you step away without everything falling apart.
           </p>
-          <a href="#book" class="comic-btn">BOOK YOUR FREE AUDIT</a>
+          <a href="#book" class="comic-btn comic-reveal comic-reveal--d3 comic-btn--pulse">BOOK YOUR FREE AUDIT</a>
         </div>
       </div>
-      <div class="skyline"></div>
+      <!-- City skyline SVG -->
+      <div class="skyline">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="none" class="skyline-svg">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a2d4d"/>
+              <stop offset="100%" stop-color="#0F1B33"/>
+            </linearGradient>
+          </defs>
+          <!-- Back layer — distant buildings -->
+          <path fill="#162440" d="
+            M0 200 L0 140 L20 140 L20 125 L35 125 L35 110 L40 110 L40 95 L55 95 L55 110 L70 110 L70 130 L90 130
+            L90 115 L100 115 L100 100 L110 100 L110 85 L120 85 L120 70 L130 70 L130 85 L145 85 L145 105 L160 105 L160 120
+            L180 120 L180 105 L195 105 L195 88 L210 88 L210 72 L218 72 L218 60 L226 60 L226 75 L240 75 L240 95 L260 95
+            L260 110 L280 110 L280 95 L295 95 L295 78 L310 78 L310 65 L320 65 L320 52 L328 52 L328 68 L340 68 L340 85
+            L360 85 L360 100 L380 100 L380 115 L400 115 L400 100 L415 100 L415 82 L430 82 L430 68 L440 68 L440 55
+            L448 55 L448 42 L455 42 L455 58 L468 58 L468 75 L485 75 L485 95 L505 95 L505 110
+            L525 110 L525 95 L540 95 L540 78 L555 78 L555 92 L575 92 L575 108 L595 108 L595 95 L610 95
+            L610 80 L625 80 L625 65 L632 65 L632 50 L640 50 L640 38 L648 38 L648 55 L660 55 L660 72 L675 72
+            L675 90 L695 90 L695 105 L715 105 L715 118
+            L735 118 L735 102 L750 102 L750 85 L765 85 L765 70 L775 70 L775 58 L782 58 L782 72 L795 72 L795 90
+            L815 90 L815 108 L835 108 L835 95 L850 95 L850 80 L865 80 L865 92 L885 92 L885 110
+            L905 110 L905 95 L920 95 L920 78 L935 78 L935 62 L945 62 L945 48 L952 48 L952 35 L960 35
+            L960 52 L972 52 L972 70 L990 70 L990 88 L1010 88 L1010 105 L1030 105
+            L1030 90 L1045 90 L1045 75 L1060 75 L1060 88 L1080 88 L1080 105 L1100 105 L1100 118
+            L1120 118 L1120 105 L1135 105 L1135 88 L1148 88 L1148 72 L1158 72 L1158 58 L1168 58 L1168 72
+            L1180 72 L1180 90 L1200 90 L1200 108
+            L1220 108 L1220 95 L1235 95 L1235 80 L1250 80 L1250 95 L1270 95 L1270 112
+            L1290 112 L1290 100 L1305 100 L1305 85 L1318 85 L1318 98 L1335 98 L1335 115
+            L1355 115 L1355 105 L1370 105 L1370 90 L1385 90 L1385 75 L1395 75 L1395 62 L1405 62 L1405 78
+            L1420 78 L1420 95 L1440 95 L1440 200 Z
+          "/>
+          <!-- Front layer — main buildings with windows -->
+          <path fill="url(#skyGrad)" d="
+            M0 200 L0 155 L30 155 L30 135 L45 135
+            L45 120 L52 120 L52 105 L58 105 L58 90 L68 90 L68 78 L78 78 L78 90 L88 90 L88 108 L100 108
+            L100 125 L115 125 L115 108 L128 108 L128 90 L138 90 L138 75 L148 75 L148 62 L155 62 L155 52 L162 52
+            L162 62 L172 62 L172 78 L185 78 L185 98 L200 98 L200 118 L218 118
+            L218 102 L232 102 L232 85 L245 85 L245 98 L262 98 L262 115 L280 115
+            L280 100 L295 100 L295 82 L308 82 L308 68 L315 68 L315 55 L322 55 L322 42 L328 42 L328 32 L335 32
+            L335 45 L345 45 L345 62 L358 62 L358 80 L375 80 L375 100 L395 100 L395 118
+            L410 118 L410 102 L425 102 L425 85 L435 85 L435 70 L445 70 L445 85 L460 85 L460 102 L478 102 L478 118
+            L495 118 L495 100 L508 100 L508 82 L520 82 L520 68 L528 68 L528 55 L535 55 L535 42 L542 42 L542 30 L548 30
+            L548 22 L555 22 L555 35 L565 35 L565 52 L578 52 L578 72 L595 72 L595 92 L615 92 L615 112
+            L632 112 L632 95 L645 95 L645 80 L658 80 L658 95 L675 95 L675 115 L695 115
+            L695 100 L710 100 L710 82 L722 82 L722 68 L730 68 L730 55 L738 55 L738 68 L752 68 L752 85 L768 85 L768 105
+            L788 105 L788 120 L808 120
+            L808 105 L822 105 L822 88 L835 88 L835 72 L842 72 L842 58 L850 58 L850 45 L858 45 L858 35 L865 35
+            L865 48 L875 48 L875 65 L888 65 L888 82 L905 82 L905 100 L925 100 L925 118
+            L942 118 L942 102 L955 102 L955 88 L968 88 L968 102 L985 102 L985 118
+            L1005 118 L1005 100 L1018 100 L1018 82 L1030 82 L1030 68 L1038 68 L1038 52 L1045 52 L1045 40 L1052 40
+            L1052 52 L1065 52 L1065 72 L1080 72 L1080 90 L1098 90 L1098 110
+            L1118 110 L1118 95 L1132 95 L1132 78 L1145 78 L1145 62 L1152 62 L1152 48 L1158 48 L1158 62
+            L1172 62 L1172 82 L1188 82 L1188 100 L1208 100
+            L1208 115 L1225 115 L1225 100 L1238 100 L1238 85 L1250 85 L1250 100 L1268 100 L1268 118
+            L1288 118 L1288 105 L1302 105 L1302 88 L1315 88 L1315 72 L1322 72 L1322 85 L1338 85 L1338 105
+            L1355 105 L1355 120 L1375 120
+            L1375 108 L1388 108 L1388 92 L1400 92 L1400 78 L1410 78 L1410 65 L1418 65 L1418 78 L1428 78 L1428 95
+            L1440 95 L1440 200 Z
+          "/>
+          <!-- Window lights -->
+          <g fill="#F7941D" opacity="0.35">
+            <rect x="155" y="56" width="3" height="4" rx="0.5"/>
+            <rect x="159" y="56" width="3" height="4" rx="0.5"/>
+            <rect x="155" y="64" width="3" height="4" rx="0.5"/>
+            <rect x="159" y="64" width="3" height="4" rx="0.5"/>
+            <rect x="328" y="36" width="3" height="4" rx="0.5"/>
+            <rect x="332" y="36" width="3" height="4" rx="0.5"/>
+            <rect x="328" y="48" width="3" height="4" rx="0.5"/>
+            <rect x="332" y="48" width="3" height="4" rx="0.5"/>
+            <rect x="335" y="48" width="3" height="4" rx="0.5"/>
+            <rect x="548" y="26" width="3" height="4" rx="0.5"/>
+            <rect x="552" y="26" width="3" height="4" rx="0.5"/>
+            <rect x="548" y="38" width="3" height="4" rx="0.5"/>
+            <rect x="552" y="38" width="3" height="4" rx="0.5"/>
+            <rect x="548" y="50" width="3" height="4" rx="0.5"/>
+            <rect x="552" y="50" width="3" height="4" rx="0.5"/>
+            <rect x="858" y="40" width="3" height="4" rx="0.5"/>
+            <rect x="862" y="40" width="3" height="4" rx="0.5"/>
+            <rect x="858" y="52" width="3" height="4" rx="0.5"/>
+            <rect x="862" y="52" width="3" height="4" rx="0.5"/>
+            <rect x="1045" y="45" width="3" height="4" rx="0.5"/>
+            <rect x="1049" y="45" width="3" height="4" rx="0.5"/>
+            <rect x="1045" y="56" width="3" height="4" rx="0.5"/>
+            <rect x="1049" y="56" width="3" height="4" rx="0.5"/>
+            <rect x="1152" y="52" width="3" height="4" rx="0.5"/>
+            <rect x="1156" y="52" width="3" height="4" rx="0.5"/>
+            <rect x="1152" y="64" width="3" height="4" rx="0.5"/>
+            <rect x="1156" y="64" width="3" height="4" rx="0.5"/>
+            <rect x="68" y="82" width="3" height="4" rx="0.5"/>
+            <rect x="72" y="82" width="3" height="4" rx="0.5"/>
+            <rect x="68" y="92" width="3" height="4" rx="0.5"/>
+            <rect x="138" y="78" width="3" height="4" rx="0.5"/>
+            <rect x="142" y="78" width="3" height="4" rx="0.5"/>
+            <rect x="308" y="72" width="3" height="4" rx="0.5"/>
+            <rect x="312" y="72" width="3" height="4" rx="0.5"/>
+            <rect x="520" y="72" width="3" height="4" rx="0.5"/>
+            <rect x="524" y="72" width="3" height="4" rx="0.5"/>
+            <rect x="730" y="60" width="3" height="4" rx="0.5"/>
+            <rect x="734" y="60" width="3" height="4" rx="0.5"/>
+            <rect x="730" y="72" width="3" height="4" rx="0.5"/>
+            <rect x="734" y="72" width="3" height="4" rx="0.5"/>
+            <rect x="1322" y="76" width="3" height="4" rx="0.5"/>
+            <rect x="1326" y="76" width="3" height="4" rx="0.5"/>
+            <rect x="1410" y="70" width="3" height="4" rx="0.5"/>
+            <rect x="1414" y="70" width="3" height="4" rx="0.5"/>
+          </g>
+          <!-- Antenna spires -->
+          <g stroke="#0F1B33" stroke-width="1.5" fill="none">
+            <line x1="548" y1="22" x2="548" y2="10"/>
+            <line x1="551" y1="22" x2="551" y2="14"/>
+            <line x1="328" y1="32" x2="328" y2="18"/>
+            <line x1="860" y1="35" x2="860" y2="22"/>
+            <line x1="1048" y1="40" x2="1048" y2="28"/>
+            <line x1="155" y1="52" x2="155" y2="40"/>
+          </g>
+          <!-- Blinking antenna lights -->
+          <g class="antenna-lights">
+            <circle cx="548" cy="10" r="2" fill="#ff3333" class="blink-1"/>
+            <circle cx="328" cy="18" r="1.5" fill="#ff3333" class="blink-2"/>
+            <circle cx="860" cy="22" r="2" fill="#ff3333" class="blink-1"/>
+            <circle cx="1048" cy="28" r="1.5" fill="#ff3333" class="blink-2"/>
+            <circle cx="155" cy="40" r="1.5" fill="#ff3333" class="blink-1"/>
+          </g>
+        </svg>
+      </div>
     </section>
 
     <!-- ─── THE PROBLEM ─── -->
     <section class="panel panel-problem">
       <div class="halftone halftone--light"></div>
       <div class="comic-wrap">
-        <div class="section-label">THE PROBLEM</div>
+        <div class="section-label section-label--accent">THE PROBLEM</div>
         <h2 class="comic-h2">THREE FAILURES COST YOUR FIRM MORE THAN MARKETING EVER&nbsp;COULD.</h2>
         <p class="comic-body" style="max-width:680px;margin-bottom:2rem;">
           A custom combination matched to your firm's specific bottlenecks, not an off-the-shelf staffing package.
@@ -229,7 +354,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     }
 
     /* ── Comic Typography ── */
-    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=DM+Sans:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=DM+Sans:wght@400;500;700&display=swap');
 
     .comic-page h1,
     .comic-page h2,
@@ -250,7 +375,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     .speech-bubble span,
     .stat-bubble strong {
-      font-family: 'Permanent Marker', cursive;
+      font-family: 'Bangers', cursive;
+      letter-spacing: 0.04em;
     }
 
     /* ── Layout ── */
@@ -425,31 +551,29 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       bottom: 0;
       left: 0;
       right: 0;
-      height: 160px;
+      height: 200px;
       z-index: 1;
-      background: var(--navy-deep);
-      clip-path: polygon(
-        0% 100%, 0% 70%,
-        2% 70%, 2% 55%, 3.5% 55%, 3.5% 40%, 5% 40%, 5% 55%, 6% 55%, 6% 70%,
-        7% 70%, 7% 45%, 8% 45%, 8% 30%, 9.5% 30%, 9.5% 20%, 10.5% 20%, 10.5% 35%, 11.5% 35%, 11.5% 50%, 13% 50%, 13% 65%,
-        14% 65%, 14% 50%, 15% 50%, 15% 35%, 16.5% 35%, 16.5% 15%, 18% 15%, 18% 10%, 19% 10%, 19% 25%, 20% 25%, 20% 40%, 21.5% 40%, 21.5% 55%,
-        23% 55%, 23% 40%, 24.5% 40%, 24.5% 25%, 26% 25%, 26% 45%, 27.5% 45%, 27.5% 60%,
-        29% 60%, 29% 45%, 30% 45%, 30% 30%, 31.5% 30%, 31.5% 12%, 33% 12%, 33% 5%, 34% 5%, 34% 18%, 35.5% 18%, 35.5% 35%, 37% 35%, 37% 50%,
-        38.5% 50%, 38.5% 38%, 40% 38%, 40% 55%, 42% 55%, 42% 42%, 43.5% 42%, 43.5% 28%, 45% 28%, 45% 15%, 46% 15%, 46% 8%, 47% 8%, 47% 22%, 48.5% 22%, 48.5% 38%,
-        50% 38%, 50% 55%, 52% 55%, 52% 45%, 53.5% 45%, 53.5% 30%, 55% 30%, 55% 48%, 57% 48%, 57% 60%,
-        59% 60%, 59% 50%, 60.5% 50%, 60.5% 35%, 62% 35%, 62% 20%, 63% 20%, 63% 10%, 64% 10%, 64% 25%, 65.5% 25%, 65.5% 42%, 67% 42%, 67% 55%,
-        69% 55%, 69% 42%, 70.5% 42%, 70.5% 30%, 72% 30%, 72% 48%, 74% 48%, 74% 58%,
-        76% 58%, 76% 45%, 77.5% 45%, 77.5% 32%, 79% 32%, 79% 18%, 80% 18%, 80% 8%, 81% 8%, 81% 22%, 82.5% 22%, 82.5% 38%, 84% 38%, 84% 52%,
-        86% 52%, 86% 40%, 87.5% 40%, 87.5% 55%, 89% 55%, 89% 45%, 91% 45%, 91% 58%,
-        93% 58%, 93% 48%, 94.5% 48%, 94.5% 35%, 96% 35%, 96% 50%, 98% 50%, 98% 65%,
-        100% 65%, 100% 100%
-      );
+    }
+    .skyline-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    /* Blinking antenna lights */
+    .blink-1 { animation: antennaBlink 2s ease-in-out infinite; }
+    .blink-2 { animation: antennaBlink 2s ease-in-out 1s infinite; }
+    @keyframes antennaBlink {
+      0%, 40%, 100% { opacity: 1; }
+      50%, 90% { opacity: 0.15; }
     }
 
     /* ── PROBLEM PANEL ── */
     .panel-problem {
-      background: var(--orange);
+      background: var(--paper);
       padding: 4rem 0;
+    }
+    .panel-problem .halftone--light {
+      display: none;
     }
 
     .section-label {
