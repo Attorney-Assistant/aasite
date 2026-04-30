@@ -106,8 +106,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'booking_confirmed', conversion_type: 'schedule' });
 
-    // LinkedIn "Call Booked" conversion (ID: 27448705)
-    if (typeof window.lintrk !== 'undefined') {
+    // LinkedIn "Call Booked" conversion (ID: 27448705) — browser + server-side CAPI
+    if (window.__linkedinCAPI) {
+      window.__linkedinCAPI.track('27448705', {});
+    } else if (typeof window.lintrk !== 'undefined') {
       window.lintrk('track', { conversion_id: 27448705 });
     }
   </script>

@@ -272,6 +272,19 @@ const videoIds = ["LWL_3pD5oWk", "Ood5iNtf7VY", "en3ZncZTeZQ"];
 
   <CareersPixel event="ViewContent" />
 
+  <!-- Auto-expand job details when linked from apply page -->
+  <script is:inline>
+    (function() {
+      var hash = window.location.hash;
+      if (!hash) return;
+      var target = document.querySelector(hash);
+      if (target && target.tagName === 'DETAILS') {
+        target.open = true;
+        setTimeout(function() { target.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 100);
+      }
+    })();
+  </script>
+
   <!-- Salesforce Agentforce Chat (careers + apply only) -->
   <script is:inline>
     function initEmbeddedMessaging() {

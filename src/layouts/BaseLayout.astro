@@ -3,6 +3,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import SEO from "@components/SEO.astro";
 import MetaCAPI from "@components/MetaCAPI.astro";
+import LinkedInCAPI from "@components/LinkedInCAPI.astro";
 import "@/styles/global.css";
 import "@/styles/wp-compat.css";
 
@@ -160,6 +161,9 @@ const { title, description, image, type, publishedDate, author, noindex, schema,
         s.parentNode.insertBefore(b, s);})(window.lintrk);
     </script>
     <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=7029161&fmt=gif" /></noscript>
+
+    <!-- LinkedIn Conversions API (server-side, complements Insight Tag) -->
+    <LinkedInCAPI />
 
     <!-- Meta Pixel (main site — suppressed on careers/apply pages which use their own pixel) -->
     {!suppressMainPixel && (
