@@ -9,81 +9,72 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 >
 
   <!-- ─── HERO ─── -->
-  <section class="relative overflow-hidden bg-gray-900">
+  <section class="relative overflow-hidden bg-gray-900 min-h-[85vh] flex items-center">
     <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-gray-900 to-brand-800"></div>
     <div class="absolute inset-0 opacity-5">
       <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
     </div>
     <div class="grain-overlay"></div>
+    <!-- Animated gradient orbs -->
+    <div class="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px] evo-float"></div>
+    <div class="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-brand-blue/10 rounded-full blur-[80px] evo-float-delayed"></div>
 
     <div class="container-wide relative z-10 py-20 lg:py-28">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        <div class="reveal">
-          <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">The Evolution of Staffing</span>
-          <h1 class="text-display-lg md:text-display-xl font-heading text-white leading-tight mb-6">
+        <div>
+          <span class="badge bg-white/10 text-white/80 border-white/10 mb-4 evo-fade-up">The Evolution of Staffing</span>
+          <h1 class="text-display-lg md:text-display-xl font-heading text-white leading-tight mb-6 evo-fade-up evo-d1">
             Run Your Firm.<br />
             <span class="text-gradient-gold">Stop Letting It Run You.</span>
           </h1>
-          <p class="text-lg md:text-xl text-gray-300 mb-4 leading-relaxed">
+          <p class="text-lg md:text-xl text-gray-300 mb-4 leading-relaxed evo-fade-up evo-d2">
             We build the teams and systems that keep your firm moving &mdash; so you can step out of the constant noise.
           </p>
-          <p class="text-base text-gray-400 italic mb-8">
+          <p class="text-base text-gray-400 italic mb-8 evo-fade-up evo-d2">
             We own the outcome, not just the task. So your nights stop getting hijacked by chaos and "just one more thing."
           </p>
 
-          <!-- Value props -->
-          <div class="space-y-4 mb-8 reveal" style="transition-delay: 200ms;">
-            <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5">
+          <div class="space-y-4 mb-8 evo-fade-up evo-d3">
+            <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/8 hover:border-brand-gold/20 transition-all duration-300">
               <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
                 <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
               </div>
               <div>
                 <p class="text-sm font-heading text-white">A Real Team, Not Random Help</p>
-                <p class="text-xs text-gray-400 mt-0.5">People who integrate into your firm, learn your processes, and take ownership of outcomes.</p>
+                <p class="text-xs text-gray-400 mt-0.5">People who integrate into your firm, learn your processes, and take ownership.</p>
               </div>
             </div>
-            <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5">
+            <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/8 hover:border-brand-gold/20 transition-all duration-300">
               <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
                 <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
               </div>
               <div>
                 <p class="text-sm font-heading text-white">Systems That Keep Things Moving</p>
-                <p class="text-xs text-gray-400 mt-0.5">Nothing stalls, slips, or piles up. Work gets done the right way, every time &mdash; without you checking.</p>
+                <p class="text-xs text-gray-400 mt-0.5">Nothing stalls, slips, or piles up &mdash; without you checking.</p>
               </div>
             </div>
-            <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5">
+            <div class="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/8 hover:border-brand-gold/20 transition-all duration-300">
               <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
                 <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
               </div>
               <div>
                 <p class="text-sm font-heading text-white">Coverage When You're Off</p>
-                <p class="text-xs text-gray-400 mt-0.5">Nights, weekends, overflow &mdash; handled without you stepping in. Your evenings are yours again.</p>
+                <p class="text-xs text-gray-400 mt-0.5">Nights, weekends, overflow &mdash; your evenings are yours again.</p>
               </div>
             </div>
           </div>
 
-          <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400 reveal" style="transition-delay: 350ms;">
-            <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              Free &mdash; no commitment
-            </span>
-            <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              30-minute call
-            </span>
-            <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              Actionable next steps
-            </span>
+          <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-400 evo-fade-up evo-d4">
+            <span class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Free &mdash; no commitment</span>
+            <span class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>30-minute call</span>
+            <span class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>Actionable next steps</span>
           </div>
         </div>
 
         <!-- Booking Widget -->
-        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl reveal" style="transition-delay: 150ms" id="book">
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl evo-fade-up evo-d2" id="book">
           <div class="flex items-center gap-3 mb-4">
-            <div class="featured-icon featured-icon-md featured-icon-gold">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-            </div>
+            <div class="featured-icon featured-icon-md featured-icon-gold"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg></div>
             <div>
               <h2 class="text-xl font-heading text-gray-900">See How It Works</h2>
               <p class="text-sm text-gray-500">Free &mdash; 30 minutes</p>
@@ -96,7 +87,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   </section>
 
   <!-- ─── Evolution Image ─── -->
-  <section class="section-padding bg-gray-50">
+  <section class="py-12 md:py-16 bg-gray-50">
     <div class="container-wide">
       <div class="rounded-2xl overflow-hidden shadow-lg reveal">
         <img src="/images/evolution-of-staffing.jpg" alt="The Evolution of Staffing — from cave to modern office to walking free" class="w-full h-auto" loading="lazy" />
@@ -104,196 +95,258 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </div>
   </section>
 
-  <!-- ─── Section 1: The Real Pain ─── -->
-  <section class="section-padding bg-white">
-    <div class="container-narrow">
-      <div class="max-w-3xl">
-        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4 reveal">The Real Pain</span>
-        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-6 reveal" style="transition-delay: 0.1s;">
-          This Isn't About Growth. It's About Pressure.
+  <!-- ═══════════════════════════════════════════
+       STORYTELLING SECTIONS
+       ═══════════════════════════════════════════ -->
+
+  <!-- ─── THE SCENE: A Day in Your Life ─── -->
+  <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold/4 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4"></div>
+    <div class="container-narrow relative">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4 reveal">Sound Familiar?</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 reveal" style="transition-delay:.1s">
+          This Isn't About Growth.<br/>It's About Pressure.
         </h2>
-        <div class="grid md:grid-cols-2 gap-10 items-start reveal" style="transition-delay: 0.15s;">
-          <div>
-            <p class="text-gray-600 mb-4">You're not short on work.</p>
-            <p class="text-gray-600 mb-4">You're short on:</p>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                <span class="text-gray-700 font-medium">Time to think</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                <span class="text-gray-700 font-medium">Space to breathe</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-                <span class="text-gray-700 font-medium">Confidence things are handled without you checking</span>
-              </li>
-            </ul>
-          </div>
-          <div class="bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6">
-            <p class="text-gray-600 leading-relaxed">The problem isn't the volume. <strong class="text-gray-900">It's that everything depends on you.</strong></p>
+      </div>
+
+      <!-- Scrolling story beats -->
+      <div class="max-w-xl mx-auto space-y-6">
+        <div class="evo-story-beat reveal">
+          <div class="evo-story-line"></div>
+          <div class="evo-story-dot"></div>
+          <p class="text-lg text-gray-700 leading-relaxed pl-10">
+            It's 6:47 AM. You're already checking your phone. Three missed calls from overnight. A client email flagged urgent. Your paralegal texted &mdash; <em>"can you call me when you get a sec?"</em>
+          </p>
+        </div>
+        <div class="evo-story-beat reveal">
+          <div class="evo-story-line"></div>
+          <div class="evo-story-dot"></div>
+          <p class="text-lg text-gray-700 leading-relaxed pl-10">
+            You haven't had coffee yet, and the day already owns you.
+          </p>
+        </div>
+        <div class="evo-story-beat reveal">
+          <div class="evo-story-line"></div>
+          <div class="evo-story-dot"></div>
+          <p class="text-lg text-gray-700 leading-relaxed pl-10">
+            By noon you've put out four fires, rescheduled two things, and haven't touched the work that actually matters. Sound familiar?
+          </p>
+        </div>
+        <div class="evo-story-beat reveal">
+          <div class="evo-story-line"></div>
+          <div class="evo-story-dot"></div>
+          <p class="text-xl text-gray-900 font-heading leading-snug pl-10">
+            You're not short on work. You're short on space &mdash; to think, to breathe, to lead.
+          </p>
+        </div>
+      </div>
+
+      <!-- Emotional callout -->
+      <div class="mt-16 reveal" style="transition-delay:.2s">
+        <div class="relative max-w-2xl mx-auto bg-gradient-to-r from-brand-navy to-brand-800 rounded-2xl p-10 text-center shadow-2xl overflow-hidden">
+          <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 20px 20px;"></div>
+          <div class="relative">
+            <p class="text-xl md:text-2xl text-white leading-relaxed mb-2">
+              The problem isn't the volume.
+            </p>
+            <p class="text-2xl md:text-3xl font-heading text-brand-gold">
+              It's that everything depends on you.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ─── Section 2: The Shift ─── -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay section-padding">
+  <!-- ─── THE SHIFT ─── -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay py-20 md:py-28">
     <div class="absolute inset-0">
-      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl evo-float"></div>
+      <div class="absolute bottom-20 right-1/4 w-80 h-80 bg-brand-blue/10 rounded-full blur-3xl evo-float-delayed"></div>
     </div>
     <div class="container-narrow relative">
-      <span class="badge bg-white/10 text-white/80 border-white/10 mb-4 reveal">The Shift</span>
-      <h2 class="text-display-sm md:text-display-md font-heading text-white mb-10 reveal" style="transition-delay: 0.1s;">
-        What Changes When the Right System Is in Place
-      </h2>
-      <div class="grid sm:grid-cols-2 gap-4 reveal" style="transition-delay: 0.15s;">
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">01</span>
-          </div>
-          <p class="text-gray-300">Your phone stops dictating your day</p>
+      <div class="text-center mb-14">
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4 reveal">The Shift</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4 reveal" style="transition-delay:.1s">
+          Now Imagine This Instead.
+        </h2>
+        <p class="text-lg text-gray-400 max-w-xl mx-auto reveal" style="transition-delay:.15s">What changes when the right system is in place:</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div class="evo-shift-card reveal" style="transition-delay:.2s">
+          <div class="evo-shift-num">01</div>
+          <p class="text-gray-200 text-lg">Your phone stops dictating your day</p>
+          <p class="text-gray-500 text-sm mt-2">Calls are answered. Leads are followed up. Before you even know they came in.</p>
         </div>
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">02</span>
-          </div>
-          <p class="text-gray-300">Work moves forward without constant oversight</p>
+        <div class="evo-shift-card reveal" style="transition-delay:.3s">
+          <div class="evo-shift-num">02</div>
+          <p class="text-gray-200 text-lg">Work moves forward without you</p>
+          <p class="text-gray-500 text-sm mt-2">You stop being the bottleneck. Tasks get done without constant oversight.</p>
         </div>
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">03</span>
-          </div>
-          <p class="text-gray-300">Your team operates with structure instead of guesswork</p>
+        <div class="evo-shift-card reveal" style="transition-delay:.4s">
+          <div class="evo-shift-num">03</div>
+          <p class="text-gray-200 text-lg">Structure replaces guesswork</p>
+          <p class="text-gray-500 text-sm mt-2">Your team has systems, not just good intentions. Consistency without micromanaging.</p>
         </div>
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">04</span>
-          </div>
-          <p class="text-gray-300">You finally have time to focus on actual leadership</p>
+        <div class="evo-shift-card reveal" style="transition-delay:.5s">
+          <div class="evo-shift-num">04</div>
+          <p class="text-gray-200 text-lg">You lead instead of react</p>
+          <p class="text-gray-500 text-sm mt-2">Time opens up. Strategy becomes possible. You remember why you started this firm.</p>
         </div>
       </div>
-      <p class="text-center text-white/50 italic mt-8 reveal" style="transition-delay: 0.2s;">This is what a firm should feel like.</p>
+
+      <p class="text-center text-white/40 italic mt-12 text-lg reveal" style="transition-delay:.5s">This is what a firm should feel like.</p>
     </div>
   </section>
 
-  <!-- ─── Section 3: What You Get ─── -->
-  <section class="section-padding bg-white">
-    <div class="container-narrow">
-      <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4 reveal">What You Actually Get</span>
-      <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay: 0.1s;">
-        Support That Feels Like Control
-      </h2>
-      <p class="text-gray-500 mb-10 reveal" style="transition-delay: 0.15s;">Attorney Assistant gives you:</p>
-      <div class="grid md:grid-cols-2 gap-5 reveal" style="transition-delay: 0.2s;">
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100">
-          <h3 class="font-heading text-gray-900 mb-2">A real team, not random help</h3>
-          <p class="text-sm text-gray-500">People who integrate into your firm and take ownership.</p>
+  <!-- ─── WHAT YOU ACTUALLY GET ─── -->
+  <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-navy/3 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
+    <div class="container-narrow relative">
+      <div class="text-center mb-14">
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4 reveal">What You Actually Get</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay:.1s">
+          Support That Feels Like Control
+        </h2>
+        <p class="text-lg text-gray-500 max-w-lg mx-auto reveal" style="transition-delay:.15s">Not a vendor. Not a temp. A system that makes your firm run.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="evo-get-card group reveal" style="transition-delay:.2s">
+          <div class="evo-get-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+          </div>
+          <h3 class="font-heading text-gray-900 text-lg mb-2">A Real Team</h3>
+          <p class="text-gray-500">People who integrate into your firm, learn your clients by name, and take ownership of outcomes &mdash; not just tasks.</p>
         </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100">
-          <h3 class="font-heading text-gray-900 mb-2">Systems that keep things moving</h3>
-          <p class="text-sm text-gray-500">So nothing stalls, slips, or piles up.</p>
+        <div class="evo-get-card group reveal" style="transition-delay:.3s">
+          <div class="evo-get-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+          </div>
+          <h3 class="font-heading text-gray-900 text-lg mb-2">Systems That Move</h3>
+          <p class="text-gray-500">Nothing stalls, slips, or piles up. Intake, follow-up, admin &mdash; it all runs without you pushing it forward.</p>
         </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100">
-          <h3 class="font-heading text-gray-900 mb-2">Consistency without micromanaging</h3>
-          <p class="text-sm text-gray-500">Work gets done the right way, every time.</p>
+        <div class="evo-get-card group reveal" style="transition-delay:.4s">
+          <div class="evo-get-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+          </div>
+          <h3 class="font-heading text-gray-900 text-lg mb-2">Consistency</h3>
+          <p class="text-gray-500">Work gets done the right way, every time. No more wondering if someone dropped the ball while you were in court.</p>
         </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100">
-          <h3 class="font-heading text-gray-900 mb-2">Coverage when you're off</h3>
-          <p class="text-sm text-gray-500">Nights, weekends, overflow &mdash; handled without you stepping in.</p>
+        <div class="evo-get-card group reveal" style="transition-delay:.5s">
+          <div class="evo-get-icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+          </div>
+          <h3 class="font-heading text-gray-900 text-lg mb-2">Coverage When You're Off</h3>
+          <p class="text-gray-500">Nights, weekends, overflow. Handled. So the first thing you see in the morning isn't a pile of things that broke while you slept.</p>
         </div>
       </div>
-      <p class="text-center text-gray-400 italic mt-8 reveal" style="transition-delay: 0.25s;">We don't just lighten the load. We make the load manageable.</p>
+
+      <p class="text-center text-gray-400 italic mt-12 text-lg reveal" style="transition-delay:.5s">We don't just lighten the load. We make the load manageable.</p>
     </div>
   </section>
 
-  <!-- ─── Section 4: Lifestyle Payoff ─── -->
-  <section class="section-padding bg-gray-50">
-    <div class="container-narrow">
-      <div class="text-center">
-        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4 reveal">The Payoff</span>
-        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-10 reveal" style="transition-delay: 0.1s;">
+  <!-- ─── WHAT YOU GET BACK ─── -->
+  <section class="relative py-20 md:py-28 bg-gray-50 overflow-hidden">
+    <div class="container-narrow relative">
+      <div class="text-center mb-14">
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4 reveal">The Part That Matters</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal" style="transition-delay:.1s">
           What You Get Back
         </h2>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal" style="transition-delay: 0.15s;">
-        <div class="text-center p-5">
-          <div class="w-14 h-14 rounded-full bg-brand-gold/15 flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+
+      <div class="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+        <div class="evo-payoff reveal" style="transition-delay:.2s">
+          <div class="evo-payoff-icon">
+            <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
           </div>
-          <h3 class="font-heading text-gray-900 text-sm mb-1">Evenings</h3>
-          <p class="text-xs text-gray-500">That aren't constantly interrupted</p>
+          <h3 class="font-heading text-gray-900 text-lg">Evenings</h3>
+          <p class="text-sm text-gray-500 mt-1">That aren't constantly interrupted by things that should have been handled hours ago.</p>
         </div>
-        <div class="text-center p-5">
-          <div class="w-14 h-14 rounded-full bg-brand-gold/15 flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" /></svg>
+        <div class="evo-payoff reveal" style="transition-delay:.3s">
+          <div class="evo-payoff-icon">
+            <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" /></svg>
           </div>
-          <h3 class="font-heading text-gray-900 text-sm mb-1">Fewer Fires</h3>
-          <p class="text-xs text-gray-500">To put out every single day</p>
+          <h3 class="font-heading text-gray-900 text-lg">Fewer Fires</h3>
+          <p class="text-sm text-gray-500 mt-1">Because someone caught the problem before it became one. Prevention, not reaction.</p>
         </div>
-        <div class="text-center p-5">
-          <div class="w-14 h-14 rounded-full bg-brand-gold/15 flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+        <div class="evo-payoff reveal" style="transition-delay:.4s">
+          <div class="evo-payoff-icon">
+            <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
           </div>
-          <h3 class="font-heading text-gray-900 text-sm mb-1">Freedom</h3>
-          <p class="text-xs text-gray-500">A business that doesn't need your constant attention</p>
+          <h3 class="font-heading text-gray-900 text-lg">Freedom</h3>
+          <p class="text-sm text-gray-500 mt-1">A firm that doesn't need your constant attention to function. Step away and it keeps running.</p>
         </div>
-        <div class="text-center p-5">
-          <div class="w-14 h-14 rounded-full bg-brand-gold/15 flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+        <div class="evo-payoff reveal" style="transition-delay:.5s">
+          <div class="evo-payoff-icon">
+            <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
           </div>
-          <h3 class="font-heading text-gray-900 text-sm mb-1">Family Time</h3>
-          <p class="text-xs text-gray-500">That actually feels like time off</p>
+          <h3 class="font-heading text-gray-900 text-lg">Family Time</h3>
+          <p class="text-sm text-gray-500 mt-1">That actually feels like time off. Not half-present. Not mentally still at the office. Actually there.</p>
         </div>
       </div>
-      <p class="text-center text-gray-400 italic mt-6 text-sm reveal" style="transition-delay: 0.2s;">This is the part nobody talks about. But it's the part that matters.</p>
+
+      <div class="max-w-lg mx-auto mt-14 text-center reveal" style="transition-delay:.5s">
+        <p class="text-lg text-gray-600 italic leading-relaxed">"This is the part nobody talks about. But it's the part that matters."</p>
+      </div>
     </div>
   </section>
 
-  <!-- ─── Section 5: Differentiator ─── -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay section-padding">
+  <!-- ─── THE DIFFERENCE ─── -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay py-20 md:py-28">
+    <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-brand-gold/8 rounded-full blur-[80px] evo-float"></div>
     <div class="container-narrow relative">
-      <span class="badge bg-white/10 text-white/80 border-white/10 mb-4 reveal">The Difference</span>
-      <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4 reveal" style="transition-delay: 0.1s;">
-        We Don't Just Help. We Take Ownership.
-      </h2>
-      <p class="text-gray-400 mb-8 reveal" style="transition-delay: 0.15s;">You're not hiring another vendor. You're getting a system that:</p>
-      <div class="grid md:grid-cols-3 gap-5 reveal" style="transition-delay: 0.2s;">
-        <div class="p-5 rounded-xl border border-white/10 bg-white/5">
-          <h3 class="font-heading text-white mb-2">Runs With You</h3>
-          <p class="text-sm text-gray-400">Embedded in your workflow, not bolted on from the outside.</p>
+      <div class="text-center mb-14">
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4 reveal">The Difference</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4 reveal" style="transition-delay:.1s">
+          We Don't Just Help.<br/>We Take Ownership.
+        </h2>
+        <p class="text-lg text-gray-400 max-w-xl mx-auto reveal" style="transition-delay:.15s">You're not hiring another vendor. You're getting a system that:</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="evo-diff-card reveal" style="transition-delay:.2s">
+          <div class="evo-diff-num">01</div>
+          <h3 class="font-heading text-white text-lg mb-2">Runs With You</h3>
+          <p class="text-sm text-gray-400">Embedded in your daily workflow. Not bolted on. Not a separate thing to manage. Part of the operation.</p>
         </div>
-        <div class="p-5 rounded-xl border border-white/10 bg-white/5">
-          <h3 class="font-heading text-white mb-2">Adapts to Your Firm</h3>
-          <p class="text-sm text-gray-400">Custom to your bottlenecks, not a one-size-fits-all package.</p>
+        <div class="evo-diff-card reveal" style="transition-delay:.3s">
+          <div class="evo-diff-num">02</div>
+          <h3 class="font-heading text-white text-lg mb-2">Adapts to Your Firm</h3>
+          <p class="text-sm text-gray-400">Matched to your specific bottlenecks, not a one-size-fits-all package. Your firm is unique. Your solution should be too.</p>
         </div>
-        <div class="p-5 rounded-xl border border-white/10 bg-white/5">
-          <h3 class="font-heading text-white mb-2">Improves Everything</h3>
-          <p class="text-sm text-gray-400">How operations run, not just who's answering the phone.</p>
+        <div class="evo-diff-card reveal" style="transition-delay:.4s">
+          <div class="evo-diff-num">03</div>
+          <h3 class="font-heading text-white text-lg mb-2">Improves Everything</h3>
+          <p class="text-sm text-gray-400">Not just who's answering the phone. How everything operates. The whole machine gets better.</p>
         </div>
       </div>
-      <p class="text-center text-white/40 italic mt-8 reveal" style="transition-delay: 0.25s;">We own the outcome so you don't have to carry everything yourself.</p>
+
+      <p class="text-center text-white/50 italic mt-12 text-lg reveal" style="transition-delay:.4s">We own the outcome so you don't have to carry everything yourself.</p>
     </div>
   </section>
 
-  <!-- ─── Section 6: Bottom CTA ─── -->
-  <section class="section-padding bg-white">
-    <div class="container-narrow">
+  <!-- ─── BOTTOM CTA ─── -->
+  <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+    <div class="container-narrow relative">
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4 reveal">
-          See What This Looks Like Inside Your Firm
+          See What This Looks Like<br/>Inside Your Firm
         </h2>
         <div class="divider-gold-center mb-6"></div>
-        <p class="text-lg text-gray-500 mb-8 reveal" style="transition-delay: 0.1s;">
+        <p class="text-lg text-gray-500 mb-4 reveal" style="transition-delay:.1s">
           We'll walk you through exactly how this would work for you &mdash; where it would take pressure off, and what changes immediately.
         </p>
-        <a href="#book" class="btn-primary btn-lg group inline-flex reveal" style="transition-delay: 0.15s;">
+        <p class="text-base text-gray-400 mb-8 reveal" style="transition-delay:.15s">
+          No pitch deck. No pressure. Just a real conversation about what's not working and what could.
+        </p>
+        <a href="#book" class="btn-primary btn-lg group inline-flex reveal" style="transition-delay:.2s">
           See How It Works
-          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-          </svg>
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
         </a>
       </div>
     </div>
@@ -303,8 +356,162 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
 
   <style>
-    .meetings-iframe-container iframe {
-      background: #ffffff !important;
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    /* ── Page-specific animations ── */
+
+    /* Floating orbs */
+    .evo-float { animation: evoFloat 8s ease-in-out infinite; }
+    .evo-float-delayed { animation: evoFloat 8s ease-in-out 4s infinite; }
+    @keyframes evoFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    /* Hero staggered fade-ups (no IntersectionObserver needed — immediate on load) */
+    .evo-fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: evoFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .evo-d1 { animation-delay: 0.15s; }
+    .evo-d2 { animation-delay: 0.3s; }
+    .evo-d3 { animation-delay: 0.45s; }
+    .evo-d4 { animation-delay: 0.6s; }
+    @keyframes evoFadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Story timeline beats */
+    .evo-story-beat {
+      position: relative;
+      padding-left: 0;
+      padding-bottom: 0.5rem;
+    }
+    .evo-story-dot {
+      position: absolute;
+      left: 0;
+      top: 0.45rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #F9A630;
+      box-shadow: 0 0 0 4px rgba(249, 166, 48, 0.15);
+      z-index: 1;
+    }
+    .evo-story-line {
+      position: absolute;
+      left: 4px;
+      top: 0.9rem;
+      bottom: -0.5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(249,166,48,0.3), rgba(249,166,48,0.05));
+    }
+    .evo-story-beat:last-child .evo-story-line { display: none; }
+    .evo-story-beat:last-child .evo-story-dot {
+      width: 14px;
+      height: 14px;
+      left: -2px;
+      box-shadow: 0 0 0 6px rgba(249, 166, 48, 0.2);
+    }
+
+    /* Shift cards */
+    .evo-shift-card {
+      padding: 1.75rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+    }
+    .evo-shift-card:hover {
+      border-color: rgba(249, 166, 48, 0.25);
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .evo-shift-num {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(249, 166, 48, 0.25);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Get cards */
+    .evo-get-card {
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 2px solid transparent;
+      background: #f9fafb;
+      transition: all 0.3s;
+    }
+    .evo-get-card:hover {
+      border-color: rgba(249, 166, 48, 0.3);
+      background: #fff;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
+    .evo-get-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, rgba(249,166,48,0.15), rgba(249,166,48,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: #F9A630;
+      transition: transform 0.3s;
+    }
+    .evo-get-card:hover .evo-get-icon { transform: scale(1.1) rotate(-5deg); }
+
+    /* Payoff items */
+    .evo-payoff {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .evo-payoff-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(249,166,48,0.12), rgba(249,166,48,0.04));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .evo-payoff:hover .evo-payoff-icon { transform: translateY(-6px) scale(1.08); }
+
+    /* Differentiator cards */
+    .evo-diff-card {
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+    }
+    .evo-diff-card:hover {
+      border-color: rgba(249, 166, 48, 0.25);
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .evo-diff-num {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(249, 166, 48, 0.2);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .evo-float, .evo-float-delayed { animation: none; }
+      .evo-fade-up { animation: none; opacity: 1; transform: none; }
     }
   </style>
 
