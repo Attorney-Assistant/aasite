@@ -50,7 +50,7 @@ import CareersPixel from "@components/CareersPixel.astro";
   </div>
 
   <!-- Form -->
-  <section class="py-10 md:py-14" id="application-form">
+  <section class="py-10 md:py-14" id="form-section">
     <div class="container-narrow max-w-3xl">
       <form
         id="application-form"
@@ -73,7 +73,7 @@ import CareersPixel from "@components/CareersPixel.astro";
             <fieldset>
               <legend class="label-base mb-1">Which position(s) are you applying for? <span class="text-error-500">*</span></legend>
               <p class="text-xs text-gray-400 mb-2">Select all that apply. <a href="/careers#positions" target="_blank" class="text-brand-gold hover:underline">View full job descriptions</a></p>
-              <div class="space-y-2" data-checkbox-group data-required data-min="1">
+              <div class="space-y-2" data-checkbox-group data-min="1">
                 <label class="card-option flex items-start gap-3 p-3 rounded-lg border border-gray-200 cursor-pointer hover:border-brand-gold/40 transition-colors">
                   <input type="checkbox" name="positions" value="Case Signer" class="mt-0.5 accent-brand-gold" />
                   <span class="text-sm text-gray-700">Case Signer <a href="/careers#job-case-signer" target="_blank" class="text-brand-gold text-xs hover:underline ml-1">(details)</a></span>
@@ -1112,8 +1112,8 @@ import CareersPixel from "@components/CareersPixel.astro";
 
     // Checkbox group minimums (require at least one checked)
     const checkboxGroups = {
-      0: ['communication_method', 'languages'],
-      1: ['positions', 'shifts'],
+      0: ['positions', 'communication_method', 'languages'],
+      1: ['shifts'],
       2: ['experience_areas', 'tools'],
     };
 
