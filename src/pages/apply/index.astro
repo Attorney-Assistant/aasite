@@ -214,32 +214,7 @@ import CareersPixel from "@components/CareersPixel.astro";
             <p class="text-sm text-gray-500">Select the role(s) you're interested in and your availability.</p>
           </div>
 
-          <!-- Position descriptions -->
-          <div class="card p-5 mb-6 bg-gray-25">
-            <h3 class="text-sm font-heading text-gray-900 mb-3">We offer the following positions:</h3>
-            <div class="space-y-3 text-xs text-gray-600 leading-relaxed">
-              <div><strong class="text-gray-800">1. General Legal Impact Assistant (IA):</strong> Assist attorneys and other legal professionals with administrative support including document management, organizing case materials, handling basic client inquiries via email and phone, data entry, drafting letters, gathering important documentation, basic research, and other clerical tasks.</div>
-              <div><strong class="text-gray-800">2. Receptionist:</strong> Answer incoming calls, assist clients with their inquiries, route calls as necessary, and maintain thorough documentation of client interactions. Create a positive first impression for law firm clients by delivering exceptional customer service, empathy, patience, and professionalism.</div>
-              <div><strong class="text-gray-800">3. Intake Specialist:</strong> Work in a critical role as the first point of contact for potential clients responsible for handling client inquiries, gathering essential information, and qualifying potential cases for eligibility. Conduct detailed intake interviews to gather relevant client information in the CRM or case management software, schedule appointments, and follow up on leads.</div>
-              <div><strong class="text-gray-800">4. Intake Specialist-Closer:</strong> Work as an Intake Specialist (described above), but MOST IMPORTANTLY convert and close leads, sign clients up for services, and onboard them into the law firm system. Sales experience and a genuine interest in sales are paramount in this role.</div>
-              <div><strong class="text-gray-800">5. Medical Records Retrieval:</strong> Request and retrieve medical records and bills from healthcare providers, hospitals, and insurance companies; track, monitor, and follow up on pending requests to ensure timely delivery of documents; maintain an organized database of records. Organization, attention to detail, and effective communication are the keys to success in this role.</div>
-            </div>
-          </div>
-
           <div class="space-y-5">
-            <fieldset>
-              <legend class="label-base">Position(s) You're Applying For <span class="text-error-500">*</span></legend>
-              <p class="text-xs text-gray-400 mb-2">Check all that apply.</p>
-              <div class="space-y-2">
-                {["General Legal Impact Assistant (IA)", "Receptionist", "Intake Specialist", "Intake Specialist-Closer", "Medical Records Retrieval"].map((pos) => (
-                  <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-25 transition-colors cursor-pointer">
-                    <input type="checkbox" name="positions" value={pos} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
-                    <span class="text-sm text-gray-700">{pos}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
             <fieldset>
               <legend class="label-base">Are you available to work full-time (at least 40 hours per week)? <span class="text-error-500">*</span></legend>
               <div class="flex gap-6 mt-1">
