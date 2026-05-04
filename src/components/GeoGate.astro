@@ -23,22 +23,32 @@
     'SE','GB','NO','IS','LI','CH'
   ];
 
+  // Explicitly blocked countries — these are NEVER allowed, even on API failure
+  var BLOCKED = ['PH','BZ'];
+
   var resolve;
   window.__hsGeoReady = new Promise(function(r) { resolve = r; });
   window.__hsGeoAllowed = null; // null = pending, true/false = resolved
+
+  function decide(code) {
+    // Hard block always wins
+    if (BLOCKED.indexOf(code) !== -1) return false;
+    // Otherwise check allowlist
+    return ALLOWED.indexOf(code) !== -1;
+  }
 
   // Check sessionStorage cache first
   try {
     var cached = sessionStorage.getItem('aa_geo_country');
     if (cached) {
-      var allowed = ALLOWED.indexOf(cached) !== -1;
+      var allowed = decide(cached);
       window.__hsGeoAllowed = allowed;
       resolve(allowed);
       return;
     }
   } catch(e) {}
 
-  // Fetch country code
+  // Try primary geo API
   fetch('https://ipapi.co/country_code/', { cache: 'no-store' })
     .then(function(r) {
       if (!r.ok) throw new Error(r.status);
@@ -47,14 +57,26 @@
     .then(function(code) {
       code = (code || '').trim().toUpperCase();
       try { sessionStorage.setItem('aa_geo_country', code); } catch(e) {}
-      var allowed = ALLOWED.indexOf(code) !== -1;
+      var allowed = decide(code);
       window.__hsGeoAllowed = allowed;
       resolve(allowed);
     })
     .catch(function() {
-      // On error, allow through (fail open so real users aren't blocked)
-      window.__hsGeoAllowed = true;
-      resolve(true);
+      // Primary failed — try fallback geo API
+      fetch('https://api.country.is/', { cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          var code = (d.country || '').trim().toUpperCase();
+          try { sessionStorage.setItem('aa_geo_country', code); } catch(e) {}
+          var allowed = decide(code);
+          window.__hsGeoAllowed = allowed;
+          resolve(allowed);
+        })
+        .catch(function() {
+          // Both APIs failed — block by default (protect against PH/BZ VPN bypass)
+          window.__hsGeoAllowed = false;
+          resolve(false);
+        });
     });
 })();
 </script>
