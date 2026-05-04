@@ -316,6 +316,11 @@ const stats = [
       }
 
       function loadForm() {
+        if (window.__hsGeoAllowed === false) {
+          var c = document.getElementById('audit-form-container');
+          if (c) c.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;"><p>This form is not available from your location.</p></div>';
+          return;
+        }
         var script = document.createElement('script');
         script.src = '//js.hsforms.net/forms/embed/v2.js';
         script.charset = 'utf-8';

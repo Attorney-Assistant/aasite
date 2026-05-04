@@ -102,10 +102,25 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
     }
   }
 
+  function initForm() {
+    if (window.__hsGeoReady) {
+      window.__hsGeoReady.then(function(allowed) {
+        if (allowed) {
+          loadHubSpotForm();
+        } else {
+          var el = document.getElementById(containerId);
+          if (el) el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        }
+      });
+    } else {
+      loadHubSpotForm();
+    }
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadHubSpotForm);
+    document.addEventListener("DOMContentLoaded", initForm);
   } else {
-    loadHubSpotForm();
+    initForm();
   }
 </script>
 

@@ -3,7 +3,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import SEO from "@components/SEO.astro";
 import MetaCAPI from "@components/MetaCAPI.astro";
-import LinkedInCAPI from "@components/LinkedInCAPI.astro";
+import GeoGate from "@components/GeoGate.astro";
 import "@/styles/global.css";
 import "@/styles/wp-compat.css";
 
@@ -131,6 +131,9 @@ const { title, description, image, type, publishedDate, author, noindex, schema,
       }
     })} />
 
+    <!-- Geo-gate: determine if visitor is in allowed region before loading HubSpot -->
+    <GeoGate />
+
     <!-- Google Tag Manager (via Google tag gateway) -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -138,32 +141,24 @@ const { title, description, image, type, publishedDate, author, noindex, schema,
     '/metrics/?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WCB9JXDC');</script>
 
-    <!-- HubSpot Tracking Code -->
-    <script is:inline type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49161090.js"></script>
+    <!-- HubSpot Tracking Code (geo-gated) -->
+    <script is:inline>
+      window.__hsGeoReady.then(function(allowed) {
+        if (!allowed) return;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.id = 'hs-script-loader';
+        s.async = true;
+        s.defer = true;
+        s.src = '//js.hs-scripts.com/49161090.js';
+        document.head.appendChild(s);
+      });
+    </script>
 
     <!-- Primer Analytics -->
     <script is:inline async src="https://analytics.sayprimer.com/primerAnalytics.js?clientId=3d1698e8-8efb-4b61-aec6-5526f6c43cc7"></script>
 
-    <!-- LinkedIn Insight Tag -->
-    <script is:inline>
-      _linkedin_partner_id = "7029161";
-      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script is:inline>
-      (function(l) {
-        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-        window.lintrk.q=[]}
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript";b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);})(window.lintrk);
-    </script>
-    <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=7029161&fmt=gif" /></noscript>
-
-    <!-- LinkedIn Conversions API (server-side, complements Insight Tag) -->
-    <LinkedInCAPI />
+    <!-- LinkedIn Insight Tag — loaded via GTM, removed from hardcoded -->
 
     <!-- Meta Pixel (main site — suppressed on careers/apply pages which use their own pixel) -->
     {!suppressMainPixel && (

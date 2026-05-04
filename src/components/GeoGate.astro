@@ -1,0 +1,60 @@
+---
+/**
+ * GeoGate — Blocks HubSpot (forms, meetings, tracking) for visitors
+ * outside US, Canada, Europe, and Australia.
+ *
+ * Sets window.__hsGeoAllowed (boolean) and window.__hsGeoReady (Promise).
+ * Other scripts check this before loading HubSpot resources.
+ *
+ * Uses ipapi.co (free, no key needed, 1k/day) with sessionStorage cache.
+ */
+---
+
+<script is:inline>
+(function() {
+  'use strict';
+
+  // Allowed country codes: US, CA, AU + European countries
+  var ALLOWED = [
+    'US','CA','AU',
+    // EU + EEA + UK + CH
+    'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU',
+    'IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES',
+    'SE','GB','NO','IS','LI','CH'
+  ];
+
+  var resolve;
+  window.__hsGeoReady = new Promise(function(r) { resolve = r; });
+  window.__hsGeoAllowed = null; // null = pending, true/false = resolved
+
+  // Check sessionStorage cache first
+  try {
+    var cached = sessionStorage.getItem('aa_geo_country');
+    if (cached) {
+      var allowed = ALLOWED.indexOf(cached) !== -1;
+      window.__hsGeoAllowed = allowed;
+      resolve(allowed);
+      return;
+    }
+  } catch(e) {}
+
+  // Fetch country code
+  fetch('https://ipapi.co/country_code/', { cache: 'no-store' })
+    .then(function(r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    })
+    .then(function(code) {
+      code = (code || '').trim().toUpperCase();
+      try { sessionStorage.setItem('aa_geo_country', code); } catch(e) {}
+      var allowed = ALLOWED.indexOf(code) !== -1;
+      window.__hsGeoAllowed = allowed;
+      resolve(allowed);
+    })
+    .catch(function() {
+      // On error, allow through (fail open so real users aren't blocked)
+      window.__hsGeoAllowed = true;
+      resolve(true);
+    });
+})();
+</script>

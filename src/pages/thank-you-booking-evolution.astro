@@ -102,13 +102,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     if (typeof mixpanel !== 'undefined') mixpanel.track('Call Booked', { source: 'evolution-of-staffing' });
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'booking_confirmed', conversion_type: 'schedule', source: 'evolution-of-staffing' });
-
-    // LinkedIn "Evolution Booked Call" conversion (ID: 27537561) — browser + server-side CAPI
-    if (window.__linkedinCAPI) {
-      window.__linkedinCAPI.track('27537561', {});
-    } else if (typeof window.lintrk !== 'undefined') {
-      window.lintrk('track', { conversion_id: 27537561 });
-    }
   </script>
 
 </BaseLayout>
