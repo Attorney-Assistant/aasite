@@ -73,9 +73,12 @@
           resolve(allowed);
         })
         .catch(function() {
-          // Both APIs failed — block by default (protect against PH/BZ VPN bypass)
-          window.__hsGeoAllowed = false;
-          resolve(false);
+          // Both APIs failed — fall back to timezone check for PH/BZ, otherwise allow through
+          var tz = '';
+          try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e) {}
+          var blockedTz = tz === 'Asia/Manila' || tz === 'America/Belize';
+          window.__hsGeoAllowed = !blockedTz;
+          resolve(!blockedTz);
         });
     });
 })();
