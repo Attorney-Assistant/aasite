@@ -1,0 +1,1473 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Stop Babysitting Your Law Firm — Free Intake Scorecard | Attorney Assistant"
+  description="Take the 5-minute intake scorecard and see exactly where your firm is losing cases, missing follow-up, and depending on you to catch what should already be handled."
+  noindex={true}
+  schema={{
+    "@type": "WebPage",
+    "name": "Stop Babysitting Your Law Firm — Free Intake Scorecard",
+    "description": "Take the 5-minute intake scorecard and see exactly where your firm is losing cases.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Attorney Assistant"
+    }
+  }}
+>
+
+  <!-- ══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950 min-h-[90vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="lp-orb lp-orb--1" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--2" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--3" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <!-- Animated grid lines -->
+    <div class="absolute inset-0 z-[1] opacity-[0.03]" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div class="reveal">
+          <div class="mb-5">
+            <span class="lp-pulse-badge">
+              <span class="lp-pulse-dot"></span>
+              For Law Firm Owners
+            </span>
+          </div>
+          <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
+            Stop Babysitting <br/><span class="text-gradient-gold">Your Law Firm.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            Take the 5-minute intake scorecard and see exactly where your firm is losing cases, missing follow-up, and depending on you to catch what should already be handled.
+          </p>
+
+          <!-- Animated stat ticker -->
+          <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="78">0</span><span class="lp-hero-stat-num">%</span>
+              <span class="lp-hero-stat-label">of clients sign with the first firm that responds</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="5">0</span><span class="lp-hero-stat-num">min</span>
+              <span class="lp-hero-stat-label">is the window before a lead goes cold</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="40">0</span><span class="lp-hero-stat-num">%</span>
+              <span class="lp-hero-stat-label">of calls to law firms go unanswered</span>
+            </div>
+          </div>
+
+          <!-- What the scorecard covers -->
+          <div class="space-y-4 mb-10">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">Inside the Scorecard</p>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">How fast your firm really responds</p>
+                <p class="text-sm text-gray-500 mt-0.5">Speed to lead across all channels.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">Where follow-up is breaking down</p>
+                <p class="text-sm text-gray-500 mt-0.5">Inconsistent cadence or stopping too early.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">What these gaps are costing you</p>
+                <p class="text-sm text-gray-500 mt-0.5">A quick exercise to estimate lost revenue.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Free download
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Takes 5 minutes
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Slightly uncomfortable
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Form -->
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal lp-widget-glow" style="transition-delay: 150ms" id="download">
+          <div class="bg-white rounded-xl p-5 md:p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="featured-icon featured-icon-md featured-icon-gold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+              </div>
+              <div>
+                <h2 class="text-lg font-heading text-gray-900">Download the Scorecard</h2>
+                <p class="text-xs text-gray-500">Free. Takes 5 minutes. No commitment.</p>
+              </div>
+            </div>
+            <div id="hs-scorecard-form">
+              <script is:inline>
+                window.__hsGeoReady.then(function(allowed) {
+                  if (allowed) {
+                    var s = document.createElement('script');
+                    s.src = 'https://js.hsforms.net/forms/embed/49161090.js';
+                    s.defer = true;
+                    document.head.appendChild(s);
+                  } else {
+                    document.getElementById('hs-scorecard-form').innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#F9A630;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#F9A630;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+                  }
+                });
+              </script>
+              <div class="hs-form-frame" data-region="na1" data-form-id="e7702337-c284-4c97-948a-df1c0a3556ef" data-portal-id="49161090"></div>
+            </div>
+            <!-- Fire LinkedIn conversion when HubSpot form submits -->
+            <script is:inline>
+              window.addEventListener('message', function(e) {
+                if (e.data && e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormSubmitted' && e.data.id === 'e7702337-c284-4c97-948a-df1c0a3556ef') {
+                  if (typeof window.lintrk !== 'undefined') {
+                    window.lintrk('track', { conversion_id: 27749049 });
+                  }
+                  if (typeof mixpanel !== 'undefined') mixpanel.track('Scorecard Downloaded', { source: 'stop-babysitting-download' });
+                  window.dataLayer = window.dataLayer || [];
+                  window.dataLayer.push({ event: 'scorecard_download', source: 'stop-babysitting-your-firm-download' });
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 lp-scroll-hint" aria-hidden="true">
+      <div class="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
+        <div class="w-1 h-2.5 bg-brand-gold rounded-full lp-scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       OPENING — "A Day in Your Life" timeline
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 lp-section-lg">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-500/3 rounded-full blur-[100px]"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Left: Story -->
+        <div class="reveal">
+          <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-6">The Reality</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5 leading-tight">
+            From the outside, your firm looks solid.
+          </h2>
+          <p class="text-lg text-gray-400 leading-relaxed mb-6">
+            Cases are coming in. The team is working. Revenue is moving. Then there's what it <em>actually</em> feels like to run it.
+          </p>
+          <p class="text-base text-gray-500 leading-relaxed mb-4">
+            You don't fully trust that things are handled unless you check. So you check. You follow up. You double-check things that should have been done already.
+          </p>
+          <p class="text-xl font-heading text-brand-gold">
+            That's not leadership. That's babysitting with better branding.
+          </p>
+        </div>
+
+        <!-- Right: Day calendar view -->
+        <div class="reveal" style="transition-delay: 150ms">
+          <div class="lp-cal">
+            <!-- Calendar header -->
+            <div class="lp-cal-header">
+              <div class="lp-cal-header-left">
+                <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2z" clip-rule="evenodd" /></svg>
+                <span>Today &mdash; A Typical Day</span>
+              </div>
+              <div class="lp-cal-header-status">
+                <span class="lp-cal-status-dot lp-cal-status-dot--red"></span>
+                4 issues
+              </div>
+            </div>
+
+            <!-- Time slots -->
+            <div class="lp-cal-body">
+              <div class="lp-cal-slot">
+                <div class="lp-cal-time">8:47a</div>
+                <div class="lp-cal-event lp-cal-event--red">
+                  <div class="lp-cal-event-bar lp-cal-event-bar--red"></div>
+                  <div class="lp-cal-event-content">
+                    <div class="lp-cal-event-row">
+                      <span class="lp-cal-event-title">Missed Call &mdash; New Lead</span>
+                      <span class="lp-cal-event-badge lp-cal-event-badge--red">Lost</span>
+                    </div>
+                    <p class="lp-cal-event-desc">Team in a meeting. Call went to voicemail. Lead called the next firm.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lp-cal-slot">
+                <div class="lp-cal-time">11:30a</div>
+                <div class="lp-cal-event lp-cal-event--amber">
+                  <div class="lp-cal-event-bar lp-cal-event-bar--amber"></div>
+                  <div class="lp-cal-event-content">
+                    <div class="lp-cal-event-row">
+                      <span class="lp-cal-event-title">Follow-Up Check</span>
+                      <span class="lp-cal-event-badge lp-cal-event-badge--amber">Delayed</span>
+                    </div>
+                    <p class="lp-cal-event-desc">"I thought Sarah was handling that." Nobody followed up.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lp-cal-slot">
+                <div class="lp-cal-time">3:15p</div>
+                <div class="lp-cal-event lp-cal-event--amber">
+                  <div class="lp-cal-event-bar lp-cal-event-bar--amber"></div>
+                  <div class="lp-cal-event-content">
+                    <div class="lp-cal-event-row">
+                      <span class="lp-cal-event-title">You Re-Check Intake Notes</span>
+                      <span class="lp-cal-event-badge lp-cal-event-badge--amber">Manual</span>
+                    </div>
+                    <p class="lp-cal-event-desc">Double-checking the CRM yourself. Asking for status on things already due.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lp-cal-slot">
+                <div class="lp-cal-time">6:45p</div>
+                <div class="lp-cal-event lp-cal-event--red">
+                  <div class="lp-cal-event-bar lp-cal-event-bar--red"></div>
+                  <div class="lp-cal-event-content">
+                    <div class="lp-cal-event-row">
+                      <span class="lp-cal-event-title">After-Hours Lead &mdash; No Coverage</span>
+                      <span class="lp-cal-event-badge lp-cal-event-badge--red">Lost</span>
+                    </div>
+                    <p class="lp-cal-event-desc">By Monday they signed elsewhere. You'll never even know they called.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calendar footer -->
+            <div class="lp-cal-footer">
+              <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" /></svg>
+              <span>Repeats tomorrow. And the day after that.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE REAL PROBLEM — animated structure gaps
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white lp-section-lg">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-brand-gold to-brand-blue"></div>
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge bg-brand-navy/10 text-brand-navy border-brand-navy/15 mb-4">What This Scorecard Does</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          This isn't a generic checklist.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          It's a quick diagnostic that shows you where your intake process is actually breaking. In about 5 minutes, you'll see exactly where the gaps are.
+        </p>
+      </div>
+
+      <div class="text-center mb-6 reveal">
+        <p class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">The scorecard measures&hellip;</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+        <div class="lp-struct-card lp-struct-card--1">
+          <div class="lp-struct-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Speed to Lead</h3>
+          <p class="text-sm text-gray-500">How fast new leads are handled — or if they're handled at all.</p>
+          <div class="lp-struct-bar">
+            <div class="lp-struct-bar-fill lp-struct-bar-fill--red" style="width: 25%"></div>
+          </div>
+          <p class="text-xs text-red-500 font-medium mt-2">Critical gap</p>
+        </div>
+
+        <div class="lp-struct-card lp-struct-card--2">
+          <div class="lp-struct-icon lp-struct-icon--amber">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Follow-Up Cadence</h3>
+          <p class="text-sm text-gray-500">How often follow-up happens — or stops after one try.</p>
+          <div class="lp-struct-bar">
+            <div class="lp-struct-bar-fill lp-struct-bar-fill--amber" style="width: 40%"></div>
+          </div>
+          <p class="text-xs text-amber-600 font-medium mt-2">Inconsistent</p>
+        </div>
+
+        <div class="lp-struct-card lp-struct-card--3">
+          <div class="lp-struct-icon lp-struct-icon--red">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">After-Hours Coverage</h3>
+          <p class="text-sm text-gray-500">What happens when your team is off the clock.</p>
+          <div class="lp-struct-bar">
+            <div class="lp-struct-bar-fill lp-struct-bar-fill--red" style="width: 15%"></div>
+          </div>
+          <p class="text-xs text-red-500 font-medium mt-2">Major exposure</p>
+        </div>
+
+        <div class="lp-struct-card lp-struct-card--4">
+          <div class="lp-struct-icon lp-struct-icon--amber">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Ownership & Accountability</h3>
+          <p class="text-sm text-gray-500">Who owns what, and when — or nobody does.</p>
+          <div class="lp-struct-bar">
+            <div class="lp-struct-bar-fill lp-struct-bar-fill--amber" style="width: 35%"></div>
+          </div>
+          <p class="text-xs text-amber-600 font-medium mt-2">Unclear</p>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-500 mt-10 max-w-xl mx-auto reveal">
+        And most importantly &mdash; how those gaps are quietly costing you cases. No theory. No fluff. Just clarity.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE COST — dramatic full-width dark section
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 lp-section-lg">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-500/5 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
+          Silent Revenue Leak
+        </span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Most firms don't lose clients in obvious ways.
+        </h2>
+        <p class="text-lg text-gray-400 max-w-xl mx-auto">No alert. No warning. Just missed opportunities you never even see.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 reveal">
+        <div class="lp-cost-card">
+          <div class="lp-cost-card-icon lp-cost-card-icon--red">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-white mt-5 mb-2">Every missed call</h3>
+          <p class="text-gray-400 leading-relaxed">is a potential client who hired someone else. They called once. You didn't answer. They moved on.</p>
+          <div class="lp-cost-card-line lp-cost-card-line--red"></div>
+        </div>
+
+        <div class="lp-cost-card">
+          <div class="lp-cost-card-icon lp-cost-card-icon--amber">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-white mt-5 mb-2">Every slow follow-up</h3>
+          <p class="text-gray-400 leading-relaxed">is a lead that went cold. They were interested. Now they're someone else's signed client.</p>
+          <div class="lp-cost-card-line lp-cost-card-line--amber"></div>
+        </div>
+
+        <div class="lp-cost-card">
+          <div class="lp-cost-card-icon lp-cost-card-icon--navy">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-white mt-5 mb-2">Every gap in coverage</h3>
+          <p class="text-gray-400 leading-relaxed">is money you already paid for&hellip; gone. Marketing spend with no one on the other end to catch it.</p>
+          <div class="lp-cost-card-line lp-cost-card-line--blue"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       ENTER ATTORNEY ASSISTANT — the fix
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden lp-section-lg">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/8 rounded-full blur-[100px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-6">Your Team Isn't the Problem</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-6 leading-tight">
+            Effort doesn't create consistency. <span class="text-gradient-gold">Structure does.</span>
+          </h2>
+          <p class="text-lg text-gray-300 leading-relaxed mb-4">
+            They're working. They care. They're doing their best. But if the structure isn't there, everything ends up flowing back to you.
+          </p>
+          <p class="text-base text-gray-400 leading-relaxed mb-8">
+            Start here. See what's actually happening first.
+          </p>
+          <a href="#download" class="btn-primary btn-lg group inline-flex">
+            Download the Scorecard
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal" style="transition-delay: 200ms">
+          <div class="lp-fix-card-v2">
+            <div class="lp-fix-card-v2-icon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+            </div>
+            <h3 class="text-base font-heading text-white mt-3 mb-1">Rapid Lead Response</h3>
+            <p class="text-sm text-gray-400">New leads get handled quickly so they don't disappear.</p>
+          </div>
+          <div class="lp-fix-card-v2">
+            <div class="lp-fix-card-v2-icon lp-fix-card-v2-icon--blue">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>
+            </div>
+            <h3 class="text-base font-heading text-white mt-3 mb-1">Persistent Follow-Up</h3>
+            <p class="text-sm text-gray-400">Consistent outreach instead of once or twice and hoping.</p>
+          </div>
+          <div class="lp-fix-card-v2">
+            <div class="lp-fix-card-v2-icon lp-fix-card-v2-icon--purple">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+            </div>
+            <h3 class="text-base font-heading text-white mt-3 mb-1">After-Hours Coverage</h3>
+            <p class="text-sm text-gray-400">Gaps get covered when your team is unavailable.</p>
+          </div>
+          <div class="lp-fix-card-v2">
+            <div class="lp-fix-card-v2-icon lp-fix-card-v2-icon--green">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+            </div>
+            <h3 class="text-base font-heading text-white mt-3 mb-1">Team Amplification</h3>
+            <p class="text-sm text-gray-400">Your existing team gets support so things actually get done.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       WHY THIS WORKS — before/after comparison
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white lp-section-lg">
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4">Why This Works</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          We don't act like an outside vendor.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          We don't drop in, do tasks, and disappear. We integrate into your firm. Because if it doesn't fit your culture, it won't stick.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 reveal">
+        <div class="lp-diff-card">
+          <div class="lp-diff-card-num">01</div>
+          <div class="lp-diff-card-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">We learn how you operate.</h3>
+          <p class="text-gray-500">Your workflows, your expectations, your standards. Not a one-size-fits-all playbook.</p>
+        </div>
+        <div class="lp-diff-card lp-diff-card--highlight">
+          <div class="lp-diff-card-num lp-diff-card-num--gold">02</div>
+          <div class="lp-diff-card-icon lp-diff-card-icon--gold">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">We align with your expectations.</h3>
+          <p class="text-gray-500">Your firm's way of doing things. Your culture. Your brand voice.</p>
+        </div>
+        <div class="lp-diff-card">
+          <div class="lp-diff-card-num">03</div>
+          <div class="lp-diff-card-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">We become part of your team.</h3>
+          <p class="text-gray-500">And if it doesn't stick, you're right back where you started. So we make sure it sticks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       WHAT CHANGES — interactive toggle
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden lp-section-lg" id="toggle-section">
+    <!-- Background transitions with toggle -->
+    <div class="lp-toggle-bg lp-toggle-bg--before" id="toggle-bg-before"></div>
+    <div class="lp-toggle-bg lp-toggle-bg--after" id="toggle-bg-after"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-10 reveal">
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">What Changes</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-6">
+          See the difference.
+        </h2>
+
+        <!-- Toggle switch -->
+        <div class="lp-toggle-wrap">
+          <button class="lp-toggle-btn lp-toggle-btn--active" id="toggle-before" type="button">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" /></svg>
+            Without Attorney Assistant
+          </button>
+          <button class="lp-toggle-btn" id="toggle-after" type="button">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            With Attorney Assistant
+          </button>
+          <div class="lp-toggle-slider" id="toggle-slider"></div>
+        </div>
+      </div>
+
+      <!-- Content panels -->
+      <div class="max-w-3xl mx-auto relative" style="min-height: 380px;">
+        <!-- BEFORE panel -->
+        <div class="lp-toggle-panel lp-toggle-panel--visible" id="panel-before">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="lp-toggle-card lp-toggle-card--before">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--red">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">Checking call logs at night</p>
+              <p class="text-white/50 text-sm mt-1">Because you can't trust they were handled.</p>
+            </div>
+            <div class="lp-toggle-card lp-toggle-card--before">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--red">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">Wondering if someone followed up</p>
+              <p class="text-white/50 text-sm mt-1">And usually not liking the answer.</p>
+            </div>
+            <div class="lp-toggle-card lp-toggle-card--before">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--red">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">Chasing your team for answers</p>
+              <p class="text-white/50 text-sm mt-1">On things that should run without you.</p>
+            </div>
+            <div class="lp-toggle-card lp-toggle-card--before">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--red">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">Losing clients you paid to attract</p>
+              <p class="text-white/50 text-sm mt-1">Marketing dollars with no one to catch them.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- AFTER panel -->
+        <div class="lp-toggle-panel" id="panel-after">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="lp-toggle-card lp-toggle-card--after">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--green">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">Leads get answered — every time</p>
+              <p class="text-white/50 text-sm mt-1">Day, night, weekends. No gaps.</p>
+            </div>
+            <div class="lp-toggle-card lp-toggle-card--after">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--green">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">Follow-up happens without you asking</p>
+              <p class="text-white/50 text-sm mt-1">Persistent, consistent, and on schedule.</p>
+            </div>
+            <div class="lp-toggle-card lp-toggle-card--after">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--green">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">Your team has real backup</p>
+              <p class="text-white/50 text-sm mt-1">They're supported, not stretched thin.</p>
+            </div>
+            <div class="lp-toggle-card lp-toggle-card--after">
+              <div class="lp-toggle-card-icon lp-toggle-card-icon--gold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
+              </div>
+              <p class="text-white font-heading text-base mt-3">You trust what's happening.</p>
+              <p class="text-white/50 text-sm mt-1">And that changes everything.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl lp-float-slow"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl lp-float-slow-reverse"></div>
+    </div>
+    <div class="container-wide relative py-20 md:py-28">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <h2 class="text-display-sm md:text-display-lg font-heading text-white mb-6">
+          If your firm only works when you're watching it, <span class="text-gradient-gold">that's the problem.</span>
+        </h2>
+        <div class="divider-gold-center mb-8"></div>
+        <p class="text-xl text-white/60 mb-4">
+          See what's actually happening first.
+        </p>
+        <p class="text-base text-white/40 mb-10">
+          Free. 5 minutes. No commitment.
+        </p>
+        <div class="flex flex-col items-center gap-5">
+          <a href="#download" class="btn-primary btn-lg group inline-flex text-lg px-10 py-4">
+            Download the Scorecard
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+        <p class="text-base text-white/40 mt-10 max-w-lg mx-auto">
+          Attorney Assistant helps law firms fix intake, follow-up, and coverage so your firm runs without constant supervision. But start here.
+        </p>
+
+        <!-- Trust badge -->
+        <div class="mt-12 flex items-center justify-center gap-3 text-sm text-white/50">
+          <div class="flex items-center gap-0.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <span>4.9 Google Rating</span>
+          <span class="text-white/30">&middot;</span>
+          <span>Trusted by law firms that are done guessing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracking -->
+  <script is:inline>
+    if (typeof mixpanel !== 'undefined') mixpanel.track('LP Viewed', { page: 'stop-babysitting-download' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'stop-babysitting-your-firm-download' });
+  </script>
+
+  <style>
+    /* =============================================
+       HUBSPOT WIDGET FIX
+    ============================================= */
+    .meetings-iframe-container iframe {
+      background: #ffffff !important;
+    }
+    .meetings-iframe-container {
+      background: #ffffff !important;
+    }
+
+    /* =============================================
+       SECTION SPACING
+    ============================================= */
+    .lp-section-lg {
+      padding: 5rem 0;
+    }
+    @media (min-width: 768px) {
+      .lp-section-lg { padding: 6.5rem 0; }
+    }
+
+    /* =============================================
+       HERO ORBS — 3 animated orbs
+    ============================================= */
+    .lp-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform;
+      z-index: 1;
+    }
+    .lp-orb--1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(80,167,221,0.35) 0%, rgba(80,167,221,0) 70%);
+      top: -30%;
+      right: -15%;
+      animation: lpFloat1 10s ease-in-out infinite;
+    }
+    .lp-orb--2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(249,166,48,0.3) 0%, rgba(249,166,48,0) 70%);
+      bottom: -20%;
+      left: -8%;
+      animation: lpFloat2 12s ease-in-out infinite;
+    }
+    .lp-orb--3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(249,166,48,0.15) 0%, rgba(249,166,48,0) 70%);
+      top: 40%;
+      left: 35%;
+      animation: lpFloat3 14s ease-in-out infinite;
+    }
+    @keyframes lpFloat1 {
+      0% { transform: translate(0, 0) scale(1); }
+      20% { transform: translate(-100px, 50px) scale(1.25); }
+      40% { transform: translate(-30px, -60px) scale(0.85); }
+      60% { transform: translate(80px, 25px) scale(1.15); }
+      80% { transform: translate(30px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat2 {
+      0% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(90px, -45px) scale(1.3); }
+      50% { transform: translate(30px, 60px) scale(0.8); }
+      75% { transform: translate(-60px, -20px) scale(1.15); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat3 {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-40px, 30px) scale(1.2); }
+      66% { transform: translate(50px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lp-orb, .lp-float-slow, .lp-float-slow-reverse, .lp-scroll-dot { animation: none !important; }
+    }
+
+    /* =============================================
+       HERO PULSE BADGE
+    ============================================= */
+    .lp-pulse-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(249,166,48,0.1);
+      color: #F9A630;
+      border: 1px solid rgba(249,166,48,0.2);
+      backdrop-filter: blur(8px);
+    }
+    .lp-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #F9A630;
+      animation: lpPulse 2s ease-in-out infinite;
+    }
+    @keyframes lpPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* =============================================
+       HERO STATS
+    ============================================= */
+    .lp-hero-stat {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+    }
+    .lp-hero-stat-num {
+      display: inline;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #F9A630;
+      line-height: 1;
+    }
+    .lp-hero-stat-label {
+      display: block;
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.375rem;
+      line-height: 1.3;
+    }
+
+    /* =============================================
+       WIDGET GLOW
+    ============================================= */
+    .lp-widget-glow {
+      background: linear-gradient(135deg, rgba(249,166,48,0.3), rgba(80,167,221,0.3), rgba(249,166,48,0.3));
+      background-size: 200% 200%;
+      animation: lpGlow 4s ease-in-out infinite;
+    }
+    @keyframes lpGlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* =============================================
+       SCROLL INDICATOR
+    ============================================= */
+    .lp-scroll-hint { animation: lpFadeInUp 1s ease 1.5s both; }
+    @keyframes lpFadeInUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .lp-scroll-dot {
+      animation: lpScrollBounce 1.5s ease-in-out infinite;
+    }
+    @keyframes lpScrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    /* =============================================
+       PAIN CARDS
+    ============================================= */
+    .lp-pain-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .lp-pain-card:hover {
+      transform: translateX(4px);
+      background: rgba(255,255,255,0.07);
+    }
+    .lp-pain-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(239,68,68,0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239,68,68,0.15);
+    }
+    .lp-pain-card--stagger-1 { animation: lpSlideIn 0.5s ease 0.1s both; }
+    .lp-pain-card--stagger-2 { animation: lpSlideIn 0.5s ease 0.25s both; }
+    .lp-pain-card--stagger-3 { animation: lpSlideIn 0.5s ease 0.4s both; }
+    @keyframes lpSlideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* =============================================
+       STRUCTURE CARDS (problem section)
+    ============================================= */
+    .lp-struct-card {
+      padding: 1.75rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-struct-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ef4444, #F9A630);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lp-struct-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    .lp-struct-card:hover::before { opacity: 1; }
+    .lp-struct-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(239,68,68,0.08);
+      color: #ef4444;
+      border: 1px solid rgba(239,68,68,0.12);
+    }
+    .lp-struct-icon--amber {
+      background: rgba(249,166,48,0.08);
+      color: #F9A630;
+      border-color: rgba(249,166,48,0.15);
+    }
+    .lp-struct-icon--red {
+      background: rgba(239,68,68,0.08);
+      color: #ef4444;
+      border-color: rgba(239,68,68,0.12);
+    }
+    .lp-struct-bar {
+      height: 6px;
+      background: #f3f4f6;
+      border-radius: 3px;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .lp-struct-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 1.5s ease;
+    }
+    .lp-struct-bar-fill--red { background: linear-gradient(90deg, #ef4444, #f87171); }
+    .lp-struct-bar-fill--amber { background: linear-gradient(90deg, #F9A630, #fbbf24); }
+
+    /* Staggered reveal */
+    .lp-struct-card--1 { transition-delay: 0ms; }
+    .lp-struct-card--2 { transition-delay: 100ms; }
+    .lp-struct-card--3 { transition-delay: 200ms; }
+    .lp-struct-card--4 { transition-delay: 300ms; }
+
+    /* =============================================
+       COST CARDS (dark section)
+    ============================================= */
+    .lp-cost-card {
+      padding: 2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .lp-cost-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.07);
+    }
+    .lp-cost-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lp-cost-card-icon--red {
+      background: rgba(239,68,68,0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239,68,68,0.15);
+    }
+    .lp-cost-card-icon--amber {
+      background: rgba(249,166,48,0.1);
+      color: #F9A630;
+      border: 1px solid rgba(249,166,48,0.15);
+    }
+    .lp-cost-card-icon--navy {
+      background: rgba(80,167,221,0.1);
+      color: #50a7dd;
+      border: 1px solid rgba(80,167,221,0.15);
+    }
+    .lp-cost-card-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+    .lp-cost-card-line--red { background: linear-gradient(90deg, #ef4444, transparent); }
+    .lp-cost-card-line--amber { background: linear-gradient(90deg, #F9A630, transparent); }
+    .lp-cost-card-line--blue { background: linear-gradient(90deg, #50a7dd, transparent); }
+
+    /* =============================================
+       FIX CARDS v2 (dark bg)
+    ============================================= */
+    .lp-fix-card-v2 {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+    .lp-fix-card-v2:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(249,166,48,0.3);
+    }
+    .lp-fix-card-v2-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(249,166,48,0.12);
+      color: #F9A630;
+      border: 1px solid rgba(249,166,48,0.2);
+    }
+    .lp-fix-card-v2-icon--blue {
+      background: rgba(80,167,221,0.12);
+      color: #50a7dd;
+      border-color: rgba(80,167,221,0.2);
+    }
+    .lp-fix-card-v2-icon--purple {
+      background: rgba(139,92,246,0.12);
+      color: #8b5cf6;
+      border-color: rgba(139,92,246,0.2);
+    }
+    .lp-fix-card-v2-icon--green {
+      background: rgba(34,197,94,0.12);
+      color: #22c55e;
+      border-color: rgba(34,197,94,0.2);
+    }
+
+    /* =============================================
+       DIFFERENTIATOR CARDS
+    ============================================= */
+    .lp-diff-card {
+      padding: 2rem;
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .lp-diff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .lp-diff-card--highlight {
+      background: linear-gradient(135deg, rgba(249,166,48,0.05), rgba(249,166,48,0.02));
+      border-color: rgba(249,166,48,0.3);
+    }
+    .lp-diff-card-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #d0d5dd;
+      letter-spacing: 0.05em;
+    }
+    .lp-diff-card-num--gold { color: #F9A630; }
+    .lp-diff-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26,58,92,0.06);
+      color: #1a3a5c;
+      border: 1px solid rgba(26,58,92,0.1);
+    }
+    .lp-diff-card-icon--gold {
+      background: rgba(249,166,48,0.1);
+      color: #F9A630;
+      border-color: rgba(249,166,48,0.2);
+    }
+
+    /* =============================================
+       FLOATING ANIMATION (CTA orbs)
+    ============================================= */
+    .lp-float-slow {
+      animation: lpFloatSlow 8s ease-in-out infinite;
+    }
+    .lp-float-slow-reverse {
+      animation: lpFloatSlowReverse 10s ease-in-out infinite;
+    }
+    @keyframes lpFloatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+    @keyframes lpFloatSlowReverse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(25px); }
+    }
+
+    /* =============================================
+       BEFORE/AFTER TOGGLE
+    ============================================= */
+    .lp-toggle-bg {
+      position: absolute;
+      inset: 0;
+      transition: opacity 0.6s ease;
+    }
+    .lp-toggle-bg--before {
+      background: linear-gradient(135deg, #111827, #1f2937, #111827);
+      opacity: 1;
+    }
+    .lp-toggle-bg--after {
+      background: linear-gradient(135deg, #064e3b, #047857, #065f46);
+      opacity: 0;
+    }
+    .lp-toggle-bg--after.active { opacity: 1; }
+    .lp-toggle-bg--before.inactive { opacity: 0; }
+
+    /* Toggle switch container */
+    .lp-toggle-wrap {
+      display: inline-flex;
+      position: relative;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 9999px;
+      padding: 4px;
+    }
+    .lp-toggle-btn {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.625rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+    .lp-toggle-btn--active { color: #fff; }
+    .lp-toggle-btn:hover { color: rgba(255,255,255,0.8); }
+    .lp-toggle-btn--active:hover { color: #fff; }
+
+    /* Sliding pill indicator */
+    .lp-toggle-slider {
+      position: absolute;
+      z-index: 1;
+      top: 4px;
+      bottom: 4px;
+      border-radius: 9999px;
+      transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.35s ease;
+      background: rgba(239,68,68,0.25);
+      border: 1px solid rgba(239,68,68,0.3);
+    }
+    .lp-toggle-slider.is-after {
+      background: rgba(16,185,129,0.25);
+      border-color: rgba(16,185,129,0.3);
+    }
+
+    /* Content panels */
+    .lp-toggle-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .lp-toggle-panel--visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      position: relative;
+    }
+
+    /* Toggle cards */
+    .lp-toggle-card {
+      padding: 1.5rem;
+      border-radius: 14px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .lp-toggle-card:hover { transform: translateY(-3px); }
+
+    .lp-toggle-card--before {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.15);
+    }
+    .lp-toggle-card--before:hover { background: rgba(239,68,68,0.1); }
+
+    .lp-toggle-card--after {
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2);
+    }
+    .lp-toggle-card--after:hover { background: rgba(16,185,129,0.14); }
+
+    .lp-toggle-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lp-toggle-card-icon--red {
+      background: rgba(239,68,68,0.12);
+      color: #f87171;
+      border: 1px solid rgba(239,68,68,0.2);
+    }
+    .lp-toggle-card-icon--green {
+      background: rgba(16,185,129,0.12);
+      color: #34d399;
+      border: 1px solid rgba(16,185,129,0.2);
+    }
+    .lp-toggle-card-icon--gold {
+      background: rgba(249,166,48,0.12);
+      color: #F9A630;
+      border: 1px solid rgba(249,166,48,0.2);
+    }
+
+    /* =============================================
+       OUTLINE WHITE BUTTON (CTA section)
+    ============================================= */
+    .lp-btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fff;
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .lp-btn-outline-white:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-1px);
+    }
+
+    /* =============================================
+       DAY CALENDAR VIEW
+    ============================================= */
+    .lp-cal {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .lp-cal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.875rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .lp-cal-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+    .lp-cal-header-status {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #f87171;
+    }
+    .lp-cal-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      animation: lpPulse 2s ease-in-out infinite;
+    }
+    .lp-cal-status-dot--red { background: #ef4444; }
+
+    .lp-cal-body { padding: 0.5rem; }
+
+    .lp-cal-slot {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding: 0.375rem 0;
+    }
+    .lp-cal-time {
+      width: 52px;
+      flex-shrink: 0;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      padding-top: 0.75rem;
+      text-align: right;
+      padding-right: 0.75rem;
+    }
+
+    .lp-cal-event {
+      flex: 1;
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .lp-cal-event:hover { transform: translateX(2px); }
+    .lp-cal-event--red { background: rgba(239,68,68,0.06); }
+    .lp-cal-event--red:hover { background: rgba(239,68,68,0.1); }
+    .lp-cal-event--amber { background: rgba(249,166,48,0.05); }
+    .lp-cal-event--amber:hover { background: rgba(249,166,48,0.08); }
+
+    .lp-cal-event-bar {
+      width: 3px;
+      flex-shrink: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .lp-cal-event-bar--red { background: #ef4444; }
+    .lp-cal-event-bar--amber { background: #F9A630; }
+
+    .lp-cal-event-content { padding: 0.625rem 0.875rem; flex: 1; }
+
+    .lp-cal-event-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .lp-cal-event-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .lp-cal-event-badge {
+      font-size: 0.5625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      flex-shrink: 0;
+    }
+    .lp-cal-event-badge--red {
+      background: rgba(239,68,68,0.15);
+      color: #f87171;
+      border: 1px solid rgba(239,68,68,0.2);
+    }
+    .lp-cal-event-badge--amber {
+      background: rgba(249,166,48,0.12);
+      color: #F9A630;
+      border: 1px solid rgba(249,166,48,0.18);
+    }
+    .lp-cal-event-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
+    }
+
+    .lp-cal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+    }
+  </style>
+
+  <!-- Count-up animation script -->
+  <script is:inline>
+  (function() {
+    var counted = false;
+    function countUp() {
+      if (counted) return;
+      counted = true;
+      document.querySelectorAll('.lp-count').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1500;
+        var start = 0;
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    if ('IntersectionObserver' in window) {
+      var el = document.querySelector('.lp-count');
+      if (el) {
+        new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) countUp();
+        }, { threshold: 0.5 }).observe(el);
+      }
+    } else {
+      countUp();
+    }
+  })();
+  </script>
+
+  <!-- Toggle script -->
+  <script is:inline>
+  (function() {
+    var btnBefore = document.getElementById('toggle-before');
+    var btnAfter = document.getElementById('toggle-after');
+    var slider = document.getElementById('toggle-slider');
+    var panelBefore = document.getElementById('panel-before');
+    var panelAfter = document.getElementById('panel-after');
+    var bgBefore = document.getElementById('toggle-bg-before');
+    var bgAfter = document.getElementById('toggle-bg-after');
+
+    function positionSlider(btn) {
+      slider.style.left = btn.offsetLeft + 'px';
+      slider.style.width = btn.offsetWidth + 'px';
+    }
+
+    // Set initial position after layout
+    requestAnimationFrame(function() { positionSlider(btnBefore); });
+    window.addEventListener('resize', function() {
+      var activeBtn = btnBefore.classList.contains('lp-toggle-btn--active') ? btnBefore : btnAfter;
+      positionSlider(activeBtn);
+    });
+
+    function showBefore() {
+      btnBefore.classList.add('lp-toggle-btn--active');
+      btnAfter.classList.remove('lp-toggle-btn--active');
+      slider.classList.remove('is-after');
+      positionSlider(btnBefore);
+      panelBefore.classList.add('lp-toggle-panel--visible');
+      panelAfter.classList.remove('lp-toggle-panel--visible');
+      bgBefore.classList.remove('inactive');
+      bgAfter.classList.remove('active');
+    }
+
+    function showAfter() {
+      btnAfter.classList.add('lp-toggle-btn--active');
+      btnBefore.classList.remove('lp-toggle-btn--active');
+      slider.classList.add('is-after');
+      positionSlider(btnAfter);
+      panelAfter.classList.add('lp-toggle-panel--visible');
+      panelBefore.classList.remove('lp-toggle-panel--visible');
+      bgBefore.classList.add('inactive');
+      bgAfter.classList.add('active');
+    }
+
+    btnBefore.addEventListener('click', showBefore);
+    btnAfter.addEventListener('click', showAfter);
+  })();
+  </script>
+
+</BaseLayout>
