@@ -1130,7 +1130,7 @@ import CTABanner from "@components/CTABanner.astro";
   function loadHubSpotForm() {
     if (window.__hsGeoAllowed === false) {
       var t = document.getElementById('hs-form-target');
-      if (t) t.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;"><p>This form is not available from your location.</p></div>';
+      if (t) t.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;"><p>This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#F9A630;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#F9A630;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
       return;
     }
     function createForm() {
