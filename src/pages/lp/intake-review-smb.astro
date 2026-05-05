@@ -80,34 +80,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             </div>
           </div>
 
-          <!-- Animated stat ticker -->
-          <div class="grid grid-cols-3 gap-4 mb-10">
-            <div class="smb-hero-stat">
-              <span class="smb-hero-stat-num smb-count" data-target="78">0</span><span class="smb-hero-stat-num">%</span>
-              <span class="smb-hero-stat-label">of clients sign with the first firm that responds</span>
-            </div>
-            <div class="smb-hero-stat">
-              <span class="smb-hero-stat-num smb-count" data-target="5">0</span><span class="smb-hero-stat-num">min</span>
-              <span class="smb-hero-stat-label">before a lead goes cold</span>
-            </div>
-            <div class="smb-hero-stat">
-              <span class="smb-hero-stat-num smb-count" data-target="40">0</span><span class="smb-hero-stat-num">%</span>
-              <span class="smb-hero-stat-label">of calls to law firms go unanswered</span>
-            </div>
-          </div>
-
           <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
             <div class="flex items-center gap-2">
               <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              Free intake review
+              Free &mdash; no commitment
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              No commitment
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              Free secret shop included
+              Includes free secret shop
             </div>
           </div>
         </div>
@@ -222,124 +202,131 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   </section>
 
   <!-- ═══════════════════════════════════════════
-       WHAT WE FIX — 5 problem cards
+       THE SILENT COST — animated stat counters + storytelling
   ═══════════════════════════════════════════ -->
   <section class="relative overflow-hidden bg-white smb-section-lg">
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-brand-gold to-brand-blue"></div>
-    <div class="container-wide">
-      <div class="text-center mb-14 reveal">
-        <span class="badge bg-brand-navy/10 text-brand-navy border-brand-navy/15 mb-4">What We Help Fix</span>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/3 rounded-full blur-[120px]"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-6 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-red-500/10 text-red-500 border border-red-500/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+          The Numbers
+        </span>
         <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
-          Five problems quietly killing your growth.
+          This isn't a marketing problem. It's a conversion problem happening inside your firm.
         </h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
-        <div class="smb-fix-card">
-          <div class="smb-fix-icon smb-fix-icon--red">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-          </div>
-          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Missed Calls</h3>
-          <p class="text-sm text-gray-500">If prospects can't reach your firm, they're not waiting patiently. They're calling someone else.</p>
-          <div class="smb-fix-bar"><div class="smb-fix-bar-fill smb-fix-bar-fill--red" style="width: 20%"></div></div>
-          <p class="text-xs text-red-500 font-medium mt-2">Critical gap</p>
+      <!-- Big animated stats -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16 reveal">
+        <div class="text-center">
+          <div class="text-display-md md:text-display-lg font-heading text-brand-gold mb-2"><span class="smb-count" data-target="78">0</span>%</div>
+          <p class="text-base text-gray-600">of PI leads hire the first firm that responds</p>
         </div>
-        <div class="smb-fix-card">
-          <div class="smb-fix-icon smb-fix-icon--amber">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
-          </div>
-          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Slow Lead Response</h3>
-          <p class="text-sm text-gray-500">Speed matters. The faster your firm responds, the better chance you have of turning interest into signed cases.</p>
-          <div class="smb-fix-bar"><div class="smb-fix-bar-fill smb-fix-bar-fill--amber" style="width: 35%"></div></div>
-          <p class="text-xs text-amber-600 font-medium mt-2">Inconsistent</p>
+        <div class="text-center">
+          <div class="text-display-md md:text-display-lg font-heading text-red-500 mb-2">~<span class="smb-count" data-target="5">0</span> min</div>
+          <p class="text-base text-gray-600">is all you have before a lead goes cold</p>
         </div>
-        <div class="smb-fix-card">
-          <div class="smb-fix-icon smb-fix-icon--amber">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>
-          </div>
-          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Inconsistent Follow-Up</h3>
-          <p class="text-sm text-gray-500">One call is not a follow-up system. It's a wish with a voicemail attached.</p>
-          <div class="smb-fix-bar"><div class="smb-fix-bar-fill smb-fix-bar-fill--amber" style="width: 40%"></div></div>
-          <p class="text-xs text-amber-600 font-medium mt-2">Weak cadence</p>
+        <div class="text-center">
+          <div class="text-display-md md:text-display-lg font-heading text-brand-gold mb-2"><span class="smb-count" data-target="40">0</span>%</div>
+          <p class="text-base text-gray-600">of calls to law firms go completely unanswered</p>
         </div>
-        <div class="smb-fix-card">
-          <div class="smb-fix-icon smb-fix-icon--red">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
-          </div>
-          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Intake That Doesn't Convert</h3>
-          <p class="text-sm text-gray-500">Leads are only valuable if your firm has a process to move them from "interested" to "signed."</p>
-          <div class="smb-fix-bar"><div class="smb-fix-bar-fill smb-fix-bar-fill--red" style="width: 25%"></div></div>
-          <p class="text-xs text-red-500 font-medium mt-2">Revenue leak</p>
+      </div>
+
+      <!-- Scrolling story beats -->
+      <div class="max-w-xl mx-auto">
+        <div class="smb-story-beat reveal">
+          <div class="smb-story-line"></div>
+          <div class="smb-story-dot smb-story-dot--red"></div>
+          <p class="text-lg text-gray-700 leading-relaxed pl-10">
+            A call comes in. No one answers. They call the next firm.
+          </p>
         </div>
-        <div class="smb-fix-card">
-          <div class="smb-fix-icon smb-fix-icon--red">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
-          </div>
-          <h3 class="text-lg font-heading text-gray-900 mt-4 mb-2">Nights, Weekends &amp; Overflow</h3>
-          <p class="text-sm text-gray-500">Your firm still gets opportunities when your team is busy, closed, or buried. Those leads still need coverage.</p>
-          <div class="smb-fix-bar"><div class="smb-fix-bar-fill smb-fix-bar-fill--red" style="width: 15%"></div></div>
-          <p class="text-xs text-red-500 font-medium mt-2">Major exposure</p>
+        <div class="smb-story-beat reveal">
+          <div class="smb-story-line"></div>
+          <div class="smb-story-dot smb-story-dot--amber"></div>
+          <p class="text-lg text-gray-700 leading-relaxed pl-10">
+            A lead fills out a form. Follow-up happens hours later. Too late.
+          </p>
+        </div>
+        <div class="smb-story-beat reveal">
+          <div class="smb-story-line"></div>
+          <div class="smb-story-dot smb-story-dot--red"></div>
+          <p class="text-lg text-gray-700 leading-relaxed pl-10">
+            A message comes in after hours. No one sees it until morning. They're gone.
+          </p>
+        </div>
+        <div class="smb-story-beat reveal">
+          <div class="smb-story-line" style="display:none;"></div>
+          <div class="smb-story-dot smb-story-dot--big"></div>
+          <p class="text-xl text-gray-900 font-heading leading-snug pl-10">
+            No alert. No warning. Just missed opportunities you never even see.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
-       SECRET SHOP — unique differentiator
+       SECRET SHOP — interactive reveal
   ═══════════════════════════════════════════ -->
   <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 smb-section-lg">
     <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/5 rounded-full blur-[100px]"></div>
     <div class="grain-overlay"></div>
 
     <div class="container-wide relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="reveal">
-          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" /></svg>
-            Included Free With Your Review
-          </span>
-          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-6 leading-tight">
-            We'll Secret Shop <span class="text-gradient-gold">Your Firm.</span>
-          </h2>
-          <p class="text-lg text-gray-300 leading-relaxed mb-4">
-            Before your call, we'll have a specialist pose as a prospective client and test your intake process &mdash; calls, forms, after-hours. The works.
-          </p>
-          <p class="text-base text-gray-400 leading-relaxed mb-8">
-            Then we'll walk you through exactly what happened. No guesswork. Just a real-world look at what your prospects actually experience when they try to hire you.
-          </p>
-          <p class="text-sm text-gray-500 italic">Most firms are shocked by what they find. And that's exactly why it's valuable.</p>
-        </div>
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" /><path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>
+          Included Free With Your Review
+        </span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          We'll Secret Shop <span class="text-gradient-gold">Your Firm.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Before your call, we'll have a specialist pose as a prospective client and pressure-test your intake. Then we'll show you what really happened.</p>
+      </div>
 
-        <div class="reveal" style="transition-delay: 200ms">
-          <div class="space-y-4">
-            <div class="smb-shop-step">
-              <div class="smb-shop-num">1</div>
-              <div>
-                <p class="text-base font-semibold text-white">We call your firm</p>
-                <p class="text-sm text-gray-400 mt-0.5">During business hours, after hours, and on a weekend.</p>
-              </div>
-            </div>
-            <div class="smb-shop-step">
-              <div class="smb-shop-num">2</div>
-              <div>
-                <p class="text-base font-semibold text-white">We submit a lead through your website</p>
-                <p class="text-sm text-gray-400 mt-0.5">And time how long it takes to get a response.</p>
-              </div>
-            </div>
-            <div class="smb-shop-step">
-              <div class="smb-shop-num">3</div>
-              <div>
-                <p class="text-base font-semibold text-white">We document everything</p>
-                <p class="text-sm text-gray-400 mt-0.5">Response time, professionalism, follow-up cadence, gaps.</p>
-              </div>
-            </div>
-            <div class="smb-shop-step">
-              <div class="smb-shop-num">4</div>
-              <div>
-                <p class="text-base font-semibold text-white">We walk you through the results</p>
-                <p class="text-sm text-gray-400 mt-0.5">On your free intake review call. No sugar-coating.</p>
-              </div>
-            </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        <div class="smb-shop-step reveal">
+          <div class="smb-shop-num">1</div>
+          <div>
+            <p class="text-base font-semibold text-white">We call your firm</p>
+            <p class="text-sm text-gray-400 mt-1">Business hours, after hours, and weekends.</p>
+          </div>
+        </div>
+        <div class="smb-shop-step reveal" style="transition-delay:100ms">
+          <div class="smb-shop-num">2</div>
+          <div>
+            <p class="text-base font-semibold text-white">We submit a web lead</p>
+            <p class="text-sm text-gray-400 mt-1">And time how long until someone responds.</p>
+          </div>
+        </div>
+        <div class="smb-shop-step reveal" style="transition-delay:200ms">
+          <div class="smb-shop-num">3</div>
+          <div>
+            <p class="text-base font-semibold text-white">We document everything</p>
+            <p class="text-sm text-gray-400 mt-1">Response time, tone, follow-up cadence, gaps.</p>
+          </div>
+        </div>
+        <div class="smb-shop-step reveal" style="transition-delay:300ms">
+          <div class="smb-shop-num">4</div>
+          <div>
+            <p class="text-base font-semibold text-white">We walk you through it</p>
+            <p class="text-sm text-gray-400 mt-1">On your review call. No sugar-coating.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-2xl mx-auto reveal">
+        <div class="relative bg-white/5 border border-white/10 rounded-2xl p-8 text-center backdrop-blur-sm">
+          <p class="text-lg text-gray-300 italic">"Most firms are shocked by what they find. And that's exactly why it's valuable."</p>
+          <div class="mt-6 flex items-center justify-center gap-4">
+            <a href="#book-now" class="btn-primary group inline-flex">
+              Book Your Free Review + Secret Shop
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -347,146 +334,58 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   </section>
 
   <!-- ═══════════════════════════════════════════
-       WHAT WE DO
+       WHAT WE DO — interactive before/after
   ═══════════════════════════════════════════ -->
   <section class="relative overflow-hidden bg-white smb-section-lg">
-    <div class="container-wide">
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px]"></div>
+    <div class="container-wide relative">
       <div class="text-center mb-14 reveal">
-        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4">What We Do</span>
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4">What Changes</span>
         <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
           We own the outcome, not just the task.
         </h2>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
-          We're not here to toss another tool at your firm and wish you luck. We help build the structure behind the work so things actually get done.
-        </p>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">We're not here to toss another tool at your firm and wish you luck. We help build the structure behind the work.</p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <h3 class="font-heading text-gray-900 mb-2">Answer more calls</h3>
-          <p class="text-sm text-gray-500">No more leads going to voicemail. Every call gets handled.</p>
-        </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <h3 class="font-heading text-gray-900 mb-2">Respond faster to new leads</h3>
-          <p class="text-sm text-gray-500">Speed to lead under 5 minutes. Not hours. Not days.</p>
-        </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <h3 class="font-heading text-gray-900 mb-2">Follow up consistently</h3>
-          <p class="text-sm text-gray-500">Persistent, structured outreach until the lead converts or disqualifies.</p>
-        </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <h3 class="font-heading text-gray-900 mb-2">Reduce the owner's burden</h3>
-          <p class="text-sm text-gray-500">Stop being the one who checks everything. Get your time back.</p>
-        </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <h3 class="font-heading text-gray-900 mb-2">Create a cleaner intake process</h3>
-          <p class="text-sm text-gray-500">From first contact to signed retainer, nothing falls through the cracks.</p>
-        </div>
-        <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-          <h3 class="font-heading text-gray-900 mb-2">Stop letting cases slip</h3>
-          <p class="text-sm text-gray-500">The leads are already coming in. We help you actually catch them.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       WHO THIS IS FOR
-  ═══════════════════════════════════════════ -->
-  <section class="relative overflow-hidden bg-gray-50 smb-section-lg">
-    <div class="container-wide">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Before / After comparison -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div class="reveal">
-          <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4">Is This You?</span>
-          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
-            This is for law firm owners who are growing, but still feel trapped.
-          </h2>
-          <p class="text-gray-500 mb-6">Inside the daily mess of running the firm. You may be a fit if:</p>
-        </div>
-        <div class="space-y-3 reveal" style="transition-delay: 150ms">
-          <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-gold/30 transition-colors">
-            <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-            <span class="text-sm text-gray-700">You're under $250K in annual revenue</span>
-          </div>
-          <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-gold/30 transition-colors">
-            <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-            <span class="text-sm text-gray-700">Getting leads but not converting enough of them</span>
-          </div>
-          <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-gold/30 transition-colors">
-            <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-            <span class="text-sm text-gray-700">Missing calls or responding too slowly</span>
-          </div>
-          <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-gold/30 transition-colors">
-            <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-            <span class="text-sm text-gray-700">Personally checking too much — your team is stretched thin</span>
-          </div>
-          <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-brand-gold/30 transition-colors">
-            <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-            <span class="text-sm text-gray-700">Want more structure before spending more on marketing</span>
+          <div class="smb-compare smb-compare--before">
+            <div class="smb-compare-header smb-compare-header--before">
+              <span class="smb-compare-badge smb-compare-badge--before">Before</span>
+              <span class="text-xs text-red-400">Without structure</span>
+            </div>
+            <div class="smb-compare-body">
+              <div class="smb-compare-item"><span class="smb-compare-x">&#10005;</span> Calls go to voicemail</div>
+              <div class="smb-compare-item"><span class="smb-compare-x">&#10005;</span> Leads wait hours for a response</div>
+              <div class="smb-compare-item"><span class="smb-compare-x">&#10005;</span> Follow-up stops after one try</div>
+              <div class="smb-compare-item"><span class="smb-compare-x">&#10005;</span> After-hours &mdash; nobody home</div>
+              <div class="smb-compare-item"><span class="smb-compare-x">&#10005;</span> You check everything yourself</div>
+              <div class="smb-compare-item"><span class="smb-compare-x">&#10005;</span> Cases slip through the cracks</div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       WHAT THE REVIEW COVERS
-  ═══════════════════════════════════════════ -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay smb-section-lg">
-    <div class="absolute inset-0">
-      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl"></div>
-    </div>
-    <div class="container-narrow relative">
-      <div class="text-center mb-14 reveal">
-        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">The Free Intake Review</span>
-        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
-          No pressure. No vague nonsense. Just clarity.
-        </h2>
-        <p class="text-lg text-gray-400 max-w-xl mx-auto">On your call, we'll look at where your firm may be losing opportunities and what needs to be fixed first.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-5 reveal">
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/8 transition-all">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">01</span>
-          </div>
-          <div>
-            <p class="text-white font-medium">Where leads are slipping through</p>
-            <p class="text-sm text-gray-400 mt-1">We'll map your intake funnel and find the gaps.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/8 transition-all">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">02</span>
-          </div>
-          <div>
-            <p class="text-white font-medium">How quickly your firm responds</p>
-            <p class="text-sm text-gray-400 mt-1">Real benchmarks, not guesswork.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/8 transition-all">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">03</span>
-          </div>
-          <div>
-            <p class="text-white font-medium">Whether follow-up is strong enough</p>
-            <p class="text-sm text-gray-400 mt-1">One call isn't a system. We'll assess the cadence.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/8 transition-all">
-          <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 flex items-center justify-center mt-0.5">
-            <span class="text-brand-gold font-heading font-bold">04</span>
-          </div>
-          <div>
-            <p class="text-white font-medium">What to fix first</p>
-            <p class="text-sm text-gray-400 mt-1">Which operational fixes would make the biggest difference.</p>
+        <div class="reveal" style="transition-delay:150ms">
+          <div class="smb-compare smb-compare--after">
+            <div class="smb-compare-header smb-compare-header--after">
+              <span class="smb-compare-badge smb-compare-badge--after">After</span>
+              <span class="text-xs text-emerald-400">With Attorney Assistant</span>
+            </div>
+            <div class="smb-compare-body">
+              <div class="smb-compare-item"><span class="smb-compare-check">&#10003;</span> Every call answered</div>
+              <div class="smb-compare-item"><span class="smb-compare-check">&#10003;</span> Speed to lead under 5 minutes</div>
+              <div class="smb-compare-item"><span class="smb-compare-check">&#10003;</span> Persistent, structured follow-up</div>
+              <div class="smb-compare-item"><span class="smb-compare-check">&#10003;</span> Nights, weekends, overflow covered</div>
+              <div class="smb-compare-item"><span class="smb-compare-check">&#10003;</span> Owner free to lead, not babysit</div>
+              <div class="smb-compare-item"><span class="smb-compare-check">&#10003;</span> Leads become signed cases</div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- DIY option -->
-      <div class="text-center mt-10 reveal">
-        <p class="text-sm text-gray-500 mb-3">Prefer to self-assess first?</p>
+      <div class="text-center mt-12 reveal">
+        <p class="text-sm text-gray-400 mb-3">Want to self-assess first?</p>
         <a href="https://hubs.ly/Q04fr4L40" target="_blank" class="inline-flex items-center gap-2 text-sm text-brand-gold hover:text-brand-gold/80 underline underline-offset-4 decoration-brand-gold/30 hover:decoration-brand-gold/60 transition-colors">
           Download the free DIY intake audit checklist
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
@@ -615,6 +514,31 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .smb-shop-step { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: rgba(255,255,255,0.03); transition: transform 0.3s, background 0.3s; }
     .smb-shop-step:hover { transform: translateX(6px); background: rgba(255,255,255,0.06); }
     .smb-shop-num { width: 36px; height: 36px; border-radius: 10px; background: rgba(249,166,48,0.1); color: #F9A630; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem; flex-shrink: 0; border: 1px solid rgba(249,166,48,0.2); }
+
+    /* ── Story beats timeline ── */
+    .smb-story-beat { position: relative; padding-left: 0; padding-bottom: 0.75rem; }
+    .smb-story-dot { position: absolute; left: 0; top: 0.45rem; width: 10px; height: 10px; border-radius: 50%; z-index: 1; }
+    .smb-story-dot--red { background: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.15); }
+    .smb-story-dot--amber { background: #F9A630; box-shadow: 0 0 0 4px rgba(249,166,48,0.15); }
+    .smb-story-dot--big { width: 14px; height: 14px; left: -2px; background: #F9A630; box-shadow: 0 0 0 6px rgba(249,166,48,0.2); }
+    .smb-story-line { position: absolute; left: 4px; top: 0.9rem; bottom: -0.75rem; width: 2px; background: linear-gradient(to bottom, rgba(239,68,68,0.3), rgba(249,166,48,0.1)); }
+
+    /* ── Before / After comparison ── */
+    .smb-compare { border-radius: 16px; overflow: hidden; border: 1px solid; transition: transform 0.3s, box-shadow 0.3s; }
+    .smb-compare:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .smb-compare--before { border-color: rgba(239,68,68,0.2); }
+    .smb-compare--after { border-color: rgba(16,185,129,0.2); }
+    .smb-compare-header { padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+    .smb-compare-header--before { background: rgba(239,68,68,0.05); }
+    .smb-compare-header--after { background: rgba(16,185,129,0.05); }
+    .smb-compare-badge { font-size: 0.6875rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .smb-compare-badge--before { background: rgba(239,68,68,0.1); color: #ef4444; }
+    .smb-compare-badge--after { background: rgba(16,185,129,0.1); color: #10b981; }
+    .smb-compare-body { padding: 0.5rem 1.25rem 1.25rem; }
+    .smb-compare-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid #f3f4f6; font-size: 0.875rem; color: #374151; }
+    .smb-compare-item:last-child { border-bottom: none; }
+    .smb-compare-x { color: #ef4444; font-weight: 700; font-size: 0.75rem; width: 20px; text-align: center; flex-shrink: 0; }
+    .smb-compare-check { color: #10b981; font-weight: 700; font-size: 0.875rem; width: 20px; text-align: center; flex-shrink: 0; }
 
     /* ── Floats ── */
     .smb-float-slow { animation: smbFloat1 10s ease-in-out infinite; }
