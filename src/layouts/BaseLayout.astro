@@ -135,12 +135,17 @@ const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
     <!-- Geo-gate: determine if visitor is in allowed region before loading HubSpot -->
     <GeoGate />
 
-    <!-- Google Tag Manager (via Google tag gateway) -->
-    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '/metrics/?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WCB9JXDC');</script>
+    <!-- Google Tag Manager (geo-gated, via Google tag gateway) -->
+    <script is:inline>
+      window.__hsGeoReady.then(function(allowed) {
+        if (!allowed) return;
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '/metrics/?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WCB9JXDC');
+      });
+    </script>
 
     <!-- HubSpot Tracking Code (geo-gated) -->
     <script is:inline>
@@ -193,8 +198,7 @@ const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
   <body class="flex flex-col min-h-screen">
     <!-- Skip to content link -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
-    <!-- Google Tag Manager (noscript, via gateway) -->
-    <noscript><iframe src="/metrics/?id=GTM-WCB9JXDC&noscript=1" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- GTM noscript removed — GTM is geo-gated so noscript fallback would bypass the gate -->
     <Header />
     <main class="flex-1" id="main-content">
       <slot />
