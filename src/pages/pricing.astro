@@ -71,16 +71,38 @@ const wontGet = [
     align="center"
   />
 
+  <!-- Service Nav -->
+  <div class="sticky top-16 lg:top-[72px] z-40 bg-white/90 backdrop-blur-md border-b border-gray-200/60">
+    <div class="container-wide flex items-center justify-center gap-3 py-3">
+      <a href="#impact-assistant" class="pricing-nav-btn group">
+        <span class="pricing-nav-dot bg-brand-gold"></span>
+        Impact Assistant
+      </a>
+      <a href="#intake-360" class="pricing-nav-btn group">
+        <span class="pricing-nav-dot bg-brand-blue"></span>
+        Intake 360
+      </a>
+      <a href="/book-call" class="btn-primary btn-sm ml-4 group hidden sm:inline-flex">
+        Book Now
+        <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+      </a>
+    </div>
+  </div>
+
   <!-- Interactive Pricing Calculator -->
-  <section class="py-10 md:py-14">
+  <section class="py-10 md:py-14 scroll-mt-28" id="impact-assistant">
     <div class="container-wide">
       <div class="pricing-calc card overflow-hidden reveal" id="pricing-calculator">
         <div class="grid lg:grid-cols-5">
           <!-- Left: Controls -->
           <div class="lg:col-span-3 p-8 md:p-10">
-            <span class="badge badge-brand mb-4">Build Your Team</span>
+            <div class="inline-flex items-baseline gap-1.5 mb-4">
+              <span class="text-xl font-heading tracking-tight">
+                <span class="text-brand-gold">IMPACT</span><span class="text-brand-navy"> ASSISTANT</span>
+              </span>
+            </div>
             <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-2">
-              Pricing Calculator
+              Build Your Team
             </h2>
             <p class="text-sm text-gray-500 mb-8">Select roles and quantities to estimate your monthly investment.</p>
 
@@ -242,13 +264,13 @@ const wontGet = [
   </script>
 
   <!-- Intake360 -->
-  <section class="relative overflow-hidden grain-overlay">
+  <section class="relative overflow-hidden grain-overlay scroll-mt-28" id="intake-360">
     <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
     <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
 
     <div class="container-wide relative z-10 py-16 md:py-24">
-      <div class="max-w-4xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-10 items-start">
           <div class="reveal">
             <div class="inline-flex items-baseline gap-1 mb-4">
               <span class="text-xl font-heading tracking-tight">
@@ -256,12 +278,11 @@ const wontGet = [
               </span>
             </div>
             <h2 class="text-display-xs md:text-display-sm font-heading text-white mb-4">
-              On-Demand Intake & Reception
+              On-Demand Intake & Lead Coverage
             </h2>
             <div class="w-12 h-[3px] bg-gradient-to-r from-brand-gold to-brand-gold-light rounded-full mt-4 mb-6"></div>
             <p class="text-white/60 leading-relaxed mb-6">
-              Don't need a full-time assistant? Intake360 is our credit-based intake and reception service.
-              Pay only for what you use — no monthly minimums, no subscriptions.
+              Intake360 is our credit-based intake and reception service — live agents who answer, qualify, follow up, and sign leads on your behalf. A monthly Coverage Assurance Fee keeps your firm enrolled and your leads covered.
             </p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-start gap-2.5 text-sm text-white/70">
@@ -278,48 +299,88 @@ const wontGet = [
               </li>
               <li class="flex items-start gap-2.5 text-sm text-white/70">
                 <svg class="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
-                Credits never expire — no subscription fees
+                Credits never expire — only pay for what you use
               </li>
             </ul>
-            <a href="/services/intake-360" class="btn-primary btn-lg group">
-              Learn About Intake360
-              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-              </svg>
-            </a>
+            <div class="flex flex-wrap gap-3">
+              <a href="/book-call" class="btn-primary btn-lg group">
+                Book Now
+                <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+                </svg>
+              </a>
+              <a href="/services/intake-360" class="inline-flex items-center gap-1.5 text-sm font-medium text-white/50 hover:text-white/80 underline underline-offset-4 decoration-white/20 hover:decoration-white/50 transition-colors py-3">
+                Learn More
+              </a>
+            </div>
           </div>
 
-          <div class="reveal" style="transition-delay: 150ms">
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
-              <div class="text-center mb-6">
-                <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold/80 mb-2">Starter Package</p>
-                <div class="text-display-sm font-heading text-white">$3,600</div>
-                <div class="flex items-center justify-center gap-3 text-sm text-white/50 mt-1">
-                  <span><strong class="text-white">360</strong> Credits</span>
-                  <span class="w-1 h-1 rounded-full bg-white/30"></span>
-                  <span><strong class="text-white">$10</strong> / Credit</span>
+          <div class="space-y-5 reveal" style="transition-delay: 150ms">
+            <!-- Coverage Assurance Fee -->
+            <div class="bg-white/5 border border-brand-gold/20 rounded-2xl p-7 backdrop-blur-sm relative overflow-hidden">
+              <div class="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-brand-gold to-brand-gold-light"></div>
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold/80 mb-1">Coverage Assurance Fee</p>
+                  <p class="text-xs text-white/40">Monthly service & access fee</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-display-xs font-heading text-white">$997</div>
+                  <p class="text-xs text-white/40">/month</p>
                 </div>
               </div>
-              <div class="border-t border-white/10 pt-5">
+              <div class="border-t border-white/10 pt-4">
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-start gap-2 text-white/60">
+                    <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+                    Active enrollment & continuous lead coverage
+                  </div>
+                  <div class="flex items-start gap-2 text-white/60">
+                    <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+                    Live agents, systems & routing always ready
+                  </div>
+                  <div class="flex items-start gap-2 text-white/60">
+                    <svg class="w-3.5 h-3.5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+                    Guarantees no lead is slept on
+                  </div>
+                </div>
+                <p class="text-[0.625rem] text-white/30 mt-3">Recurring every 30 days. Separate from credit purchases.</p>
+              </div>
+            </div>
+
+            <!-- Credit Package -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-7 backdrop-blur-sm">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold/80 mb-1">Starter Credit Package</p>
+                  <p class="text-xs text-white/40">Pay per lead handled</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-display-xs font-heading text-white">$3,600</div>
+                  <p class="text-xs text-white/40">360 credits &middot; $10/ea</p>
+                </div>
+              </div>
+              <div class="border-t border-white/10 pt-4">
                 <p class="text-xs text-white/40 uppercase tracking-wider font-semibold mb-3">Credit Usage</p>
                 <div class="space-y-2.5 text-sm">
                   <div class="flex justify-between text-white/60">
                     <span>Reception (non-intake)</span>
-                    <span class="font-semibold text-white">1.0 – 1.5</span>
+                    <span class="font-semibold text-white">1.0 – 1.5 <span class="text-white/40 font-normal">($10 – $15)</span></span>
                   </div>
                   <div class="flex justify-between text-white/60">
                     <span>Unsuccessful Outbound</span>
-                    <span class="font-semibold text-white">1.0</span>
+                    <span class="font-semibold text-white">1.0 <span class="text-white/40 font-normal">($10)</span></span>
                   </div>
                   <div class="flex justify-between text-white/60">
                     <span>Evaluation (not signed)</span>
-                    <span class="font-semibold text-white">3 – 4</span>
+                    <span class="font-semibold text-white">3 – 4 <span class="text-white/40 font-normal">($30 – $40)</span></span>
                   </div>
                   <div class="flex justify-between text-white/60">
                     <span>Conversion (signed CFA)</span>
-                    <span class="font-semibold text-white">7 – 8</span>
+                    <span class="font-semibold text-white">7 – 8 <span class="text-white/40 font-normal">($70 – $80)</span></span>
                   </div>
                 </div>
+                <p class="text-[0.625rem] text-white/30 mt-3">Auto-replenishes at 144 credits. Credits never expire.</p>
               </div>
             </div>
           </div>
@@ -395,7 +456,7 @@ const wontGet = [
     <div class="container-wide relative z-10 py-16 md:py-24">
       <div class="text-center mb-12 reveal">
         <h2 class="text-display-xs md:text-display-sm font-heading text-white mb-5">
-          What You <span class="wont-strikethrough">Won't</span> Get
+          What You Won't Get
         </h2>
         <div class="divider-gold-center"></div>
       </div>
@@ -418,20 +479,29 @@ const wontGet = [
   </section>
 
   <style>
-    .wont-strikethrough {
-      position: relative;
-      color: #ef4444;
+    .pricing-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+      background: white;
+      transition: all 0.2s;
     }
-    .wont-strikethrough::after {
-      content: '';
-      position: absolute;
-      left: -4px;
-      right: -4px;
-      top: 50%;
-      height: 3px;
-      background: #ef4444;
-      border-radius: 2px;
-      transform: rotate(-3deg);
+    .pricing-nav-btn:hover {
+      border-color: #F9A630;
+      color: #1a3a5c;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .pricing-nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
 
     .wont-card {
