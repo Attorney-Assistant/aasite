@@ -357,7 +357,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
           started: function (data) {},
           completed: function (data) {
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-            if (typeof mixpanel !== 'undefined') mixpanel.track('Intake360 Form Completed');
+            if (typeof posthog !== 'undefined') posthog.capture('Intake360 Form Completed');
           },
           exception: function (data) {}
         },

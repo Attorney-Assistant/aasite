@@ -37,12 +37,13 @@ Set in `.env` locally and in GitHub repo secrets for CI:
 - `HUBSPOT_ACCESS_TOKEN` — HubSpot private app token
 - `BABYLOVEGROWTH` — BabyLoveGrowth API key
 - `GOOGLE_PLACES_API_KEY` (secret name: `GOOGLE_MAPS_API`) — Google reviews
+- `POSTHOG_API_KEY` — PostHog project API key (used at build time for tracking snippet)
 - `SITE_URL` — Canonical site URL (defaults to `https://attorneyassistant.com`)
 - FTP secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_SERVER_DIR`
 
 ## Tracking
 
 - **Meta Pixel:** ID `819356476465129` — `Lead` events on form submissions
-- **Mixpanel:** Token `b7fe2528f751e145148b504188edff97` — autocapture + 100% session recording
+- **PostHog:** Project API key via `POSTHOG_API_KEY` env var — autocapture + identified profiles, geo-gated
 - **HubSpot:** Tracking script loaded globally
 - **Google Tag Manager:** Loaded globally

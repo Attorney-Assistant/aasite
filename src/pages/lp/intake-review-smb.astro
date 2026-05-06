@@ -578,7 +578,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <!-- Tracking -->
   <script is:inline>
-    if (typeof mixpanel !== 'undefined') mixpanel.track('LP Viewed', { page: 'intake-review-smb' });
+    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'intake-review-smb' });
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'lp_view', lp_name: 'intake-review-smb' });
   </script>

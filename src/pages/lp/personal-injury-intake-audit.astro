@@ -332,7 +332,7 @@ const stats = [
             target: '#audit-form-container',
             onFormSubmitted: function () {
               if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-              if (typeof mixpanel !== 'undefined') mixpanel.track('PI Intake Audit Form Submitted');
+              if (typeof posthog !== 'undefined') posthog.capture('PI Intake Audit Form Submitted');
             }
           });
         };

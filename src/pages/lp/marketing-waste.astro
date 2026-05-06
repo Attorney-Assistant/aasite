@@ -1178,7 +1178,7 @@ import CTABanner from "@components/CTABanner.astro";
         },
         onFormSubmit: function() {
           if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-          if (typeof mixpanel !== 'undefined') mixpanel.track('Marketing Waste Quiz Submitted', { operational_count: getOperationalCount() });
+          if (typeof posthog !== 'undefined') posthog.capture('Marketing Waste Quiz Submitted', { operational_count: getOperationalCount() });
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ event: 'quiz_submitted', conversion_type: 'lead', operational_count: getOperationalCount() });
         },
