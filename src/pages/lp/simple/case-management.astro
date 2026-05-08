@@ -1,0 +1,468 @@
+---
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+---
+
+<SimpleCampaignLayout
+  title="Case Management Falling Apart? We Fix That | Attorney Assistant"
+  description="Stop losing cases to missed deadlines, buried tasks, and disorganized files. Attorney Assistant brings structure to your case management so nothing slips."
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950 min-h-[60vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute inset-0 z-[1] opacity-[0.03]" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28 text-center">
+      <div class="max-w-3xl mx-auto reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+          Sound Familiar?
+        </span>
+        <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
+          Case management falling apart? <br/><span class="text-gradient-gold">We fix that.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Deadlines slip. Tasks pile up. Files live in six different places. Scroll to see if this is your firm &mdash; then let's fix it.
+        </p>
+        <div class="scm-scroll-hint" aria-hidden="true">
+          <div class="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2 mx-auto">
+            <div class="w-1 h-2.5 bg-brand-gold rounded-full scm-scroll-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — SCROLLYTELLING TIMELINE
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 py-20 md:py-28">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 mb-6">The Timeline</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          How Case Management Breaks Down
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">It doesn't happen all at once. It erodes, one missed task at a time.</p>
+      </div>
+
+      <div class="max-w-2xl mx-auto">
+        <div class="scm-timeline">
+          <div class="scm-timeline-line"></div>
+
+          <div class="scm-timeline-event reveal" data-step="1">
+            <div class="scm-timeline-dot scm-timeline-dot--gold"></div>
+            <div class="scm-timeline-content">
+              <p class="scm-timeline-label">Monday Morning</p>
+              <h3 class="text-lg font-heading text-white mb-1">The week starts with 40 open tasks</h3>
+              <p class="text-sm text-gray-400">Across three attorneys, two paralegals, and a shared inbox nobody owns. Half are overdue. Nobody knows which ones matter most.</p>
+            </div>
+          </div>
+
+          <div class="scm-timeline-event reveal" data-step="2">
+            <div class="scm-timeline-dot scm-timeline-dot--amber"></div>
+            <div class="scm-timeline-content">
+              <p class="scm-timeline-label">Wednesday</p>
+              <h3 class="text-lg font-heading text-white mb-1">A deadline gets missed</h3>
+              <p class="text-sm text-gray-400">Discovery response was due. The task was in the system &mdash; but no one was assigned, no one got reminded, and the attorney found out from opposing counsel.</p>
+            </div>
+          </div>
+
+          <div class="scm-timeline-event reveal" data-step="3">
+            <div class="scm-timeline-dot scm-timeline-dot--red"></div>
+            <div class="scm-timeline-content">
+              <p class="scm-timeline-label">Thursday</p>
+              <h3 class="text-lg font-heading text-white mb-1">Client calls for an update &mdash; nobody has one</h3>
+              <p class="text-sm text-gray-400">The case notes are in three places. Last status update was two weeks ago. The attorney scrambles to piece together what's happening on their own case.</p>
+            </div>
+          </div>
+
+          <div class="scm-timeline-event reveal" data-step="4">
+            <div class="scm-timeline-dot scm-timeline-dot--red"></div>
+            <div class="scm-timeline-content">
+              <p class="scm-timeline-label">Friday</p>
+              <h3 class="text-lg font-heading text-white mb-1">The owner stays late fixing everyone else's work</h3>
+              <p class="text-sm text-gray-400">Reviewing files that should have been prepped. Chasing updates that should have been logged. Doing the job they hired people to do.</p>
+            </div>
+          </div>
+
+          <div class="scm-timeline-event reveal" data-step="5">
+            <div class="scm-timeline-dot scm-timeline-dot--big"></div>
+            <div class="scm-timeline-content">
+              <p class="scm-timeline-label">Every Week</p>
+              <h3 class="text-display-xs font-heading text-brand-gold mb-1">This repeats. And the caseload keeps growing.</h3>
+              <p class="text-sm text-gray-400">More cases. Same broken system. The problem isn't your people &mdash; it's that nobody owns the process holding everything together.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — CHOOSE YOUR PATH
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-20 md:py-28">
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px]"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">Be Honest</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          What does case management look like at your firm right now?
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Pick the one that's closest. No judgment.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto" id="scm-paths">
+        <button class="scm-path-card reveal" data-path="software" style="transition-delay: 0ms">
+          <div class="scm-path-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">We have software, but nobody uses it right</h3>
+          <p class="text-sm text-gray-500">Clio, MyCase, PracticePanther &mdash; it's there, but half-adopted and full of stale data.</p>
+        </button>
+
+        <button class="scm-path-card reveal" data-path="manual" style="transition-delay: 100ms">
+          <div class="scm-path-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">It's mostly manual</h3>
+          <p class="text-sm text-gray-500">Spreadsheets, email threads, sticky notes, and the paralegal's memory.</p>
+        </button>
+
+        <button class="scm-path-card reveal" data-path="owner" style="transition-delay: 200ms">
+          <div class="scm-path-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">I'm the system</h3>
+          <p class="text-sm text-gray-500">If I don't check it, it doesn't get done. The firm runs on me and I'm burning out.</p>
+        </button>
+      </div>
+
+      <!-- Consequence panels -->
+      <div id="scm-consequence" class="max-w-2xl mx-auto mt-10" style="display:none">
+        <div class="p-8 rounded-2xl border border-brand-gold/20 bg-brand-gold/5 text-center">
+          <p class="text-sm font-bold text-brand-gold uppercase tracking-widest mb-3" id="scm-consequence-label"></p>
+          <p class="text-xl font-heading text-gray-900 mb-3" id="scm-consequence-title"></p>
+          <p class="text-base text-gray-600 leading-relaxed" id="scm-consequence-body"></p>
+          <a href="#book-now" class="btn-primary btn-lg group mt-6 inline-flex">
+            Let's Fix This
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BEFORE / AFTER REVEAL
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">The Difference</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Your Process vs. <span class="text-gradient-gold">Ours</span>
+        </h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- Toggle -->
+        <div class="flex justify-center mb-10 reveal">
+          <div class="inline-flex rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-sm">
+            <button class="scm-toggle-btn scm-toggle-btn--active" data-view="before" id="scm-toggle-before">Your Current Process</button>
+            <button class="scm-toggle-btn" data-view="after" id="scm-toggle-after">With Attorney Assistant</button>
+          </div>
+        </div>
+
+        <!-- Before panel -->
+        <div id="scm-panel-before" class="scm-panel reveal">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="scm-pain-item">
+              <span class="scm-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Tasks fall through the cracks</p>
+                <p class="text-white/40 text-xs mt-0.5">No one owns follow-through. Things get created but never completed.</p>
+              </div>
+            </div>
+            <div class="scm-pain-item">
+              <span class="scm-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Deadlines get missed</p>
+                <p class="text-white/40 text-xs mt-0.5">Discovery, filings, SOL dates &mdash; caught at the last minute or not at all.</p>
+              </div>
+            </div>
+            <div class="scm-pain-item">
+              <span class="scm-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Files live everywhere</p>
+                <p class="text-white/40 text-xs mt-0.5">Email, desktop, shared drive, CRM &mdash; no single source of truth.</p>
+              </div>
+            </div>
+            <div class="scm-pain-item">
+              <span class="scm-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">No visibility into case status</p>
+                <p class="text-white/40 text-xs mt-0.5">Attorneys can't answer "where does this case stand?" without digging.</p>
+              </div>
+            </div>
+            <div class="scm-pain-item">
+              <span class="scm-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Owner checks everything</p>
+                <p class="text-white/40 text-xs mt-0.5">If you don't verify it, it doesn't get done right.</p>
+              </div>
+            </div>
+            <div class="scm-pain-item">
+              <span class="scm-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Clients feel forgotten</p>
+                <p class="text-white/40 text-xs mt-0.5">Weeks go by with no update. They call. You scramble.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- After panel -->
+        <div id="scm-panel-after" class="scm-panel" style="display:none">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="scm-win-item">
+              <span class="scm-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Every task assigned and tracked</p>
+                <p class="text-white/40 text-xs mt-0.5">Nothing created without an owner, a due date, and a follow-up.</p>
+              </div>
+            </div>
+            <div class="scm-win-item">
+              <span class="scm-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Deadlines enforced proactively</p>
+                <p class="text-white/40 text-xs mt-0.5">Reminders, escalations, and accountability before things go overdue.</p>
+              </div>
+            </div>
+            <div class="scm-win-item">
+              <span class="scm-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">One source of truth</p>
+                <p class="text-white/40 text-xs mt-0.5">Case files organized, notes centralized, status always current.</p>
+              </div>
+            </div>
+            <div class="scm-win-item">
+              <span class="scm-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Real-time case visibility</p>
+                <p class="text-white/40 text-xs mt-0.5">Any attorney can see where any case stands in seconds.</p>
+              </div>
+            </div>
+            <div class="scm-win-item">
+              <span class="scm-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Owner free to lead</p>
+                <p class="text-white/40 text-xs mt-0.5">Stop babysitting. Start running the business.</p>
+              </div>
+            </div>
+            <div class="scm-win-item">
+              <span class="scm-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Clients stay informed</p>
+                <p class="text-white/40 text-xs mt-0.5">Proactive updates. Fewer inbound calls. Better reviews.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-16 md:py-24" id="book-now">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <div class="inline-flex items-baseline gap-1 mb-4">
+            <img src="/brand/logos/color_icon.svg" alt="" class="h-8 w-auto" />
+          </div>
+          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+            Let's Fix Your Case Management
+          </h2>
+          <p class="text-lg text-gray-500 max-w-xl mx-auto">Book a quick call. We'll walk through what's broken and show you how we bring structure to the chaos &mdash; no commitment.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/simple-campaign?embed=true"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-400 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal footer -->
+  <footer class="py-6 bg-gray-50 border-t border-gray-200">
+    <div class="container-wide flex items-center justify-between">
+      <img src="/brand/logos/long_color_logo.svg" alt="Attorney Assistant" class="h-7 w-auto opacity-50" />
+      <p class="text-xs text-gray-400">&copy; {new Date().getFullYear()} Attorney Assistant LLC</p>
+    </div>
+  </footer>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    /* ── Scroll indicator ── */
+    .scm-scroll-hint { animation: scmFadeIn 1s ease 1.5s both; }
+    @keyframes scmFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .scm-scroll-dot { animation: scmScrollBounce 1.5s ease-in-out infinite; }
+    @keyframes scmScrollBounce { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(8px); opacity: 0.3; } }
+
+    /* ── Timeline ── */
+    .scm-timeline { position: relative; padding-left: 2rem; }
+    .scm-timeline-line { position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, rgba(249,166,48,0.4), rgba(239,68,68,0.4), rgba(249,166,48,0.6)); }
+    .scm-timeline-event { position: relative; padding-bottom: 2.5rem; padding-left: 1.5rem; }
+    .scm-timeline-event:last-child { padding-bottom: 0; }
+    .scm-timeline-dot { position: absolute; left: -2rem; top: 0.25rem; width: 14px; height: 14px; border-radius: 50%; z-index: 1; }
+    .scm-timeline-dot--gold { background: #F9A630; box-shadow: 0 0 0 4px rgba(249,166,48,0.2); }
+    .scm-timeline-dot--amber { background: #fbbf24; box-shadow: 0 0 0 4px rgba(251,191,36,0.2); }
+    .scm-timeline-dot--red { background: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.2); }
+    .scm-timeline-dot--big { width: 18px; height: 18px; left: calc(-2rem - 2px); background: #F9A630; box-shadow: 0 0 0 6px rgba(249,166,48,0.25); }
+    .scm-timeline-label { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); margin-bottom: 0.25rem; }
+
+    /* ── Path cards ── */
+    .scm-path-card { text-align: center; padding: 2rem 1.5rem; border: 2px solid #e5e7eb; border-radius: 1rem; background: white; cursor: pointer; transition: all 0.3s ease; }
+    .scm-path-card:hover { border-color: #F9A630; transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .scm-path-card.scm-path-card--active { border-color: #F9A630; background: rgba(249,166,48,0.04); box-shadow: 0 0 0 3px rgba(249,166,48,0.15); }
+    .scm-path-icon { width: 56px; height: 56px; border-radius: 16px; background: rgba(249,166,48,0.08); color: #F9A630; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; border: 1px solid rgba(249,166,48,0.15); }
+
+    /* ── Toggle ── */
+    .scm-toggle-btn { padding: 0.5rem 1.25rem; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.5); background: transparent; border: none; cursor: pointer; transition: all 0.3s; }
+    .scm-toggle-btn--active { background: #F9A630; color: #1a3a5c; }
+
+    /* ── Pain / Win items ── */
+    .scm-pain-item, .scm-win-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
+    .scm-pain-x { color: #ef4444; font-weight: 700; font-size: 0.875rem; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(239,68,68,0.1); border-radius: 50%; }
+    .scm-win-check { color: #10b981; font-weight: 700; font-size: 0.875rem; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(16,185,129,0.1); border-radius: 50%; }
+
+    /* ── Panel transition ── */
+    .scm-panel { animation: scmPanelIn 0.4s ease; }
+    @keyframes scmPanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scm-scroll-dot, .scm-scroll-hint { animation: none !important; }
+      .scm-panel { animation: none !important; }
+    }
+  </style>
+
+  <!-- Interactive logic -->
+  <script is:inline>
+    (function() {
+      var consequences = {
+        software: {
+          label: 'Software Without Structure',
+          title: 'A tool is only as good as the process behind it. Without someone owning the workflow, your CMS is just an expensive filing cabinet.',
+          body: 'The software isn\'t the problem. The problem is that nobody is responsible for keeping it current, enforcing task completion, or making sure the data in the system matches reality. That\'s what we fix.'
+        },
+        manual: {
+          label: 'Manual Means Fragile',
+          title: 'When the process lives in people\'s heads, it breaks every time someone is out, busy, or forgets.',
+          body: 'Spreadsheets and email threads work until they don\'t. One missed row, one overlooked thread, and a deadline passes or a client falls through. You need a system that doesn\'t depend on perfect memory.'
+        },
+        owner: {
+          label: 'The Owner Trap',
+          title: 'If the firm can\'t function without you checking everything, you don\'t have a team — you have a dependency.',
+          body: 'You didn\'t start a firm to babysit every task. But without someone owning the operational backbone, that\'s exactly what happens. We build the structure so you can step back and lead.'
+        }
+      };
+
+      document.querySelectorAll('.scm-path-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var path = this.dataset.path;
+          var data = consequences[path];
+          if (!data) return;
+          document.querySelectorAll('.scm-path-card').forEach(function(c) { c.classList.remove('scm-path-card--active'); });
+          this.classList.add('scm-path-card--active');
+          document.getElementById('scm-consequence-label').textContent = data.label;
+          document.getElementById('scm-consequence-title').textContent = data.title;
+          document.getElementById('scm-consequence-body').textContent = data.body;
+          var panel = document.getElementById('scm-consequence');
+          panel.style.display = 'block';
+          panel.style.animation = 'none';
+          panel.offsetHeight;
+          panel.style.animation = 'scmPanelIn 0.4s ease';
+        });
+      });
+
+      var beforeBtn = document.getElementById('scm-toggle-before');
+      var afterBtn = document.getElementById('scm-toggle-after');
+      var beforePanel = document.getElementById('scm-panel-before');
+      var afterPanel = document.getElementById('scm-panel-after');
+
+      if (beforeBtn && afterBtn) {
+        beforeBtn.addEventListener('click', function() {
+          beforeBtn.classList.add('scm-toggle-btn--active');
+          afterBtn.classList.remove('scm-toggle-btn--active');
+          beforePanel.style.display = 'block';
+          afterPanel.style.display = 'none';
+          beforePanel.style.animation = 'none';
+          beforePanel.offsetHeight;
+          beforePanel.style.animation = 'scmPanelIn 0.4s ease';
+        });
+        afterBtn.addEventListener('click', function() {
+          afterBtn.classList.add('scm-toggle-btn--active');
+          beforeBtn.classList.remove('scm-toggle-btn--active');
+          afterPanel.style.display = 'block';
+          beforePanel.style.display = 'none';
+          afterPanel.style.animation = 'none';
+          afterPanel.offsetHeight;
+          afterPanel.style.animation = 'scmPanelIn 0.4s ease';
+        });
+      }
+    })();
+  </script>
+
+  <!-- Tracking -->
+  <script is:inline>
+    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'case-management' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'case-management' });
+  </script>
+
+</SimpleCampaignLayout>

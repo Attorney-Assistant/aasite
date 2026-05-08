@@ -1,0 +1,473 @@
+---
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+---
+
+<SimpleCampaignLayout
+  title="Medical Record Problem at Your Law Firm? We Fix That | Attorney Assistant"
+  description="Stop losing cases to slow, incomplete medical records. Attorney Assistant handles the entire medical records process so your team can focus on winning cases."
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950 min-h-[60vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute inset-0 z-[1] opacity-[0.03]" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28 text-center">
+      <div class="max-w-3xl mx-auto reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+          Sound Familiar?
+        </span>
+        <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
+          Medical record problem at your law firm? <br/><span class="text-gradient-gold">We fix that.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Scroll down to see if any of this looks like your firm. Then let's talk about fixing it.
+        </p>
+        <div class="smp-scroll-hint" aria-hidden="true">
+          <div class="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2 mx-auto">
+            <div class="w-1 h-2.5 bg-brand-gold rounded-full smp-scroll-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — SCROLLYTELLING TIMELINE
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 py-20 md:py-28">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 mb-6">The Timeline</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          This Is What Happens to Your Medical Records
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Every week. On repeat. At firms across the country.</p>
+      </div>
+
+      <div class="max-w-2xl mx-auto">
+        <!-- Timeline -->
+        <div class="smp-timeline">
+          <div class="smp-timeline-line"></div>
+
+          <div class="smp-timeline-event reveal" data-day="Day 1">
+            <div class="smp-timeline-dot smp-timeline-dot--gold"></div>
+            <div class="smp-timeline-content">
+              <p class="smp-timeline-day">Day 1</p>
+              <h3 class="text-lg font-heading text-white mb-1">Your paralegal sends the records request</h3>
+              <p class="text-sm text-gray-400">Fax, mail, or portal. The clock starts. Everything looks fine.</p>
+            </div>
+          </div>
+
+          <div class="smp-timeline-event reveal" data-day="Week 2">
+            <div class="smp-timeline-dot smp-timeline-dot--amber"></div>
+            <div class="smp-timeline-content">
+              <p class="smp-timeline-day">Week 2</p>
+              <h3 class="text-lg font-heading text-white mb-1">Nothing has arrived</h3>
+              <p class="text-sm text-gray-400">Your paralegal follows up. Leaves a voicemail. No callback. Adds it to the growing follow-up list.</p>
+            </div>
+          </div>
+
+          <div class="smp-timeline-event reveal" data-day="Week 4">
+            <div class="smp-timeline-dot smp-timeline-dot--red"></div>
+            <div class="smp-timeline-content">
+              <p class="smp-timeline-day">Week 4</p>
+              <h3 class="text-lg font-heading text-white mb-1">Records arrive &mdash; incomplete</h3>
+              <p class="text-sm text-gray-400">Half the pages are missing. Wrong date range. No imaging reports. Back to square one.</p>
+            </div>
+          </div>
+
+          <div class="smp-timeline-event reveal" data-day="Week 6">
+            <div class="smp-timeline-dot smp-timeline-dot--red"></div>
+            <div class="smp-timeline-content">
+              <p class="smp-timeline-day">Week 6</p>
+              <h3 class="text-lg font-heading text-white mb-1">The case stalls</h3>
+              <p class="text-sm text-gray-400">You can't evaluate, you can't negotiate, you can't move forward. The client calls asking what's going on.</p>
+            </div>
+          </div>
+
+          <div class="smp-timeline-event reveal" data-day="Week 8+">
+            <div class="smp-timeline-dot smp-timeline-dot--big"></div>
+            <div class="smp-timeline-content">
+              <p class="smp-timeline-day">Week 8+</p>
+              <h3 class="text-display-xs font-heading text-brand-gold mb-1">Multiply this by every open case.</h3>
+              <p class="text-sm text-gray-400">Now you see the real cost. It's not one record &mdash; it's the compounding operational drag on your entire caseload.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — CHOOSE YOUR PATH
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-20 md:py-28">
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px]"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">Be Honest</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          How does your firm handle medical records today?
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Pick the one that's closest. We won't judge.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto" id="smp-paths">
+        <button class="smp-path-card reveal" data-path="inhouse" style="transition-delay: 0ms">
+          <div class="smp-path-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">We do it in-house</h3>
+          <p class="text-sm text-gray-500">Paralegals handle requests, follow-ups, and tracking manually.</p>
+        </button>
+
+        <button class="smp-path-card reveal" data-path="service" style="transition-delay: 100ms">
+          <div class="smp-path-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">We use a service, but it's slow</h3>
+          <p class="text-sm text-gray-500">We've outsourced it, but records still take forever and come back incomplete.</p>
+        </button>
+
+        <button class="smp-path-card reveal" data-path="nosystem" style="transition-delay: 200ms">
+          <div class="smp-path-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>
+          </div>
+          <h3 class="text-lg font-heading text-gray-900 mb-2">We don't have a real system</h3>
+          <p class="text-sm text-gray-500">Honestly, it's a mess. Things fall through the cracks constantly.</p>
+        </button>
+      </div>
+
+      <!-- Consequence panels (hidden until selection) -->
+      <div id="smp-consequence" class="max-w-2xl mx-auto mt-10" style="display:none">
+        <div class="p-8 rounded-2xl border border-brand-gold/20 bg-brand-gold/5 text-center">
+          <p class="text-sm font-bold text-brand-gold uppercase tracking-widest mb-3" id="smp-consequence-label"></p>
+          <p class="text-xl font-heading text-gray-900 mb-3" id="smp-consequence-title"></p>
+          <p class="text-base text-gray-600 leading-relaxed" id="smp-consequence-body"></p>
+          <a href="#book-now" class="btn-primary btn-lg group mt-6 inline-flex">
+            Let's Fix This
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BEFORE / AFTER REVEAL
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">The Difference</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Your Process vs. <span class="text-gradient-gold">Ours</span>
+        </h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- Toggle -->
+        <div class="flex justify-center mb-10 reveal">
+          <div class="inline-flex rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-sm">
+            <button class="smp-toggle-btn smp-toggle-btn--active" data-view="before" id="smp-toggle-before">Your Current Process</button>
+            <button class="smp-toggle-btn" data-view="after" id="smp-toggle-after">With Attorney Assistant</button>
+          </div>
+        </div>
+
+        <!-- Before panel -->
+        <div id="smp-panel-before" class="smp-panel reveal">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="smp-pain-item">
+              <span class="smp-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Manual request tracking</p>
+                <p class="text-white/40 text-xs mt-0.5">Spreadsheets, sticky notes, or your paralegal's memory</p>
+              </div>
+            </div>
+            <div class="smp-pain-item">
+              <span class="smp-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Weeks of follow-up calls</p>
+                <p class="text-white/40 text-xs mt-0.5">Phone tag with providers who never call back</p>
+              </div>
+            </div>
+            <div class="smp-pain-item">
+              <span class="smp-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Incomplete records arrive</p>
+                <p class="text-white/40 text-xs mt-0.5">Missing pages, wrong dates, no imaging</p>
+              </div>
+            </div>
+            <div class="smp-pain-item">
+              <span class="smp-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Cases sit idle for months</p>
+                <p class="text-white/40 text-xs mt-0.5">Can't evaluate, negotiate, or move forward</p>
+              </div>
+            </div>
+            <div class="smp-pain-item">
+              <span class="smp-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Paralegal time burned</p>
+                <p class="text-white/40 text-xs mt-0.5">Hours spent chasing instead of case-building</p>
+              </div>
+            </div>
+            <div class="smp-pain-item">
+              <span class="smp-pain-x">&#10005;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Clients lose confidence</p>
+                <p class="text-white/40 text-xs mt-0.5">"Why is my case taking so long?"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- After panel -->
+        <div id="smp-panel-after" class="smp-panel" style="display:none">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="smp-win-item">
+              <span class="smp-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">We send the requests</p>
+                <p class="text-white/40 text-xs mt-0.5">Proper formatting, correct authorization, right the first time</p>
+              </div>
+            </div>
+            <div class="smp-win-item">
+              <span class="smp-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">We do the follow-up</p>
+                <p class="text-white/40 text-xs mt-0.5">Persistent, structured outreach until records arrive</p>
+              </div>
+            </div>
+            <div class="smp-win-item">
+              <span class="smp-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">We check for completeness</p>
+                <p class="text-white/40 text-xs mt-0.5">Missing pages get flagged and re-requested immediately</p>
+              </div>
+            </div>
+            <div class="smp-win-item">
+              <span class="smp-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Cases move faster</p>
+                <p class="text-white/40 text-xs mt-0.5">Complete records in your hands, not stuck in a queue</p>
+              </div>
+            </div>
+            <div class="smp-win-item">
+              <span class="smp-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Your team stays focused</p>
+                <p class="text-white/40 text-xs mt-0.5">Paralegals work on cases, not phone tag</p>
+              </div>
+            </div>
+            <div class="smp-win-item">
+              <span class="smp-win-check">&#10003;</span>
+              <div>
+                <p class="text-white font-semibold text-sm">Clients see progress</p>
+                <p class="text-white/40 text-xs mt-0.5">Faster resolution, fewer complaints, better reviews</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-16 md:py-24" id="book-now">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <div class="inline-flex items-baseline gap-1 mb-4">
+            <img src="/brand/logos/color_icon.svg" alt="" class="h-8 w-auto" />
+          </div>
+          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+            Let's Fix Your Medical Records Problem
+          </h2>
+          <p class="text-lg text-gray-500 max-w-xl mx-auto">Book a quick call. We'll walk through what's broken and how we can help &mdash; no commitment, no sales pitch.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/simple-campaign?embed=true"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-400 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal footer -->
+  <footer class="py-6 bg-gray-50 border-t border-gray-200">
+    <div class="container-wide flex items-center justify-between">
+      <img src="/brand/logos/long_color_logo.svg" alt="Attorney Assistant" class="h-7 w-auto opacity-50" />
+      <p class="text-xs text-gray-400">&copy; {new Date().getFullYear()} Attorney Assistant LLC</p>
+    </div>
+  </footer>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    /* ── Scroll indicator ── */
+    .smp-scroll-hint { animation: smpFadeIn 1s ease 1.5s both; }
+    @keyframes smpFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .smp-scroll-dot { animation: smpScrollBounce 1.5s ease-in-out infinite; }
+    @keyframes smpScrollBounce { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(8px); opacity: 0.3; } }
+
+    /* ── Timeline ── */
+    .smp-timeline { position: relative; padding-left: 2rem; }
+    .smp-timeline-line { position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, rgba(249,166,48,0.4), rgba(239,68,68,0.4), rgba(249,166,48,0.6)); }
+    .smp-timeline-event { position: relative; padding-bottom: 2.5rem; padding-left: 1.5rem; }
+    .smp-timeline-event:last-child { padding-bottom: 0; }
+    .smp-timeline-dot { position: absolute; left: -2rem; top: 0.25rem; width: 14px; height: 14px; border-radius: 50%; z-index: 1; }
+    .smp-timeline-dot--gold { background: #F9A630; box-shadow: 0 0 0 4px rgba(249,166,48,0.2); }
+    .smp-timeline-dot--amber { background: #fbbf24; box-shadow: 0 0 0 4px rgba(251,191,36,0.2); }
+    .smp-timeline-dot--red { background: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.2); }
+    .smp-timeline-dot--big { width: 18px; height: 18px; left: calc(-2rem - 2px); background: #F9A630; box-shadow: 0 0 0 6px rgba(249,166,48,0.25); }
+    .smp-timeline-day { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); margin-bottom: 0.25rem; }
+
+    /* ── Path cards ── */
+    .smp-path-card { text-align: center; padding: 2rem 1.5rem; border: 2px solid #e5e7eb; border-radius: 1rem; background: white; cursor: pointer; transition: all 0.3s ease; }
+    .smp-path-card:hover { border-color: #F9A630; transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .smp-path-card.smp-path-card--active { border-color: #F9A630; background: rgba(249,166,48,0.04); box-shadow: 0 0 0 3px rgba(249,166,48,0.15); }
+    .smp-path-icon { width: 56px; height: 56px; border-radius: 16px; background: rgba(249,166,48,0.08); color: #F9A630; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; border: 1px solid rgba(249,166,48,0.15); }
+
+    /* ── Toggle ── */
+    .smp-toggle-btn { padding: 0.5rem 1.25rem; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.5); background: transparent; border: none; cursor: pointer; transition: all 0.3s; }
+    .smp-toggle-btn--active { background: #F9A630; color: #1a3a5c; }
+
+    /* ── Pain / Win items ── */
+    .smp-pain-item, .smp-win-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
+    .smp-pain-x { color: #ef4444; font-weight: 700; font-size: 0.875rem; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(239,68,68,0.1); border-radius: 50%; }
+    .smp-win-check { color: #10b981; font-weight: 700; font-size: 0.875rem; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(16,185,129,0.1); border-radius: 50%; }
+
+    /* ── Panel transition ── */
+    .smp-panel { animation: smpPanelIn 0.4s ease; }
+    @keyframes smpPanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .smp-scroll-dot, .smp-scroll-hint { animation: none !important; }
+      .smp-panel { animation: none !important; }
+    }
+  </style>
+
+  <!-- Interactive logic -->
+  <script is:inline>
+    (function() {
+      /* ── Choose Your Path ── */
+      var consequences = {
+        inhouse: {
+          label: 'In-House Reality',
+          title: 'Your paralegal is spending 30%+ of their time chasing records instead of building cases.',
+          body: 'Every hour spent on hold with a provider is an hour not spent on intake, client communication, or case prep. The hidden cost isn\'t the records — it\'s the opportunity cost of your best people doing low-leverage work.'
+        },
+        service: {
+          label: 'Outsourced, Not Solved',
+          title: 'You\'re paying for a service that still leaves you waiting and following up.',
+          body: 'If your records service doesn\'t proactively chase, verify completeness, and flag gaps — you\'re just paying someone else to be slow. The bottleneck moved, but it didn\'t disappear.'
+        },
+        nosystem: {
+          label: 'The Honest Answer',
+          title: 'Without a system, every record request is a gamble on someone remembering to follow up.',
+          body: 'No one is dropping the ball on purpose. But without a structured process, records get lost in inboxes, follow-ups get missed, and cases sit idle. It\'s not a people problem — it\'s a system problem.'
+        }
+      };
+
+      document.querySelectorAll('.smp-path-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var path = this.dataset.path;
+          var data = consequences[path];
+          if (!data) return;
+
+          document.querySelectorAll('.smp-path-card').forEach(function(c) { c.classList.remove('smp-path-card--active'); });
+          this.classList.add('smp-path-card--active');
+
+          document.getElementById('smp-consequence-label').textContent = data.label;
+          document.getElementById('smp-consequence-title').textContent = data.title;
+          document.getElementById('smp-consequence-body').textContent = data.body;
+          var panel = document.getElementById('smp-consequence');
+          panel.style.display = 'block';
+          panel.style.animation = 'none';
+          panel.offsetHeight;
+          panel.style.animation = 'smpPanelIn 0.4s ease';
+        });
+      });
+
+      /* ── Before/After Toggle ── */
+      var beforeBtn = document.getElementById('smp-toggle-before');
+      var afterBtn = document.getElementById('smp-toggle-after');
+      var beforePanel = document.getElementById('smp-panel-before');
+      var afterPanel = document.getElementById('smp-panel-after');
+
+      if (beforeBtn && afterBtn) {
+        beforeBtn.addEventListener('click', function() {
+          beforeBtn.classList.add('smp-toggle-btn--active');
+          afterBtn.classList.remove('smp-toggle-btn--active');
+          beforePanel.style.display = 'block';
+          afterPanel.style.display = 'none';
+          beforePanel.style.animation = 'none';
+          beforePanel.offsetHeight;
+          beforePanel.style.animation = 'smpPanelIn 0.4s ease';
+        });
+        afterBtn.addEventListener('click', function() {
+          afterBtn.classList.add('smp-toggle-btn--active');
+          beforeBtn.classList.remove('smp-toggle-btn--active');
+          afterPanel.style.display = 'block';
+          beforePanel.style.display = 'none';
+          afterPanel.style.animation = 'none';
+          afterPanel.offsetHeight;
+          afterPanel.style.animation = 'smpPanelIn 0.4s ease';
+        });
+      }
+    })();
+  </script>
+
+  <!-- Tracking -->
+  <script is:inline>
+    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'plain-medical-record' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'plain-medical-record' });
+  </script>
+
+</SimpleCampaignLayout>
