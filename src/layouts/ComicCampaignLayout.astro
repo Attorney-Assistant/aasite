@@ -2,6 +2,7 @@
 import SEO from "@components/SEO.astro";
 import MetaCAPI from "@components/MetaCAPI.astro";
 import GeoGate from "@components/GeoGate.astro";
+import Footer from "@components/Footer.astro";
 import "@/styles/global.css";
 
 export interface Props {
@@ -100,6 +101,7 @@ const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
     <main>
       <slot />
     </main>
+    <Footer />
 
     <!-- Scroll-triggered reveal animations -->
     <script is:inline>

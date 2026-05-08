@@ -19,7 +19,7 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
     <div class="comic-container relative z-10 py-12 md:py-16">
       <!-- Top bar -->
       <div class="flex items-center justify-between mb-8 reveal">
-        <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 md:h-10 w-auto" />
+        <a href="/"><img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 md:h-10 w-auto" /></a>
         <span class="comic-eyebrow hidden sm:block">Issue №01 · Medical Records</span>
       </div>
 
@@ -38,7 +38,7 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
       <!-- Headline under image -->
       <div class="text-center reveal" style="transition-delay: 150ms">
         <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
-          Medical record problem? <br/><span class="comic-gold">We fix that.</span>
+          Medical record problem? <br/><span class="comic-gold">We rescue law firms with elite staffing + AI solutions.</span>
         </h1>
         <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-8">
           Your settlements are dying in a records queue. Scroll to see the damage &mdash; then deploy the fix.
@@ -340,14 +340,6 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
       </div>
     </div>
   </section>
-
-  <!-- Minimal footer -->
-  <footer class="py-6 border-t border-white/10">
-    <div class="comic-container flex items-center justify-between">
-      <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-7 w-auto opacity-30" />
-      <p class="text-xs text-gray-600">&copy; {new Date().getFullYear()} Attorney Assistant LLC</p>
-    </div>
-  </footer>
 
   <!-- HubSpot Meetings Embed Script (geo-gated) -->
   <script is:inline>
