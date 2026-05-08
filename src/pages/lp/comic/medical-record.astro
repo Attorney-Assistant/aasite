@@ -23,37 +23,8 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
         <span class="comic-eyebrow hidden sm:block">Issue №01 · Medical Records</span>
       </div>
 
-      <!-- H1 + Booking side by side -->
-      <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-start mb-12">
-        <div class="reveal">
-          <h1 class="comic-title text-4xl md:text-5xl lg:text-6xl text-white leading-none mb-4">
-            Medical record problem? <br/><span class="comic-gold">We rescue law firms with elite staffing + AI solutions.</span>
-          </h1>
-          <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold mb-6">
-            Your settlements are dying in a records queue. Deploy the fix.
-          </p>
-          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-            <div class="flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              Free &mdash; no commitment
-            </div>
-            <div class="flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
-              15 minutes
-            </div>
-          </div>
-        </div>
-
-        <!-- Booking widget -->
-        <div class="comic-panel p-1 reveal scroll-mt-20" id="book-now" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
-          <div class="bg-white rounded-[9px] p-4 md:p-5">
-            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/comic?embed=true"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero image panel below -->
-      <div class="comic-panel p-0 reveal" style="border-width: 4px; transition-delay: 250ms">
+      <!-- Hero image panel -->
+      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
         <img
           src="/images/comic-medical-record-landingpage.png"
           alt="Problem: 120 days for records is killing your settlements. Solution: Deploy Attorney Assistant — records delivered in 30 days."
@@ -62,6 +33,20 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
           height="600"
           loading="eager"
         />
+      </div>
+
+      <!-- Headline under image -->
+      <div class="text-center reveal" style="transition-delay: 150ms">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+          Medical record problem? <br/><span class="comic-gold">We rescue law firms with elite staffing + AI solutions.</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-8">
+          Your settlements are dying in a records queue. Scroll to see the damage &mdash; then deploy the fix.
+        </p>
+        <a href="#book-now" class="cmc-btn cmc-btn--gold group inline-flex">
+          Deploy Attorney Assistant
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -313,6 +298,43 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
               <p class="text-white font-bold text-sm comic-sub">Clients see progress</p>
               <p class="text-white/40 text-xs mt-0.5">Faster resolution, better reviews</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">DEPLOY!</span>
+          <h2 class="comic-section-title mb-4">
+            Let's Fix Your <span class="comic-gold">Records Problem</span>
+          </h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. No commitment, no sales pitch &mdash; just a plan to stop the bleeding.</p>
+        </div>
+
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/comic?embed=true"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
           </div>
         </div>
       </div>
