@@ -1,0 +1,354 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+---
+
+<ComicCampaignLayout
+  title="120 Days for Records Is Killing Your Settlements | Attorney Assistant"
+  description="Records back in a fraction of the time. Deploy Attorney Assistant to fix your medical record retrieval and stop losing settlements to slow providers."
+  image="/images/comic-medical-records.jpg"
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="cmc-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16">
+      <div class="flex items-center justify-between mb-8 reveal">
+        <a href="/"><img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 md:h-10 w-auto" /></a>
+        <span class="comic-eyebrow hidden sm:block">Issue №06 · Medical Record Retrieval</span>
+      </div>
+
+      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
+        <img
+          src="/images/comic-medical-records.jpg"
+          alt="Problem: 120 days for records is killing your settlements. Solution: Records back in a fraction of the time. Deploy Attorney Assistant."
+          class="w-full h-auto block rounded-[9px]"
+          width="1920"
+          height="1080"
+          loading="eager"
+        />
+      </div>
+
+      <div class="text-center reveal" style="transition-delay: 150ms">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+          120 days for records? <br/><span class="comic-gold">We rescue law firms with elite staffing + AI solutions.</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-8">
+          Waiting months for medical records is killing your settlements. We get them back in a fraction of the time.
+        </p>
+        <a href="#book-now" class="cmr-btn cmr-btn--gold group inline-flex">
+          Deploy Attorney Assistant
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — SCROLLYTELLING TIMELINE
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.04] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">THE TIMELINE!</span>
+        <h2 class="comic-section-title mb-4">
+          120 Days Your <span class="comic-gold">Settlement Can't Afford</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Every week you wait is a week the case can't move forward.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="comic-panel cmr-timeline-panel reveal">
+          <div class="cmr-panel-header cmr-panel-header--gold">
+            <span class="cmr-panel-num">01</span>
+            <span class="cmr-panel-day">Day 1</span>
+          </div>
+          <div class="p-5">
+            <h3 class="comic-title text-xl text-white mb-2">Request Sent</h3>
+            <p class="text-sm text-gray-400">Your paralegal sends the authorization. Fax, mail, or provider portal. Everything looks right. The wait begins.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmr-timeline-panel reveal" style="transition-delay: 100ms">
+          <div class="cmr-panel-header cmr-panel-header--amber">
+            <span class="cmr-panel-num">02</span>
+            <span class="cmr-panel-day">Day 30</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--amber text-xs mb-2 inline-block">CRICKETS!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Nothing</h3>
+            <p class="text-sm text-gray-400">A full month. No records. No acknowledgment. Your paralegal calls the provider. On hold for 40 minutes. "We'll look into it."</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmr-timeline-panel reveal" style="transition-delay: 200ms">
+          <div class="cmr-panel-header cmr-panel-header--red">
+            <span class="cmr-panel-num">03</span>
+            <span class="cmr-panel-day">Day 60</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">INCOMPLETE!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Partial Records Arrive</h3>
+            <p class="text-sm text-gray-400">Half the pages are missing. Wrong date range. No imaging. No surgical notes. You re-request. The clock resets.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmr-timeline-panel reveal" style="transition-delay: 300ms">
+          <div class="cmr-panel-header cmr-panel-header--red">
+            <span class="cmr-panel-num">04</span>
+            <span class="cmr-panel-day">Day 90</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">STALLED!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Case Can't Move</h3>
+            <p class="text-sm text-gray-400">Can't send the demand. Can't evaluate the claim. Can't negotiate. The client is calling every week asking what's taking so long.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmr-timeline-panel md:col-span-2 lg:col-span-2 reveal" style="transition-delay: 400ms">
+          <div class="cmr-panel-header cmr-panel-header--gold">
+            <span class="cmr-panel-num">05</span>
+            <span class="cmr-panel-day">Day 120+</span>
+          </div>
+          <div class="p-6">
+            <span class="comic-pow comic-pow--gold text-sm mb-3 inline-block">KA-BOOM!</span>
+            <h3 class="comic-title text-2xl md:text-3xl comic-gold mb-2">4 Months Gone. Settlement Value Shrinking.</h3>
+            <p class="text-base text-gray-400">Opposing counsel is building their case while yours sits idle. Clients lose patience. Adjusters lose urgency. Every day of delay costs you leverage &mdash; and money.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — CHOOSE YOUR PATH
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--amber mb-4 inline-block">CHOOSE!</span>
+        <h2 class="comic-section-title mb-4">
+          How Does Your Firm Get <span class="comic-gold">Medical Records?</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Pick the one that's closest.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto" id="cmr-paths">
+        <button class="cmc-path-card reveal" data-path="inhouse">
+          <span class="comic-pow comic-pow--red text-xs mb-3 inline-block">POW!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">Paralegals Handle It</h3>
+          <p class="text-sm text-gray-400">They send requests, make follow-up calls, and track everything manually. It eats their entire week.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="service" style="transition-delay: 100ms">
+          <span class="comic-pow comic-pow--amber text-xs mb-3 inline-block">BAM!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">We Use a Service</h3>
+          <p class="text-sm text-gray-400">We outsourced it, but records still take months and come back incomplete. The bottleneck just moved.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="mess" style="transition-delay: 200ms">
+          <span class="comic-pow comic-pow--blue text-xs mb-3 inline-block">ZAP!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">It's a Mess</h3>
+          <p class="text-sm text-gray-400">Some cases have records. Some don't. Nobody knows the status of half the requests. Things fall through constantly.</p>
+        </button>
+      </div>
+
+      <div id="cmr-consequence" class="max-w-2xl mx-auto mt-10" style="display:none">
+        <div class="comic-panel p-8 text-center" style="border-color: rgba(249,166,48,0.4);">
+          <p class="comic-eyebrow mb-3" id="cmr-consequence-label"></p>
+          <p class="comic-title text-2xl md:text-3xl text-white mb-3" id="cmr-consequence-title"></p>
+          <p class="text-base text-gray-400 leading-relaxed" id="cmr-consequence-body"></p>
+          <a href="#book-now" class="cmr-btn cmr-btn--gold group inline-flex mt-6">
+            Deploy the Fix
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BEFORE / AFTER
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--blue mb-4 inline-block">VS!</span>
+        <h2 class="comic-section-title mb-4">
+          Your Records Process <span class="comic-gold">vs. Ours</span>
+        </h2>
+      </div>
+
+      <div class="flex justify-center mb-10 reveal">
+        <div class="inline-flex rounded-lg border-2 border-white/15 bg-white/5 p-1">
+          <button class="cmc-toggle cmc-toggle--active" id="cmr-toggle-before"><span class="comic-pow comic-pow--red text-[10px] mr-1.5">&#10005;</span> Your Process</button>
+          <button class="cmc-toggle" id="cmr-toggle-after"><span class="comic-pow comic-pow--gold text-[10px] mr-1.5">&#10003;</span> With Us</button>
+        </div>
+      </div>
+
+      <div id="cmr-panel-before" class="cmr-compare-panel max-w-4xl mx-auto reveal">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">90–120 day wait times</p><p class="text-white/40 text-xs mt-0.5">Providers take months. Nobody's pushing them.</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Records arrive incomplete</p><p class="text-white/40 text-xs mt-0.5">Missing pages, wrong dates, no imaging reports</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Paralegal time burned on hold</p><p class="text-white/40 text-xs mt-0.5">Hours per week on provider phone lines instead of case work</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Demands delayed for months</p><p class="text-white/40 text-xs mt-0.5">Can't send until records are complete. Settlements stall.</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">No tracking system</p><p class="text-white/40 text-xs mt-0.5">Nobody knows which requests are pending, overdue, or lost</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Settlement value erodes</p><p class="text-white/40 text-xs mt-0.5">Every month of delay is leverage lost at the table</p></div></div>
+        </div>
+      </div>
+
+      <div id="cmr-panel-after" class="cmr-compare-panel max-w-4xl mx-auto" style="display:none">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Records back fast</p><p class="text-white/40 text-xs mt-0.5">Persistent follow-up with providers until records are in hand</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Completeness verified</p><p class="text-white/40 text-xs mt-0.5">Missing pages flagged and re-requested immediately</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Your team stays focused</p><p class="text-white/40 text-xs mt-0.5">No more phone tag. Paralegals work on cases, not hold music.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Demands go out sooner</p><p class="text-white/40 text-xs mt-0.5">Complete records in hand means cases move to demand faster</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Every request tracked</p><p class="text-white/40 text-xs mt-0.5">Full visibility into status. Nothing lost. Nothing forgotten.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Higher settlement value</p><p class="text-white/40 text-xs mt-0.5">Faster resolution = more leverage = better outcomes</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">DEPLOY!</span>
+          <h2 class="comic-section-title mb-4">
+            Stop Waiting 120 Days for <span class="comic-gold">Records</span>
+          </h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll show you how we get records back fast &mdash; no commitment.</p>
+        </div>
+
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/comic?embed=true"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+    .cmc-hero { padding-bottom: 0; }
+    .cmr-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; padding: 0.875rem 2rem; border-radius: 8px; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .cmr-btn--gold { background: linear-gradient(135deg, #F9A630, #e8901a); color: #0a1628; box-shadow: 0 4px 20px rgba(249,166,48,0.3); }
+    .cmr-btn--gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,166,48,0.4); }
+    .cmr-timeline-panel { transition: transform 0.3s, box-shadow 0.3s; }
+    .cmr-timeline-panel:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .cmr-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cmr-panel-header--gold { background: rgba(249,166,48,0.08); }
+    .cmr-panel-header--amber { background: rgba(245,158,11,0.08); }
+    .cmr-panel-header--red { background: rgba(239,68,68,0.08); }
+    .cmr-panel-num { font-family: 'Bangers', cursive; font-size: 1.5rem; color: rgba(255,255,255,0.2); }
+    .cmr-panel-day { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .cmr-compare-panel { animation: cmrPanelIn 0.4s ease; }
+    @keyframes cmrPanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .cmr-timeline-panel, .cmc-path-card, .cmr-btn, .cmc-item { transition: none !important; } .cmr-compare-panel { animation: none !important; } }
+  </style>
+
+  <script is:inline>
+    (function() {
+      var consequences = {
+        inhouse: {
+          label: 'Paralegal Time Drain',
+          title: 'Your paralegal is spending 30%+ of their week chasing records instead of building cases.',
+          body: 'Every hour on hold with a provider is an hour not spent on depositions, demand letters, or client communication. The hidden cost isn\'t the records — it\'s the opportunity cost of your best people doing low-leverage work. We take over the entire retrieval process so your team gets those hours back.'
+        },
+        service: {
+          label: 'Outsourced, Not Solved',
+          title: 'You\'re paying for a service that still leaves you waiting 90+ days.',
+          body: 'If your records service doesn\'t proactively chase providers, verify completeness, and re-request missing pages — you\'re just paying someone else to be slow. The bottleneck moved, but it didn\'t disappear. We don\'t just send the request. We own it until the complete records are in your hands.'
+        },
+        mess: {
+          label: 'The Black Hole',
+          title: 'If nobody knows the status of your records requests, cases are stalling and you don\'t even realize it.',
+          body: 'Some requests were sent months ago and never followed up on. Some were never sent at all. Without a system for tracking, escalating, and verifying — records fall into a black hole. We bring structured tracking, persistent follow-up, and completeness checks to every single request.'
+        }
+      };
+
+      document.querySelectorAll('.cmc-path-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var path = this.dataset.path;
+          var data = consequences[path];
+          if (!data) return;
+          document.querySelectorAll('.cmc-path-card').forEach(function(c) { c.classList.remove('cmc-path-card--active'); });
+          this.classList.add('cmc-path-card--active');
+          document.getElementById('cmr-consequence-label').textContent = data.label;
+          document.getElementById('cmr-consequence-title').textContent = data.title;
+          document.getElementById('cmr-consequence-body').textContent = data.body;
+          var panel = document.getElementById('cmr-consequence');
+          panel.style.display = 'block';
+          panel.style.animation = 'none'; panel.offsetHeight;
+          panel.style.animation = 'cmrPanelIn 0.4s ease';
+        });
+      });
+
+      var beforeBtn = document.getElementById('cmr-toggle-before');
+      var afterBtn = document.getElementById('cmr-toggle-after');
+      var beforePanel = document.getElementById('cmr-panel-before');
+      var afterPanel = document.getElementById('cmr-panel-after');
+      if (beforeBtn && afterBtn) {
+        beforeBtn.addEventListener('click', function() {
+          beforeBtn.classList.add('cmc-toggle--active');
+          afterBtn.classList.remove('cmc-toggle--active');
+          beforePanel.style.display = 'block'; afterPanel.style.display = 'none';
+          beforePanel.style.animation = 'none'; beforePanel.offsetHeight;
+          beforePanel.style.animation = 'cmrPanelIn 0.4s ease';
+        });
+        afterBtn.addEventListener('click', function() {
+          afterBtn.classList.add('cmc-toggle--active');
+          beforeBtn.classList.remove('cmc-toggle--active');
+          afterPanel.style.display = 'block'; beforePanel.style.display = 'none';
+          afterPanel.style.animation = 'none'; afterPanel.offsetHeight;
+          afterPanel.style.animation = 'cmrPanelIn 0.4s ease';
+        });
+      }
+    })();
+  </script>
+
+  <script is:inline>
+    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'comic-medical-records' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'comic-medical-records' });
+  </script>
+
+</ComicCampaignLayout>

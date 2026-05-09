@@ -1,0 +1,161 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+---
+
+<ComicCampaignLayout
+  title="Your Firm Is Short-Staffed. The Work Isn't. | Attorney Assistant"
+  description="Staffing relief has arrived. We do staffing. Fully staffed, every call answered, every case moving forward. Instantly. Deploy Attorney Assistant."
+  image="/images/comic-staffing.jpg"
+>
+
+  <section class="cmc-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16">
+      <div class="flex items-center justify-between mb-8 reveal">
+        <a href="/"><img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 md:h-10 w-auto" /></a>
+        <span class="comic-eyebrow hidden sm:block">Issue №09 · Staffing</span>
+      </div>
+
+      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
+        <img src="/images/comic-staffing.jpg" alt="Problem: Your firm is short-staffed. The work isn't. Solution: We do staffing. Fully staffed, every call answered, every case moving forward. Instantly." class="w-full h-auto block rounded-[9px]" width="1920" height="1080" loading="eager" />
+      </div>
+
+      <div class="text-center reveal" style="transition-delay: 150ms">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+          Short-staffed? The work isn't. <br/><span class="comic-gold">Staffing relief has arrived.</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-4">
+          Empty chairs. Backed-up cases. Overloaded team. We do staffing &mdash; fully staffed, every call answered, every case moving. Instantly.
+        </p>
+        <p class="comic-title text-xl comic-gold mb-8">We rescue law firms with elite staffing + AI solutions.</p>
+        <a href="#book-now" class="cms-btn cms-btn--gold group inline-flex">Deploy Attorney Assistant <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.04] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">THE TIMELINE!</span>
+        <h2 class="comic-section-title mb-4">The Hiring Cycle <span class="comic-gold">That Never Ends</span></h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">You've been here before. Probably more than once.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="comic-panel cms-timeline-panel reveal"><div class="cms-panel-header cms-panel-header--gold"><span class="cms-panel-num">01</span><span class="cms-panel-day">Month 1</span></div><div class="p-5"><h3 class="comic-title text-xl text-white mb-2">Post &amp; Wait</h3><p class="text-sm text-gray-400">Indeed, ZipRecruiter, maybe a staffing agency. 50 resumes, 8 interviews, 1 hire. Three weeks gone.</p></div></div>
+        <div class="comic-panel cms-timeline-panel reveal" style="transition-delay:100ms"><div class="cms-panel-header cms-panel-header--amber"><span class="cms-panel-num">02</span><span class="cms-panel-day">Month 2</span></div><div class="p-5"><span class="comic-pow comic-pow--amber text-xs mb-2 inline-block">TRAINING!</span><h3 class="comic-title text-xl text-white mb-2">Train From Scratch</h3><p class="text-sm text-gray-400">Your systems, practice areas, clients, tools. You or your best paralegal spends hours onboarding someone still learning the basics.</p></div></div>
+        <div class="comic-panel cms-timeline-panel reveal" style="transition-delay:200ms"><div class="cms-panel-header cms-panel-header--red"><span class="cms-panel-num">03</span><span class="cms-panel-day">Month 4</span></div><div class="p-5"><span class="comic-pow comic-pow--red text-xs mb-2 inline-block">QUIT!</span><h3 class="comic-title text-xl text-white mb-2">They Leave</h3><p class="text-sm text-gray-400">Low pay, burnout, better offer, wrong fit. Whatever the reason, you're back to square one with nothing to show for it.</p></div></div>
+        <div class="comic-panel cms-timeline-panel reveal" style="transition-delay:300ms"><div class="cms-panel-header cms-panel-header--red"><span class="cms-panel-num">04</span><span class="cms-panel-day">Month 5</span></div><div class="p-5"><span class="comic-pow comic-pow--red text-xs mb-2 inline-block">CRUSHED!</span><h3 class="comic-title text-xl text-white mb-2">Team Absorbs the Load</h3><p class="text-sm text-gray-400">Your best people are now doing two jobs. Quality drops. Morale drops. You start the cycle again.</p></div></div>
+        <div class="comic-panel cms-timeline-panel md:col-span-2 lg:col-span-2 reveal" style="transition-delay:400ms"><div class="cms-panel-header cms-panel-header--gold"><span class="cms-panel-num">05</span><span class="cms-panel-day">Repeat</span></div><div class="p-6"><span class="comic-pow comic-pow--gold text-sm mb-3 inline-block">KA-BOOM!</span><h3 class="comic-title text-2xl md:text-3xl comic-gold mb-2">Every Failed Hire Costs $15K–$25K.</h3><p class="text-base text-gray-400">Recruiting fees, training time, lost productivity, and doing it all over again. The problem isn't finding people. It's keeping them productive and managed.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--amber mb-4 inline-block">CHOOSE!</span>
+        <h2 class="comic-section-title mb-4">What's Your Biggest <span class="comic-gold">Staffing Problem?</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto" id="cms-paths">
+        <button class="cmc-path-card reveal" data-path="turnover"><span class="comic-pow comic-pow--red text-xs mb-3 inline-block">POW!</span><h3 class="comic-title text-2xl text-white mb-2">Can't Keep People</h3><p class="text-sm text-gray-400">Turnover is constant. Hire, train, lose, repeat.</p></button>
+        <button class="cmc-path-card reveal" data-path="cantfind" style="transition-delay:100ms"><span class="comic-pow comic-pow--amber text-xs mb-3 inline-block">BAM!</span><h3 class="comic-title text-2xl text-white mb-2">Can't Find Anyone</h3><p class="text-sm text-gray-400">The applicant pool is weak. Nobody qualified applies.</p></button>
+        <button class="cmc-path-card reveal" data-path="cost" style="transition-delay:200ms"><span class="comic-pow comic-pow--blue text-xs mb-3 inline-block">ZAP!</span><h3 class="comic-title text-2xl text-white mb-2">Can't Afford More</h3><p class="text-sm text-gray-400">Salary, benefits, overhead — another FTE isn't in the budget.</p></button>
+      </div>
+
+      <div id="cms-consequence" class="max-w-2xl mx-auto mt-10" style="display:none">
+        <div class="comic-panel p-8 text-center" style="border-color: rgba(249,166,48,0.4);">
+          <p class="comic-eyebrow mb-3" id="cms-consequence-label"></p>
+          <p class="comic-title text-2xl md:text-3xl text-white mb-3" id="cms-consequence-title"></p>
+          <p class="text-base text-gray-400 leading-relaxed" id="cms-consequence-body"></p>
+          <a href="#book-now" class="cms-btn cms-btn--gold group inline-flex mt-6">Deploy the Fix <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal"><span class="comic-pow comic-pow--blue mb-4 inline-block">VS!</span><h2 class="comic-section-title mb-4">Traditional Hiring <span class="comic-gold">vs. Us</span></h2></div>
+
+      <div class="flex justify-center mb-10 reveal">
+        <div class="inline-flex rounded-lg border-2 border-white/15 bg-white/5 p-1">
+          <button class="cmc-toggle cmc-toggle--active" id="cms-toggle-before"><span class="comic-pow comic-pow--red text-[10px] mr-1.5">&#10005;</span> Traditional Hiring</button>
+          <button class="cmc-toggle" id="cms-toggle-after"><span class="comic-pow comic-pow--gold text-[10px] mr-1.5">&#10003;</span> With Us</button>
+        </div>
+      </div>
+
+      <div id="cms-panel-before" class="cms-compare-panel max-w-4xl mx-auto reveal">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Weeks to hire</p><p class="text-white/40 text-xs mt-0.5">Posting, screening, interviewing — a month before anyone starts</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">You manage and train them</p><p class="text-white/40 text-xs mt-0.5">Onboarding, performance, daily oversight — all on you</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">High cost per head</p><p class="text-white/40 text-xs mt-0.5">Salary + benefits + taxes + equipment + office space</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Turnover restarts the cycle</p><p class="text-white/40 text-xs mt-0.5">They leave and everything they knew walks out the door</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Can't scale quickly</p><p class="text-white/40 text-xs mt-0.5">Need more help now? Too bad — hiring takes time.</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">No legal ops expertise</p><p class="text-white/40 text-xs mt-0.5">Generic hires don't understand law firm workflows</p></div></div>
+        </div>
+      </div>
+
+      <div id="cms-panel-after" class="cms-compare-panel max-w-4xl mx-auto" style="display:none">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Matched and placed fast</p><p class="text-white/40 text-xs mt-0.5">Pre-trained VAs ready to plug into your workflows in days</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Co-managed by legal ops experts</p><p class="text-white/40 text-xs mt-0.5">We handle training, performance, QA — you give direction</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">60% cost savings</p><p class="text-white/40 text-xs mt-0.5">No benefits, no overhead, no equipment — flat monthly rate</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Seamless replacements</p><p class="text-white/40 text-xs mt-0.5">If someone leaves, we backfill immediately. No gap.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Scale anytime</p><p class="text-white/40 text-xs mt-0.5">Need more? Different role? Month-to-month flexibility.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Legal-industry immersed</p><p class="text-white/40 text-xs mt-0.5">Management built from the ground up around law firm ops</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">DEPLOY!</span>
+          <h2 class="comic-section-title mb-4">Get <span class="comic-gold">Fully Staffed</span></h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll match the right roles to your firm's bottlenecks &mdash; no commitment.</p>
+        </div>
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms"><div class="bg-white rounded-[9px] p-4 md:p-5"><div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/comic?embed=true"></div></div></div>
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>window.__hsGeoReady.then(function(a){if(a){var s=document.createElement("script");s.src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";document.head.appendChild(s)}else{document.querySelectorAll(".meetings-iframe-container").forEach(function(e){e.innerHTML='<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>'})}});</script>
+
+  <style>
+    .meetings-iframe-container iframe{background:#fff!important}.cmc-hero{padding-bottom:0}
+    .cms-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;padding:.875rem 2rem;border-radius:8px;border:none;cursor:pointer;transition:all .3s;text-decoration:none}
+    .cms-btn--gold{background:linear-gradient(135deg,#F9A630,#e8901a);color:#0a1628;box-shadow:0 4px 20px rgba(249,166,48,.3)}.cms-btn--gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(249,166,48,.4)}
+    .cms-timeline-panel{transition:transform .3s,box-shadow .3s}.cms-timeline-panel:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+    .cms-panel-header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.08)}
+    .cms-panel-header--gold{background:rgba(249,166,48,.08)}.cms-panel-header--amber{background:rgba(245,158,11,.08)}.cms-panel-header--red{background:rgba(239,68,68,.08)}
+    .cms-panel-num{font-family:'Bangers',cursive;font-size:1.5rem;color:rgba(255,255,255,.2)}.cms-panel-day{font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4)}
+    .cms-compare-panel{animation:cmsPanelIn .4s ease}@keyframes cmsPanelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @media(prefers-reduced-motion:reduce){.cms-timeline-panel,.cmc-path-card,.cms-btn,.cmc-item{transition:none!important}.cms-compare-panel{animation:none!important}}
+  </style>
+
+  <script is:inline>
+    (function(){var c={turnover:{label:'The Revolving Door',title:'Every time someone leaves, you lose 3-6 months of productivity and $15K-$25K in sunk costs.',body:'Recruiting fees, training hours, the work that didn\'t get done. With co-managed VAs, we handle retention, performance, and backfill. If someone leaves, we replace them — not you.'},cantfind:{label:'The Talent Desert',title:'You\'re competing with every firm in town for the same small pool of qualified legal support staff.',body:'The local talent market is tapped out. Our model gives you access to a vetted, trained talent pool already immersed in legal operations — no bidding wars, no settling.'},cost:{label:'The Budget Wall',title:'A full-time in-house hire costs $45K-$65K+ with salary, benefits, taxes, and overhead.',body:'A co-managed VA delivers the same output at roughly 60% less cost. No benefits, no office space, no equipment. Flat monthly rate, managed by legal ops experts, scale up or down month to month.'}};document.querySelectorAll('.cmc-path-card').forEach(function(d){d.addEventListener('click',function(){var p=this.dataset.path,x=c[p];if(!x)return;document.querySelectorAll('.cmc-path-card').forEach(function(e){e.classList.remove('cmc-path-card--active')});this.classList.add('cmc-path-card--active');document.getElementById('cms-consequence-label').textContent=x.label;document.getElementById('cms-consequence-title').textContent=x.title;document.getElementById('cms-consequence-body').textContent=x.body;var n=document.getElementById('cms-consequence');n.style.display='block';n.style.animation='none';n.offsetHeight;n.style.animation='cmsPanelIn 0.4s ease'})});var bb=document.getElementById('cms-toggle-before'),ab=document.getElementById('cms-toggle-after'),bp=document.getElementById('cms-panel-before'),ap=document.getElementById('cms-panel-after');if(bb&&ab){bb.addEventListener('click',function(){bb.classList.add('cmc-toggle--active');ab.classList.remove('cmc-toggle--active');bp.style.display='block';ap.style.display='none';bp.style.animation='none';bp.offsetHeight;bp.style.animation='cmsPanelIn 0.4s ease'});ab.addEventListener('click',function(){ab.classList.add('cmc-toggle--active');bb.classList.remove('cmc-toggle--active');ap.style.display='block';bp.style.display='none';ap.style.animation='none';ap.offsetHeight;ap.style.animation='cmsPanelIn 0.4s ease'})}})();
+  </script>
+
+  <script is:inline>
+    if(typeof posthog!=='undefined')posthog.capture('LP Viewed',{page:'comic-staffing'});
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'lp_view',lp_name:'comic-staffing'});
+  </script>
+
+</ComicCampaignLayout>

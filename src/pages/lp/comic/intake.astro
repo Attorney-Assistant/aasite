@@ -1,0 +1,354 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+---
+
+<ComicCampaignLayout
+  title="Your $250K Case Called at 8PM. No One Answered. | Attorney Assistant"
+  description="Calls answered 24/7. Deploy Attorney Assistant so you never lose another case to a missed call."
+  image="/images/comic-intake.jpg"
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="cmc-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16">
+      <div class="flex items-center justify-between mb-8 reveal">
+        <a href="/"><img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 md:h-10 w-auto" /></a>
+        <span class="comic-eyebrow hidden sm:block">Issue №07 · Intake</span>
+      </div>
+
+      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
+        <img
+          src="/images/comic-intake.jpg"
+          alt="Your $250K case called at 8PM. No one answered. Deploy Attorney Assistant — calls answered 24/7."
+          class="w-full h-auto block rounded-[9px]"
+          width="1920"
+          height="1080"
+          loading="eager"
+        />
+      </div>
+
+      <div class="text-center reveal" style="transition-delay: 150ms">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+          $250K case called at 8PM. <br/><span class="comic-gold">No one answered.</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-4">
+          They called the next firm. Someone picked up. They signed 12 minutes later. You'll never know they called.
+        </p>
+        <p class="comic-title text-xl comic-gold mb-8">We rescue law firms with elite staffing + AI solutions.</p>
+        <a href="#book-now" class="cmi-btn cmi-btn--gold group inline-flex">
+          Deploy Attorney Assistant
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — SCROLLYTELLING TIMELINE
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.04] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">THE TIMELINE!</span>
+        <h2 class="comic-section-title mb-4">
+          12 Minutes. <span class="comic-gold">One Lost Case.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">This happened last night. At your firm. You just don't know it yet.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="comic-panel cmi-timeline-panel reveal">
+          <div class="cmi-panel-header cmi-panel-header--gold">
+            <span class="cmi-panel-num">01</span>
+            <span class="cmi-panel-day">8:02 PM</span>
+          </div>
+          <div class="p-5">
+            <h3 class="comic-title text-xl text-white mb-2">The Call Comes In</h3>
+            <p class="text-sm text-gray-400">Car accident victim. In pain. Scared. Searches "best injury lawyer near me." Your ad shows up first. They click. They call.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmi-timeline-panel reveal" style="transition-delay: 100ms">
+          <div class="cmi-panel-header cmi-panel-header--amber">
+            <span class="cmi-panel-num">02</span>
+            <span class="cmi-panel-day">8:02 PM</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--amber text-xs mb-2 inline-block">RING!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Voicemail</h3>
+            <p class="text-sm text-gray-400">Four rings. Then: "Thank you for calling. Our office is currently closed. Please leave a message and we'll return your call during business hours."</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmi-timeline-panel reveal" style="transition-delay: 200ms">
+          <div class="cmi-panel-header cmi-panel-header--red">
+            <span class="cmi-panel-num">03</span>
+            <span class="cmi-panel-day">8:04 PM</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">GONE!</span>
+            <h3 class="comic-title text-xl text-white mb-2">They Call the Next Firm</h3>
+            <p class="text-sm text-gray-400">Someone answers live. Asks the right questions. Empathizes. Schedules a consultation for tomorrow morning. The lead feels heard.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmi-timeline-panel reveal" style="transition-delay: 300ms">
+          <div class="cmi-panel-header cmi-panel-header--red">
+            <span class="cmi-panel-num">04</span>
+            <span class="cmi-panel-day">8:14 PM</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">SIGNED!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Retainer Signed &mdash; With Your Competitor</h3>
+            <p class="text-sm text-gray-400">$250K case. Gone in 12 minutes. Your firm paid for the click. Your competitor got the case.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmi-timeline-panel md:col-span-2 lg:col-span-2 reveal" style="transition-delay: 400ms">
+          <div class="cmi-panel-header cmi-panel-header--gold">
+            <span class="cmi-panel-num">05</span>
+            <span class="cmi-panel-day">9:00 AM Next Day</span>
+          </div>
+          <div class="p-6">
+            <span class="comic-pow comic-pow--gold text-sm mb-3 inline-block">KA-BOOM!</span>
+            <h3 class="comic-title text-2xl md:text-3xl comic-gold mb-2">Your Team Sees the Missed Call. Too Late.</h3>
+            <p class="text-base text-gray-400">They call back. No answer. The lead is signed, represented, and gone forever. 78% of PI leads hire the first firm that responds. If that's not you, it's your competitor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — CHOOSE YOUR PATH
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--amber mb-4 inline-block">CHOOSE!</span>
+        <h2 class="comic-section-title mb-4">
+          What Happens at Your Firm <span class="comic-gold">After 5PM?</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto" id="cmi-paths">
+        <button class="cmc-path-card reveal" data-path="voicemail">
+          <span class="comic-pow comic-pow--red text-xs mb-3 inline-block">POW!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">Voicemail</h3>
+          <p class="text-sm text-gray-400">Phones roll over at 5. We check messages in the morning.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="answering" style="transition-delay: 100ms">
+          <span class="comic-pow comic-pow--amber text-xs mb-3 inline-block">BAM!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">Answering Service</h3>
+          <p class="text-sm text-gray-400">They pick up but just take a name and number. No intake. No qualification.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="oncall" style="transition-delay: 200ms">
+          <span class="comic-pow comic-pow--blue text-xs mb-3 inline-block">ZAP!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">Attorney On Call</h3>
+          <p class="text-sm text-gray-400">The partner's cell rings at dinner. Sometimes they pick up. They're burning out.</p>
+        </button>
+      </div>
+
+      <div id="cmi-consequence" class="max-w-2xl mx-auto mt-10" style="display:none">
+        <div class="comic-panel p-8 text-center" style="border-color: rgba(249,166,48,0.4);">
+          <p class="comic-eyebrow mb-3" id="cmi-consequence-label"></p>
+          <p class="comic-title text-2xl md:text-3xl text-white mb-3" id="cmi-consequence-title"></p>
+          <p class="text-base text-gray-400 leading-relaxed" id="cmi-consequence-body"></p>
+          <a href="#book-now" class="cmi-btn cmi-btn--gold group inline-flex mt-6">
+            Deploy the Fix
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BEFORE / AFTER
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--blue mb-4 inline-block">VS!</span>
+        <h2 class="comic-section-title mb-4">
+          Your Intake <span class="comic-gold">vs. Ours</span>
+        </h2>
+      </div>
+
+      <div class="flex justify-center mb-10 reveal">
+        <div class="inline-flex rounded-lg border-2 border-white/15 bg-white/5 p-1">
+          <button class="cmc-toggle cmc-toggle--active" id="cmi-toggle-before"><span class="comic-pow comic-pow--red text-[10px] mr-1.5">&#10005;</span> Your Intake</button>
+          <button class="cmc-toggle" id="cmi-toggle-after"><span class="comic-pow comic-pow--gold text-[10px] mr-1.5">&#10003;</span> With Us</button>
+        </div>
+      </div>
+
+      <div id="cmi-panel-before" class="cmi-compare-panel max-w-4xl mx-auto reveal">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Calls go to voicemail after 5PM</p><p class="text-white/40 text-xs mt-0.5">40% of leads come in after hours and get nothing</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Slow follow-up on web leads</p><p class="text-white/40 text-xs mt-0.5">Form fills wait hours or days for a callback</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">No lead qualification</p><p class="text-white/40 text-xs mt-0.5">Good leads and junk get the same treatment</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Follow-up stops after one try</p><p class="text-white/40 text-xs mt-0.5">If they don't answer, nobody calls back</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Weekends = zero coverage</p><p class="text-white/40 text-xs mt-0.5">Accidents don't wait for Monday. Your firm does.</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Marketing dollars wasted</p><p class="text-white/40 text-xs mt-0.5">You pay for the lead, then let it die in your pipeline</p></div></div>
+        </div>
+      </div>
+
+      <div id="cmi-panel-after" class="cmi-compare-panel max-w-4xl mx-auto" style="display:none">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Live answer 24/7/365</p><p class="text-white/40 text-xs mt-0.5">Real people, trained on your intake, picking up at 8PM, midnight, Sunday</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Speed to lead under 5 minutes</p><p class="text-white/40 text-xs mt-0.5">Web leads get an immediate callback, not a next-day voicemail</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Leads qualified on the call</p><p class="text-white/40 text-xs mt-0.5">Good cases flagged, junk filtered, attorneys only see quality</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Persistent follow-up (5 attempts)</p><p class="text-white/40 text-xs mt-0.5">No lead left behind — structured outreach until contact</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Full weekends and holidays</p><p class="text-white/40 text-xs mt-0.5">Your firm never sleeps. Every call gets handled.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Marketing ROI multiplied</p><p class="text-white/40 text-xs mt-0.5">Same ad spend, more signed cases — because nothing leaks</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">DEPLOY!</span>
+          <h2 class="comic-section-title mb-4">
+            Never Miss Another <span class="comic-gold">$250K Call</span>
+          </h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll show you how 24/7 intake works &mdash; no commitment.</p>
+        </div>
+
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/comic?embed=true"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+    .cmc-hero { padding-bottom: 0; }
+    .cmi-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; padding: 0.875rem 2rem; border-radius: 8px; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .cmi-btn--gold { background: linear-gradient(135deg, #F9A630, #e8901a); color: #0a1628; box-shadow: 0 4px 20px rgba(249,166,48,0.3); }
+    .cmi-btn--gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,166,48,0.4); }
+    .cmi-timeline-panel { transition: transform 0.3s, box-shadow 0.3s; }
+    .cmi-timeline-panel:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .cmi-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cmi-panel-header--gold { background: rgba(249,166,48,0.08); }
+    .cmi-panel-header--amber { background: rgba(245,158,11,0.08); }
+    .cmi-panel-header--red { background: rgba(239,68,68,0.08); }
+    .cmi-panel-num { font-family: 'Bangers', cursive; font-size: 1.5rem; color: rgba(255,255,255,0.2); }
+    .cmi-panel-day { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .cmi-compare-panel { animation: cmiPanelIn 0.4s ease; }
+    @keyframes cmiPanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .cmi-timeline-panel, .cmc-path-card, .cmi-btn, .cmc-item { transition: none !important; } .cmi-compare-panel { animation: none !important; } }
+  </style>
+
+  <script is:inline>
+    (function() {
+      var consequences = {
+        voicemail: {
+          label: 'Voicemail = Goodbye',
+          title: 'Less than 20% of callers leave a voicemail at a law firm after hours. The other 80% call the next firm.',
+          body: 'Your voicemail greeting isn\'t a safety net — it\'s a goodbye message. Every night and weekend, leads are calling, hearing silence, and signing with whoever picks up next. You\'re funding your competitor\'s caseload with your own marketing budget.'
+        },
+        answering: {
+          label: 'Message ≠ Intake',
+          title: 'Taking a message at 8PM and calling back at 9AM means the lead had 13 hours to sign with someone else.',
+          body: 'An answering service that just collects a name and number is a speed bump, not a solution. Real after-hours intake means qualifying the lead, scheduling the consultation, and making them feel like they\'ve already found their lawyer — all on that first call.'
+        },
+        oncall: {
+          label: 'Unsustainable',
+          title: 'An attorney answering their cell at dinner isn\'t a coverage strategy — it\'s a burnout strategy.',
+          body: 'When the partner is the after-hours safety net, they never truly clock out. That\'s not sustainable, and it doesn\'t scale. You need a team that handles intake professionally at any hour so your attorneys can rest and your firm still converts.'
+        }
+      };
+
+      document.querySelectorAll('.cmc-path-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var path = this.dataset.path;
+          var data = consequences[path];
+          if (!data) return;
+          document.querySelectorAll('.cmc-path-card').forEach(function(c) { c.classList.remove('cmc-path-card--active'); });
+          this.classList.add('cmc-path-card--active');
+          document.getElementById('cmi-consequence-label').textContent = data.label;
+          document.getElementById('cmi-consequence-title').textContent = data.title;
+          document.getElementById('cmi-consequence-body').textContent = data.body;
+          var panel = document.getElementById('cmi-consequence');
+          panel.style.display = 'block';
+          panel.style.animation = 'none'; panel.offsetHeight;
+          panel.style.animation = 'cmiPanelIn 0.4s ease';
+        });
+      });
+
+      var beforeBtn = document.getElementById('cmi-toggle-before');
+      var afterBtn = document.getElementById('cmi-toggle-after');
+      var beforePanel = document.getElementById('cmi-panel-before');
+      var afterPanel = document.getElementById('cmi-panel-after');
+      if (beforeBtn && afterBtn) {
+        beforeBtn.addEventListener('click', function() {
+          beforeBtn.classList.add('cmc-toggle--active');
+          afterBtn.classList.remove('cmc-toggle--active');
+          beforePanel.style.display = 'block'; afterPanel.style.display = 'none';
+          beforePanel.style.animation = 'none'; beforePanel.offsetHeight;
+          beforePanel.style.animation = 'cmiPanelIn 0.4s ease';
+        });
+        afterBtn.addEventListener('click', function() {
+          afterBtn.classList.add('cmc-toggle--active');
+          beforeBtn.classList.remove('cmc-toggle--active');
+          afterPanel.style.display = 'block'; beforePanel.style.display = 'none';
+          afterPanel.style.animation = 'none'; afterPanel.offsetHeight;
+          afterPanel.style.animation = 'cmiPanelIn 0.4s ease';
+        });
+      }
+    })();
+  </script>
+
+  <script is:inline>
+    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'comic-intake' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'comic-intake' });
+  </script>
+
+</ComicCampaignLayout>

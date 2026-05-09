@@ -1,0 +1,354 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+---
+
+<ComicCampaignLayout
+  title="Mail, Data Entry, and File Openings Are Crushing Your Team | Attorney Assistant"
+  description="We rescue your attorneys and paralegals with superhero staffing. Deploy Attorney Assistant to eliminate admin chaos at your law firm."
+  image="/images/comic-admin-chaos.jpg"
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="cmc-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16">
+      <div class="flex items-center justify-between mb-8 reveal">
+        <a href="/"><img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 md:h-10 w-auto" /></a>
+        <span class="comic-eyebrow hidden sm:block">Issue №05 · Admin Chaos</span>
+      </div>
+
+      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
+        <img
+          src="/images/comic-admin-chaos.jpg"
+          alt="Problem: Mail, data entry, and file openings are crushing your team. Solution: We rescue your attorneys and paralegals with superhero staffing."
+          class="w-full h-auto block rounded-[9px]"
+          width="1920"
+          height="1080"
+          loading="eager"
+        />
+      </div>
+
+      <div class="text-center reveal" style="transition-delay: 150ms">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+          Admin chaos crushing your firm? <br/><span class="comic-gold">We rescue law firms with elite staffing + AI solutions.</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-8">
+          Mail, data entry, file openings, intake forms &mdash; your attorneys and paralegals are buried in work that doesn't move cases forward.
+        </p>
+        <a href="#book-now" class="cmac-btn cmac-btn--gold group inline-flex">
+          Deploy Attorney Assistant
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — SCROLLYTELLING TIMELINE
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.04] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">THE TIMELINE!</span>
+        <h2 class="comic-section-title mb-4">
+          A Day Inside <span class="comic-gold">Admin Chaos</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">This isn't an exaggeration. It's a Tuesday.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="comic-panel cmac-timeline-panel reveal">
+          <div class="cmac-panel-header cmac-panel-header--gold">
+            <span class="cmac-panel-num">01</span>
+            <span class="cmac-panel-day">8:30 AM</span>
+          </div>
+          <div class="p-5">
+            <h3 class="comic-title text-xl text-white mb-2">The Pile Is Waiting</h3>
+            <p class="text-sm text-gray-400">Unprocessed mail from yesterday. 6 new files to open. Intake forms to enter. The day hasn't started and the paralegal is already behind.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmac-timeline-panel reveal" style="transition-delay: 100ms">
+          <div class="cmac-panel-header cmac-panel-header--amber">
+            <span class="cmac-panel-num">02</span>
+            <span class="cmac-panel-day">11:00 AM</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--amber text-xs mb-2 inline-block">BURIED!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Data Entry Backlog</h3>
+            <p class="text-sm text-gray-400">Case notes from last week still not in the CRM. Status updates queued. The attorney asks for a case summary and gets "I'll have it this afternoon."</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmac-timeline-panel reveal" style="transition-delay: 200ms">
+          <div class="cmac-panel-header cmac-panel-header--red">
+            <span class="cmac-panel-num">03</span>
+            <span class="cmac-panel-day">2:00 PM</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">CRUSHED!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Attorney Starts Doing It Themselves</h3>
+            <p class="text-sm text-gray-400">Can't wait for the file to be opened. Enters it themselves. Schedules their own calendar. Sends their own follow-up. $400/hr doing $15/hr work.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmac-timeline-panel reveal" style="transition-delay: 300ms">
+          <div class="cmac-panel-header cmac-panel-header--red">
+            <span class="cmac-panel-num">04</span>
+            <span class="cmac-panel-day">4:30 PM</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">STALLED!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Nothing Strategic Got Done</h3>
+            <p class="text-sm text-gray-400">No depositions prepped. No demand letters drafted. No client calls returned. The entire firm spent the day treading water.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmac-timeline-panel md:col-span-2 lg:col-span-2 reveal" style="transition-delay: 400ms">
+          <div class="cmac-panel-header cmac-panel-header--gold">
+            <span class="cmac-panel-num">05</span>
+            <span class="cmac-panel-day">Every Day</span>
+          </div>
+          <div class="p-6">
+            <span class="comic-pow comic-pow--gold text-sm mb-3 inline-block">KA-BOOM!</span>
+            <h3 class="comic-title text-2xl md:text-3xl comic-gold mb-2">Your Most Expensive People Are Doing Your Cheapest Work.</h3>
+            <p class="text-base text-gray-400">The chaos isn't caused by bad people. It's caused by too much low-leverage work and nobody dedicated to handling it. That's what we fix.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — CHOOSE YOUR PATH
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--amber mb-4 inline-block">CHOOSE!</span>
+        <h2 class="comic-section-title mb-4">
+          Where's the Admin <span class="comic-gold">Hitting Hardest?</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Pick the one that keeps you up at night.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto" id="cmac-paths">
+        <button class="cmc-path-card reveal" data-path="filing">
+          <span class="comic-pow comic-pow--red text-xs mb-3 inline-block">POW!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">Filing &amp; Data Entry</h3>
+          <p class="text-sm text-gray-400">CRM is stale. Documents unfiled. Nobody's current on anything.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="openings" style="transition-delay: 100ms">
+          <span class="comic-pow comic-pow--amber text-xs mb-3 inline-block">BAM!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">File Openings &amp; Intake</h3>
+          <p class="text-sm text-gray-400">New matters sit for days. Conflict checks, engagement letters, CRM setup &mdash; all bottlenecked.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="everything" style="transition-delay: 200ms">
+          <span class="comic-pow comic-pow--blue text-xs mb-3 inline-block">ZAP!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">All of It</h3>
+          <p class="text-sm text-gray-400">Honestly, the whole back office is overwhelmed. Everything's behind and the team is burning out.</p>
+        </button>
+      </div>
+
+      <div id="cmac-consequence" class="max-w-2xl mx-auto mt-10" style="display:none">
+        <div class="comic-panel p-8 text-center" style="border-color: rgba(249,166,48,0.4);">
+          <p class="comic-eyebrow mb-3" id="cmac-consequence-label"></p>
+          <p class="comic-title text-2xl md:text-3xl text-white mb-3" id="cmac-consequence-title"></p>
+          <p class="text-base text-gray-400 leading-relaxed" id="cmac-consequence-body"></p>
+          <a href="#book-now" class="cmac-btn cmac-btn--gold group inline-flex mt-6">
+            Deploy the Fix
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BEFORE / AFTER
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--blue mb-4 inline-block">VS!</span>
+        <h2 class="comic-section-title mb-4">
+          Admin Chaos <span class="comic-gold">vs. Admin Handled</span>
+        </h2>
+      </div>
+
+      <div class="flex justify-center mb-10 reveal">
+        <div class="inline-flex rounded-lg border-2 border-white/15 bg-white/5 p-1">
+          <button class="cmc-toggle cmc-toggle--active" id="cmac-toggle-before"><span class="comic-pow comic-pow--red text-[10px] mr-1.5">&#10005;</span> The Chaos</button>
+          <button class="cmc-toggle" id="cmac-toggle-after"><span class="comic-pow comic-pow--gold text-[10px] mr-1.5">&#10003;</span> With Us</button>
+        </div>
+      </div>
+
+      <div id="cmac-panel-before" class="cmac-compare-panel max-w-4xl mx-auto reveal">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Mail piles up unprocessed</p><p class="text-white/40 text-xs mt-0.5">Scanned but not filed. Received but not indexed.</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Data entry weeks behind</p><p class="text-white/40 text-xs mt-0.5">CRM doesn't match reality. Nobody trusts the data.</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">File openings take days</p><p class="text-white/40 text-xs mt-0.5">New matters queued while the team catches up on old ones</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Attorneys do their own admin</p><p class="text-white/40 text-xs mt-0.5">$400/hr people doing $15/hr tasks because nobody else will</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Staff overwhelmed and quitting</p><p class="text-white/40 text-xs mt-0.5">Doing the work of three people with zero support</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">No capacity to grow</p><p class="text-white/40 text-xs mt-0.5">Can't take more cases when the back office is already drowning</p></div></div>
+        </div>
+      </div>
+
+      <div id="cmac-panel-after" class="cmac-compare-panel max-w-4xl mx-auto" style="display:none">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Mail processed on arrival</p><p class="text-white/40 text-xs mt-0.5">Sorted, scanned, filed, indexed. Nothing sits.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">CRM always current</p><p class="text-white/40 text-xs mt-0.5">Data entry, notes, and status updates handled daily</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Files opened same-day</p><p class="text-white/40 text-xs mt-0.5">Conflicts cleared, letters sent, CRM populated immediately</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Attorneys back to lawyering</p><p class="text-white/40 text-xs mt-0.5">Strategy, depositions, client work — the stuff that wins cases</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Team breathing room</p><p class="text-white/40 text-xs mt-0.5">Low-leverage work offloaded. Morale up. Turnover down.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Ready to scale</p><p class="text-white/40 text-xs mt-0.5">Back office keeps pace with caseload. Grow without the growing pains.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">DEPLOY!</span>
+          <h2 class="comic-section-title mb-4">
+            End the Admin <span class="comic-gold">Chaos</span>
+          </h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll show you exactly which admin to offload first &mdash; no commitment.</p>
+        </div>
+
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/comic?embed=true"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+    .cmc-hero { padding-bottom: 0; }
+    .cmac-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; padding: 0.875rem 2rem; border-radius: 8px; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .cmac-btn--gold { background: linear-gradient(135deg, #F9A630, #e8901a); color: #0a1628; box-shadow: 0 4px 20px rgba(249,166,48,0.3); }
+    .cmac-btn--gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,166,48,0.4); }
+    .cmac-timeline-panel { transition: transform 0.3s, box-shadow 0.3s; }
+    .cmac-timeline-panel:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .cmac-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cmac-panel-header--gold { background: rgba(249,166,48,0.08); }
+    .cmac-panel-header--amber { background: rgba(245,158,11,0.08); }
+    .cmac-panel-header--red { background: rgba(239,68,68,0.08); }
+    .cmac-panel-num { font-family: 'Bangers', cursive; font-size: 1.5rem; color: rgba(255,255,255,0.2); }
+    .cmac-panel-day { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .cmac-compare-panel { animation: cmacPanelIn 0.4s ease; }
+    @keyframes cmacPanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .cmac-timeline-panel, .cmc-path-card, .cmac-btn, .cmc-item { transition: none !important; } .cmac-compare-panel { animation: none !important; } }
+  </style>
+
+  <script is:inline>
+    (function() {
+      var consequences = {
+        filing: {
+          label: 'The Data Graveyard',
+          title: 'When your CRM is weeks behind, every decision is based on outdated information.',
+          body: 'Attorneys pull up a case and the last note is from two weeks ago. They don\'t know what\'s been filed, what\'s pending, or what the client was last told. So they spend 20 minutes piecing it together before they can do anything. Multiply that by 50 cases. A dedicated VA keeps every record current, every day.'
+        },
+        openings: {
+          label: 'The Bottleneck',
+          title: 'Every day a new file sits unopened is a day the case isn\'t progressing.',
+          body: 'Conflict checks, engagement letters, CRM entries, document templates — file openings are tedious and time-consuming. When they back up, new clients wait, attorneys can\'t start working, and the firm looks disorganized before the case even begins. We handle openings same-day.'
+        },
+        everything: {
+          label: 'The Full Flood',
+          title: 'When the entire back office is underwater, you can\'t fix one thing at a time — you need a rescue.',
+          body: 'This is what we\'re built for. We embed trained virtual assistants into your firm\'s workflow — managed by legal ops experts, not by you. Data entry, file openings, mail processing, scheduling, records — all handled. Your team gets breathing room. Your attorneys get back to lawyering. The firm gets capacity to grow.'
+        }
+      };
+
+      document.querySelectorAll('.cmc-path-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var path = this.dataset.path;
+          var data = consequences[path];
+          if (!data) return;
+          document.querySelectorAll('.cmc-path-card').forEach(function(c) { c.classList.remove('cmc-path-card--active'); });
+          this.classList.add('cmc-path-card--active');
+          document.getElementById('cmac-consequence-label').textContent = data.label;
+          document.getElementById('cmac-consequence-title').textContent = data.title;
+          document.getElementById('cmac-consequence-body').textContent = data.body;
+          var panel = document.getElementById('cmac-consequence');
+          panel.style.display = 'block';
+          panel.style.animation = 'none'; panel.offsetHeight;
+          panel.style.animation = 'cmacPanelIn 0.4s ease';
+        });
+      });
+
+      var beforeBtn = document.getElementById('cmac-toggle-before');
+      var afterBtn = document.getElementById('cmac-toggle-after');
+      var beforePanel = document.getElementById('cmac-panel-before');
+      var afterPanel = document.getElementById('cmac-panel-after');
+      if (beforeBtn && afterBtn) {
+        beforeBtn.addEventListener('click', function() {
+          beforeBtn.classList.add('cmc-toggle--active');
+          afterBtn.classList.remove('cmc-toggle--active');
+          beforePanel.style.display = 'block'; afterPanel.style.display = 'none';
+          beforePanel.style.animation = 'none'; beforePanel.offsetHeight;
+          beforePanel.style.animation = 'cmacPanelIn 0.4s ease';
+        });
+        afterBtn.addEventListener('click', function() {
+          afterBtn.classList.add('cmc-toggle--active');
+          beforeBtn.classList.remove('cmc-toggle--active');
+          afterPanel.style.display = 'block'; beforePanel.style.display = 'none';
+          afterPanel.style.animation = 'none'; afterPanel.offsetHeight;
+          afterPanel.style.animation = 'cmacPanelIn 0.4s ease';
+        });
+      }
+    })();
+  </script>
+
+  <script is:inline>
+    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'comic-admin-chaos' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'comic-admin-chaos' });
+  </script>
+
+</ComicCampaignLayout>

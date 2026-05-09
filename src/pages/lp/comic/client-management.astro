@@ -1,0 +1,358 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+---
+
+<ComicCampaignLayout
+  title="Your Clients Haven't Heard From You in 6 Weeks | Attorney Assistant"
+  description="Our team checks in, updates them, and keeps them yours. Every two weeks. Without fail. Deploy Attorney Assistant."
+  image="/images/comic-client-management.jpg"
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="cmc-hero relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16">
+      <div class="flex items-center justify-between mb-8 reveal">
+        <a href="/"><img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 md:h-10 w-auto" /></a>
+        <span class="comic-eyebrow hidden sm:block">Issue №04 · Client Management</span>
+      </div>
+
+      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
+        <img
+          src="/images/comic-client-management.jpg"
+          alt="Problem: Your clients haven't heard from you in 6 weeks. Solution: Our team checks in, updates them, keeps them yours. Every two weeks. Without fail."
+          class="w-full h-auto block rounded-[9px]"
+          width="1920"
+          height="1080"
+          loading="eager"
+        />
+      </div>
+
+      <div class="text-center reveal" style="transition-delay: 150ms">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+          Clients going silent on you? <br/><span class="comic-gold">We rescue law firms with elite staffing + AI solutions.</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-8">
+          Your clients haven't heard from you in weeks. Our team checks in, updates them, and keeps them yours &mdash; every two weeks, without fail.
+        </p>
+        <a href="#book-now" class="cmcl-btn cmcl-btn--gold group inline-flex">
+          Deploy Attorney Assistant
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — SCROLLYTELLING TIMELINE
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.04] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">THE TIMELINE!</span>
+        <h2 class="comic-section-title mb-4">
+          How Silence <span class="comic-gold">Kills Client Relationships</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">It starts with one missed check-in. It ends with a 1-star review.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="comic-panel cmcl-timeline-panel reveal">
+          <div class="cmcl-panel-header cmcl-panel-header--gold">
+            <span class="cmcl-panel-num">01</span>
+            <span class="cmcl-panel-day">Day 1</span>
+          </div>
+          <div class="p-5">
+            <h3 class="comic-title text-xl text-white mb-2">Client Signs</h3>
+            <p class="text-sm text-gray-400">They're optimistic. They trust you. They expect to hear about next steps within the week. "Just checking in, Janet" would go a long way right now.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmcl-timeline-panel reveal" style="transition-delay: 100ms">
+          <div class="cmcl-panel-header cmcl-panel-header--amber">
+            <span class="cmcl-panel-num">02</span>
+            <span class="cmcl-panel-day">Week 3</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--amber text-xs mb-2 inline-block">SILENCE!</span>
+            <h3 class="comic-title text-xl text-white mb-2">No Update</h3>
+            <p class="text-sm text-gray-400">Client calls. Voicemail. They leave a message. Your paralegal sees it the next day, means to call back, gets pulled into something else. Days pass.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmcl-timeline-panel reveal" style="transition-delay: 200ms">
+          <div class="cmcl-panel-header cmcl-panel-header--red">
+            <span class="cmcl-panel-num">03</span>
+            <span class="cmcl-panel-day">Week 6</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">ANGRY!</span>
+            <h3 class="comic-title text-xl text-white mb-2">Client Calls Again &mdash; Frustrated</h3>
+            <p class="text-sm text-gray-400">"I haven't heard from anyone in over a month." The attorney scrambles to pull a status together mid-call. Trust is cracking.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmcl-timeline-panel reveal" style="transition-delay: 300ms">
+          <div class="cmcl-panel-header cmcl-panel-header--red">
+            <span class="cmcl-panel-num">04</span>
+            <span class="cmcl-panel-day">Week 8</span>
+          </div>
+          <div class="p-5">
+            <span class="comic-pow comic-pow--red text-xs mb-2 inline-block">GONE!</span>
+            <h3 class="comic-title text-xl text-white mb-2">The Review Drops</h3>
+            <p class="text-sm text-gray-400">"Great attorney but impossible to get ahold of. I had to call multiple times just to get an update on my own case." 1 star. Public. Permanent.</p>
+          </div>
+        </div>
+
+        <div class="comic-panel cmcl-timeline-panel md:col-span-2 lg:col-span-2 reveal" style="transition-delay: 400ms">
+          <div class="cmcl-panel-header cmcl-panel-header--gold">
+            <span class="cmcl-panel-num">05</span>
+            <span class="cmcl-panel-day">Ongoing</span>
+          </div>
+          <div class="p-6">
+            <span class="comic-pow comic-pow--gold text-sm mb-3 inline-block">KA-BOOM!</span>
+            <h3 class="comic-title text-2xl md:text-3xl comic-gold mb-2">Multiply That by Every Active Client.</h3>
+            <p class="text-base text-gray-400">Bad reviews. Lost referrals. Clients who call other firms "just to ask a question." The cost of silence isn't one angry client &mdash; it's a reputation that erodes case by case.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — CHOOSE YOUR PATH
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--amber mb-4 inline-block">CHOOSE!</span>
+        <h2 class="comic-section-title mb-4">
+          Who's Keeping <span class="comic-gold">Clients Updated?</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Pick the one that's closest to your firm right now.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto" id="cmcl-paths">
+        <button class="cmc-path-card reveal" data-path="reactive">
+          <span class="comic-pow comic-pow--red text-xs mb-3 inline-block">POW!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">Only When They Call Us</h3>
+          <p class="text-sm text-gray-400">If the client doesn't reach out, they don't hear from us. No cadence, no system.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="attorney" style="transition-delay: 100ms">
+          <span class="comic-pow comic-pow--amber text-xs mb-3 inline-block">BAM!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">The Attorney Does It</h3>
+          <p class="text-sm text-gray-400">Clients want to talk to the lawyer. But the lawyer has 80 other cases and no time for status calls.</p>
+        </button>
+
+        <button class="cmc-path-card reveal" data-path="nobody" style="transition-delay: 200ms">
+          <span class="comic-pow comic-pow--blue text-xs mb-3 inline-block">ZAP!</span>
+          <h3 class="comic-title text-2xl text-white mb-2">Nobody Owns It</h3>
+          <p class="text-sm text-gray-400">Some clients get great communication. Others go weeks without hearing a word. It depends on who remembers.</p>
+        </button>
+      </div>
+
+      <div id="cmcl-consequence" class="max-w-2xl mx-auto mt-10" style="display:none">
+        <div class="comic-panel p-8 text-center" style="border-color: rgba(249,166,48,0.4);">
+          <p class="comic-eyebrow mb-3" id="cmcl-consequence-label"></p>
+          <p class="comic-title text-2xl md:text-3xl text-white mb-3" id="cmcl-consequence-title"></p>
+          <p class="text-base text-gray-400 leading-relaxed" id="cmcl-consequence-body"></p>
+          <a href="#book-now" class="cmcl-btn cmcl-btn--gold group inline-flex mt-6">
+            Deploy the Fix
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — BEFORE / AFTER
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--blue mb-4 inline-block">VS!</span>
+        <h2 class="comic-section-title mb-4">
+          Your Client Communication <span class="comic-gold">vs. Ours</span>
+        </h2>
+      </div>
+
+      <div class="flex justify-center mb-10 reveal">
+        <div class="inline-flex rounded-lg border-2 border-white/15 bg-white/5 p-1">
+          <button class="cmc-toggle cmc-toggle--active" id="cmcl-toggle-before">
+            <span class="comic-pow comic-pow--red text-[10px] mr-1.5">&#10005;</span> Your Process
+          </button>
+          <button class="cmc-toggle" id="cmcl-toggle-after">
+            <span class="comic-pow comic-pow--gold text-[10px] mr-1.5">&#10003;</span> With Us
+          </button>
+        </div>
+      </div>
+
+      <div id="cmcl-panel-before" class="cmcl-compare-panel max-w-4xl mx-auto reveal">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Weeks of silence</p><p class="text-white/40 text-xs mt-0.5">Clients hear nothing unless they initiate contact</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Calls go to voicemail</p><p class="text-white/40 text-xs mt-0.5">Callbacks happen days later — if at all</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Attorneys burned on status calls</p><p class="text-white/40 text-xs mt-0.5">$400/hr lawyers answering "what's happening with my case?"</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Inconsistent experience</p><p class="text-white/40 text-xs mt-0.5">Some clients get great service. Others feel forgotten.</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Bad reviews accumulate</p><p class="text-white/40 text-xs mt-0.5">"Great lawyer but impossible to reach" — over and over</p></div></div>
+          <div class="cmc-item cmc-item--bad"><span class="cmc-item-icon cmc-item-icon--red">&#10005;</span><div><p class="text-white font-bold text-sm comic-sub">Referrals dry up</p><p class="text-white/40 text-xs mt-0.5">Unhappy clients don't send friends. They send warnings.</p></div></div>
+        </div>
+      </div>
+
+      <div id="cmcl-panel-after" class="cmcl-compare-panel max-w-4xl mx-auto" style="display:none">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Check-ins every two weeks</p><p class="text-white/40 text-xs mt-0.5">"Just checking in, Janet." Proactive. Scheduled. Without fail.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Every call answered live</p><p class="text-white/40 text-xs mt-0.5">A real person who knows the case picks up and helps</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Attorneys freed up</p><p class="text-white/40 text-xs mt-0.5">VAs handle routine updates. Lawyers focus on legal work.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Every client, same standard</p><p class="text-white/40 text-xs mt-0.5">No one falls through the cracks. Every case gets communicated.</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">5-star reviews increase</p><p class="text-white/40 text-xs mt-0.5">"They kept me informed the entire time. I always knew where I stood."</p></div></div>
+          <div class="cmc-item cmc-item--good"><span class="cmc-item-icon cmc-item-icon--green">&#10003;</span><div><p class="text-white font-bold text-sm comic-sub">Referrals come back</p><p class="text-white/40 text-xs mt-0.5">Happy clients send friends, family, and colleagues your way</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — BOOKING CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">DEPLOY!</span>
+          <h2 class="comic-section-title mb-4">
+            Keep Every Client <span class="comic-gold">In the Loop</span>
+          </h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll show you how scheduled check-ins work &mdash; no commitment.</p>
+        </div>
+
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/comic?embed=true"></div>
+          </div>
+        </div>
+
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+    .cmc-hero { padding-bottom: 0; }
+    .cmcl-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; padding: 0.875rem 2rem; border-radius: 8px; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .cmcl-btn--gold { background: linear-gradient(135deg, #F9A630, #e8901a); color: #0a1628; box-shadow: 0 4px 20px rgba(249,166,48,0.3); }
+    .cmcl-btn--gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,166,48,0.4); }
+    .cmcl-timeline-panel { transition: transform 0.3s, box-shadow 0.3s; }
+    .cmcl-timeline-panel:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .cmcl-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cmcl-panel-header--gold { background: rgba(249,166,48,0.08); }
+    .cmcl-panel-header--amber { background: rgba(245,158,11,0.08); }
+    .cmcl-panel-header--red { background: rgba(239,68,68,0.08); }
+    .cmcl-panel-num { font-family: 'Bangers', cursive; font-size: 1.5rem; color: rgba(255,255,255,0.2); }
+    .cmcl-panel-day { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); }
+    .cmcl-compare-panel { animation: cmclPanelIn 0.4s ease; }
+    @keyframes cmclPanelIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .cmcl-timeline-panel, .cmc-path-card, .cmcl-btn, .cmc-item { transition: none !important; } .cmcl-compare-panel { animation: none !important; } }
+  </style>
+
+  <script is:inline>
+    (function() {
+      var consequences = {
+        reactive: {
+          label: 'Reactive = Invisible',
+          title: 'If clients only hear from you when they call first, they assume nothing is happening on their case.',
+          body: 'Silence doesn\'t mean "we\'re working on it" to a client. Silence means "they forgot about me." And a client who feels forgotten doesn\'t leave a 5-star review, send a referral, or stay patient when the case takes time. A simple "just checking in" every two weeks changes everything.'
+        },
+        attorney: {
+          label: 'The Bottleneck Is You',
+          title: 'When clients expect to talk to the lawyer, every status call costs $400/hr in lost productivity.',
+          body: 'Your clients don\'t need a lawyer for a status update. They need a friendly, informed voice who knows their case and can give them confidence. That\'s exactly what a trained virtual assistant does — at a fraction of the cost, on a reliable schedule.'
+        },
+        nobody: {
+          label: 'Nobody Owns It = Nobody Does It',
+          title: 'Without someone responsible for client communication, the experience depends on who remembers and who has time.',
+          body: 'That means some clients get great service and others get ghosted. The experience is inconsistent, unpredictable, and impossible to scale. You need a person whose job it is to keep every client informed — every case, every two weeks, no exceptions.'
+        }
+      };
+
+      document.querySelectorAll('.cmc-path-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          var path = this.dataset.path;
+          var data = consequences[path];
+          if (!data) return;
+          document.querySelectorAll('.cmc-path-card').forEach(function(c) { c.classList.remove('cmc-path-card--active'); });
+          this.classList.add('cmc-path-card--active');
+          document.getElementById('cmcl-consequence-label').textContent = data.label;
+          document.getElementById('cmcl-consequence-title').textContent = data.title;
+          document.getElementById('cmcl-consequence-body').textContent = data.body;
+          var panel = document.getElementById('cmcl-consequence');
+          panel.style.display = 'block';
+          panel.style.animation = 'none'; panel.offsetHeight;
+          panel.style.animation = 'cmclPanelIn 0.4s ease';
+        });
+      });
+
+      var beforeBtn = document.getElementById('cmcl-toggle-before');
+      var afterBtn = document.getElementById('cmcl-toggle-after');
+      var beforePanel = document.getElementById('cmcl-panel-before');
+      var afterPanel = document.getElementById('cmcl-panel-after');
+      if (beforeBtn && afterBtn) {
+        beforeBtn.addEventListener('click', function() {
+          beforeBtn.classList.add('cmc-toggle--active');
+          afterBtn.classList.remove('cmc-toggle--active');
+          beforePanel.style.display = 'block'; afterPanel.style.display = 'none';
+          beforePanel.style.animation = 'none'; beforePanel.offsetHeight;
+          beforePanel.style.animation = 'cmclPanelIn 0.4s ease';
+        });
+        afterBtn.addEventListener('click', function() {
+          afterBtn.classList.add('cmc-toggle--active');
+          beforeBtn.classList.remove('cmc-toggle--active');
+          afterPanel.style.display = 'block'; beforePanel.style.display = 'none';
+          afterPanel.style.animation = 'none'; afterPanel.offsetHeight;
+          afterPanel.style.animation = 'cmclPanelIn 0.4s ease';
+        });
+      }
+    })();
+  </script>
+
+  <script is:inline>
+    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'comic-client-management' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'comic-client-management' });
+  </script>
+
+</ComicCampaignLayout>
