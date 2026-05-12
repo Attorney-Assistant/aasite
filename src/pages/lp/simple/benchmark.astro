@@ -1,6 +1,6 @@
 ---
 import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
-import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/forms";
+import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/forms";
 ---
 
 <SimpleCampaignLayout
@@ -84,7 +84,11 @@ import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/
     main[data-stage="thank-you"] [data-stage]:not([data-stage="thank-you"]) { display: none; }
   </style>
 
-  <script is:inline>
+  <script is:inline define:vars={{
+    HS_PORTAL_ID: HUBSPOT_PORTAL_ID,
+    HS_REGION: HUBSPOT_REGION,
+    HS_FORM_BENCHMARK_MICRO: FORM_IDS.benchmarkMicroForm
+  }}>
     const LP_NAME = 'Benchmark';
     const main = document.querySelector('main#benchmark-lp');
 
@@ -141,9 +145,9 @@ import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/
     // ── Micro-form embed
     window.addEventListener('hsFormsReady', function() {
       hbspt.forms.create({
-        portalId: '49161090',
-        region: 'na1',
-        formId: '54776250-0e82-4808-aade-290f0a211d65',
+        portalId: HS_PORTAL_ID,
+        region: HS_REGION,
+        formId: HS_FORM_BENCHMARK_MICRO,
         target: '#hs-microform',
         onFormSubmit: function($form) {
           state.benchmark = {
