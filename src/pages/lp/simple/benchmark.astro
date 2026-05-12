@@ -1,0 +1,106 @@
+---
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/forms";
+---
+
+<SimpleCampaignLayout
+  title="The 2026 Law Firm Operations Benchmark | Attorney Assistant"
+  description="Take the 90-second self-assessment. See where your firm ranks on the 2026 Law Firm Operations Benchmark."
+>
+  <main data-stage="intro" id="benchmark-lp">
+
+    <!-- ═══════════════════════════════════════════
+         STAGE 1: INTRO
+    ═══════════════════════════════════════════ -->
+    <section data-stage="intro" class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 min-h-[80vh] flex items-center">
+      <div class="grain-overlay"></div>
+      <div class="container-wide relative z-10 py-20 lg:py-28 text-center">
+        <div class="max-w-3xl mx-auto reveal">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">
+            Independent Industry Data
+          </span>
+          <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
+            Where does your firm <span class="text-gradient-gold">rank?</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+            The 2026 Law Firm Operations Benchmark. 15 metrics. 7 operational pillars. Your firm scored against the field.
+          </p>
+
+          <!-- Mock quartile band preview -->
+          <div class="max-w-md mx-auto mb-10 p-5 rounded-2xl border border-white/10 bg-white/5">
+            <p class="text-xs font-bold text-white/40 uppercase tracking-widest mb-3 text-left">Example: voicemail rate</p>
+            <div class="flex h-3 rounded-full overflow-hidden" aria-hidden="true">
+              <div style="flex: 5; background: #7EA67C"></div>
+              <div style="flex: 20; background: #D4B280"></div>
+              <div style="flex: 75; background: #E89991"></div>
+            </div>
+            <div class="relative mt-1" aria-hidden="true">
+              <div class="absolute -top-1" style="left: 18%; transform: translateX(-50%)">
+                <div class="w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-white"></div>
+              </div>
+            </div>
+            <div class="flex justify-between text-[10px] text-white/40 mt-3">
+              <span>Top quartile</span><span>Median</span><span>Bottom quartile</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn-primary btn-lg group inline-flex" data-go-stage="micro-form">
+            Take the 90-second self-assessment
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subsequent stages added in later tasks -->
+
+  </main>
+
+  <style>
+    main[data-stage="intro"] [data-stage]:not([data-stage="intro"]) { display: none; }
+    main[data-stage="micro-form"] [data-stage]:not([data-stage="micro-form"]) { display: none; }
+    main[data-stage="scorecard"] [data-stage]:not([data-stage="scorecard"]) { display: none; }
+    main[data-stage="email-gate"] [data-stage]:not([data-stage="email-gate"]) { display: none; }
+    main[data-stage="thank-you"] [data-stage]:not([data-stage="thank-you"]) { display: none; }
+  </style>
+
+  <script is:inline>
+    const LP_NAME = 'Benchmark';
+    const main = document.querySelector('main#benchmark-lp');
+
+    const state = {
+      benchmark: null,  // populated after micro-form submit
+    };
+
+    const utms = (function() {
+      const p = new URLSearchParams(location.search);
+      return ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']
+        .reduce(function(acc, k) { acc[k] = p.get(k) || ''; return acc; }, {});
+    })();
+
+    function trackStage(lp, stage, extra) {
+      extra = extra || {};
+      if (typeof posthog !== 'undefined') {
+        posthog.capture(lp + ' LP Stage', Object.assign({ stage: stage }, extra));
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: lp.toLowerCase() + '_lp_stage', stage: stage }, extra));
+    }
+
+    function setStage(name) {
+      main.setAttribute('data-stage', name);
+      trackStage(LP_NAME, name);
+      const target = document.querySelector('[data-stage="' + name + '"]');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('[data-go-stage]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        setStage(this.getAttribute('data-go-stage'));
+      });
+    });
+
+    trackStage(LP_NAME, 'intro');
+  </script>
+
+</SimpleCampaignLayout>
