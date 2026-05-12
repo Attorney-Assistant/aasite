@@ -13,7 +13,7 @@ Two interactive lead-magnet landing pages and two booking thank-you pages, all i
 | LP | Path | Lead magnet | Reveal mechanic | Meeting routing |
 |----|------|-------------|-----------------|-----------------|
 | Benchmark | `/lp/simple/benchmark` | 2026 Law Firm Operations Benchmark PDF | Quartile bars vs. industry | Round-robin → AA Operations Directors |
-| Villain | `/lp/comic/biggest-villain` | Per-villain Mission Briefing PDF (smart content) | Comic-styled villain reveal with $ leak | Contact-routed by `biggest_villain` |
+| Villain | `/lp/comic/biggest-villain` | Per-villain Mission Briefing PDF (smart content) | Comic-styled villain reveal with $ leak | Round-robin between 2 AA closers |
 
 The HubSpot side (forms, meetings, workflows, lists, smart content) is being stood up in parallel by Nicole per the handoff doc. This spec covers the code side — the LPs and the two new thank-you pages.
 
@@ -185,7 +185,7 @@ The form's `lead_magnet` hidden field already defaults to `Benchmark` server-sid
 **thank-you**
 
 - Headline: "Your report is on the way. Check your inbox."
-- Subhead: brief reassurance ("HubSpot Workflow 1 emails the full PDF within ~60 seconds")
+- Subhead: "Check your inbox — the full report is on the way."
 - HubSpot Meetings widget — `MEETING_URLS.benchmarkOperationsReview` — embedded using the same `.meetings-iframe-container` + geo-gated loader pattern as `src/pages/lp/simple/intake.astro:255`
 - Below the widget: 3 PDF page-preview thumbnails (pages 4, 7, 11 from `ASSET_URLS.benchmarkReportPdf`) — placeholder gradient cards with `TODO(nicole)` comments until Manus delivers preview images. Implementation can optionally render them at build time by piping the PDF through `pdftoppm` (Poppler) in a build script — defer that decision to implementation.
 
@@ -343,7 +343,7 @@ The form's `lead_magnet` hidden field already defaults to `Villain` server-side.
 
 - Bangers headline: `YOUR MISSION BRIEFING IS EN ROUTE.`
 - Subhead: "Check your inbox. The {{VILLAIN_NAME}} doesn't stand a chance."
-- HubSpot Meetings widget — `MEETING_URLS.villainDeployRescueCall`. Routing by `biggest_villain` happens server-side via HubSpot Contact Routing (handoff doc Phase 3), so the LP doesn't need to know which closer to assign.
+- HubSpot Meetings widget — `MEETING_URLS.villainDeployRescueCall`. Meeting routing is simple round-robin between 2 closers, configured in HubSpot. The LP doesn't need any routing logic.
 - Below: a single Mission Briefing PDF cover preview (placeholder until Manus delivers per-villain covers — generic cover for now, swap later)
 
 ## 6. Thank-You Pages (booking confirmations)
@@ -423,7 +423,7 @@ These exist server-side per `handoff/01_HUBSPOT_SETUP.md`. The LP depends on the
 
 - **Custom contact properties** (Phase 1) — 9 new properties: `firm_attorney_count`, `monthly_lead_volume`, `voicemail_rate_`, `records_tat_days`, `operations_maturity_score`, `biggest_villain`, `secondary_villains`, `threat_level`, `estimated_annual_leak`
 - **3 forms** (Phase 2) — IDs in `src/config/forms.ts`, all set to "Display inline thank-you message"
-- **2 meeting types** (Phase 3) — Operations Review (round-robin) + Deploy AA Rescue Call (contact routing on `biggest_villain`), both will be updated to redirect to the new thank-you pages once live
+- **2 meeting types** (Phase 3) — Operations Review (round-robin) + Deploy AA Rescue Call (round-robin between 2 closers), both will be updated to redirect to the new thank-you pages once live
 - **5 workflows** (Phase 4) — Workflow 2 handles per-villain PDF delivery via smart content on `biggest_villain`; the LP only writes the property, the workflow takes over
 - **Lists, smart content, Slack alerts** (Phases 5–6, 8) — independent of LP code
 
@@ -448,11 +448,12 @@ All `TODO(nicole)` markers in the LP code:
 - [ ] `threat_level` value matches HubSpot dropdown options exactly (case-sensitive)
 - [ ] `estimated_annual_leak` writes as a plain integer (no currency symbol, no commas)
 - [ ] HubSpot Meetings widget loads in the thank-you stage
-- [ ] Villain-routed meeting routing works end-to-end (test by submitting with different villains)
+- [ ] Deploy AA Rescue Call meeting widget loads and books successfully in the Villain LP thank-you stage
 - [ ] Both new thank-you pages fire `Meeting Booked` PostHog + dataLayer events
 - [ ] Both LPs + both thank-you pages emit `noindex, nofollow`
 - [ ] No console errors or warnings in the browser
 - [ ] All 7 villain silhouettes load correctly and have WebP variants
+- [ ] Both `voicemail_rate_` and `records_tat_days` submit successfully — the trailing underscore on `voicemail_rate_` is intentional (HubSpot stripped the `%` from the internal name)
 - [ ] Mode flip on Villain LP (`clean` → `comic`) animates smoothly
 - [ ] Astro build completes without errors
 
