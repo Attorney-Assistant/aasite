@@ -52,6 +52,26 @@ import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         STAGE 2: MICRO-FORM
+    ═══════════════════════════════════════════ -->
+    <section data-stage="micro-form" class="relative overflow-hidden bg-gray-950 py-20 md:py-28 min-h-screen flex items-center">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+      <div class="grain-overlay"></div>
+      <div class="container-narrow max-w-2xl relative z-10">
+        <div class="text-center mb-10 reveal">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">Step 1 of 2</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">Five questions. Ninety seconds.</h2>
+          <p class="text-base text-white/60 max-w-md mx-auto">Your scorecard renders instantly. No email required to see your tier.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal">
+          <div class="bg-white rounded-xl p-6 md:p-8">
+            <div id="hs-microform" data-hs-form-target></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Subsequent stages added in later tasks -->
 
   </main>
@@ -88,10 +108,11 @@ import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/
     }
 
     function setStage(name) {
+      var target = document.querySelector('[data-stage="' + name + '"]');
+      if (!target) { console.warn('setStage: unknown stage "' + name + '"'); return; }
       main.setAttribute('data-stage', name);
       trackStage(LP_NAME, name);
-      const target = document.querySelector('[data-stage="' + name + '"]');
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     }
 
     document.querySelectorAll('[data-go-stage]').forEach(function(btn) {
@@ -101,6 +122,46 @@ import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS, ASSET_URLS } from "@/config/
     });
 
     trackStage(LP_NAME, 'intro');
+
+    // ── HubSpot Forms loader (geo-gated)
+    window.__hsGeoReady.then(function(allowed) {
+      if (!allowed) {
+        document.querySelectorAll('[data-hs-form-target]').forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This form is not available from your location.</div>';
+        });
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = 'https://js.hsforms.net/forms/v2.js';
+      s.async = true;
+      s.onload = function() { window.dispatchEvent(new Event('hsFormsReady')); };
+      document.head.appendChild(s);
+    });
+
+    // ── Micro-form embed
+    window.addEventListener('hsFormsReady', function() {
+      hbspt.forms.create({
+        portalId: '49161090',
+        region: 'na1',
+        formId: '54776250-0e82-4808-aade-290f0a211d65',
+        target: '#hs-microform',
+        onFormSubmit: function($form) {
+          state.benchmark = {
+            firm_attorney_count: $form.find('[name="firm_attorney_count"]').val() || '',
+            monthly_lead_volume: $form.find('[name="monthly_lead_volume"]').val() || '',
+            practice_area:       $form.find('[name="practice_area"]').val() || '',
+            voicemail_rate_:     parseFloat($form.find('[name="voicemail_rate_"]').val()) || 0,
+            records_tat_days:    $form.find('[name="records_tat_days"]').val() === ''
+              ? null
+              : parseInt($form.find('[name="records_tat_days"]').val(), 10),
+          };
+          trackStage(LP_NAME, 'micro-form-submitted', state.benchmark);
+        },
+        onFormSubmitted: function() {
+          setStage('scorecard');
+        }
+      });
+    });
   </script>
 
 </SimpleCampaignLayout>
