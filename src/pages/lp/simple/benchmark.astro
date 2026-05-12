@@ -106,6 +106,26 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         STAGE 4: EMAIL GATE
+    ═══════════════════════════════════════════ -->
+    <section data-stage="email-gate" class="relative overflow-hidden bg-gray-950 py-20 md:py-28 min-h-screen flex items-center">
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px]"></div>
+      <div class="grain-overlay"></div>
+      <div class="container-narrow max-w-xl relative z-10">
+        <div class="text-center mb-10 reveal">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">Step 2 of 2</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">Where should we send your report?</h2>
+          <p class="text-base text-white/60">The full benchmark, your scorecard data, and the top performer playbook.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal">
+          <div class="bg-white rounded-xl p-6 md:p-8">
+            <div id="hs-emailgate" data-hs-form-target></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Subsequent stages added in later tasks -->
 
   </main>
@@ -121,7 +141,8 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
   <script is:inline define:vars={{
     HS_PORTAL_ID: HUBSPOT_PORTAL_ID,
     HS_REGION: HUBSPOT_REGION,
-    HS_FORM_BENCHMARK_MICRO: FORM_IDS.benchmarkMicroForm
+    HS_FORM_BENCHMARK_MICRO: FORM_IDS.benchmarkMicroForm,
+    HS_FORM_BENCHMARK_EMAILGATE: FORM_IDS.benchmarkEmailGate
   }}>
     const LP_NAME = 'Benchmark';
     const main = document.querySelector('main#benchmark-lp');
@@ -301,6 +322,21 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
         },
         onFormSubmitted: function() {
           setStage('scorecard');
+        }
+      });
+
+      hbspt.forms.create({
+        portalId: HS_PORTAL_ID,
+        region: HS_REGION,
+        formId: HS_FORM_BENCHMARK_EMAILGATE,
+        target: '#hs-emailgate',
+        onFormReady: function($form) {
+          Object.keys(utms).forEach(function(k) {
+            $form.find('[name="' + k + '"]').val(utms[k]);
+          });
+        },
+        onFormSubmitted: function() {
+          setStage('thank-you');
         }
       });
     });
