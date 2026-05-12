@@ -126,9 +126,65 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       </div>
     </section>
 
-    <!-- Subsequent stages added in later tasks -->
+    <!-- ═══════════════════════════════════════════
+         STAGE 5: THANK YOU
+    ═══════════════════════════════════════════ -->
+    <section data-stage="thank-you" class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28 min-h-screen">
+      <div class="grain-overlay"></div>
+      <div class="container-narrow max-w-3xl relative z-10">
+        <div class="text-center mb-12 reveal">
+          <div class="w-16 h-16 rounded-full bg-brand-gold/10 border-2 border-brand-gold/30 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">You're in.</h2>
+          <p class="text-lg text-white/60 mb-2">Check your inbox — the full report is on the way.</p>
+          <p class="text-base text-white/40">While you're here, book your Operations Review and we'll walk through your scorecard together.</p>
+        </div>
+
+        <!-- Meeting widget -->
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal mb-12">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/simple-campaign-operations-review?embed=true"></div>
+          </div>
+        </div>
+
+        <!-- PDF preview thumbnails -->
+        <p class="text-center text-xs font-bold text-white/40 uppercase tracking-widest mb-6">A glimpse inside the report</p>
+        <div class="grid grid-cols-3 gap-4 reveal" id="benchmark-pdf-previews">
+          <!-- TODO(nicole): swap these gradient placeholders for actual page screenshots (pages 4, 7, 11 of the benchmark report PDF) -->
+          <div class="aspect-[8.5/11] rounded-lg bg-gradient-to-br from-brand-gold/20 via-brand-navy/40 to-brand-950 border border-white/10 flex items-center justify-center">
+            <span class="text-white/30 text-sm font-heading">p. 4</span>
+          </div>
+          <div class="aspect-[8.5/11] rounded-lg bg-gradient-to-br from-brand-gold/20 via-brand-navy/40 to-brand-950 border border-white/10 flex items-center justify-center">
+            <span class="text-white/30 text-sm font-heading">p. 7</span>
+          </div>
+          <div class="aspect-[8.5/11] rounded-lg bg-gradient-to-br from-brand-gold/20 via-brand-navy/40 to-brand-950 border border-white/10 flex items-center justify-center">
+            <span class="text-white/30 text-sm font-heading">p. 11</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
+
+  <!-- HubSpot Meetings Embed loader (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (!allowed) {
+        document.querySelectorAll('.meetings-iframe-container').forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This form is not available from your location.</div>';
+        });
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+  </style>
 
   <style>
     main[data-stage="intro"] [data-stage]:not([data-stage="intro"]) { display: none; }
