@@ -186,6 +186,12 @@ const villains = [
             <h3 class="display" id="reveal-name"></h3>
             <p class="reveal-assessment" id="reveal-assessment"></p>
 
+            <div class="reveal-cta-wrap">
+              <button type="button" class="hero-cta reveal-cta" data-go-stage="email-gate">
+                <span id="reveal-cta-label">Deploy Attorney Assistant</span>
+              </button>
+            </div>
+
             <div class="damage-card">
               <p class="damage-label">The Damage</p>
               <p class="damage-amount" id="reveal-leak"></p>
@@ -207,12 +213,6 @@ const villains = [
         <div class="secondary-wrap">
           <p class="secondary-label">Also fighting</p>
           <div class="secondary-grid" id="secondary-grid"><!-- populated by JS --></div>
-        </div>
-
-        <div class="reveal-cta-wrap">
-          <button type="button" class="hero-cta reveal-cta" data-go-stage="email-gate">
-            <span id="reveal-cta-label">Deploy Attorney Assistant</span>
-          </button>
         </div>
       </div>
     </section>
@@ -641,7 +641,7 @@ const villains = [
     #villain-lp .secondary-card .info h4 { font-family: 'Bangers', sans-serif; font-size: 22px; color: #fff; text-shadow: 1px 1px 0 var(--navy-deep); margin-bottom: 6px; line-height: 1.05; }
     #villain-lp .secondary-card .info p { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--steel); line-height: 1.4; }
 
-    #villain-lp .reveal-cta-wrap { text-align: center; margin-top: 48px; }
+    #villain-lp .reveal-cta-wrap { margin: 24px 0 32px; }
     #villain-lp .reveal-cta { font-size: 24px; }
 
     /* ── Email gate */
