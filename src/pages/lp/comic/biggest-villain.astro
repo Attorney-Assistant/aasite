@@ -65,6 +65,60 @@ const villains = [
       </section>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         STAGE 2: CONTEXT QUIZ (clean mode)
+    ═══════════════════════════════════════════ -->
+    <section data-stage="context-quiz" class="clean-quiz">
+      <div class="container">
+        <p class="clean-progress" id="ctx-progress">1 of 3 · Quick context</p>
+
+        <div class="clean-card" data-ctx-q="firm_attorney_count">
+          <label class="clean-label">How many attorneys at your firm?</label>
+          <select class="clean-select" data-ctx-input="firm_attorney_count">
+            <option value="">Select…</option>
+            <option value="Solo">Solo</option>
+            <option value="2-5">2-5</option>
+            <option value="6-15">6-15</option>
+            <option value="16-50">16-50</option>
+            <option value="51+">51+</option>
+          </select>
+          <button type="button" class="clean-next" data-ctx-next="firm_attorney_count">Next →</button>
+        </div>
+
+        <div class="clean-card" data-ctx-q="monthly_lead_volume" hidden>
+          <label class="clean-label">Roughly how many new leads per month?</label>
+          <select class="clean-select" data-ctx-input="monthly_lead_volume">
+            <option value="">Select…</option>
+            <option value="<25">Under 25</option>
+            <option value="25-75">25-75</option>
+            <option value="76-200">76-200</option>
+            <option value="201-500">201-500</option>
+            <option value="500+">500+</option>
+          </select>
+          <button type="button" class="clean-next" data-ctx-next="monthly_lead_volume">Next →</button>
+        </div>
+
+        <div class="clean-card" data-ctx-q="practice_area" hidden>
+          <label class="clean-label">Primary practice area?</label>
+          <select class="clean-select" data-ctx-input="practice_area">
+            <option value="">Select…</option>
+            <option value="Personal Injury">Personal Injury</option>
+            <option value="Mass Tort / Class Action">Mass Tort / Class Action</option>
+            <option value="Workers' Compensation">Workers' Compensation</option>
+            <option value="Family Law">Family Law</option>
+            <option value="Criminal Defense">Criminal Defense</option>
+            <option value="Estate / Probate">Estate / Probate</option>
+            <option value="Business / Commercial">Business / Commercial</option>
+            <option value="Bankruptcy">Bankruptcy</option>
+            <option value="Immigration">Immigration</option>
+            <option value="Other">Other</option>
+          </select>
+          <!-- TODO(nicole): confirm these options against HubSpot's practice_area property; mismatches will be rejected on submit -->
+          <button type="button" class="clean-next" data-ctx-next="practice_area">Next →</button>
+        </div>
+      </div>
+    </section>
+
     <!-- Subsequent stages added in later tasks -->
 
   </div>
@@ -263,6 +317,42 @@ const villains = [
     #villain-lp[data-mode="clean"] { background: var(--navy); }
     #villain-lp[data-mode="clean"]::before, #villain-lp[data-mode="clean"]::after { display: none; }
     #villain-lp[data-mode="clean"] .header-strip { border-color: rgba(255,255,255,0.08); }
+
+    /* ── Clean quiz (context questions) */
+    #villain-lp .clean-quiz { padding: 80px 0; min-height: 80vh; display: flex; align-items: center; }
+    #villain-lp .clean-progress {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700;
+      margin-bottom: 32px; text-align: center;
+    }
+    #villain-lp .clean-card {
+      background: #fff; border-radius: 16px; padding: 40px;
+      max-width: 560px; margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    #villain-lp .clean-label {
+      font-family: 'Sora', sans-serif; font-weight: 700;
+      font-size: 22px; color: #1a3a5c;
+      display: block; margin-bottom: 20px; line-height: 1.3;
+    }
+    #villain-lp .clean-select {
+      width: 100%; padding: 16px;
+      border: 2px solid #e5e7eb; border-radius: 10px;
+      font-family: 'Inter', sans-serif; font-size: 16px; color: #1a3a5c;
+      background: #fff;
+      margin-bottom: 20px;
+    }
+    #villain-lp .clean-select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(249,166,48,0.15); }
+    #villain-lp .clean-next {
+      background: var(--navy-mid); color: #fff;
+      padding: 14px 28px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+      border: none; border-radius: 10px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    #villain-lp .clean-next:hover { background: var(--navy); }
+    #villain-lp .clean-next:disabled { background: #d0d5dd; cursor: not-allowed; }
   </style>
 
   <script is:inline>
@@ -308,6 +398,28 @@ const villains = [
     });
 
     trackStage(LP_NAME, 'intro');
+
+    // ── Context quiz logic
+    const CTX_ORDER = ['firm_attorney_count', 'monthly_lead_volume', 'practice_area'];
+    let ctxIndex = 0;
+
+    document.querySelectorAll('[data-ctx-next]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const key = this.getAttribute('data-ctx-next');
+        const input = document.querySelector('[data-ctx-input="' + key + '"]');
+        if (!input.value) { input.focus(); return; }
+        state.context[key] = input.value;
+
+        if (ctxIndex < CTX_ORDER.length - 1) {
+          document.querySelector('[data-ctx-q="' + CTX_ORDER[ctxIndex] + '"]').hidden = true;
+          ctxIndex++;
+          document.querySelector('[data-ctx-q="' + CTX_ORDER[ctxIndex] + '"]').hidden = false;
+          document.getElementById('ctx-progress').textContent = (ctxIndex + 1) + ' of 3 · Quick context';
+        } else {
+          setStage('transition');
+        }
+      });
+    });
   </script>
 
 </ComicCampaignLayout>
