@@ -330,7 +330,8 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       if (!target) { console.warn('setStage: unknown stage "' + name + '"'); return; }
       main.setAttribute('data-stage', name);
       trackStage(LP_NAME, name);
-      if (name === 'scorecard') renderScorecard();
+      if (name === 'scorecard')  renderScorecard();
+      if (name === 'email-gate') populateBenchmarkEmailGate();
       requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     }
 
@@ -386,16 +387,23 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
         region: HS_REGION,
         formId: HS_FORM_BENCHMARK_EMAILGATE,
         target: '#hs-emailgate',
-        onFormReady: function($form) {
-          Object.keys(utms).forEach(function(k) {
-            $form.find('[name="' + k + '"]').val(utms[k]).change();
-          });
-        },
         onFormSubmitted: function() {
           setStage('thank-you');
         }
       });
     });
+
+    function populateBenchmarkEmailGate() {
+      const container = document.querySelector('#hs-emailgate');
+      if (!container) return;
+      const set = function(name, value) {
+        const input = container.querySelector('[name="' + name + '"]');
+        if (!input) return;
+        input.value = value;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      };
+      Object.keys(utms).forEach(function(k) { set(k, utms[k]); });
+    }
   </script>
 
 </SimpleCampaignLayout>
