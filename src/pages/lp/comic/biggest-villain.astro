@@ -99,21 +99,50 @@ const villains = [
         </div>
 
         <div class="clean-card" data-ctx-q="practice_area" hidden>
-          <label class="clean-label">Primary practice area?</label>
-          <select class="clean-select" data-ctx-input="practice_area">
-            <option value="">Select…</option>
-            <option value="Personal Injury">Personal Injury</option>
-            <option value="Mass Tort / Class Action">Mass Tort / Class Action</option>
-            <option value="Workers' Compensation">Workers' Compensation</option>
-            <option value="Family Law">Family Law</option>
-            <option value="Criminal Defense">Criminal Defense</option>
-            <option value="Estate / Probate">Estate / Probate</option>
-            <option value="Business / Commercial">Business / Commercial</option>
-            <option value="Bankruptcy">Bankruptcy</option>
-            <option value="Immigration">Immigration</option>
-            <option value="Other">Other</option>
-          </select>
-          <!-- TODO(nicole): confirm these options against HubSpot's practice_area property; mismatches will be rejected on submit -->
+          <label class="clean-label">Primary practice area(s)?</label>
+          <p class="clean-help">Select all that apply.</p>
+          <div class="clean-checkboxes">
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Personal injury">
+              <span>Personal Injury</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Mass Tort / Class Action">
+              <span>Mass Tort / Class Action</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Workers' Compensation">
+              <span>Workers' Compensation</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Family law">
+              <span>Family Law</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Criminal defense">
+              <span>Criminal Defense</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Estate planning">
+              <span>Estate / Probate</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Corporate law">
+              <span>Business / Commercial</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Bankruptcy">
+              <span>Bankruptcy</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Immigration">
+              <span>Immigration</span>
+            </label>
+            <label class="clean-checkbox-row">
+              <input type="checkbox" data-ctx-input="practice_area" value="Other">
+              <span>Other</span>
+            </label>
+          </div>
           <button type="button" class="clean-next" data-ctx-next="practice_area">Next →</button>
         </div>
       </div>
@@ -377,6 +406,37 @@ const villains = [
     }
     #villain-lp .clean-next:hover { background: var(--navy); }
     #villain-lp .clean-next:disabled { background: #d0d5dd; cursor: not-allowed; }
+    #villain-lp .clean-help {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #6f7a8a;
+      margin-top: -12px;
+      margin-bottom: 20px;
+    }
+    #villain-lp .clean-checkboxes {
+      display: flex; flex-direction: column; gap: 8px;
+      margin-bottom: 20px;
+      max-height: 320px; overflow-y: auto;
+    }
+    #villain-lp .clean-checkbox-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    #villain-lp .clean-checkbox-row:hover { background: rgba(249,166,48,0.06); }
+    #villain-lp .clean-checkbox-row input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    #villain-lp .clean-checkbox-row span {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #1a3a5c;
+    }
 
     /* ── Transition stage */
     #villain-lp .transition-stage {
@@ -453,7 +513,7 @@ const villains = [
     const main = document.querySelector('#villain-lp');
 
     const state = {
-      context: { firm_attorney_count: '', monthly_lead_volume: '', practice_area: '' },
+      context: { firm_attorney_count: '', monthly_lead_volume: '', practice_area: [] },
       scores: { PH: 0, AB: 0, VK: 0, DP: 0, SS: 0, AA: 0, HG: 0 },
       answers: [],
       qIndex: 0,
@@ -501,9 +561,19 @@ const villains = [
     document.querySelectorAll('[data-ctx-next]').forEach(function(btn) {
       btn.addEventListener('click', function() {
         const key = this.getAttribute('data-ctx-next');
-        const input = document.querySelector('[data-ctx-input="' + key + '"]');
-        if (!input.value) { input.focus(); return; }
-        state.context[key] = input.value;
+        const inputs = document.querySelectorAll('[data-ctx-input="' + key + '"]');
+        const first = inputs[0];
+        let value;
+        if (first && first.type === 'checkbox') {
+          // Multi-checkbox: capture array of checked values
+          value = Array.from(inputs).filter(function(i) { return i.checked; }).map(function(i) { return i.value; });
+          if (value.length === 0) { first.focus(); return; }
+        } else {
+          // Single select: capture string value
+          if (!first.value) { first.focus(); return; }
+          value = first.value;
+        }
+        state.context[key] = value;
 
         if (ctxIndex < CTX_ORDER.length - 1) {
           document.querySelector('[data-ctx-q="' + CTX_ORDER[ctxIndex] + '"]').hidden = true;
