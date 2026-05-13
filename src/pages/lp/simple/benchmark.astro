@@ -388,7 +388,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
         target: '#hs-emailgate',
         onFormReady: function($form) {
           Object.keys(utms).forEach(function(k) {
-            $form.find('[name="' + k + '"]').val(utms[k]);
+            $form.find('[name="' + k + '"]').val(utms[k]).change();
           });
         },
         onFormSubmitted: function() {

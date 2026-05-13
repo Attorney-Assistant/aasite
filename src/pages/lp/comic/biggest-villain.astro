@@ -1044,7 +1044,7 @@ const villains = [
         target: '#hs-villain-emailgate',
         onFormReady: function($form) {
           if (!state.result) return;
-          const set = function(name, value) { $form.find('[name="' + name + '"]').val(value); };
+          const set = function(name, value) { $form.find('[name="' + name + '"]').val(value).change(); };
           set('biggest_villain',         VILLAIN_NAMES[state.result.biggestVillain]);
           set('secondary_villains',      state.result.secondaryVillains.map(function(v) { return VILLAIN_NAMES[v]; }).join(', '));
           set('threat_level',            state.result.threatLevel);
