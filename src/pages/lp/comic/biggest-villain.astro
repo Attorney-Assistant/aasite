@@ -1044,7 +1044,27 @@ const villains = [
     });
 
     function populateVillainEmailGate() {
-      if (!state.result) return;
+      const container = document.querySelector('#hs-villain-emailgate');
+      if (!container || !state.result) return;
+
+      // React-bypass setter — required because HubSpot's form uses React controlled inputs
+      const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+      const setField = function(name, value) {
+        const input = container.querySelector('[name="' + name + '"]');
+        if (!input) return;
+        nativeSetter.call(input, value);
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      };
+
+      setField('biggest_villain',       VILLAIN_HS_VALUES[state.result.biggestVillain]);
+      setField('secondary_villains',    state.result.secondaryVillains.map(function(v) { return VILLAIN_NAMES[v]; }).join(', '));
+      setField('threat_level',          THREAT_HS_VALUES[state.result.threatLevel]);
+      setField('estimated_annual_leak', state.leak);
+      setField('firm_attorney_count',   FIRM_SIZE_HS_VALUES[state.context.firm_attorney_count]);
+      setField('monthly_lead_volume',   LEAD_VOLUME_HS_VALUES[state.context.monthly_lead_volume]);
+      setField('practice_area',         state.context.practice_area.join(';'));
+
+      // Belt-and-suspenders: also update the URL so HubSpot tracking code captures it via session cookie
       const params = new URLSearchParams(window.location.search);
       params.set('biggest_villain',       VILLAIN_HS_VALUES[state.result.biggestVillain]);
       params.set('secondary_villains',    state.result.secondaryVillains.map(function(v) { return VILLAIN_NAMES[v]; }).join(', '));
@@ -1053,7 +1073,6 @@ const villains = [
       params.set('firm_attorney_count',   FIRM_SIZE_HS_VALUES[state.context.firm_attorney_count]);
       params.set('monthly_lead_volume',   LEAD_VOLUME_HS_VALUES[state.context.monthly_lead_volume]);
       params.set('practice_area',         state.context.practice_area.join(';'));
-      // Replace URL silently — HubSpot's form scans window.location.search at submit time and auto-detects matching field names
       window.history.replaceState({}, '', window.location.pathname + '?' + params.toString());
     }
   </script>

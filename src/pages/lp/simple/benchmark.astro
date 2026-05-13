@@ -409,21 +409,46 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     });
 
     function populateBenchmarkEmailGate() {
+      const container = document.querySelector('#hs-emailgate');
+      if (!container || !state.benchmark) return;
+
+      // React-bypass setter — required because HubSpot's form uses React controlled inputs
+      const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+      const setField = function(name, value) {
+        const input = container.querySelector('[name="' + name + '"]');
+        if (!input) return;
+        nativeSetter.call(input, value);
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      };
+
+      setField('firm_attorney_count', FIRM_SIZE_HS_VALUES[state.benchmark.firm_attorney_count]);
+      setField('monthly_lead_volume', LEAD_VOLUME_HS_VALUES[state.benchmark.monthly_lead_volume]);
+      if (Array.isArray(state.benchmark.practice_area)) {
+        setField('practice_area', state.benchmark.practice_area.join(';'));
+      } else if (state.benchmark.practice_area) {
+        setField('practice_area', state.benchmark.practice_area);
+      }
+      if (state.benchmark.voicemail_rate_ !== undefined && state.benchmark.voicemail_rate_ !== null) {
+        setField('voicemail_rate_', state.benchmark.voicemail_rate_);
+      }
+      if (state.benchmark.records_tat_days !== undefined && state.benchmark.records_tat_days !== null) {
+        setField('records_tat_days', state.benchmark.records_tat_days);
+      }
+
+      // Belt-and-suspenders: also update the URL so HubSpot tracking code captures it via session cookie
       const params = new URLSearchParams(window.location.search);
-      if (state.benchmark) {
-        params.set('firm_attorney_count', FIRM_SIZE_HS_VALUES[state.benchmark.firm_attorney_count]);
-        params.set('monthly_lead_volume', LEAD_VOLUME_HS_VALUES[state.benchmark.monthly_lead_volume]);
-        if (Array.isArray(state.benchmark.practice_area)) {
-          params.set('practice_area', state.benchmark.practice_area.join(';'));
-        } else if (state.benchmark.practice_area) {
-          params.set('practice_area', state.benchmark.practice_area);
-        }
-        if (state.benchmark.voicemail_rate_ !== undefined && state.benchmark.voicemail_rate_ !== null) {
-          params.set('voicemail_rate_', state.benchmark.voicemail_rate_);
-        }
-        if (state.benchmark.records_tat_days !== undefined && state.benchmark.records_tat_days !== null) {
-          params.set('records_tat_days', state.benchmark.records_tat_days);
-        }
+      params.set('firm_attorney_count', FIRM_SIZE_HS_VALUES[state.benchmark.firm_attorney_count]);
+      params.set('monthly_lead_volume', LEAD_VOLUME_HS_VALUES[state.benchmark.monthly_lead_volume]);
+      if (Array.isArray(state.benchmark.practice_area)) {
+        params.set('practice_area', state.benchmark.practice_area.join(';'));
+      } else if (state.benchmark.practice_area) {
+        params.set('practice_area', state.benchmark.practice_area);
+      }
+      if (state.benchmark.voicemail_rate_ !== undefined && state.benchmark.voicemail_rate_ !== null) {
+        params.set('voicemail_rate_', state.benchmark.voicemail_rate_);
+      }
+      if (state.benchmark.records_tat_days !== undefined && state.benchmark.records_tat_days !== null) {
+        params.set('records_tat_days', state.benchmark.records_tat_days);
       }
       window.history.replaceState({}, '', window.location.pathname + '?' + params.toString());
     }
