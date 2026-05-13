@@ -694,6 +694,7 @@ const villains = [
       if (name === 'transition')   setTimeout(function() { setStage('villain-quiz'); }, 1200);
       if (name === 'villain-quiz') renderQuestion();
       if (name === 'reveal')       renderReveal();
+      if (name === 'email-gate')   populateVillainEmailGate();
       requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     }
 
@@ -1023,6 +1024,36 @@ const villains = [
       document.head.appendChild(s);
     });
 
+    const VILLAIN_HS_VALUES = {
+      PH: 'voicemail_phantom',
+      AB: 'after_hours_ambush',
+      VK: 'records_vault_keeper',
+      DP: 'drowning_paralegal',
+      SS: 'silence_saboteur',
+      AA: 'admin_avalanche',
+      HG: 'hiring_ghost'
+    };
+    const THREAT_HS_VALUES = {
+      Mild: 'mild',
+      Serious: 'serious',
+      Critical: 'critical',
+      Existential: 'existential'
+    };
+    const FIRM_SIZE_HS_VALUES = {
+      'Solo': 'solo',
+      '2-5': '2_5',
+      '6-15': '6_15',
+      '16-50': '16_50',
+      '51+': '51_plus'
+    };
+    const LEAD_VOLUME_HS_VALUES = {
+      '<25': 'lt_25',
+      '25-75': '25_75',
+      '76-200': '76_200',
+      '201-500': '201_500',
+      '500+': '500_plus'
+    };
+
     // ── Villain email gate embed
     window.addEventListener('hsFormsReady', function() {
       hbspt.forms.create({
@@ -1030,23 +1061,30 @@ const villains = [
         region: HS_REGION,
         formId: HS_FORM_VILLAIN_EMAILGATE,
         target: '#hs-villain-emailgate',
-        onFormReady: function($form) {
-          if (!state.result) return;
-          const set = function(name, value) { $form.find('[name="' + name + '"]').val(value).change(); };
-          set('biggest_villain',         VILLAIN_NAMES[state.result.biggestVillain]);
-          set('secondary_villains',      state.result.secondaryVillains.map(function(v) { return VILLAIN_NAMES[v]; }).join(', '));
-          set('threat_level',            state.result.threatLevel);
-          set('estimated_annual_leak',   String(state.leak));
-          set('firm_attorney_count',     state.context.firm_attorney_count);
-          set('monthly_lead_volume',     state.context.monthly_lead_volume);
-          set('practice_area',           state.context.practice_area.join(';'));
-          Object.keys(utms).forEach(function(k) { set(k, utms[k]); });
-        },
         onFormSubmitted: function() {
           setStage('thank-you');
         }
       });
     });
+
+    function populateVillainEmailGate() {
+      const container = document.querySelector('#hs-villain-emailgate');
+      if (!container || !state.result) return;
+      const set = function(name, value) {
+        const input = container.querySelector('[name="' + name + '"]');
+        if (!input) return;
+        input.value = value;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      };
+      set('biggest_villain',       VILLAIN_HS_VALUES[state.result.biggestVillain]);
+      set('secondary_villains',    state.result.secondaryVillains.map(function(v) { return VILLAIN_NAMES[v]; }).join(', '));
+      set('threat_level',          THREAT_HS_VALUES[state.result.threatLevel]);
+      set('estimated_annual_leak', state.leak);
+      set('firm_attorney_count',   FIRM_SIZE_HS_VALUES[state.context.firm_attorney_count]);
+      set('monthly_lead_volume',   LEAD_VOLUME_HS_VALUES[state.context.monthly_lead_volume]);
+      set('practice_area',         state.context.practice_area.join(';'));
+      Object.keys(utms).forEach(function(k) { set(k, utms[k]); });
+    }
   </script>
 
 </ComicCampaignLayout>
