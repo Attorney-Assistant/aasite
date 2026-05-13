@@ -119,6 +119,18 @@ const villains = [
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         STAGE 3: TRANSITION (mode flip)
+    ═══════════════════════════════════════════ -->
+    <section data-stage="transition" class="transition-stage">
+      <div class="speedlines"></div>
+      <div class="container" style="text-align: center; position: relative; z-index: 2;">
+        <h2 class="display" style="font-size: clamp(48px, 8vw, 96px);">
+          <span class="accent-gold">Now let's find</span><br>your <span class="accent-red">villain</span>…
+        </h2>
+      </div>
+    </section>
+
     <!-- Subsequent stages added in later tasks -->
 
   </div>
@@ -353,6 +365,29 @@ const villains = [
     }
     #villain-lp .clean-next:hover { background: var(--navy); }
     #villain-lp .clean-next:disabled { background: #d0d5dd; cursor: not-allowed; }
+
+    /* ── Transition stage */
+    #villain-lp .transition-stage {
+      min-height: 70vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      animation: transitionFadeIn 600ms ease-out;
+    }
+    @keyframes transitionFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    #villain-lp .speedlines {
+      position: absolute; top: 50%; left: 0; width: 100%; height: 200px;
+      transform: translateY(-50%);
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 12px,
+        rgba(255,255,255,0.06) 12px,
+        rgba(255,255,255,0.06) 14px
+      );
+      pointer-events: none;
+      animation: speedlinesIn 800ms ease-out;
+    }
+    @keyframes speedlinesIn { from { opacity: 0; transform: translateY(-50%) scaleX(0.5); } to { opacity: 0.5; transform: translateY(-50%) scaleX(1); } }
   </style>
 
   <script is:inline>
@@ -390,6 +425,7 @@ const villains = [
       // Mode flip — clean only during context-quiz
       main.setAttribute('data-mode', name === 'context-quiz' ? 'clean' : 'comic');
       trackStage(LP_NAME, name);
+      if (name === 'transition') setTimeout(function() { setStage('villain-quiz'); }, 1200);
       requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     }
 
