@@ -1,6 +1,6 @@
 ---
 import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
-import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS } from "@/config/forms";
+import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS } from "@/config/forms";
 
 const villains = [
   { code: 'PH', name: 'The Voicemail Phantom',    slug: 'voicemail-phantom',    pow: 'POW!',    num: '01', mo: "The villain that haunts every law firm. Roughly 1 in 4 inbound legal calls hits voicemail at the median firm. 70% never call back. They Google the next firm.", stat: '~20%', label: 'of leads vanish in the first hour' },
@@ -213,6 +213,22 @@ const villains = [
           <button type="button" class="hero-cta reveal-cta" data-go-stage="email-gate">
             <span id="reveal-cta-label">Deploy Attorney Assistant</span>
           </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STAGE 6: EMAIL GATE
+    ═══════════════════════════════════════════ -->
+    <section data-stage="email-gate" class="email-gate-stage">
+      <div class="container">
+        <div class="email-gate-header">
+          <span class="section-eyebrow">The Mission Briefing</span>
+          <h2 class="display">Your <span class="accent-gold">90-day rescue plan</span> is one step away.</h2>
+          <p>We'll email your personalized Mission Briefing — the playbook with the exact 90-day plan to defeat your villain.</p>
+        </div>
+        <div class="email-gate-form">
+          <div id="hs-villain-emailgate" data-hs-form-target></div>
         </div>
       </div>
     </section>
@@ -582,9 +598,20 @@ const villains = [
 
     #villain-lp .reveal-cta-wrap { text-align: center; margin-top: 48px; }
     #villain-lp .reveal-cta { font-size: 24px; }
+
+    /* ── Email gate */
+    #villain-lp .email-gate-stage { padding: 64px 0; min-height: 80vh; }
+    #villain-lp .email-gate-header { max-width: 700px; margin: 0 auto 32px; text-align: center; }
+    #villain-lp .email-gate-header h2 { font-size: clamp(32px, 5vw, 56px); }
+    #villain-lp .email-gate-header p { font-family: 'Sora', sans-serif; font-size: 18px; color: var(--steel); max-width: 600px; margin: 16px auto 0; }
+    #villain-lp .email-gate-form { background: #fff; border-radius: 12px; padding: 32px; max-width: 600px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 3px solid var(--gold); }
   </style>
 
-  <script is:inline>
+  <script is:inline define:vars={{
+    HS_PORTAL_ID: HUBSPOT_PORTAL_ID,
+    HS_REGION: HUBSPOT_REGION,
+    HS_FORM_VILLAIN_EMAILGATE: FORM_IDS.villainEmailGate
+  }}>
     const LP_NAME = 'Villain';
     const main = document.querySelector('#villain-lp');
 
@@ -922,7 +949,53 @@ const villains = [
       }).join('');
 
       document.getElementById('reveal-cta-label').textContent = 'Deploy Attorney Assistant against the ' + displayName;
+
+      // Personalize email-gate header with the villain name
+      const eghHeader = document.querySelector('.email-gate-header p');
+      if (eghHeader) {
+        eghHeader.textContent = "We'll email your personalized Mission Briefing — the " + displayName + " playbook, with the exact 90-day plan to defeat it.";
+      }
     }
+
+    // ── HubSpot Forms loader (geo-gated)
+    window.__hsGeoReady.then(function(allowed) {
+      if (!allowed) {
+        document.querySelectorAll('[data-hs-form-target]').forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This form is not available from your location.</div>';
+        });
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = 'https://js.hsforms.net/forms/v2.js';
+      s.async = true;
+      s.onload = function() { window.dispatchEvent(new Event('hsFormsReady')); };
+      document.head.appendChild(s);
+    });
+
+    // ── Villain email gate embed
+    window.addEventListener('hsFormsReady', function() {
+      hbspt.forms.create({
+        portalId: HS_PORTAL_ID,
+        region: HS_REGION,
+        formId: HS_FORM_VILLAIN_EMAILGATE,
+        target: '#hs-villain-emailgate',
+        onFormReady: function($form) {
+          if (!state.result) return;
+          const set = function(name, value) { $form.find('[name="' + name + '"]').val(value); };
+          set('biggest_villain',         VILLAIN_NAMES[state.result.biggestVillain]);
+          set('secondary_villains',      state.result.secondaryVillains.map(function(v) { return VILLAIN_NAMES[v]; }).join(', '));
+          set('threat_level',            state.result.threatLevel);
+          set('estimated_annual_leak',   String(state.leak));
+          set('firm_attorney_count',     state.context.firm_attorney_count);
+          set('monthly_lead_volume',     state.context.monthly_lead_volume);
+          set('practice_area',           state.context.practice_area.join(';'));
+          Object.keys(utms).forEach(function(k) { set(k, utms[k]); });
+        },
+        onFormSubmitted: function() {
+          setStage('thank-you');
+        }
+      });
+    });
   </script>
 
 </ComicCampaignLayout>
