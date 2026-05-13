@@ -131,6 +131,18 @@ const villains = [
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         STAGE 4: VILLAIN QUIZ
+    ═══════════════════════════════════════════ -->
+    <section data-stage="villain-quiz" class="vq-stage">
+      <div class="container">
+        <p class="vq-progress" id="vq-progress">Mission · Question 1 of 10</p>
+        <div class="vq-card" id="vq-card">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
     <!-- Subsequent stages added in later tasks -->
 
   </div>
@@ -388,6 +400,52 @@ const villains = [
       animation: speedlinesIn 800ms ease-out forwards;
     }
     @keyframes speedlinesIn { from { opacity: 0; transform: translateY(-50%) scaleX(0.5); } to { opacity: 0.5; transform: translateY(-50%) scaleX(1); } }
+
+    /* ── Villain quiz */
+    #villain-lp .vq-stage { padding: 64px 0; min-height: 80vh; }
+    #villain-lp .vq-progress {
+      font-family: 'Bangers', sans-serif;
+      font-size: 18px; letter-spacing: 0.14em;
+      color: var(--red-bright);
+      margin-bottom: 32px; text-align: center;
+    }
+    #villain-lp .vq-card {
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(255,255,255,0.10);
+      padding: 40px;
+      max-width: 760px; margin: 0 auto;
+      position: relative;
+    }
+    #villain-lp .vq-question {
+      font-family: 'Sora', sans-serif; font-weight: 700;
+      font-size: clamp(22px, 3vw, 32px);
+      color: #fff;
+      margin-bottom: 28px; line-height: 1.3;
+    }
+    #villain-lp .vq-options { display: flex; flex-direction: column; gap: 12px; }
+    #villain-lp .vq-option {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: #fff;
+      padding: 16px 20px;
+      font-family: 'Inter', sans-serif; font-size: 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+      box-shadow: 4px 4px 0 var(--navy-deep);
+    }
+    #villain-lp .vq-option:hover {
+      background: rgba(249,166,48,0.10);
+      transform: rotate(-0.5deg) translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--navy-deep);
+    }
+    #villain-lp .vq-skip {
+      display: inline-block; margin-top: 16px;
+      font-family: 'Inter', sans-serif; font-size: 13px; color: var(--steel-dim);
+      background: none; border: none; cursor: pointer;
+      text-decoration: underline;
+    }
+    #villain-lp .vq-skip:hover { color: var(--gold); }
   </style>
 
   <script is:inline>
@@ -425,7 +483,8 @@ const villains = [
       // Mode flip — clean only during context-quiz
       main.setAttribute('data-mode', name === 'context-quiz' ? 'clean' : 'comic');
       trackStage(LP_NAME, name);
-      if (name === 'transition') setTimeout(function() { setStage('villain-quiz'); }, 1200);
+      if (name === 'transition')   setTimeout(function() { setStage('villain-quiz'); }, 1200);
+      if (name === 'villain-quiz') renderQuestion();
       requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     }
 
@@ -456,6 +515,194 @@ const villains = [
         }
       });
     });
+
+    // ── Villain quiz data (verbatim from build prompt)
+    const QUESTIONS = [
+      {
+        id: 'q1', text: "When a lead calls your firm during business hours, what's most likely to happen?",
+        options: [
+          { text: "Front desk answers immediately, every time", score: {} },
+          { text: "Phone tree, but most reach a human", score: { PH: 1 } },
+          { text: "Sometimes hits voicemail during busy times", score: { PH: 4 } },
+          { text: "Often hits voicemail — we know it's a problem", score: { PH: 6 } }
+        ]
+      },
+      {
+        id: 'q2', text: "A lead calls at 7 PM on a Tuesday. What happens?",
+        options: [
+          { text: "Someone answers (24/7 coverage)", score: {} },
+          { text: "Forwarded to an answering service that takes a message", score: { AB: 3, PH: 1 } },
+          { text: "Hits voicemail", score: { AB: 4 } },
+          { text: "Honestly, we'd probably lose that lead", score: { AB: 6 } }
+        ]
+      },
+      {
+        id: 'q3', text: "Average medical records turnaround at your firm",
+        sub: "Skip if not PI/mass tort",
+        skip: true,
+        options: [
+          { text: "Under 45 days", score: {} },
+          { text: "45–90 days", score: { VK: 2 } },
+          { text: "90+ days", score: { VK: 5 } },
+          { text: "We don't track it consistently", score: { VK: 3, DP: 1 } }
+        ]
+      },
+      {
+        id: 'q4', text: "Active cases per paralegal?",
+        options: [
+          { text: "Under 15", score: {} },
+          { text: "15–30", score: { DP: 1 } },
+          { text: "30–50", score: { DP: 3 } },
+          { text: "50+", score: { DP: 5, AA: 1 } }
+        ]
+      },
+      {
+        id: 'q5', text: "How does your firm communicate with active clients?",
+        options: [
+          { text: "Proactive cadence at least every 2–4 weeks", score: {} },
+          { text: "Updates when something significant happens", score: { SS: 2 } },
+          { text: "Mostly when the client reaches out first", score: { SS: 5 } },
+          { text: "Honestly, our clients say they don't hear from us enough", score: { SS: 6, PH: 1 } }
+        ]
+      },
+      {
+        id: 'q6', text: "Percentage of attorneys' weekly time on admin / clerical work?",
+        options: [
+          { text: "Under 10%", score: {} },
+          { text: "10–25%", score: { AA: 3 } },
+          { text: "25–40%", score: { AA: 5, DP: 1 } },
+          { text: "40%+", score: { AA: 6, DP: 2 } }
+        ]
+      },
+      {
+        id: 'q7', text: "Most recent paralegal / intake / admin role at your firm —",
+        options: [
+          { text: "Filled within 30 days", score: {} },
+          { text: "30–90 days", score: { HG: 3 } },
+          { text: "90+ days", score: { HG: 5, DP: 1 } },
+          { text: "We've stopped trying — we just absorb the work", score: { HG: 5, DP: 3, AA: 2 } }
+        ]
+      },
+      {
+        id: 'q8', text: "If your single best paralegal took 2 weeks off tomorrow, what happens?",
+        options: [
+          { text: "Fine — systems hold", score: {} },
+          { text: "Slowdown but manageable", score: { DP: 2, AA: 1 } },
+          { text: "Real friction — clients would notice", score: { DP: 4, SS: 2 } },
+          { text: "Operations would seriously break", score: { DP: 6, AA: 2, HG: 1 } }
+        ]
+      },
+      {
+        id: 'q9', text: "Your recent Google / Yelp / Avvo reviews are mostly —",
+        options: [
+          { text: "4.5+ stars, consistently positive", score: {} },
+          { text: "Mixed, with some complaints about communication", score: { SS: 4 } },
+          { text: "Rough, especially around communication", score: { SS: 6, PH: 1 } },
+          { text: "We don't track them", score: { PH: 1, SS: 1, AA: 1 } }
+        ]
+      },
+      {
+        id: 'q10', text: "When your firm needs more capacity, your first move is —",
+        options: [
+          { text: "Direct hire", score: { HG: 3 } },
+          { text: "Software / automation", score: { AA: 1 } },
+          { text: "Outsource or use specialists", score: {} },
+          { text: "Just push harder — we're stuck right now", score: { DP: 4, HG: 3, AA: 2 } }
+        ]
+      }
+    ];
+
+    // ── Scoring (verbatim from build prompt)
+    function calculateResult() {
+      const scores = state.scores;
+      const ranked = Object.entries(scores)
+        .map(function(e) { return { villain: e[0], score: e[1] }; })
+        .sort(function(a, b) { return b.score - a.score; });
+      const active = ranked.filter(function(r) { return r.score > 0; });
+      const total = Object.values(scores).reduce(function(a, b) { return a + b; }, 0);
+      let threatLevel = 'Mild';
+      if (total >= 46)      threatLevel = 'Existential';
+      else if (total >= 26) threatLevel = 'Critical';
+      else if (total >= 11) threatLevel = 'Serious';
+      return {
+        biggestVillain:    active[0] ? active[0].villain : null,
+        secondaryVillains: active.slice(1, 3).map(function(s) { return s.villain; }),
+        threatLevel:       threatLevel,
+        totalScore:        total,
+        allScores:         scores
+      };
+    }
+
+    // ── Annual leak estimate (verbatim from build prompt)
+    function estimateAnnualLeak(villain) {
+      const leadsPerMonth = ({ '<25': 15, '25-75': 50, '76-200': 130, '201-500': 350, '500+': 750 })[state.context.monthly_lead_volume] || 50;
+      const attorneys     = ({ 'Solo': 1, '2-5': 3, '6-15': 10, '16-50': 30, '51+': 75 })[state.context.firm_attorney_count] || 5;
+      const caseValue = 8000;
+      const formulas = {
+        PH: function() { return leadsPerMonth * 12 * 0.15 * 0.30 * caseValue; },
+        AB: function() { return leadsPerMonth * 12 * 0.35 * 0.25 * caseValue * 0.20; },
+        VK: function() { return attorneys * 3 * 30000; },
+        DP: function() { return attorneys * 0.5 * 50000; },
+        SS: function() { return attorneys * 5 * 8000 * 0.08; },
+        AA: function() { return attorneys * 10 * 250 * 50; },
+        HG: function() { return attorneys * 0.3 * 180000; }
+      };
+      return Math.round(formulas[villain] ? formulas[villain]() : 0);
+    }
+
+    // ── Render current quiz question
+    function renderQuestion() {
+      const q = QUESTIONS[state.qIndex];
+      document.getElementById('vq-progress').textContent = 'Mission · Question ' + (state.qIndex + 1) + ' of ' + QUESTIONS.length;
+      const card = document.getElementById('vq-card');
+      const skipHtml = q.skip ? '<button type="button" class="vq-skip" data-vq-skip>Skip — not PI/mass tort</button>' : '';
+      const subHtml = q.sub ? '<p class="vq-sub" style="font-family:Inter,sans-serif;font-size:14px;color:var(--steel-dim);margin-top:-20px;margin-bottom:24px;">' + q.sub + '</p>' : '';
+      card.innerHTML = [
+        '<h3 class="vq-question">' + q.text + '</h3>',
+        subHtml,
+        '<div class="vq-options">',
+          q.options.map(function(opt, i) {
+            return '<button type="button" class="vq-option" data-vq-option="' + i + '">' + opt.text + '</button>';
+          }).join(''),
+        '</div>',
+        skipHtml
+      ].join('');
+
+      card.querySelectorAll('[data-vq-option]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const opt = q.options[parseInt(this.getAttribute('data-vq-option'), 10)];
+          Object.keys(opt.score).forEach(function(v) {
+            state.scores[v] += opt.score[v];
+          });
+          state.answers.push({ qid: q.id, text: opt.text });
+          advanceQuestion();
+        });
+      });
+      const skipBtn = card.querySelector('[data-vq-skip]');
+      if (skipBtn) {
+        skipBtn.addEventListener('click', function() {
+          state.answers.push({ qid: q.id, text: '(skipped)' });
+          advanceQuestion();
+        });
+      }
+    }
+
+    function advanceQuestion() {
+      state.qIndex++;
+      if (state.qIndex >= QUESTIONS.length) {
+        state.result = calculateResult();
+        state.leak = state.result.biggestVillain ? estimateAnnualLeak(state.result.biggestVillain) : 0;
+        trackStage(LP_NAME, 'quiz-completed', {
+          biggest_villain: state.result.biggestVillain,
+          threat_level:    state.result.threatLevel,
+          total_score:     state.result.totalScore,
+          estimated_annual_leak: state.leak
+        });
+        setStage('reveal');
+      } else {
+        renderQuestion();
+      }
+    }
   </script>
 
 </ComicCampaignLayout>
