@@ -9,13 +9,6 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
 
   <div data-mode="comic" id="ty-comic">
 
-    <header class="header-strip">
-      <div class="container row">
-        <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant">
-        <div>Mission Booked · <span class="issue-tag">Issue №02 · 2026</span></div>
-      </div>
-    </header>
-
     <section class="ty-hero">
       <div class="container" style="text-align: center;">
         <span class="hero-eyebrow">CASE FILE: ACCEPTED</span>
@@ -77,11 +70,6 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
     #ty-comic .display { letter-spacing: 0.02em; line-height: 0.95; text-transform: uppercase; color: #FFFFFF; text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep); }
     #ty-comic h1.display { font-size: clamp(56px, 9vw, 112px); }
     #ty-comic .accent-gold { color: var(--gold); }
-
-    #ty-comic .header-strip { border-bottom: 2px solid rgba(255,255,255,0.08); padding: 16px 0; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--steel); }
-    #ty-comic .header-strip .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    #ty-comic .header-strip img { height: 28px; }
-    #ty-comic .header-strip .issue-tag { color: var(--gold); }
 
     #ty-comic .ty-hero { padding-top: 80px; }
     #ty-comic .hero-eyebrow { display: inline-block; background: var(--red); color: #fff; padding: 8px 16px; letter-spacing: 0.12em; font-size: 18px; transform: rotate(-2deg); margin-bottom: 24px; box-shadow: 4px 4px 0 var(--navy-deep); font-family: 'Bangers', sans-serif; }

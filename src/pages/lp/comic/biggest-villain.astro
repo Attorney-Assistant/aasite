@@ -23,14 +23,6 @@ const villains = [
          STAGE 1: INTRO + ROGUES GALLERY
     ═══════════════════════════════════════════ -->
     <section data-stage="intro">
-      <!-- Issue masthead -->
-      <header class="header-strip">
-        <div class="container row">
-          <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant">
-          <div>Mission Briefing · <span class="issue-tag">Issue №02 · 2026</span> · attorneyassistant.com</div>
-        </div>
-      </header>
-
       <!-- Hero -->
       <div class="hero">
         <div class="container">
@@ -337,21 +329,6 @@ const villains = [
     #villain-lp .accent-gold { color: var(--gold); }
     #villain-lp .accent-red  { color: var(--red-bright); }
 
-    /* ── Header strip */
-    #villain-lp .header-strip {
-      border-bottom: 2px solid rgba(255,255,255,0.08);
-      padding: 16px 0;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--steel);
-      position: relative; z-index: 2;
-    }
-    #villain-lp .header-strip .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    #villain-lp .header-strip img { height: 28px; }
-    #villain-lp .header-strip .issue-tag { color: var(--gold); }
-
     /* ── Hero */
     #villain-lp .hero { padding-top: 120px; padding-bottom: 80px; }
     #villain-lp .hero-eyebrow {
@@ -466,7 +443,6 @@ const villains = [
     /* ── Clean mode (context-quiz) */
     #villain-lp[data-mode="clean"] { background: var(--navy); }
     #villain-lp[data-mode="clean"]::before, #villain-lp[data-mode="clean"]::after { display: none; }
-    #villain-lp[data-mode="clean"] .header-strip { border-color: rgba(255,255,255,0.08); }
 
     /* ── Clean quiz (context questions) */
     #villain-lp .clean-quiz { padding: 120px 0 80px; min-height: 80vh; display: flex; align-items: center; }
