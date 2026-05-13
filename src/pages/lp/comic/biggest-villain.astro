@@ -233,9 +233,51 @@ const villains = [
       </div>
     </section>
 
-    <!-- Subsequent stages added in later tasks -->
+    <!-- ═══════════════════════════════════════════
+         STAGE 7: THANK YOU
+    ═══════════════════════════════════════════ -->
+    <section data-stage="thank-you" class="thank-you-stage">
+      <div class="container">
+        <div class="thank-you-header">
+          <h2 class="display">Your Mission Briefing<br><span class="accent-gold">is en route.</span></h2>
+          <p id="ty-subhead">Check your inbox.</p>
+        </div>
+
+        <!-- Meeting widget -->
+        <div class="thank-you-meeting">
+          <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/simple-campaign-deploy-aa-rescue-call?embed=true"></div>
+        </div>
+
+        <!-- PDF preview placeholder -->
+        <div class="briefing-preview">
+          <!-- TODO(nicole): swap for the per-villain Mission Briefing PDF cover once Manus delivers it -->
+          <div class="briefing-cover">
+            <div class="briefing-label">Mission Briefing<br>Issue №02</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div>
+
+  <!-- HubSpot Meetings Embed loader (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (!allowed) {
+        document.querySelectorAll('.meetings-iframe-container').forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This form is not available from your location.</div>';
+        });
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+  </style>
 
   <style>
     /* ── Stage state machine */
@@ -605,6 +647,21 @@ const villains = [
     #villain-lp .email-gate-header h2 { font-size: clamp(32px, 5vw, 56px); }
     #villain-lp .email-gate-header p { font-family: 'Sora', sans-serif; font-size: 18px; color: var(--steel); max-width: 600px; margin: 16px auto 0; }
     #villain-lp .email-gate-form { background: #fff; border-radius: 12px; padding: 32px; max-width: 600px; margin: 0 auto; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 3px solid var(--gold); }
+
+    /* ── Thank-you stage */
+    #villain-lp .thank-you-stage { padding: 64px 0; }
+    #villain-lp .thank-you-header { max-width: 800px; margin: 0 auto 40px; text-align: center; }
+    #villain-lp .thank-you-header h2 { font-size: clamp(40px, 6vw, 80px); }
+    #villain-lp .thank-you-header p { font-family: 'Sora', sans-serif; font-size: 20px; color: var(--steel); margin-top: 16px; }
+    #villain-lp .thank-you-meeting { background: #fff; border-radius: 12px; padding: 16px; max-width: 800px; margin: 0 auto 48px; border: 3px solid var(--gold); }
+    #villain-lp .briefing-preview { max-width: 320px; margin: 0 auto; }
+    #villain-lp .briefing-cover {
+      aspect-ratio: 8.5 / 11; background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-mid) 100%);
+      border: 3px solid var(--gold); display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    #villain-lp .briefing-cover::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 8px 8px; }
+    #villain-lp .briefing-label { font-family: 'Bangers', sans-serif; font-size: 28px; color: var(--gold-bright); text-align: center; text-shadow: 2px 2px 0 var(--red); position: relative; z-index: 1; line-height: 1.1; }
   </style>
 
   <script is:inline define:vars={{
@@ -954,6 +1011,12 @@ const villains = [
       const eghHeader = document.querySelector('.email-gate-header p');
       if (eghHeader) {
         eghHeader.textContent = "We'll email your personalized Mission Briefing — the " + displayName + " playbook, with the exact 90-day plan to defeat it.";
+      }
+
+      // Personalize thank-you subhead with the villain name
+      const tySub = document.getElementById('ty-subhead');
+      if (tySub) {
+        tySub.textContent = "Check your inbox. The " + displayName + " doesn't stand a chance.";
       }
     }
 
