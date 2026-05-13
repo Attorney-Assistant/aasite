@@ -66,7 +66,70 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
         </div>
         <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal">
           <div class="bg-white rounded-xl p-6 md:p-8">
-            <div id="hs-microform" data-hs-form-target></div>
+            <form id="benchmark-microform" class="bmform" novalidate>
+              <div class="bmform-field">
+                <label class="bmform-label" for="bm-firm-size">Firm Attorney Count <em>*</em></label>
+                <select id="bm-firm-size" name="firm_attorney_count" required>
+                  <option value="">Choose…</option>
+                  <option value="Solo">Solo</option>
+                  <option value="2-5">2-5</option>
+                  <option value="6-15">6-15</option>
+                  <option value="16-50">16-50</option>
+                  <option value="51+">51+</option>
+                </select>
+              </div>
+
+              <div class="bmform-field">
+                <label class="bmform-label" for="bm-lead-volume">Monthly Lead Volume <em>*</em></label>
+                <select id="bm-lead-volume" name="monthly_lead_volume" required>
+                  <option value="">Choose…</option>
+                  <option value="<25">Under 25</option>
+                  <option value="25-75">25-75</option>
+                  <option value="76-200">76-200</option>
+                  <option value="201-500">201-500</option>
+                  <option value="500+">500+</option>
+                </select>
+              </div>
+
+              <fieldset class="bmform-field">
+                <legend class="bmform-label">Practice Area <em>*</em></legend>
+                <p class="bmform-help">Select all that apply.</p>
+                <div class="bmform-checkboxes">
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Personal injury"> <span>Personal Injury</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Mass Tort / Class Action"> <span>Mass Tort / Class Action</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Workers' Compensation"> <span>Workers' Compensation</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Family law"> <span>Family Law</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Criminal defense"> <span>Criminal Defense</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Estate planning"> <span>Estate / Probate</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Corporate law"> <span>Business / Commercial</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Bankruptcy"> <span>Bankruptcy</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Immigration"> <span>Immigration</span></label>
+                  <label class="bmform-check"><input type="checkbox" name="practice_area" value="Other"> <span>Other</span></label>
+                </div>
+              </fieldset>
+
+              <div class="bmform-field">
+                <label class="bmform-label" for="bm-voicemail-rate">Voicemail Rate % <em>*</em></label>
+                <p class="bmform-help">Percentage of business-hour calls that hit voicemail.</p>
+                <div class="bmform-slider-row">
+                  <input id="bm-voicemail-rate" type="range" name="voicemail_rate_" min="0" max="100" value="15" step="1" required />
+                  <output for="bm-voicemail-rate" class="bmform-slider-value" id="bm-voicemail-rate-out">15%</output>
+                </div>
+              </div>
+
+              <div class="bmform-field">
+                <label class="bmform-label" for="bm-records-tat">Records Turnaround (days)</label>
+                <p class="bmform-help">Average medical records turnaround. Skip if not PI/mass tort.</p>
+                <div class="bmform-slider-row">
+                  <input id="bm-records-tat" type="range" name="records_tat_days" min="0" max="180" value="60" step="1" />
+                  <output for="bm-records-tat" class="bmform-slider-value" id="bm-records-tat-out">60 days</output>
+                </div>
+                <label class="bmform-skip"><input type="checkbox" name="records_tat_skip" id="bm-records-tat-skip"> <span>Skip — not PI/mass tort</span></label>
+              </div>
+
+              <button type="submit" class="bmform-submit">Show My Scorecard</button>
+              <div class="bmform-error" role="alert" hidden></div>
+            </form>
           </div>
         </div>
       </div>
@@ -120,7 +183,34 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
         </div>
         <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal">
           <div class="bg-white rounded-xl p-6 md:p-8">
-            <div id="hs-emailgate" data-hs-form-target></div>
+            <form id="benchmark-email-gate-form" class="bmform" novalidate>
+              <div class="bmform-row-2">
+                <div class="bmform-field">
+                  <label class="bmform-label" for="bm-eg-firstname">First name <em>*</em></label>
+                  <input id="bm-eg-firstname" type="text" name="firstname" required autocomplete="given-name" />
+                </div>
+                <div class="bmform-field">
+                  <label class="bmform-label" for="bm-eg-lastname">Last name <em>*</em></label>
+                  <input id="bm-eg-lastname" type="text" name="lastname" required autocomplete="family-name" />
+                </div>
+              </div>
+              <div class="bmform-row-2">
+                <div class="bmform-field">
+                  <label class="bmform-label" for="bm-eg-email">Email <em>*</em></label>
+                  <input id="bm-eg-email" type="email" name="email" required autocomplete="email" />
+                </div>
+                <div class="bmform-field">
+                  <label class="bmform-label" for="bm-eg-phone">Phone number</label>
+                  <input id="bm-eg-phone" type="tel" name="phone" autocomplete="tel" />
+                </div>
+              </div>
+              <div class="bmform-field">
+                <label class="bmform-label" for="bm-eg-company">Company name <em>*</em></label>
+                <input id="bm-eg-company" type="text" name="company" required autocomplete="organization" />
+              </div>
+              <button type="submit" class="bmform-submit">Unlock the Full Report</button>
+              <div class="bmform-error" role="alert" hidden></div>
+            </form>
           </div>
         </div>
       </div>
@@ -192,6 +282,75 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     #benchmark-lp[data-stage="scorecard"] [data-stage]:not([data-stage="scorecard"]) { display: none; }
     #benchmark-lp[data-stage="email-gate"] [data-stage]:not([data-stage="email-gate"]) { display: none; }
     #benchmark-lp[data-stage="thank-you"] [data-stage]:not([data-stage="thank-you"]) { display: none; }
+  </style>
+
+  <style is:global>
+    .bmform { display: flex; flex-direction: column; gap: 18px; }
+    .bmform-row-2 { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 560px) {
+      .bmform-row-2 { grid-template-columns: 1fr 1fr; }
+    }
+    .bmform-field { display: flex; flex-direction: column; gap: 6px; }
+    .bmform-label { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: #1a3a5c; }
+    .bmform-label em { color: #ef4444; font-style: normal; }
+    .bmform-help { font-family: 'DM Sans', sans-serif; font-size: 12px; color: #6f7a8a; margin: -2px 0 4px; }
+    .bmform input[type="text"],
+    .bmform input[type="email"],
+    .bmform input[type="tel"],
+    .bmform select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: #1a3a5c;
+      background: #fff;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .bmform input:focus,
+    .bmform select:focus {
+      outline: none;
+      border-color: #F9A630;
+      box-shadow: 0 0 0 3px rgba(249,166,48,0.15);
+    }
+    .bmform input:invalid:not(:placeholder-shown) { border-color: #ef4444; }
+    .bmform-checkboxes { display: grid; grid-template-columns: 1fr; gap: 6px; max-height: 240px; overflow-y: auto; padding-right: 4px; }
+    @media (min-width: 560px) { .bmform-checkboxes { grid-template-columns: 1fr 1fr; } }
+    .bmform-check { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; cursor: pointer; transition: background 0.15s; }
+    .bmform-check:hover { background: rgba(249,166,48,0.06); }
+    .bmform-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: #F9A630; cursor: pointer; flex-shrink: 0; }
+    .bmform-check span { font-family: 'DM Sans', sans-serif; font-size: 14px; color: #1a3a5c; }
+    .bmform-slider-row { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; }
+    .bmform-slider-row input[type="range"] { accent-color: #F9A630; }
+    .bmform-slider-value { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; color: #1a3a5c; min-width: 70px; text-align: right; }
+    .bmform-skip { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 13px; color: #6f7a8a; }
+    .bmform-skip input[type="checkbox"] { accent-color: #F9A630; cursor: pointer; }
+    .bmform-submit {
+      margin-top: 6px;
+      padding: 14px 24px;
+      background: #F9A630;
+      color: #1a3a5c;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      letter-spacing: 0.01em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .bmform-submit:hover:not(:disabled) { background: #d98a00; transform: translateY(-1px); }
+    .bmform-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .bmform-error {
+      margin-top: 8px;
+      padding: 12px 14px;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.4);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: #ef4444;
+    }
   </style>
 
   <script is:inline define:vars={{
@@ -346,7 +505,6 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       main.setAttribute('data-stage', name);
       trackStage(LP_NAME, name);
       if (name === 'scorecard')  renderScorecard();
-      if (name === 'email-gate') populateBenchmarkEmailGate();
       requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     }
 
@@ -358,100 +516,139 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
 
     trackStage(LP_NAME, 'intro');
 
-    // ── HubSpot Forms loader (geo-gated)
-    window.__hsGeoReady.then(function(allowed) {
-      if (!allowed) {
-        document.querySelectorAll('[data-hs-form-target]').forEach(function(el) {
-          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This form is not available from your location.</div>';
+    // ── Benchmark micro-form handler (vanilla; advances to scorecard on submit)
+    (function() {
+      const microForm = document.getElementById('benchmark-microform');
+      if (!microForm) return;
+      const errorEl = microForm.querySelector('.bmform-error');
+      const submitBtn = microForm.querySelector('.bmform-submit');
+      const vrInput = document.getElementById('bm-voicemail-rate');
+      const vrOut = document.getElementById('bm-voicemail-rate-out');
+      const rtInput = document.getElementById('bm-records-tat');
+      const rtOut = document.getElementById('bm-records-tat-out');
+      const rtSkip = document.getElementById('bm-records-tat-skip');
+
+      // Live slider value display
+      if (vrInput && vrOut) {
+        vrInput.addEventListener('input', function() { vrOut.textContent = vrInput.value + '%'; });
+      }
+      if (rtInput && rtOut) {
+        rtInput.addEventListener('input', function() { rtOut.textContent = rtInput.value + ' days'; });
+      }
+      if (rtSkip && rtInput) {
+        rtSkip.addEventListener('change', function() {
+          rtInput.disabled = rtSkip.checked;
+          rtInput.style.opacity = rtSkip.checked ? '0.4' : '1';
         });
-        return;
       }
-      var s = document.createElement('script');
-      s.src = 'https://js.hsforms.net/forms/v2.js';
-      s.async = true;
-      s.onload = function() { window.dispatchEvent(new Event('hsFormsReady')); };
-      document.head.appendChild(s);
-    });
 
-    // ── Micro-form embed
-    window.addEventListener('hsFormsReady', function() {
-      hbspt.forms.create({
-        portalId: HS_PORTAL_ID,
-        region: HS_REGION,
-        formId: HS_FORM_BENCHMARK_MICRO,
-        target: '#hs-microform',
-        onFormSubmit: function($form) {
-          state.benchmark = {
-            firm_attorney_count: $form.find('[name="firm_attorney_count"]').val() || '',
-            monthly_lead_volume: $form.find('[name="monthly_lead_volume"]').val() || '',
-            practice_area:       $form.find('[name="practice_area"]').val() || '',
-            voicemail_rate_:     parseFloat($form.find('[name="voicemail_rate_"]').val()) || 0,
-            records_tat_days:    $form.find('[name="records_tat_days"]').val() === ''
-              ? null
-              : parseInt($form.find('[name="records_tat_days"]').val(), 10),
-          };
-          trackStage(LP_NAME, 'micro-form-submitted', state.benchmark);
-        },
-        onFormSubmitted: function() {
-          setStage('scorecard');
+      microForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+
+        const formData = new FormData(microForm);
+        const firmSize = formData.get('firm_attorney_count') || '';
+        const leadVolume = formData.get('monthly_lead_volume') || '';
+        const practiceAreas = formData.getAll('practice_area');
+        const voicemailRate = parseFloat(formData.get('voicemail_rate_')) || 0;
+        const recordsSkipped = !!formData.get('records_tat_skip');
+        const recordsTat = recordsSkipped ? null : parseInt(formData.get('records_tat_days'), 10);
+
+        if (!firmSize || !leadVolume || practiceAreas.length === 0) {
+          errorEl.textContent = 'Please fill in all required fields.';
+          errorEl.hidden = false;
+          return;
         }
-      });
 
-      hbspt.forms.create({
-        portalId: HS_PORTAL_ID,
-        region: HS_REGION,
-        formId: HS_FORM_BENCHMARK_EMAILGATE,
-        target: '#hs-emailgate',
-        onFormSubmitted: function() {
+        state.benchmark = {
+          firm_attorney_count: firmSize,
+          monthly_lead_volume: leadVolume,
+          practice_area: practiceAreas,
+          voicemail_rate_: voicemailRate,
+          records_tat_days: recordsTat
+        };
+
+        trackStage(LP_NAME, 'micro-form-submitted', { firm_attorney_count: firmSize, monthly_lead_volume: leadVolume, voicemail_rate_: voicemailRate });
+        setStage('scorecard');
+      });
+    })();
+
+    // ── Benchmark email-gate submission (direct POST to HubSpot Submissions API)
+    (function() {
+      const egForm = document.getElementById('benchmark-email-gate-form');
+      if (!egForm) return;
+      const errorEl = egForm.querySelector('.bmform-error');
+      const submitBtn = egForm.querySelector('.bmform-submit');
+
+      egForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting…';
+
+        const formData = new FormData(egForm);
+        const fields = [
+          { name: 'firstname', value: formData.get('firstname') || '' },
+          { name: 'lastname',  value: formData.get('lastname')  || '' },
+          { name: 'email',     value: formData.get('email')     || '' },
+          { name: 'phone',     value: formData.get('phone')     || '' },
+          { name: 'company',   value: formData.get('company')   || '' }
+        ];
+
+        if (state.benchmark) {
+          fields.push({ name: 'firm_attorney_count', value: FIRM_SIZE_HS_VALUES[state.benchmark.firm_attorney_count] || '' });
+          fields.push({ name: 'monthly_lead_volume', value: LEAD_VOLUME_HS_VALUES[state.benchmark.monthly_lead_volume] || '' });
+          if (Array.isArray(state.benchmark.practice_area)) {
+            fields.push({ name: 'practice_area', value: state.benchmark.practice_area.join(';') });
+          } else if (state.benchmark.practice_area) {
+            fields.push({ name: 'practice_area', value: state.benchmark.practice_area });
+          }
+          if (state.benchmark.voicemail_rate_ !== undefined && state.benchmark.voicemail_rate_ !== null) {
+            fields.push({ name: 'voicemail_rate_', value: String(state.benchmark.voicemail_rate_) });
+          }
+          if (state.benchmark.records_tat_days !== undefined && state.benchmark.records_tat_days !== null) {
+            fields.push({ name: 'records_tat_days', value: String(state.benchmark.records_tat_days) });
+          }
+        }
+
+        Object.keys(utms).forEach(function(k) {
+          if (utms[k]) fields.push({ name: k, value: utms[k] });
+        });
+
+        const hutk = (document.cookie.match(/(^|;)\s*hubspotutk\s*=\s*([^;]+)/) || [])[2] || '';
+
+        const payload = {
+          fields: fields,
+          context: {
+            hutk: hutk,
+            pageUri: window.location.href,
+            pageName: document.title
+          }
+        };
+
+        try {
+          const res = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + HS_PORTAL_ID + '/' + HS_FORM_BENCHMARK_EMAILGATE, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) {
+            const errText = await res.text();
+            throw new Error('Submission failed: ' + res.status + ' — ' + errText);
+          }
+          trackStage(LP_NAME, 'email-gate-submitted');
           setStage('thank-you');
+        } catch (err) {
+          errorEl.textContent = 'Something went wrong. Please try again or email us directly at info@attorneyassistant.com.';
+          errorEl.hidden = false;
+          console.error('Benchmark email gate submission error:', err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Unlock the Full Report';
         }
       });
-    });
-
-    function populateBenchmarkEmailGate() {
-      const container = document.querySelector('#hs-emailgate');
-      if (!container || !state.benchmark) return;
-
-      // React-bypass setter — required because HubSpot's form uses React controlled inputs
-      const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-      const setField = function(name, value) {
-        const input = container.querySelector('[name="' + name + '"]');
-        if (!input) return;
-        nativeSetter.call(input, value);
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-      };
-
-      setField('firm_attorney_count', FIRM_SIZE_HS_VALUES[state.benchmark.firm_attorney_count]);
-      setField('monthly_lead_volume', LEAD_VOLUME_HS_VALUES[state.benchmark.monthly_lead_volume]);
-      if (Array.isArray(state.benchmark.practice_area)) {
-        setField('practice_area', state.benchmark.practice_area.join(';'));
-      } else if (state.benchmark.practice_area) {
-        setField('practice_area', state.benchmark.practice_area);
-      }
-      if (state.benchmark.voicemail_rate_ !== undefined && state.benchmark.voicemail_rate_ !== null) {
-        setField('voicemail_rate_', state.benchmark.voicemail_rate_);
-      }
-      if (state.benchmark.records_tat_days !== undefined && state.benchmark.records_tat_days !== null) {
-        setField('records_tat_days', state.benchmark.records_tat_days);
-      }
-
-      // Belt-and-suspenders: also update the URL so HubSpot tracking code captures it via session cookie
-      const params = new URLSearchParams(window.location.search);
-      params.set('firm_attorney_count', FIRM_SIZE_HS_VALUES[state.benchmark.firm_attorney_count]);
-      params.set('monthly_lead_volume', LEAD_VOLUME_HS_VALUES[state.benchmark.monthly_lead_volume]);
-      if (Array.isArray(state.benchmark.practice_area)) {
-        params.set('practice_area', state.benchmark.practice_area.join(';'));
-      } else if (state.benchmark.practice_area) {
-        params.set('practice_area', state.benchmark.practice_area);
-      }
-      if (state.benchmark.voicemail_rate_ !== undefined && state.benchmark.voicemail_rate_ !== null) {
-        params.set('voicemail_rate_', state.benchmark.voicemail_rate_);
-      }
-      if (state.benchmark.records_tat_days !== undefined && state.benchmark.records_tat_days !== null) {
-        params.set('records_tat_days', state.benchmark.records_tat_days);
-      }
-      window.history.replaceState({}, '', window.location.pathname + '?' + params.toString());
-    }
+    })();
   </script>
 
 </SimpleCampaignLayout>
