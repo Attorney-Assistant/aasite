@@ -172,6 +172,51 @@ const villains = [
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         STAGE 5: REVEAL
+    ═══════════════════════════════════════════ -->
+    <section data-stage="reveal" class="reveal-stage">
+      <div class="container">
+        <h2 class="display reveal-banner">Your firm's biggest villain:</h2>
+        <div class="reveal-grid">
+          <div class="reveal-image">
+            <img id="reveal-img" src="" alt="" />
+          </div>
+          <div class="reveal-info">
+            <h3 class="display" id="reveal-name"></h3>
+            <p class="reveal-assessment" id="reveal-assessment"></p>
+
+            <div class="damage-card">
+              <p class="damage-label">The Damage</p>
+              <p class="damage-amount" id="reveal-leak"></p>
+              <p class="damage-caption" id="reveal-leak-caption"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="threat-meter-wrap">
+          <p class="threat-meter-label">Threat level</p>
+          <div class="threat-meter" id="threat-meter">
+            <div class="seg" data-level="Mild">MILD</div>
+            <div class="seg" data-level="Serious">SERIOUS</div>
+            <div class="seg" data-level="Critical">CRITICAL</div>
+            <div class="seg" data-level="Existential">EXISTENTIAL</div>
+          </div>
+        </div>
+
+        <div class="secondary-wrap">
+          <p class="secondary-label">Also fighting</p>
+          <div class="secondary-grid" id="secondary-grid"><!-- populated by JS --></div>
+        </div>
+
+        <div class="reveal-cta-wrap">
+          <button type="button" class="hero-cta reveal-cta" data-go-stage="email-gate">
+            <span id="reveal-cta-label">Deploy Attorney Assistant</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Subsequent stages added in later tasks -->
 
   </div>
@@ -506,6 +551,37 @@ const villains = [
       text-decoration: underline;
     }
     #villain-lp .vq-skip:hover { color: var(--gold); }
+
+    /* ── Reveal stage */
+    #villain-lp .reveal-stage { padding: 64px 0; }
+    #villain-lp .reveal-banner { font-size: clamp(32px, 5vw, 64px); text-align: center; margin-bottom: 48px; }
+    #villain-lp .reveal-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: center; max-width: 1100px; margin: 0 auto; }
+    @media (max-width: 720px) { #villain-lp .reveal-grid { grid-template-columns: 1fr; gap: 32px; } }
+    #villain-lp .reveal-image img { width: 100%; max-width: 360px; display: block; margin: 0 auto; filter: drop-shadow(0 0 40px rgba(251,212,109,0.45)); }
+    #villain-lp .reveal-info h3 { font-size: clamp(36px, 5vw, 64px); color: var(--gold-bright); text-shadow: 2px 2px 0 var(--red), 4px 4px 0 var(--navy-deep); margin-bottom: 20px; line-height: 1; }
+    #villain-lp .reveal-assessment { font-family: 'Sora', sans-serif; font-size: 18px; line-height: 1.55; color: var(--steel); margin-bottom: 28px; }
+    #villain-lp .damage-card { background: var(--navy-deep); border: 2px solid var(--gold); padding: 24px; position: relative; }
+    #villain-lp .damage-card::before { content: ''; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0); background-size: 8px 8px; }
+    #villain-lp .damage-label { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--gold); margin-bottom: 6px; position: relative; z-index: 1; }
+    #villain-lp .damage-amount { font-family: 'Bangers', sans-serif; font-size: clamp(40px, 6vw, 72px); color: var(--gold-bright); text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep); line-height: 1; margin-bottom: 8px; position: relative; z-index: 1; }
+    #villain-lp .damage-caption { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--steel); line-height: 1.4; position: relative; z-index: 1; }
+
+    #villain-lp .threat-meter-wrap { margin-top: 48px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    #villain-lp .threat-meter-label { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--gold); margin-bottom: 12px; text-align: center; }
+    #villain-lp .threat-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+    #villain-lp .threat-meter .seg { font-family: 'Bangers', sans-serif; font-size: 14px; letter-spacing: 0.1em; padding: 14px 8px; text-align: center; background: rgba(255,255,255,0.06); color: var(--steel-dim); border: 2px solid rgba(255,255,255,0.10); }
+    #villain-lp .threat-meter .seg.active { background: var(--gold); color: var(--navy-deep); border-color: var(--gold); box-shadow: 2px 2px 0 var(--navy-deep); }
+
+    #villain-lp .secondary-wrap { margin-top: 48px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    #villain-lp .secondary-label { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--gold); margin-bottom: 16px; text-align: center; }
+    #villain-lp .secondary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    #villain-lp .secondary-card { background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.10); padding: 20px; display: flex; gap: 16px; align-items: center; }
+    #villain-lp .secondary-card img { width: 80px; height: auto; flex-shrink: 0; filter: drop-shadow(0 0 12px rgba(249,166,48,0.2)); }
+    #villain-lp .secondary-card .info h4 { font-family: 'Bangers', sans-serif; font-size: 22px; color: #fff; text-shadow: 1px 1px 0 var(--navy-deep); margin-bottom: 6px; line-height: 1.05; }
+    #villain-lp .secondary-card .info p { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--steel); line-height: 1.4; }
+
+    #villain-lp .reveal-cta-wrap { text-align: center; margin-top: 48px; }
+    #villain-lp .reveal-cta { font-size: 24px; }
   </style>
 
   <script is:inline>
@@ -545,6 +621,7 @@ const villains = [
       trackStage(LP_NAME, name);
       if (name === 'transition')   setTimeout(function() { setStage('villain-quiz'); }, 1200);
       if (name === 'villain-quiz') renderQuestion();
+      if (name === 'reveal')       renderReveal();
       requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     }
 
@@ -772,6 +849,79 @@ const villains = [
       } else {
         renderQuestion();
       }
+    }
+
+    // ── Villain code → display data
+    const VILLAIN_NAMES = {
+      PH: 'The Voicemail Phantom',
+      AB: 'The After-Hours Ambush',
+      VK: 'The Records Vault Keeper',
+      DP: 'The Drowning Paralegal',
+      SS: 'The Silence Saboteur',
+      AA: 'The Admin Avalanche',
+      HG: 'The Hiring Ghost'
+    };
+    const VILLAIN_SLUGS = {
+      PH: 'voicemail-phantom', AB: 'after-hours-ambush', VK: 'records-vault-keeper',
+      DP: 'drowning-paralegal', SS: 'silence-saboteur', AA: 'admin-avalanche', HG: 'hiring-ghost'
+    };
+    const VILLAIN_MO_SHORT = {
+      PH: '1 in 4 inbound calls hits voicemail at the median firm. 70% never call back.',
+      AB: '40% of legal demand lands outside business hours — they sign with whoever stays open later.',
+      VK: 'Median firms wait 75 days for medical records. Some wait 120+.',
+      DP: 'Once a paralegal\'s load crosses 30 cases, deadlines move from the calendar into a person\'s head.',
+      SS: 'State bars consistently report communication as the #1 source of client complaints.',
+      AA: 'Most attorneys spend 25% of their week on mail, data entry, and intake forms.',
+      HG: 'Paralegal roles take 60+ days to fill. Average tenure under 2.5 years.'
+    };
+    const THREAT_ASSESSMENTS = {
+      PH: "Your firm has the Voicemail Phantom problem. At the median firm, 1 in 4 calls hits voicemail — and 70% never call back. Every ring that ends in voicemail is a case Google just handed to your competitor.",
+      AB: "Your firm is losing leads to the After-Hours Ambush. 40% of legal demand lands after business hours, and the highest-intent leads — the ones who just got the call from the hospital — call at 8 PM. They sign with whoever stays open later.",
+      VK: "Your firm is being held hostage by the Records Vault Keeper. Hospitals and insurers don't care about your settlement timeline. At your turnaround, your cases sit while your competitors close theirs and free up the calendar.",
+      DP: "Your firm runs on a Drowning Paralegal. Once their load crosses 30 cases, deadlines move from the calendar into someone's head. The indispensable paralegal becomes your single point of failure — and one PTO week ends careers.",
+      SS: "Your firm has the Silence Saboteur problem. State bars consistently report communication as the #1 source of client complaints — not fees, not outcomes. Your reviews, your referrals, and your retention are all decided here.",
+      AA: "Your firm is drowning under the Admin Avalanche. Mail, data entry, file openings, intake forms — work that has to happen but doesn't generate revenue. Your attorneys are losing a quarter of their week to it.",
+      HG: "Your firm is hunting the Hiring Ghost. Paralegal roles take 60+ days to fill, new hires take 3-6 months to ramp, average tenure is under 2.5 years. You're hiring your entire support team every cycle — and falling further behind every quarter."
+    };
+
+    function renderReveal() {
+      const r = state.result;
+      if (!r || !r.biggestVillain) return;
+      const v = r.biggestVillain;
+      const displayName = VILLAIN_NAMES[v];
+
+      document.getElementById('reveal-img').src = '/images/lp/villains/' + VILLAIN_SLUGS[v] + '.png';
+      document.getElementById('reveal-img').alt = displayName;
+      document.getElementById('reveal-name').textContent = displayName;
+      document.getElementById('reveal-assessment').textContent = THREAT_ASSESSMENTS[v];
+
+      const formattedLeak = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(state.leak);
+      document.getElementById('reveal-leak').textContent = formattedLeak + ' / year';
+      document.getElementById('reveal-leak-caption').textContent =
+        'Estimated annual leak from the ' + displayName + ' at a firm your size.';
+
+      // Threat meter — light up cumulative segments
+      const levels = ['Mild', 'Serious', 'Critical', 'Existential'];
+      const activeIdx = levels.indexOf(r.threatLevel);
+      document.querySelectorAll('#threat-meter .seg').forEach(function(seg, i) {
+        seg.classList.toggle('active', i <= activeIdx);
+      });
+
+      // Secondary villains
+      const grid = document.getElementById('secondary-grid');
+      grid.innerHTML = r.secondaryVillains.map(function(code) {
+        return [
+          '<div class="secondary-card">',
+            '<img src="/images/lp/villains/' + VILLAIN_SLUGS[code] + '.png" alt="' + VILLAIN_NAMES[code] + '" />',
+            '<div class="info">',
+              '<h4>' + VILLAIN_NAMES[code] + '</h4>',
+              '<p>' + VILLAIN_MO_SHORT[code] + '</p>',
+            '</div>',
+          '</div>'
+        ].join('');
+      }).join('');
+
+      document.getElementById('reveal-cta-label').textContent = 'Deploy Attorney Assistant against the ' + displayName;
     }
   </script>
 
