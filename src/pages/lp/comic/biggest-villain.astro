@@ -1,0 +1,313 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+import { HUBSPOT_PORTAL_ID, FORM_IDS, MEETING_URLS } from "@/config/forms";
+
+const villains = [
+  { code: 'PH', name: 'The Voicemail Phantom',    slug: 'voicemail-phantom',    pow: 'POW!',    num: '01', mo: "The villain that haunts every law firm. Roughly 1 in 4 inbound legal calls hits voicemail at the median firm. 70% never call back. They Google the next firm.", stat: '~20%', label: 'of leads vanish in the first hour' },
+  { code: 'AB', name: 'The After-Hours Ambush',   slug: 'after-hours-ambush',   pow: 'BAM!',    num: '02', mo: "Strikes when the office goes dark. 40% of legal demand lands outside business hours. The highest-intent leads call at 8 PM — and sign with whoever stays open later.", stat: '$250K', label: 'case called at 8 PM, no one answered' },
+  { code: 'VK', name: 'The Records Vault Keeper', slug: 'records-vault-keeper', pow: 'KAPOW!',  num: '03', mo: "The bureaucratic warden of hospital records. Doesn't move fast. Doesn't care about your settlement timeline. Median firms wait 75 days. Some wait 120+.", stat: '120 days', label: 'records held hostage' },
+  { code: 'DP', name: 'The Drowning Paralegal',   slug: 'drowning-paralegal',   pow: 'CRASH!',  num: '04', mo: "The moment a paralegal's load crosses 30 cases. Structured work becomes triage. Deadlines move from the calendar to a person's head. The indispensable paralegal becomes the single point of failure.", stat: '50+', label: 'active cases per paralegal at the bottom quartile' },
+  { code: 'SS', name: 'The Silence Saboteur',     slug: 'silence-saboteur',     pow: 'SHHH!',   num: '05', mo: "It's not what your firm does. It's what your firm doesn't do. State bars consistently report communication as the #1 source of client complaints. Not fees. Not outcomes. Silence.", stat: '#1', label: 'source of bar complaints' },
+  { code: 'AA', name: 'The Admin Avalanche',      slug: 'admin-avalanche',      pow: 'SMASH!',  num: '06', mo: "Mail. Data entry. File openings. Intake forms. Work that has to happen, but doesn't move cases or generate revenue. Most attorneys spend 25% of their week on it.", stat: '15+ hrs', label: 'wasted per attorney per week' },
+  { code: 'HG', name: 'The Hiring Ghost',         slug: 'hiring-ghost',         pow: 'ZAP!',    num: '07', mo: "Haunts every law firm trying to grow in the post-2020 labor market. Paralegal roles take 60+ days to fill. New hires ramp for 3-6 months. Average tenure under 2.5 years. The firm hires its entire support team every cycle.", stat: '60+ days', label: 'to fill a paralegal role at the median firm' },
+];
+---
+
+<ComicCampaignLayout
+  title="Find Your Firm's Biggest Villain | Attorney Assistant"
+  description="Every law firm is fighting at least one. Take the 3-minute diagnostic. We'll name your biggest threat — and the rescue plan."
+>
+  <main data-stage="intro" data-mode="comic" id="villain-lp">
+
+    <!-- ═══════════════════════════════════════════
+         STAGE 1: INTRO + ROGUES GALLERY
+    ═══════════════════════════════════════════ -->
+    <section data-stage="intro">
+      <!-- Issue masthead -->
+      <header class="header-strip">
+        <div class="container row">
+          <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant">
+          <div>Mission Briefing · <span class="issue-tag">Issue №02 · 2026</span> · attorneyassistant.com</div>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="container">
+          <span class="hero-eyebrow">CASE FILE OPEN</span>
+          <h1 class="display">Find your firm's <span class="accent-red">biggest villain.</span></h1>
+          <p class="hero-subhead">Every law firm is fighting at least one. Take the 3-minute diagnostic. We'll name your biggest threat — <span class="pop">and the rescue plan.</span></p>
+          <button type="button" class="hero-cta" data-go-stage="context-quiz">Start the diagnostic</button>
+        </div>
+      </div>
+
+      <!-- Rogues gallery -->
+      <section class="gallery-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">Meet the lineup</span>
+            <h2 class="display">Seven villains. <span class="accent-gold">Every law firm</span> is fighting at least one.</h2>
+            <p>The diagnostic names yours. Below: the rogues gallery and the damage each one is doing.</p>
+          </div>
+          <div class="gallery">
+            {villains.map((v) => (
+              <div class="villain-card">
+                <span class="pow">{v.pow}</span>
+                <div class="num">{v.num}</div>
+                <img src={`/images/lp/villains/${v.slug}.png`} alt={v.name} class="villain-img" width="180" height="290" loading="lazy" />
+                <h3>{v.name}</h3>
+                <p class="mo">{v.mo}</p>
+                <div class="stat">{v.stat}<span class="label">{v.label}</span></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Subsequent stages added in later tasks -->
+
+  </main>
+
+  <style>
+    /* ── Stage state machine */
+    main[data-stage="intro"]         [data-stage]:not([data-stage="intro"])         { display: none; }
+    main[data-stage="context-quiz"]  [data-stage]:not([data-stage="context-quiz"])  { display: none; }
+    main[data-stage="transition"]    [data-stage]:not([data-stage="transition"])    { display: none; }
+    main[data-stage="villain-quiz"]  [data-stage]:not([data-stage="villain-quiz"])  { display: none; }
+    main[data-stage="reveal"]        [data-stage]:not([data-stage="reveal"])        { display: none; }
+    main[data-stage="email-gate"]    [data-stage]:not([data-stage="email-gate"])    { display: none; }
+    main[data-stage="thank-you"]     [data-stage]:not([data-stage="thank-you"])     { display: none; }
+
+    /* ── Color tokens (from comic-one-pager) */
+    :root {
+      --navy: #0e2236;
+      --navy-deep: #061320;
+      --navy-mid: #1a3a5c;
+      --gold: #F9A630;
+      --gold-bright: #FBD46D;
+      --red: #E04A2C;
+      --red-bright: #FF6B45;
+      --steel: #c0c8d4;
+      --steel-dim: #6f7a8a;
+    }
+
+    /* ── Comic mode wrapper (scoped halftone overlay) */
+    main { background: var(--navy); color: #fff; font-family: 'Inter', -apple-system, sans-serif; line-height: 1.55; }
+    main[data-mode="comic"]::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+      background-size: 8px 8px;
+      mix-blend-mode: screen;
+    }
+    main[data-mode="comic"]::after {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(249,166,48,0.10), transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(224,74,44,0.08), transparent 50%);
+      mix-blend-mode: screen;
+    }
+
+    /* ── Layout */
+    main .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+    main section { padding: 64px 0; position: relative; }
+    @media (max-width: 720px) { main section { padding: 48px 0; } main .container { padding: 0 20px; } }
+
+    /* ── Typography */
+    main .bangers, main .display, main .pow, main .hero-eyebrow, main .hero-cta, main .num,
+    main h1, main h2, main h3 {
+      font-family: 'Bangers', 'Impact', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    main .display {
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep);
+    }
+    main h1.display { font-size: clamp(56px, 9vw, 128px); }
+    main h2.display { font-size: clamp(38px, 6vw, 80px); }
+    main h3.display { font-size: clamp(28px, 4vw, 48px); }
+    main .accent-gold { color: var(--gold); }
+    main .accent-red  { color: var(--red-bright); }
+
+    /* ── Header strip */
+    main .header-strip {
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      padding: 16px 0;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--steel);
+      position: relative; z-index: 2;
+    }
+    main .header-strip .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    main .header-strip img { height: 28px; }
+    main .header-strip .issue-tag { color: var(--gold); }
+
+    /* ── Hero */
+    main .hero { padding-top: 80px; padding-bottom: 80px; }
+    main .hero-eyebrow {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 8px 16px;
+      letter-spacing: 0.12em;
+      font-size: 18px;
+      transform: rotate(-2deg);
+      margin-bottom: 24px;
+      box-shadow: 4px 4px 0 var(--navy-deep);
+    }
+    main .hero h1 { margin-bottom: 24px; }
+    main .hero-subhead {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 600;
+      color: var(--steel);
+      max-width: 800px;
+      line-height: 1.35;
+      margin-bottom: 40px;
+    }
+    main .hero-subhead .pop { color: var(--gold); font-style: italic; }
+    main .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: #fff;
+      padding: 18px 28px;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 6px 6px 0 var(--navy-deep);
+      transform: rotate(-1deg);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    main .hero-cta::after { content: '→'; }
+    main .hero-cta:hover { transform: rotate(-1deg) translate(-2px, -2px); box-shadow: 8px 8px 0 var(--navy-deep); }
+
+    /* ── Section header */
+    main .section-eyebrow {
+      display: inline-block;
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--gold);
+    }
+    main .section-header { margin-bottom: 48px; max-width: 900px; }
+    main .section-header h2 { margin-bottom: 16px; }
+    main .section-header p { font-family: 'Sora', sans-serif; font-size: 20px; color: var(--steel); line-height: 1.4; }
+
+    /* ── Rogues gallery cards */
+    main .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    main .villain-card {
+      background: rgba(255,255,255,0.04);
+      border: 2px solid rgba(255,255,255,0.10);
+      padding: 28px 24px;
+      position: relative;
+      transition: transform 0.25s, border-color 0.25s, background 0.25s;
+      overflow: hidden;
+    }
+    main .villain-card:nth-child(odd)  { transform: rotate(-0.6deg); }
+    main .villain-card:nth-child(even) { transform: rotate( 0.6deg); }
+    main .villain-card:hover { transform: rotate(0deg) translateY(-4px); border-color: var(--gold); background: rgba(249,166,48,0.06); }
+    main .villain-card::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-size: 6px 6px;
+      opacity: 0.6;
+    }
+    main .villain-card .num {
+      font-size: 56px; line-height: 1;
+      color: var(--gold);
+      -webkit-text-stroke: 2px var(--navy-deep);
+      text-shadow: 3px 3px 0 var(--navy-deep);
+      margin-bottom: 4px;
+    }
+    main .villain-card .pow {
+      display: inline-block;
+      color: #fff; background: var(--red);
+      padding: 3px 12px;
+      font-size: 18px; letter-spacing: 0.08em;
+      transform: rotate(-3deg);
+      box-shadow: 2px 2px 0 var(--navy-deep);
+      position: absolute; top: 24px; right: 24px;
+    }
+    main .villain-card .villain-img {
+      width: 100%; max-width: 180px; height: auto; display: block;
+      margin: 0 auto 12px;
+      filter: drop-shadow(0 0 20px rgba(249,166,48,0.18));
+    }
+    main .villain-card h3 {
+      font-size: 32px; letter-spacing: 0.04em; color: #fff;
+      margin: 12px 0 8px; line-height: 1.05;
+      text-shadow: 2px 2px 0 var(--navy-deep);
+    }
+    main .villain-card .mo { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--steel); margin-bottom: 16px; line-height: 1.5; }
+    main .villain-card .stat { font-size: 24px; color: var(--gold-bright); letter-spacing: 0.04em; }
+    main .villain-card .stat .label { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; color: var(--steel-dim); letter-spacing: 0.10em; text-transform: uppercase; margin-top: 2px; }
+
+    /* ── Clean mode (context-quiz) */
+    main[data-mode="clean"] { background: var(--navy); }
+    main[data-mode="clean"]::before, main[data-mode="clean"]::after { display: none; }
+    main[data-mode="clean"] .header-strip { border-color: rgba(255,255,255,0.08); }
+  </style>
+
+  <script is:inline>
+    const LP_NAME = 'Villain';
+    const main = document.querySelector('main#villain-lp');
+
+    const state = {
+      context: { firm_attorney_count: '', monthly_lead_volume: '', practice_area: '' },
+      scores: { PH: 0, AB: 0, VK: 0, DP: 0, SS: 0, AA: 0, HG: 0 },
+      answers: [],
+      qIndex: 0,
+      result: null,
+      leak: 0,
+    };
+
+    const utms = (function() {
+      const p = new URLSearchParams(location.search);
+      return ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']
+        .reduce(function(acc, k) { acc[k] = p.get(k) || ''; return acc; }, {});
+    })();
+
+    function trackStage(lp, stage, extra) {
+      extra = extra || {};
+      if (typeof posthog !== 'undefined') {
+        posthog.capture(lp + ' LP Stage', Object.assign({ stage: stage }, extra));
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: lp.toLowerCase() + '_lp_stage', stage: stage }, extra));
+    }
+
+    function setStage(name) {
+      var target = document.querySelector('[data-stage="' + name + '"]');
+      if (!target) { console.warn('setStage: unknown stage "' + name + '"'); return; }
+      main.setAttribute('data-stage', name);
+      // Mode flip — clean only during context-quiz
+      main.setAttribute('data-mode', name === 'context-quiz' ? 'clean' : 'comic');
+      trackStage(LP_NAME, name);
+      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    }
+
+    document.querySelectorAll('[data-go-stage]').forEach(function(btn) {
+      btn.addEventListener('click', function() { setStage(this.getAttribute('data-go-stage')); });
+    });
+
+    trackStage(LP_NAME, 'intro');
+  </script>
+
+</ComicCampaignLayout>
