@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Hero from "@components/Hero.astro";
 import CTABanner from "@components/CTABanner.astro";
 import TestimonialCard from "@components/TestimonialCard.astro";
 import { fetchFeaturedTestimonials } from "@lib/hubspot";
@@ -54,11 +53,11 @@ const journey = [
 
 const included = [
   { title: "Client Portal", desc: "Credit usage, signed agreements, feedback, comments, and data in one place." },
-  { title: "English & Spanish", desc: "Bilingual intake agents serve your full client base." },
-  { title: "AI + Human Pairing", desc: "Complete, around-the-clock coverage that never sleeps." },
-  { title: "QA on Every Call", desc: "Every interaction reviewed for quality and consistency." },
-  { title: "Dedicated Success Manager", desc: "Recurring meetings with someone who knows your firm." },
-  { title: "Scales With You", desc: "Grow volume without adding internal headcount." },
+  { title: "English & Spanish", desc: "Bilingual agents serve your full client base." },
+  { title: "AI + Human Pairing", desc: "Complete, around-the-clock coverage." },
+  { title: "QA on Every Call", desc: "Every call we handle on your behalf is reviewed." },
+  { title: "Recurring Meetings", desc: "Ongoing check-ins with your dedicated Success Manager." },
+  { title: "Scales With You", desc: "Grow without adding internal hires." },
 ];
 ---
 
@@ -67,16 +66,57 @@ const included = [
   description="Intake360 is your firm's always-on intake and reception operation — built for contingency-fee firms. $997/month keeps your firm covered; $3,600 buys 360 action-based credits."
 >
 
-  <Hero
-    badge="24/7 Intake & Reception Coverage"
-    title="24/7 intake coverage that keeps leads from slipping through the cracks."
-    subtitle="Intake360 is your firm's always-on intake and reception operation — built exclusively for contingency-fee firms. We answer, qualify, sign cases, and follow up on every lead the moment it comes in, so missed calls, after-hours leads, overflow, and weak follow-up stop turning into lost cases."
-    buttonText="See What You're Missing After Hours"
-    buttonLink="/contact"
-    secondaryButtonText="How Pricing Works"
-    secondaryButtonLink="#pricing"
-    size="lg"
-  />
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-navy py-16 md:py-24 border-b-4 border-brand-gold">
+    <div class="grain-overlay"></div>
+    <!-- Ambient gold orb -->
+    <div class="hero-orb-gold" aria-hidden="true"></div>
+    <div class="container-wide relative z-10">
+      <!-- Brand mark + eyebrow -->
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 reveal">
+        <div>
+          <div class="font-heading font-black text-2xl md:text-3xl text-white tracking-tight leading-none">
+            Intake<span class="text-brand-gold">360</span>
+          </div>
+          <div class="mt-1.5 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/60 font-semibold">A service by Attorney Assistant</div>
+        </div>
+        <div class="flex items-center gap-2.5 text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/70 font-semibold">
+          <span class="w-8 h-0.5 bg-brand-gold inline-block"></span>
+          <span>24/7 Intake &amp; Reception Coverage</span>
+        </div>
+      </div>
+
+      <h1 class="font-heading font-extrabold text-white text-display-md md:text-display-lg leading-[1.05] tracking-tight max-w-5xl reveal" style="transition-delay: 80ms;">
+        24/7 intake coverage that keeps leads from <span class="text-brand-gold">slipping through the cracks.</span>
+      </h1>
+
+      <p class="mt-6 text-base md:text-lg text-white/80 leading-relaxed max-w-4xl reveal" style="transition-delay: 160ms;">
+        Intake360 is your firm's always-on intake and reception operation — built exclusively for contingency-fee firms. We <strong class="text-white font-bold">answer, qualify, sign cases, and follow up</strong> on every lead the moment it comes in, so missed calls, after-hours leads, overflow, and weak follow-up stop turning into lost cases.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3 reveal" style="transition-delay: 240ms;">
+        <a href="/contact" class="btn-primary btn-lg group">
+          See What You're Missing After Hours
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+        <a href="#pricing" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white border border-white/25 hover:border-brand-gold hover:text-brand-gold transition-colors">How Pricing Works</a>
+      </div>
+    </div>
+
+    <style>
+      .hero-orb-gold {
+        position: absolute;
+        top: -15%;
+        right: -8%;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(249,166,48,0.18) 0%, rgba(249,166,48,0) 70%);
+        pointer-events: none;
+        z-index: 1;
+      }
+    </style>
+  </section>
 
   <!-- Pricing -->
   <section class="section-padding" id="pricing">
