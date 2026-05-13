@@ -1,0 +1,111 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+---
+
+<ComicCampaignLayout
+  title="The Rescue Is Scheduled | Attorney Assistant"
+  description="Your Deploy AA Rescue Call with Attorney Assistant is confirmed."
+>
+
+  <div data-mode="comic" id="ty-comic">
+
+    <header class="header-strip">
+      <div class="container row">
+        <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant">
+        <div>Mission Booked · <span class="issue-tag">Issue №02 · 2026</span></div>
+      </div>
+    </header>
+
+    <section class="ty-hero">
+      <div class="container" style="text-align: center;">
+        <span class="hero-eyebrow">CASE FILE: ACCEPTED</span>
+        <h1 class="display">The rescue<br><span class="accent-gold">is scheduled.</span></h1>
+        <p class="ty-subhead">Your Deploy AA call is locked in. Check your inbox for the calendar invite.</p>
+      </div>
+    </section>
+
+    <section class="ty-cards-section">
+      <div class="container">
+        <p class="ty-section-label">What happens on the call</p>
+        <div class="ty-cards">
+          <div class="ty-card">
+            <span class="pow">POW!</span>
+            <h3>Your villain, exposed</h3>
+            <p>We'll walk through your diagnostic result together — why that villain scored highest at your firm, and what its specific damage pattern looks like at your size.</p>
+          </div>
+          <div class="ty-card">
+            <span class="pow">BAM!</span>
+            <h3>The rescue plan</h3>
+            <p>The exact 90-day playbook to defeat your villain. Which AA model (Elite Staffing, +AI, Co-Managed) fits, what the rollout looks like, and what week-by-week results to expect.</p>
+          </div>
+          <div class="ty-card">
+            <span class="pow">ZAP!</span>
+            <h3>No pitch — a real plan</h3>
+            <p>If AA isn't a fit, you walk away with the playbook anyway. If it is, we map the deployment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <style>
+    /* ── Color tokens (from comic-one-pager) */
+    :root {
+      --navy: #0e2236;
+      --navy-deep: #061320;
+      --navy-mid: #1a3a5c;
+      --gold: #F9A630;
+      --gold-bright: #FBD46D;
+      --red: #E04A2C;
+      --red-bright: #FF6B45;
+      --steel: #c0c8d4;
+      --steel-dim: #6f7a8a;
+    }
+
+    #ty-comic { background: var(--navy); color: #fff; font-family: 'Inter', -apple-system, sans-serif; line-height: 1.55; min-height: 100vh; }
+    #ty-comic[data-mode="comic"]::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+      background-size: 8px 8px; mix-blend-mode: screen;
+    }
+
+    #ty-comic .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+    #ty-comic section { padding: 64px 0; }
+
+    #ty-comic h1, #ty-comic h2, #ty-comic h3, #ty-comic .display { font-family: 'Bangers', sans-serif; letter-spacing: 0.04em; }
+    #ty-comic .display { letter-spacing: 0.02em; line-height: 0.95; text-transform: uppercase; text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep); }
+    #ty-comic h1.display { font-size: clamp(56px, 9vw, 112px); }
+    #ty-comic .accent-gold { color: var(--gold); }
+
+    #ty-comic .header-strip { border-bottom: 2px solid rgba(255,255,255,0.08); padding: 16px 0; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--steel); }
+    #ty-comic .header-strip .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    #ty-comic .header-strip img { height: 28px; }
+    #ty-comic .header-strip .issue-tag { color: var(--gold); }
+
+    #ty-comic .ty-hero { padding-top: 80px; }
+    #ty-comic .hero-eyebrow { display: inline-block; background: var(--red); color: #fff; padding: 8px 16px; letter-spacing: 0.12em; font-size: 18px; transform: rotate(-2deg); margin-bottom: 24px; box-shadow: 4px 4px 0 var(--navy-deep); font-family: 'Bangers', sans-serif; }
+    #ty-comic .ty-subhead { font-family: 'Sora', sans-serif; font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; color: var(--steel); max-width: 600px; margin: 24px auto 0; line-height: 1.35; }
+
+    #ty-comic .ty-section-label { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--gold); margin-bottom: 32px; text-align: center; border-bottom: 3px solid var(--gold); padding-bottom: 8px; display: inline-block; }
+    #ty-comic .ty-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    #ty-comic .ty-card { background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.10); padding: 28px 24px; position: relative; transition: transform 0.25s, border-color 0.25s; }
+    #ty-comic .ty-card:nth-child(odd)  { transform: rotate(-0.6deg); }
+    #ty-comic .ty-card:nth-child(even) { transform: rotate( 0.6deg); }
+    #ty-comic .ty-card:hover { transform: rotate(0deg) translateY(-4px); border-color: var(--gold); }
+    #ty-comic .ty-card .pow { display: inline-block; background: var(--red); color: #fff; padding: 3px 12px; font-family: 'Bangers', sans-serif; font-size: 18px; letter-spacing: 0.08em; transform: rotate(-3deg); box-shadow: 2px 2px 0 var(--navy-deep); position: absolute; top: 20px; right: 20px; }
+    #ty-comic .ty-card h3 { font-size: 26px; color: #fff; margin: 16px 0 10px; text-shadow: 2px 2px 0 var(--navy-deep); }
+    #ty-comic .ty-card p { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--steel); line-height: 1.5; }
+    #ty-comic .ty-cards-section .container { text-align: center; }
+    #ty-comic .ty-cards { text-align: left; }
+  </style>
+
+  <!-- Conversion tracking -->
+  <script is:inline>
+    if (typeof posthog !== 'undefined') posthog.capture('Meeting Booked', { meeting_type: 'deploy_aa_rescue_call' });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'meeting_booked', meeting_type: 'deploy_aa_rescue_call' });
+    // TODO(nicole): add GA4 / LinkedIn / Meta conversion pixel firing here once pixel IDs are confirmed
+  </script>
+
+</ComicCampaignLayout>
