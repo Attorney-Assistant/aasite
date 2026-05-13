@@ -7,7 +7,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
   title="The 2026 Law Firm Operations Benchmark | Attorney Assistant"
   description="Take the 90-second self-assessment. See where your firm ranks on the 2026 Law Firm Operations Benchmark."
 >
-  <main data-stage="intro" id="benchmark-lp">
+  <div data-stage="intro" id="benchmark-lp">
 
     <!-- ═══════════════════════════════════════════
          STAGE 1: INTRO
@@ -165,7 +165,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       </div>
     </section>
 
-  </main>
+  </div>
 
   <!-- HubSpot Meetings Embed loader (geo-gated) -->
   <script is:inline>
@@ -187,11 +187,11 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
   </style>
 
   <style>
-    main[data-stage="intro"] [data-stage]:not([data-stage="intro"]) { display: none; }
-    main[data-stage="micro-form"] [data-stage]:not([data-stage="micro-form"]) { display: none; }
-    main[data-stage="scorecard"] [data-stage]:not([data-stage="scorecard"]) { display: none; }
-    main[data-stage="email-gate"] [data-stage]:not([data-stage="email-gate"]) { display: none; }
-    main[data-stage="thank-you"] [data-stage]:not([data-stage="thank-you"]) { display: none; }
+    #benchmark-lp[data-stage="intro"] [data-stage]:not([data-stage="intro"]) { display: none; }
+    #benchmark-lp[data-stage="micro-form"] [data-stage]:not([data-stage="micro-form"]) { display: none; }
+    #benchmark-lp[data-stage="scorecard"] [data-stage]:not([data-stage="scorecard"]) { display: none; }
+    #benchmark-lp[data-stage="email-gate"] [data-stage]:not([data-stage="email-gate"]) { display: none; }
+    #benchmark-lp[data-stage="thank-you"] [data-stage]:not([data-stage="thank-you"]) { display: none; }
   </style>
 
   <script is:inline define:vars={{
@@ -201,7 +201,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     HS_FORM_BENCHMARK_EMAILGATE: FORM_IDS.benchmarkEmailGate
   }}>
     const LP_NAME = 'Benchmark';
-    const main = document.querySelector('main#benchmark-lp');
+    const main = document.querySelector('#benchmark-lp');
 
     const state = {
       benchmark: null,  // populated after micro-form submit

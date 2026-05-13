@@ -17,7 +17,7 @@ const villains = [
   title="Find Your Firm's Biggest Villain | Attorney Assistant"
   description="Every law firm is fighting at least one. Take the 3-minute diagnostic. We'll name your biggest threat — and the rescue plan."
 >
-  <main data-stage="intro" data-mode="comic" id="villain-lp">
+  <div data-stage="intro" data-mode="comic" id="villain-lp">
 
     <!-- ═══════════════════════════════════════════
          STAGE 1: INTRO + ROGUES GALLERY
@@ -67,17 +67,17 @@ const villains = [
 
     <!-- Subsequent stages added in later tasks -->
 
-  </main>
+  </div>
 
   <style>
     /* ── Stage state machine */
-    main[data-stage="intro"]         [data-stage]:not([data-stage="intro"])         { display: none; }
-    main[data-stage="context-quiz"]  [data-stage]:not([data-stage="context-quiz"])  { display: none; }
-    main[data-stage="transition"]    [data-stage]:not([data-stage="transition"])    { display: none; }
-    main[data-stage="villain-quiz"]  [data-stage]:not([data-stage="villain-quiz"])  { display: none; }
-    main[data-stage="reveal"]        [data-stage]:not([data-stage="reveal"])        { display: none; }
-    main[data-stage="email-gate"]    [data-stage]:not([data-stage="email-gate"])    { display: none; }
-    main[data-stage="thank-you"]     [data-stage]:not([data-stage="thank-you"])     { display: none; }
+    #villain-lp[data-stage="intro"]         [data-stage]:not([data-stage="intro"])         { display: none; }
+    #villain-lp[data-stage="context-quiz"]  [data-stage]:not([data-stage="context-quiz"])  { display: none; }
+    #villain-lp[data-stage="transition"]    [data-stage]:not([data-stage="transition"])    { display: none; }
+    #villain-lp[data-stage="villain-quiz"]  [data-stage]:not([data-stage="villain-quiz"])  { display: none; }
+    #villain-lp[data-stage="reveal"]        [data-stage]:not([data-stage="reveal"])        { display: none; }
+    #villain-lp[data-stage="email-gate"]    [data-stage]:not([data-stage="email-gate"])    { display: none; }
+    #villain-lp[data-stage="thank-you"]     [data-stage]:not([data-stage="thank-you"])     { display: none; }
 
     /* ── Color tokens (from comic-one-pager) */
     :root {
@@ -93,15 +93,15 @@ const villains = [
     }
 
     /* ── Comic mode wrapper (scoped halftone overlay) */
-    main { background: var(--navy); color: #fff; font-family: 'Inter', -apple-system, sans-serif; line-height: 1.55; }
-    main[data-mode="comic"]::before {
+    #villain-lp { background: var(--navy); color: #fff; font-family: 'Inter', -apple-system, sans-serif; line-height: 1.55; }
+    #villain-lp[data-mode="comic"]::before {
       content: '';
       position: fixed; inset: 0; pointer-events: none; z-index: 1;
       background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
       background-size: 8px 8px;
       mix-blend-mode: screen;
     }
-    main[data-mode="comic"]::after {
+    #villain-lp[data-mode="comic"]::after {
       content: '';
       position: fixed; inset: 0; pointer-events: none; z-index: 1;
       background:
@@ -111,30 +111,30 @@ const villains = [
     }
 
     /* ── Layout */
-    main .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
-    main section { padding: 64px 0; position: relative; }
-    @media (max-width: 720px) { main section { padding: 48px 0; } main .container { padding: 0 20px; } }
+    #villain-lp .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+    #villain-lp section { padding: 64px 0; position: relative; }
+    @media (max-width: 720px) { #villain-lp section { padding: 48px 0; } #villain-lp .container { padding: 0 20px; } }
 
     /* ── Typography */
-    main .bangers, main .display, main .pow, main .hero-eyebrow, main .hero-cta, main .num,
-    main h1, main h2, main h3 {
+    #villain-lp .bangers, #villain-lp .display, #villain-lp .pow, #villain-lp .hero-eyebrow, #villain-lp .hero-cta, #villain-lp .num,
+    #villain-lp h1, #villain-lp h2, #villain-lp h3 {
       font-family: 'Bangers', 'Impact', sans-serif;
       letter-spacing: 0.04em;
     }
-    main .display {
+    #villain-lp .display {
       letter-spacing: 0.02em;
       line-height: 0.95;
       text-transform: uppercase;
       text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep);
     }
-    main h1.display { font-size: clamp(56px, 9vw, 128px); }
-    main h2.display { font-size: clamp(38px, 6vw, 80px); }
-    main h3.display { font-size: clamp(28px, 4vw, 48px); }
-    main .accent-gold { color: var(--gold); }
-    main .accent-red  { color: var(--red-bright); }
+    #villain-lp h1.display { font-size: clamp(56px, 9vw, 128px); }
+    #villain-lp h2.display { font-size: clamp(38px, 6vw, 80px); }
+    #villain-lp h3.display { font-size: clamp(28px, 4vw, 48px); }
+    #villain-lp .accent-gold { color: var(--gold); }
+    #villain-lp .accent-red  { color: var(--red-bright); }
 
     /* ── Header strip */
-    main .header-strip {
+    #villain-lp .header-strip {
       border-bottom: 2px solid rgba(255,255,255,0.08);
       padding: 16px 0;
       font-size: 12px;
@@ -144,13 +144,13 @@ const villains = [
       color: var(--steel);
       position: relative; z-index: 2;
     }
-    main .header-strip .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    main .header-strip img { height: 28px; }
-    main .header-strip .issue-tag { color: var(--gold); }
+    #villain-lp .header-strip .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    #villain-lp .header-strip img { height: 28px; }
+    #villain-lp .header-strip .issue-tag { color: var(--gold); }
 
     /* ── Hero */
-    main .hero { padding-top: 80px; padding-bottom: 80px; }
-    main .hero-eyebrow {
+    #villain-lp .hero { padding-top: 80px; padding-bottom: 80px; }
+    #villain-lp .hero-eyebrow {
       display: inline-block;
       background: var(--red);
       color: #fff;
@@ -161,8 +161,8 @@ const villains = [
       margin-bottom: 24px;
       box-shadow: 4px 4px 0 var(--navy-deep);
     }
-    main .hero h1 { margin-bottom: 24px; }
-    main .hero-subhead {
+    #villain-lp .hero h1 { margin-bottom: 24px; }
+    #villain-lp .hero-subhead {
       font-family: 'Sora', sans-serif;
       font-size: clamp(20px, 2.4vw, 28px);
       font-weight: 600;
@@ -171,8 +171,8 @@ const villains = [
       line-height: 1.35;
       margin-bottom: 40px;
     }
-    main .hero-subhead .pop { color: var(--gold); font-style: italic; }
-    main .hero-cta {
+    #villain-lp .hero-subhead .pop { color: var(--gold); font-style: italic; }
+    #villain-lp .hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -188,11 +188,11 @@ const villains = [
       transform: rotate(-1deg);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    main .hero-cta::after { content: '→'; }
-    main .hero-cta:hover { transform: rotate(-1deg) translate(-2px, -2px); box-shadow: 8px 8px 0 var(--navy-deep); }
+    #villain-lp .hero-cta::after { content: '→'; }
+    #villain-lp .hero-cta:hover { transform: rotate(-1deg) translate(-2px, -2px); box-shadow: 8px 8px 0 var(--navy-deep); }
 
     /* ── Section header */
-    main .section-eyebrow {
+    #villain-lp .section-eyebrow {
       display: inline-block;
       font-size: 16px;
       letter-spacing: 0.14em;
@@ -201,17 +201,17 @@ const villains = [
       padding-bottom: 8px;
       border-bottom: 3px solid var(--gold);
     }
-    main .section-header { margin-bottom: 48px; max-width: 900px; }
-    main .section-header h2 { margin-bottom: 16px; }
-    main .section-header p { font-family: 'Sora', sans-serif; font-size: 20px; color: var(--steel); line-height: 1.4; }
+    #villain-lp .section-header { margin-bottom: 48px; max-width: 900px; }
+    #villain-lp .section-header h2 { margin-bottom: 16px; }
+    #villain-lp .section-header p { font-family: 'Sora', sans-serif; font-size: 20px; color: var(--steel); line-height: 1.4; }
 
     /* ── Rogues gallery cards */
-    main .gallery {
+    #villain-lp .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
     }
-    main .villain-card {
+    #villain-lp .villain-card {
       background: rgba(255,255,255,0.04);
       border: 2px solid rgba(255,255,255,0.10);
       padding: 28px 24px;
@@ -219,24 +219,24 @@ const villains = [
       transition: transform 0.25s, border-color 0.25s, background 0.25s;
       overflow: hidden;
     }
-    main .villain-card:nth-child(odd)  { transform: rotate(-0.6deg); }
-    main .villain-card:nth-child(even) { transform: rotate( 0.6deg); }
-    main .villain-card:hover { transform: rotate(0deg) translateY(-4px); border-color: var(--gold); background: rgba(249,166,48,0.06); }
-    main .villain-card::before {
+    #villain-lp .villain-card:nth-child(odd)  { transform: rotate(-0.6deg); }
+    #villain-lp .villain-card:nth-child(even) { transform: rotate( 0.6deg); }
+    #villain-lp .villain-card:hover { transform: rotate(0deg) translateY(-4px); border-color: var(--gold); background: rgba(249,166,48,0.06); }
+    #villain-lp .villain-card::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
       background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
       background-size: 6px 6px;
       opacity: 0.6;
     }
-    main .villain-card .num {
+    #villain-lp .villain-card .num {
       font-size: 56px; line-height: 1;
       color: var(--gold);
       -webkit-text-stroke: 2px var(--navy-deep);
       text-shadow: 3px 3px 0 var(--navy-deep);
       margin-bottom: 4px;
     }
-    main .villain-card .pow {
+    #villain-lp .villain-card .pow {
       display: inline-block;
       color: #fff; background: var(--red);
       padding: 3px 12px;
@@ -245,29 +245,29 @@ const villains = [
       box-shadow: 2px 2px 0 var(--navy-deep);
       position: absolute; top: 24px; right: 24px;
     }
-    main .villain-card .villain-img {
+    #villain-lp .villain-card .villain-img {
       width: 100%; max-width: 180px; height: auto; display: block;
       margin: 0 auto 12px;
       filter: drop-shadow(0 0 20px rgba(249,166,48,0.18));
     }
-    main .villain-card h3 {
+    #villain-lp .villain-card h3 {
       font-size: 32px; letter-spacing: 0.04em; color: #fff;
       margin: 12px 0 8px; line-height: 1.05;
       text-shadow: 2px 2px 0 var(--navy-deep);
     }
-    main .villain-card .mo { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--steel); margin-bottom: 16px; line-height: 1.5; }
-    main .villain-card .stat { font-size: 24px; color: var(--gold-bright); letter-spacing: 0.04em; }
-    main .villain-card .stat .label { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; color: var(--steel-dim); letter-spacing: 0.10em; text-transform: uppercase; margin-top: 2px; }
+    #villain-lp .villain-card .mo { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--steel); margin-bottom: 16px; line-height: 1.5; }
+    #villain-lp .villain-card .stat { font-size: 24px; color: var(--gold-bright); letter-spacing: 0.04em; }
+    #villain-lp .villain-card .stat .label { display: block; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; color: var(--steel-dim); letter-spacing: 0.10em; text-transform: uppercase; margin-top: 2px; }
 
     /* ── Clean mode (context-quiz) */
-    main[data-mode="clean"] { background: var(--navy); }
-    main[data-mode="clean"]::before, main[data-mode="clean"]::after { display: none; }
-    main[data-mode="clean"] .header-strip { border-color: rgba(255,255,255,0.08); }
+    #villain-lp[data-mode="clean"] { background: var(--navy); }
+    #villain-lp[data-mode="clean"]::before, #villain-lp[data-mode="clean"]::after { display: none; }
+    #villain-lp[data-mode="clean"] .header-strip { border-color: rgba(255,255,255,0.08); }
   </style>
 
   <script is:inline>
     const LP_NAME = 'Villain';
-    const main = document.querySelector('main#villain-lp');
+    const main = document.querySelector('#villain-lp');
 
     const state = {
       context: { firm_attorney_count: '', monthly_lead_volume: '', practice_area: '' },
