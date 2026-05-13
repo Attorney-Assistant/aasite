@@ -207,6 +207,21 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       benchmark: null,  // populated after micro-form submit
     };
 
+    const FIRM_SIZE_HS_VALUES = {
+      'Solo': 'solo',
+      '2-5': '2_5',
+      '6-15': '6_15',
+      '16-50': '16_50',
+      '51+': '51_plus'
+    };
+    const LEAD_VOLUME_HS_VALUES = {
+      '<25': 'lt_25',
+      '25-75': '25_75',
+      '76-200': '76_200',
+      '201-500': '201_500',
+      '500+': '500_plus'
+    };
+
     // ── Benchmark thresholds + interpretation copy
     const BENCHMARKS = {
       voicemail_rate_: {
@@ -394,15 +409,23 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     });
 
     function populateBenchmarkEmailGate() {
-      const container = document.querySelector('#hs-emailgate');
-      if (!container) return;
-      const set = function(name, value) {
-        const input = container.querySelector('[name="' + name + '"]');
-        if (!input) return;
-        input.value = value;
-        input.dispatchEvent(new Event('change', { bubbles: true }));
-      };
-      Object.keys(utms).forEach(function(k) { set(k, utms[k]); });
+      const params = new URLSearchParams(window.location.search);
+      if (state.benchmark) {
+        params.set('firm_attorney_count', FIRM_SIZE_HS_VALUES[state.benchmark.firm_attorney_count]);
+        params.set('monthly_lead_volume', LEAD_VOLUME_HS_VALUES[state.benchmark.monthly_lead_volume]);
+        if (Array.isArray(state.benchmark.practice_area)) {
+          params.set('practice_area', state.benchmark.practice_area.join(';'));
+        } else if (state.benchmark.practice_area) {
+          params.set('practice_area', state.benchmark.practice_area);
+        }
+        if (state.benchmark.voicemail_rate_ !== undefined && state.benchmark.voicemail_rate_ !== null) {
+          params.set('voicemail_rate_', state.benchmark.voicemail_rate_);
+        }
+        if (state.benchmark.records_tat_days !== undefined && state.benchmark.records_tat_days !== null) {
+          params.set('records_tat_days', state.benchmark.records_tat_days);
+        }
+      }
+      window.history.replaceState({}, '', window.location.pathname + '?' + params.toString());
     }
   </script>
 
