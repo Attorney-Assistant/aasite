@@ -24,12 +24,8 @@ const villains = [
     ═══════════════════════════════════════════ -->
     <section data-stage="intro">
       <!-- Hero -->
-      <div class="hero">
+      <div class="hero" role="img" aria-label="Seven villain silhouettes in a lineup — the noir trench-coat figure highlighted under a spotlight with a question mark, representing your firm's unknown biggest villain">
         <div class="container">
-          <picture class="hero-lineup">
-            <source srcset="/images/lp/villain-lineup.webp" type="image/webp" />
-            <img src="/images/lp/villain-lineup.png" alt="Seven villain silhouettes in a lineup — the noir trench-coat figure highlighted under a spotlight with a question mark, representing your firm's unknown biggest villain" width="1920" height="1080" loading="eager" fetchpriority="high" />
-          </picture>
           <span class="hero-eyebrow">CASE FILE OPEN</span>
           <h1 class="display">Find your firm's <span class="accent-red">biggest villain.</span></h1>
           <p class="hero-subhead">Every law firm is fighting at least one. Take the 3-minute diagnostic. We'll name your biggest threat — <span class="pop">and the rescue plan.</span></p>
@@ -361,17 +357,42 @@ const villains = [
     #villain-lp .accent-red  { color: var(--red-bright); }
 
     /* ── Hero */
-    #villain-lp .hero { padding-top: 120px; padding-bottom: 80px; }
-    #villain-lp .hero-lineup {
-      display: block;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto 32px;
-      filter: drop-shadow(0 8px 28px rgba(249,166,48,0.18));
+    #villain-lp .hero {
+      position: relative;
+      padding-top: 120px;
+      padding-bottom: 80px;
+      isolation: isolate;
     }
-    #villain-lp .hero-lineup img { display: block; width: 100%; height: auto; }
+    #villain-lp .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: image-set(
+        url('/images/lp/villain-lineup.webp') type('image/webp'),
+        url('/images/lp/villain-lineup.png') type('image/png')
+      );
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: min(1200px, 95%) auto;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: -1;
+      filter: drop-shadow(0 8px 28px rgba(249,166,48,0.25));
+    }
+    #villain-lp .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(10,22,40,0.0) 0%, rgba(10,22,40,0.55) 60%, rgba(10,22,40,0.85) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    #villain-lp .hero .container { position: relative; z-index: 1; text-align: center; }
+    #villain-lp .hero h1,
+    #villain-lp .hero .hero-subhead { text-shadow: 0 2px 18px rgba(10,22,40,0.7); }
     @media (max-width: 720px) {
-      #villain-lp .hero-lineup { max-width: 100%; margin-bottom: 20px; }
+      #villain-lp .hero { padding-top: 96px; padding-bottom: 64px; }
+      #villain-lp .hero::before { background-size: 140% auto; opacity: 0.4; }
     }
     #villain-lp .hero-eyebrow {
       display: inline-block;
