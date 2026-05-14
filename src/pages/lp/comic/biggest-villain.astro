@@ -357,9 +357,10 @@ const villains = [
     #villain-lp .accent-red  { color: var(--red-bright); }
 
     /* ── Hero */
+    #villain-lp section[data-stage="intro"] { padding-top: 0; }
     #villain-lp .hero {
       position: relative;
-      padding-top: 120px;
+      padding-top: 64px;
       padding-bottom: 80px;
       isolation: isolate;
     }
@@ -373,7 +374,7 @@ const villains = [
       );
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: min(1200px, 95%) auto;
+      background-size: cover;
       opacity: 0.55;
       pointer-events: none;
       z-index: -1;
@@ -388,11 +389,16 @@ const villains = [
       z-index: -1;
     }
     #villain-lp .hero .container { position: relative; z-index: 1; text-align: center; }
-    #villain-lp .hero h1,
-    #villain-lp .hero .hero-subhead { text-shadow: 0 2px 18px rgba(10,22,40,0.7); }
+    #villain-lp .hero h1 { text-align: center; text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep), 0 2px 18px rgba(10,22,40,0.7); }
+    #villain-lp .hero .hero-subhead {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 2px 18px rgba(10,22,40,0.7);
+    }
     @media (max-width: 720px) {
-      #villain-lp .hero { padding-top: 96px; padding-bottom: 64px; }
-      #villain-lp .hero::before { background-size: 140% auto; opacity: 0.4; }
+      #villain-lp .hero { padding-top: 48px; padding-bottom: 64px; }
+      #villain-lp .hero::before { opacity: 0.45; }
     }
     #villain-lp .hero-eyebrow {
       display: inline-block;
