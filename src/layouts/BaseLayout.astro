@@ -17,9 +17,11 @@ export interface Props {
   noindex?: boolean;
   schema?: Record<string, any> | Record<string, any>[];
   suppressMainPixel?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
 }
 
-const { title, description, image, type, publishedDate, author, noindex, schema, suppressMainPixel = false } = Astro.props;
+const { title, description, image, type, publishedDate, author, noindex, schema, suppressMainPixel = false, ogTitle, ogDescription } = Astro.props;
 const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
 ---
 
@@ -49,6 +51,8 @@ const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
       author={author}
       noindex={noindex}
       schema={schema}
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
     />
 
     <!-- Site-wide Structured Data -->

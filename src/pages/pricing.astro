@@ -95,7 +95,7 @@ const wontGet = [
       <div class="pricing-calc card overflow-hidden reveal" id="pricing-calculator">
         <div class="grid lg:grid-cols-5">
           <!-- Left: Controls -->
-          <div class="lg:col-span-3 p-8 md:p-10">
+          <div class="lg:col-span-3 p-5 sm:p-8 md:p-10">
             <div class="inline-flex items-baseline gap-1.5 mb-4">
               <span class="text-xl font-heading tracking-tight">
                 <span class="text-brand-gold">IMPACT</span><span class="text-brand-navy"> ASSISTANT</span>
@@ -108,7 +108,7 @@ const wontGet = [
 
             <div class="space-y-4" id="calc-roles">
               {roles.map((role, i) => (
-                <div class="calc-role flex items-center gap-4 p-4 rounded-xl border border-gray-200 bg-white hover:border-brand-200 transition-colors" data-standard={role.standard.replace(/[$,]/g, '')} data-bilingual={role.bilingual.replace(/[$,]/g, '')} data-name={role.name}>
+                <div class="calc-role flex flex-wrap items-center gap-x-3 gap-y-3 sm:gap-x-4 p-3 sm:p-4 rounded-xl border border-gray-200 bg-white hover:border-brand-200 transition-colors" data-standard={role.standard.replace(/[$,]/g, '')} data-bilingual={role.bilingual.replace(/[$,]/g, '')} data-name={role.name}>
                   <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center text-brand-700">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" d={role.icon} />
@@ -118,16 +118,16 @@ const wontGet = [
                     <a href={role.href} class="text-sm font-semibold text-gray-900 hover:text-brand-700 transition-colors">{role.name}</a>
                     <p class="text-xs text-gray-400">from {role.standard}/mo</p>
                   </div>
-                  <div class="flex items-center gap-1">
+                  <div class="flex items-center gap-2 sm:gap-1 w-full sm:w-auto justify-end basis-full sm:basis-auto">
                     <select class="calc-type text-xs border border-gray-200 rounded-lg px-2 py-1.5 bg-white text-gray-600 focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold outline-none">
                       <option value="standard">Standard</option>
                       <option value="bilingual">Bilingual</option>
                     </select>
-                  </div>
-                  <div class="flex items-center gap-0">
-                    <button type="button" class="calc-minus w-8 h-8 rounded-l-lg border border-gray-200 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors flex items-center justify-center text-lg font-medium" aria-label="Decrease">−</button>
-                    <span class="calc-qty w-10 h-8 border-t border-b border-gray-200 bg-white flex items-center justify-center text-sm font-semibold text-gray-900">0</span>
-                    <button type="button" class="calc-plus w-8 h-8 rounded-r-lg border border-gray-200 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors flex items-center justify-center text-lg font-medium" aria-label="Increase">+</button>
+                    <div class="flex items-center gap-0">
+                      <button type="button" class="calc-minus w-8 h-8 rounded-l-lg border border-gray-200 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors flex items-center justify-center text-lg font-medium" aria-label="Decrease">−</button>
+                      <span class="calc-qty w-10 h-8 border-t border-b border-gray-200 bg-white flex items-center justify-center text-sm font-semibold text-gray-900">0</span>
+                      <button type="button" class="calc-plus w-8 h-8 rounded-r-lg border border-gray-200 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors flex items-center justify-center text-lg font-medium" aria-label="Increase">+</button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -139,7 +139,7 @@ const wontGet = [
           </div>
 
           <!-- Right: Summary -->
-          <div class="lg:col-span-2 bg-brand-navy p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
+          <div class="lg:col-span-2 bg-brand-navy p-5 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden">
             <div class="absolute inset-0 grain-overlay opacity-50"></div>
             <div class="absolute -top-20 -right-20 w-60 h-60 bg-brand-gold/[0.05] rounded-full blur-3xl"></div>
 

@@ -9,6 +9,8 @@ export interface Props {
   author?: string;
   noindex?: boolean;
   schema?: Record<string, any> | Record<string, any>[];
+  ogTitle?: string;
+  ogDescription?: string;
 }
 
 const {
@@ -21,6 +23,8 @@ const {
   author,
   noindex = false,
   schema,
+  ogTitle: ogTitleProp,
+  ogDescription: ogDescriptionProp,
 } = Astro.props;
 
 const siteName = "Attorney Assistant";
@@ -32,8 +36,8 @@ const absoluteImage = resolvedImage.startsWith("http") ? resolvedImage : new URL
 // Truncate for OG/Twitter length limits
 const truncate = (str: string, max: number) =>
   str.length <= max ? str : str.slice(0, max - 1).trimEnd() + "\u2026";
-const ogTitle = truncate(fullTitle, 60);
-const ogDescription = truncate(description, 155);
+const ogTitle = ogTitleProp ?? truncate(fullTitle, 60);
+const ogDescription = ogDescriptionProp ?? truncate(description, 155);
 
 // Build breadcrumb from URL path
 const pathSegments = Astro.url.pathname.split("/").filter(Boolean);

@@ -12,9 +12,11 @@ export interface Props {
   image?: string;
   noindex?: boolean;
   suppressMainPixel?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
 }
 
-const { title, description, image, noindex = true, suppressMainPixel = false } = Astro.props;
+const { title, description, image, noindex = true, suppressMainPixel = false, ogTitle, ogDescription } = Astro.props;
 const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
 ---
 
@@ -33,6 +35,8 @@ const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
       description={description}
       image={image}
       noindex={noindex}
+      ogTitle={ogTitle}
+      ogDescription={ogDescription}
     />
 
     <!-- Geo-gate -->
