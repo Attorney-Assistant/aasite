@@ -5,37 +5,33 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
 <ComicCampaignLayout
   title="Your $250K Case Called at 8PM. No One Answered. | Attorney Assistant"
   description="Calls answered 24/7. Deploy Attorney Assistant so you never lose another case to a missed call."
-  image="/images/comic-intake.jpg"
+  image="/images/lp/intake-header.jpg"
 >
 
   <!-- ═══════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════ -->
-  <section class="cmc-hero relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
-    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+  <section class="cmc-hero relative overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center">
+    <!-- Background image -->
+    <picture class="absolute inset-0 z-0 block">
+      <source srcset="/images/lp/intake-header.webp" type="image/webp" />
+      <img src="/images/lp/intake-header.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover" width="1920" height="1080" loading="eager" fetchpriority="high" />
+    </picture>
+    <!-- Slight dark overlay for text legibility -->
+    <div class="absolute inset-0 bg-[#0a1628]/55 z-[1]" aria-hidden="true"></div>
+    <!-- Atmospheric glow orbs (above the overlay) -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px] z-[2]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px] z-[2]" aria-hidden="true"></div>
 
-    <div class="comic-container relative z-10 py-12 md:py-16">
-      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
-        <img
-          src="/images/comic-intake.jpg"
-          alt="Your $250K case called at 8PM. No one answered. Deploy Attorney Assistant — calls answered 24/7."
-          class="w-full h-auto block rounded-[9px]"
-          width="1920"
-          height="1080"
-          loading="eager"
-        />
-      </div>
-
-      <div class="text-center reveal" style="transition-delay: 150ms">
-        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+    <div class="comic-container relative z-10 py-16 md:py-24 w-full">
+      <div class="text-center reveal">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4" style="text-shadow: 0 4px 24px rgba(10,22,40,0.85);">
           $250K case called at 8PM. <br/><span class="comic-gold">No one answered.</span>
         </h1>
-        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-4">
+        <p class="comic-sub text-lg md:text-xl text-gray-100 font-semibold max-w-2xl mx-auto mb-4" style="text-shadow: 0 2px 12px rgba(10,22,40,0.8);">
           They called the next firm. Someone picked up. They signed 12 minutes later. You'll never know they called.
         </p>
-        <p class="comic-title text-xl comic-gold mb-8">We rescue law firms with elite staffing + AI solutions.</p>
+        <p class="comic-title text-xl comic-gold mb-8" style="text-shadow: 0 2px 12px rgba(10,22,40,0.8);">We rescue law firms with elite staffing + AI solutions.</p>
         <a href="#book-now" class="cmi-btn cmi-btn--gold group inline-flex">
           Deploy Attorney Assistant
           <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
