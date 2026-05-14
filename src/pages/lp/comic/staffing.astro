@@ -5,27 +5,30 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
 <ComicCampaignLayout
   title="Your Firm Is Short-Staffed. The Work Isn't. | Attorney Assistant"
   description="Staffing relief has arrived. We do staffing. Fully staffed, every call answered, every case moving forward. Instantly. Deploy Attorney Assistant."
-  image="/images/comic-staffing.jpg"
+  image="/images/lp/staffing-header.jpg"
 >
 
-  <section class="cmc-hero relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
-    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+  <section class="cmc-hero relative overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center">
+    <!-- Background image -->
+    <picture class="absolute inset-0 z-0 block">
+      <source srcset="/images/lp/staffing-header.webp" type="image/webp" />
+      <img src="/images/lp/staffing-header.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover" width="1920" height="1080" loading="eager" fetchpriority="high" />
+    </picture>
+    <!-- Slight dark overlay for text legibility -->
+    <div class="absolute inset-0 bg-[#0a1628]/55 z-[1]" aria-hidden="true"></div>
+    <!-- Atmospheric glow orbs (above the overlay) -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px] z-[2]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px] z-[2]" aria-hidden="true"></div>
 
-    <div class="comic-container relative z-10 py-12 md:py-16">
-      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
-        <img src="/images/comic-staffing.jpg" alt="Problem: Your firm is short-staffed. The work isn't. Solution: We do staffing. Fully staffed, every call answered, every case moving forward. Instantly." class="w-full h-auto block rounded-[9px]" width="1920" height="1080" loading="eager" />
-      </div>
-
-      <div class="text-center reveal" style="transition-delay: 150ms">
-        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+    <div class="comic-container relative z-10 py-16 md:py-24 w-full">
+      <div class="text-center reveal">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4" style="text-shadow: 0 4px 24px rgba(10,22,40,0.85);">
           Short-staffed? The work isn't. <br/><span class="comic-gold">Staffing relief has arrived.</span>
         </h1>
-        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-4">
+        <p class="comic-sub text-lg md:text-xl text-gray-100 font-semibold max-w-2xl mx-auto mb-4" style="text-shadow: 0 2px 12px rgba(10,22,40,0.8);">
           Empty chairs. Backed-up cases. Overloaded team. We do staffing &mdash; fully staffed, every call answered, every case moving. Instantly.
         </p>
-        <p class="comic-title text-xl comic-gold mb-8">We rescue law firms with elite staffing + AI solutions.</p>
+        <p class="comic-title text-xl comic-gold mb-8" style="text-shadow: 0 2px 12px rgba(10,22,40,0.8);">We rescue law firms with elite staffing + AI solutions.</p>
         <a href="#book-now" class="cms-btn cms-btn--gold group inline-flex">Deploy Attorney Assistant <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg></a>
       </div>
     </div>
