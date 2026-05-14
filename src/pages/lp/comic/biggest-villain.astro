@@ -1173,6 +1173,26 @@ const villains = [
             throw new Error('Submission failed: ' + res.status + ' — ' + errText);
           }
           trackStage(LP_NAME, 'email-gate-submitted', { biggest_villain: state.result && state.result.biggestVillain, threat_level: state.result && state.result.threatLevel });
+
+          // Meta Pixel Lead event (browser pixel + CAPI, deduplicated)
+          if (window.__metaCAPI) {
+            window.__metaCAPI.track(
+              'Lead',
+              {
+                content_name: 'biggest-villain-quiz',
+                content_category: 'biggest-villain-lp',
+                value: Number(state.leak) || 0,
+                currency: 'USD'
+              },
+              {
+                em: String(formData.get('email')     || ''),
+                ph: String(formData.get('phone')     || ''),
+                fn: String(formData.get('firstname') || ''),
+                ln: String(formData.get('lastname')  || '')
+              }
+            );
+          }
+
           setStage('thank-you');
         } catch (err) {
           villainErrorEl.textContent = 'Something went wrong. Please try again or email us directly at info@attorneyassistant.com.';
