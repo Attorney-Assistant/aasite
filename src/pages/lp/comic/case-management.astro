@@ -5,34 +5,30 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
 <ComicCampaignLayout
   title="Your Paralegals Are Drowning in Pleadings, Demands, and Liens | Attorney Assistant"
   description="We draft. We file. We follow up. They focus on the case. Deploy Attorney Assistant to rescue your paralegals from case management chaos."
-  image="/images/comic-case-management.jpg"
+  image="/images/lp/case-management-header.jpg"
 >
 
   <!-- ═══════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════ -->
-  <section class="cmc-hero relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628] via-[#0f1d32] to-[#0a1628]"></div>
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px]" aria-hidden="true"></div>
-    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+  <section class="cmc-hero relative overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center">
+    <!-- Background image -->
+    <picture class="absolute inset-0 z-0 block">
+      <source srcset="/images/lp/case-management-header.webp" type="image/webp" />
+      <img src="/images/lp/case-management-header.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover" width="1920" height="1080" loading="eager" fetchpriority="high" />
+    </picture>
+    <!-- Slight dark overlay for text legibility -->
+    <div class="absolute inset-0 bg-[#0a1628]/55 z-[1]" aria-hidden="true"></div>
+    <!-- Atmospheric glow orbs (above the overlay) -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px] z-[2]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px] z-[2]" aria-hidden="true"></div>
 
-    <div class="comic-container relative z-10 py-12 md:py-16">
-      <div class="comic-panel p-0 mb-10 reveal" style="border-width: 4px;">
-        <img
-          src="/images/comic-case-management.jpg"
-          alt="Problem: Your paralegals are drowning in pleadings, demands, and liens. Solution: We draft. We file. We follow up. They focus on the case."
-          class="w-full h-auto block rounded-[9px]"
-          width="1920"
-          height="1080"
-          loading="eager"
-        />
-      </div>
-
-      <div class="text-center reveal" style="transition-delay: 150ms">
-        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4">
+    <div class="comic-container relative z-10 py-16 md:py-24 w-full">
+      <div class="text-center reveal">
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-4" style="text-shadow: 0 4px 24px rgba(10,22,40,0.85);">
           Paralegals drowning in paperwork? <br/><span class="comic-gold">We rescue law firms with elite staffing + AI solutions.</span>
         </h1>
-        <p class="comic-sub text-lg md:text-xl text-gray-300 font-semibold max-w-2xl mx-auto mb-8">
+        <p class="comic-sub text-lg md:text-xl text-gray-100 font-semibold max-w-2xl mx-auto mb-8" style="text-shadow: 0 2px 12px rgba(10,22,40,0.8);">
           Pleadings, demands, liens, filings &mdash; we draft, file, and follow up so your team can focus on the case. Scroll to see the damage.
         </p>
         <a href="#book-now" class="cmc-btn cmc-btn--gold group inline-flex">
