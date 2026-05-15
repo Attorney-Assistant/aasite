@@ -18,10 +18,15 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     ═══════════════════════════════════════════ -->
     <section data-stage="intro" class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 min-h-[80vh] flex items-center">
       <div class="grain-overlay"></div>
+      <!-- Floating gold orbs -->
+      <div class="bm-orb bm-orb-a" style="top: -120px; left: -80px; width: 420px; height: 420px; background: rgba(249,166,48,0.18);"></div>
+      <div class="bm-orb bm-orb-b" style="bottom: -100px; right: -60px; width: 360px; height: 360px; background: rgba(80,167,221,0.14);"></div>
+
       <div class="container-wide relative z-10 py-20 lg:py-28 text-center">
         <div class="max-w-3xl mx-auto reveal">
           <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">
-            Independent Industry Data
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
+            Independent Industry Data — 2026 Edition
           </span>
           <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
             Where does your firm <span class="text-gradient-gold">rank?</span>
@@ -30,28 +35,74 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
             The 2026 Law Firm Operations Benchmark. 15 metrics. 7 operational pillars. Your firm scored against the field.
           </p>
 
-          <!-- Mock quartile band preview -->
-          <div class="max-w-md mx-auto mb-10 p-5 rounded-2xl border border-white/10 bg-white/5">
-            <p class="text-xs font-bold text-white/40 uppercase tracking-widest mb-3 text-left">Example: voicemail rate</p>
-            <div class="flex h-3 rounded-full overflow-hidden" aria-hidden="true">
-              <div style="flex: 5; background: #7EA67C"></div>
-              <div style="flex: 20; background: #D4B280"></div>
-              <div style="flex: 75; background: #E89991"></div>
-            </div>
-            <div class="relative mt-1" aria-hidden="true">
-              <div class="absolute -top-1" style="left: 18%; transform: translateX(-50%)">
-                <div class="w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-white"></div>
+          <!-- Auto-cycling preview band -->
+          <div class="max-w-md mx-auto mb-10 p-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+            <div class="bm-cycle-stage" id="bm-cycle-stage">
+              <!-- slide 1 -->
+              <div class="bm-cycle-slide is-active" data-slide="0">
+                <p class="text-xs font-bold text-white/40 uppercase tracking-widest mb-3 text-left">Example: voicemail rate</p>
+                <div class="flex h-3 rounded-full overflow-hidden" aria-hidden="true">
+                  <div style="flex: 5; background: #7EA67C"></div>
+                  <div style="flex: 20; background: #D4B280"></div>
+                  <div style="flex: 75; background: #E89991"></div>
+                </div>
+                <div class="relative mt-1" aria-hidden="true">
+                  <div class="absolute -top-1" style="left: 18%; transform: translateX(-50%)">
+                    <div class="w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-white"></div>
+                  </div>
+                </div>
+                <div class="flex justify-between text-[10px] text-white/40 mt-3">
+                  <span>Top quartile</span><span>Median</span><span>Bottom quartile</span>
+                </div>
               </div>
-            </div>
-            <div class="flex justify-between text-[10px] text-white/40 mt-3">
-              <span>Top quartile</span><span>Median</span><span>Bottom quartile</span>
+              <!-- slide 2 -->
+              <div class="bm-cycle-slide" data-slide="1">
+                <p class="text-xs font-bold text-white/40 uppercase tracking-widest mb-3 text-left">Example: records turnaround</p>
+                <div class="flex h-3 rounded-full overflow-hidden" aria-hidden="true">
+                  <div style="flex: 25; background: #7EA67C"></div>
+                  <div style="flex: 25; background: #D4B280"></div>
+                  <div style="flex: 50; background: #E89991"></div>
+                </div>
+                <div class="relative mt-1" aria-hidden="true">
+                  <div class="absolute -top-1" style="left: 65%; transform: translateX(-50%)">
+                    <div class="w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-white"></div>
+                  </div>
+                </div>
+                <div class="flex justify-between text-[10px] text-white/40 mt-3">
+                  <span>0–45 days</span><span>46–90</span><span>91+</span>
+                </div>
+              </div>
+              <!-- slide 3 -->
+              <div class="bm-cycle-slide" data-slide="2">
+                <p class="text-xs font-bold text-white/40 uppercase tracking-widest mb-3 text-left">Example: speed-to-lead</p>
+                <div class="flex h-3 rounded-full overflow-hidden" aria-hidden="true">
+                  <div style="flex: 20; background: #7EA67C"></div>
+                  <div style="flex: 30; background: #D4B280"></div>
+                  <div style="flex: 50; background: #E89991"></div>
+                </div>
+                <div class="relative mt-1" aria-hidden="true">
+                  <div class="absolute -top-1" style="left: 38%; transform: translateX(-50%)">
+                    <div class="w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-white"></div>
+                  </div>
+                </div>
+                <div class="flex justify-between text-[10px] text-white/40 mt-3">
+                  <span>&lt;5 min</span><span>5–30</span><span>30+</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <button type="button" class="btn-primary btn-lg group inline-flex" data-go-stage="micro-form">
+          <button type="button" class="btn-primary btn-lg group inline-flex bm-cta-pulse" data-go-stage="micro-form">
             Take the 90-second self-assessment
             <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
           </button>
+
+          <!-- Trust strip -->
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-white/40">
+            <span class="inline-flex items-center gap-2"><svg class="w-3.5 h-3.5 text-brand-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.5 5.5L18 7l-4 4 1 5.5L10 14l-5 2.5L6 11 2 7l5.5-.5L10 1z" /></svg>15 operational metrics</span>
+            <span class="inline-flex items-center gap-2"><svg class="w-3.5 h-3.5 text-brand-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.5 5.5L18 7l-4 4 1 5.5L10 14l-5 2.5L6 11 2 7l5.5-.5L10 1z" /></svg>7 firm pillars</span>
+            <span class="inline-flex items-center gap-2"><svg class="w-3.5 h-3.5 text-brand-gold" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.5 5.5L18 7l-4 4 1 5.5L10 14l-5 2.5L6 11 2 7l5.5-.5L10 1z" /></svg>Instant scorecard</span>
+          </div>
         </div>
       </div>
     </section>
@@ -64,7 +115,11 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       <div class="grain-overlay"></div>
       <div class="container-narrow max-w-2xl relative z-10">
         <div class="text-center mb-10 reveal">
-          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">Step 1 of 2</span>
+          <div class="bm-step-progress" aria-label="Step 1 of 2">
+            <span class="bm-step-dot is-active">1</span>
+            <span class="bm-step-track"><span class="bm-step-track-fill"></span></span>
+            <span class="bm-step-dot">2</span>
+          </div>
           <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">Five questions. Ninety seconds.</h2>
           <p class="text-base text-white/60 max-w-md mx-auto">Your scorecard renders instantly. No email required to see your tier.</p>
         </div>
@@ -119,6 +174,10 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
                   <input id="bm-voicemail-rate" type="range" name="voicemail_rate_" min="0" max="100" value="15" step="1" required />
                   <output for="bm-voicemail-rate" class="bmform-slider-value" id="bm-voicemail-rate-out">15%</output>
                 </div>
+                <span class="bmform-tier-badge" id="bm-voicemail-rate-tier" data-tier="median">
+                  <span class="bmform-tier-dot"></span>
+                  <span class="bmform-tier-label">Median tier</span>
+                </span>
               </div>
 
               <div class="bmform-field">
@@ -128,10 +187,17 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
                   <input id="bm-records-tat" type="range" name="records_tat_days" min="0" max="180" value="60" step="1" />
                   <output for="bm-records-tat" class="bmform-slider-value" id="bm-records-tat-out">60 days</output>
                 </div>
+                <span class="bmform-tier-badge" id="bm-records-tat-tier" data-tier="median">
+                  <span class="bmform-tier-dot"></span>
+                  <span class="bmform-tier-label">Median tier</span>
+                </span>
                 <label class="bmform-skip"><input type="checkbox" name="records_tat_skip" id="bm-records-tat-skip"> <span>Skip — not PI/mass tort</span></label>
               </div>
 
-              <button type="submit" class="bmform-submit">Show My Scorecard</button>
+              <button type="submit" class="bmform-submit">
+                Show My Scorecard
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+              </button>
               <div class="bmform-error" role="alert" hidden></div>
             </form>
           </div>
@@ -181,7 +247,13 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       <div class="grain-overlay"></div>
       <div class="container-narrow max-w-xl relative z-10">
         <div class="text-center mb-10 reveal">
-          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">Step 2 of 2</span>
+          <div class="bm-step-progress" aria-label="Step 2 of 2">
+            <span class="bm-step-dot is-complete">
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 5.29a1 1 0 010 1.42l-7.5 7.5a1 1 0 01-1.42 0l-3.5-3.5a1 1 0 011.42-1.42L8.5 12.09l6.79-6.8a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+            </span>
+            <span class="bm-step-track"><span class="bm-step-track-fill is-full"></span></span>
+            <span class="bm-step-dot is-active">2</span>
+          </div>
           <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">Where should we send your report?</h2>
           <p class="text-base text-white/60">The full benchmark, your scorecard data, and the top performer playbook.</p>
         </div>
@@ -212,7 +284,10 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
                 <label class="bmform-label" for="bm-eg-company">Company name <em>*</em></label>
                 <input id="bm-eg-company" type="text" name="company" required autocomplete="organization" />
               </div>
-              <button type="submit" class="bmform-submit">Unlock the Full Report</button>
+              <button type="submit" class="bmform-submit">
+                Unlock the Full Report
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+              </button>
               <div class="bmform-error" role="alert" hidden></div>
             </form>
           </div>
@@ -227,8 +302,11 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       <div class="grain-overlay"></div>
       <div class="container-narrow max-w-3xl relative z-10">
         <div class="text-center mb-12 reveal">
-          <div class="w-16 h-16 rounded-full bg-brand-gold/10 border-2 border-brand-gold/30 flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <div class="bm-thanks-check-wrap w-16 h-16 rounded-full bg-brand-gold/10 border-2 border-brand-gold/30 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path class="bm-thanks-check-path" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
           <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">You're in.</h2>
           <p class="text-lg text-white/60 mb-2">Check your inbox — the full report is on the way.</p>
@@ -289,15 +367,18 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
   </style>
 
   <style is:global>
-    .bmform { display: flex; flex-direction: column; gap: 18px; }
+    /* ─────────────────────────────────────────────────────────
+       Form fonts — Inter (body font) throughout; no DM fonts
+       ───────────────────────────────────────────────────────── */
+    .bmform { display: flex; flex-direction: column; gap: 20px; font-family: 'Inter', -apple-system, Segoe UI, sans-serif; }
     .bmform-row-2 { display: grid; grid-template-columns: 1fr; gap: 18px; }
     @media (min-width: 560px) {
       .bmform-row-2 { grid-template-columns: 1fr 1fr; }
     }
     .bmform-field { display: flex; flex-direction: column; gap: 6px; }
-    .bmform-label { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: #1a3a5c; }
+    .bmform-label { font-family: inherit; font-size: 13px; font-weight: 600; color: #1a3a5c; letter-spacing: 0.01em; }
     .bmform-label em { color: #ef4444; font-style: normal; }
-    .bmform-help { font-family: 'DM Sans', sans-serif; font-size: 12px; color: #6f7a8a; margin: -2px 0 4px; }
+    .bmform-help { font-family: inherit; font-size: 12px; color: #6f7a8a; margin: -2px 0 4px; }
     .bmform input[type="text"],
     .bmform input[type="email"],
     .bmform input[type="tel"],
@@ -306,54 +387,277 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       padding: 12px 14px;
       border: 2px solid #e5e7eb;
       border-radius: 10px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: inherit;
       font-size: 15px;
       color: #1a3a5c;
       background: #fff;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
     }
     .bmform input:focus,
     .bmform select:focus {
       outline: none;
       border-color: #F9A630;
-      box-shadow: 0 0 0 3px rgba(249,166,48,0.15);
+      box-shadow: 0 0 0 4px rgba(249,166,48,0.15);
+      transform: translateY(-1px);
     }
     .bmform input:invalid:not(:placeholder-shown) { border-color: #ef4444; }
-    .bmform-checkboxes { display: grid; grid-template-columns: 1fr; gap: 6px; max-height: 240px; overflow-y: auto; padding-right: 4px; }
+
+    /* ─────────────────────────────────────────────────────────
+       Practice-area chips — hover lift, selected glow
+       ───────────────────────────────────────────────────────── */
+    .bmform-checkboxes { display: grid; grid-template-columns: 1fr; gap: 8px; max-height: 260px; overflow-y: auto; padding-right: 4px; }
     @media (min-width: 560px) { .bmform-checkboxes { grid-template-columns: 1fr 1fr; } }
-    .bmform-check { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; cursor: pointer; transition: background 0.15s; }
-    .bmform-check:hover { background: rgba(249,166,48,0.06); }
+    .bmform-check {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #fff;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .bmform-check:hover {
+      border-color: #F9A630;
+      background: rgba(249,166,48,0.04);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(26,58,92,0.06);
+    }
     .bmform-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: #F9A630; cursor: pointer; flex-shrink: 0; }
-    .bmform-check span { font-family: 'DM Sans', sans-serif; font-size: 14px; color: #1a3a5c; }
+    .bmform-check span { font-family: inherit; font-size: 14px; font-weight: 500; color: #1a3a5c; }
+    .bmform-check:has(input:checked) {
+      border-color: #F9A630;
+      background: rgba(249,166,48,0.08);
+      box-shadow: 0 4px 14px rgba(249,166,48,0.18);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       Slider row — live tier badge, gradient track
+       ───────────────────────────────────────────────────────── */
     .bmform-slider-row { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; }
-    .bmform-slider-row input[type="range"] { accent-color: #F9A630; }
-    .bmform-slider-value { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; color: #1a3a5c; min-width: 70px; text-align: right; }
-    .bmform-skip { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 13px; color: #6f7a8a; }
+    .bmform-slider-row input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 8px;
+      background: linear-gradient(to right, #7EA67C 0%, #7EA67C 5%, #D4B280 5%, #D4B280 25%, #E89991 25%, #E89991 100%);
+      border-radius: 999px;
+      outline: none;
+    }
+    .bmform-slider-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #F9A630;
+      box-shadow: 0 2px 8px rgba(26,58,92,0.25);
+      cursor: grab;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .bmform-slider-row input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); box-shadow: 0 4px 14px rgba(249,166,48,0.4); }
+    .bmform-slider-row input[type="range"]::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.05); }
+    .bmform-slider-row input[type="range"]::-moz-range-thumb {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #F9A630;
+      box-shadow: 0 2px 8px rgba(26,58,92,0.25);
+      cursor: grab;
+    }
+    .bmform-slider-value { font-family: inherit; font-size: 15px; font-weight: 700; color: #1a3a5c; min-width: 76px; text-align: right; font-variant-numeric: tabular-nums; }
+    .bmform-tier-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .bmform-tier-badge .bmform-tier-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .bmform-tier-badge[data-tier="top"]    { background: rgba(126,166,124,0.14); color: #4f7e4d; }
+    .bmform-tier-badge[data-tier="top"]    .bmform-tier-dot { background: #7EA67C; box-shadow: 0 0 0 4px rgba(126,166,124,0.2); }
+    .bmform-tier-badge[data-tier="median"] { background: rgba(212,178,128,0.16); color: #8a6b2c; }
+    .bmform-tier-badge[data-tier="median"] .bmform-tier-dot { background: #D4B280; box-shadow: 0 0 0 4px rgba(212,178,128,0.22); }
+    .bmform-tier-badge[data-tier="bottom"] { background: rgba(232,153,145,0.16); color: #b6483d; }
+    .bmform-tier-badge[data-tier="bottom"] .bmform-tier-dot { background: #E89991; box-shadow: 0 0 0 4px rgba(232,153,145,0.22); }
+
+    .bmform-skip { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; cursor: pointer; font-family: inherit; font-size: 13px; color: #6f7a8a; }
     .bmform-skip input[type="checkbox"] { accent-color: #F9A630; cursor: pointer; }
+
+    /* ─────────────────────────────────────────────────────────
+       Submit button — matches site .btn-primary, shimmer, arrow
+       ───────────────────────────────────────────────────────── */
     .bmform-submit {
+      position: relative;
+      overflow: hidden;
       margin-top: 6px;
       padding: 14px 24px;
       background: #F9A630;
       color: #1a3a5c;
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-      letter-spacing: 0.01em;
+      font-family: 'Inter', -apple-system, Segoe UI, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: background 0.15s, transform 0.15s;
+      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     }
-    .bmform-submit:hover:not(:disabled) { background: #d98a00; transform: translateY(-1px); }
+    .bmform-submit::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.7s ease;
+    }
+    .bmform-submit:hover:not(:disabled) {
+      background: #d98a00;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(249,166,48,0.35);
+    }
+    .bmform-submit:hover:not(:disabled)::after { left: 125%; }
     .bmform-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .bmform-submit svg { transition: transform 0.18s ease; }
+    .bmform-submit:hover:not(:disabled) svg { transform: translateX(3px); }
+
     .bmform-error {
       margin-top: 8px;
       padding: 12px 14px;
       background: rgba(239,68,68,0.08);
       border: 1px solid rgba(239,68,68,0.4);
       border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', -apple-system, Segoe UI, sans-serif;
       font-size: 13px;
       color: #ef4444;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       Step progress bar (above form)
+       ───────────────────────────────────────────────────────── */
+    .bm-step-progress {
+      max-width: 320px;
+      margin: 0 auto 22px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .bm-step-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'Inter', -apple-system, Segoe UI, sans-serif;
+      font-size: 12px; font-weight: 700;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.5);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      transition: all 0.25s ease;
+    }
+    .bm-step-dot.is-active {
+      background: #F9A630;
+      color: #1a3a5c;
+      border-color: #F9A630;
+      box-shadow: 0 0 0 6px rgba(249,166,48,0.18);
+    }
+    .bm-step-dot.is-complete {
+      background: rgba(126,166,124,0.2);
+      color: #7EA67C;
+      border-color: #7EA67C;
+    }
+    .bm-step-track {
+      flex: 1; height: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bm-step-track-fill {
+      height: 100%;
+      background: linear-gradient(to right, #F9A630, #d98a00);
+      width: 0%;
+      transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bm-step-track-fill.is-half  { width: 50%; }
+    .bm-step-track-fill.is-full  { width: 100%; }
+
+    /* ─────────────────────────────────────────────────────────
+       Background ambience — floating gold orbs
+       ───────────────────────────────────────────────────────── */
+    .bm-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.5;
+      pointer-events: none;
+      will-change: transform;
+    }
+    @keyframes bm-orb-drift-a {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(40px, -30px); }
+    }
+    @keyframes bm-orb-drift-b {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-50px, 40px); }
+    }
+    .bm-orb-a { animation: bm-orb-drift-a 14s ease-in-out infinite; }
+    .bm-orb-b { animation: bm-orb-drift-b 18s ease-in-out infinite; }
+
+    /* ─────────────────────────────────────────────────────────
+       Hero cycling preview
+       ───────────────────────────────────────────────────────── */
+    .bm-cycle-stage { position: relative; min-height: 92px; }
+    .bm-cycle-slide {
+      position: absolute; inset: 0;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
+    }
+    .bm-cycle-slide.is-active {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       Scorecard bar — animated fill (CSS transition driven by JS)
+       ───────────────────────────────────────────────────────── */
+    .bm-bar-marker, .bm-bar-aa-marker {
+      transition: left 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bm-bar-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .bm-bar-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       Thank-you animated check
+       ───────────────────────────────────────────────────────── */
+    @keyframes bm-check-pop {
+      0%   { transform: scale(0.2); opacity: 0; }
+      60%  { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes bm-check-draw {
+      to { stroke-dashoffset: 0; }
+    }
+    .bm-thanks-check-wrap { animation: bm-check-pop 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .bm-thanks-check-path {
+      stroke-dasharray: 30;
+      stroke-dashoffset: 30;
+      animation: bm-check-draw 0.45s ease-out 0.35s forwards;
+    }
+
+    /* Pulse glow on primary hero CTA */
+    @keyframes bm-cta-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249,166,48,0.45); }
+      50%      { box-shadow: 0 0 0 14px rgba(249,166,48,0); }
+    }
+    .bm-cta-pulse { animation: bm-cta-pulse 2.4s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bm-orb-a, .bm-orb-b, .bm-cta-pulse, .bm-thanks-check-wrap, .bm-thanks-check-path { animation: none !important; }
+      .bm-cycle-slide { transition: none !important; }
     }
   </style>
 
@@ -421,7 +725,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       }
     };
 
-    function renderQuartileBar(metricKey, value) {
+    function renderQuartileBar(metricKey, value, idx) {
       const cfg = BENCHMARKS[metricKey];
       const userPct = Math.min(100, Math.max(0, (value / cfg.max) * 100));
       const aaPct = Math.min(100, Math.max(0, (cfg.aaBenchmark / cfg.max) * 100));
@@ -430,10 +734,10 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
         return { label: b.label, color: b.color, flex: b.upTo - prev, range: b.range };
       });
       return [
-        '<div class="p-6 rounded-2xl border border-white/10 bg-white/5">',
+        '<div class="bm-bar-card p-6 rounded-2xl border border-white/10 bg-white/5" style="opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; transition-delay: ' + (idx * 0.12) + 's;">',
           '<div class="flex items-baseline justify-between mb-1">',
             '<h3 class="text-base font-heading text-white">' + cfg.metric + '</h3>',
-            '<span class="text-2xl font-heading text-brand-gold">' + value + cfg.suffix + '</span>',
+            '<span class="text-2xl font-heading text-brand-gold" data-bm-count data-bm-target="' + value + '" data-bm-suffix="' + cfg.suffix + '">0' + cfg.suffix + '</span>',
           '</div>',
           '<p class="text-xs text-white/40 uppercase tracking-widest mb-4">Your firm</p>',
           '<div class="relative">',
@@ -442,11 +746,11 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
                 return '<div style="flex: ' + b.flex + '; background: ' + b.color + '"></div>';
               }).join(''),
             '</div>',
-            '<div class="absolute -top-2" style="left: ' + userPct + '%; transform: translateX(-50%)">',
-              '<div class="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-l-transparent border-r-transparent border-b-white"></div>',
+            '<div class="bm-bar-marker absolute -top-2" data-bm-target-pct="' + userPct + '" style="left: 0%; transform: translateX(-50%)">',
+              '<div class="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-l-transparent border-r-transparent border-b-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></div>',
             '</div>',
-            '<div class="absolute -bottom-2" style="left: ' + aaPct + '%; transform: translateX(-50%)">',
-              '<div class="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-brand-gold"></div>',
+            '<div class="bm-bar-aa-marker absolute -bottom-2" data-bm-target-pct="' + aaPct + '" style="left: 0%; transform: translateX(-50%)">',
+              '<div class="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-brand-gold drop-shadow-[0_-2px_4px_rgba(249,166,48,0.5)]"></div>',
             '</div>',
           '</div>',
           '<div class="flex justify-between text-[10px] text-white/40 mt-5">',
@@ -459,6 +763,36 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
           '<p class="text-sm text-white/80 mt-4 leading-relaxed">' + cfg.interpretation(value) + '</p>',
         '</div>'
       ].join('');
+    }
+
+    // Animate bar markers from 0% → final position + count number 0 → value
+    function animateScorecard() {
+      const cards = document.querySelectorAll('#scorecard-bars .bm-bar-card');
+      cards.forEach(function(card) {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      });
+      // Stagger marker fly-in
+      setTimeout(function() {
+        document.querySelectorAll('#scorecard-bars [data-bm-target-pct]').forEach(function(m) {
+          m.style.left = m.getAttribute('data-bm-target-pct') + '%';
+        });
+      }, 250);
+      // Number count-up
+      document.querySelectorAll('#scorecard-bars [data-bm-count]').forEach(function(el) {
+        const target = parseFloat(el.getAttribute('data-bm-target')) || 0;
+        const suffix = el.getAttribute('data-bm-suffix') || '';
+        const dur = 1100;
+        const start = performance.now();
+        function tick(now) {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const val = target * eased;
+          el.textContent = (target % 1 === 0 ? Math.round(val) : val.toFixed(1)) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
     }
 
     function renderContextCard(label, value) {
@@ -475,17 +809,21 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       const ctx = document.getElementById('scorecard-context');
       if (!state.benchmark) return;
 
-      const barsHtml = [renderQuartileBar('voicemail_rate_', state.benchmark.voicemail_rate_)];
+      const barsHtml = [renderQuartileBar('voicemail_rate_', state.benchmark.voicemail_rate_, 0)];
       if (state.benchmark.records_tat_days !== null && state.benchmark.records_tat_days !== undefined) {
-        barsHtml.push(renderQuartileBar('records_tat_days', state.benchmark.records_tat_days));
+        barsHtml.push(renderQuartileBar('records_tat_days', state.benchmark.records_tat_days, 1));
       }
       bars.innerHTML = barsHtml.join('');
 
       ctx.innerHTML = [
         renderContextCard('Firm size',     state.benchmark.firm_attorney_count || '—'),
         renderContextCard('Monthly leads', state.benchmark.monthly_lead_volume || '—'),
-        renderContextCard('Practice area', state.benchmark.practice_area || '—'),
+        renderContextCard('Practice area', Array.isArray(state.benchmark.practice_area) ? (state.benchmark.practice_area.length > 1 ? state.benchmark.practice_area.length + ' areas' : (state.benchmark.practice_area[0] || '—')) : (state.benchmark.practice_area || '—')),
       ].join('');
+
+      requestAnimationFrame(function() {
+        setTimeout(animateScorecard, 120);
+      });
     }
 
     const utms = (function() {
@@ -519,6 +857,50 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     });
 
     trackStage(LP_NAME, 'intro');
+
+    // ── Hero auto-cycling preview band
+    (function() {
+      const slides = document.querySelectorAll('#bm-cycle-stage .bm-cycle-slide');
+      if (slides.length < 2) return;
+      let i = 0;
+      setInterval(function() {
+        slides[i].classList.remove('is-active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('is-active');
+      }, 4000);
+    })();
+
+    // ── Live tier badge under each slider
+    (function() {
+      function tierFor(metricKey, value) {
+        if (metricKey === 'voicemail_rate_') {
+          if (value <= 5)  return { tier: 'top',    label: 'Top quartile' };
+          if (value <= 25) return { tier: 'median', label: 'Median tier' };
+          return { tier: 'bottom', label: 'Bottom quartile' };
+        }
+        if (metricKey === 'records_tat_days') {
+          if (value <= 45) return { tier: 'top',    label: 'Top quartile' };
+          if (value <= 90) return { tier: 'median', label: 'Median tier' };
+          return { tier: 'bottom', label: 'Bottom quartile' };
+        }
+        return { tier: 'median', label: 'Median tier' };
+      }
+      function bindSlider(inputId, metricKey, badgeId) {
+        const input = document.getElementById(inputId);
+        const badge = document.getElementById(badgeId);
+        if (!input || !badge) return;
+        function update() {
+          const v = parseFloat(input.value) || 0;
+          const t = tierFor(metricKey, v);
+          badge.setAttribute('data-tier', t.tier);
+          badge.querySelector('.bmform-tier-label').textContent = t.label;
+        }
+        input.addEventListener('input', update);
+        update();
+      }
+      bindSlider('bm-voicemail-rate', 'voicemail_rate_', 'bm-voicemail-rate-tier');
+      bindSlider('bm-records-tat',    'records_tat_days', 'bm-records-tat-tier');
+    })();
 
     // ── Benchmark micro-form handler (vanilla; advances to scorecard on submit)
     (function() {
@@ -643,6 +1025,52 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
             throw new Error('Submission failed: ' + res.status + ' — ' + errText);
           }
           trackStage(LP_NAME, 'email-gate-submitted');
+
+          // ─── Meta conversion event (Lead) — fires browser Pixel + server-side CAPI
+          //     with deduplication and hashed PII matching (email / phone / name).
+          //     `window.__metaCAPI.track` is provided by src/components/MetaCAPI.astro,
+          //     loaded by SimpleCampaignLayout on every benchmark page view.
+          try {
+            var leadCustomData = {
+              content_name: '2026 Benchmark Report',
+              content_category: 'benchmark_lp',
+              value: 100,
+              currency: 'USD'
+            };
+            var leadUserData = {
+              em: formData.get('email')     || '',
+              ph: formData.get('phone')     || '',
+              fn: formData.get('firstname') || '',
+              ln: formData.get('lastname')  || ''
+            };
+            if (typeof window.__metaCAPI !== 'undefined' && typeof window.__metaCAPI.track === 'function') {
+              window.__metaCAPI.track('Lead', leadCustomData, leadUserData);
+            } else if (typeof fbq !== 'undefined') {
+              // Fallback: browser Pixel only (CAPI not loaded)
+              fbq('track', 'Lead', leadCustomData);
+            }
+          } catch (e) { console.warn('Meta Lead fire failed:', e); }
+
+          // ─── LinkedIn Insight Tag conversion
+          try {
+            if (typeof window.lintrk !== 'undefined') {
+              window.lintrk('track', { conversion_id: 27919129 });
+            }
+          } catch (e) { console.warn('LinkedIn lintrk fire failed:', e); }
+
+          // ─── GTM / GA4 conversion (generate_lead)
+          try {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'generate_lead',
+              form_name: 'benchmark_email_gate',
+              form_id: HS_FORM_BENCHMARK_EMAILGATE,
+              lp_name: 'Benchmark',
+              value: 100,
+              currency: 'USD'
+            });
+          } catch (e) { console.warn('dataLayer push failed:', e); }
+
           setStage('thank-you');
         } catch (err) {
           errorEl.textContent = 'Something went wrong. Please try again or email us directly at info@attorneyassistant.com.';
