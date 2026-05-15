@@ -30,6 +30,7 @@ RewriteRule ^StopBabysitting/?$ /lp/stop-babysitting-your-firm [R=301,L,NC]
 RewriteRule ^BurningMoney/?$ /lp/burning-money [R=301,L,NC]
 RewriteRule ^LooksGoodRunsMessy/?$ /lp/looks-good-runs-messy [R=301,L,NC]
 RewriteRule ^villain/?$ /lp/comic/biggest-villain [R=301,L,NC]
+RewriteRule ^benchmark/?$ /lp/simple/benchmark [R=301,L,NC]
 
 # ── Capital-B /Blog/ → lowercase /blog/ redirects ──
 RewriteRule ^Blog/?$ /blog [R=301,L]
