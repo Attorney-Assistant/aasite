@@ -66,10 +66,26 @@ import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
 
   <!-- Conversion tracking -->
   <script is:inline>
+    // ─── Meta: fire Schedule + Lead via pixel + CAPI with dedup ───
+    //     Powers Simple Campaign "Call Booked" Meta custom conversions.
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('Schedule', { content_name: 'Simple Campaign Operations Review Booked', content_category: 'simple_lp_booking' }, {});
+      window.__metaCAPI.track('Lead',     { content_name: 'Simple Campaign Operations Review Booked', content_category: 'simple_lp_booking' }, {});
+      window.__metaCAPI.trackCustom('invitee_meeting_scheduled', { content_name: 'Simple Campaign Operations Review' }, {});
+    } else if (typeof fbq !== 'undefined') {
+      fbq('track', 'Schedule', { content_name: 'Simple Campaign Operations Review Booked' });
+      fbq('track', 'Lead',     { content_name: 'Simple Campaign Operations Review Booked' });
+      fbq('trackCustom', 'invitee_meeting_scheduled');
+    }
+
     if (typeof posthog !== 'undefined') posthog.capture('Meeting Booked', { meeting_type: 'operations_review' });
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'meeting_booked', meeting_type: 'operations_review' });
-    // TODO(nicole): add GA4 / LinkedIn / Meta conversion pixel firing here once pixel IDs are confirmed
+    window.dataLayer.push({
+      event: 'meeting_booked',
+      meeting_type: 'operations_review',
+      conversion_type: 'schedule',
+      lp_name: 'Simple Campaign'
+    });
   </script>
 
 </SimpleCampaignLayout>
