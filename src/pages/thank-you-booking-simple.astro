@@ -73,9 +73,26 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <!-- Conversion tracking -->
   <script is:inline>
+    // ─── Meta: fire Schedule + Lead via pixel + CAPI with dedup ───
+    //     Powers Simple Campaign "Call Booked" Meta custom conversion.
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('Schedule', { content_name: 'Simple Campaign Call Booked', content_category: 'simple_lp_booking' }, {});
+      window.__metaCAPI.track('Lead',     { content_name: 'Simple Campaign Call Booked', content_category: 'simple_lp_booking' }, {});
+      window.__metaCAPI.trackCustom('invitee_meeting_scheduled', { content_name: 'Simple Campaign Call' }, {});
+    } else if (typeof fbq !== 'undefined') {
+      fbq('track', 'Schedule', { content_name: 'Simple Campaign Call Booked' });
+      fbq('track', 'Lead',     { content_name: 'Simple Campaign Call Booked' });
+      fbq('trackCustom', 'invitee_meeting_scheduled');
+    }
+
     if (typeof posthog !== 'undefined') posthog.capture('Call Booked', { source: 'simple-campaign' });
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'call_booked', source: 'simple-campaign' });
+    window.dataLayer.push({
+      event: 'call_booked',
+      source: 'simple-campaign',
+      conversion_type: 'schedule',
+      lp_name: 'Simple Campaign'
+    });
   </script>
 
 </BaseLayout>

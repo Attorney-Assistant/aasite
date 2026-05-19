@@ -56,9 +56,26 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
 
   <!-- Conversion tracking -->
   <script is:inline>
+    // ─── Meta: fire Schedule + Lead via pixel + CAPI with dedup ───
+    //     Powers Comic Campaign "Call Booked" Meta custom conversion.
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('Schedule', { content_name: 'Comic Campaign Call Booked', content_category: 'comic_lp_booking' }, {});
+      window.__metaCAPI.track('Lead',     { content_name: 'Comic Campaign Call Booked', content_category: 'comic_lp_booking' }, {});
+      window.__metaCAPI.trackCustom('invitee_meeting_scheduled', { content_name: 'Comic Campaign Call' }, {});
+    } else if (typeof fbq !== 'undefined') {
+      fbq('track', 'Schedule', { content_name: 'Comic Campaign Call Booked' });
+      fbq('track', 'Lead',     { content_name: 'Comic Campaign Call Booked' });
+      fbq('trackCustom', 'invitee_meeting_scheduled');
+    }
+
     if (typeof posthog !== 'undefined') posthog.capture('Call Booked', { source: 'comic-campaign' });
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'call_booked', source: 'comic-campaign' });
+    window.dataLayer.push({
+      event: 'call_booked',
+      source: 'comic-campaign',
+      conversion_type: 'schedule',
+      lp_name: 'Comic Campaign'
+    });
   </script>
 
 </ComicCampaignLayout>
