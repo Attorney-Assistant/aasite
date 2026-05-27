@@ -215,6 +215,16 @@ const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
         var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
         if (!reveals.length) return;
 
+        function showAll() {
+          reveals.forEach(function(el) { el.classList.add('is-visible'); });
+        }
+
+        // No IntersectionObserver support → show everything immediately.
+        if (!('IntersectionObserver' in window)) { showAll(); return; }
+
+        // threshold 0 so any element entering the viewport reveals, regardless of
+        // its height — a threshold > 0 never triggers for blocks far taller than
+        // the viewport, which left long pages stuck invisible.
         var observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting) {
@@ -223,11 +233,14 @@ const posthogKey = import.meta.env.POSTHOG_API_KEY || '';
             }
           });
         }, {
-          threshold: 0.1,
+          threshold: 0,
           rootMargin: '0px 0px -40px 0px'
         });
 
         reveals.forEach(function(el) { observer.observe(el); });
+
+        // Safety net: never let content stay hidden if the observer misbehaves.
+        setTimeout(showAll, 2000);
       })();
     </script>
   </body>
