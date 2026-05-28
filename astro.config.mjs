@@ -14,6 +14,9 @@ export default defineConfig({
         !page.includes("/styleguide") &&
         !page.includes("/signaturegenerator") &&
         !page.includes("/storybook") &&
+        !page.includes("/apply/receptionist") &&
+        !page.includes("/apply/legal-impact-assistant") &&
+        !page.includes("/apply/medical-record-retrieval-specialist") &&
         !page.endsWith("/thank-you") &&
         !page.endsWith("/thank-you/"),
     }),
