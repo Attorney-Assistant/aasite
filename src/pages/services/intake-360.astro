@@ -41,6 +41,13 @@ const buckets = [
       "Workflow tasks tied to completed actions",
     ],
   },
+  {
+    num: "4",
+    title: "Reviews",
+    items: [
+      "Five-Star Google review (5 credits)",
+    ],
+  },
 ];
 
 const journey = [
@@ -250,11 +257,11 @@ const included = [
     <div class="container-wide relative">
       <div class="text-center mb-10 md:mb-12 reveal">
         <span class="badge badge-brand">What Credits Cover</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">The Three Buckets</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">Where Credits Apply</h2>
         <div class="divider-gold-center mt-5"></div>
-        <p class="text-base text-gray-500 max-w-2xl mx-auto mt-5">Every credit-eligible action falls into one of three categories.</p>
+        <p class="text-base text-gray-500 max-w-2xl mx-auto mt-5">Every credit-eligible action falls into one of these categories.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {buckets.map((bucket, i) => (
           <div class="card p-6 md:p-7 reveal" style={`transition-delay: ${i * 100}ms`}>
             <div class="flex items-center gap-3 mb-4">
@@ -273,19 +280,6 @@ const included = [
             </ul>
           </div>
         ))}
-      </div>
-
-      <div class="mt-6 max-w-2xl mx-auto reveal">
-        <div class="flex items-center justify-between gap-4 px-5 py-3 rounded-xl bg-brand-gold/10 border border-brand-gold/30">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-brand-gold/20 text-brand-gold font-heading text-sm flex-shrink-0">★</span>
-            <div>
-              <p class="text-sm font-semibold text-gray-900 leading-snug">Five-Star Google Review</p>
-              <p class="text-xs text-gray-600 leading-snug">Bonus credits for a verified 5-star public review.</p>
-            </div>
-          </div>
-          <span class="text-sm font-bold text-brand-gold-dark whitespace-nowrap">+5 credits</span>
-        </div>
       </div>
     </div>
   </section>
