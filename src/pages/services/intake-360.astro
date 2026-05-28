@@ -52,7 +52,7 @@ const buckets = [
 
 const journey = [
   { step: "1", title: "Sign Up & Integrate", desc: "Onboard with your case management system." },
-  { step: "2", title: "Activate Coverage",   desc: "Fund credits. Access & Support Fee begins." },
+  { step: "2", title: "Activate Coverage",   desc: "Subscription begins; 75 credits available each month." },
   { step: "3", title: "Capture Every Lead",  desc: "We answer, qualify, sign cases, and follow up 24/7." },
   { step: "4", title: "Review Activity",     desc: "Track every action and signed case outcome." },
   { step: "5", title: "Sign More Cases",     desc: "Stop losing revenue to broken intake." },
@@ -70,7 +70,7 @@ const included = [
 
 <BaseLayout
   title="Intake360 — 24/7 Intake Coverage for Contingency-Fee Firms"
-  description="Intake360 is your firm's always-on intake and reception operation — built for contingency-fee firms. $997/month keeps your firm covered; $3,600 buys 360 action-based credits."
+  description="Intake360 is your firm's always-on intake and reception operation — built for contingency-fee firms. $997/month includes 75 action-based credits; overage at $10/credit."
 >
 
   <!-- Hero -->
@@ -182,30 +182,30 @@ const included = [
     <div class="container-wide">
       <div class="text-center mb-10 md:mb-12 reveal max-w-3xl mx-auto">
         <span class="badge badge-brand">How Intake360 Pricing Works</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">A flat fee for coverage. Credits for completed work.</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">One flat monthly subscription. Credits included.</h2>
         <div class="divider-gold-center mt-5"></div>
         <p class="text-lg text-gray-500 leading-relaxed mt-6">
-          <strong class="text-gray-900">$997/month</strong> keeps your firm covered. <strong class="text-gray-900">$3,600</strong> buys <strong class="text-gray-900">360 action-based credits</strong>. The fee and credits are separate — credits are used only when defined intake, case-signing, call handling, follow-up, or workflow actions are completed.
+          <strong class="text-gray-900">$997/month</strong> includes <strong class="text-gray-900">75 action-based credits</strong>. Credits are used only when defined intake, case-signing, call handling, follow-up, or workflow actions are completed. Unused credits expire at month-end. If you go over, overage is billed at <strong class="text-gray-900">$10/credit</strong>.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-        <!-- Access & Support Fee -->
+        <!-- Monthly Subscription -->
         <div class="card p-7 md:p-8 bg-brand-gold/[0.04] border-brand-gold/40 reveal">
-          <span class="badge badge-gold mb-4">Part 1 — The Foundation</span>
-          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-1">Access &amp; Support Fee</h3>
-          <p class="text-sm font-semibold text-brand-gold mb-5">Internally, we call it the &ldquo;Sleep Easy&rdquo; fee.</p>
+          <span class="badge badge-gold mb-4">What's Included</span>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-1">Monthly Subscription</h3>
+          <p class="text-sm font-semibold text-brand-gold mb-5">Coverage plus 75 action-based credits per month.</p>
           <div class="flex items-end gap-1 mb-5">
             <span class="text-2xl font-heading text-gray-900 -mb-1">$</span>
             <span class="text-5xl md:text-6xl font-heading text-gray-900 leading-none tracking-tight">997</span>
             <span class="text-sm font-bold text-gray-500 mb-2 ml-2">per month</span>
           </div>
           <p class="text-sm text-gray-600 leading-relaxed mb-5">
-            No more wondering whether the after-hours leads got worked, the weekend calls got returned, or an overflow lead fell into a black hole. The Access &amp; Support Fee buys your firm <strong class="text-gray-900">operational peace of mind</strong> — a flat monthly fee that keeps your firm actively covered across nights, weekends, overflow, and follow-up.
+            No more wondering whether the after-hours leads got worked, the weekend calls got returned, or an overflow lead fell into a black hole. Your monthly subscription buys your firm <strong class="text-gray-900">operational peace of mind</strong> — active enrollment, lead coverage across nights, weekends, overflow, and follow-up, plus 75 credits ready to spend on real work.
           </p>
           <div class="border-t border-gray-200 pt-5">
             <ul class="space-y-2.5">
-              {["Active enrollment and continuous opt-in to Intake360",
+              {["75 action-based credits included per month",
                 "24/7 readiness of our intake team, systems, and routing",
                 "Coverage of inbound calls, after-hours leads, and overflow",
                 "Quality Assurance reviews to monitor service consistency",
@@ -220,25 +220,25 @@ const included = [
           </div>
         </div>
 
-        <!-- Credits -->
+        <!-- Overage -->
         <div class="card p-7 md:p-8 reveal" style="transition-delay: 100ms">
-          <span class="badge badge-brand mb-4">Part 2 — Real Work, Tracked</span>
-          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-1">Credits That Track Real Work Completed</h3>
-          <p class="text-sm font-semibold text-gray-500 mb-5">You&rsquo;re billed by the action — never for idle time.</p>
+          <span class="badge badge-brand mb-4">If You Go Over</span>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-1">Overage Pricing</h3>
+          <p class="text-sm font-semibold text-gray-500 mb-5">Pay only for the work that exceeds your included 75 credits.</p>
           <div class="flex items-end gap-1 mb-5">
             <span class="text-2xl font-heading text-gray-900 -mb-1">$</span>
-            <span class="text-5xl md:text-6xl font-heading text-gray-900 leading-none tracking-tight">3,600</span>
-            <span class="text-sm font-bold text-gray-500 mb-2 ml-2">= 360 credits</span>
+            <span class="text-5xl md:text-6xl font-heading text-gray-900 leading-none tracking-tight">10</span>
+            <span class="text-sm font-bold text-gray-500 mb-2 ml-2">per overage credit</span>
           </div>
           <p class="text-sm text-gray-600 leading-relaxed mb-5">
-            Credits are spent only when our team completes a defined intake, case-signing, call handling, follow-up, or workflow action on your leads. <strong class="text-gray-900">Never for hold time, idle time, or just being on coverage.</strong> Credits scale with your volume.
+            Credits are spent only when our team completes a defined intake, case-signing, call handling, follow-up, or workflow action on your leads. <strong class="text-gray-900">Never for hold time, idle time, or just being on coverage.</strong> Overage scales naturally with your volume.
           </p>
           <div class="border-t border-gray-200 pt-5">
             <ul class="space-y-2.5">
               {["Used only when defined actions are completed",
                 "Same credit cost whether a human or AI completes the action",
-                "Re-up anytime — credits roll forward until used",
-                "Separate from and in addition to the Access & Support Fee"].map((item) => (
+                "Overage billed in arrears within 5 business days of the monthly bill",
+                "Unused credits expire at the end of each monthly cycle"].map((item) => (
                 <li class="flex items-start gap-2.5 text-sm text-gray-700 leading-snug">
                   <span class="w-1.5 h-1.5 rounded-full bg-brand-navy mt-2 flex-shrink-0"></span>
                   <span>{item}</span>
@@ -407,7 +407,7 @@ const included = [
   <section class="py-8 bg-brand-950">
     <div class="container-narrow">
       <p class="text-xs text-white/60 leading-relaxed text-center max-w-3xl mx-auto">
-        <strong class="text-brand-gold">Access &amp; Support Fee</strong> renews every 30 days using the payment method on file until canceled in writing. The service fee is separate from credit purchases and does not include credits or guarantee a specific number of calls, transfers, or signed contracts.
+        The <strong class="text-brand-gold">Intake360 monthly subscription</strong> renews every 30 days using the payment method on file until canceled in writing. The $997/month subscription includes 75 action-based credits; overage is billed at $10/credit. Unused credits expire at month-end. The subscription does not guarantee a specific number of calls, transfers, or signed contracts.
       </p>
     </div>
   </section>
