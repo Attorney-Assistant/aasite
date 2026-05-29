@@ -2,13 +2,10 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogCard from "@components/BlogCard.astro";
 import { fetchAllBlogPosts } from "@lib/blog";
-import { fetchBlogTags } from "@lib/hubspot";
 
 let posts: any[] = [];
-let tags: any[] = [];
 try {
   posts = await fetchAllBlogPosts();
-  tags = await fetchBlogTags();
 } catch (e) {
   console.error("Failed to fetch blog posts:", e);
 }
@@ -66,20 +63,6 @@ const shortDate = (date: string) =>
     <!-- Bottom edge -->
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
   </section>
-
-  <!-- Tag Navigation -->
-  {tags.length > 0 && (
-    <nav class="blog-tag-nav" aria-label="Blog categories">
-      <div class="container-wide">
-        <div class="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-hide">
-          <a href="/blog" class="blog-tag-link blog-tag-link--active" aria-current="page">All</a>
-          {tags.slice(0, 10).map((tag: any) => (
-            <a href={`/blog/category/${tag.slug}`} class="blog-tag-link">{tag.name}</a>
-          ))}
-        </div>
-      </div>
-    </nav>
-  )}
 
   <!-- Featured Article — Full Spread -->
   {featuredPost && (
@@ -262,42 +245,6 @@ const shortDate = (date: string) =>
   .blog-masthead {
     position: relative;
     overflow: hidden;
-  }
-
-  /* Tag Navigation */
-  .blog-tag-nav {
-    background: white;
-    border-bottom: 1px solid #eaecf0;
-    padding: 0.875rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.95);
-  }
-
-  .blog-tag-link {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: #667085;
-    padding: 0.375rem 0.875rem;
-    border-radius: 9999px;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-  }
-
-  .blog-tag-link:hover {
-    color: #1a3a5c;
-    background: #f0f7fc;
-  }
-
-  .blog-tag-link--active {
-    color: #1a3a5c;
-    background: #e1eff9;
-    border-color: #c3dff3;
-    font-weight: 700;
   }
 
   /* Featured Article */
