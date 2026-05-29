@@ -109,6 +109,16 @@ const COUNTRIES = [
           </div>
 
           <div>
+            <label for="state_province" class="label-base">State / Province / Region <span class="text-error-500">*</span></label>
+            <input type="text" id="state_province" name="state_province" data-required class="input-base" placeholder="e.g. California, Ontario, Cayo" />
+          </div>
+
+          <div>
+            <label for="postal_code" class="label-base">Zip / Postal Code <span class="text-error-500">*</span></label>
+            <input type="text" id="postal_code" name="postal_code" data-required class="input-base" placeholder="e.g. 90210, M5V 2T6" autocomplete="postal-code" />
+          </div>
+
+          <div>
             <label for="country" class="label-base">What is your country of residence? <span class="text-error-500">*</span></label>
             <p class="text-xs text-gray-400 mb-1.5">Start typing to search.</p>
             <input type="text" id="country" name="country" data-required class="input-base" placeholder="Choose" list="country-list" autocomplete="off" />
