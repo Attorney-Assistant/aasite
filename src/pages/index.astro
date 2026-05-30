@@ -1,79 +1,56 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import HubSpotForm from "@components/HubSpotForm.astro";
+import HomeAuditForm from "@components/HomeAuditForm.astro";
 import LogoScroller from "@components/LogoScroller.astro";
 import ComparisonTable from "@components/ComparisonTable.astro";
 import ProcessSteps from "@components/ProcessSteps.astro";
 import ServiceCard from "@components/ServiceCard.astro";
 import YouTubeEmbed from "@components/YouTubeEmbed.astro";
-import TestimonialCard from "@components/TestimonialCard.astro";
 import CTABanner from "@components/CTABanner.astro";
-import DayTimeline from "@components/DayTimeline.astro";
-import { fetchFeaturedTestimonials } from "@lib/hubspot";
-
-let testimonials: any[] = [];
-
-try {
-  testimonials = (await fetchFeaturedTestimonials()) || [];
-} catch {
-  // Build continues with empty data if HubSpot is unreachable
-}
 ---
 
 <BaseLayout title="Scale Your Law Firm Operations | Intake & Staffing | Attorney Assistant" description="We manage intake, admin, and follow-up for law firms. Faster response times, better conversions, and fewer lost leads without hiring headaches.">
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden bg-brand-950 grain-overlay">
-    <!-- Background elements -->
+  <!-- ════════════════════════════════════════════════════════════
+       Hero — copy + Lady Justice
+       ════════════════════════════════════════════════════════════ -->
+  <section class="hero-section relative bg-brand-950">
     <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
-    <!-- Subtle animated grid -->
-    <div class="hero-grid" aria-hidden="true"></div>
-    <!-- Floating orbs sit above the gradient -->
-    <div class="home-hero-orb home-hero-orb--1" aria-hidden="true"></div>
-    <div class="home-hero-orb home-hero-orb--2" aria-hidden="true"></div>
-    <div class="home-hero-orb home-hero-orb--3" aria-hidden="true"></div>
-    <!-- Horizontal scan line -->
-    <div class="hero-scanline" aria-hidden="true"></div>
 
-    <div class="container-wide relative z-10 py-14 lg:py-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-        <!-- Left: Copy + Stats -->
-        <div class="pt-0 lg:pt-4">
+    <div class="container-wide relative z-10 py-14 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-8 items-center">
+        <!-- Left: Copy + CTAs + Stats -->
+        <div>
           <div class="mb-6 reveal">
-            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-brand-200 border border-white/10 backdrop-blur-sm">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span>
+            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-brand-200 border border-white/10">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
               Trusted by 200+ law firms
             </span>
           </div>
+
           <h1 class="text-display-md md:text-display-lg lg:text-display-xl text-white leading-tight mb-6 reveal" style="transition-delay: 100ms">
             You don't have a lead problem.<br />
-            <span class="hero-rotate" aria-live="polite">
-              <!-- Sizer: invisible, holds the longest phrase to reserve height -->
-              <span class="hero-rotate__sizer text-gradient-gold" aria-hidden="true">You have an operations problem.</span>
-              <span class="hero-rotate__item text-gradient-gold is-active">You have an intake problem.</span>
-              <span class="hero-rotate__item text-gradient-gold" aria-hidden="true">You have a follow-up problem.</span>
-              <span class="hero-rotate__item text-gradient-gold" aria-hidden="true">You have an operations problem.</span>
-            </span>
+            <span class="text-brand-gold">You have an operations problem.</span>
           </h1>
-          <p class="text-lg md:text-xl text-gray-400 mb-6 leading-relaxed max-w-lg reveal" style="transition-delay: 200ms">
+
+          <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed max-w-xl reveal" style="transition-delay: 200ms">
             Attorney Assistant handles the intake, follow-up, and admin that law firms consistently fail to execute — so more of your existing leads actually close.
           </p>
-          <div class="flex flex-wrap gap-3 mb-8 reveal" style="transition-delay: 300ms">
-            <a href="/book-call" class="btn-primary btn-lg group">
-              Start Growing Your Firm
+
+          <div class="flex flex-wrap gap-3 mb-10 reveal" style="transition-delay: 300ms">
+            <a href="#home-audit" class="btn-primary btn-lg group">
+              Book Your Free Audit
               <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
               </svg>
             </a>
-            <a href="/services" class="btn-ghost-light btn-lg">
-              Explore Services
-            </a>
+            <a href="/services" class="btn-ghost-light btn-lg">Explore Services</a>
           </div>
 
           <!-- Stats -->
           <div class="hero-stats grid grid-cols-3 gap-6 pt-8 border-t border-white/10 reveal" style="transition-delay: 400ms">
             <div>
-              <p class="text-display-xs md:text-display-sm text-white font-heading hero-stat" data-target="60" data-suffix="%+">0%+</p>
+              <p class="text-display-xs md:text-display-sm text-white font-heading hero-stat" data-target="60" data-suffix="%">0%</p>
               <p class="text-xs text-gray-500 mt-1 uppercase tracking-widest">Cost Savings</p>
             </div>
             <div>
@@ -87,79 +64,113 @@ try {
           </div>
         </div>
 
-        <!-- Right: HubSpot Form Card -->
-        <div class="hero-form-card bg-white rounded-2xl p-6 md:p-8 shadow-2xl ring-1 ring-white/10 reveal-scale" style="transition-delay: 200ms">
-          <div class="mb-5">
-            <h2 class="text-2xl md:text-3xl font-heading text-gray-900 mb-1">Get a Free Intake Audit</h2>
-            <p class="text-sm text-gray-500">See where your firm is losing cases. <a href="/book-call" class="text-brand-blue underline hover:text-brand-navy transition-colors">Book a call</a> or submit the form and we'll reach out.</p>
-          </div>
-          <HubSpotForm portalId="49161090" formId="8459e8a1-ab4f-4e5f-80ce-9767181c4791" region="na1" />
-          <p class="text-xs text-gray-400 mt-4 leading-relaxed">
-            By providing your information, you agree to receive telephone calls and SMS or MMS text messages for marketing purposes at the phone number provided.
-          </p>
+        <!-- Right: Lady Justice illustration — oversized, breaks the column bounds -->
+        <div class="hero-lady-wrap hidden lg:flex justify-center items-end reveal" style="transition-delay: 250ms">
+          <img
+            src="/images/home/header-lady-justice.png"
+            alt="Lady Justice illustration"
+            class="hero-lady"
+            loading="eager"
+            decoding="async"
+          />
         </div>
       </div>
     </div>
-
-    <!-- Bottom gradient line -->
-    <div class="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
   </section>
 
-  <!-- Logo Scroller -->
+  <!-- ════════════════════════════════════════════════════════════
+       Audit Form Card — light section that overlaps hero
+       ════════════════════════════════════════════════════════════ -->
+  <section id="home-audit" class="relative bg-gradient-to-b from-brand-50 via-brand-25 to-white pt-12 md:pt-16 pb-16 md:pb-20">
+    <div class="container-wide">
+      <div class="audit-card mx-auto max-w-5xl bg-white rounded-2xl p-6 md:p-10 shadow-xl ring-1 ring-gray-100 reveal">
+        <div class="mb-6 md:mb-8">
+          <h2 class="text-2xl md:text-3xl font-heading text-gray-900 mb-2">Get a Free Intake Audit</h2>
+          <p class="text-sm md:text-base text-gray-500">See where your firm is losing cases. Fill out the form and a member of our team will reach out shortly.</p>
+        </div>
+        <HomeAuditForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       Logo scroller — "As seen on / trusted by"
+       ════════════════════════════════════════════════════════════ -->
   <LogoScroller />
 
-  <!-- Services Grid -->
+  <!-- ════════════════════════════════════════════════════════════
+       Services — Iceberg illustration + service cards
+       ════════════════════════════════════════════════════════════ -->
   <section class="section-padding bg-white">
     <div class="container-wide">
-      <div class="text-center mb-14 reveal">
+      <div class="text-center mb-12 reveal">
         <span class="badge badge-brand mb-4">Services</span>
         <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">The Work Your Firm Needs But Hates to Manage</h2>
         <div class="divider-gold-center mt-4 mb-5"></div>
         <p class="text-lg text-gray-500 max-w-2xl mx-auto">We handle the operational work that prevents law firms from growing — built as a custom combination matched to your firm's specific bottlenecks.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="reveal" style="transition-delay: 0ms">
-          <ServiceCard title="Lead Follow-up" description="Never lose a lead again. Our team follows up with every prospect promptly and professionally.">
-            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-          </ServiceCard>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Iceberg illustration: hidden under lg to keep service cards full-width on mobile -->
+        <div class="hidden lg:block lg:col-span-5 reveal">
+          <img
+            src="/images/home/iceberg.png"
+            alt="Iceberg — what your firm sees above the surface vs. what's actually pulling it under"
+            class="w-full max-w-md mx-auto"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-        <div class="reveal" style="transition-delay: 75ms">
-          <ServiceCard title="Intake" description="Comprehensive client intake that captures every detail and qualifies leads for your firm.">
-            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-          </ServiceCard>
-        </div>
-        <div class="reveal" style="transition-delay: 150ms">
-          <ServiceCard title="Retainers & Scheduling" description="We don't just book consultations — we get retainers signed so your attorneys wake up to new clients, not voicemails.">
-            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-          </ServiceCard>
-        </div>
-        <div class="reveal" style="transition-delay: 225ms">
-          <ServiceCard title="Case Calling" description="Proactive case status updates and follow-up calls to keep clients informed and engaged.">
-            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
-          </ServiceCard>
-        </div>
-        <div class="reveal" style="transition-delay: 300ms">
-          <ServiceCard title="File Organization" description="Meticulous document management and file organization to keep your cases running smoothly.">
-            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
-          </ServiceCard>
-        </div>
-        <div class="reveal" style="transition-delay: 375ms">
-          <ServiceCard title="Medical Record Acquisition" description="Timely retrieval of medical records and documentation critical to your cases.">
-            <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
-          </ServiceCard>
+
+        <div class="lg:col-span-7">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="reveal" style="transition-delay: 0ms">
+              <ServiceCard title="Intake" description="Comprehensive client intake that captures every detail and qualifies leads for your firm.">
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+              </ServiceCard>
+            </div>
+            <div class="reveal" style="transition-delay: 75ms">
+              <ServiceCard title="Retainers & Scheduling" description="We don't just book consultations — we get retainers signed so your attorneys wake up to new clients, not voicemails.">
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+              </ServiceCard>
+            </div>
+            <div class="reveal" style="transition-delay: 150ms">
+              <ServiceCard title="File Organization" description="Meticulous document management and file organization to keep your cases running smoothly.">
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
+              </ServiceCard>
+            </div>
+            <div class="reveal" style="transition-delay: 225ms">
+              <ServiceCard title="Medical Record Acquisition" description="Timely retrieval of medical records and documentation critical to your cases.">
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+              </ServiceCard>
+            </div>
+            <div class="reveal" style="transition-delay: 300ms">
+              <ServiceCard title="Case Calling" description="Proactive case status updates and follow-up calls to keep clients informed and engaged.">
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
+              </ServiceCard>
+            </div>
+            <div class="reveal" style="transition-delay: 375ms">
+              <ServiceCard title="Lead Follow-up" description="Never lose a lead again. Our team follows up with every prospect promptly and professionally.">
+                <svg slot="icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+              </ServiceCard>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Video Testimonials -->
-  <section class="section-padding bg-white">
-    <div class="container-wide">
-      <div class="text-center mb-14 reveal">
-        <span class="badge badge-brand mb-4">From Our Clients</span>
-        <h2 class="text-display-sm md:text-display-md text-gray-900 mb-4">Video Testimonials</h2>
+  <!-- ════════════════════════════════════════════════════════════
+       Video Testimonials — navy bg per comp
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section-padding bg-brand-950 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-brand-200 border border-white/10 mb-4">From Our Clients</span>
+        <h2 class="text-display-sm md:text-display-md text-white mb-4">Video Testimonials</h2>
         <div class="divider-gold-center mt-4 mb-5"></div>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Hear directly from law firms about their experience working with Attorney Assistant.</p>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Hear directly from law firms about their experience working with Attorney Assistant.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="reveal" style="transition-delay: 0ms">
@@ -175,26 +186,35 @@ try {
     </div>
   </section>
 
-  <!-- Day Timeline -->
-  <section class="section-padding bg-gray-25 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
-    <div class="container-wide relative">
-      <div class="text-center mb-12 md:mb-16 reveal">
-        <span class="badge badge-brand">A Day in the Life</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
-          See What Changes When We're In Your Corner
-        </h2>
-        <div class="divider-gold-center mt-5"></div>
+  <!-- ════════════════════════════════════════════════════════════
+       See What Changes — illustration replaces day timeline
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-10 md:mb-14 reveal">
+        <span class="badge badge-brand mb-4">A Day in the Life</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">See What Changes When We're In Your Corner</h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
         <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto">
-          Walk through a real day at a law firm — with and without our support — and see the difference it makes.
+          Walk through a day at a law firm — with and without our support — and see the difference instantly.
         </p>
       </div>
-      <DayTimeline />
+      <div class="reveal max-w-6xl mx-auto">
+        <img
+          src="/images/home/see-what-changes.png"
+          alt="A day in the life: with vs. without Attorney Assistant"
+          class="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-100"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
   </section>
 
-  <!-- The Three Problems -->
-  <section class="section-padding bg-white">
+  <!-- ════════════════════════════════════════════════════════════
+       It's Not a Marketing Problem — 3 stat cards
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section-padding bg-gray-25">
     <div class="container-wide">
       <div class="text-center mb-6 reveal">
         <span class="badge badge-brand mb-4">The Problem</span>
@@ -205,45 +225,35 @@ try {
         Three operational failures cost law firms more revenue than they realize. Attorney Assistant solves all three — not by giving you more people, but by fixing how the work gets done.
       </p>
 
-      <!-- 3 problem cards — each visually distinct -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0 max-w-5xl mx-auto three-problems">
-        <!-- Problem 1: Intake Failure -->
-        <div class="tp-card tp-card--red reveal" style="transition-delay: 100ms">
-          <div class="tp-number">01</div>
-          <div class="tp-icon-wrap tp-icon-wrap--red">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="tp-card-v2 reveal" style="transition-delay: 100ms">
+          <img src="/images/home/icon-intake-failure.png" alt="" class="tp-icon-img" loading="lazy" decoding="async" aria-hidden="true" />
           <h3 class="tp-title">Intake Failure</h3>
-          <p class="tp-stat"><span class="tp-stat-num">20%</span> of leads lost</p>
+          <p class="tp-stat-num tp-stat-num--red">20%</p>
+          <p class="tp-stat-label">of leads lost</p>
           <p class="tp-desc">Before anyone even picks up the phone. Missed calls, slow callbacks, broken handoffs — revenue walks out the door every day.</p>
         </div>
 
-        <!-- Problem 2: Admin Chaos -->
-        <div class="tp-card tp-card--amber reveal" style="transition-delay: 200ms">
-          <div class="tp-number">02</div>
-          <div class="tp-icon-wrap tp-icon-wrap--amber">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          </div>
+        <div class="tp-card-v2 reveal" style="transition-delay: 200ms">
+          <img src="/images/home/icon-admin-chaos.png" alt="" class="tp-icon-img" loading="lazy" decoding="async" aria-hidden="true" />
           <h3 class="tp-title">Admin Chaos</h3>
-          <p class="tp-stat"><span class="tp-stat-num">15+</span> hrs/week wasted</p>
+          <p class="tp-stat-num tp-stat-num--amber">15+</p>
+          <p class="tp-stat-label">hrs/week wasted</p>
           <p class="tp-desc">Your attorneys lose over 15 hours per week to non-billable work — filing, scheduling, chasing records — instead of practicing law.</p>
         </div>
 
-        <!-- Problem 3: Growth Stagnation -->
-        <div class="tp-card tp-card--navy reveal" style="transition-delay: 300ms">
-          <div class="tp-number">03</div>
-          <div class="tp-icon-wrap tp-icon-wrap--navy">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" /></svg>
-          </div>
+        <div class="tp-card-v2 reveal" style="transition-delay: 300ms">
+          <img src="/images/home/icon-growth-stagnation.png" alt="" class="tp-icon-img" loading="lazy" decoding="async" aria-hidden="true" />
           <h3 class="tp-title">Growth Stagnation</h3>
-          <p class="tp-stat"><span class="tp-stat-num">$1M–$2M</span> plateau</p>
+          <p class="tp-stat-num tp-stat-num--navy">$1M&ndash;$2M</p>
+          <p class="tp-stat-label">plateau</p>
           <p class="tp-desc">Without systems, firms hit a ceiling and can't break through. Adding people without fixing operations just adds more chaos.</p>
         </div>
       </div>
 
       <div class="text-center mt-10 reveal" style="transition-delay: 400ms">
         <a href="/services" class="btn-primary btn-lg group">
-          See How We Fix All Three
+          See How We'll Fix These
           <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
           </svg>
@@ -252,20 +262,19 @@ try {
     </div>
   </section>
 
-  <!-- Why Firms Choose Us -->
-  <section class="section-padding bg-brand-950 grain-overlay relative overflow-hidden" id="why-us">
-    <div class="absolute inset-0">
-      <div class="home-hero-orb home-hero-orb--2" style="top: -20%; bottom: auto;"></div>
-    </div>
+  <!-- ════════════════════════════════════════════════════════════
+       Why Firms Choose Attorney Assistant — 3 numbered cards
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section-padding bg-brand-950 relative overflow-hidden" id="why-us">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
     <div class="container-wide relative z-10">
       <div class="text-center mb-14 reveal">
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-brand-200 border border-white/10 backdrop-blur-sm mb-4">Why Us</span>
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 text-brand-200 border border-white/10 mb-4">Why Us</span>
         <h2 class="text-display-sm md:text-display-md text-white">Why Firms Choose Attorney Assistant</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
 
       <div class="wu-grid">
-        <!-- Item 1 -->
         <div class="wu-card reveal" data-wu="0" style="transition-delay: 100ms">
           <div class="wu-card-inner">
             <div class="wu-num-ring">
@@ -284,7 +293,6 @@ try {
           <div class="wu-glow wu-glow--gold" aria-hidden="true"></div>
         </div>
 
-        <!-- Item 2 -->
         <div class="wu-card reveal" data-wu="1" style="transition-delay: 250ms">
           <div class="wu-card-inner">
             <div class="wu-num-ring">
@@ -303,7 +311,6 @@ try {
           <div class="wu-glow wu-glow--blue" aria-hidden="true"></div>
         </div>
 
-        <!-- Item 3 -->
         <div class="wu-card reveal" data-wu="2" style="transition-delay: 400ms">
           <div class="wu-card-inner">
             <div class="wu-num-ring">
@@ -325,39 +332,38 @@ try {
     </div>
   </section>
 
-  <!-- Process Steps -->
+  <!-- ════════════════════════════════════════════════════════════
+       Simple. Fast. Effective. — Process Steps
+       ════════════════════════════════════════════════════════════ -->
   <ProcessSteps />
 
-  <!-- Comparison Table -->
+  <!-- ════════════════════════════════════════════════════════════
+       AA vs. Doing It Yourself — illustration + comparison table
+       ════════════════════════════════════════════════════════════ -->
+  <section class="bg-white pt-12 md:pt-16">
+    <div class="container-wide">
+      <div class="reveal max-w-4xl mx-auto">
+        <img
+          src="/images/home/aa-vs-diy.png"
+          alt="Attorney Assistant vs. Doing It Yourself"
+          class="w-full h-auto"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
   <ComparisonTable />
 
-  <!-- Testimonials -->
-  {testimonials.length > 0 && (
-    <section class="section-padding bg-gray-50 border-y border-gray-100 relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
-      <div class="container-wide relative">
-        <div class="text-center mb-14 reveal">
-          <span class="badge badge-brand mb-4">Testimonials</span>
-          <h2 class="text-display-sm md:text-display-md text-gray-900">What Our Clients Say</h2>
-          <div class="divider-gold-center mt-5"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.slice(0, 3).map((t: any, i: number) => (
-            <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
-              <TestimonialCard {...t} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- CTA -->
+  <!-- ════════════════════════════════════════════════════════════
+       Bottom CTA
+       ════════════════════════════════════════════════════════════ -->
   <CTABanner
     heading="Stop Leaking Revenue. Start Scaling."
     body="Most firms don't need more leads — they need to stop losing the ones they have. We'll diagnose your operational gaps and fix them."
-    buttonText="Explore Our Services"
-    buttonLink="/services"
+    buttonText="Book Your Operations Audit"
+    buttonLink="#home-audit"
     secondaryButtonText="Book a Call"
     secondaryButtonLink="/contact"
     variant="brand"
@@ -366,186 +372,78 @@ try {
 </BaseLayout>
 
 <style>
-  /* ── Homepage hero floating orbs ── */
-  .home-hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    will-change: transform;
+  /* ── Hero Lady Justice — oversized figure that breaks the column ── */
+  .hero-section {
+    /* Bottom-anchored statue overflows the section slightly; we still want it
+       contained so it doesn't push following section. */
+    overflow: hidden;
   }
-  .home-hero-orb--1 {
-    width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(80,167,221,0.35) 0%, rgba(80,167,221,0) 70%);
-    top: -25%; right: -10%;
-    z-index: 1;
-    animation: homeFloat1 10s ease-in-out infinite;
-  }
-  .home-hero-orb--2 {
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(249,166,48,0.3) 0%, rgba(249,166,48,0) 70%);
-    bottom: -20%; left: -8%;
-    z-index: 1;
-    animation: homeFloat2 12s ease-in-out infinite;
-  }
-  .home-hero-orb--3 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(80,167,221,0.2) 0%, rgba(80,167,221,0) 65%);
-    top: 30%; left: 35%;
-    z-index: 1;
-    animation: homeFloat3 8s ease-in-out infinite;
-  }
-  @keyframes homeFloat1 {
-    0% { transform: translate(0, 0) scale(1); }
-    20% { transform: translate(-120px, 60px) scale(1.25); }
-    40% { transform: translate(-40px, -70px) scale(0.85); }
-    60% { transform: translate(100px, 30px) scale(1.15); }
-    80% { transform: translate(40px, -50px) scale(0.9); }
-    100% { transform: translate(0, 0) scale(1); }
-  }
-  @keyframes homeFloat2 {
-    0% { transform: translate(0, 0) scale(1); }
-    15% { transform: translate(100px, -50px) scale(1.3); }
-    40% { transform: translate(50px, 80px) scale(0.8); }
-    65% { transform: translate(-80px, -30px) scale(1.2); }
-    85% { transform: translate(-30px, 60px) scale(0.9); }
-    100% { transform: translate(0, 0) scale(1); }
-  }
-  @keyframes homeFloat3 {
-    0% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(-70px, -80px) scale(1.35); }
-    50% { transform: translate(60px, 40px) scale(0.75); }
-    75% { transform: translate(-40px, 60px) scale(1.2); }
-    100% { transform: translate(0, 0) scale(1); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .home-hero-orb { animation: none; }
-    .hero-scanline { display: none; }
-    .hero-grid { display: none; }
-  }
-
-  /* ── Subtle grid pattern ── */
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 80%);
-    animation: heroGridDrift 20s linear infinite;
-  }
-  @keyframes heroGridDrift {
-    0% { background-position: 0 0, 0 0; }
-    100% { background-position: 60px 60px, 60px 60px; }
-  }
-
-  /* ── Horizontal scan line ── */
-  .hero-scanline {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    z-index: 2;
-    background: linear-gradient(90deg, transparent 0%, rgba(249,166,48,0.15) 20%, rgba(80,167,221,0.2) 50%, rgba(249,166,48,0.15) 80%, transparent 100%);
-    animation: heroScan 6s ease-in-out infinite;
-    pointer-events: none;
-  }
-  @keyframes heroScan {
-    0% { top: 0%; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { top: 100%; opacity: 0; }
-  }
-
-  /* ── Gold text shimmer ── */
-  .text-gradient-gold {
-    background-size: 200% 100%;
-    animation: heroGoldShimmer 4s ease-in-out infinite;
-  }
-  @keyframes heroGoldShimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  /* ── Form card glow pulse ── */
-  .hero-form-card {
+  .hero-lady-wrap {
+    /* Self-anchored to the bottom of the row so the statue's feet sit on the
+       bottom edge of the section. Vertical space comes from oversizing the
+       image, not from container padding. */
+    align-self: stretch;
     position: relative;
   }
-  .hero-form-card::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, rgba(249,166,48,0.3), rgba(80,167,221,0.3), rgba(249,166,48,0.3));
-    background-size: 200% 200%;
-    z-index: -1;
-    animation: heroCardGlow 5s ease-in-out infinite;
-    opacity: 0.5;
+  .hero-lady {
+    /* Scale by viewport height so she stays large on big screens but never
+       overwhelms shorter ones. Width follows naturally. */
+    height: clamp(560px, 92vh, 880px);
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    /* Push slightly past the right edge of the column for added presence. */
+    margin-right: -2rem;
+    filter: drop-shadow(0 30px 60px rgba(249, 166, 48, 0.18));
+    pointer-events: none;
   }
-  @keyframes heroCardGlow {
-    0%, 100% { background-position: 0% 50%; opacity: 0.3; }
-    50% { background-position: 100% 50%; opacity: 0.6; }
+  @media (min-width: 1280px) {
+    .hero-lady { margin-right: -4rem; }
   }
 
-  /* ── Three Problems cards ── */
-  .tp-card {
-    padding: 2.5rem 2rem;
-    position: relative;
-    border: 1px solid #eaecf0;
+  /* ── It's Not a Marketing Problem — stat cards (v2 with PNG icons) ── */
+  .tp-card-v2 {
     background: #fff;
+    border: 1px solid #eaecf0;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
     text-align: center;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
-  .tp-card:first-child { border-radius: 12px 12px 0 0; }
-  .tp-card:last-child { border-radius: 0 0 12px 12px; }
-  .tp-card:not(:last-child) { border-bottom: none; }
-  @media (min-width: 768px) {
-    .three-problems { border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-    .tp-card { border-radius: 0 !important; border-bottom: 1px solid #eaecf0; }
-    .tp-card:not(:last-child) { border-right: none; border-bottom: none; }
-    .tp-card:last-child { border-bottom: none; }
+  .tp-card-v2:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(16, 24, 40, 0.08);
+    border-color: #d0d5dd;
   }
-  .tp-number {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #98a2b3;
-    margin-bottom: 1.25rem;
+  .tp-card-v2 .tp-icon-img {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    margin: 0 auto 1rem;
   }
-  .tp-icon-wrap {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px; height: 48px;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-  }
-  .tp-icon-wrap--red { background: #fef3f2; color: #d92d20; }
-  .tp-icon-wrap--amber { background: #fffbeb; color: #d97706; }
-  .tp-icon-wrap--navy { background: #eff4f9; color: #1a3a5c; }
-  .tp-title {
-    font-family: var(--font-heading, 'Sora', sans-serif); font-weight: 700;
+  .tp-card-v2 .tp-title {
+    font-family: var(--font-heading);
     font-size: 1.25rem;
     color: #101828;
     margin-bottom: 0.5rem;
   }
-  .tp-stat {
+  .tp-card-v2 .tp-stat-num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0.25rem 0 0.125rem;
+  }
+  .tp-card-v2 .tp-stat-num--red { color: #d92d20; }
+  .tp-card-v2 .tp-stat-num--amber { color: #d97706; }
+  .tp-card-v2 .tp-stat-num--navy { color: #1a3a5c; }
+  .tp-card-v2 .tp-stat-label {
     font-size: 0.8125rem;
     color: #667085;
     margin-bottom: 1rem;
   }
-  .tp-stat-num {
-    font-family: var(--font-heading, 'Sora', sans-serif);
-    font-size: 1.5rem;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 0.125rem;
-  }
-  .tp-card--red .tp-stat-num { color: #d92d20; }
-  .tp-card--amber .tp-stat-num { color: #d97706; }
-  .tp-card--navy .tp-stat-num { color: #1a3a5c; }
-  .tp-desc {
+  .tp-card-v2 .tp-desc {
     font-size: 0.875rem;
     line-height: 1.6;
     color: #667085;
@@ -553,7 +451,7 @@ try {
     margin: 0 auto;
   }
 
-  /* ── Why Us cards ── */
+  /* ── Why Us cards — preserved from previous design ── */
   .wu-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -562,12 +460,8 @@ try {
     margin: 0 auto;
   }
   @media (min-width: 768px) {
-    .wu-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
+    .wu-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
   }
-
   .wu-card {
     position: relative;
     border-radius: 20px;
@@ -576,10 +470,7 @@ try {
     display: flex;
     flex-direction: column;
   }
-  .wu-card:hover {
-    transform: translateY(-8px);
-  }
-
+  .wu-card:hover { transform: translateY(-8px); }
   .wu-card-inner {
     position: relative;
     z-index: 2;
@@ -600,8 +491,6 @@ try {
     border-color: rgba(255,255,255,0.22);
     background: linear-gradient(145deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 100%);
   }
-
-  /* Number ring */
   .wu-num-ring {
     position: relative;
     display: inline-flex;
@@ -612,13 +501,14 @@ try {
     margin-bottom: 1.25rem;
   }
   .wu-num {
-    font-family: var(--font-heading, 'Sora', sans-serif);
-    font-weight: 800;
-    font-size: 1.25rem;
-    color: rgba(255,255,255,0.7);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #ffffff;
     position: relative;
     z-index: 2;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
+    line-height: 1;
   }
   .wu-ring {
     position: absolute;
@@ -627,16 +517,10 @@ try {
     height: 100%;
     transform: rotate(-90deg);
   }
-  .wu-ring-fill {
-    transition: stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1);
-  }
-  .wu-card.wu-visible .wu-ring-fill {
-    stroke-dashoffset: 0;
-  }
-
-  /* Title & description */
+  .wu-ring-fill { transition: stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1); }
+  .wu-card.wu-visible .wu-ring-fill { stroke-dashoffset: 0; }
   .wu-title {
-    font-family: var(--font-heading, 'Sora', sans-serif);
+    font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.25rem;
     color: #fff;
@@ -648,8 +532,6 @@ try {
     color: #98a2b3;
     margin: 0;
   }
-
-  /* Accent bar */
   .wu-accent {
     position: absolute;
     bottom: 0;
@@ -661,15 +543,10 @@ try {
     opacity: 0;
     transition: opacity 0.5s ease, width 0.5s ease;
   }
-  .wu-card:hover .wu-accent {
-    opacity: 1;
-    width: 60px;
-  }
+  .wu-card:hover .wu-accent { opacity: 1; width: 60px; }
   .wu-accent--gold { background: linear-gradient(90deg, #F9A630, #f9c86c); }
   .wu-accent--blue { background: linear-gradient(90deg, #50a7dd, #7ec4ed); }
   .wu-accent--white { background: linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.15)); }
-
-  /* Glow */
   .wu-glow {
     position: absolute;
     bottom: -30%;
@@ -700,9 +577,7 @@ try {
 (function () {
   const section = document.getElementById("why-us");
   if (!section) return;
-
   const cards = section.querySelectorAll<HTMLElement>(".wu-card");
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -716,97 +591,7 @@ try {
     },
     { threshold: 0.3 }
   );
-
   cards.forEach((card) => observer.observe(card));
-})();
-</script>
-
-<style>
-  /* Hero rotating headline */
-  .hero-rotate {
-    display: block;
-    position: relative;
-  }
-
-  /* Invisible sizer — takes up space for the longest phrase so the container never jumps */
-  .hero-rotate__sizer {
-    display: block;
-    visibility: hidden;
-    height: auto;
-    pointer-events: none;
-  }
-
-  .hero-rotate__item {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transform: translateY(0.35em);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    pointer-events: none;
-  }
-
-  .hero-rotate__item.is-active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  .hero-rotate__item.is-exiting {
-    opacity: 0;
-    transform: translateY(-0.35em);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-rotate__item {
-      transition: none;
-    }
-  }
-</style>
-
-<script>
-(function () {
-  const container = document.querySelector('.hero-rotate');
-  if (!container) return;
-
-  const items = container.querySelectorAll('.hero-rotate__item');
-  if (items.length < 2) return;
-
-  let current = 0;
-  const DISPLAY_MS = 2200;
-  const TRANSITION_MS = 500;
-  const LAST = items.length - 1;
-
-  // Activate first item
-  items[0].classList.add('is-active');
-
-  function rotate() {
-    const prev = current;
-    current++;
-
-    // Exit current
-    items[prev].classList.remove('is-active');
-    items[prev].classList.add('is-exiting');
-
-    // Enter next
-    items[current].classList.add('is-active');
-
-    // Update aria
-    items[prev].setAttribute('aria-hidden', 'true');
-    items[current].removeAttribute('aria-hidden');
-
-    // Clean up exit class after transition
-    setTimeout(function () {
-      items[prev].classList.remove('is-exiting');
-    }, TRANSITION_MS);
-
-    // Stop when we reach the last item
-    if (current >= LAST) clearInterval(timer);
-  }
-
-  var timer = setInterval(rotate, DISPLAY_MS + TRANSITION_MS);
 })();
 </script>
 
@@ -814,7 +599,6 @@ try {
 (function () {
   var stats = document.querySelectorAll('.hero-stat');
   if (!stats.length) return;
-
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -823,7 +607,6 @@ try {
         var suffix = el.getAttribute('data-suffix') || '';
         var duration = 1600;
         var start = performance.now();
-
         function step(now) {
           var elapsed = now - start;
           var progress = Math.min(elapsed / duration, 1);
@@ -832,13 +615,11 @@ try {
           el.textContent = current + suffix;
           if (progress < 1) requestAnimationFrame(step);
         }
-
         requestAnimationFrame(step);
         observer.unobserve(el);
       }
     });
   }, { threshold: 0.5 });
-
   stats.forEach(function (el) { observer.observe(el); });
 })();
 </script>

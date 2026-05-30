@@ -68,11 +68,14 @@ export default {
           700: "#067647",
         },
       },
+      // Font stacks are defined as CSS variables in src/styles/global.css
+      // (:root --font-heading / --font-body). Tailwind references them here so
+      // global.css is the single source of truth.
       fontFamily: {
-        display: ['"Sora"', "-apple-system", "Segoe UI", "sans-serif"],
-        sans: ['"Inter"', "-apple-system", "Segoe UI", "sans-serif"],
-        heading: ['"Sora"', "-apple-system", "Segoe UI", "sans-serif"],
-        body: ['"Inter"', "-apple-system", "Segoe UI", "sans-serif"],
+        display: ["var(--font-heading)"],
+        sans: ["var(--font-body)"],
+        heading: ["var(--font-heading)"],
+        body: ["var(--font-body)"],
       },
       fontSize: {
         "display-2xl": [

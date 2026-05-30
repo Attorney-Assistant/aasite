@@ -5,6 +5,15 @@
 @tailwind utilities;
 
 @layer base {
+  /* Font stacks exposed as CSS variables so any context (Astro <style> blocks,
+     inline CSS, third-party widgets) can reference them. Tailwind consumes
+     these in tailwind.config.mjs → fontFamily, so `.font-heading` / `.font-body`
+     stay in sync. Single source of truth lives here. */
+  :root {
+    --font-heading: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  }
+
   html {
     @apply scroll-smooth;
     -webkit-font-smoothing: antialiased;

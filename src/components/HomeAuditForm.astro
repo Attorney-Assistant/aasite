@@ -1,0 +1,378 @@
+---
+/**
+ * Homepage Intake Audit form.
+ *
+ * Renders the form HTML directly (not via the HubSpot embed script) and POSTs
+ * to the HubSpot Forms Submissions v3 API so we can fully control layout and
+ * styling. Field names, requireds, options, and the SMS-consent checkbox text
+ * mirror the HubSpot form schema for portal 49161090, form
+ * 8459e8a1-ab4f-4e5f-80ce-9767181c4791 (Contact form (homepage) (new)).
+ */
+const HS_PORTAL_ID = "49161090";
+const HS_FORM_ID = "8459e8a1-ab4f-4e5f-80ce-9767181c4791";
+
+const SMS_CONSENT_FIELD_NAME =
+  "by_checking_this_box__i_consent_to_receive_text_messages_related_to__message_type__from__company_na";
+
+const FIRM_SIZES = [
+  "Solo Practitioner (1 attorney)",
+  "Small Firm (2-10 attorneys)",
+  "Mid-Sized Firm (11-50 attorneys)",
+  "Big Firm (51-200 attorneys)",
+  "Large Firm (200+ attorneys)",
+];
+---
+
+<form
+  id="home-audit-form"
+  class="home-audit-form"
+  novalidate
+  data-portal-id={HS_PORTAL_ID}
+  data-form-id={HS_FORM_ID}
+>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+    <div class="field">
+      <label for="haf-firstname">First Name <span class="req" aria-hidden="true">*</span></label>
+      <input id="haf-firstname" name="firstname" type="text" required placeholder="Joe" autocomplete="given-name" />
+    </div>
+    <div class="field">
+      <label for="haf-lastname">Last Name <span class="req" aria-hidden="true">*</span></label>
+      <input id="haf-lastname" name="lastname" type="text" required placeholder="Doe" autocomplete="family-name" />
+    </div>
+    <div class="field">
+      <label for="haf-company">Company Name <span class="req" aria-hidden="true">*</span></label>
+      <input id="haf-company" name="company" type="text" required placeholder="Best Company" autocomplete="organization" />
+    </div>
+
+    <div class="field">
+      <label for="haf-email">Work Email <span class="req" aria-hidden="true">*</span></label>
+      <input id="haf-email" name="email" type="email" required placeholder="joedoe@email.com" autocomplete="email" />
+    </div>
+    <div class="field">
+      <label for="haf-phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+      <input id="haf-phone" name="phone" type="tel" required placeholder="+1 2345 6753" autocomplete="tel" inputmode="tel" />
+    </div>
+    <div class="field">
+      <label for="haf-company-size">Law Firm Size</label>
+      <select id="haf-company-size" name="company_size">
+        <option value="">Choose…</option>
+        {FIRM_SIZES.map((s) => <option value={s}>{s}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <!-- Honeypot: real users never see this; bots that auto-fill every field will
+       trip it. We do NOT send this field to HubSpot — instead we silently show
+       success and skip the POST so the bot thinks it succeeded. Replaces the
+       HubSpot-side CAPTCHA we disabled to enable API submissions. -->
+  <div class="hp-field" aria-hidden="true">
+    <label for="haf-website">Website (leave blank)</label>
+    <input id="haf-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <div class="sms-consent">
+    <label class="consent-row">
+      <input type="checkbox" id="haf-sms-consent" name={SMS_CONSENT_FIELD_NAME} value="true" />
+      <span>
+        By checking this box, I consent to receive text messages related to customer care from the Attorney Assistant.
+        You can reply "STOP" at any time to opt out. Message and data rates may apply. Message frequency may vary.
+        Reply HELP to (215) 337-2677 for assistance. For more information, please visit our
+        {" "}<a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> and
+        {" "}<a href="/sms-terms" target="_blank" rel="noopener">SMS Terms and Conditions</a>.
+      </span>
+    </label>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="submit-btn" id="haf-submit">
+      <span class="submit-label">Submit</span>
+      <svg class="submit-spinner" viewBox="0 0 24 24" aria-hidden="true">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8v4a4 4 0 0 0-4 4H4z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <p id="haf-error" class="form-error" role="alert" hidden></p>
+</form>
+
+<div id="haf-success" class="form-success" hidden>
+  <div class="success-icon">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+  </div>
+  <h3 class="font-heading text-xl text-gray-900 mb-1">You're on the list.</h3>
+  <p class="text-sm text-gray-500">A member of our team will reach out shortly with your free intake audit.</p>
+</div>
+
+<script is:inline>
+  (function () {
+    const form = document.getElementById('home-audit-form');
+    if (!form) return;
+
+    const errorEl = document.getElementById('haf-error');
+    const successEl = document.getElementById('haf-success');
+    const submitBtn = document.getElementById('haf-submit');
+    const portalId = form.dataset.portalId;
+    const formId = form.dataset.formId;
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+    }
+    function clearError() {
+      errorEl.textContent = '';
+      errorEl.hidden = true;
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      clearError();
+
+      // Native HTML5 validation for the required fields
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(form);
+
+      // Honeypot trip: if the hidden `website` field is filled, this is almost
+      // certainly a bot. Show success state and quietly drop the submission.
+      if ((fd.get('website') || '').toString().trim() !== '') {
+        form.hidden = true;
+        successEl.hidden = false;
+        return;
+      }
+
+      // Build HubSpot Forms v3 payload. `website` is our local honeypot, not a
+      // HubSpot field — never send it.
+      const fields = [];
+      for (const [name, value] of fd.entries()) {
+        if (name === 'website') continue;
+        if (value === '' || value == null) continue;
+        fields.push({ name: name, value: String(value) });
+      }
+
+      // hubspotutk cookie for tracking continuity. Only include in the context
+      // if it actually has a value — HubSpot rejects empty-string hutk with
+      // INVALID_HUTK ("'' is not a valid Hutk").
+      const hutkMatch = document.cookie.match(/(^|;)\s*hubspotutk\s*=\s*([^;]+)/);
+      const hutk = hutkMatch ? hutkMatch[2] : '';
+
+      const context = {
+        pageUri: window.location.href,
+        pageName: document.title,
+      };
+      if (hutk) context.hutk = hutk;
+
+      const payload = { fields: fields, context: context };
+
+      // UI state: submitting
+      submitBtn.disabled = true;
+      submitBtn.classList.add('is-loading');
+
+      try {
+        const res = await fetch(
+          'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          }
+        );
+        if (!res.ok) {
+          const txt = await res.text();
+          throw new Error('HubSpot ' + res.status + ': ' + txt);
+        }
+
+        // ─── Conversion events ─────────────────────────────────
+        const email = fd.get('email') || '';
+        const phone = fd.get('phone') || '';
+        const fn = fd.get('firstname') || '';
+        const ln = fd.get('lastname') || '';
+
+        try {
+          if (window.__metaCAPI && typeof window.__metaCAPI.track === 'function') {
+            window.__metaCAPI.track(
+              'Lead',
+              { content_name: 'Home Intake Audit', content_category: 'home_audit_form' },
+              { em: email, ph: phone, fn: fn, ln: ln }
+            );
+          } else if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', { content_name: 'Home Intake Audit' });
+          }
+        } catch (_) {}
+
+        try {
+          if (typeof posthog !== 'undefined') {
+            posthog.capture('Form Submitted', { form_id: formId, form_name: 'home_intake_audit' });
+          }
+        } catch (_) {}
+
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'generate_lead',
+            form_name: 'home_intake_audit',
+            form_id: formId,
+          });
+        } catch (_) {}
+
+        form.hidden = true;
+        successEl.hidden = false;
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        console.error('Audit form submission failed:', err);
+        showError("Something went wrong. Please try again or email us at info@attorneyassistant.com.");
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('is-loading');
+      }
+    });
+  })();
+</script>
+
+<style>
+  .home-audit-form .field { display: flex; flex-direction: column; }
+  .home-audit-form label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #344054;
+    margin-bottom: 0.375rem;
+  }
+  .home-audit-form .req { color: #F04438; margin-left: 2px; }
+
+  .home-audit-form input,
+  .home-audit-form select {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid #D0D5DD;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background-color: #ffffff;
+    color: #101828;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    font-family: inherit;
+  }
+  .home-audit-form input::placeholder { color: #98A2B3; }
+  .home-audit-form input:focus,
+  .home-audit-form select:focus {
+    border-color: #50a7dd;
+    box-shadow: 0 0 0 4px rgba(80, 167, 221, 0.12);
+    outline: none;
+  }
+
+  /* Custom select chevron with right-edge breathing room. */
+  .home-audit-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    padding-right: 2.5rem;
+  }
+
+  /* Honeypot — visually hidden but accessible to autofill bots. We intentionally
+     do NOT use display:none / visibility:hidden / hidden attribute because
+     sophisticated bots skip those. The clip / opacity / off-screen combo keeps
+     real users from ever seeing or focusing it. */
+  .home-audit-form .hp-field {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* SMS consent row */
+  .home-audit-form .sms-consent { margin-top: 1rem; }
+  .home-audit-form .consent-row {
+    display: flex;
+    gap: 0.625rem;
+    align-items: flex-start;
+    font-size: 0.75rem;
+    color: #475467;
+    line-height: 1.55;
+    cursor: pointer;
+  }
+  .home-audit-form .consent-row input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.15rem;
+    accent-color: #F9A630;
+    flex-shrink: 0;
+  }
+  .home-audit-form .consent-row a {
+    color: #1a3a5c;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  .home-audit-form .consent-row a:hover { color: #50a7dd; }
+
+  /* Submit */
+  .home-audit-form .actions { margin-top: 1.25rem; }
+  .home-audit-form .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background-color: #F9A630;
+    color: #101828;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    transition: background-color 0.15s ease, transform 0.05s ease;
+    font-family: inherit;
+  }
+  .home-audit-form .submit-btn:hover { background-color: #e69500; }
+  .home-audit-form .submit-btn:active { transform: translateY(1px); }
+  .home-audit-form .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  .home-audit-form .submit-spinner {
+    width: 1.125rem;
+    height: 1.125rem;
+    display: none;
+    animation: haf-spin 0.8s linear infinite;
+  }
+  .home-audit-form .submit-btn.is-loading .submit-spinner { display: block; }
+  .home-audit-form .submit-btn.is-loading .submit-label { opacity: 0.7; }
+  @keyframes haf-spin { to { transform: rotate(360deg); } }
+
+  /* Inline error */
+  .form-error {
+    margin-top: 0.875rem;
+    padding: 0.625rem 0.875rem;
+    background-color: #FEF3F2;
+    border: 1px solid #FECDCA;
+    border-radius: 0.5rem;
+    color: #B42318;
+    font-size: 0.8125rem;
+  }
+
+  /* Success */
+  .form-success {
+    text-align: center;
+    padding: 1.5rem 0 0.5rem;
+  }
+  .form-success .success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background-color: #DCFAE6;
+    color: #079455;
+    margin-bottom: 0.75rem;
+  }
+</style>
