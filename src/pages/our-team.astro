@@ -27,15 +27,15 @@ const leaders = [
   },
 ];
 
-const departments = [
+const departmentsRaw = [
   {
     name: "Client Success",
     icon: "/icons/law and legal_trust.svg",
     members: [
-      { name: "Gilles Girodroux", image: "/team/gilles-girodroux.jpg" },
-      { name: "Michelle Scherer", image: "/team/michelle-scherer.jpeg" },
       { name: "Andrew James Robert Ralph", image: "/team/andrew-ralph.jpeg" },
+      { name: "Gilles Girodroux", image: "/team/gilles-girodroux.jpg" },
       { name: "Jules Towers", image: "/team/jules-towers.png" },
+      { name: "Michelle Scherer", image: "/team/michelle-scherer.jpeg" },
     ],
   },
   {
@@ -47,33 +47,10 @@ const departments = [
     ],
   },
   {
-    name: "Sales",
-    icon: "/icons/buiness & finance_hand shake.svg",
-    members: [
-      { name: "Andrew Famular", image: "/team/andrew-famular.png" },
-      { name: "Abdel", image: "/team/abdel.png" },
-      { name: "Maureen Jan", image: "/team/maureen-jan.png" },
-      { name: "Angel", image: "/team/angel-taguiam.png" },
-    ],
-  },
-  {
-    name: "Recruitment",
-    icon: "/icons/buiness & finance_group.svg",
-    members: [
-      { name: "Karen Duke", title: "Manager of Talent", image: "/team/karen-duke.png" },
-      { name: "Chezka", title: "Lead Recruitment Specialist", image: "/team/chezka.jpg" },
-      { name: "Gretchen", image: "/team/gretchen.jpg" },
-      { name: "Katia", image: "/team/katia.jpeg" },
-      { name: "Christian Jackson", image: "/team/christian-jackson.jpg" },
-      { name: "June Nicole", image: "/team/june-nicole.jpg" },
-      { name: "Angelo", image: "/team/angelo-guinares.png" },
-      { name: "Wuble", image: "/team/wuble.jpg" },
-    ],
-  },
-  {
     name: "IA Success",
     icon: "/icons/law and legal_lawyer 1.svg",
     members: [
+      { name: "Christian Jackson", image: "/team/christian-jackson.jpg" },
       { name: "Christine Sara Villares", image: "/team/christine-sara-villares.png" },
       { name: "Ellie Aristorena", image: "/team/ellie-aristorena.jpg" },
       { name: "Ian Yniguez", image: "/team/ian-yniguez.jpg" },
@@ -81,27 +58,20 @@ const departments = [
       { name: "Jessica Braza", image: "/team/jessica-braza.jpg" },
       { name: "Joanne Doculan", image: "/team/joanne-doculan.jpg" },
       { name: "Kim Vargas", image: "/team/kim-vargas.jpg" },
-      { name: "Mithcie Bryan Pomar", image: null },
       { name: "Lionel Cesora", image: "/team/lionel-cesora.jpg" },
+      { name: "Mithcie Bryan Pomar", image: null },
       { name: "Naomi Sherome Myers", image: "/team/naomi-myers.jpeg" },
       { name: "Selennie Guillen", image: "/team/selennie-guillen.jpg" },
       { name: "Sweet Shenna Rosal", image: "/team/sweet-shenna-rosal.jpg" },
-      { name: "Christian Jackson", image: "/team/christian-jackson.jpg" },
     ],
   },
   {
-    name: "Placement",
-    icon: "/icons/law and legal_certificate.svg",
+    name: "Marketing",
+    icon: "/icons/buiness & finance_target.svg",
     members: [
-      { name: "Karen Duke", title: "Manager of Talent", image: "/team/karen-duke.png" },
-      { name: "Shalinie Guillen", title: "Lead Placement Coordinator", image: "/team/shalinie-guillen.jpg" },
-      { name: "Darren Mansilla", image: "/team/darren-mansilla.jpg" },
-      { name: "Ruth Doce", image: "/team/ruth-doce.jpeg" },
-      { name: "Angel", image: "/team/angel-pineda.png" },
-      { name: "Kaye", image: "/team/kaye.jpg" },
-      { name: "Rauie", image: "/team/rauie.jpg" },
-      { name: "Angelica", image: "/team/angelica.jpeg" },
-      { name: "Christine", image: "/team/christine-gumtang.webp" },
+      { name: "Andy Stickel", image: "/team/andy-stickel.jpg" },
+      { name: "Bill Hauser", image: "/team/bill-hauser.jpg" },
+      { name: "Nicole Hall", title: "Marketing Director", image: "/team/nicole-hall.png" },
     ],
   },
   {
@@ -113,15 +83,49 @@ const departments = [
     ],
   },
   {
-    name: "Marketing",
-    icon: "/icons/buiness & finance_target.svg",
+    name: "Placement",
+    icon: "/icons/law and legal_certificate.svg",
     members: [
-      { name: "Bill Hauser", image: "/team/bill-hauser.jpg" },
-      { name: "Andy Stickel", image: "/team/andy-stickel.jpg" },
-      { name: "Nicole Hall", title: "Marketing Director", image: "/team/nicole-hall.png" },
+      { name: "Angel", image: "/team/angel-pineda.png" },
+      { name: "Angelica", image: "/team/angelica.jpeg" },
+      { name: "Christine", image: "/team/christine-gumtang.webp" },
+      { name: "Darren Mansilla", image: "/team/darren-mansilla.jpg" },
+      { name: "Karen Duke", title: "Manager of Talent", image: "/team/karen-duke.png" },
+      { name: "Kaye", image: "/team/kaye.jpg" },
+      { name: "Rauie", image: "/team/rauie.jpg" },
+      { name: "Ruth Doce", image: "/team/ruth-doce.jpeg" },
+      { name: "Shalinie Guillen", title: "Lead Placement Coordinator", image: "/team/shalinie-guillen.jpg" },
+    ],
+  },
+  {
+    name: "Recruitment",
+    icon: "/icons/buiness & finance_group.svg",
+    members: [
+      { name: "Angelo", image: "/team/angelo-guinares.png" },
+      { name: "Chezka", title: "Lead Recruitment Specialist", image: "/team/chezka.jpg" },
+      { name: "Christian Jackson", image: "/team/christian-jackson.jpg" },
+      { name: "Gretchen", image: "/team/gretchen.jpg" },
+      { name: "June Nicole", image: "/team/june-nicole.jpg" },
+      { name: "Karen Duke", title: "Manager of Talent", image: "/team/karen-duke.png" },
+      { name: "Katia", image: "/team/katia.jpeg" },
+      { name: "Wuble", image: "/team/wuble.jpg" },
+    ],
+  },
+  {
+    name: "Sales",
+    icon: "/icons/buiness & finance_hand shake.svg",
+    members: [
+      { name: "Abdel", image: "/team/abdel.png" },
+      { name: "Andrew Famular", image: "/team/andrew-famular.png" },
+      { name: "Angel", image: "/team/angel-taguiam.png" },
+      { name: "Matt Miller", image: "/team/matt-miller.jpeg" },
+      { name: "Maureen Jan", image: "/team/maureen-jan.png" },
     ],
   },
 ];
+
+const slugify = (s: string) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const departments = departmentsRaw.map((d) => ({ ...d, slug: slugify(d.name) }));
 
 function getInitials(name: string) {
   return name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
@@ -186,9 +190,39 @@ const teamSchema = leaders.map((l) => ({
     </div>
   </section>
 
+  <!-- Team Filter -->
+  <div class="sticky top-16 z-30 bg-white/90 backdrop-blur-md border-y border-gray-200 reveal" style="transition-delay: 0.15s;">
+    <div class="container-wide py-4">
+      <div class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filter team by department">
+        <button
+          type="button"
+          class="team-filter-btn px-4 py-2 rounded-full text-sm font-medium border border-brand-700 bg-brand-700 text-white transition-colors"
+          data-filter="all"
+          aria-pressed="true"
+        >
+          All Teams
+        </button>
+        {departments.map((dept) => (
+          <button
+            type="button"
+            class="team-filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-300 bg-white text-gray-700 hover:border-brand-gold hover:text-brand-700 transition-colors"
+            data-filter={dept.slug}
+            aria-pressed="false"
+          >
+            {dept.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
   <!-- Departments -->
   {departments.map((dept, di) => (
-    <section class:list={["section-padding reveal", di % 2 === 0 ? "bg-gray-50" : "bg-white"]} style={`transition-delay: ${0.1 + di * 0.05}s;`}>
+    <section
+      class:list={["section-padding reveal team-section", di % 2 === 0 ? "bg-gray-50" : "bg-white"]}
+      style={`transition-delay: ${0.1 + di * 0.05}s;`}
+      data-team={dept.slug}
+    >
       <div class="container-wide">
         <div class="flex items-center gap-3 mb-10">
           <div class="featured-icon featured-icon-lg featured-icon-brand">
@@ -224,6 +258,36 @@ const teamSchema = leaders.map((l) => ({
       </div>
     </section>
   ))}
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".team-filter-btn");
+    const sections = document.querySelectorAll<HTMLElement>(".team-section");
+
+    const activeClasses = ["bg-brand-700", "text-white", "border-brand-700"];
+    const inactiveClasses = ["bg-white", "text-gray-700", "border-gray-300"];
+
+    function setActive(btn: HTMLButtonElement) {
+      buttons.forEach((b) => {
+        b.classList.remove(...activeClasses);
+        b.classList.add(...inactiveClasses);
+        b.setAttribute("aria-pressed", "false");
+      });
+      btn.classList.remove(...inactiveClasses);
+      btn.classList.add(...activeClasses);
+      btn.setAttribute("aria-pressed", "true");
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+        setActive(btn);
+        sections.forEach((section) => {
+          const matches = filter === "all" || section.dataset.team === filter;
+          section.style.display = matches ? "" : "none";
+        });
+      });
+    });
+  </script>
 
   <CTABanner
     heading="Join Our Team"
