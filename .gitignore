@@ -28,6 +28,9 @@ Thumbs.db
 # Superpowers brainstorm sessions
 .superpowers/
 
+# Nested project (separate repo)
+.resign/
+
 # Lock files
 package-lock.json
 yarn.lock

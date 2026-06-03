@@ -22,6 +22,16 @@ RewriteRule ^lp/boardwalk-seminar-2026/?$ /hero/boardwalk-seminar-2026 [R=301,L]
 # ── Landing page alias redirects ──
 RewriteRule ^lp/stop-babysitting-your-firm-magnet/?$ /lp/stop-babysitting-your-firm-download [R=301,L]
 RewriteRule ^lp/comic/medical-record/?$ /lp/comic/medical-records [R=301,L]
+RewriteRule ^admin/chaos/?$ /lp/comic/admin [R=301,L]
+RewriteRule ^case-management/?$ /lp/comic/case-management [R=301,L]
+RewriteRule ^case-mgmt/?$ /lp/comic/case-management [R=301,L]
+RewriteRule ^intake/?$ /lp/comic/intake [R=301,L]
+RewriteRule ^intake/problem/?$ /lp/comic/intake [R=301,L]
+RewriteRule ^case/problem/?$ /lp/comic/case-management [R=301,L]
+RewriteRule ^medical/records/?$ /lp/comic/medical-records [R=301,L]
+RewriteRule ^staffing/problem/?$ /lp/comic/staffing [R=301,L]
+RewriteRule ^firm/chaos/?$ /lp/comic/law-firm-chaos [R=301,L]
+RewriteRule ^firm/villain/?$ /lp/comic/biggest-villain [R=301,L]
 
 # ── Landing page vanity redirects (case-insensitive) ──
 RewriteRule ^Marketing-Waste/?$ /lp/marketing-waste [R=301,L,NC]
