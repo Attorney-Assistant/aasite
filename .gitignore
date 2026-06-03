@@ -29,7 +29,6 @@ Thumbs.db
 .superpowers/
 
 # Nested project (separate repo — redesign)
-.resign/
 .redesign/
 
 # Lock files
