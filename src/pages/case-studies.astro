@@ -1,0 +1,138 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import CTABanner from "@components/CTABanner.astro";
+
+// Shape: { slug, industry, firm?, titleHtml?, problem, results[], url, external? }
+const caseStudies: Array<any> = [
+  {
+    slug: "872k-pipeline-impact-assistant",
+    industry: "Personal Injury",
+    titleHtml:
+      '$872,000 in <span class="text-brand-gold">Signed</span> Pipeline. 30 Days. One <span class="text-brand-blue">Standout</span> Impact Assistant.',
+    problem:
+      "A high-volume personal injury firm ran a deliberate Q4 and Q1 pullback — reduced marketing spend, scaled back the team, made the internal staffing adjustments they wanted to make. Then they ramped back up with Attorney Assistant in the mix. One Impact Assistant stood out across their entire intake operation. In one month alone, he signed 109 cases. At an $8,000 average PI case value, that's $872,000 in pipeline revenue from a single seat.",
+    results: [
+      { label: "Signed Pipeline", value: "$872K" },
+      { label: "Cases Signed", value: "109" },
+      { label: "Timeframe", value: "30 days" },
+    ],
+    url: "https://hubs.ly/Q04kfY0Y0",
+    external: true,
+  },
+  {
+    slug: "great-hire-revenue-lever",
+    industry: "Impact Assistant",
+    titleHtml:
+      'A <span class="text-brand-gold">Great Hire</span> Who Kept Getting <span class="text-brand-blue">More</span> Valuable',
+    problem:
+      "A lean law firm hired one Impact Assistant for intake and phone coverage. Within weeks, he was trusted with review generation and follow-up — the work that quietly decides whether demand turns into revenue. This is what happens when an intake hire becomes a revenue lever.",
+    url: "https://hubs.ly/Q04kg5VY0",
+    external: true,
+  },
+  {
+    slug: "embedded-team-three-years",
+    industry: "Embedded Team",
+    titleHtml:
+      '<span class="text-brand-gold">Not</span> a Vendor. <span class="text-brand-blue">Part</span> of the Firm.',
+    problem:
+      "Three years embedded inside a growing practice. Same team, deepening trust, and a relationship the firm describes in a single word: foundation.",
+    results: [
+      { label: "Years Engaged", value: "3+" },
+      { label: "Team Status", value: "Embedded" },
+      { label: "Talent Continuity", value: "Retained" },
+    ],
+    url: "https://hubs.ly/Q04kg9Tv0",
+    external: true,
+  },
+];
+---
+
+<BaseLayout
+  title="Law Firm Case Studies"
+  description="Real results from real law firms — see how Attorney Assistant fixed intake, recovered lost leads, and freed up attorney time."
+>
+
+  <Hero
+    badge="Proof in Practice"
+    title="Case Studies"
+    subtitle="Real law firms. Real numbers. See how Attorney Assistant moved the operational levers that actually grow revenue."
+  />
+
+  {caseStudies.length === 0 ? (
+    <section class="section-padding reveal" style="transition-delay: 0.1s;">
+      <div class="container-narrow text-center">
+        <div class="featured-icon featured-icon-md featured-icon-brand mx-auto mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.16 2.16 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+          </svg>
+        </div>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">
+          Case studies coming soon
+        </h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 mt-5 max-w-2xl mx-auto">
+          We're pulling together the receipts — firm-by-firm results, the operational gaps we fixed, and the numbers that followed. Check back shortly.
+        </p>
+      </div>
+    </section>
+  ) : (
+    <section class="section-padding reveal" style="transition-delay: 0.1s;">
+      <div class="container-wide">
+        <div class:list={[
+          "grid gap-6",
+          caseStudies.length === 1 && "max-w-xl mx-auto",
+          caseStudies.length === 2 && "md:grid-cols-2 max-w-4xl mx-auto",
+          caseStudies.length >= 3 && "md:grid-cols-2 lg:grid-cols-3",
+        ]}>
+          {caseStudies.map((study) => (
+            <a
+              href={study.url}
+              target={study.external ? "_blank" : undefined}
+              rel={study.external ? "noopener noreferrer" : undefined}
+              class="card card-hover p-6 flex flex-col group"
+            >
+              {study.logo && (
+                <img src={study.logo} alt={`${study.firm} logo`} class="h-10 w-auto mb-4 object-contain" loading="lazy" />
+              )}
+              <p class="text-xs font-semibold uppercase tracking-widest text-brand-gold">{study.industry}</p>
+              {study.titleHtml ? (
+                <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-2 leading-tight" set:html={study.titleHtml}></h2>
+              ) : (
+                <h2 class="text-lg font-heading text-gray-900 mt-1 group-hover:text-brand-600 transition-colors">{study.firm}</h2>
+              )}
+              <p class="text-base text-gray-500 leading-relaxed mt-3 flex-1">{study.problem}</p>
+              {Array.isArray(study.results) && study.results.length > 0 && (
+                <ul class="mt-5 grid grid-cols-3 gap-2 text-center">
+                  {study.results.slice(0, 3).map((r: any) => (
+                    <li>
+                      <p class="font-heading text-brand-700">{r.value}</p>
+                      <p class="text-[10px] uppercase tracking-wide text-gray-400">{r.label}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <span class="inline-flex items-center mt-5 text-sm font-semibold text-brand-700 group-hover:text-brand-800 transition-colors">
+                Read the case study
+                {study.external ? (
+                  <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                ) : (
+                  <svg class="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                )}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTABanner
+    heading="Want results like these for your firm?"
+    body="Book a free intake audit and we'll show you where your operational gaps are leaking revenue."
+    buttonText="Book a Free Audit"
+    buttonLink="/book-call"
+    variant="brand"
+  />
+
+</BaseLayout>

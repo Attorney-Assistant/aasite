@@ -17,6 +17,7 @@ export default defineConfig({
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-impact-assistant") &&
         !page.includes("/apply/medical-record-retrieval-specialist") &&
+        !page.includes("/case-studies") &&
         !page.endsWith("/thank-you") &&
         !page.endsWith("/thank-you/"),
     }),
