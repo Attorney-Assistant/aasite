@@ -13,9 +13,10 @@ const caseStudies: Array<any> = [
     problem:
       "A high-volume personal injury firm ran a deliberate Q4 and Q1 pullback — reduced marketing spend, scaled back the team, made the internal staffing adjustments they wanted to make. Then they ramped back up with Attorney Assistant in the mix. One Impact Assistant stood out across their entire intake operation. In one month alone, he signed 109 cases. At an $8,000 average PI case value, that's $872,000 in pipeline revenue from a single seat.",
     results: [
-      { label: "Signed Pipeline", value: "$872K" },
-      { label: "Cases Signed", value: "109" },
-      { label: "Timeframe", value: "30 days" },
+      { label: "Cases Signed in 30 Days", value: "109" },
+      { label: "Attributable Pipeline", value: "$872K" },
+      { label: "Standout Impact Assistant", value: "1" },
+      { label: "Average PI Case Value", value: "$8K" },
     ],
     url: "https://hubs.ly/Q04kfY0Y0",
     external: true,
@@ -27,6 +28,12 @@ const caseStudies: Array<any> = [
       'A <span class="text-brand-gold">Great Hire</span> Who Kept Getting <span class="text-brand-blue">More</span> Valuable',
     problem:
       "A lean law firm hired one Impact Assistant for intake and phone coverage. Within weeks, he was trusted with review generation and follow-up — the work that quietly decides whether demand turns into revenue. This is what happens when an intake hire becomes a revenue lever.",
+    results: [
+      { label: "Embedded Impact Assistant", value: "1" },
+      { label: "Response Time on Inbound", value: "< 2 min" },
+      { label: "Clock-in / Clock-out Comms", value: "Daily" },
+      { label: "Scope Includes Reviews + FU", value: "Expanded" },
+    ],
     url: "https://hubs.ly/Q04kg5VY0",
     external: true,
   },
@@ -38,14 +45,38 @@ const caseStudies: Array<any> = [
     problem:
       "Three years embedded inside a growing practice. Same team, deepening trust, and a relationship the firm describes in a single word: foundation.",
     results: [
-      { label: "Years Engaged", value: "3+" },
-      { label: "Team Status", value: "Embedded" },
-      { label: "Talent Continuity", value: "Retained" },
+      { label: "Years in Continuous Engagement", value: "3+" },
+      { label: "Team Status Inside the Firm", value: "Embedded" },
+      { label: "Client's Word for the Relationship", value: "Foundation" },
+      { label: "Talent Continuity Across Tenure", value: "Retained" },
     ],
     url: "https://hubs.ly/Q04kg9Tv0",
     external: true,
   },
+  {
+    slug: "lead-to-client-faster",
+    industry: "Lead Conversion",
+    titleHtml:
+      'From Lead to Client. <span class="text-brand-gold">Faster.</span>',
+    problem:
+      "A high-volume firm didn't just see more leads come through the door — they saw the right leads, pre-qualified, prepped, and ready to retain. Over two months, appointment volume rose and the consults arriving on-calendar were measurably closer to signing. This is what disciplined intake looks like.",
+    results: [
+      { label: "Monthly Appointment Volume", value: "Up" },
+      { label: "Embedded Intake Specialists", value: "2" },
+      { label: "Quality of Consults at Hand-off", value: "Ready" },
+      { label: "Performance Across Reporting", value: "Sustained" },
+    ],
+    url: "https://hubs.ly/Q04kgp2_0",
+    external: true,
+  },
 ];
+
+function gridClasses(count: number): string {
+  if (count === 1) return "max-w-xl mx-auto";
+  if (count === 2) return "md:grid-cols-2 max-w-4xl mx-auto";
+  if (count === 4) return "md:grid-cols-2 max-w-5xl mx-auto";
+  return "md:grid-cols-2 lg:grid-cols-3";
+}
 ---
 
 <BaseLayout
@@ -79,12 +110,7 @@ const caseStudies: Array<any> = [
   ) : (
     <section class="section-padding reveal" style="transition-delay: 0.1s;">
       <div class="container-wide">
-        <div class:list={[
-          "grid gap-6",
-          caseStudies.length === 1 && "max-w-xl mx-auto",
-          caseStudies.length === 2 && "md:grid-cols-2 max-w-4xl mx-auto",
-          caseStudies.length >= 3 && "md:grid-cols-2 lg:grid-cols-3",
-        ]}>
+        <div class:list={["grid gap-6", gridClasses(caseStudies.length)]}>
           {caseStudies.map((study) => (
             <a
               href={study.url}
@@ -103,11 +129,14 @@ const caseStudies: Array<any> = [
               )}
               <p class="text-base text-gray-500 leading-relaxed mt-3 flex-1">{study.problem}</p>
               {Array.isArray(study.results) && study.results.length > 0 && (
-                <ul class="mt-5 grid grid-cols-3 gap-2 text-center">
-                  {study.results.slice(0, 3).map((r: any) => (
+                <ul class:list={[
+                  "mt-5 grid gap-3 text-center",
+                  study.results.length >= 4 ? "grid-cols-2" : "grid-cols-3",
+                ]}>
+                  {study.results.slice(0, 4).map((r: any) => (
                     <li>
-                      <p class="font-heading text-brand-700">{r.value}</p>
-                      <p class="text-[10px] uppercase tracking-wide text-gray-400">{r.label}</p>
+                      <p class="font-heading text-xl text-brand-blue leading-tight">{r.value}</p>
+                      <p class="text-[10px] uppercase tracking-wide text-gray-400 mt-1.5">{r.label}</p>
                     </li>
                   ))}
                 </ul>
