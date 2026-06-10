@@ -1,70 +1,198 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Hero from "@components/Hero.astro";
-import FeatureCard from "@components/FeatureCard.astro";
 import CTABanner from "@components/CTABanner.astro";
+
+const responsibilities = [
+  { title: "Case file opening & LORs", icon: "folder" },
+  { title: "Medical record retrieval", icon: "document" },
+  { title: "Lien checks & reductions", icon: "scale" },
+  { title: "Pleadings & discovery drafting", icon: "document" },
+  { title: "Calendar & deadline management", icon: "calendar" },
+  { title: "Email & inbox triage", icon: "mail" },
+  { title: "CRM hygiene & data entry", icon: "chart" },
+  { title: "Custom workflows by request", icon: "shield" },
+];
+
+const journey = [
+  { step: "1", title: "Role scoping", desc: "We map the work, hours, and skills your role requires." },
+  { step: "2", title: "Match & onboarding", desc: "We assign and train an assistant on your systems and templates." },
+  { step: "3", title: "Integration", desc: "Your assistant works inside your case management system." },
+  { step: "4", title: "Ongoing management", desc: "We manage performance, coverage, and growth so you don't have to." },
+];
+
+const included = [
+  { title: "Dedicated team member", desc: "A single point of contact who learns your firm." },
+  { title: "Legal ops management", desc: "Managed by people saturated in legal operations." },
+  { title: "Works in your CMS", desc: "Filevine, Litify, Clio, MyCase, SmartAdvocate, or yours." },
+  { title: "Backup & coverage", desc: "PTO and sick days don't leave your firm uncovered." },
+  { title: "Performance reporting", desc: "Tasks completed, hours logged, impact on your throughput." },
+  { title: "Scales with you", desc: "Add hours, add roles, add coverage — without recruiting." },
+];
 ---
 
-<BaseLayout title="Dedicated Legal Support" description="Dedicated virtual assistants managed by legal operations experts. Integrate seamlessly with your team for administrative support.">
+<BaseLayout
+  title="Impact Assistants — Dedicated Virtual Legal Team for Law Firms"
+  description="A dedicated virtual legal assistant managed by legal ops experts. Case work, admin, EA support — delivered as a seamless extension of your firm."
+>
 
-  <Hero
-    badge="Dedicated Legal Support"
-    title="Your Dedicated Legal Support Team"
-    subtitle="Dedicated virtual assistants managed by legal operations experts who become a seamless extension of your team — handling the work so your attorneys can focus on clients."
-    buttonText="Get Started"
-    buttonLink="/contact"
-    secondaryButtonText="See What They Handle"
-    secondaryButtonLink="#responsibilities"
-    size="lg"
-  />
-
-  <!-- Features Grid -->
-  <section class="section-padding">
-    <div class="container-wide">
-      <div class="text-center mb-12 md:mb-16 reveal">
-        <span class="badge badge-brand">Capabilities</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Your Dedicated Legal Support</h2>
-        <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Our dedicated assistants are more than virtual assistants — they're legal operations specialists dedicated to your firm.</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-navy py-16 md:py-24 border-b-4 border-brand-gold">
+    <div class="grain-overlay"></div>
+    <div class="container-wide relative z-10">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 reveal">
+        <div>
+          <div class="font-heading font-black text-2xl md:text-3xl text-white tracking-tight leading-none">
+            Impact <span class="text-brand-gold">Assistants</span>
+          </div>
+          <div class="mt-1.5 text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/60 font-semibold">A product by Attorney Assistant</div>
+        </div>
+        <div class="flex items-center gap-2.5 text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/70 font-semibold">
+          <span class="w-8 h-0.5 bg-brand-gold inline-block"></span>
+          <span>On-Staff Extension for Law Firms</span>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Dedicated to You" description="A single point of contact who learns your firm's processes, preferences, and clients." icon="users" /></div>
-        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Legal-Industry Immersed" description="Managed by a team saturated in legal operations — your assistant is guided by people who know your world." icon="scale" /></div>
-        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Calendar Management" description="Scheduling, court dates, depositions, and deadlines managed proactively and accurately." icon="calendar" /></div>
-        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Document Preparation" description="Draft correspondence, prepare filings, organize discovery, and manage document workflows." icon="document" /></div>
-        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Client Communication" description="Professional client follow-up, status updates, and appointment confirmations in your firm's voice." icon="phone" /></div>
-        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Performance Metrics" description="Regular reporting on tasks completed, hours logged, and impact on your firm's efficiency." icon="chart" /></div>
+
+      <h1 class="font-heading font-extrabold text-white text-display-md md:text-display-lg leading-[1.05] tracking-tight max-w-5xl reveal" style="transition-delay: 80ms;">
+        A dedicated virtual legal team member — without <span class="text-brand-gold">the hiring overhead.</span>
+      </h1>
+
+      <p class="mt-6 text-base md:text-lg text-white/80 leading-relaxed max-w-4xl reveal" style="transition-delay: 160ms;">
+        Impact Assistants are <strong class="text-brand-gold font-bold">dedicated team members</strong> managed by legal operations experts. They work inside your case management system, learn your templates and processes, and become a seamless extension of your firm — handling case work, admin, drafting, and EA support so your attorneys focus on the law.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3 reveal" style="transition-delay: 240ms;">
+        <a href="/contact" class="btn-primary btn-lg group">
+          Schedule Consultation
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+        <a href="#what-they-do" class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white border border-white/25 hover:border-brand-gold hover:text-brand-gold transition-colors">What They Handle</a>
       </div>
     </div>
   </section>
 
-  <!-- 8 Core Responsibilities -->
-  <section class="section-padding bg-gray-25 relative overflow-hidden" id="responsibilities">
-    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
-    <div class="container-wide relative">
-      <div class="text-center mb-12 md:mb-16 reveal">
-        <span class="badge badge-brand">Core Responsibilities</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">What Your Dedicated Assistant Handles</h2>
-        <div class="divider-gold-center mt-5"></div>
+  <!-- The Difference -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-14 md:py-20 border-y-4 border-brand-gold">
+    <div class="grain-overlay"></div>
+    <div class="container-wide relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 reveal">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">The Difference</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white leading-tight mb-5">
+            Not a freelancer. Not a temp. <span class="text-brand-gold">A managed team member.</span>
+          </h2>
+          <p class="text-lg text-white/80 leading-relaxed mb-5">
+            Most virtual assistant services hand you a contractor and walk away. Impact Assistants are <strong class="text-white">managed by legal operations experts</strong> — trained on your systems, monitored for performance, backed up during PTO, and scaled with your firm.
+          </p>
+          <p class="text-base text-white/60 leading-relaxed">
+            You get the work product of a hire. We carry the management burden.
+          </p>
+        </div>
+        <div class="lg:col-span-5 reveal" style="transition-delay: 100ms">
+          <div class="space-y-4">
+            {[
+              { title: "Trained on your systems", body: "Filevine, Litify, Clio, MyCase, SmartAdvocate — your assistant works inside your CMS." },
+              { title: "Backed up during PTO", body: "Coverage doesn't disappear when one person takes a vacation. The model carries through." },
+              { title: "Managed, not just placed", body: "Performance reviewed, work QA'd, growth managed by legal ops — not by you." },
+            ].map((d) => (
+              <div class="flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/5">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/15 text-brand-gold flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-heading text-white mb-1">{d.title}</p>
+                  <p class="text-sm text-white/60 leading-snug">{d.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-        {[
-          "Calendar and scheduling management",
-          "Document drafting and preparation",
-          "Client intake follow-up",
-          "Email and correspondence management",
-          "Court filing coordination",
-          "Discovery document organization",
-          "Billing and time entry support",
-          "Case status tracking and updates",
-        ].map((item, i) => (
-          <div class="card card-hover p-4 flex items-center gap-3 reveal" style={`transition-delay: ${i * 75}ms`}>
-            <div class="featured-icon featured-icon-sm featured-icon-brand flex-shrink-0">
+    </div>
+  </section>
+
+  <!-- What They Handle -->
+  <section class="section-padding" id="what-they-do">
+    <div class="container-wide">
+      <div class="text-center mb-12 md:mb-14 reveal max-w-3xl mx-auto">
+        <span class="badge badge-brand">What They Handle</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Case work. Admin. Drafting. Calendar. CRM.</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 leading-relaxed mt-6">
+          Impact Assistants cover the full surface of legal operations work — scoped to the role you need.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-6xl mx-auto">
+        {responsibilities.map((r, i) => (
+          <div class="card p-5 reveal" style={`transition-delay: ${i * 60}ms`}>
+            <div class="featured-icon featured-icon-sm featured-icon-brand mb-3">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <span class="text-sm font-medium text-gray-700">{item}</span>
+            <p class="text-sm font-medium text-gray-800 leading-snug">{r.title}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center mt-8 text-sm text-gray-500 max-w-2xl mx-auto reveal">
+        See the full capability tracks: <a href="/services" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600">Intake</a>, <a href="/services" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600">Case & Matter</a>, <a href="/services" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600">Admin & Back Office</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand">How It Works</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From scope to seamless integration</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {journey.map((s, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class={`w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-lg border-2 ${i === journey.length - 1 ? 'bg-brand-gold border-brand-gold text-brand-navy' : 'bg-white border-brand-navy text-brand-navy'}`}>
+              {s.step}
+            </div>
+            <h3 class="text-sm font-heading text-gray-900 uppercase tracking-wide mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-500 leading-snug">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AA Promise -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-14 md:py-20 border-y-4 border-brand-gold">
+    <div class="grain-overlay"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <div class="reveal">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-gold/10 text-brand-gold border border-brand-gold/20 mb-6">The Attorney Assistant Promise</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white leading-tight">
+          We rescue law firms from chaos with our <span class="text-brand-gold">elite teams + AI solutions.</span>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal max-w-2xl mx-auto">
+        <span class="badge badge-brand">What's Included</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">A team member, plus the operation behind them.</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        {included.map((item, i) => (
+          <div class="flex items-start gap-3 p-5 rounded-xl border border-gray-200 bg-white reveal" style={`transition-delay: ${i * 60}ms`}>
+            <div class="flex-shrink-0 w-7 h-7 rounded-md bg-brand-gold/10 text-brand-gold flex items-center justify-center mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            </div>
+            <div>
+              <p class="text-sm font-heading text-gray-900 mb-1">{item.title}</p>
+              <p class="text-sm text-gray-500 leading-snug">{item.desc}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -72,16 +200,17 @@ import CTABanner from "@components/CTABanner.astro";
   </section>
 
   <!-- Better Together -->
-  <section class="section-padding">
-    <div class="container-narrow text-center">
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-narrow text-center relative">
       <div class="reveal">
         <span class="badge badge-brand">Better Together</span>
         <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
-          Even Better Together
+          Pair with Intake 360 for end-to-end coverage
         </h2>
         <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
-          Dedicated assistants work great on their own — but most of our clients see the biggest results when they combine a dedicated assistant with per-task services like <a href="/services/intake-360" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">our 24/7 intake</a>. Our team will recommend the ideal mix for your firm's needs and growth goals.
+        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8 mt-6">
+          Impact Assistants run your case work end to end — and pairing with <a href="/services/intake-360" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600 transition-colors">Intake 360</a> gives your firm coverage from the first call through final disbursement. Most of our clients pair both.
         </p>
         <a href="/book-call" class="btn-primary btn-lg group">Build Your Custom Solution</a>
       </div>
@@ -89,11 +218,11 @@ import CTABanner from "@components/CTABanner.astro";
   </section>
 
   <CTABanner
-    heading="Add a Dedicated Assistant to Your Team"
-    body="Free up your attorneys to focus on practicing law while we handle the rest."
-    buttonText="Get Started"
+    heading="Get the Headcount Without the Headcount."
+    body="Free up your attorneys to focus on practicing law while a dedicated assistant runs the work behind it."
+    buttonText="Schedule Consultation"
     buttonLink="/contact"
-    variant="dark"
+    variant="brand"
   />
 
 </BaseLayout>

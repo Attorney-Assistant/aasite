@@ -3,65 +3,204 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import FeatureCard from "@components/FeatureCard.astro";
 import CTABanner from "@components/CTABanner.astro";
+
+const deliverables = [
+  { title: "Reception, Inbound & Outbound 24/7", description: "Every caller greeted with care and professionalism. Calls answered live — never sent to a voicemail black hole.", icon: "phone" },
+  { title: "Warm Transfers & Routing", description: "Qualified callers routed to the right attorney with context. Non-urgent matters handled without interrupting your team.", icon: "shield" },
+  { title: "Appointment Setting", description: "Consultations and case updates scheduled directly into your calendar with reminders and rescheduling handled.", icon: "calendar" },
+  { title: "Message Management", description: "Detailed messages delivered through your preferred channel — email, CRM notes, or chat — with all relevant context captured.", icon: "mail" },
+  { title: "Call Logging & CRM Updates", description: "Every interaction logged in your case management system with notes, disposition, and follow-up tasks.", icon: "document" },
+  { title: "Bilingual (EN/ES) Coverage", description: "English and Spanish-speaking receptionists serve your full client base without language barriers.", icon: "globe" },
+];
+
+const howItWorks = [
+  { step: "1", title: "Phone routing", desc: "Your firm's phone tree routes to our reception team." },
+  { step: "2", title: "Script & criteria training", desc: "We learn your greeting, qualifying questions, and routing rules." },
+  { step: "3", title: "Live coverage", desc: "Calls answered live, qualified, routed, or scheduled." },
+  { step: "4", title: "CRM handoff", desc: "Every interaction logged in your case management system." },
+];
+
+const faqs = [
+  { q: "Is this just an answering service?", a: "No. A typical answering service takes a message. Our receptionists qualify the caller, route to the right attorney, schedule consultations, and log everything in your CRM — they function as part of your firm." },
+  { q: "Do you cover after-hours and weekends?", a: "Yes. Coverage is 24/7 by default. See After-Hours Coverage for details on the nights and weekends offering specifically." },
+  { q: "Can callers tell they're speaking to a virtual receptionist?", a: "No. Receptionists answer with your firm's greeting, follow your script, and represent your firm. Callers experience a single, polished firm voice." },
+  { q: "How fast do you answer calls?", a: "Live within seconds. We staff to your call volume, so callers don't sit on hold or get bounced to voicemail." },
+  { q: "Which product delivers this work?", a: "Reception is part of Intake 360 — our 24/7 on-demand coverage product. If you also need a dedicated team member for case work, pair Intake 360 with Impact Assistants for end-to-end coverage." },
+];
 ---
 
-<BaseLayout title="Legal Receptionist" description="A virtual receptionist for your law firm — freeing up your team to focus on high-priority tasks instead of answering calls.">
+<BaseLayout
+  title="Legal Receptionist Services for Law Firms"
+  description="24/7 professional virtual receptionist for your law firm — every call answered, qualified, and routed. Bilingual English/Spanish coverage included."
+>
 
   <Hero
-    badge="Legal Receptionist"
+    badge="Intake & Client-Facing"
     title="Professional Front-Desk Support"
-    subtitle="A virtual receptionist for your law firm — freeing up your team to focus on high-priority tasks instead of answering calls."
-    buttonText="Get Started"
+    subtitle="A virtual receptionist for your law firm — every call answered live, qualified, and routed. Your team focuses on the law; we run the front desk."
+    buttonText="Schedule Consultation"
     buttonLink="/contact"
-    secondaryButtonText="View Capabilities"
-    secondaryButtonLink="#capabilities"
+    secondaryButtonText="See What We Handle"
+    secondaryButtonLink="#deliverables"
     size="lg"
   />
 
-  <!-- Features Grid -->
-  <section class="section-padding" id="capabilities">
-    <div class="container-wide">
-      <div class="text-center mb-12 md:mb-16 reveal">
-        <span class="badge badge-brand">Capabilities</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Professional Front-Desk Support</h2>
-        <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Every call answered, every lead qualified, every retainer sent — without the overhead of a full-time hire.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        <div class="reveal" style="transition-delay: 0ms"><FeatureCard title="Answering Calls" description="Every caller greeted with care and professionalism. Clients and leads routed appropriately with important details captured accurately." icon="phone" /></div>
-        <div class="reveal" style="transition-delay: 100ms"><FeatureCard title="Scheduling Appointments" description="Consultations, case updates, and internal meetings — bookings, reminders, and rescheduling handled seamlessly." icon="calendar" /></div>
-        <div class="reveal" style="transition-delay: 200ms"><FeatureCard title="Administrative Tasks" description="Intake, call logging, CRM updates, and other admin tasks to keep front-desk operations running smoothly." icon="document" /></div>
-        <div class="reveal" style="transition-delay: 300ms"><FeatureCard title="Call Screening & Routing" description="Qualified calls routed to the right attorney. Non-urgent matters handled efficiently without interrupting your workflow." icon="shield" /></div>
-        <div class="reveal" style="transition-delay: 400ms"><FeatureCard title="Message Management" description="Detailed messages delivered promptly via your preferred channel — email, CRM notes, or chat." icon="mail" /></div>
-        <div class="reveal" style="transition-delay: 500ms"><FeatureCard title="Bilingual Support" description="English and Spanish-speaking receptionists serve your diverse client base without language barriers." icon="globe" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Section -->
+  <!-- The Problem -->
   <section class="section-padding bg-gray-25 relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
-    <div class="container-narrow text-center relative">
-      <div class="reveal">
-        <span class="badge badge-brand">Complete Coverage</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
-          Seamless Coverage, End to End
-        </h2>
-        <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
-          Receptionist coverage pairs seamlessly with our other services. We'll build a custom combination — legal assistants, admin support, marketing — so your firm is covered end to end.
-        </p>
-        <div class="flex flex-wrap gap-3 justify-center">
-          <a href="/book-call" class="btn-primary btn-lg group">Schedule Consultation</a>
-          <a href="/services" class="btn-secondary btn-lg group">View All Services</a>
+    <div class="container-wide relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 reveal">
+          <span class="badge badge-brand">The Problem</span>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Missed calls are missed cases.</h2>
+          <div class="divider-gold mt-5 mb-6"></div>
+          <p class="text-lg text-gray-600 leading-relaxed mb-4">
+            The first call is the case. If it rolls to voicemail, hits a generic answering service, or gets routed to someone who can't qualify the caller — most leads don't call back. They call the next firm on the list.
+          </p>
+          <p class="text-base text-gray-500 leading-relaxed">
+            A receptionist isn't overhead. It's the front door of your revenue.
+          </p>
+        </div>
+        <div class="lg:col-span-5 reveal" style="transition-delay: 100ms">
+          <div class="card p-6 md:p-7 bg-white">
+            <p class="text-xs font-bold uppercase tracking-wide text-brand-gold mb-3">Where firms lose</p>
+            <ul class="space-y-3 text-sm text-gray-700">
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Calls rolling to voicemail during peak hours</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Generic answering services that can't qualify the caller</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>In-house staff getting interrupted by every call</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Spanish-speaking leads turned away by language barriers</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- What We Handle -->
+  <section class="section-padding" id="deliverables">
+    <div class="container-wide">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">What We Handle</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Every call. Every caller. Every time.</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Live, professional coverage that runs your front desk without the cost or management overhead of an in-house hire.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {deliverables.map((d, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
+            <FeatureCard title={d.title} description={d.description} icon={d.icon} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Which Product Delivers This -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 reveal max-w-2xl mx-auto">
+        <span class="badge badge-brand">Which Product Delivers This</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Reception is on-demand work — delivered by Intake 360.</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <a href="/services/intake-360" class="card card-hover p-7 md:p-8 bg-white border-brand-gold/40 ring-1 ring-brand-gold/30 group reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-gold">Best Fit</span>
+            <span class="text-xs font-semibold text-brand-gold uppercase tracking-wide">On-demand coverage</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Intake 360</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">
+            Live reception is built into Intake 360 — 24/7 coverage with qualifying, routing, and scheduling included. Action-based pricing means you pay for completed work, not idle time.
+          </p>
+          <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Intake 360 <span aria-hidden="true">→</span></span>
+        </a>
+        <a href="/services/impact-assistants" class="card card-hover p-7 md:p-8 bg-white opacity-90 group reveal" style="transition-delay: 100ms">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-brand">Pair With</span>
+            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">On-staff extension</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Impact Assistants</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">
+            For dedicated case work, admin, and CRM hygiene behind the front desk, pair Intake 360 reception with an Impact Assistant.
+          </p>
+          <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Learn about Impact Assistants <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand">How It Works</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From phone routing to CRM handoff</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {howItWorks.map((s, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class={`w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-lg border-2 ${i === howItWorks.length - 1 ? 'bg-brand-gold border-brand-gold text-brand-navy' : 'bg-white border-brand-navy text-brand-navy'}`}>
+              {s.step}
+            </div>
+            <h3 class="text-sm font-heading text-gray-900 uppercase tracking-wide mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-500 leading-snug">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section-padding bg-gray-25">
+    <div class="container-wide">
+      <div class="text-center mb-10 reveal max-w-2xl mx-auto">
+        <span class="badge badge-brand">Outcomes</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What changes for your firm</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {[
+          { title: "Zero missed callers", body: "Every caller reaches a live, qualified person. Voicemail stops being your front door." },
+          { title: "Attorneys stop fielding cold calls", body: "Only qualified callers reach your attorneys. Their time stops getting interrupted by every dial." },
+          { title: "Higher conversion on first call", body: "Qualifying happens live. Consultations get scheduled before the caller has a chance to call your competitor." },
+        ].map((item, i) => (
+          <div class="p-6 rounded-xl border border-gray-200 bg-white reveal" style={`transition-delay: ${i * 80}ms`}>
+            <p class="text-base font-heading text-gray-900 mb-2">{item.title}</p>
+            <p class="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand">FAQ</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Common questions</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-3">
+        {faqs.map((f, i) => (
+          <details class="group rounded-xl border border-gray-200 bg-white p-5 md:p-6 reveal" style={`transition-delay: ${i * 50}ms`}>
+            <summary class="flex items-center justify-between cursor-pointer text-base font-heading text-gray-900 list-none">
+              <span>{f.q}</span>
+              <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+            <p class="text-sm text-gray-600 leading-relaxed mt-3">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <CTABanner
-    heading="Add a Virtual Receptionist"
-    body="Receptionist coverage pairs seamlessly with our other services. We'll build a custom combination — legal assistants, admin support, marketing — so your firm is covered end to end."
+    heading="Make Voicemail Stop Being Your Front Door."
+    body="See how 24/7 live reception fits into your firm — without adding a single hire."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
     variant="brand"

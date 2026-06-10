@@ -8,7 +8,7 @@ import CTABanner from "@components/CTABanner.astro";
 <BaseLayout title="Marketing Support" description="Dedicated marketing support specialists to help law firms execute their marketing strategies efficiently and professionally.">
 
   <Hero
-    badge="Marketing Support"
+    badge="Admin & Back Office"
     title="Marketing Execution, Handled"
     subtitle="Dedicated marketing support specialists to help law firms execute their marketing strategies efficiently and professionally."
     buttonText="Get Started"
@@ -68,22 +68,37 @@ import CTABanner from "@components/CTABanner.astro";
     </div>
   </section>
 
-  <!-- Package CTA -->
+  <!-- Which Product Delivers This -->
   <section class="section-padding">
-    <div class="container-narrow text-center">
-      <div class="reveal">
-        <span class="badge badge-brand">Custom Packages</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
-          Scale Your Firm's Marketing
-        </h2>
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal max-w-2xl mx-auto">
+        <span class="badge badge-brand">Which Product Delivers This</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Marketing execution is dedicated work — delivered by Impact Assistants.</h2>
         <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8">
-          Marketing support fits right into a broader service package. We'll combine it with legal assistants, admin, or receptionist coverage to build the right team for your firm.
-        </p>
-        <div class="flex flex-wrap gap-3 justify-center">
-          <a href="/book-call" class="btn-primary btn-lg group">Schedule Consultation</a>
-          <a href="/services" class="btn-secondary btn-lg group">View All Services</a>
-        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <a href="/services/impact-assistants" class="card card-hover p-7 md:p-8 bg-white border-brand-gold/40 ring-1 ring-brand-gold/30 group reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-gold">Best Fit</span>
+            <span class="text-xs font-semibold text-brand-gold uppercase tracking-wide">On-staff extension</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Impact Assistants</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">
+            A dedicated assistant who runs your marketing calendar, posts content, manages your CRM, and tracks campaign performance — as a true extension of your team.
+          </p>
+          <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Impact Assistants <span aria-hidden="true">→</span></span>
+        </a>
+        <a href="/services/intake-360" class="card card-hover p-7 md:p-8 bg-white opacity-90 group reveal" style="transition-delay: 100ms">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-brand">Different Fit</span>
+            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">On-demand coverage</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Intake 360</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">
+            Intake 360 captures the leads your marketing generates. Marketing execution itself sits with Impact Assistants.
+          </p>
+          <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Learn about Intake 360 <span aria-hidden="true">→</span></span>
+        </a>
       </div>
     </div>
   </section>

@@ -1,19 +1,72 @@
 ---
-const dropdowns = [
-  {
-    label: "Services",
-    href: "/services",
-    items: [
-      { href: "/services", label: "Overview", desc: "See all solutions" },
-      { href: "/services/lead-recovery", label: "Stop Losing Leads", desc: "Capture every opportunity" },
-      { href: "/services/intake-360", label: "Fix Your Intake", desc: "Streamline client intake" },
-      { href: "/services/lead-follow-up", label: "Never Miss a Follow-Up", desc: "Speed and consistency" },
-      { href: "/services/after-hours", label: "24/7 Coverage", desc: "Nights, weekends, overflow" },
-      { href: "/services/admin-support", label: "Streamline Operations", desc: "Back-office efficiency" },
-      { href: "/services/marketing-support", label: "Marketing ROI", desc: "Align spend with results" },
-      { href: "/pricing", label: "Pricing", desc: "Transparent monthly rates" },
-    ],
-  },
+interface SimpleItem {
+  href: string;
+  label: string;
+  desc?: string;
+}
+interface MegaColumn {
+  title: string;
+  items: SimpleItem[];
+}
+interface SimpleDropdown {
+  label: string;
+  href: string;
+  items: SimpleItem[];
+}
+interface MegaDropdown {
+  label: string;
+  href: string;
+  mega: true;
+  featured: SimpleItem[];
+  columns: MegaColumn[];
+  overview: SimpleItem[];
+}
+type Dropdown = SimpleDropdown | MegaDropdown;
+
+const servicesMega: MegaDropdown = {
+  label: "Services",
+  href: "/services",
+  mega: true,
+  featured: [
+    { href: "/services/intake-360", label: "Intake 360", desc: "On-demand intake & reception coverage" },
+    { href: "/services/impact-assistants", label: "Impact Assistants", desc: "On-staff extension for case & admin work" },
+  ],
+  columns: [
+    {
+      title: "Intake & Client-Facing",
+      items: [
+        { href: "/services/lead-recovery", label: "Lead Recovery", desc: "Capture every opportunity" },
+        { href: "/services/lead-follow-up", label: "Lead Follow-Up", desc: "Speed and consistency" },
+        { href: "/services/after-hours", label: "After-Hours Coverage", desc: "Nights, weekends, overflow" },
+        { href: "/services/legal-receptionist", label: "Legal Receptionist", desc: "Professional reception" },
+      ],
+    },
+    {
+      title: "Case & Matter Support",
+      items: [
+        { href: "/services/medical-records", label: "Medical Records", desc: "Retrieval, summaries, bills" },
+        { href: "/services/lien-management", label: "Lien Management", desc: "Reduction & negotiation" },
+        { href: "/services/litigation-support", label: "Litigation Support", desc: "Pleadings, discovery, demands" },
+      ],
+    },
+    {
+      title: "Admin & Back Office",
+      items: [
+        { href: "/services/admin-support", label: "Admin Support", desc: "General admin & data" },
+        { href: "/services/executive-assistant", label: "Executive Assistant", desc: "Calendar & inbox" },
+        { href: "/services/marketing-support", label: "Marketing Support", desc: "Execution support" },
+      ],
+    },
+  ],
+  overview: [
+    { href: "/services/virtual-legal-assistants", label: "Virtual Legal Assistants" },
+    { href: "/services", label: "All Services" },
+    { href: "/pricing", label: "Pricing" },
+  ],
+};
+
+const dropdowns: Dropdown[] = [
+  servicesMega,
   {
     label: "Resources",
     href: "/resources",
@@ -44,7 +97,8 @@ const dropdowns = [
 
 const currentPath = Astro.url.pathname;
 
-function isActive(href: string) {
+function isActive(href: string | undefined) {
+  if (!href) return false;
   return currentPath === href || (href !== "/" && currentPath.startsWith(href));
 }
 ---
@@ -82,22 +136,96 @@ function isActive(href: string) {
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
             </svg>
           </button>
-          <div class="desktop-dropdown-menu absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 translate-y-1 group-hover:translate-y-0" role="menu">
-            <div class="w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-2 ring-1 ring-black/5">
-              {dropdown.items.map((item) => (
-                <a
-                  href={item.href}
-                  role="menuitem"
-                  class:list={[
-                    "flex flex-col gap-0.5 px-3 py-2.5 rounded-lg transition-all duration-200",
-                    isActive(item.href) ? "bg-brand-25 text-brand-700" : "hover:bg-gray-50",
-                  ]}
-                >
-                  <span class:list={["text-sm font-medium", isActive(item.href) ? "text-brand-700" : "text-gray-900"]}>{item.label}</span>
-                  <span class="text-xs text-gray-400">{item.desc}</span>
-                </a>
-              ))}
-            </div>
+          <div class:list={["desktop-dropdown-menu absolute top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 translate-y-1 group-hover:translate-y-0", "mega" in dropdown ? "left-1/2 -translate-x-1/2 group-hover:-translate-x-1/2" : "left-0"]} role="menu">
+            {"mega" in dropdown ? (
+              <div class="w-[44rem] xl:w-[48rem] bg-white rounded-xl shadow-xl border border-gray-100 ring-1 ring-black/5 overflow-hidden">
+                <!-- Featured products row -->
+                <div class="grid grid-cols-2 gap-3 p-3 bg-brand-gold/[0.03] border-b border-gray-100">
+                  {dropdown.featured.map((item) => (
+                    <a
+                      href={item.href}
+                      role="menuitem"
+                      class:list={[
+                        "flex items-start gap-3 p-3 rounded-lg transition-all duration-200 border",
+                        isActive(item.href)
+                          ? "bg-brand-gold/10 border-brand-gold/40"
+                          : "bg-white border-brand-gold/25 hover:border-brand-gold/50 hover:shadow-sm",
+                      ]}
+                    >
+                      <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-md bg-brand-gold/15 text-brand-gold flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" /></svg>
+                      </span>
+                      <span class="flex flex-col gap-0.5 min-w-0">
+                        <span class="flex items-center gap-1.5">
+                          <span class:list={["text-sm font-bold", isActive(item.href) ? "text-brand-navy" : "text-gray-900"]}>{item.label}</span>
+                          <span class="text-[9px] font-bold uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-1.5 py-0.5 rounded">Product</span>
+                        </span>
+                        <span class="text-xs text-gray-500 leading-snug">{item.desc}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+
+                <!-- Three columns of capabilities -->
+                <div class="grid grid-cols-3 gap-x-2 p-3">
+                  {dropdown.columns.map((col) => (
+                    <div class="flex flex-col">
+                      <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400 px-3 pt-2 pb-2 border-b border-gray-100 mb-1">{col.title}</p>
+                      <div class="flex flex-col">
+                        {col.items.map((item) => (
+                          <a
+                            href={item.href}
+                            role="menuitem"
+                            class:list={[
+                              "flex flex-col gap-0.5 px-3 py-2 rounded-lg transition-all duration-200",
+                              isActive(item.href) ? "bg-brand-25" : "hover:bg-gray-50",
+                            ]}
+                          >
+                            <span class:list={["text-sm font-medium leading-tight", isActive(item.href) ? "text-brand-700" : "text-gray-900"]}>{item.label}</span>
+                            <span class="text-xs text-gray-400 leading-snug">{item.desc}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <!-- Overview row -->
+                <div class="flex flex-wrap items-center gap-x-1 gap-y-1 px-4 py-2.5 bg-gray-50 border-t border-gray-100">
+                  <span class="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400 mr-1">Overview</span>
+                  {dropdown.overview.map((item, idx) => (
+                    <>
+                      {idx > 0 && <span class="text-gray-300">·</span>}
+                      <a
+                        href={item.href}
+                        class:list={[
+                          "text-xs font-medium px-2 py-1 rounded transition-colors",
+                          isActive(item.href) ? "text-brand-700" : "text-gray-600 hover:text-brand-700",
+                        ]}
+                      >
+                        {item.label}
+                      </a>
+                    </>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div class="w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-2 ring-1 ring-black/5">
+                {dropdown.items.map((item) => (
+                  <a
+                    href={item.href}
+                    role="menuitem"
+                    class:list={[
+                      "flex flex-col gap-0.5 px-3 py-2.5 rounded-lg transition-all duration-200",
+                      isActive(item.href) ? "bg-brand-25 text-brand-700" : "hover:bg-gray-50",
+                    ]}
+                  >
+                    <span class:list={["text-sm font-medium", isActive(item.href) ? "text-brand-700" : "text-gray-900"]}>{item.label}</span>
+                    <span class="text-xs text-gray-400">{item.desc}</span>
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -182,17 +310,64 @@ function isActive(href: string) {
             </svg>
           </button>
           <div class="mobile-dropdown-menu hidden pl-3 mt-1 space-y-0.5">
-            {dropdown.items.map((item) => (
-              <a
-                href={item.href}
-                class:list={[
-                  "block px-3 py-2 rounded-lg text-sm",
-                  isActive(item.href) ? "text-brand-700 bg-brand-25 font-medium" : "text-gray-500 hover:text-gray-700 hover:bg-gray-50",
-                ]}
-              >
-                {item.label}
-              </a>
-            ))}
+            {"mega" in dropdown ? (
+              <>
+                {dropdown.featured.map((item) => (
+                  <a
+                    href={item.href}
+                    class:list={[
+                      "flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-sm border my-0.5",
+                      isActive(item.href)
+                        ? "bg-brand-gold/10 border-brand-gold/40 text-brand-navy font-bold"
+                        : "bg-brand-gold/[0.04] border-brand-gold/25 text-gray-900 font-semibold hover:bg-brand-gold/10",
+                    ]}
+                  >
+                    <span>{item.label}</span>
+                    <span class="text-[9px] font-bold uppercase tracking-wide text-brand-gold">Product</span>
+                  </a>
+                ))}
+                {dropdown.columns.map((col) => (
+                  <>
+                    <p class="px-3 pt-3 pb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400">{col.title}</p>
+                    {col.items.map((item) => (
+                      <a
+                        href={item.href}
+                        class:list={[
+                          "block px-3 py-2 rounded-lg text-sm",
+                          isActive(item.href) ? "text-brand-700 bg-brand-25 font-medium" : "text-gray-500 hover:text-gray-700 hover:bg-gray-50",
+                        ]}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </>
+                ))}
+                <p class="px-3 pt-3 pb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400">Overview</p>
+                {dropdown.overview.map((item) => (
+                  <a
+                    href={item.href}
+                    class:list={[
+                      "block px-3 py-2 rounded-lg text-sm",
+                      isActive(item.href) ? "text-brand-700 bg-brand-25 font-medium" : "text-gray-500 hover:text-gray-700 hover:bg-gray-50",
+                    ]}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </>
+            ) : (
+              dropdown.items.map((item) => (
+                <a
+                  href={item.href}
+                  class:list={[
+                    "block px-3 py-2 rounded-lg text-sm",
+                    isActive(item.href) ? "text-brand-700 bg-brand-25 font-medium" : "text-gray-500 hover:text-gray-700 hover:bg-gray-50",
+                  ]}
+                >
+                  {item.label}
+                </a>
+              ))
+            )}
           </div>
         </div>
       ))}

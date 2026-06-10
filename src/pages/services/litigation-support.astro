@@ -5,39 +5,39 @@ import FeatureCard from "@components/FeatureCard.astro";
 import CTABanner from "@components/CTABanner.astro";
 
 const deliverables = [
-  { title: "Calendar & Inbox Management", description: "Court dates, depositions, client meetings, and internal calls coordinated without double-booking or missed details.", icon: "calendar" },
-  { title: "Email Triage & Drafting", description: "Inbox filtered, replies drafted, priority messages flagged. You handle decisions, not message volume.", icon: "mail" },
-  { title: "Travel & Logistics", description: "Flights, hotels, depositions, conferences, and backup plans — fully arranged with itineraries delivered.", icon: "globe" },
-  { title: "Project & Initiative Tracking", description: "Track deliverables, deadlines, and stakeholders for firm initiatives. Status reports kept current without you asking.", icon: "chart" },
-  { title: "Event & Meeting Planning", description: "Firm retreats, webinars, depositions — invites, RSVPs, venues, and follow-ups handled end to end.", icon: "users" },
-  { title: "Research & Document Prep", description: "Reports, presentations, and research assistance — polished and ready when you need them.", icon: "document" },
+  { title: "Opening Case Files", description: "New cases opened in your case management system within hours of signing — fully populated, properly coded, ready to work.", icon: "folder" },
+  { title: "Letters of Representation", description: "LORs drafted, sent, and tracked to every adjuster, insurer, and provider on day one of representation.", icon: "document" },
+  { title: "Pleadings & Motions", description: "Complaints, motions, responses, and routine filings drafted from your firm's templates and attorney direction.", icon: "scale" },
+  { title: "Discovery Responses", description: "Interrogatories, requests for production, and requests for admission — drafted, organized, and ready for attorney review.", icon: "document" },
+  { title: "Formal Demand Letters", description: "Demand packages assembled with chronology, exhibits, and supporting documentation — ready for negotiation.", icon: "mail" },
+  { title: "Deadline & Calendar Tracking", description: "Statute, court, and discovery deadlines tracked across every active matter so nothing slips.", icon: "calendar" },
 ];
 
 const howItWorks = [
-  { step: "1", title: "Working-style intake", desc: "We learn your preferences, priorities, and pet peeves." },
-  { step: "2", title: "Inbox & calendar access", desc: "Set up under your firm's security and access policies." },
-  { step: "3", title: "Daily rhythm", desc: "Inbox triage, calendar prep, and priority briefs every day." },
-  { step: "4", title: "Weekly review", desc: "Standing weekly review with your assistant to recalibrate." },
+  { step: "1", title: "Template integration", desc: "Your firm's pleadings, LORs, and demand templates loaded into our workflow." },
+  { step: "2", title: "Matter intake", desc: "New cases opened and LORs sent same-day after signing." },
+  { step: "3", title: "Drafting cadence", desc: "Pleadings, discovery, and demands drafted on your firm's schedule." },
+  { step: "4", title: "Attorney review", desc: "Everything queued for attorney sign-off — never sent without you." },
 ];
 
 const faqs = [
-  { q: "Do they have access to my inbox and calendar?", a: "Yes — under your firm's security policies. Most clients grant delegated access through Microsoft 365 or Google Workspace, with full audit trails and the ability to revoke access at any time." },
-  { q: "How is this different from a legal receptionist?", a: "A receptionist answers calls for the firm. An executive assistant is dedicated to an individual leader — your calendar, your inbox, your travel, your projects. The two roles complement each other but don't overlap." },
-  { q: "Is this the right fit for a managing partner vs. an associate?", a: "Executive assistant support is built for managing partners, founding attorneys, and firm leaders — people whose calendar and inbox volume actually requires dedicated support. For associates, a shared admin assistant is usually a better fit." },
-  { q: "Can they draft emails in my voice?", a: "Yes. Over the first few weeks, your assistant learns your tone, common responses, and decision patterns. Drafts come queued for your review until you trust them to send directly." },
-  { q: "Which product delivers this work?", a: "Executive assistant support is delivered through Impact Assistants — a dedicated team member integrated into your daily operations. Intake 360 is on-demand intake coverage and doesn't include EA work." },
+  { q: "Do your assistants draft pleadings from scratch?", a: "We draft from your firm's templates with attorney direction on the substance. Attorneys review and sign everything before it leaves the firm — we accelerate the drafting, never replace attorney judgment." },
+  { q: "What practice areas do you support?", a: "We're built for contingency-fee firms — personal injury, mass tort, and similar. Our drafting workflows are tuned to PI matters, but Impact Assistants can be trained on your firm's specific practice areas and templates." },
+  { q: "How do you handle confidentiality and conflicts?", a: "Every Impact Assistant signs strict confidentiality agreements and works inside your case management system. Conflict checks run on every new matter before intake." },
+  { q: "Can you track court deadlines and statutes?", a: "Yes. Deadline tracking is part of standard litigation support — court dates, statute of limitations, discovery cutoffs, and response windows all live in your firm's calendar with redundant tracking on our side." },
+  { q: "Which product handles this work?", a: "Litigation support is dedicated case work — delivered through Impact Assistants. Intake 360 handles intake and reception, not pleadings or discovery drafting." },
 ];
 ---
 
 <BaseLayout
-  title="Virtual Executive Assistant for Law Firm Leaders"
-  description="Dedicated executive assistant support for managing partners and firm leaders. Calendar, inbox, travel, and project management handled by a virtual right hand."
+  title="Litigation Support — Pleadings, Discovery & Demands"
+  description="Case file opening, letters of representation, pleadings, interrogatories, and formal demand letters drafted by a dedicated team trained on your firm's templates."
 >
 
   <Hero
-    badge="Admin & Back Office"
-    title="Your Virtual Right Hand."
-    subtitle="Stop running your own calendar and inbox. A dedicated executive assistant manages the day-to-day so you can focus on leading the firm."
+    badge="Case & Matter Support"
+    title="Litigation Support That Keeps Cases Moving."
+    subtitle="Open files, send LORs, draft pleadings, manage discovery, and chase deadlines. Your attorneys focus on the law — we handle the paper that makes a case move."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
     secondaryButtonText="See What We Handle"
@@ -52,23 +52,23 @@ const faqs = [
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7 reveal">
           <span class="badge badge-brand">The Problem</span>
-          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Managing partners shouldn't be managing their own inbox.</h2>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Drafting work piles up. Cases stall behind it.</h2>
           <div class="divider-gold mt-5 mb-6"></div>
           <p class="text-lg text-gray-600 leading-relaxed mb-4">
-            Founding attorneys and managing partners end up doing their own scheduling, inbox triage, travel booking, and follow-up — because hiring a full-time EA is expensive and the work fluctuates. So the highest-value person in the firm spends two hours a day on logistics.
+            New cases sit unopened for days. LORs go out a week late. Discovery responses pile up against deadline. Demand packages don't get drafted because the paralegal who'd write them is buried in records requests.
           </p>
           <p class="text-base text-gray-500 leading-relaxed">
-            Your billable rate doesn't match the work you're doing.
+            The work isn't hard. It's relentless — and the firm's growth ceiling is the team's drafting bandwidth.
           </p>
         </div>
         <div class="lg:col-span-5 reveal" style="transition-delay: 100ms">
           <div class="card p-6 md:p-7 bg-white">
-            <p class="text-xs font-bold uppercase tracking-wide text-brand-gold mb-3">What you stop doing yourself</p>
+            <p class="text-xs font-bold uppercase tracking-wide text-brand-gold mb-3">Where firms get stuck</p>
             <ul class="space-y-3 text-sm text-gray-700">
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Negotiating scheduling back-and-forth across three calendars</span></li>
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Triaging 200+ emails between meetings</span></li>
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Booking flights and hotels for deposition travel</span></li>
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Chasing your own follow-ups on firm initiatives</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>New signed cases sitting unopened for a week or more</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Demands going out months after they should have</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Discovery responses written under last-minute pressure</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Attorneys drafting routine paper instead of negotiating cases</span></li>
             </ul>
           </div>
         </div>
@@ -81,9 +81,9 @@ const faqs = [
     <div class="container-wide">
       <div class="text-center mb-12 md:mb-16 reveal">
         <span class="badge badge-brand">What We Handle</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Calendar to inbox to travel to projects</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">From file open to formal demand</h2>
         <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">A dedicated assistant trained on your working style — running your day in the background.</p>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Drafting and matter support — done from your firm's templates, queued for attorney review.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {deliverables.map((d, i) => (
@@ -101,7 +101,7 @@ const faqs = [
     <div class="container-wide relative">
       <div class="text-center mb-12 reveal max-w-2xl mx-auto">
         <span class="badge badge-brand">Which Product Delivers This</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Executive support is dedicated work — delivered by Impact Assistants.</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Litigation support is dedicated work — delivered by Impact Assistants.</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
@@ -112,7 +112,7 @@ const faqs = [
           </div>
           <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Impact Assistants</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-5">
-            A dedicated EA who learns your working style, your priorities, and your standing relationships — then runs your calendar, inbox, and projects in the background.
+            A dedicated assistant trained on your firm's templates and case criteria — drafting pleadings, discovery, and demands at your firm's pace.
           </p>
           <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Impact Assistants <span aria-hidden="true">→</span></span>
         </a>
@@ -123,7 +123,7 @@ const faqs = [
           </div>
           <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Intake 360</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-5">
-            Intake 360 is on-demand intake and reception coverage — not executive support. Pair it with an Impact Assistant for end-to-end coverage of the firm.
+            Intake 360 covers intake and reception — not pleadings or discovery drafting. Pair it with Impact Assistants for end-to-end case coverage.
           </p>
           <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Learn about Intake 360 <span aria-hidden="true">→</span></span>
         </a>
@@ -136,7 +136,7 @@ const faqs = [
     <div class="container-wide">
       <div class="text-center mb-12 reveal">
         <span class="badge badge-brand">How It Works</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From onboarding to your daily rhythm</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From template integration to attorney sign-off</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -158,14 +158,14 @@ const faqs = [
     <div class="container-wide">
       <div class="text-center mb-10 reveal max-w-2xl mx-auto">
         <span class="badge badge-brand">Outcomes</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What changes for you</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What changes for your firm</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {[
-          { title: "Hours back every week", body: "Calendar wrangling, inbox triage, and travel booking come off your plate. Those hours go back into client work, business development, or your family." },
-          { title: "Less context switching", body: "Decisions queue up instead of pinging you constantly. Focus blocks actually stay focused." },
-          { title: "Nothing slips", body: "Follow-ups, deadlines, and commitments tracked by someone whose job is tracking them." },
+          { title: "Cases move faster", body: "Files open same-day. LORs send same-day. Demands go out when the file is ready — not when the team finally has bandwidth." },
+          { title: "Attorneys back on negotiation", body: "Routine drafting comes off your attorneys' desks. They use their hours on the work only they can do." },
+          { title: "Higher case throughput", body: "Your firm's drafting bandwidth stops being the ceiling on caseload. Growth doesn't require new hires." },
         ].map((item, i) => (
           <div class="p-6 rounded-xl border border-gray-200 bg-white reveal" style={`transition-delay: ${i * 80}ms`}>
             <p class="text-base font-heading text-gray-900 mb-2">{item.title}</p>
@@ -199,8 +199,8 @@ const faqs = [
   </section>
 
   <CTABanner
-    heading="Stop Running Your Own Calendar."
-    body="See how a dedicated executive assistant fits your role — and pays for itself in attorney hours recovered."
+    heading="Stop Letting the Drafting Pile Slow Your Firm Down."
+    body="See how a dedicated case-support team moves files faster — without adding internal headcount."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
     variant="brand"

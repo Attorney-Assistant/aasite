@@ -5,39 +5,39 @@ import FeatureCard from "@components/FeatureCard.astro";
 import CTABanner from "@components/CTABanner.astro";
 
 const deliverables = [
-  { title: "Calendar & Inbox Management", description: "Court dates, depositions, client meetings, and internal calls coordinated without double-booking or missed details.", icon: "calendar" },
-  { title: "Email Triage & Drafting", description: "Inbox filtered, replies drafted, priority messages flagged. You handle decisions, not message volume.", icon: "mail" },
-  { title: "Travel & Logistics", description: "Flights, hotels, depositions, conferences, and backup plans — fully arranged with itineraries delivered.", icon: "globe" },
-  { title: "Project & Initiative Tracking", description: "Track deliverables, deadlines, and stakeholders for firm initiatives. Status reports kept current without you asking.", icon: "chart" },
-  { title: "Event & Meeting Planning", description: "Firm retreats, webinars, depositions — invites, RSVPs, venues, and follow-ups handled end to end.", icon: "users" },
-  { title: "Research & Document Prep", description: "Reports, presentations, and research assistance — polished and ready when you need them.", icon: "document" },
+  { title: "Medical Record Retrieval", description: "We request, chase, and receive records from every provider on file. Subpoenas, HIPAA authorizations, repeated follow-ups — handled.", icon: "folder" },
+  { title: "Medical Bill Retrieval", description: "Itemized bills pulled from every provider, hospital, ER, imaging center, and specialist that touched the case.", icon: "document" },
+  { title: "Record Summaries & Chronologies", description: "Date-ordered medical chronologies and treatment summaries built for demand packages and case evaluation.", icon: "document" },
+  { title: "Bill Balance Verification", description: "Outstanding balances confirmed against every provider before demand drafting — no surprises at settlement.", icon: "chart" },
+  { title: "Child Support Lien Checks", description: "Statewide child-support lien verification on every plaintiff before disbursement.", icon: "shield" },
+  { title: "Provider Follow-Up Cadence", description: "Weekly chase calls and faxes until the records arrive. No request is left to die in a hospital ROI department.", icon: "phone" },
 ];
 
 const howItWorks = [
-  { step: "1", title: "Working-style intake", desc: "We learn your preferences, priorities, and pet peeves." },
-  { step: "2", title: "Inbox & calendar access", desc: "Set up under your firm's security and access policies." },
-  { step: "3", title: "Daily rhythm", desc: "Inbox triage, calendar prep, and priority briefs every day." },
-  { step: "4", title: "Weekly review", desc: "Standing weekly review with your assistant to recalibrate." },
+  { step: "1", title: "Provider list intake", desc: "You send us the providers; we set up the request matrix." },
+  { step: "2", title: "Authorizations & requests", desc: "HIPAA-compliant requests sent same day, tracked in your CRM." },
+  { step: "3", title: "Follow-up cadence", desc: "Weekly chase until records and bills are in hand." },
+  { step: "4", title: "Summary delivered", desc: "Chronology + bill summary uploaded to your case file." },
 ];
 
 const faqs = [
-  { q: "Do they have access to my inbox and calendar?", a: "Yes — under your firm's security policies. Most clients grant delegated access through Microsoft 365 or Google Workspace, with full audit trails and the ability to revoke access at any time." },
-  { q: "How is this different from a legal receptionist?", a: "A receptionist answers calls for the firm. An executive assistant is dedicated to an individual leader — your calendar, your inbox, your travel, your projects. The two roles complement each other but don't overlap." },
-  { q: "Is this the right fit for a managing partner vs. an associate?", a: "Executive assistant support is built for managing partners, founding attorneys, and firm leaders — people whose calendar and inbox volume actually requires dedicated support. For associates, a shared admin assistant is usually a better fit." },
-  { q: "Can they draft emails in my voice?", a: "Yes. Over the first few weeks, your assistant learns your tone, common responses, and decision patterns. Drafts come queued for your review until you trust them to send directly." },
-  { q: "Which product delivers this work?", a: "Executive assistant support is delivered through Impact Assistants — a dedicated team member integrated into your daily operations. Intake 360 is on-demand intake coverage and doesn't include EA work." },
+  { q: "How fast do you turn around a typical records request?", a: "First request goes out same day. Average provider turnaround is 14–30 days; we chase weekly until we have everything. Complex multi-provider cases typically wrap inside 60 days." },
+  { q: "Do you handle subpoenas when providers won't respond?", a: "Yes. We draft and serve subpoenas through your firm when authorizations are ignored, and follow up until compliance." },
+  { q: "Will summaries be ready for demand packages?", a: "Yes. Chronologies are formatted to drop directly into your demand template — dates, providers, diagnoses, treatments, and bill totals organized for adjuster review." },
+  { q: "Do you bill providers for record fees?", a: "We coordinate fees through your firm's preferred billing process. ROI fees, copy charges, and certifications are itemized and tracked." },
+  { q: "Which product handles this work?", a: "Medical records work is delivered through Impact Assistants — a dedicated team member integrated into your case workflow. Intake 360 is on-demand intake coverage and doesn't include case-level records work." },
 ];
 ---
 
 <BaseLayout
-  title="Virtual Executive Assistant for Law Firm Leaders"
-  description="Dedicated executive assistant support for managing partners and firm leaders. Calendar, inbox, travel, and project management handled by a virtual right hand."
+  title="Medical Records, Bills & Chronologies for Law Firms"
+  description="Medical record retrieval, bill collection, chronologies, and lien checks for personal injury and contingency-fee firms. Records show up so cases can move."
 >
 
   <Hero
-    badge="Admin & Back Office"
-    title="Your Virtual Right Hand."
-    subtitle="Stop running your own calendar and inbox. A dedicated executive assistant manages the day-to-day so you can focus on leading the firm."
+    badge="Case & Matter Support"
+    title="Medical Records, Handled."
+    subtitle="From request to chronology, we collect every record and bill, run lien checks, and deliver demand-ready summaries — so your case team gets buildable files, not paper chases."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
     secondaryButtonText="See What We Handle"
@@ -52,23 +52,23 @@ const faqs = [
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7 reveal">
           <span class="badge badge-brand">The Problem</span>
-          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Managing partners shouldn't be managing their own inbox.</h2>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Records aren't the work. Chasing them is.</h2>
           <div class="divider-gold mt-5 mb-6"></div>
           <p class="text-lg text-gray-600 leading-relaxed mb-4">
-            Founding attorneys and managing partners end up doing their own scheduling, inbox triage, travel booking, and follow-up — because hiring a full-time EA is expensive and the work fluctuates. So the highest-value person in the firm spends two hours a day on logistics.
+            Every PI case stalls in the same place: waiting on records. Providers ignore requests. ROI departments lose authorizations. Bills arrive missing line items. Your paralegals burn weeks on follow-up calls instead of building demand packages.
           </p>
           <p class="text-base text-gray-500 leading-relaxed">
-            Your billable rate doesn't match the work you're doing.
+            The work itself is simple. The volume kills you.
           </p>
         </div>
         <div class="lg:col-span-5 reveal" style="transition-delay: 100ms">
           <div class="card p-6 md:p-7 bg-white">
-            <p class="text-xs font-bold uppercase tracking-wide text-brand-gold mb-3">What you stop doing yourself</p>
+            <p class="text-xs font-bold uppercase tracking-wide text-brand-gold mb-3">What it usually looks like</p>
             <ul class="space-y-3 text-sm text-gray-700">
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Negotiating scheduling back-and-forth across three calendars</span></li>
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Triaging 200+ emails between meetings</span></li>
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Booking flights and hotels for deposition travel</span></li>
-              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Chasing your own follow-ups on firm initiatives</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Authorizations sitting in a queue for 3+ weeks before going out</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Providers ignoring 2nd and 3rd requests</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Bills missing dates, providers, or line items</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Demand packages delayed for months waiting on one final record</span></li>
             </ul>
           </div>
         </div>
@@ -81,9 +81,9 @@ const faqs = [
     <div class="container-wide">
       <div class="text-center mb-12 md:mb-16 reveal">
         <span class="badge badge-brand">What We Handle</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Calendar to inbox to travel to projects</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">From request to demand-ready summary</h2>
         <div class="divider-gold-center mt-5"></div>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">A dedicated assistant trained on your working style — running your day in the background.</p>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Every deliverable below is part of the standard medical records workflow for our case-team clients.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {deliverables.map((d, i) => (
@@ -101,7 +101,7 @@ const faqs = [
     <div class="container-wide relative">
       <div class="text-center mb-12 reveal max-w-2xl mx-auto">
         <span class="badge badge-brand">Which Product Delivers This</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Executive support is dedicated work — delivered by Impact Assistants.</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Medical records is dedicated work — delivered by Impact Assistants.</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
@@ -112,7 +112,7 @@ const faqs = [
           </div>
           <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Impact Assistants</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-5">
-            A dedicated EA who learns your working style, your priorities, and your standing relationships — then runs your calendar, inbox, and projects in the background.
+            A dedicated assistant who learns your providers, your record requirements, and your demand template — then runs your records pipeline end-to-end.
           </p>
           <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Impact Assistants <span aria-hidden="true">→</span></span>
         </a>
@@ -123,7 +123,7 @@ const faqs = [
           </div>
           <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Intake 360</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-5">
-            Intake 360 is on-demand intake and reception coverage — not executive support. Pair it with an Impact Assistant for end-to-end coverage of the firm.
+            Intake 360 is action-based intake and reception coverage — not case-level records work. Pair it with Impact Assistants for full coverage from first call to settlement.
           </p>
           <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Learn about Intake 360 <span aria-hidden="true">→</span></span>
         </a>
@@ -136,7 +136,7 @@ const faqs = [
     <div class="container-wide">
       <div class="text-center mb-12 reveal">
         <span class="badge badge-brand">How It Works</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From onboarding to your daily rhythm</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From provider list to demand-ready file</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -158,14 +158,14 @@ const faqs = [
     <div class="container-wide">
       <div class="text-center mb-10 reveal max-w-2xl mx-auto">
         <span class="badge badge-brand">Outcomes</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What changes for you</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What changes for your firm</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {[
-          { title: "Hours back every week", body: "Calendar wrangling, inbox triage, and travel booking come off your plate. Those hours go back into client work, business development, or your family." },
-          { title: "Less context switching", body: "Decisions queue up instead of pinging you constantly. Focus blocks actually stay focused." },
-          { title: "Nothing slips", body: "Follow-ups, deadlines, and commitments tracked by someone whose job is tracking them." },
+          { title: "Demand-ready files, faster", body: "Cases reach demand stage in weeks, not quarters. Your paralegals stop chasing — they start building." },
+          { title: "Cleaner financial picture", body: "Bill balances verified before demand. No nasty surprises during lien negotiation or final disbursement." },
+          { title: "Attorneys back on the law", body: "Your team stops being the records department. They focus on case value, negotiation, and trial prep." },
         ].map((item, i) => (
           <div class="p-6 rounded-xl border border-gray-200 bg-white reveal" style={`transition-delay: ${i * 80}ms`}>
             <p class="text-base font-heading text-gray-900 mb-2">{item.title}</p>
@@ -199,8 +199,8 @@ const faqs = [
   </section>
 
   <CTABanner
-    heading="Stop Running Your Own Calendar."
-    body="See how a dedicated executive assistant fits your role — and pays for itself in attorney hours recovered."
+    heading="Stop Chasing Records. Start Closing Cases."
+    body="See how a dedicated case-support team can move your demand packages off the back burner."
     buttonText="Schedule Consultation"
     buttonLink="/contact"
     variant="brand"

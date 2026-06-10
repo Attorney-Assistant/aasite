@@ -76,6 +76,11 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
       conversion_type: 'schedule',
       lp_name: 'Comic Campaign'
     });
+
+    // ─── OpenAI Q: appointment_scheduled
+    if (typeof oaiq !== 'undefined') {
+      oaiq("measure", "appointment_scheduled", { type: "customer_action" });
+    }
   </script>
 
 </ComicCampaignLayout>

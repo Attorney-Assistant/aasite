@@ -354,6 +354,9 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     });
   </script>
 
+  <!-- OpenAI Q Pixel -->
+  <script is:inline>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"Kik3Z6qPWhURPiYR6S4NhN",debug:true});</script>
+
   <style is:global>
     .meetings-iframe-container iframe { background: #ffffff !important; }
   </style>
@@ -1072,6 +1075,13 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
           } catch (e) { console.warn('dataLayer push failed:', e); }
 
           setStage('thank-you');
+
+          // ─── OpenAI Q: appointment_scheduled
+          try {
+            if (typeof oaiq !== 'undefined') {
+              oaiq("measure", "appointment_scheduled", { type: "customer_action" });
+            }
+          } catch (e) { console.warn('oaiq fire failed:', e); }
         } catch (err) {
           errorEl.textContent = 'Something went wrong. Please try again or email us directly at info@attorneyassistant.com.';
           errorEl.hidden = false;
