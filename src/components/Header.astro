@@ -140,25 +140,20 @@ function isActive(href: string | undefined) {
             {"mega" in dropdown ? (
               <div class="w-[44rem] xl:w-[48rem] bg-white rounded-xl shadow-xl border border-gray-100 ring-1 ring-black/5 overflow-hidden">
                 <!-- Featured products row -->
-                <div class="grid grid-cols-2 gap-3 p-3 bg-brand-gold/[0.03] border-b border-gray-100">
+                <div class="grid grid-cols-2 gap-3 p-3 border-b border-gray-100">
                   {dropdown.featured.map((item) => (
                     <a
                       href={item.href}
                       role="menuitem"
-                      class:list={[
-                        "flex items-start gap-3 p-3 rounded-lg transition-all duration-200 border",
-                        isActive(item.href)
-                          ? "bg-brand-gold/10 border-brand-gold/40"
-                          : "bg-white border-brand-gold/25 hover:border-brand-gold/50 hover:shadow-sm",
-                      ]}
+                      class="group/feat flex items-start gap-3 p-3 rounded-lg transition-all duration-200 border border-gray-200 bg-white hover:border-brand-gold/50 hover:bg-brand-gold/5 hover:shadow-sm"
                     >
-                      <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-md bg-brand-gold/15 text-brand-gold flex items-center justify-center">
+                      <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-md bg-gray-100 text-gray-500 group-hover/feat:bg-brand-gold/15 group-hover/feat:text-brand-gold flex items-center justify-center transition-colors">
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" /></svg>
                       </span>
                       <span class="flex flex-col gap-0.5 min-w-0">
                         <span class="flex items-center gap-1.5">
-                          <span class:list={["text-sm font-bold", isActive(item.href) ? "text-brand-navy" : "text-gray-900"]}>{item.label}</span>
-                          <span class="text-[9px] font-bold uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-1.5 py-0.5 rounded">Product</span>
+                          <span class="text-sm font-bold text-gray-900">{item.label}</span>
+                          <span class="text-[9px] font-bold uppercase tracking-wide text-gray-400 bg-gray-100 group-hover/feat:text-brand-gold group-hover/feat:bg-brand-gold/10 px-1.5 py-0.5 rounded transition-colors">Product</span>
                         </span>
                         <span class="text-xs text-gray-500 leading-snug">{item.desc}</span>
                       </span>
