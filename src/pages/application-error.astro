@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Application Error — Attorney Assistant"
+  description="You've already applied. Multiple applications are not accepted at this time."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-narrow relative py-20 md:py-28">
+      <div class="text-center reveal">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-warning-500/15 mb-6">
+          <svg class="w-8 h-8 text-warning-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+          </svg>
+        </div>
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">Application Error</span>
+        <h1 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          You've Already Applied
+        </h1>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-white/60 max-w-xl mx-auto">
+          Multiple applications are not accepted at this time. You may reach out to <a href="mailto:talent@attorneyassistant.com" class="font-medium underline text-white hover:text-brand-gold">talent@attorneyassistant.com</a> if you have further questions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-white">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto">
+        <div class="card p-5 bg-brand-25 border-brand-100 mb-12 reveal">
+          <div class="flex gap-3 items-start">
+            <svg class="w-5 h-5 text-brand-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
+            <p class="text-sm text-brand-700">If our Recruitment Team assesses your skills and determines you're a better fit for a different role, we will move you to be considered for the better-fitting role. <strong>There is no need to apply for multiple roles.</strong></p>
+          </div>
+        </div>
+
+        <div class="text-center reveal" style="transition-delay: 0.15s;">
+          <a href="/careers" class="btn-secondary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" /></svg>
+            Back to Careers
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
