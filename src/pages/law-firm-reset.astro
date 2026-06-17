@@ -589,6 +589,125 @@ const IMG = '/images/lp/law-firm-reset';
       background: var(--red-bright);
     }
 
+    /* ════════════════════════════════════
+       Mobile — comprehensive overrides
+    ════════════════════════════════════ */
+    @media (max-width: 720px) {
+      /* Hero */
+      #lfr-lp .lfr-hero { padding: 40px 0 24px; }
+      #lfr-lp .lfr-hero-skyline { height: 42%; opacity: 0.45; }
+      #lfr-lp .lfr-display { font-size: clamp(44px, 13vw, 72px); }
+      #lfr-lp .lfr-eyebrow {
+        font-size: 12px;
+        padding: 6px 12px;
+        margin-bottom: 16px;
+        letter-spacing: 0.10em;
+      }
+      #lfr-lp .lfr-hero-copy h1 { margin-bottom: 18px; }
+      #lfr-lp .lfr-lede { font-size: 17px; line-height: 1.4; margin-bottom: 24px; }
+
+      /* Squeeze box — stack vertically, no rotation */
+      #lfr-lp .lfr-squeeze {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 16px;
+        margin-bottom: 24px;
+        transform: none;
+        box-shadow: 4px 4px 0 var(--navy-deep);
+      }
+      #lfr-lp .lfr-squeeze-pow { font-size: 15px; padding: 4px 10px; transform: rotate(-4deg); }
+      #lfr-lp .lfr-squeeze p { font-size: 14px; }
+
+      /* Scroll CTA */
+      #lfr-lp .lfr-scroll-cta {
+        padding: 14px 24px;
+        font-size: 22px;
+        transform: none;
+        box-shadow: 5px 5px 0 var(--navy-deep);
+      }
+      #lfr-lp .lfr-scroll-cta:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 var(--navy-deep);
+      }
+
+      /* Hero art */
+      #lfr-lp .lfr-hero-art {
+        min-height: 440px;
+        margin-top: 16px;
+      }
+      #lfr-lp .lfr-woman {
+        max-width: 360px;
+        margin-bottom: -28px;
+      }
+
+      /* Bat signal — smaller + positioned to sit behind her shoulder */
+      #lfr-lp .lfr-bat-stage {
+        width: 180px;
+        height: 180px;
+        right: 0;
+        top: 0;
+      }
+
+      /* Reserve / scheduler */
+      #lfr-lp .lfr-reserve { padding: 56px 0 64px; }
+      #lfr-lp .lfr-reserve-header { margin-bottom: 32px; }
+      #lfr-lp .lfr-reserve-pow {
+        font-size: 16px;
+        padding: 6px 14px;
+        margin-bottom: 16px;
+      }
+      #lfr-lp .lfr-reserve-header h2 { font-size: clamp(24px, 7.5vw, 40px); }
+      #lfr-lp .lfr-reserve-sub { font-size: 15px; line-height: 1.45; }
+
+      #lfr-lp .lfr-scheduler-frame {
+        border-width: 3px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 0 var(--red), 10px 10px 0 var(--navy-deep);
+        padding: 8px;
+      }
+      #lfr-lp .lfr-scheduler-tape {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+      }
+      #lfr-lp .lfr-scheduler-tape-tl { top: -12px; left: -10px; }
+      #lfr-lp .lfr-scheduler-tape-tr { top: -12px; right: -10px; }
+      #lfr-lp .meetings-iframe-container { min-height: 680px; }
+
+      /* Pillars */
+      #lfr-lp .lfr-pillars { padding: 56px 0 64px; }
+      #lfr-lp .lfr-pillars-header { margin-bottom: 36px; }
+      #lfr-lp .lfr-pillars-header h2 { font-size: clamp(28px, 9vw, 48px); }
+      #lfr-lp .lfr-pillars-grid { gap: 20px; }
+      #lfr-lp .lfr-pillar { padding: 26px 22px 24px; }
+      /* Remove the card rotation on mobile so edges don't push out of the column */
+      #lfr-lp .lfr-pillar:nth-child(1),
+      #lfr-lp .lfr-pillar:nth-child(2),
+      #lfr-lp .lfr-pillar:nth-child(3) { transform: none; }
+      #lfr-lp .lfr-pillar-icon { width: 80px; height: 80px; margin-bottom: 18px; }
+      #lfr-lp .lfr-pillar-icon img { width: 110px; height: 110px; }
+      #lfr-lp .lfr-pillar h3 { font-size: 22px; margin-bottom: 10px; }
+      #lfr-lp .lfr-pillar p { font-size: 14.5px; }
+
+      #lfr-lp .lfr-pillars-cta { margin-top: 36px; }
+      #lfr-lp .lfr-pill-cta {
+        padding: 14px 24px;
+        font-size: 22px;
+        transform: none;
+        box-shadow: 5px 5px 0 var(--navy-deep);
+      }
+    }
+
+    /* Narrowest phones (≤420px) */
+    @media (max-width: 420px) {
+      #lfr-lp .lfr-display { font-size: clamp(38px, 14vw, 60px); }
+      #lfr-lp .lfr-hero-art { min-height: 380px; }
+      #lfr-lp .lfr-woman { max-width: 320px; margin-bottom: -22px; }
+      #lfr-lp .lfr-bat-stage { width: 148px; height: 148px; }
+      #lfr-lp .meetings-iframe-container { min-height: 640px; }
+    }
+
     /* Reduced motion — kill all the swaying/pulsing */
     @media (prefers-reduced-motion: reduce) {
       #lfr-lp .lfr-bat-stage,
