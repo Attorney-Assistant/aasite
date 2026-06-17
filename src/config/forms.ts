@@ -14,6 +14,7 @@ export const FORM_IDS = {
   benchmarkMicroForm: '54776250-0e82-4808-aade-290f0a211d65',
   benchmarkEmailGate: 'd6486e3f-fec1-4d72-b52d-94dda32e9e86',
   villainEmailGate: 'c9fc48ee-12df-4f02-a972-a91bf7aa857d',
+  lawFirmResetEmailGate: 'ae1e289b-b97b-4754-bbbf-30add1b1a8b0',
 } as const;
 
 export const MEETING_URLS = {
@@ -21,6 +22,8 @@ export const MEETING_URLS = {
     'https://meet.attorneyassistant.com/meetings/attorney-assistant/simple-campaign-operations-review',
   villainDeployRescueCall:
     'https://meet.attorneyassistant.com/meetings/attorney-assistant/simple-campaign-deploy-aa-rescue-call',
+  greatLawFirmReset2026:
+    'https://meet.attorneyassistant.com/meetings/attorney-assistant/great-law-firm-reset-2026',
 } as const;
 
 export const ASSET_URLS = {
