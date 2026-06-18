@@ -16,7 +16,8 @@ const PRODUCTS = [
     tagline: 'AI + human intake',
     description: "AI answers, qualifies, and follows up on every lead, with our human team backing it up the moment a case needs a person. Live in 30 days.",
     eformUrl: 'https://eform.pandadoc.com/?eform=b20a0367-0585-4ee1-a8ac-df066e039c51',
-    recipientRole: 'Client',
+    /* If submit returns 400, this role name doesn't match the eform — see PandaDoc form → Roles. */
+    recipientRole: 'Form Signer',
     askTitle: true,
     /* Per Josiah's source: single `_r` on FirstName/LastName/Title,
        double `__r` only on MobilePhone. */
@@ -38,7 +39,7 @@ const PRODUCTS = [
     tagline: 'On-staff humans',
     description: "A dedicated team on our payroll, embedded in your firm. Trained on your playbook, working in your tools, billable on day one.",
     eformUrl: 'https://eform.pandadoc.com/?eform=9b2c6a00-eba8-4841-bf68-93cb917c6efe',
-    recipientRole: 'Client',
+    recipientRole: 'Form Signer',
     askTitle: false,
     variableMap: {
       firstname: 'Client_Contact__r.FirstName',
@@ -1030,15 +1031,20 @@ const PRODUCTS = [
           variables[pdKey] = values[formKey] || '';
         });
 
-        // Note: we intentionally do NOT pass a `recipients` block here.
-        // PandaDoc's public-eforms POST returns 400 on submit if the role name
-        // in `recipients` doesn't exactly match a role defined on the eform.
-        // Once we know the real role name for each form, we can re-enable
-        // the signer-dialog prefill by adding:
-        //   recipients: { '<RoleName>': { Email, FirstName, LastName } }
-        // Document variables prefill regardless, so the user only re-types
-        // their Email / First / Last in the signer dialog.
+        // Prefill the PandaDoc signer dialog (Email / First / Last). The key
+        // here MUST match the role name configured on the eform — defaults to
+        // 'Form Signer' per PandaDoc's own embed example. If submit returns
+        // 400, the form was set up with a different role name (check the
+        // PandaDoc form's Roles section) — change `recipientRole` per product.
+        const recipients = {};
+        recipients[product.recipientRole || 'Form Signer'] = {
+          Email:     values.email     || '',
+          FirstName: values.firstname || '',
+          LastName:  values.lastname  || ''
+        };
+
         const data = {
+          recipients: recipients,
           variables: variables,
           metadata: {
             lead_source: 'Website Form',
