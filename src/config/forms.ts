@@ -24,6 +24,8 @@ export const MEETING_URLS = {
     'https://meet.attorneyassistant.com/meetings/attorney-assistant/simple-campaign-deploy-aa-rescue-call',
   greatLawFirmReset2026:
     'https://meet.attorneyassistant.com/meetings/attorney-assistant/great-law-firm-reset-2026',
+  nashville2026:
+    'https://meet.attorneyassistant.com/meetings/attorney-assistant/nashville-2026',
 } as const;
 
 export const ASSET_URLS = {

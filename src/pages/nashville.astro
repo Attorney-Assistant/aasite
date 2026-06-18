@@ -1,0 +1,1105 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+
+const IMG = '/images/lp/law-firm-reset';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgobjarr';
+
+/**
+ * Note on PandaDoc variable names: the field paths the user provided differ
+ * between the two products (single vs double underscore in `_r` / `__r`).
+ * Preserve them verbatim so PandaDoc actually receives the prefill.
+ */
+const PRODUCTS = [
+  {
+    slug: 'intake360',
+    name: 'Intake360',
+    tagline: 'AI-powered intake',
+    description: "Catch every call, qualify every lead, route the high-intent ones to a human in seconds. Live in 30 days.",
+    eformUrl: 'https://eform.pandadoc.com/?eform=b20a0367-0585-4ee1-a8ac-df066e039c51',
+    askTitle: true,
+    variableMap: {
+      firstname: 'Client_Contact_r.FirstName',
+      lastname:  'Client_Contact_r.LastName',
+      phone:     'Client_Contact__r.MobilePhone',
+      title:     'Client_Contact_r.Title',
+      company:   'Account.Name',
+      street:    'Account.BillingStreet',
+      city:      'Account.BillingCity',
+      state:     'Account.BillingState',
+      zip:       'Account.BillingPostalCode'
+    }
+  },
+  {
+    slug: 'impact',
+    name: 'Impact Assistant',
+    tagline: 'Elite legal staffing',
+    description: "U.S.-managed paralegals, intake specialists, and case managers. Trained on your playbook, embedded in your tools.",
+    eformUrl: 'https://eform.pandadoc.com/?eform=9b2c6a00-eba8-4841-bf68-93cb917c6efe',
+    askTitle: false,
+    variableMap: {
+      firstname: 'Client_Contact__r.FirstName',
+      lastname:  'Client_Contact__r.LastName',
+      phone:     'Client_Contact__r.MobilePhone',
+      company:   'Account.Name',
+      street:    'Account.BillingStreet',
+      city:      'Account.BillingCity',
+      state:     'Account.BillingState',
+      zip:       'Account.BillingPostalCode'
+    }
+  },
+  {
+    slug: 'both',
+    name: 'Both Products',
+    tagline: 'The full rescue',
+    description: "Intake360 + Impact Assistant working together. The combined contract is built personally for your firm.",
+    eformUrl: null,
+    askTitle: true,
+    variableMap: {}
+  }
+];
+---
+
+<ComicCampaignLayout
+  title="Nashville Contract Signing | Attorney Assistant"
+  description="Lock in your Nashville pricing. Pick your product, sign your contract, get deployed."
+  image={`${IMG}/woman-hero.png`}
+>
+  <div id="nash-lp" data-stage="select">
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="nash-hero">
+      <div class="nash-hero-skyline" aria-hidden="true"></div>
+      <div class="nash-halftone" aria-hidden="true"></div>
+
+      <div class="nash-container nash-hero-grid">
+        <div class="nash-hero-copy">
+          <span class="nash-eyebrow">Nashville · Special Pricing</span>
+          <h1 class="nash-display">
+            Lock in<br />
+            <span class="nash-accent-gold">your rate.</span>
+          </h1>
+          <p class="nash-lede">
+            Reserved for the firms we met in Nashville. Pick your product, fill in your firm's info, and sign before the conference rate sunsets.
+          </p>
+
+          <div class="nash-squeeze">
+            <span class="nash-squeeze-pow">URGENT!</span>
+            <p>Conference pricing locks in <strong>only while spots remain</strong>. Reserve yours today.</p>
+          </div>
+
+          <a href="#start" class="nash-scroll-cta">
+            <span>Pick Your Contract</span>
+            <span class="nash-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="nash-hero-art">
+          <div class="nash-bat-stage" aria-label="The Attorney Assistant signal">
+            <div class="nash-bat-glow" aria-hidden="true"></div>
+            <img src={`${IMG}/bat-signal.svg`} alt="Attorney Assistant signal" class="nash-bat" width="260" height="575" />
+          </div>
+          <img src={`${IMG}/woman-hero.png`} alt="The Attorney Assistant legal hero" class="nash-woman" width="640" height="800" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STAGE 1: PRODUCT SELECTION
+    ═══════════════════════════════════════════ -->
+    <section id="start" data-stage="select" class="nash-stage nash-select">
+      <div class="nash-container">
+        <div class="nash-stage-header">
+          <span class="nash-stage-pow">STEP 1</span>
+          <h2 class="nash-display nash-display-md">
+            <span class="nash-stage-line">Pick your</span>
+            <span class="nash-stage-line nash-accent-gold">contract.</span>
+          </h2>
+          <p class="nash-stage-sub">Choose what your firm is signing for. We'll route you to the right paperwork.</p>
+        </div>
+
+        <div class="nash-products">
+          {PRODUCTS.map((p, i) => (
+            <button type="button" class={`nash-product nash-product-${p.slug}`} data-select-product={p.slug}>
+              <span class="nash-product-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{p.name}</h3>
+              <p class="nash-product-tagline">{p.tagline}</p>
+              <p class="nash-product-desc">{p.description}</p>
+              <span class="nash-product-cta">Select <span aria-hidden="true">→</span></span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STAGE 2: INFO FORM
+    ═══════════════════════════════════════════ -->
+    <section data-stage="info" class="nash-stage nash-info">
+      <div class="nash-container">
+        <div class="nash-stage-header">
+          <span class="nash-stage-pow">STEP 2</span>
+          <h2 class="nash-display nash-display-md">
+            <span class="nash-stage-line">Your firm's</span>
+            <span class="nash-stage-line nash-accent-gold">info.</span>
+          </h2>
+          <p class="nash-stage-sub" id="nash-info-sub">We'll pre-fill the contract so you don't have to re-type a thing.</p>
+        </div>
+
+        <div class="nash-form-frame">
+          <button type="button" class="nash-back" data-go-stage="select">← Change product</button>
+
+          <form id="nash-form" class="nash-form" novalidate>
+            <input type="hidden" name="product" id="nash-form-product" value="" />
+
+            <div class="nash-row nash-row-2">
+              <label class="nash-field">
+                <span class="nash-label">First name <em>*</em></span>
+                <input type="text" name="firstname" required autocomplete="given-name" />
+              </label>
+              <label class="nash-field">
+                <span class="nash-label">Last name <em>*</em></span>
+                <input type="text" name="lastname" required autocomplete="family-name" />
+              </label>
+            </div>
+
+            <div class="nash-row nash-row-2">
+              <label class="nash-field">
+                <span class="nash-label">Email <em>*</em></span>
+                <input type="email" name="email" required autocomplete="email" />
+              </label>
+              <label class="nash-field">
+                <span class="nash-label">Mobile phone <em>*</em></span>
+                <input type="tel" name="phone" required autocomplete="tel" />
+              </label>
+            </div>
+
+            <label class="nash-field nash-field-title" data-title-field>
+              <span class="nash-label">Title <em>*</em></span>
+              <input type="text" name="title" autocomplete="organization-title" placeholder="e.g. Managing Partner" />
+            </label>
+
+            <label class="nash-field">
+              <span class="nash-label">Firm / Company name <em>*</em></span>
+              <input type="text" name="company" required autocomplete="organization" />
+            </label>
+
+            <label class="nash-field">
+              <span class="nash-label">Street address <em>*</em></span>
+              <input type="text" name="street" required autocomplete="street-address" />
+            </label>
+
+            <div class="nash-row nash-row-3">
+              <label class="nash-field">
+                <span class="nash-label">City <em>*</em></span>
+                <input type="text" name="city" required autocomplete="address-level2" />
+              </label>
+              <label class="nash-field">
+                <span class="nash-label">State <em>*</em></span>
+                <input type="text" name="state" required autocomplete="address-level1" maxlength="2" placeholder="TN" />
+              </label>
+              <label class="nash-field">
+                <span class="nash-label">Zip <em>*</em></span>
+                <input type="text" name="zip" required autocomplete="postal-code" inputmode="numeric" />
+              </label>
+            </div>
+
+            <button type="submit" class="nash-submit">
+              <span>Continue to Contract</span>
+              <span aria-hidden="true">→</span>
+            </button>
+            <div class="nash-error" role="alert" hidden></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STAGE 3: CONTRACT EMBED
+    ═══════════════════════════════════════════ -->
+    <section data-stage="contract" class="nash-stage nash-contract">
+      <div class="nash-container">
+        <div class="nash-stage-header">
+          <span class="nash-stage-pow">STEP 3</span>
+          <h2 class="nash-display nash-display-md">
+            <span class="nash-stage-line">Sign your</span>
+            <span class="nash-stage-line nash-accent-gold" id="nash-contract-product">contract.</span>
+          </h2>
+          <p class="nash-stage-sub">Everything's pre-filled. Review, sign, and you're locked in at the Nashville rate.</p>
+        </div>
+
+        <div class="nash-embed-frame">
+          <span class="nash-embed-tape nash-embed-tape-tl" aria-hidden="true">★</span>
+          <span class="nash-embed-tape nash-embed-tape-tr" aria-hidden="true">★</span>
+          <div id="nash-embed-host"></div>
+        </div>
+
+        <!-- Fallback shown for "Both Products" until the combined embed code ships. -->
+        <div class="nash-both-fallback" id="nash-both-fallback" hidden>
+          <h3 class="nash-display nash-display-sm">Got it. <span class="nash-accent-gold">We're on it.</span></h3>
+          <p>Because you're signing for both Intake360 and Impact Assistant, we'll build the combined contract personally for your firm. Your info just landed in our queue. Expect the agreement in your inbox within one business day.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <style is:global>
+    /* ── Color tokens (reuse comic palette) */
+    #nash-lp {
+      --navy: #0e2236;
+      --navy-deep: #061320;
+      --navy-mid: #1a3a5c;
+      --gold: #F9A630;
+      --gold-bright: #FBD46D;
+      --red: #E04A2C;
+      --red-bright: #FF6B45;
+      --blue: #5087dd;
+      --steel: #c0c8d4;
+      --steel-dim: #6f7a8a;
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.55;
+      overflow-x: clip;
+    }
+
+    /* ── Stage state machine */
+    #nash-lp[data-stage="select"]   section[data-stage="info"],
+    #nash-lp[data-stage="select"]   section[data-stage="contract"],
+    #nash-lp[data-stage="info"]     section[data-stage="select"],
+    #nash-lp[data-stage="info"]     section[data-stage="contract"],
+    #nash-lp[data-stage="contract"] section[data-stage="select"],
+    #nash-lp[data-stage="contract"] section[data-stage="info"] {
+      display: none;
+    }
+
+    /* ── Layout */
+    #nash-lp .nash-container { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 3; }
+    @media (max-width: 720px) { #nash-lp .nash-container { padding: 0 20px; } }
+
+    /* ── Typography */
+    #nash-lp .nash-display, #nash-lp .nash-eyebrow, #nash-lp .nash-squeeze-pow, #nash-lp .nash-stage-pow,
+    #nash-lp h1, #nash-lp h2, #nash-lp h3 {
+      font-family: 'Bangers', 'Impact', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    #nash-lp .nash-display {
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep);
+      font-size: clamp(56px, 9vw, 132px);
+    }
+    #nash-lp .nash-display-md { font-size: clamp(34px, 5vw, 60px); }
+    #nash-lp .nash-display-sm { font-size: clamp(28px, 4vw, 44px); }
+    #nash-lp .nash-accent-gold { color: var(--gold); }
+    #nash-lp .nash-accent-red {
+      color: var(--red-bright);
+      text-shadow: 3px 3px 0 #fff, 6px 6px 0 var(--navy-deep);
+    }
+
+    /* ── Hero */
+    #nash-lp .nash-hero {
+      position: relative;
+      padding: 100px 0 80px;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(80,135,221,0.18), transparent 55%),
+        radial-gradient(ellipse at 75% 70%, rgba(249,166,48,0.14), transparent 60%),
+        var(--navy);
+    }
+    #nash-lp .nash-hero-skyline {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 60%;
+      background-image: url('/images/lp/law-firm-reset/skyline.svg');
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: cover;
+      opacity: 0.55;
+      z-index: 1;
+      pointer-events: none;
+      mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+    }
+    #nash-lp .nash-halftone {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-size: 8px 8px;
+      mix-blend-mode: screen;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    #nash-lp .nash-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 960px) {
+      #nash-lp .nash-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      #nash-lp .nash-hero { padding: 64px 0 48px; }
+    }
+
+    #nash-lp .nash-eyebrow {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 8px 16px;
+      letter-spacing: 0.12em;
+      font-size: 16px;
+      transform: rotate(-2deg);
+      margin-bottom: 24px;
+      box-shadow: 4px 4px 0 var(--navy-deep);
+    }
+    #nash-lp .nash-hero-copy h1 { margin: 0 0 24px; }
+    #nash-lp .nash-lede {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: clamp(19px, 2.2vw, 26px);
+      color: var(--steel);
+      line-height: 1.35;
+      max-width: 540px;
+      margin: 0 0 32px;
+    }
+
+    #nash-lp .nash-squeeze {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(80, 135, 221, 0.12);
+      border: 2px solid var(--blue);
+      border-radius: 4px;
+      padding: 16px 18px 16px 24px;
+      box-shadow: 5px 5px 0 var(--navy-deep);
+      margin: 0 0 28px;
+      max-width: 580px;
+      position: relative;
+      transform: rotate(-0.4deg);
+    }
+    #nash-lp .nash-squeeze-pow {
+      flex-shrink: 0;
+      background: var(--red);
+      color: #fff;
+      padding: 6px 12px;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      transform: rotate(-6deg);
+      box-shadow: 2px 2px 0 var(--navy-deep);
+    }
+    #nash-lp .nash-squeeze p {
+      margin: 0;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+      line-height: 1.4;
+    }
+    #nash-lp .nash-squeeze strong { color: #8bb4f5; }
+
+    #nash-lp .nash-scroll-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--gold);
+      color: var(--navy-deep);
+      padding: 18px 30px;
+      font-family: 'Bangers', sans-serif;
+      font-size: clamp(22px, 2.4vw, 28px);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 6px 6px 0 var(--navy-deep);
+      transform: rotate(-1deg);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    #nash-lp .nash-scroll-cta:hover {
+      transform: rotate(-1deg) translate(-3px, -3px);
+      box-shadow: 9px 9px 0 var(--navy-deep);
+      background: var(--gold-bright);
+    }
+    #nash-lp .nash-arrow {
+      display: inline-block;
+      animation: nash-arrow-bob 1.6s ease-in-out infinite;
+    }
+    @keyframes nash-arrow-bob {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(4px); }
+    }
+
+    /* Hero art */
+    #nash-lp .nash-hero-art {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      min-height: 660px;
+      align-self: stretch;
+    }
+    @media (max-width: 960px) {
+      #nash-lp .nash-hero-art { min-height: 560px; justify-content: center; }
+    }
+    #nash-lp .nash-woman {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      margin-bottom: -80px;
+      filter: drop-shadow(0 18px 44px rgba(0,0,0,0.6));
+    }
+    #nash-lp .nash-bat-stage {
+      position: absolute;
+      top: -4%;
+      right: -8%;
+      width: 360px;
+      height: 360px;
+      z-index: 2;
+      pointer-events: none;
+      transform-origin: 34% 97%;
+      animation: nash-bat-pendulum 10s ease-in-out infinite;
+    }
+    @keyframes nash-bat-pendulum {
+      0%, 100% { transform: rotate(-30deg); }
+      50%      { transform: rotate(30deg);  }
+    }
+    #nash-lp .nash-bat {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 20px rgba(249,166,48,0.65));
+    }
+    #nash-lp .nash-bat-glow {
+      position: absolute; inset: -30%;
+      background: radial-gradient(circle, rgba(249,166,48,0.55) 0%, rgba(249,166,48,0.15) 35%, transparent 65%);
+      filter: blur(8px);
+      animation: nash-bat-pulse 3s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes nash-bat-pulse {
+      0%, 100% { transform: scale(0.92); opacity: 0.55; }
+      50%      { transform: scale(1.10); opacity: 0.95; }
+    }
+
+    /* ══════════════════════════════════════════
+       STAGES (select / info / contract)
+    ══════════════════════════════════════════ */
+    #nash-lp .nash-stage {
+      position: relative;
+      padding: 96px 0 100px;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    #nash-lp .nash-stage::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-size: 8px 8px;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    #nash-lp .nash-select {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    }
+    #nash-lp .nash-info {
+      background: var(--navy);
+    }
+    #nash-lp .nash-contract {
+      background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    }
+
+    #nash-lp .nash-stage-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px;
+      position: relative;
+      z-index: 3;
+    }
+    #nash-lp .nash-stage-pow {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 6px 16px;
+      font-size: 16px;
+      letter-spacing: 0.16em;
+      transform: rotate(-3deg);
+      box-shadow: 3px 3px 0 var(--gold);
+      margin-bottom: 20px;
+    }
+    #nash-lp .nash-stage-header h2 { margin: 0 0 14px; }
+    #nash-lp .nash-stage-line { display: block; }
+    #nash-lp .nash-stage-sub {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: clamp(15px, 1.7vw, 18px);
+      color: var(--steel);
+      line-height: 1.5;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── Product cards */
+    #nash-lp .nash-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 3;
+    }
+    #nash-lp .nash-product {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.10), transparent 70%),
+        rgba(255,255,255,0.04);
+      border: 2px solid rgba(255,255,255,0.10);
+      padding: 30px 26px 28px;
+      position: relative;
+      cursor: pointer;
+      text-align: left;
+      color: #fff;
+      font-family: inherit;
+      transition: transform 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+    }
+    #nash-lp .nash-product:nth-child(1) { transform: rotate(-0.6deg); }
+    #nash-lp .nash-product:nth-child(2) { transform: rotate(0.6deg); }
+    #nash-lp .nash-product:nth-child(3) { transform: rotate(-0.4deg); }
+    #nash-lp .nash-product:hover, #nash-lp .nash-product:focus-visible {
+      transform: rotate(0) translateY(-6px);
+      border-color: var(--gold);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.18), transparent 70%),
+        rgba(249,166,48,0.06);
+      box-shadow: 6px 6px 0 var(--navy-deep);
+      outline: none;
+    }
+    #nash-lp .nash-product-num {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-family: 'Bangers', sans-serif;
+      font-size: 44px;
+      line-height: 1;
+      color: var(--gold);
+      -webkit-text-stroke: 1px var(--navy-deep);
+      text-shadow: 2px 2px 0 var(--navy-deep);
+      opacity: 0.85;
+    }
+    #nash-lp .nash-product h3 {
+      font-family: 'Bangers', sans-serif;
+      font-size: clamp(28px, 2.4vw, 34px);
+      letter-spacing: 0.04em;
+      color: #fff;
+      text-shadow: 2px 2px 0 var(--navy-deep);
+      margin: 0 0 4px;
+      line-height: 1.05;
+    }
+    #nash-lp .nash-product-tagline {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 14px;
+    }
+    #nash-lp .nash-product-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      color: var(--steel);
+      line-height: 1.5;
+      margin: 0 0 22px;
+      flex: 1;
+    }
+    #nash-lp .nash-product-cta {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--gold);
+      color: var(--navy-deep);
+      padding: 10px 18px;
+      font-family: 'Bangers', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      box-shadow: 4px 4px 0 var(--navy-deep);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    #nash-lp .nash-product:hover .nash-product-cta {
+      background: var(--gold-bright);
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 var(--navy-deep);
+    }
+
+    /* ── Info form */
+    #nash-lp .nash-form-frame {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      border: 4px solid var(--gold);
+      box-shadow:
+        10px 10px 0 var(--red),
+        20px 20px 0 var(--navy-deep);
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 32px;
+      z-index: 3;
+    }
+    @media (max-width: 720px) {
+      #nash-lp .nash-form-frame { padding: 20px; }
+    }
+    #nash-lp .nash-back {
+      background: none;
+      border: none;
+      color: var(--navy-mid);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 18px;
+    }
+    #nash-lp .nash-back:hover { color: var(--gold-bright); }
+
+    #nash-lp .nash-form { display: flex; flex-direction: column; gap: 14px; }
+    #nash-lp .nash-row { display: flex; flex-direction: column; gap: 14px; }
+    #nash-lp .nash-row.nash-row-2 { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    #nash-lp .nash-row.nash-row-3 { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 560px) {
+      #nash-lp .nash-row.nash-row-2 { grid-template-columns: 1fr 1fr; }
+      #nash-lp .nash-row.nash-row-3 { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    #nash-lp .nash-field { display: flex; flex-direction: column; gap: 6px; }
+    #nash-lp .nash-field-title[hidden] { display: none; }
+    #nash-lp .nash-label {
+      font-family: 'Bangers', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      color: var(--navy-mid);
+    }
+    #nash-lp .nash-label em { color: var(--red); font-style: normal; }
+    #nash-lp .nash-form input[type="text"],
+    #nash-lp .nash-form input[type="email"],
+    #nash-lp .nash-form input[type="tel"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--navy-mid);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--navy-deep);
+      background: #fff;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    #nash-lp .nash-form input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(249,166,48,0.18);
+      background: #fffdf6;
+    }
+    #nash-lp .nash-form input:invalid:not(:placeholder-shown):not(:focus) {
+      border-color: var(--red);
+    }
+    #nash-lp .nash-submit {
+      margin-top: 12px;
+      padding: 16px 24px;
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-family: 'Bangers', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 6px 6px 0 var(--navy-deep);
+      transform: rotate(-0.5deg);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    #nash-lp .nash-submit:hover:not(:disabled) {
+      transform: rotate(-0.5deg) translate(-3px, -3px);
+      box-shadow: 9px 9px 0 var(--navy-deep);
+      background: var(--gold-bright);
+    }
+    #nash-lp .nash-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+    #nash-lp .nash-error {
+      margin-top: 8px;
+      padding: 12px 14px;
+      background: rgba(224,74,44,0.10);
+      border: 2px solid var(--red);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--red);
+    }
+
+    /* ── Contract embed */
+    #nash-lp .nash-embed-frame {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      border: 4px solid var(--gold);
+      box-shadow:
+        10px 10px 0 var(--red),
+        20px 20px 0 var(--navy-deep);
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 16px;
+      z-index: 3;
+    }
+    @media (max-width: 720px) {
+      #nash-lp .nash-embed-frame { box-shadow: 6px 6px 0 var(--red), 12px 12px 0 var(--navy-deep); padding: 10px; }
+    }
+    #nash-lp .nash-embed-tape {
+      position: absolute;
+      width: 44px; height: 44px;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Bangers', sans-serif;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 2px 2px 0 var(--navy-deep);
+      z-index: 2;
+    }
+    #nash-lp .nash-embed-tape-tl { top: -18px; left: -18px; transform: rotate(-12deg); }
+    #nash-lp .nash-embed-tape-tr { top: -18px; right: -18px; transform: rotate(12deg); background: var(--gold); color: var(--navy-deep); }
+
+    #nash-lp #nash-embed-host { min-height: 720px; }
+    #nash-lp #nash-embed-host iframe { background: #fff !important; border: 0; }
+
+    /* Both-product fallback panel */
+    #nash-lp .nash-both-fallback {
+      max-width: 760px;
+      margin: 32px auto 0;
+      background: rgba(80,135,221,0.10);
+      border: 2px solid var(--blue);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 6px 6px 0 var(--navy-deep);
+      position: relative;
+      z-index: 3;
+    }
+    #nash-lp .nash-both-fallback h3 { margin: 0 0 12px; }
+    #nash-lp .nash-both-fallback p {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      color: var(--steel);
+      font-size: 17px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ════════════════════════════════════
+       Mobile — comprehensive overrides
+    ════════════════════════════════════ */
+    @media (max-width: 720px) {
+      #nash-lp .nash-hero { padding: 40px 0 24px; }
+      #nash-lp .nash-hero-skyline { height: 42%; opacity: 0.45; }
+      #nash-lp .nash-display { font-size: clamp(44px, 13vw, 72px); }
+      #nash-lp .nash-eyebrow { font-size: 12px; padding: 6px 12px; margin-bottom: 16px; letter-spacing: 0.10em; }
+      #nash-lp .nash-hero-copy h1 { margin-bottom: 18px; }
+      #nash-lp .nash-lede { font-size: 17px; line-height: 1.4; margin-bottom: 24px; }
+      #nash-lp .nash-squeeze {
+        flex-direction: column; align-items: flex-start; gap: 10px;
+        padding: 14px 16px; margin-bottom: 24px; transform: none;
+        box-shadow: 4px 4px 0 var(--navy-deep);
+      }
+      #nash-lp .nash-squeeze-pow { font-size: 15px; padding: 4px 10px; transform: rotate(-4deg); }
+      #nash-lp .nash-squeeze p { font-size: 14px; }
+      #nash-lp .nash-scroll-cta {
+        padding: 14px 24px; font-size: 22px; transform: none;
+        box-shadow: 5px 5px 0 var(--navy-deep);
+      }
+      #nash-lp .nash-scroll-cta:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--navy-deep); }
+      #nash-lp .nash-hero-art { min-height: 440px; margin-top: 16px; }
+      #nash-lp .nash-woman { max-width: 360px; margin-bottom: -28px; }
+      #nash-lp .nash-bat-stage { width: 180px; height: 180px; right: 0; top: 0; }
+
+      #nash-lp .nash-stage { padding: 56px 0 64px; }
+      #nash-lp .nash-stage-header { margin-bottom: 32px; }
+      #nash-lp .nash-stage-pow { font-size: 14px; padding: 5px 12px; margin-bottom: 14px; }
+      #nash-lp .nash-stage-sub { font-size: 15px; }
+
+      #nash-lp .nash-products { gap: 18px; }
+      #nash-lp .nash-product:nth-child(1),
+      #nash-lp .nash-product:nth-child(2),
+      #nash-lp .nash-product:nth-child(3) { transform: none; }
+      #nash-lp .nash-product { padding: 24px 22px; }
+      #nash-lp .nash-product-num { font-size: 36px; top: 16px; right: 18px; }
+      #nash-lp .nash-product h3 { font-size: 26px; }
+
+      #nash-lp .nash-form-frame {
+        border-width: 3px; padding: 20px; border-radius: 12px;
+        box-shadow: 5px 5px 0 var(--red), 10px 10px 0 var(--navy-deep);
+      }
+      #nash-lp .nash-submit { font-size: 22px; padding: 14px 20px; transform: none; box-shadow: 5px 5px 0 var(--navy-deep); }
+
+      #nash-lp .nash-embed-frame { border-width: 3px; border-radius: 10px; padding: 8px;
+        box-shadow: 5px 5px 0 var(--red), 10px 10px 0 var(--navy-deep);
+      }
+      #nash-lp .nash-embed-tape { width: 32px; height: 32px; font-size: 16px; }
+      #nash-lp .nash-embed-tape-tl { top: -12px; left: -10px; }
+      #nash-lp .nash-embed-tape-tr { top: -12px; right: -10px; }
+      #nash-lp #nash-embed-host { min-height: 680px; }
+    }
+
+    @media (max-width: 420px) {
+      #nash-lp .nash-display { font-size: clamp(38px, 14vw, 60px); }
+      #nash-lp .nash-hero-art { min-height: 380px; }
+      #nash-lp .nash-woman { max-width: 320px; margin-bottom: -22px; }
+      #nash-lp .nash-bat-stage { width: 148px; height: 148px; }
+      #nash-lp #nash-embed-host { min-height: 640px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #nash-lp .nash-bat-stage,
+      #nash-lp .nash-bat-glow,
+      #nash-lp .nash-arrow {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <script is:inline define:vars={{ FORMSPREE_ENDPOINT, PRODUCTS }}>
+    (function () {
+      const main = document.getElementById('nash-lp');
+      const productById = Object.fromEntries(PRODUCTS.map(function (p) { return [p.slug, p]; }));
+      const form = document.getElementById('nash-form');
+      const errorEl = form.querySelector('.nash-error');
+      const submitBtn = form.querySelector('.nash-submit');
+      const productHidden = document.getElementById('nash-form-product');
+      const titleField = form.querySelector('[data-title-field]');
+      const titleInput = titleField ? titleField.querySelector('input') : null;
+      const embedHost = document.getElementById('nash-embed-host');
+      const bothFallback = document.getElementById('nash-both-fallback');
+      const contractProductEl = document.getElementById('nash-contract-product');
+      const infoSub = document.getElementById('nash-info-sub');
+
+      // Track UTMs from the URL and default to "nashville" so attribution is clear.
+      const UTM_DEFAULTS = {
+        utm_source: 'nashville',
+        utm_medium: 'landing-page',
+        utm_campaign: 'nashville',
+        utm_content: '',
+        utm_term: ''
+      };
+      const utms = (function () {
+        const p = new URLSearchParams(location.search);
+        return ['utm_source','utm_medium','utm_campaign','utm_content','utm_term']
+          .reduce(function (acc, k) { acc[k] = p.get(k) || UTM_DEFAULTS[k] || ''; return acc; }, {});
+      })();
+
+      function track(event, extra) {
+        extra = extra || {};
+        if (typeof posthog !== 'undefined') {
+          posthog.capture(event, Object.assign({ lp: 'nashville' }, extra));
+        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(Object.assign({ event: event, lp: 'nashville' }, extra));
+      }
+
+      function setStage(name) {
+        main.setAttribute('data-stage', name);
+        const target = document.querySelector('section[data-stage="' + name + '"]');
+        if (target) requestAnimationFrame(function () { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        track('nashville_stage', { stage: name });
+      }
+
+      // Product selection ----------------------------------------------------
+      document.querySelectorAll('[data-select-product]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const slug = this.getAttribute('data-select-product');
+          const product = productById[slug];
+          if (!product) return;
+          productHidden.value = slug;
+
+          // Show/hide the Title field depending on the product
+          if (titleField) {
+            if (product.askTitle) {
+              titleField.hidden = false;
+              if (titleInput) titleInput.required = true;
+            } else {
+              titleField.hidden = true;
+              if (titleInput) { titleInput.required = false; titleInput.value = ''; }
+            }
+          }
+
+          if (infoSub) {
+            infoSub.textContent = "We'll pre-fill the " + product.name + " contract so you don't have to re-type a thing.";
+          }
+          if (contractProductEl) contractProductEl.textContent = product.name + '.';
+
+          track('nashville_product_selected', { product: slug });
+          setStage('info');
+        });
+      });
+
+      // Wire any data-go-stage buttons (e.g. Back)
+      document.querySelectorAll('[data-go-stage]').forEach(function (btn) {
+        btn.addEventListener('click', function () { setStage(this.getAttribute('data-go-stage')); });
+      });
+
+      // Build a PandaDoc embed exactly like their snippet does — pass the
+      // payload as &key=URL-encoded-JSON for each top-level key in `data`.
+      function buildEmbedIframe(opts) {
+        const dataQs = opts.data ? Object.keys(opts.data).map(function (k) {
+          return '&' + k + '=' + encodeURIComponent(JSON.stringify(opts.data[k]));
+        }).join('') : '';
+        const iframe = document.createElement('iframe');
+        iframe.frameBorder = 0;
+        iframe.src = opts.url + dataQs;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.style.border = '0';
+        iframe.style.minHeight = '720px';
+        iframe.style.background = '#fff';
+        return iframe;
+      }
+
+      function loadContract(product, values) {
+        // "Both Products" has no PandaDoc embed yet — surface the fallback.
+        if (!product.eformUrl) {
+          embedHost.innerHTML = '';
+          if (bothFallback) bothFallback.hidden = false;
+          // Hide the iframe frame chrome since there's nothing to show
+          const frame = embedHost.closest('.nash-embed-frame');
+          if (frame) frame.hidden = true;
+          return;
+        }
+        if (bothFallback) bothFallback.hidden = true;
+        const frame = embedHost.closest('.nash-embed-frame');
+        if (frame) frame.hidden = false;
+
+        // Map our form values into the product's PandaDoc variable names.
+        const variables = {};
+        Object.keys(product.variableMap).forEach(function (formKey) {
+          const pdKey = product.variableMap[formKey];
+          variables[pdKey] = values[formKey] || '';
+        });
+
+        const data = {
+          variables: variables,
+          metadata: {
+            lead_source: 'Website Form',
+            landing_page: 'nashville',
+            product: product.slug,
+            utm_source: utms.utm_source,
+            utm_medium: utms.utm_medium,
+            utm_campaign: utms.utm_campaign,
+            utm_content: utms.utm_content,
+            utm_term: utms.utm_term
+          },
+          fields: {}
+        };
+
+        const host = document.getElementById('nash-embed-host');
+        host.innerHTML = '';
+        const iframe = buildEmbedIframe({ url: product.eformUrl, data: data });
+        host.style.height = '720px';
+        host.style.width = '100%';
+        host.appendChild(iframe);
+      }
+
+      // Form submission ------------------------------------------------------
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+
+        const formData = new FormData(form);
+        const values = {
+          product:   String(formData.get('product')   || ''),
+          firstname: String(formData.get('firstname') || '').trim(),
+          lastname:  String(formData.get('lastname')  || '').trim(),
+          email:     String(formData.get('email')     || '').trim(),
+          phone:     String(formData.get('phone')     || '').trim(),
+          title:     String(formData.get('title')     || '').trim(),
+          company:   String(formData.get('company')   || '').trim(),
+          street:    String(formData.get('street')    || '').trim(),
+          city:      String(formData.get('city')      || '').trim(),
+          state:     String(formData.get('state')     || '').trim().toUpperCase(),
+          zip:       String(formData.get('zip')       || '').trim()
+        };
+
+        const product = productById[values.product];
+        if (!product) {
+          errorEl.textContent = 'Please pick a contract before continuing.';
+          errorEl.hidden = false;
+          return;
+        }
+
+        submitBtn.disabled = true;
+        const originalBtnText = submitBtn.querySelector('span').textContent;
+        submitBtn.querySelector('span').textContent = 'Saving…';
+
+        // Build Formspree payload — every product type lands in the same inbox,
+        // distinguished by `product`.
+        const formspreePayload = Object.assign({}, values, utms, {
+          landing_page: 'nashville',
+          product_name: product.name,
+          _subject: 'Nashville LP — ' + product.name + ' — ' + values.company
+        });
+
+        try {
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(formspreePayload)
+          });
+          if (!res.ok) {
+            const errText = await res.text();
+            throw new Error('Formspree submission failed: ' + res.status + ' — ' + errText);
+          }
+          track('nashville_form_submitted', { product: product.slug });
+
+          // Pixel lead event (browser + CAPI, dedupe via hash inside the helper)
+          if (window.__metaCAPI) {
+            window.__metaCAPI.track(
+              'Lead',
+              {
+                content_name: 'nashville-contract',
+                content_category: 'nashville-lp',
+                product: product.slug
+              },
+              {
+                em: values.email,
+                ph: values.phone,
+                fn: values.firstname,
+                ln: values.lastname
+              }
+            );
+          }
+
+          loadContract(product, values);
+          setStage('contract');
+        } catch (err) {
+          console.error('Nashville form submission error:', err);
+          errorEl.textContent = "Something went wrong. Please try again, or email info@attorneyassistant.com and we'll send your contract over directly.";
+          errorEl.hidden = false;
+          submitBtn.disabled = false;
+          submitBtn.querySelector('span').textContent = originalBtnText;
+        }
+      });
+
+      track('nashville_lp_view');
+    })();
+  </script>
+
+</ComicCampaignLayout>
