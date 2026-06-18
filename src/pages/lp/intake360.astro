@@ -115,6 +115,23 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             </tr>
             <tr>
               <td>
+                <span class="i360-category i360-category--appointment">Appointment Setting</span>
+              </td>
+              <td>Booked appointment or warm transfer</td>
+              <td>
+                <ul class="i360-list">
+                  <li>Confirmed Appointment</li>
+                  <li>Warm Transfer</li>
+                </ul>
+              </td>
+              <td>
+                <div class="i360-credits">
+                  <strong>2</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <span class="i360-category i360-category--evaluation">Evaluation / Intake</span>
               </td>
               <td>Intake completion &mdash; not signed</td>
@@ -127,22 +144,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
               <td>
                 <div class="i360-credits">
                   <strong>4</strong>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span class="i360-category i360-category--review">Review</span>
-              </td>
-              <td>5-Star Google Review</td>
-              <td>
-                <ul class="i360-list">
-                  <li>Verified 5-star review</li>
-                </ul>
-              </td>
-              <td>
-                <div class="i360-credits">
-                  <strong>5</strong>
                 </div>
               </td>
             </tr>
@@ -482,6 +483,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     color: #b42318;
   }
 
+  .i360-category--appointment {
+    background: #ede9fe;
+    color: #5b21b6;
+  }
+
   .i360-category--evaluation {
     background: #eff8ff;
     color: #175cd3;
@@ -490,11 +496,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   .i360-category--conversion {
     background: #fef6e8;
     color: #b54708;
-  }
-
-  .i360-category--review {
-    background: #fef3c7;
-    color: #92400e;
   }
 
   .i360-list {

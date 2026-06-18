@@ -41,13 +41,6 @@ const buckets = [
       "Workflow tasks tied to completed actions",
     ],
   },
-  {
-    num: "4",
-    title: "Reviews",
-    items: [
-      "Five-Star Google review (5 credits)",
-    ],
-  },
 ];
 
 const journey = [
@@ -240,8 +233,8 @@ const included = [
               {[
                 { label: "Reception (call answered)", credits: "0.5", dollar: "($5)" },
                 { label: "Unsuccessful Outbound", credits: "1", dollar: "($10)" },
+                { label: "Appointment Setting", credits: "2", dollar: "($20)" },
                 { label: "Evaluation / intake completion (not signed)", credits: "4", dollar: "($40)" },
-                { label: "5-Star Google Review", credits: "5", dollar: "($50)" },
                 { label: "Conversion (signed CFA)", credits: "8", dollar: "($80)" },
               ].map((row) => (
                 <div class="flex items-center justify-between px-4 py-2.5">
