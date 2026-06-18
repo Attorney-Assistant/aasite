@@ -360,8 +360,7 @@ import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
   </script>
 
   <script is:inline>
-    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'no-answer' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'lp_view', lp_name: 'no-answer' });
   </script>
 

@@ -99,8 +99,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         fbq('track', 'Lead', { content_name: 'Stop Babysitting Your Firm' });
       }
     }
-    if (typeof posthog !== 'undefined') posthog.capture('Call Booked', { source: 'stop-babysitting-your-firm' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'booking_confirmed', conversion_type: 'schedule', source: 'stop-babysitting-your-firm' });
   </script>
 

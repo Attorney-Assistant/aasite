@@ -723,9 +723,6 @@ const IMG = '/images/lp/law-firm-reset';
     (function() {
       function track(event, extra) {
         extra = extra || {};
-        if (typeof posthog !== 'undefined') {
-          posthog.capture(event, Object.assign({ lp: 'nashville-book-now' }, extra));
-        }
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(Object.assign({ event: event, lp: 'nashville-book-now' }, extra));
       }

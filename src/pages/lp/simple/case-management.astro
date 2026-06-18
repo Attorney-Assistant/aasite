@@ -459,8 +459,7 @@ import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
 
   <!-- Tracking -->
   <script is:inline>
-    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'case-management' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'lp_view', lp_name: 'case-management' });
   </script>
 

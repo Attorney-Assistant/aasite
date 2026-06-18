@@ -67,9 +67,7 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
       fbq('track', 'Lead',     { content_name: 'Comic Campaign Call Booked' });
       fbq('trackCustom', 'invitee_meeting_scheduled');
     }
-
-    if (typeof posthog !== 'undefined') posthog.capture('Call Booked', { source: 'comic-campaign' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'call_booked',
       source: 'comic-campaign',

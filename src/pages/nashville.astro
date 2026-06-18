@@ -947,9 +947,6 @@ const PRODUCTS = [
 
       function track(event, extra) {
         extra = extra || {};
-        if (typeof posthog !== 'undefined') {
-          posthog.capture(event, Object.assign({ lp: 'nashville' }, extra));
-        }
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(Object.assign({ event: event, lp: 'nashville' }, extra));
       }
@@ -1033,18 +1030,15 @@ const PRODUCTS = [
           variables[pdKey] = values[formKey] || '';
         });
 
-        // Prefill the PandaDoc signer dialog (Email / First Name / Last Name).
-        // The key here MUST match the role name configured in the eform — change
-        // 'Client' below if your PandaDoc form uses a different role label.
-        const recipients = {};
-        recipients[product.recipientRole || 'Client'] = {
-          Email:     values.email     || '',
-          FirstName: values.firstname || '',
-          LastName:  values.lastname  || ''
-        };
-
+        // Note: we intentionally do NOT pass a `recipients` block here.
+        // PandaDoc's public-eforms POST returns 400 on submit if the role name
+        // in `recipients` doesn't exactly match a role defined on the eform.
+        // Once we know the real role name for each form, we can re-enable
+        // the signer-dialog prefill by adding:
+        //   recipients: { '<RoleName>': { Email, FirstName, LastName } }
+        // Document variables prefill regardless, so the user only re-types
+        // their Email / First / Last in the signer dialog.
         const data = {
-          recipients: recipients,
           variables: variables,
           metadata: {
             lead_source: 'Website Form',

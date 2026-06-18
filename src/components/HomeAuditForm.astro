@@ -206,9 +206,6 @@ const FIRM_SIZES = [
         } catch (_) {}
 
         try {
-          if (typeof posthog !== 'undefined') {
-            posthog.capture('Form Submitted', { form_id: formId, form_name: 'home_intake_audit' });
-          }
         } catch (_) {}
 
         try {

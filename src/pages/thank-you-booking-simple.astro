@@ -84,9 +84,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       fbq('track', 'Lead',     { content_name: 'Simple Campaign Call Booked' });
       fbq('trackCustom', 'invitee_meeting_scheduled');
     }
-
-    if (typeof posthog !== 'undefined') posthog.capture('Call Booked', { source: 'simple-campaign' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'call_booked',
       source: 'simple-campaign',

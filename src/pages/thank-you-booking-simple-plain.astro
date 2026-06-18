@@ -77,9 +77,7 @@ import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
       fbq('track', 'Lead',     { content_name: 'Simple Campaign Operations Review Booked' });
       fbq('trackCustom', 'invitee_meeting_scheduled');
     }
-
-    if (typeof posthog !== 'undefined') posthog.capture('Meeting Booked', { meeting_type: 'operations_review' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'meeting_booked',
       meeting_type: 'operations_review',

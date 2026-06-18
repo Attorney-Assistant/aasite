@@ -102,9 +102,7 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
       fbq('track', 'Lead',     { content_name: 'Comic Campaign Rescue Call Booked' });
       fbq('trackCustom', 'invitee_meeting_scheduled');
     }
-
-    if (typeof posthog !== 'undefined') posthog.capture('Meeting Booked', { meeting_type: 'deploy_aa_rescue_call' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'meeting_booked',
       meeting_type: 'deploy_aa_rescue_call',

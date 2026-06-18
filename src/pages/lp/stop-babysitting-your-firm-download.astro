@@ -146,8 +146,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
                   if (typeof window.lintrk !== 'undefined') {
                     window.lintrk('track', { conversion_id: 27749049 });
                   }
-                  if (typeof posthog !== 'undefined') posthog.capture('Scorecard Downloaded', { source: 'stop-babysitting-download' });
-                  window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
                   window.dataLayer.push({ event: 'scorecard_download', source: 'stop-babysitting-your-firm-download' });
                 }
               });
@@ -670,8 +669,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <!-- Tracking -->
   <script is:inline>
-    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'stop-babysitting-download' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'lp_view', lp_name: 'stop-babysitting-your-firm-download' });
   </script>
 

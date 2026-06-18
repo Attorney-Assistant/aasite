@@ -781,10 +781,7 @@ const villains = [
 
     function trackStage(lp, stage, extra) {
       extra = extra || {};
-      if (typeof posthog !== 'undefined') {
-        posthog.capture(lp + ' LP Stage', Object.assign({ stage: stage }, extra));
-      }
-      window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(Object.assign({ event: lp.toLowerCase() + '_lp_stage', stage: stage }, extra));
     }
 

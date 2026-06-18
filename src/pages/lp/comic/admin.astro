@@ -358,8 +358,7 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
   </script>
 
   <script is:inline>
-    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'comic-admin' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'lp_view', lp_name: 'comic-admin' });
   </script>
 

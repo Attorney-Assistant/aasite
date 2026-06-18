@@ -1062,8 +1062,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <!-- Conversion tracking -->
   <script is:inline>
-    if (typeof posthog !== 'undefined') posthog.capture('LP Viewed', { page: 'boardwalk-seminar-2026' });
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'lp_view', lp_name: 'boardwalk-seminar-2026' });
   </script>
 
