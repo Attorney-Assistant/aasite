@@ -17,9 +17,11 @@ export default defineConfig({
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-impact-assistant") &&
         !page.includes("/apply/medical-record-retrieval-specialist") &&
+        !page.includes("/apply/legal-assistant") &&
+        !page.includes("/apply/immigration-legal-assistant") &&
+        !page.includes("/apply/sales-specialist") &&
         !page.includes("/case-studies") &&
-        !page.endsWith("/thank-you") &&
-        !page.endsWith("/thank-you/"),
+        !page.includes("/thank-you"),
     }),
     mdx(),
   ],

@@ -1,0 +1,95 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
+import ApplicationForm from "@components/ApplicationForm.astro";
+---
+
+<BaseLayout
+  title="Apply: Sales Specialist — Attorney Assistant"
+  description="Apply to join Attorney Assistant's bench as a remote Sales Specialist managing and qualifying inbound leads and scheduling discovery calls."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge badge-gold mb-4">We're Hiring · Remote</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Apply: Sales Specialist
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">
+        Join our bench of remote professionals and be considered for placement with our clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- Collapsible Job Description -->
+  <section class="py-8 md:py-10 bg-gray-25">
+    <div class="container-narrow max-w-3xl">
+      <details class="job-description card p-5 md:p-6">
+        <summary class="cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-base md:text-lg font-heading text-gray-900">About this role</span>
+          <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider flex items-center gap-2">
+            <span class="jd-show">View full description</span>
+            <span class="jd-hide hidden">Hide description</span>
+            <svg class="jd-icon w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </span>
+        </summary>
+
+        <div class="prose-brand mt-5 pt-5 border-t border-gray-200">
+          <h2>Sales Specialist – Attorney Assistant | Remote</h2>
+          <p class="text-sm font-semibold text-brand-gold">Philippines · English-Only · Remote</p>
+
+          <h3>Overview</h3>
+          <p>We're looking for a sales-driven Sales Intake Specialist to manage and qualify inbound leads for a growing business. In this role, you'll be the first point of contact for prospective clients, responding quickly, identifying their needs, and scheduling discovery calls.</p>
+          <p>Many of the individuals you speak with may be facing legal, medical, or financial challenges, so strong communication, empathy, and active listening skills are essential. This is an excellent opportunity for someone with a strong sales background who thrives in a fast-paced, results-oriented environment.</p>
+
+          <h3>Responsibilities</h3>
+          <ul>
+            <li>Monitor and respond to inbound leads during assigned coverage hours</li>
+            <li>Qualify leads using provided criteria and ask the right questions to confirm fit</li>
+            <li>Schedule discovery calls for Account Executives and ensure accurate calendar booking</li>
+            <li>Keep lead records organized and updated in the CRM or tracker</li>
+            <li>Follow up with leads who don't respond and keep conversations moving forward</li>
+            <li>Maintain professional, persuasive communication and a strong customer experience</li>
+            <li>Provide basic updates to the team, including lead status and booked call summaries</li>
+          </ul>
+
+          <h3>Qualifications</h3>
+          <ul>
+            <li>Hard sales or appointment setting experience required (closing experience is a plus)</li>
+            <li>Clear, professional English communication (spoken and written)</li>
+            <li>Confident, persuasive, and active listening is important</li>
+            <li>Highly organized, detail-oriented, self motivation and goal orientation</li>
+            <li>Comfortable working independently in a remote setup and documenting accurately</li>
+          </ul>
+
+          <h3>How It Works</h3>
+          <p>Joining our bench does not guarantee immediate placement — opportunities are based on client needs and how you present yourself when they arise. Candidates who stand out are those who come prepared, stay engaged, and take advantage of the resources we provide to put their best foot forward.</p>
+
+          <h3>Ready to Apply?</h3>
+          <p>If you're interested in joining our bench and being considered for this role, we'd love to hear from you. Apply today to get started.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <ApplicationForm
+    formspreeAction="https://formspree.io/f/xojoqnla"
+  />
+
+  <CareersPixel event="ViewContent" />
+
+</BaseLayout>
+
+<style>
+  details.job-description summary { list-style: none; }
+  details.job-description summary::-webkit-details-marker { display: none; }
+  details.job-description[open] .jd-show { display: none; }
+  details.job-description[open] .jd-hide { display: inline; }
+  details.job-description[open] .jd-icon { transform: rotate(180deg); }
+</style>

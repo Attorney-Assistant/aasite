@@ -71,6 +71,7 @@ RewriteRule ^calendly-booking-page-linkedin/?$ /book-call [R=301,L]
 RewriteRule ^calendly-booking-page-smb/?$ /book-call [R=301,L]
 
 # ── Removed legacy WP pages → redirect to nearest equivalent ──
+RewriteRule ^apply/?$ /careers [R=301,L]
 RewriteRule ^intake360-development/?$ /services/intake-360 [R=301,L]
 RewriteRule ^remoteworkculture/?$ /careers [R=301,L]
 RewriteRule ^in-office/?$ /careers [R=301,L]

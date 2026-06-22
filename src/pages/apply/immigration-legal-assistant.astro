@@ -1,0 +1,115 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
+import ApplicationForm from "@components/ApplicationForm.astro";
+---
+
+<BaseLayout
+  title="Apply: Legal Assistant, Immigration Law — Attorney Assistant"
+  description="Apply to join Attorney Assistant's bench as a remote Bilingual Immigration Legal Assistant supporting an immigration law firm with case management and client communication."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge badge-gold mb-4">We're Hiring · Remote</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Apply: Legal Assistant, Immigration Law
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">
+        Join our bench of remote legal professionals and be considered for placement with our law firm clients.
+      </p>
+    </div>
+  </section>
+
+  <!-- Collapsible Job Description -->
+  <section class="py-8 md:py-10 bg-gray-25">
+    <div class="container-narrow max-w-3xl">
+      <details class="job-description card p-5 md:p-6">
+        <summary class="cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-base md:text-lg font-heading text-gray-900">About this role</span>
+          <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider flex items-center gap-2">
+            <span class="jd-show">View full description</span>
+            <span class="jd-hide hidden">Hide description</span>
+            <svg class="jd-icon w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </span>
+        </summary>
+
+        <div class="prose-brand mt-5 pt-5 border-t border-gray-200">
+          <h2>Legal Assistant, Immigration Law – Attorney Assistant | Remote</h2>
+          <p class="text-sm font-semibold text-brand-gold">LATAM · Bilingual (English/Spanish) · Remote</p>
+
+          <h3>Overview</h3>
+          <p>We are looking for a detail-oriented and proactive Bilingual Immigration Legal Assistant to support an immigration law firm based in Virginia. The firm handles immigration matters, including deportation defense and immigration court cases.</p>
+          <p>The ideal candidate is highly organized, client-focused, and comfortable managing multiple active cases, documentation, deadlines, and client communications. This role is best suited for someone with strong follow-through, excellent communication skills in English and Spanish, and prior immigration law experience.</p>
+
+          <h3>Key Responsibilities</h3>
+          <ul>
+            <li>Manage immigration case files from intake through filing and case completion</li>
+            <li>Maintain accurate case records, notes, and documentation in the firm's systems</li>
+            <li>Monitor case progress and track important deadlines</li>
+            <li>Organize electronic client files and supporting documents</li>
+            <li>Review case files for completeness and identify missing information or documents</li>
+            <li>Communicate with clients regarding case status, document requests, and next steps</li>
+            <li>Follow up with clients to obtain required forms, evidence, signatures, and supporting documents</li>
+            <li>Answer routine case-related questions and escalate legal questions to the attorney</li>
+            <li>Assist with preparing immigration forms, applications, petitions, and supporting packets</li>
+            <li>Prepare correspondence, cover letters, and filing materials</li>
+            <li>Coordinate translation requests and supporting documentation as needed</li>
+            <li>Help ensure files and forms are complete and ready for attorney or paralegal review</li>
+          </ul>
+
+          <h3>Required Skills &amp; Qualifications</h3>
+          <ul>
+            <li>Bilingual in English and Spanish</li>
+            <li>Strong verbal and written communication skills</li>
+            <li>Highly organized with strong attention to detail and document accuracy</li>
+            <li>Ability to manage multiple active cases and competing deadlines</li>
+            <li>Professional, empathetic, and client-focused communication style</li>
+            <li>Strong follow-up skills and ability to keep clients informed</li>
+            <li>Ability to identify missing information and proactively resolve issues</li>
+            <li>Reliable, accountable, and able to work independently while supporting attorneys and team members</li>
+            <li>Proficient with Microsoft Office and Google Workspace</li>
+            <li>Comfortable managing large volumes of documentation efficiently</li>
+          </ul>
+
+          <h3>Preferred Experience</h3>
+          <ul>
+            <li>Immigration law experience is preferred</li>
+            <li>Experience with deportation defense, immigration court, or family-based immigration matters is a plus</li>
+            <li>Legal assistant, paralegal, or immigration case management experience</li>
+            <li>Experience using Clio, Clio Grow, Clio Manage, Docketwise, or similar legal systems</li>
+            <li>Experience working in a fast-paced law firm environment</li>
+            <li>Remote legal assistant or virtual assistant experience is a plus</li>
+          </ul>
+
+          <h3>How It Works</h3>
+          <p>Joining our bench does not guarantee immediate placement — opportunities are based on client needs and how you present yourself when they arise. Candidates who stand out are those who come prepared, stay engaged, and take advantage of the resources we provide to put their best foot forward.</p>
+
+          <h3>Ready to Apply?</h3>
+          <p>If you're interested in joining our bench and being considered for this role, we'd love to hear from you. Apply today to get started.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <ApplicationForm
+    formspreeAction="https://formspree.io/f/mykqydja"
+  />
+
+  <CareersPixel event="ViewContent" />
+
+</BaseLayout>
+
+<style>
+  details.job-description summary { list-style: none; }
+  details.job-description summary::-webkit-details-marker { display: none; }
+  details.job-description[open] .jd-show { display: none; }
+  details.job-description[open] .jd-hide { display: inline; }
+  details.job-description[open] .jd-icon { transform: rotate(180deg); }
+</style>
