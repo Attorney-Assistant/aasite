@@ -87,6 +87,17 @@ const PRODUCTS = [
         eformUrl: 'https://eform.pandadoc.com/?eform=f44fdf62-5420-489c-95c5-5e215c16b6a3'
       }
     ]
+  },
+  {
+    slug: 'both',
+    name: 'Both Products',
+    tagline: 'The full rescue',
+    description: "Intake360 + Impact Assistant together. AI on the front line, our on-staff humans behind the work, all wired into your firm.",
+    /* No direct eform — routes through the Impact support-type picker, then
+       stacks the Intake360 + chosen Impact contracts (see loadContract). */
+    eformUrl: null,
+    askTitle: true,
+    needsImpactType: true
   }
 ];
 ---
@@ -294,11 +305,7 @@ const PRODUCTS = [
           <p class="nash-stage-sub">Everything's pre-filled. Review, sign, and you're locked in at the Nashville rate.</p>
         </div>
 
-        <div class="nash-embed-frame">
-          <span class="nash-embed-tape nash-embed-tape-tl" aria-hidden="true">★</span>
-          <span class="nash-embed-tape nash-embed-tape-tr" aria-hidden="true">★</span>
-          <div id="nash-embed-host"></div>
-        </div>
+        <div class="nash-embed-list" id="nash-embed-list"></div>
       </div>
     </section>
 
@@ -849,8 +856,17 @@ const PRODUCTS = [
     #nash-lp .nash-embed-tape-tl { top: -18px; left: -18px; transform: rotate(-12deg); }
     #nash-lp .nash-embed-tape-tr { top: -18px; right: -18px; transform: rotate(12deg); background: var(--gold); color: var(--navy-deep); }
 
-    #nash-lp #nash-embed-host { min-height: 720px; }
-    #nash-lp #nash-embed-host iframe { background: #fff !important; border: 0; }
+    #nash-lp .nash-embed-list .nash-embed-frame:not(:last-child) { margin-bottom: 56px; }
+    #nash-lp .nash-embed-label {
+      font-family: 'Bangers', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      color: var(--navy-mid);
+      text-align: center;
+      margin: 2px 0 14px;
+    }
+    #nash-lp .nash-embed-host { min-height: 720px; }
+    #nash-lp .nash-embed-host iframe { background: #fff !important; border: 0; }
 
     /* ════════════════════════════════════
        Mobile — comprehensive overrides
@@ -928,8 +944,9 @@ const PRODUCTS = [
       #nash-lp .nash-embed-tape { width: 32px; height: 32px; font-size: 16px; }
       #nash-lp .nash-embed-tape-tl { top: -12px; left: -10px; }
       #nash-lp .nash-embed-tape-tr { top: -12px; right: -10px; }
-      #nash-lp #nash-embed-host { min-height: 680px; }
-      #nash-lp #nash-embed-host iframe { min-height: 680px; }
+      #nash-lp .nash-embed-list .nash-embed-frame:not(:last-child) { margin-bottom: 40px; }
+      #nash-lp .nash-embed-host { min-height: 680px; }
+      #nash-lp .nash-embed-host iframe { min-height: 680px; }
     }
 
     @media (max-width: 480px) {
@@ -937,8 +954,8 @@ const PRODUCTS = [
       #nash-lp .nash-hero-art { min-height: 380px; }
       #nash-lp .nash-woman { max-width: 320px; margin-bottom: -22px; }
       #nash-lp .nash-bat-stage { width: 198px; height: 198px; left: calc(50% - 13px); bottom: 200px; }
-      #nash-lp #nash-embed-host { min-height: 640px; }
-      #nash-lp #nash-embed-host iframe { min-height: 640px; }
+      #nash-lp .nash-embed-host { min-height: 640px; }
+      #nash-lp .nash-embed-host iframe { min-height: 640px; }
 
       /* Stack the city/state/zip row on the smallest phones so each label has room */
       #nash-lp .nash-row.nash-row-3 { grid-template-columns: 1fr; }
@@ -968,11 +985,11 @@ const PRODUCTS = [
       const productHidden = document.getElementById('nash-form-product');
       const titleField = form.querySelector('[data-title-field]');
       const titleInput = titleField ? titleField.querySelector('input') : null;
-      const embedHost = document.getElementById('nash-embed-host');
       const contractProductEl = document.getElementById('nash-contract-product');
       const infoSub = document.getElementById('nash-info-sub');
       const infoBack = document.getElementById('nash-info-back');
       let currentProduct = null;
+      let impactFlow = 'impact'; // 'impact' or 'both' — which flow opened the support-type picker
 
       // Track UTMs from the URL and default to "nashville" so attribution is clear.
       const UTM_DEFAULTS = {
@@ -1015,7 +1032,9 @@ const PRODUCTS = [
           }
         }
         if (infoSub) {
-          infoSub.textContent = "We'll pre-fill the " + product.name + " contract so you don't have to re-type a thing.";
+          infoSub.textContent = product.contracts
+            ? "We'll pre-fill both contracts so you don't have to re-type a thing."
+            : "We'll pre-fill the " + product.name + " contract so you don't have to re-type a thing.";
         }
         if (contractProductEl) contractProductEl.textContent = product.name;
       }
@@ -1028,8 +1047,9 @@ const PRODUCTS = [
           if (!product) return;
           track('nashville_product_selected', { product: slug });
 
-          // Impact Assistant branches into four support types before the form.
-          if (product.types && product.types.length) {
+          // Impact Assistant (and "Both") branch into the four support types first.
+          if ((product.types && product.types.length) || product.needsImpactType) {
+            impactFlow = slug; // 'impact' or 'both'
             if (infoBack) infoBack.setAttribute('data-go-stage', 'impact-type');
             setStage('impact-type');
             return;
@@ -1049,13 +1069,27 @@ const PRODUCTS = [
           const base = productById['impact'];
           const type = base && base.types ? base.types.find(function (t) { return t.slug === typeSlug; }) : null;
           if (!type) return;
-          // Effective product = the Impact category config with this type's eform.
-          currentProduct = Object.assign({}, base, {
+          // The chosen Impact support-type contract.
+          const impactContract = Object.assign({}, base, {
             slug: 'impact-' + type.slug,
             name: base.name + ' – ' + type.name,
             eformUrl: type.eformUrl
           });
-          track('nashville_impact_type_selected', { type: typeSlug });
+
+          if (impactFlow === 'both') {
+            // "Both" stacks the Intake360 contract + the chosen Impact contract.
+            currentProduct = {
+              slug: 'both-' + type.slug,
+              name: 'Both Products',
+              askTitle: true,
+              contracts: [productById['intake360'], impactContract]
+            };
+            track('nashville_impact_type_selected', { type: typeSlug, flow: 'both' });
+          } else {
+            currentProduct = impactContract;
+            track('nashville_impact_type_selected', { type: typeSlug });
+          }
+
           applyProductToInfo(currentProduct);
           if (infoBack) infoBack.setAttribute('data-go-stage', 'impact-type');
           setStage('info');
@@ -1088,44 +1122,54 @@ const PRODUCTS = [
         return iframe;
       }
 
-      function loadContract(product, values) {
-        // Map our form values into the product's PandaDoc variable names.
+      // Build the PandaDoc payload for one contract from the form values.
+      function buildContractData(contract, values) {
         const variables = {};
-        Object.keys(product.variableMap).forEach(function (formKey) {
-          const pdKey = product.variableMap[formKey];
-          variables[pdKey] = values[formKey] || '';
+        Object.keys(contract.variableMap).forEach(function (formKey) {
+          variables[contract.variableMap[formKey]] = values[formKey] || '';
         });
-
-        // Prefill the PandaDoc signer dialog (Email / First / Last). PandaDoc
-        // silently ignores recipient keys whose role names don't match the
-        // eform, so it's safe to list multiple candidates per product —
-        // whichever matches will fire.
+        // Prefill the signer dialog (Email / First / Last). PandaDoc ignores
+        // recipient keys whose role doesn't match the eform, so listing multiple
+        // candidates is safe — whichever matches fires.
         const signerInfo = {
           Email:     values.email     || '',
           FirstName: values.firstname || '',
           LastName:  values.lastname  || ''
         };
-        const roleList = product.recipientRoles || ['Client'];
         const recipients = {};
-        roleList.forEach(function (role) { recipients[role] = signerInfo; });
-
-        // Keep payload minimal — match Josiah's original embed snippet shape.
-        // Extra custom metadata keys can trigger 400s from PandaDoc validation.
-        const data = {
+        (contract.recipientRoles || ['Client']).forEach(function (role) { recipients[role] = signerInfo; });
+        return {
           recipients: recipients,
           variables: variables,
-          metadata: {
-            lead_source: 'Website Form',
-            utm_campaign: utms.utm_campaign || 'nashville'
-          }
+          metadata: { lead_source: 'Website Form', utm_campaign: utms.utm_campaign || 'nashville' }
         };
+      }
 
-        const host = document.getElementById('nash-embed-host');
-        host.innerHTML = '';
-        const iframe = buildEmbedIframe({ url: product.eformUrl, data: data });
-        host.style.height = '720px';
-        host.style.width = '100%';
-        host.appendChild(iframe);
+      function loadContract(product, values) {
+        // Normally one contract; "Both" carries an array of contracts to stack.
+        const contracts = (product.contracts && product.contracts.length) ? product.contracts : [product];
+        const multi = contracts.length > 1;
+        const list = document.getElementById('nash-embed-list');
+        list.innerHTML = '';
+
+        contracts.forEach(function (contract) {
+          const frame = document.createElement('div');
+          frame.className = 'nash-embed-frame';
+          frame.innerHTML =
+            '<span class="nash-embed-tape nash-embed-tape-tl" aria-hidden="true">★</span>' +
+            '<span class="nash-embed-tape nash-embed-tape-tr" aria-hidden="true">★</span>';
+          if (multi) {
+            const label = document.createElement('p');
+            label.className = 'nash-embed-label';
+            label.textContent = contract.name;
+            frame.appendChild(label);
+          }
+          const host = document.createElement('div');
+          host.className = 'nash-embed-host';
+          host.appendChild(buildEmbedIframe({ url: contract.eformUrl, data: buildContractData(contract, values) }));
+          frame.appendChild(host);
+          list.appendChild(frame);
+        });
       }
 
       // Form submission ------------------------------------------------------
@@ -1150,7 +1194,8 @@ const PRODUCTS = [
         };
 
         const product = currentProduct || productById[values.product];
-        if (!product || !product.eformUrl) {
+        const hasContract = product && (product.eformUrl || (product.contracts && product.contracts.length));
+        if (!hasContract) {
           errorEl.textContent = 'Please pick a contract before continuing.';
           errorEl.hidden = false;
           return;
