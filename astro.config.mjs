@@ -20,6 +20,7 @@ export default defineConfig({
         !page.includes("/apply/legal-assistant") &&
         !page.includes("/apply/immigration-legal-assistant") &&
         !page.includes("/apply/sales-specialist") &&
+        !page.includes("/apply/bilingual-sales-specialist") &&
         !page.includes("/case-studies") &&
         !page.includes("/thank-you"),
     }),
