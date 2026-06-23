@@ -121,7 +121,7 @@ const PRODUCTS = [
             <p>Conference pricing locks in <strong>only while spots remain</strong>. Reserve yours today.</p>
           </div>
 
-          <a href="#start" class="nash-scroll-cta">
+          <a href="#start" class="nash-scroll-cta" data-go-stage="select">
             <span>Pick Your Contract</span>
             <span class="nash-arrow" aria-hidden="true">↓</span>
           </a>
@@ -288,7 +288,8 @@ const PRODUCTS = [
           <span class="nash-stage-pow">STEP 3</span>
           <h2 class="nash-display nash-display-md">
             <span class="nash-stage-line">Sign your</span>
-            <span class="nash-stage-line nash-accent-gold" id="nash-contract-product">contract.</span>
+            <span class="nash-stage-line nash-accent-gold" id="nash-contract-product"></span>
+            <span class="nash-stage-line">Contract</span>
           </h2>
           <p class="nash-stage-sub">Everything's pre-filled. Review, sign, and you're locked in at the Nashville rate.</p>
         </div>
@@ -670,6 +671,7 @@ const PRODUCTS = [
       text-shadow: 2px 2px 0 var(--navy-deep);
       margin: 0 0 4px;
       line-height: 1.05;
+      padding-right: 64px; /* clear the absolutely-positioned number */
     }
     #nash-lp .nash-product-tagline {
       font-family: 'Sora', sans-serif;
@@ -1013,7 +1015,7 @@ const PRODUCTS = [
         if (infoSub) {
           infoSub.textContent = "We'll pre-fill the " + product.name + " contract so you don't have to re-type a thing.";
         }
-        if (contractProductEl) contractProductEl.textContent = product.name + '.';
+        if (contractProductEl) contractProductEl.textContent = product.name;
       }
 
       // Product selection ----------------------------------------------------
@@ -1058,9 +1060,14 @@ const PRODUCTS = [
         });
       });
 
-      // Wire any data-go-stage buttons (e.g. Back)
+      // Wire any data-go-stage triggers (Back buttons + the hero CTA). Reset to
+      // the named stage and scroll to it — preventDefault so the hero anchor
+      // doesn't try to jump to #start, which is display:none past the select stage.
       document.querySelectorAll('[data-go-stage]').forEach(function (btn) {
-        btn.addEventListener('click', function () { setStage(this.getAttribute('data-go-stage')); });
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          setStage(this.getAttribute('data-go-stage'));
+        });
       });
 
       // Build a PandaDoc embed exactly like their snippet does — pass the
@@ -1070,7 +1077,6 @@ const PRODUCTS = [
           return '&' + k + '=' + encodeURIComponent(JSON.stringify(opts.data[k]));
         }).join('') : '';
         const iframe = document.createElement('iframe');
-        iframe.frameBorder = 0;
         iframe.src = opts.url + dataQs;
         iframe.width = '100%';
         iframe.height = '100%';
