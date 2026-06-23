@@ -12,6 +12,9 @@ node_modules/
 # Astro
 .astro/
 
+# BLG incremental article cache (managed by actions/cache in CI)
+scripts/output/blg-cache.json
+
 # OS
 .DS_Store
 Thumbs.db

@@ -38,9 +38,11 @@ const PRODUCTS = [
     name: 'Impact Assistant',
     tagline: 'On-staff humans',
     description: "A dedicated team on our payroll, embedded in your firm. Trained on your playbook, working in your tools, billable on day one.",
-    eformUrl: 'https://eform.pandadoc.com/?eform=9b2c6a00-eba8-4841-bf68-93cb917c6efe',
-    /* PandaDoc displays eform recipient as "<Name> Signer" — leading candidate
-       is the full string. Listing both forms; PandaDoc ignores non-matching keys. */
+    /* No direct eform — selecting Impact Assistant prompts for one of the four
+       support types below, each with its own PandaDoc Nashville agreement. */
+    eformUrl: null,
+    /* Same recipient role as Intake360. PandaDoc ignores recipient keys whose
+       role doesn't match the eform, so listing both candidates is safe. */
     recipientRoles: ['Client Signer', 'Client'],
     askTitle: false,
     variableMap: {
@@ -52,16 +54,39 @@ const PRODUCTS = [
       city:      'Account.BillingCity',
       state:     'Account.BillingState',
       zip:       'Account.BillingPostalCode'
-    }
-  },
-  {
-    slug: 'both',
-    name: 'Both Products',
-    tagline: 'The full rescue',
-    description: "Intake360 + Impact Assistant together. AI on the front line, our on-staff humans behind the work, all wired into your firm.",
-    eformUrl: null,
-    askTitle: true,
-    variableMap: {}
+    },
+    /* Impact Assistant support types — each maps to its own Nashville eform.
+       They share the variableMap / recipientRoles / askTitle above. */
+    types: [
+      {
+        slug: 'admin-support',
+        name: 'Admin Support',
+        tagline: 'Day-to-day ops',
+        description: 'Calendars, files, data entry, and the everyday admin load — handled.',
+        eformUrl: 'https://eform.pandadoc.com/?eform=bb43a17e-1d0c-46a7-9df6-ec0ecf790c7d'
+      },
+      {
+        slug: 'executive-assistant',
+        name: 'Executive Assistant',
+        tagline: 'Right-hand support',
+        description: 'High-level support for partners — inbox, scheduling, and priorities.',
+        eformUrl: 'https://eform.pandadoc.com/?eform=69d8ee34-1f14-413c-bcb5-8745753b6f9e'
+      },
+      {
+        slug: 'intake-reception',
+        name: 'Intake Reception',
+        tagline: 'Front line',
+        description: 'Answer, qualify, and route every new lead and caller.',
+        eformUrl: 'https://eform.pandadoc.com/?eform=bf778c51-aab7-4eaa-adb4-b197bce9be87'
+      },
+      {
+        slug: 'marketing-support',
+        name: 'Marketing Support',
+        tagline: 'Growth engine',
+        description: 'Content, campaigns, and the marketing follow-through your firm needs.',
+        eformUrl: 'https://eform.pandadoc.com/?eform=f44fdf62-5420-489c-95c5-5e215c16b6a3'
+      }
+    ]
   }
 ];
 ---
@@ -141,6 +166,38 @@ const PRODUCTS = [
     </section>
 
     <!-- ═══════════════════════════════════════════
+         STAGE 1b: IMPACT ASSISTANT — SUPPORT TYPE
+    ═══════════════════════════════════════════ -->
+    <section data-stage="impact-type" class="nash-stage nash-select">
+      <div class="nash-container">
+        <div class="nash-stage-header">
+          <span class="nash-stage-pow">STEP 1</span>
+          <h2 class="nash-display nash-display-md">
+            <span class="nash-stage-line">Pick your</span>
+            <span class="nash-stage-line nash-accent-gold">support type.</span>
+          </h2>
+          <p class="nash-stage-sub">Which Impact Assistant role is your firm signing for? We'll route you to the right agreement.</p>
+        </div>
+
+        <div class="nash-back-row">
+          <button type="button" class="nash-back-light" data-go-stage="select">← Change product</button>
+        </div>
+
+        <div class="nash-products">
+          {PRODUCTS.find((p) => p.slug === 'impact')?.types?.map((t, i) => (
+            <button type="button" class="nash-product nash-product-impact-type" data-select-impact-type={t.slug}>
+              <span class="nash-product-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{t.name}</h3>
+              <p class="nash-product-tagline">{t.tagline}</p>
+              <p class="nash-product-desc">{t.description}</p>
+              <span class="nash-product-cta">Select <span aria-hidden="true">→</span></span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
          STAGE 2: INFO FORM
     ═══════════════════════════════════════════ -->
     <section data-stage="info" class="nash-stage nash-info">
@@ -155,7 +212,7 @@ const PRODUCTS = [
         </div>
 
         <div class="nash-form-frame">
-          <button type="button" class="nash-back" data-go-stage="select">← Change product</button>
+          <button type="button" class="nash-back" id="nash-info-back" data-go-stage="select">← Change product</button>
 
           <form id="nash-form" class="nash-form" novalidate>
             <input type="hidden" name="product" id="nash-form-product" value="" />
@@ -241,12 +298,6 @@ const PRODUCTS = [
           <span class="nash-embed-tape nash-embed-tape-tr" aria-hidden="true">★</span>
           <div id="nash-embed-host"></div>
         </div>
-
-        <!-- Fallback shown for "Both Products" until the combined embed code ships. -->
-        <div class="nash-both-fallback" id="nash-both-fallback" hidden>
-          <h3 class="nash-display nash-display-sm">Got it. <span class="nash-accent-gold">We're on it.</span></h3>
-          <p>Because you're signing for both Intake360 and Impact Assistant, we'll build the combined contract personally for your firm. Your info just landed in our queue. Expect the agreement in your inbox within one business day.</p>
-        </div>
       </div>
     </section>
 
@@ -272,14 +323,13 @@ const PRODUCTS = [
       overflow-x: clip;
     }
 
-    /* ── Stage state machine */
-    #nash-lp[data-stage="select"]   section[data-stage="info"],
-    #nash-lp[data-stage="select"]   section[data-stage="contract"],
-    #nash-lp[data-stage="info"]     section[data-stage="select"],
-    #nash-lp[data-stage="info"]     section[data-stage="contract"],
-    #nash-lp[data-stage="contract"] section[data-stage="select"],
-    #nash-lp[data-stage="contract"] section[data-stage="info"] {
-      display: none;
+    /* ── Stage state machine: hide every stage except the active one. */
+    #nash-lp section[data-stage] { display: none; }
+    #nash-lp[data-stage="select"]      section[data-stage="select"],
+    #nash-lp[data-stage="impact-type"] section[data-stage="impact-type"],
+    #nash-lp[data-stage="info"]        section[data-stage="info"],
+    #nash-lp[data-stage="contract"]    section[data-stage="contract"] {
+      display: block;
     }
 
     /* ── Layout */
@@ -581,6 +631,16 @@ const PRODUCTS = [
     #nash-lp .nash-product:nth-child(1) { transform: rotate(-0.6deg); }
     #nash-lp .nash-product:nth-child(2) { transform: rotate(0.6deg); }
     #nash-lp .nash-product:nth-child(3) { transform: rotate(-0.4deg); }
+    #nash-lp .nash-product:nth-child(4) { transform: rotate(0.5deg); }
+
+    /* Back link shown on the dark Impact support-type picker */
+    #nash-lp .nash-back-row { max-width: 1100px; margin: 0 auto 24px; text-align: left; position: relative; z-index: 3; }
+    #nash-lp .nash-back-light {
+      background: none; border: none; color: var(--gold);
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; padding: 0;
+    }
+    #nash-lp .nash-back-light:hover { color: var(--gold-bright); }
     #nash-lp .nash-product:hover, #nash-lp .nash-product:focus-visible {
       transform: rotate(0) translateY(-6px);
       border-color: var(--gold);
@@ -790,29 +850,6 @@ const PRODUCTS = [
     #nash-lp #nash-embed-host { min-height: 720px; }
     #nash-lp #nash-embed-host iframe { background: #fff !important; border: 0; }
 
-    /* Both-product fallback panel */
-    #nash-lp .nash-both-fallback {
-      max-width: 760px;
-      margin: 32px auto 0;
-      background: rgba(80,135,221,0.10);
-      border: 2px solid var(--blue);
-      border-radius: 12px;
-      padding: 32px;
-      text-align: center;
-      box-shadow: 6px 6px 0 var(--navy-deep);
-      position: relative;
-      z-index: 3;
-    }
-    #nash-lp .nash-both-fallback h3 { margin: 0 0 12px; }
-    #nash-lp .nash-both-fallback p {
-      font-family: 'Sora', sans-serif;
-      font-weight: 600;
-      color: var(--steel);
-      font-size: 17px;
-      line-height: 1.5;
-      margin: 0;
-    }
-
     /* ════════════════════════════════════
        Mobile — comprehensive overrides
     ════════════════════════════════════ */
@@ -889,8 +926,6 @@ const PRODUCTS = [
       #nash-lp .nash-embed-tape-tr { top: -12px; right: -10px; }
       #nash-lp #nash-embed-host { min-height: 680px; }
       #nash-lp #nash-embed-host iframe { min-height: 680px; }
-      #nash-lp .nash-both-fallback { padding: 24px 20px; margin-top: 24px; box-shadow: 4px 4px 0 var(--navy-deep); }
-      #nash-lp .nash-both-fallback p { font-size: 15px; }
     }
 
     @media (max-width: 480px) {
@@ -930,9 +965,10 @@ const PRODUCTS = [
       const titleField = form.querySelector('[data-title-field]');
       const titleInput = titleField ? titleField.querySelector('input') : null;
       const embedHost = document.getElementById('nash-embed-host');
-      const bothFallback = document.getElementById('nash-both-fallback');
       const contractProductEl = document.getElementById('nash-contract-product');
       const infoSub = document.getElementById('nash-info-sub');
+      const infoBack = document.getElementById('nash-info-back');
+      let currentProduct = null;
 
       // Track UTMs from the URL and default to "nashville" so attribution is clear.
       const UTM_DEFAULTS = {
@@ -961,31 +997,63 @@ const PRODUCTS = [
         track('nashville_stage', { stage: name });
       }
 
+      // Apply a chosen product (or Impact support-type) to the info + contract
+      // stages: Title-field visibility, pre-fill copy, and the hidden slug.
+      function applyProductToInfo(product) {
+        productHidden.value = product.slug;
+        if (titleField) {
+          if (product.askTitle) {
+            titleField.hidden = false;
+            if (titleInput) titleInput.required = true;
+          } else {
+            titleField.hidden = true;
+            if (titleInput) { titleInput.required = false; titleInput.value = ''; }
+          }
+        }
+        if (infoSub) {
+          infoSub.textContent = "We'll pre-fill the " + product.name + " contract so you don't have to re-type a thing.";
+        }
+        if (contractProductEl) contractProductEl.textContent = product.name + '.';
+      }
+
       // Product selection ----------------------------------------------------
       document.querySelectorAll('[data-select-product]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           const slug = this.getAttribute('data-select-product');
           const product = productById[slug];
           if (!product) return;
-          productHidden.value = slug;
-
-          // Show/hide the Title field depending on the product
-          if (titleField) {
-            if (product.askTitle) {
-              titleField.hidden = false;
-              if (titleInput) titleInput.required = true;
-            } else {
-              titleField.hidden = true;
-              if (titleInput) { titleInput.required = false; titleInput.value = ''; }
-            }
-          }
-
-          if (infoSub) {
-            infoSub.textContent = "We'll pre-fill the " + product.name + " contract so you don't have to re-type a thing.";
-          }
-          if (contractProductEl) contractProductEl.textContent = product.name + '.';
-
           track('nashville_product_selected', { product: slug });
+
+          // Impact Assistant branches into four support types before the form.
+          if (product.types && product.types.length) {
+            if (infoBack) infoBack.setAttribute('data-go-stage', 'impact-type');
+            setStage('impact-type');
+            return;
+          }
+
+          currentProduct = product;
+          applyProductToInfo(product);
+          if (infoBack) infoBack.setAttribute('data-go-stage', 'select');
+          setStage('info');
+        });
+      });
+
+      // Impact Assistant support-type selection -------------------------------
+      document.querySelectorAll('[data-select-impact-type]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const typeSlug = this.getAttribute('data-select-impact-type');
+          const base = productById['impact'];
+          const type = base && base.types ? base.types.find(function (t) { return t.slug === typeSlug; }) : null;
+          if (!type) return;
+          // Effective product = the Impact category config with this type's eform.
+          currentProduct = Object.assign({}, base, {
+            slug: 'impact-' + type.slug,
+            name: base.name + ' – ' + type.name,
+            eformUrl: type.eformUrl
+          });
+          track('nashville_impact_type_selected', { type: typeSlug });
+          applyProductToInfo(currentProduct);
+          if (infoBack) infoBack.setAttribute('data-go-stage', 'impact-type');
           setStage('info');
         });
       });
@@ -1013,19 +1081,6 @@ const PRODUCTS = [
       }
 
       function loadContract(product, values) {
-        // "Both Products" has no PandaDoc embed yet — surface the fallback.
-        if (!product.eformUrl) {
-          embedHost.innerHTML = '';
-          if (bothFallback) bothFallback.hidden = false;
-          // Hide the iframe frame chrome since there's nothing to show
-          const frame = embedHost.closest('.nash-embed-frame');
-          if (frame) frame.hidden = true;
-          return;
-        }
-        if (bothFallback) bothFallback.hidden = true;
-        const frame = embedHost.closest('.nash-embed-frame');
-        if (frame) frame.hidden = false;
-
         // Map our form values into the product's PandaDoc variable names.
         const variables = {};
         Object.keys(product.variableMap).forEach(function (formKey) {
@@ -1086,8 +1141,8 @@ const PRODUCTS = [
           zip:       String(formData.get('zip')       || '').trim()
         };
 
-        const product = productById[values.product];
-        if (!product) {
+        const product = currentProduct || productById[values.product];
+        if (!product || !product.eformUrl) {
           errorEl.textContent = 'Please pick a contract before continuing.';
           errorEl.hidden = false;
           return;

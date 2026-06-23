@@ -37,6 +37,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Persist fetched BabyLoveGrowth article bodies between runs so each build
+      # only fetches NEW articles (not the full set). Unique key per run + prefix
+      # restore-keys means we restore the latest cache and always save an updated
+      # one. Kept warm by the daily cron, so eviction (and a full re-fetch) is rare.
+      - name: Cache BLG articles
+        uses: actions/cache@v4
+        with:
+          path: scripts/output/blg-cache.json
+          key: blg-article-cache-${{ github.run_id }}
+          restore-keys: |
+            blg-article-cache-
+
       - name: Build site
         run: npm run build
 
