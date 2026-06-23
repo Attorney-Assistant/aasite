@@ -22,6 +22,7 @@ export default defineConfig({
         !page.includes("/apply/sales-specialist") &&
         !page.includes("/apply/bilingual-sales-specialist") &&
         !page.includes("/case-studies") &&
+        !page.includes("/nashville-resources") &&
         !page.includes("/thank-you"),
     }),
     mdx(),

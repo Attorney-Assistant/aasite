@@ -879,7 +879,9 @@ const PRODUCTS = [
       #nash-lp .nash-scroll-cta:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--navy-deep); }
       #nash-lp .nash-hero-art { min-height: 440px; margin-top: 16px; }
       #nash-lp .nash-woman { max-width: 360px; margin-bottom: -28px; }
-      #nash-lp .nash-bat-stage { width: 180px; height: 180px; right: 0; top: 0; }
+      /* Pin the signal to her hand: anchor to the woman (centered + bottom-aligned)
+         instead of the container corner, with the pendulum pivot (34% 97%) at her grip. */
+      #nash-lp .nash-bat-stage { width: 224px; height: 224px; right: auto; top: auto; left: calc(50% - 15px); bottom: 220px; }
 
       /* Stage shell */
       #nash-lp .nash-stage { padding: 56px 0 64px; }
@@ -934,7 +936,7 @@ const PRODUCTS = [
       #nash-lp .nash-display { font-size: clamp(38px, 14vw, 60px); }
       #nash-lp .nash-hero-art { min-height: 380px; }
       #nash-lp .nash-woman { max-width: 320px; margin-bottom: -22px; }
-      #nash-lp .nash-bat-stage { width: 148px; height: 148px; }
+      #nash-lp .nash-bat-stage { width: 198px; height: 198px; left: calc(50% - 13px); bottom: 200px; }
       #nash-lp #nash-embed-host { min-height: 640px; }
       #nash-lp #nash-embed-host iframe { min-height: 640px; }
 

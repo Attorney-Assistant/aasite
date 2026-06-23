@@ -1,0 +1,71 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+/**
+ * Internal team reference page — links, resources, and QR codes for the
+ * Nashville campaign. Not linked in navigation, noindex, sitemap-excluded.
+ * This is a placeholder scaffold; drop real content into the sections below.
+ */
+const sections = [
+  {
+    title: "Quick Links",
+    desc: "Frequently used URLs — landing pages, booking links, dashboards.",
+    icon: "M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244",
+  },
+  {
+    title: "Resources & Docs",
+    desc: "Contracts, one-pagers, scripts, and supporting documents.",
+    icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
+  },
+  {
+    title: "QR Codes",
+    desc: "Scannable codes for events, signage, and handouts.",
+    icon: "M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z",
+  },
+];
+---
+
+<BaseLayout
+  title="Nashville Resources — Attorney Assistant"
+  description="Internal team reference for the Nashville campaign: links, resources, and QR codes."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <!-- Header -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-wide relative z-10">
+      <span class="badge badge-gold mb-4">Internal · Team Reference</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Nashville Resources
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl leading-relaxed">
+        Central hub for the Nashville campaign — links, resources, and QR codes for the team. This page is a work in progress; content will be added here.
+      </p>
+    </div>
+  </section>
+
+  <!-- Resource Sections (placeholder) -->
+  <section class="py-12 md:py-16">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {sections.map((s) => (
+          <div class="card p-6">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={s.icon} />
+              </svg>
+            </div>
+            <h2 class="text-lg font-heading text-gray-900 mb-2">{s.title}</h2>
+            <p class="text-sm text-gray-500 leading-relaxed mb-5">{s.desc}</p>
+            <div class="rounded-lg border-2 border-dashed border-gray-200 p-6 text-center">
+              <p class="text-xs text-gray-400 font-medium uppercase tracking-wider">Coming soon</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
