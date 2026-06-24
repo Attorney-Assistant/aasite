@@ -1,0 +1,32 @@
+:root {
+  /* color */
+  --comic-navy: #0e2236;
+  --comic-navy-deep: #061320;
+  --comic-navy-mid: #1a3a5c;
+  --comic-gold: #F9A630;
+  --comic-gold-bright: #FBD46D;
+  --comic-red: #E04A2C;
+  --comic-red-bright: #FF6B45;
+  --comic-blue: #5087dd;
+  --comic-steel: #c0c8d4;
+  --comic-steel-dim: #6f7a8a;
+  --comic-paper: #FFF9EE;
+  --comic-ink: #111111;
+  --comic-white: #ffffff;
+  /* type */
+  --comic-font-display: 'Bangers', 'Impact', sans-serif;
+  --comic-font-subhead: 'Sora', sans-serif;
+  --comic-font-body: 'Inter', -apple-system, sans-serif;
+  --comic-display: clamp(56px, 9vw, 132px);
+  --comic-display-md: clamp(34px, 5vw, 60px);
+  --comic-display-sm: clamp(28px, 4vw, 44px);
+  --comic-lede: clamp(19px, 2.2vw, 26px);
+  /* effects */
+  --comic-shadow-text: 3px 3px 0 var(--comic-red), 6px 6px 0 var(--comic-navy-deep);
+  --comic-shadow-sm: 2px 2px 0 var(--comic-navy-deep);
+  --comic-shadow-md: 4px 4px 0 var(--comic-navy-deep);
+  --comic-shadow-lg: 6px 6px 0 var(--comic-navy-deep);
+  --comic-shadow-frame: 10px 10px 0 var(--comic-red), 20px 20px 0 var(--comic-navy-deep);
+  --comic-radius: 10px;
+  --comic-radius-lg: 14px;
+}
