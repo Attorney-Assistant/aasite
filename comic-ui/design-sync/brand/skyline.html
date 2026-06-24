@@ -1,0 +1,52 @@
+<!-- @dsCard group="Comic / Brand" -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" />
+  <style>
+    body { margin: 0; background: #1A3A5C; color: #fff; font-family: 'Inter', sans-serif; padding: 40px; }
+    h1 { font-family: 'Bangers', cursive; font-size: 44px; letter-spacing: 0.03em; margin: 0 0 4px; text-shadow: 3px 3px 0 #E04A2C, 6px 6px 0 #071B2F; }
+    .sub { font-family: 'Sora', sans-serif; font-weight: 600; color: #c0c8d4; margin: 0 0 26px; font-size: 14px; }
+    .label { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #FBD46D; margin: 22px 0 8px; }
+    /* Approved usage: skyline ink (#0D1A27) anchored to the bottom, over a gold sky, masked fade. */
+    .stage { position: relative; height: 200px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); }
+    .gold-sky { background: radial-gradient(ellipse at 70% 30%, #FBD46D 0%, #F9A630 55%, #D98A00 100%); }
+    .navy-sky { background: linear-gradient(180deg, #1A3A5C 0%, #071B2F 100%); }
+    .skyline {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 70%;
+      background-position: bottom center; background-repeat: no-repeat; background-size: cover;
+      -webkit-mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+      mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+    }
+    /* On gold sky the silhouette is the dedicated Skyline ink #0D1A27 (rendered via the SVG asset). */
+    .skyline.ink { background-image: url("../../src/assets/skyline.svg"); }
+    .skyline.faded { background-image: url("../../src/assets/skyline.svg"); opacity: 0.55; }
+    .note { font-family: 'Inter', sans-serif; font-size: 13px; color: #c0c8d4; line-height: 1.6; max-width: 760px; margin-top: 22px; }
+    .note b { color: #fff; font-family: 'Sora', sans-serif; }
+    code { background: rgba(255,255,255,0.1); padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 900px; }
+    @media (max-width: 640px){ .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>Skyline — Brand Asset</h1>
+  <p class="sub">Approved comic background. The city silhouette is a reusable, downloadable asset (<code>skyline.svg</code>).</p>
+
+  <div class="grid">
+    <div>
+      <div class="label">On gold sky (primary)</div>
+      <div class="stage gold-sky"><div class="skyline ink"></div></div>
+    </div>
+    <div>
+      <div class="label">On navy (faded)</div>
+      <div class="stage navy-sky"><div class="skyline faded"></div></div>
+    </div>
+  </div>
+
+  <p class="note">
+    <b>Usage:</b> anchor to the bottom of the section and fade the top with a mask. Over gold/yellow skies the silhouette uses Skyline ink <code>#0D1A27</code>. Keep it as a background texture — never place dense paragraphs over it. Asset: <code>src/assets/skyline.svg</code> (also <code>BatSignal</code> + <code>Skyline</code> components in Comic / Decorative).
+  </p>
+</body>
+</html>

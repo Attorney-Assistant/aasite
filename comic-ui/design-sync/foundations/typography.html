@@ -3,179 +3,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Typography — Comic UI Foundations</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: #0e2236;
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      padding: 48px 40px 64px;
-    }
-
-    .card-title {
-      font-family: 'Bangers', cursive;
-      font-size: clamp(42px, 7vw, 72px);
-      color: #F9A630;
-      letter-spacing: 0.06em;
-      text-shadow: 3px 3px 0 #E04A2C, 6px 6px 0 #061320;
-      margin-bottom: 8px;
-      line-height: 1;
-    }
-
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: #F9A630;
-      margin-bottom: 32px;
-      border-radius: 2px;
-    }
-
-    .card-subtitle {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      color: #6f7a8a;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 52px;
-    }
-
-    .type-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 52px;
-      padding-bottom: 52px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .type-block:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .type-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #F9A630;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .type-label::after {
-      content: '';
-      display: block;
-      height: 1px;
-      background: rgba(249,166,48,0.3);
-      flex: 1;
-    }
-
-    /* Display — Bangers */
-    .sample-display {
-      font-family: 'Bangers', cursive;
-      font-size: clamp(34px, 5vw, 60px);
-      color: #ffffff;
-      letter-spacing: 0.04em;
-      line-height: 1.05;
-      text-shadow: 3px 3px 0 #E04A2C, 6px 6px 0 #061320;
-    }
-
-    /* Lede — Sora */
-    .sample-lede {
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      font-size: clamp(19px, 2.2vw, 26px);
-      color: #c0c8d4;
-      line-height: 1.4;
-    }
-
-    /* Body — Inter */
-    .sample-body {
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      color: #c0c8d4;
-      line-height: 1.7;
-      max-width: 620px;
-    }
-
-    .meta-row {
-      margin-top: 12px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .meta-pill {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      color: #6f7a8a;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 4px 10px;
-      border-radius: 100px;
-      letter-spacing: 0.04em;
-    }
+    body { margin: 0; background: #FEF6E8; color: #1A3A5C; font-family: 'Inter', sans-serif; padding: 40px; }
+    h1 { font-family: 'Bangers', cursive; font-size: 44px; letter-spacing: 0.03em; margin: 0 0 24px; color: #071B2F; text-shadow: 3px 3px 0 #c9cfda; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; max-width: 1100px; }
+    .card { background: #fff; border: 2px solid #1A3A5C; border-radius: 12px; padding: 24px; }
+    .sample-display { font-family: 'Bangers', cursive; font-size: 52px; color: #071B2F; text-shadow: 3px 3px 0 #F9A630; line-height: 1; }
+    .sample-sora { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 40px; color: #1A3A5C; }
+    .sample-inter { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 22px; color: #1A3A5C; }
+    .role { margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 13px; color: #4a5a6e; line-height: 1.5; }
+    .tag { display:inline-block; font-family:'Sora',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#D98A00; }
+    .hier { max-width: 1100px; margin-top: 22px; background:#1A3A5C; color:#fff; border-radius:12px; padding:18px 22px; font-family:'Inter',sans-serif; font-size:13px; line-height:1.7; }
+    .hier b { font-family:'Sora',sans-serif; }
   </style>
 </head>
 <body>
-  <div class="card-title">Typography</div>
-  <div class="divider"></div>
-  <div class="card-subtitle">Comic UI &mdash; Type Scale &amp; Font Roles</div>
-
-  <!-- Block 1: Display / Bangers -->
-  <div class="type-block">
-    <div class="type-label">Display &mdash; Bangers</div>
-    <div class="sample-display">Justice Never Sleeps.</div>
-    <div class="meta-row">
-      <span class="meta-pill">font-family: Bangers</span>
-      <span class="meta-pill">size: clamp(34px, 5vw, 60px)</span>
-      <span class="meta-pill">text-shadow: triple offset</span>
-      <span class="meta-pill">color: #ffffff</span>
+  <h1>Type Has Jobs</h1>
+  <div class="grid">
+    <div class="card">
+      <div class="sample-display">BANGERS</div>
+      <span class="tag">Display</span>
+      <div class="role">Hero headlines, section impact, poster CTA text, stats. Uppercase or title case, with stroke/shadow. Never for forms, legal copy, or paragraphs.</div>
+    </div>
+    <div class="card">
+      <div class="sample-sora">Sora</div>
+      <span class="tag">Structure</span>
+      <div class="role">Subheadings, navigation, buttons, card titles, labels &amp; badges. SemiBold/Bold; letter-spacing works well for labels.</div>
+    </div>
+    <div class="card">
+      <div class="sample-inter">Inter</div>
+      <span class="tag">Body</span>
+      <div class="role">Body copy, forms, tables, disclaimers, legal text — anything that must read comfortably. Regular/Medium, generous line-height.</div>
     </div>
   </div>
-
-  <!-- Block 2: Lede / Sora -->
-  <div class="type-block">
-    <div class="type-label">Lede &mdash; Sora 700</div>
-    <div class="sample-lede">Your firm deserves a team that fights as hard as you do.</div>
-    <div class="meta-row">
-      <span class="meta-pill">font-family: Sora</span>
-      <span class="meta-pill">font-weight: 700</span>
-      <span class="meta-pill">size: clamp(19px, 2.2vw, 26px)</span>
-      <span class="meta-pill">color: steel #c0c8d4</span>
-    </div>
+  <div class="hier">
+    <b>Hierarchy:</b> H1 72–96px Bangers · H2 48–64px Bangers · H3 24–32px Sora · Body 16–18px Inter · Caption 13–14px Inter · Badge 12px Sora uppercase
   </div>
-
-  <!-- Block 3: Body / Inter -->
-  <div class="type-block">
-    <div class="type-label">Body &mdash; Inter 400</div>
-    <div class="sample-body">
-      Attorney Assistant provides law firms with dedicated virtual legal staff — paralegals,
-      legal secretaries, and intake specialists — trained to support your practice so you
-      can focus on winning cases and serving clients.
-    </div>
-    <div class="meta-row">
-      <span class="meta-pill">font-family: Inter</span>
-      <span class="meta-pill">font-weight: 400</span>
-      <span class="meta-pill">size: 16px</span>
-      <span class="meta-pill">line-height: 1.7</span>
-      <span class="meta-pill">color: steel #c0c8d4</span>
-    </div>
-  </div>
-
 </body>
 </html>

@@ -1,27 +1,46 @@
 :root {
-  /* color */
-  --comic-navy: #0e2236;
-  --comic-navy-deep: #061320;
-  --comic-navy-mid: #1a3a5c;
-  --comic-gold: #F9A630;
-  --comic-gold-bright: #FBD46D;
-  --comic-red: #E04A2C;
+  /* ── Official brand palette — AA Comic Web Style Guide v2 (canonical) ── */
+  --aa-navy: #1A3A5C;        /* Navy — section base */
+  --aa-deep: #071B2F;        /* Deep Navy — hero/dark sections */
+  --aa-skyline: #0D1A27;     /* Skyline — city silhouette over gold skies */
+  --aa-gold: #F9A630;        /* Gold — primary energy / CTAs */
+  --aa-gold-dark: #D98A00;   /* Gold Dark */
+  --aa-gold-light: #FEF6E8;  /* Gold Light — off-white */
+  --aa-blue: #50A7DD;        /* Blue — comic energy */
+  --aa-steel: #58BAA5;       /* Steel — accent */
+  --aa-ink: #050505;         /* Ink — outlines / black */
+  --aa-white: #ffffff;
+
+  /* ── Comic system tokens (component internals; alias the brand where shared) ── */
+  --comic-navy: var(--aa-skyline);     /* darkest background */
+  --comic-navy-deep: var(--aa-deep);
+  --comic-navy-mid: var(--aa-navy);
+  --comic-gold: var(--aa-gold);
+  --comic-gold-bright: #FBD46D;        /* comic hover accent (not a brand color) */
+  --comic-gold-dark: var(--aa-gold-dark);
+  --comic-gold-light: var(--aa-gold-light);
+  --comic-red: #E04A2C;                /* comic accent / offset shadow (not a brand color) */
   --comic-red-bright: #FF6B45;
-  --comic-blue: #5087dd;
-  --comic-steel: #c0c8d4;
-  --comic-steel-dim: #6f7a8a;
-  --comic-paper: #FFF9EE;
-  --comic-ink: #111111;
+  --comic-blue: var(--aa-blue);
+  --comic-steel: #c0c8d4;              /* UI muted text */
+  --comic-steel-dim: #6f7a8a;          /* UI muted text, dimmer */
+  --comic-paper: var(--aa-gold-light);
+  --comic-ink: var(--aa-ink);
   --comic-white: #ffffff;
-  /* type */
-  --comic-font-display: 'Bangers', 'Impact', sans-serif;
-  --comic-font-subhead: 'Sora', sans-serif;
-  --comic-font-body: 'Inter', -apple-system, sans-serif;
-  --comic-display: clamp(56px, 9vw, 132px);
-  --comic-display-md: clamp(34px, 5vw, 60px);
+
+  /* ── Type — guide token names + comic aliases ── */
+  --font-display: 'Bangers', cursive;          /* hero impact */
+  --font-structure: 'Sora', sans-serif;        /* subheads, nav, buttons, labels */
+  --font-body: 'Inter', sans-serif;            /* body, forms, tables */
+  --comic-font-display: var(--font-display);
+  --comic-font-subhead: var(--font-structure);
+  --comic-font-body: var(--font-body);
+  --comic-display: clamp(56px, 9vw, 132px);    /* H1 72–96px */
+  --comic-display-md: clamp(34px, 5vw, 60px);  /* H2 48–64px */
   --comic-display-sm: clamp(28px, 4vw, 44px);
   --comic-lede: clamp(19px, 2.2vw, 26px);
-  /* effects */
+
+  /* ── Effects ── */
   --comic-shadow-text: 3px 3px 0 var(--comic-red), 6px 6px 0 var(--comic-navy-deep);
   --comic-shadow-sm: 2px 2px 0 var(--comic-navy-deep);
   --comic-shadow-md: 4px 4px 0 var(--comic-navy-deep);

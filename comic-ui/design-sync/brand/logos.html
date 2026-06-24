@@ -1,0 +1,57 @@
+<!-- @dsCard group="Comic / Brand" -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" />
+  <style>
+    body { margin: 0; background: #FEF6E8; color: #1A3A5C; font-family: 'Inter', sans-serif; padding: 40px; }
+    h1 { font-family: 'Bangers', cursive; font-size: 44px; letter-spacing: 0.03em; margin: 0 0 4px; color: #071B2F; text-shadow: 3px 3px 0 #F9A630; }
+    .sub { font-family: 'Sora', sans-serif; font-weight: 600; color: #4a5a6e; margin: 0 0 28px; font-size: 14px; }
+    h2 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #D98A00; margin: 26px 0 12px; }
+    .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; max-width: 1100px; }
+    .tile { border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; padding: 26px; min-height: 130px; }
+    .on-white { background: #ffffff; }
+    .on-navy  { background: #1A3A5C; border-color: rgba(255,255,255,0.15); }
+    .on-light { background: #FEF6E8; border: 1px dashed #c9b9a0; }
+    .tile img { max-width: 100%; }
+    .icon img { max-height: 84px; }
+    .long img { max-height: 64px; }
+    .tall img { max-height: 130px; }
+    .square img { max-height: 130px; }
+    .cap { font-family: 'Inter', sans-serif; font-size: 11px; color: #8b7a5e; margin-top: 6px; text-align: center; }
+    .cell { display: flex; flex-direction: column; }
+  </style>
+</head>
+<body>
+  <h1>Logo &amp; Variations</h1>
+  <p class="sub">Attorney Assistant marks. Use white on dark, black/ink on light, full-color where contrast allows.</p>
+
+  <h2>Icon mark</h2>
+  <div class="row">
+    <div class="cell"><div class="tile on-white icon"><img src="../../src/assets/logos/color_icon.svg" alt="Color icon" /></div><div class="cap">color · on white</div></div>
+    <div class="cell"><div class="tile on-navy icon"><img src="../../src/assets/logos/white_icon.svg" alt="White icon" /></div><div class="cap">white · on navy</div></div>
+    <div class="cell"><div class="tile on-light icon"><img src="../../src/assets/logos/black_icon.svg" alt="Black icon" /></div><div class="cap">black · on light</div></div>
+  </div>
+
+  <h2>Horizontal lockup</h2>
+  <div class="row">
+    <div class="cell"><div class="tile on-white long"><img src="../../src/assets/logos/long_color_logo.svg" alt="Long color logo" /></div><div class="cap">color · on white</div></div>
+    <div class="cell"><div class="tile on-navy long"><img src="../../src/assets/logos/long_white_logo.svg" alt="Long white logo" /></div><div class="cap">white · on navy</div></div>
+    <div class="cell"><div class="tile on-light long"><img src="../../src/assets/logos/long_black_logo.svg" alt="Long black logo" /></div><div class="cap">black · on light</div></div>
+  </div>
+
+  <h2>Stacked lockup</h2>
+  <div class="row">
+    <div class="cell"><div class="tile on-white tall"><img src="../../src/assets/logos/tall_color_logo.svg" alt="Tall color logo" /></div><div class="cap">color · on white</div></div>
+    <div class="cell"><div class="tile on-navy tall"><img src="../../src/assets/logos/tall_white_logo.svg" alt="Tall white logo" /></div><div class="cap">white · on navy</div></div>
+    <div class="cell"><div class="tile on-light tall"><img src="../../src/assets/logos/tall_black_logo.svg" alt="Tall black logo" /></div><div class="cap">black · on light</div></div>
+  </div>
+
+  <h2>Square lockup</h2>
+  <div class="row">
+    <div class="cell"><div class="tile on-white square"><img src="../../src/assets/logos/square_fullcolor_logo.svg" alt="Square full color logo" /></div><div class="cap">full color · on white</div></div>
+  </div>
+</body>
+</html>
