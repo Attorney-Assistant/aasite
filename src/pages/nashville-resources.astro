@@ -15,10 +15,11 @@ const groups = [
     ],
   },
   {
-    title: "Pricing",
-    icon: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+    title: "Handouts",
+    icon: "M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25",
     links: [
       { label: "Pricing Sheet (PDF)", url: "https://drive.google.com/file/d/1-PuGjsnfM6TzfMsaUvbsJvRdYhUpkI-x/view?usp=sharing" },
+      { label: "Comic Book (PDF)", url: "https://drive.google.com/file/d/1hVvQI58FWQ8ED8CoS9V84XSMjyukdpMt/view?usp=sharing" },
     ],
   },
   {
@@ -45,6 +46,20 @@ const groups = [
       { label: "Recorded Call — Criminal", url: "https://drive.google.com/file/d/1rZd7lnL75GA_CkWFbsUqqZ9Gcxz32uo6/view?usp=sharing" },
       { label: "Recorded Call — Family Law", url: "https://drive.google.com/file/d/1KkLaghkeyT3kamTYsyfs_z-yNser5Eq7/view?usp=sharing" },
       { label: "Recorded Call — MVA", url: "https://drive.google.com/file/d/1-8Y2qnvDgZHlJpB6F1r2NMrKTKtSbscd/view?usp=sharing" },
+    ],
+  },
+  {
+    title: "Employee vCards",
+    icon: "M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0ZM10.5 15.75a3 3 0 0 0-6 0v.75h6v-.75Z",
+    links: [
+      { label: "Ethen Ostroff — CEO", url: "https://e.attorneyassistant.com/cards/ethen/" },
+      { label: "James DiBitetto — President", url: "https://e.attorneyassistant.com/cards/james/" },
+      { label: "Ryan Sawyer — CSO", url: "https://e.attorneyassistant.com/cards/ryan/" },
+      { label: "Elley Thomas — Director of Fractional Services", url: "https://e.attorneyassistant.com/cards/elley/" },
+      { label: "Michelle Scherer — Director of Client Success", url: "https://e.attorneyassistant.com/cards/michelle/" },
+      { label: "Andrew Famular — Account Executive", url: "https://e.attorneyassistant.com/cards/andrew/" },
+      { label: "Natalia Chacon B. — Intake360 Account Manager", url: "https://e.attorneyassistant.com/cards/natalia/" },
+      { label: "Abdel Cowo — Sales Hero", url: "https://e.attorneyassistant.com/cards/abdel/" },
     ],
   },
 ];
@@ -106,8 +121,8 @@ const qrIcon = "M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.
           </div>
         ))}
 
-        <!-- QR Codes (placeholder until codes are added) -->
-        <div class="card p-6">
+        <!-- QR Codes -->
+        <div class="card p-6 md:col-span-2">
           <div class="flex items-center gap-3 mb-4">
             <div class="featured-icon featured-icon-sm featured-icon-brand flex-shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -116,8 +131,15 @@ const qrIcon = "M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.
             </div>
             <h2 class="text-lg font-heading text-gray-900">QR Codes</h2>
           </div>
-          <div class="rounded-lg border-2 border-dashed border-gray-200 p-6 text-center">
-            <p class="text-xs text-gray-400 font-medium uppercase tracking-wider">Coming soon</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <a href="/images/nashville/contract-signing-qr.png" target="_blank" rel="noopener noreferrer" class="block text-center rounded-lg border border-gray-200 hover:border-brand-gold/50 hover:bg-brand-25 transition-colors p-5">
+              <img src="/images/nashville/contract-signing-qr.png" alt="QR code to the Nashville contract signing page" width="240" height="240" class="w-full max-w-[240px] mx-auto" loading="lazy" />
+              <span class="block text-sm font-medium text-gray-700 mt-3">Contract Signing</span>
+            </a>
+            <a href="/images/nashville/call-booking-qr.png" target="_blank" rel="noopener noreferrer" class="block text-center rounded-lg border border-gray-200 hover:border-brand-gold/50 hover:bg-brand-25 transition-colors p-5">
+              <img src="/images/nashville/call-booking-qr.png" alt="QR code to book a call" width="240" height="240" class="w-full max-w-[240px] mx-auto" loading="lazy" />
+              <span class="block text-sm font-medium text-gray-700 mt-3">Call Booking</span>
+            </a>
           </div>
         </div>
       </div>

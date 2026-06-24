@@ -329,7 +329,7 @@ const PRODUCTS = [
             <span class="nash-stage-line nash-accent-gold" id="nash-contract-product"></span>
             <span class="nash-stage-line">Contract</span>
           </h2>
-          <p class="nash-stage-sub">Everything's pre-filled. Review, sign, and you're locked in at the Nashville rate.</p>
+          <p class="nash-stage-sub">Each contract opens in a new tab — everything's pre-filled. Sign and pay there to lock in your Nashville rate.</p>
         </div>
 
         <div class="nash-back-row">
@@ -907,35 +907,29 @@ const PRODUCTS = [
       text-align: center;
       margin: 2px 0 14px;
     }
-    #nash-lp .nash-embed-host { min-height: 720px; }
-    #nash-lp .nash-embed-host iframe { background: #fff !important; border: 0; }
-    /* In-page success panel that replaces an iframe once its contract is signed. */
-    #nash-lp .nash-signed {
-      min-height: 720px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 48px 24px;
+    /* "Open & sign" card — opens the prefilled contract in a new tab. */
+    #nash-lp .nash-open-body { padding: 44px 28px; text-align: center; }
+    #nash-lp .nash-open-note {
+      font-family: 'Sora', sans-serif; font-weight: 600;
+      color: var(--steel-dim); font-size: 15px; line-height: 1.5;
+      max-width: 460px; margin: 0 auto 22px;
     }
-    #nash-lp .nash-signed-check {
-      width: 72px; height: 72px; border-radius: 50%;
+    #nash-lp .nash-open-btn {
+      display: inline-flex; align-items: center; gap: 10px;
       background: var(--gold); color: var(--navy-deep);
-      font-family: 'Bangers', sans-serif; font-size: 40px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 4px 4px 0 var(--navy-deep); margin-bottom: 18px;
+      padding: 16px 28px; border-radius: 10px;
+      font-family: 'Bangers', sans-serif; font-size: 24px; letter-spacing: 0.06em;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 6px 6px 0 var(--navy-deep);
+      transform: rotate(-0.5deg);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
     }
-    #nash-lp .nash-signed h3 {
-      font-family: 'Bangers', sans-serif; font-size: 32px; letter-spacing: 0.03em;
-      color: var(--navy-mid); margin: 0 0 8px;
+    #nash-lp .nash-open-btn:hover {
+      background: var(--gold-bright);
+      transform: rotate(-0.5deg) translate(-3px, -3px);
+      box-shadow: 9px 9px 0 var(--navy-deep);
     }
-    #nash-lp .nash-signed p {
-      font-family: 'Sora', sans-serif; font-weight: 600; color: var(--steel-dim); margin: 0;
-    }
-    #nash-lp .nash-all-signed {
-      max-width: 940px; margin: 0 auto 28px;
-      background: rgba(80,135,221,0.12); border: 2px solid var(--blue); border-radius: 8px;
-      padding: 18px 22px; text-align: center; color: #fff;
-      font-family: 'Sora', sans-serif; font-weight: 700; line-height: 1.4;
-      box-shadow: 5px 5px 0 var(--navy-deep);
-    }
+    #nash-lp .nash-open-btn.is-opened { background: var(--gold-bright); }
 
     /* ════════════════════════════════════
        Mobile — comprehensive overrides
@@ -1059,8 +1053,6 @@ const PRODUCTS = [
       const infoBack = document.getElementById('nash-info-back');
       let currentProduct = null;
       let impactFlow = 'impact'; // 'impact' or 'both' — which flow opened the support-type picker
-      let pdEmbeds = [];   // [{ contract, iframe, host, done }] for the current contract stage
-      let pdCompleted = 0; // how many embeds have fired PandaDoc's "completed" event
 
       // Track UTMs from the URL and default to "nashville" so attribution is clear.
       const UTM_DEFAULTS = {
@@ -1199,26 +1191,17 @@ const PRODUCTS = [
         });
       });
 
-      // Build a PandaDoc embed exactly like their snippet does — pass the
-      // payload as &key=URL-encoded-JSON for each top-level key in `data`.
-      function buildEmbedIframe(opts) {
-        const dataQs = opts.data ? Object.keys(opts.data).map(function (k) {
-          return '&' + k + '=' + encodeURIComponent(JSON.stringify(opts.data[k]));
-        }).join('') : '';
-        const iframe = document.createElement('iframe');
-        iframe.src = opts.url + dataQs;
-        iframe.width = '100%';
-        iframe.height = '100%';
-        iframe.style.border = '0';
-        iframe.style.minHeight = '720px';
-        iframe.style.background = '#fff';
-        // Block the embed from navigating/refreshing the PARENT page on completion.
-        // PandaDoc otherwise redirects window.top to its success page, which would
-        // wipe out the second stacked contract. We grant everything the form +
-        // Stripe need INSIDE the frame and simply withhold allow-top-navigation.
-        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals');
-        iframe.setAttribute('allow', 'payment; clipboard-write');
-        return iframe;
+      // Build the prefilled PandaDoc eform URL — the same &key=URL-encoded-JSON
+      // payload the embed used. We open this in a NEW TAB rather than an iframe:
+      // PandaDoc redirects the top window on completion/payment, which (a) broke
+      // an inline iframe and (b) would wipe out a second stacked contract. In its
+      // own tab that redirect is harmless and Stripe payment works normally.
+      function buildContractUrl(contract, values) {
+        const data = buildContractData(contract, values);
+        const dataQs = Object.keys(data).map(function (k) {
+          return '&' + k + '=' + encodeURIComponent(JSON.stringify(data[k]));
+        }).join('');
+        return contract.eformUrl + dataQs;
       }
 
       // Build the PandaDoc payload for one contract from the form values.
@@ -1245,19 +1228,15 @@ const PRODUCTS = [
       }
 
       function loadContract(product, values) {
-        // Normally one contract; "Both" carries an array of contracts to stack.
+        // Normally one contract; "Both" carries an array of contracts to open.
         const contracts = (product.contracts && product.contracts.length) ? product.contracts : [product];
         const multi = contracts.length > 1;
         const list = document.getElementById('nash-embed-list');
         list.innerHTML = '';
-        pdEmbeds = [];
-        pdCompleted = 0;
-        const oldBanner = document.getElementById('nash-all-signed');
-        if (oldBanner) oldBanner.remove();
 
-        contracts.forEach(function (contract) {
+        contracts.forEach(function (contract, idx) {
           const frame = document.createElement('div');
-          frame.className = 'nash-embed-frame';
+          frame.className = 'nash-embed-frame nash-open-frame';
           frame.innerHTML =
             '<span class="nash-embed-tape nash-embed-tape-tl" aria-hidden="true">★</span>' +
             '<span class="nash-embed-tape nash-embed-tape-tr" aria-hidden="true">★</span>';
@@ -1267,67 +1246,33 @@ const PRODUCTS = [
             label.textContent = contract.name;
             frame.appendChild(label);
           }
-          const host = document.createElement('div');
-          host.className = 'nash-embed-host';
-          const iframe = buildEmbedIframe({ url: contract.eformUrl, data: buildContractData(contract, values) });
-          host.appendChild(iframe);
-          frame.appendChild(host);
+          const body = document.createElement('div');
+          body.className = 'nash-open-body';
+
+          const note = document.createElement('p');
+          note.className = 'nash-open-note';
+          note.textContent = multi
+            ? "Opens in a new tab — review, sign, and pay. You can open both; they sign separately."
+            : "Opens in a new tab — review, sign, and pay. Everything's already pre-filled.";
+          body.appendChild(note);
+
+          const link = document.createElement('a');
+          link.className = 'nash-open-btn';
+          link.href = buildContractUrl(contract, values);
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.innerHTML = (multi ? ('Open &amp; sign: ' + contract.name) : 'Open &amp; sign your contract') +
+            ' <span aria-hidden="true">↗</span>';
+          link.addEventListener('click', function () {
+            link.classList.add('is-opened');
+            track('nashville_contract_opened', { contract: (contract && contract.slug) || product.slug, index: idx });
+          });
+          body.appendChild(link);
+
+          frame.appendChild(body);
           list.appendChild(frame);
-          pdEmbeds.push({ contract: contract, iframe: iframe, host: host, done: false });
         });
       }
-
-      // ── PandaDoc completion handling ────────────────────────────────────
-      // The embeds are sandboxed so they can't refresh the parent page on
-      // completion; instead PandaDoc posts an "embed.form.completed" message.
-      // We swap that contract's iframe for an in-page success panel and, once
-      // every stacked contract is done, show a combined confirmation. This is
-      // what lets the two-contract "Both" flow survive each completion.
-      function markContractSigned(em) {
-        const name = (em.contract && em.contract.name) ? em.contract.name : 'Your contract';
-        em.host.innerHTML =
-          '<div class="nash-signed">' +
-            '<div class="nash-signed-check" aria-hidden="true">✓</div>' +
-            '<h3>Signed &amp; paid</h3>' +
-            '<p></p>' +
-          '</div>';
-        // textContent for the name avoids any HTML-injection surprises.
-        const p = em.host.querySelector('.nash-signed p');
-        if (p) p.textContent = name + ' is complete.';
-      }
-
-      function showAllSigned() {
-        const list = document.getElementById('nash-embed-list');
-        if (!list || document.getElementById('nash-all-signed')) return;
-        const banner = document.createElement('div');
-        banner.id = 'nash-all-signed';
-        banner.className = 'nash-all-signed';
-        banner.textContent = pdEmbeds.length > 1
-          ? "🎉 Both contracts are signed and paid — you're locked in at the Nashville rate. We'll be in touch shortly."
-          : "🎉 You're signed and paid — locked in at the Nashville rate. We'll be in touch shortly.";
-        list.parentNode.insertBefore(banner, list);
-        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        track('nashville_all_signed', { count: pdEmbeds.length });
-      }
-
-      window.addEventListener('message', function (e) {
-        if (!e || !e.data || !pdEmbeds.length) return;
-        let msg = e.data;
-        if (typeof msg === 'string') { try { msg = JSON.parse(msg); } catch (err) { return; } }
-        if (!msg || !msg.event || String(msg.event).indexOf('embed.form.') !== 0) return;
-        if (String(msg.event).replace('embed.form.', '') !== 'completed') return;
-        for (let i = 0; i < pdEmbeds.length; i++) {
-          const em = pdEmbeds[i];
-          if (!em.done && em.iframe && em.iframe.contentWindow === e.source) {
-            em.done = true;
-            markContractSigned(em);
-            pdCompleted++;
-            track('nashville_contract_signed', { contract: (em.contract && em.contract.slug) || '', index: i });
-            if (pdCompleted >= pdEmbeds.length) showAllSigned();
-            break;
-          }
-        }
-      }, false);
 
       // ── HubSpot (best-effort lead capture) ──────────────────────────────
       // Forms Submission API — no auth, CORS-enabled, no embedded form UI needed.
