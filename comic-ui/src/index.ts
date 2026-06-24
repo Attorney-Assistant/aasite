@@ -7,3 +7,6 @@ export * from "./components/ComicPanel";
 export * from "./components/UrgencyBanner";
 export * from "./components/ComicDisplay";
 export * from "./components/ComicHeading";
+export * from "./components/ComicContainer";
+export * from "./components/ComicSection";
+export * from "./components/HeroLayout";

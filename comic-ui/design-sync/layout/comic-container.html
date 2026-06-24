@@ -1,0 +1,21 @@
+<!-- @dsCard group="Comic / Layout" -->
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{--comic-navy:#0e2236;--comic-navy-deep:#061320;--comic-gold:#F9A630;--comic-white:#fff;}
+  body{background:var(--comic-navy);padding:48px 0;font-family:'Inter',sans-serif;color:var(--comic-white);}
+  .label{font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--comic-gold);margin-bottom:8px;}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .narrow{max-width:760px;}
+  .box{outline:2px dashed var(--comic-gold);background:rgba(249,166,48,0.06);padding:24px;border-radius:6px;margin-bottom:32px;}
+  .box-inner{height:48px;background:rgba(249,166,48,0.15);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:14px;font-weight:600;color:var(--comic-gold);}
+</style></head><body>
+  <div class="container">
+    <div class="label">Wide container — max-width: 1240px</div>
+    <div class="box"><div class="box-inner">Content fills wide container</div></div>
+    <div class="narrow">
+      <div class="label">Narrow variant — max-width: 760px</div>
+      <div class="box"><div class="box-inner">Content fills narrow container</div></div>
+    </div>
+  </div>
+</body></html>

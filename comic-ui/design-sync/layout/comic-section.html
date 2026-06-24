@@ -1,0 +1,29 @@
+<!-- @dsCard group="Comic / Layout" -->
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{--comic-navy:#0e2236;--comic-navy-deep:#061320;--comic-gold:#F9A630;--comic-white:#fff;}
+  body{margin:0;font-family:'Inter',sans-serif;color:var(--comic-white);}
+  .section{position:relative;padding:96px 0;isolation:isolate;overflow:hidden;background:var(--comic-navy);}
+  .deep{background:var(--comic-navy-deep);}
+  .section::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.05) 1px,transparent 0);background-size:8px 8px;mix-blend-mode:screen;pointer-events:none;}
+  .inner{max-width:1240px;margin:0 auto;padding:0 32px;text-align:center;}
+  h2{font-family:'Bangers',sans-serif;font-size:56px;letter-spacing:.06em;color:var(--comic-gold);margin:0 0 16px;text-shadow:4px 4px 0 rgba(0,0,0,0.5);}
+  p{font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,0.75);margin:0;}
+  .tag{display:inline-block;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--comic-gold);border:1px solid var(--comic-gold);padding:4px 12px;border-radius:4px;margin-bottom:20px;}
+</style></head><body>
+  <section class="section">
+    <div class="inner">
+      <div class="tag">tone: navy</div>
+      <h2>Comic Section</h2>
+      <p>Halftone dot overlay via CSS ::after — subtle grid on navy background</p>
+    </div>
+  </section>
+  <section class="section deep">
+    <div class="inner">
+      <div class="tag">tone: navy-deep</div>
+      <h2>Deep Variant</h2>
+      <p>Deeper navy background for contrast between adjacent sections</p>
+    </div>
+  </section>
+</body></html>
