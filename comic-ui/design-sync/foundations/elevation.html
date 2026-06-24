@@ -1,0 +1,239 @@
+<!-- @dsCard group="Comic / Foundations" -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevation — Comic UI Foundations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0e2236;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 48px 40px 64px;
+    }
+
+    .card-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(42px, 7vw, 72px);
+      color: #F9A630;
+      letter-spacing: 0.06em;
+      text-shadow: 3px 3px 0 #E04A2C, 6px 6px 0 #061320;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #F9A630;
+      margin-bottom: 32px;
+      border-radius: 2px;
+    }
+
+    .card-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6f7a8a;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 52px;
+    }
+
+    /* Row layout for shadow demos */
+    .shadow-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: flex-end;
+      margin-bottom: 64px;
+    }
+
+    .shadow-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* The demo boxes */
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #0e2236;
+    }
+
+    .box-sm {
+      width: 100px;
+      height: 80px;
+      background: #ffffff;
+      box-shadow: 2px 2px 0 #061320;
+    }
+
+    .box-md {
+      width: 120px;
+      height: 96px;
+      background: #ffffff;
+      box-shadow: 4px 4px 0 #061320;
+    }
+
+    .box-lg {
+      width: 140px;
+      height: 112px;
+      background: #ffffff;
+      box-shadow: 6px 6px 0 #061320;
+    }
+
+    /* Frame shadow: white box, 4px gold border, 14px radius, layered red+navy */
+    .box-frame {
+      width: 200px;
+      height: 140px;
+      background: #ffffff;
+      border: 4px solid #F9A630;
+      border-radius: 14px;
+      box-shadow: 10px 10px 0 #E04A2C, 20px 20px 0 #061320;
+      color: #0e2236;
+    }
+
+    /* Label under each box */
+    .shadow-label {
+      text-align: center;
+    }
+
+    .shadow-name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #c0c8d4;
+      margin-bottom: 4px;
+    }
+
+    .shadow-value {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      color: #6f7a8a;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #F9A630;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: rgba(249,166,48,0.3);
+      flex: 1;
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Gold text inside frame box */
+    .frame-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      height: 100%;
+      color: #061320;
+    }
+
+    .frame-inner-label {
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      color: #0e2236;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-title">Elevation</div>
+  <div class="divider"></div>
+  <div class="card-subtitle">Comic UI &mdash; Offset Shadows &amp; Frame Layer</div>
+
+  <!-- Offset shadows: SM / MD / LG -->
+  <div class="section">
+    <div class="section-label">Offset Shadows</div>
+    <div class="shadow-row">
+
+      <div class="shadow-item">
+        <div class="box box-sm">SM</div>
+        <div class="shadow-label">
+          <div class="shadow-name">Shadow SM</div>
+          <div class="shadow-value">2px 2px 0 #061320</div>
+        </div>
+      </div>
+
+      <div class="shadow-item">
+        <div class="box box-md">MD</div>
+        <div class="shadow-label">
+          <div class="shadow-name">Shadow MD</div>
+          <div class="shadow-value">4px 4px 0 #061320</div>
+        </div>
+      </div>
+
+      <div class="shadow-item">
+        <div class="box box-lg">LG</div>
+        <div class="shadow-label">
+          <div class="shadow-name">Shadow LG</div>
+          <div class="shadow-value">6px 6px 0 #061320</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Frame shadow -->
+  <div class="section">
+    <div class="section-label">Frame — Layered Shadow</div>
+    <div class="shadow-row">
+
+      <div class="shadow-item" style="margin-bottom: 20px;">
+        <div class="box-frame">
+          <div class="frame-inner">
+            <div class="frame-inner-label">FRAME</div>
+          </div>
+        </div>
+        <div class="shadow-label" style="margin-top: 8px;">
+          <div class="shadow-name">Frame Shadow</div>
+          <div class="shadow-value">border: 4px solid #F9A630</div>
+          <div class="shadow-value" style="margin-top:3px;">10px 10px 0 #E04A2C,</div>
+          <div class="shadow-value">20px 20px 0 #061320</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

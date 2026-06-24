@@ -1,0 +1,211 @@
+<!-- @dsCard group="Comic / Foundations" -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colors — Comic UI Foundations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0e2236;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 48px 40px 64px;
+    }
+
+    .card-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(42px, 7vw, 72px);
+      color: #F9A630;
+      letter-spacing: 0.06em;
+      text-shadow: 3px 3px 0 #E04A2C, 6px 6px 0 #061320;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .card-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6f7a8a;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 44px;
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 20px;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .swatch-chip {
+      width: 120px;
+      height: 120px;
+      border-radius: 14px;
+      box-shadow: 4px 4px 0 #061320;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    /* Border for light swatches so they read on navy bg */
+    .swatch-chip.has-border {
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+
+    .swatch-info {
+      text-align: center;
+    }
+
+    .swatch-name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      color: #c0c8d4;
+      letter-spacing: 0.04em;
+      margin-bottom: 3px;
+    }
+
+    .swatch-hex {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      color: #6f7a8a;
+      letter-spacing: 0.06em;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #F9A630;
+      margin-bottom: 32px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-title">Colors</div>
+  <div class="divider"></div>
+  <div class="card-subtitle">Comic UI &mdash; Design Tokens &mdash; All 13 swatches</div>
+
+  <div class="swatch-grid">
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#0e2236;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Navy</div>
+        <div class="swatch-hex">#0e2236</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#061320;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Navy Deep</div>
+        <div class="swatch-hex">#061320</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#1a3a5c;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Navy Mid</div>
+        <div class="swatch-hex">#1a3a5c</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#F9A630;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Gold</div>
+        <div class="swatch-hex">#F9A630</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#FBD46D;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Gold Bright</div>
+        <div class="swatch-hex">#FBD46D</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#E04A2C;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Red</div>
+        <div class="swatch-hex">#E04A2C</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#FF6B45;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Red Bright</div>
+        <div class="swatch-hex">#FF6B45</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#5087dd;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Blue</div>
+        <div class="swatch-hex">#5087dd</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#c0c8d4;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Steel</div>
+        <div class="swatch-hex">#c0c8d4</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#6f7a8a;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Steel Dim</div>
+        <div class="swatch-hex">#6f7a8a</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip has-border" style="background:#FFF9EE;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Paper</div>
+        <div class="swatch-hex">#FFF9EE</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip" style="background:#111111;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Ink</div>
+        <div class="swatch-hex">#111111</div>
+      </div>
+    </div>
+
+    <div class="swatch">
+      <div class="swatch-chip has-border" style="background:#ffffff;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#ffffff</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
