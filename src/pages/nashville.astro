@@ -4,6 +4,28 @@ import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
 const IMG = '/images/lp/law-firm-reset';
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgobjarr';
 
+// US states for the searchable State picklist — the user picks a full name and
+// we translate it to the 2-letter code on submit (HubSpot / PandaDoc / Formspree).
+const US_STATES = [
+  { code: 'AL', name: 'Alabama' }, { code: 'AK', name: 'Alaska' }, { code: 'AZ', name: 'Arizona' },
+  { code: 'AR', name: 'Arkansas' }, { code: 'CA', name: 'California' }, { code: 'CO', name: 'Colorado' },
+  { code: 'CT', name: 'Connecticut' }, { code: 'DE', name: 'Delaware' }, { code: 'DC', name: 'District of Columbia' },
+  { code: 'FL', name: 'Florida' }, { code: 'GA', name: 'Georgia' }, { code: 'HI', name: 'Hawaii' },
+  { code: 'ID', name: 'Idaho' }, { code: 'IL', name: 'Illinois' }, { code: 'IN', name: 'Indiana' },
+  { code: 'IA', name: 'Iowa' }, { code: 'KS', name: 'Kansas' }, { code: 'KY', name: 'Kentucky' },
+  { code: 'LA', name: 'Louisiana' }, { code: 'ME', name: 'Maine' }, { code: 'MD', name: 'Maryland' },
+  { code: 'MA', name: 'Massachusetts' }, { code: 'MI', name: 'Michigan' }, { code: 'MN', name: 'Minnesota' },
+  { code: 'MS', name: 'Mississippi' }, { code: 'MO', name: 'Missouri' }, { code: 'MT', name: 'Montana' },
+  { code: 'NE', name: 'Nebraska' }, { code: 'NV', name: 'Nevada' }, { code: 'NH', name: 'New Hampshire' },
+  { code: 'NJ', name: 'New Jersey' }, { code: 'NM', name: 'New Mexico' }, { code: 'NY', name: 'New York' },
+  { code: 'NC', name: 'North Carolina' }, { code: 'ND', name: 'North Dakota' }, { code: 'OH', name: 'Ohio' },
+  { code: 'OK', name: 'Oklahoma' }, { code: 'OR', name: 'Oregon' }, { code: 'PA', name: 'Pennsylvania' },
+  { code: 'RI', name: 'Rhode Island' }, { code: 'SC', name: 'South Carolina' }, { code: 'SD', name: 'South Dakota' },
+  { code: 'TN', name: 'Tennessee' }, { code: 'TX', name: 'Texas' }, { code: 'UT', name: 'Utah' },
+  { code: 'VT', name: 'Vermont' }, { code: 'VA', name: 'Virginia' }, { code: 'WA', name: 'Washington' },
+  { code: 'WV', name: 'West Virginia' }, { code: 'WI', name: 'Wisconsin' }, { code: 'WY', name: 'Wyoming' }
+];
+
 /**
  * Note on PandaDoc variable names: the field paths the user provided differ
  * between the two products (single vs double underscore in `_r` / `__r`).
@@ -192,6 +214,7 @@ const PRODUCTS = [
 
         <div class="nash-back-row">
           <button type="button" class="nash-back-light" data-go-stage="select">← Change product</button>
+          <button type="button" class="nash-back-light" data-start-over>↺ Start over</button>
         </div>
 
         <div class="nash-products">
@@ -224,6 +247,7 @@ const PRODUCTS = [
 
         <div class="nash-form-frame">
           <button type="button" class="nash-back" id="nash-info-back" data-go-stage="select">← Change product</button>
+          <button type="button" class="nash-back nash-back-start" data-start-over>↺ Start over</button>
 
           <form id="nash-form" class="nash-form" novalidate>
             <input type="hidden" name="product" id="nash-form-product" value="" />
@@ -272,7 +296,10 @@ const PRODUCTS = [
               </label>
               <label class="nash-field">
                 <span class="nash-label">State <em>*</em></span>
-                <input type="text" name="state" required autocomplete="address-level1" maxlength="2" placeholder="TN" />
+                <input type="text" name="state" required autocomplete="address-level1" list="nash-states" placeholder="Start typing your state…" />
+                <datalist id="nash-states">
+                  {US_STATES.map((s) => <option value={s.name} />)}
+                </datalist>
               </label>
               <label class="nash-field">
                 <span class="nash-label">Zip <em>*</em></span>
@@ -305,6 +332,9 @@ const PRODUCTS = [
           <p class="nash-stage-sub">Everything's pre-filled. Review, sign, and you're locked in at the Nashville rate.</p>
         </div>
 
+        <div class="nash-back-row">
+          <button type="button" class="nash-back-light" data-start-over>↺ Start over</button>
+        </div>
         <div class="nash-embed-list" id="nash-embed-list"></div>
       </div>
     </section>
@@ -642,13 +672,14 @@ const PRODUCTS = [
     #nash-lp .nash-product:nth-child(4) { transform: rotate(0.5deg); }
 
     /* Back link shown on the dark Impact support-type picker */
-    #nash-lp .nash-back-row { max-width: 1100px; margin: 0 auto 24px; text-align: left; position: relative; z-index: 3; }
+    #nash-lp .nash-back-row { max-width: 1100px; margin: 0 auto 24px; display: flex; flex-wrap: wrap; gap: 20px; position: relative; z-index: 3; }
     #nash-lp .nash-back-light {
       background: none; border: none; color: var(--gold);
       font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
       letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; padding: 0;
     }
     #nash-lp .nash-back-light:hover { color: var(--gold-bright); }
+    #nash-lp .nash-back-start { margin-left: 16px; }
     #nash-lp .nash-product:hover, #nash-lp .nash-product:focus-visible {
       transform: rotate(0) translateY(-6px);
       border-color: var(--gold);
@@ -821,6 +852,17 @@ const PRODUCTS = [
       font-size: 14px;
       color: var(--red);
     }
+    #nash-lp .nash-form input.nash-field-invalid {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(224,74,44,0.15);
+    }
+    #nash-lp .nash-field-msg {
+      color: var(--red);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
 
     /* ── Contract embed */
     #nash-lp .nash-embed-frame {
@@ -867,6 +909,33 @@ const PRODUCTS = [
     }
     #nash-lp .nash-embed-host { min-height: 720px; }
     #nash-lp .nash-embed-host iframe { background: #fff !important; border: 0; }
+    /* In-page success panel that replaces an iframe once its contract is signed. */
+    #nash-lp .nash-signed {
+      min-height: 720px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 48px 24px;
+    }
+    #nash-lp .nash-signed-check {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--gold); color: var(--navy-deep);
+      font-family: 'Bangers', sans-serif; font-size: 40px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 4px 4px 0 var(--navy-deep); margin-bottom: 18px;
+    }
+    #nash-lp .nash-signed h3 {
+      font-family: 'Bangers', sans-serif; font-size: 32px; letter-spacing: 0.03em;
+      color: var(--navy-mid); margin: 0 0 8px;
+    }
+    #nash-lp .nash-signed p {
+      font-family: 'Sora', sans-serif; font-weight: 600; color: var(--steel-dim); margin: 0;
+    }
+    #nash-lp .nash-all-signed {
+      max-width: 940px; margin: 0 auto 28px;
+      background: rgba(80,135,221,0.12); border: 2px solid var(--blue); border-radius: 8px;
+      padding: 18px 22px; text-align: center; color: #fff;
+      font-family: 'Sora', sans-serif; font-weight: 700; line-height: 1.4;
+      box-shadow: 5px 5px 0 var(--navy-deep);
+    }
 
     /* ════════════════════════════════════
        Mobile — comprehensive overrides
@@ -975,7 +1044,7 @@ const PRODUCTS = [
     }
   </style>
 
-  <script is:inline define:vars={{ FORMSPREE_ENDPOINT, PRODUCTS }}>
+  <script is:inline define:vars={{ FORMSPREE_ENDPOINT, PRODUCTS, US_STATES }}>
     (function () {
       const main = document.getElementById('nash-lp');
       const productById = Object.fromEntries(PRODUCTS.map(function (p) { return [p.slug, p]; }));
@@ -990,6 +1059,8 @@ const PRODUCTS = [
       const infoBack = document.getElementById('nash-info-back');
       let currentProduct = null;
       let impactFlow = 'impact'; // 'impact' or 'both' — which flow opened the support-type picker
+      let pdEmbeds = [];   // [{ contract, iframe, host, done }] for the current contract stage
+      let pdCompleted = 0; // how many embeds have fired PandaDoc's "completed" event
 
       // Track UTMs from the URL and default to "nashville" so attribution is clear.
       const UTM_DEFAULTS = {
@@ -1013,6 +1084,12 @@ const PRODUCTS = [
 
       function setStage(name) {
         main.setAttribute('data-stage', name);
+        // Re-enable the submit button when returning to the info form (e.g. via Back).
+        if (name === 'info' && submitBtn) {
+          submitBtn.disabled = false;
+          const span = submitBtn.querySelector('span');
+          if (span) span.textContent = 'Continue to Contract';
+        }
         const target = document.querySelector('section[data-stage="' + name + '"]');
         if (target) requestAnimationFrame(function () { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
         track('nashville_stage', { stage: name });
@@ -1106,6 +1183,22 @@ const PRODUCTS = [
         });
       });
 
+      // Start Over — full reset back to the product picker (initial content).
+      document.querySelectorAll('[data-start-over]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          form.reset();
+          clearFieldErrors();
+          currentProduct = null;
+          impactFlow = 'impact';
+          if (productHidden) productHidden.value = '';
+          if (titleField) titleField.hidden = false;
+          errorEl.hidden = true;
+          errorEl.textContent = '';
+          setStage('select');
+        });
+      });
+
       // Build a PandaDoc embed exactly like their snippet does — pass the
       // payload as &key=URL-encoded-JSON for each top-level key in `data`.
       function buildEmbedIframe(opts) {
@@ -1119,6 +1212,12 @@ const PRODUCTS = [
         iframe.style.border = '0';
         iframe.style.minHeight = '720px';
         iframe.style.background = '#fff';
+        // Block the embed from navigating/refreshing the PARENT page on completion.
+        // PandaDoc otherwise redirects window.top to its success page, which would
+        // wipe out the second stacked contract. We grant everything the form +
+        // Stripe need INSIDE the frame and simply withhold allow-top-navigation.
+        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals');
+        iframe.setAttribute('allow', 'payment; clipboard-write');
         return iframe;
       }
 
@@ -1151,6 +1250,10 @@ const PRODUCTS = [
         const multi = contracts.length > 1;
         const list = document.getElementById('nash-embed-list');
         list.innerHTML = '';
+        pdEmbeds = [];
+        pdCompleted = 0;
+        const oldBanner = document.getElementById('nash-all-signed');
+        if (oldBanner) oldBanner.remove();
 
         contracts.forEach(function (contract) {
           const frame = document.createElement('div');
@@ -1166,14 +1269,171 @@ const PRODUCTS = [
           }
           const host = document.createElement('div');
           host.className = 'nash-embed-host';
-          host.appendChild(buildEmbedIframe({ url: contract.eformUrl, data: buildContractData(contract, values) }));
+          const iframe = buildEmbedIframe({ url: contract.eformUrl, data: buildContractData(contract, values) });
+          host.appendChild(iframe);
           frame.appendChild(host);
           list.appendChild(frame);
+          pdEmbeds.push({ contract: contract, iframe: iframe, host: host, done: false });
         });
       }
 
+      // ── PandaDoc completion handling ────────────────────────────────────
+      // The embeds are sandboxed so they can't refresh the parent page on
+      // completion; instead PandaDoc posts an "embed.form.completed" message.
+      // We swap that contract's iframe for an in-page success panel and, once
+      // every stacked contract is done, show a combined confirmation. This is
+      // what lets the two-contract "Both" flow survive each completion.
+      function markContractSigned(em) {
+        const name = (em.contract && em.contract.name) ? em.contract.name : 'Your contract';
+        em.host.innerHTML =
+          '<div class="nash-signed">' +
+            '<div class="nash-signed-check" aria-hidden="true">✓</div>' +
+            '<h3>Signed &amp; paid</h3>' +
+            '<p></p>' +
+          '</div>';
+        // textContent for the name avoids any HTML-injection surprises.
+        const p = em.host.querySelector('.nash-signed p');
+        if (p) p.textContent = name + ' is complete.';
+      }
+
+      function showAllSigned() {
+        const list = document.getElementById('nash-embed-list');
+        if (!list || document.getElementById('nash-all-signed')) return;
+        const banner = document.createElement('div');
+        banner.id = 'nash-all-signed';
+        banner.className = 'nash-all-signed';
+        banner.textContent = pdEmbeds.length > 1
+          ? "🎉 Both contracts are signed and paid — you're locked in at the Nashville rate. We'll be in touch shortly."
+          : "🎉 You're signed and paid — locked in at the Nashville rate. We'll be in touch shortly.";
+        list.parentNode.insertBefore(banner, list);
+        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        track('nashville_all_signed', { count: pdEmbeds.length });
+      }
+
+      window.addEventListener('message', function (e) {
+        if (!e || !e.data || !pdEmbeds.length) return;
+        let msg = e.data;
+        if (typeof msg === 'string') { try { msg = JSON.parse(msg); } catch (err) { return; } }
+        if (!msg || !msg.event || String(msg.event).indexOf('embed.form.') !== 0) return;
+        if (String(msg.event).replace('embed.form.', '') !== 'completed') return;
+        for (let i = 0; i < pdEmbeds.length; i++) {
+          const em = pdEmbeds[i];
+          if (!em.done && em.iframe && em.iframe.contentWindow === e.source) {
+            em.done = true;
+            markContractSigned(em);
+            pdCompleted++;
+            track('nashville_contract_signed', { contract: (em.contract && em.contract.slug) || '', index: i });
+            if (pdCompleted >= pdEmbeds.length) showAllSigned();
+            break;
+          }
+        }
+      }, false);
+
+      // ── HubSpot (best-effort lead capture) ──────────────────────────────
+      // Forms Submission API — no auth, CORS-enabled, no embedded form UI needed.
+      const HUBSPOT_ENDPOINT =
+        'https://api.hsforms.com/submissions/v3/integration/submit/49161090/981bee78-0923-4718-a662-f035ea7c1fa0';
+
+      function getCookie(name) {
+        const m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+        return m ? decodeURIComponent(m[1]) : '';
+      }
+
+      function submitToHubSpot(values) {
+        // Map our form values to the HubSpot form's contact properties.
+        const map = [
+          ['firstname', values.firstname], ['lastname', values.lastname],
+          ['email', values.email], ['phone', values.phone],
+          ['jobtitle', values.title], ['company', values.company],
+          ['address', values.street], ['city', values.city],
+          ['state', values.state], ['zip', values.zip]
+        ];
+        const fields = map
+          .filter(function (f) { return f[1]; })
+          .map(function (f) { return { name: f[0], value: f[1] }; });
+        const context = { pageUri: location.href, pageName: document.title };
+        const hutk = getCookie('hubspotutk'); // ties submission to the visitor if HS tracking loaded
+        if (hutk) context.hutk = hutk;
+        return fetch(HUBSPOT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields: fields, context: context })
+        }).then(function (r) { if (!r.ok) throw new Error('HubSpot ' + r.status); });
+      }
+
+      // ── State picklist (full name → 2-letter code) ──────────────────────
+      const STATE_BY_NAME = {};
+      const STATE_CODES = new Set();
+      US_STATES.forEach(function (s) { STATE_BY_NAME[s.name.toLowerCase()] = s.code; STATE_CODES.add(s.code); });
+      function resolveStateCode(raw) {
+        if (!raw) return '';
+        const byName = STATE_BY_NAME[raw.trim().toLowerCase()];
+        if (byName) return byName;
+        const up = raw.trim().toUpperCase();
+        return STATE_CODES.has(up) ? up : '';
+      }
+
+      // ── Field validation ────────────────────────────────────────────────
+      function clearFieldErrors() {
+        form.querySelectorAll('.nash-field-invalid').forEach(function (el) { el.classList.remove('nash-field-invalid'); });
+        form.querySelectorAll('.nash-field-msg').forEach(function (el) { el.remove(); });
+      }
+
+      function markInvalid(name, message) {
+        const input = form.querySelector('[name="' + name + '"]');
+        if (!input) return;
+        input.classList.add('nash-field-invalid');
+        const field = input.closest('.nash-field');
+        if (field && !field.querySelector('.nash-field-msg')) {
+          const msg = document.createElement('span');
+          msg.className = 'nash-field-msg';
+          msg.textContent = message;
+          field.appendChild(msg);
+        }
+      }
+
+      function validateForm(values, product) {
+        clearFieldErrors();
+        const errs = [];
+        const required = ['firstname', 'lastname', 'email', 'phone', 'company', 'street', 'city', 'zip'];
+        if (product.askTitle && titleField && !titleField.hidden) required.push('title');
+        required.forEach(function (name) {
+          if (!values[name]) { markInvalid(name, 'This field is required.'); errs.push(name); }
+        });
+        // Format checks (only when the field has a value, so we don't double-flag empties).
+        if (values.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+          markInvalid('email', 'Enter a valid email address.'); errs.push('email');
+        }
+        if (values.phone && values.phone.replace(/\D/g, '').length < 7) {
+          markInvalid('phone', 'Enter a valid phone number.'); errs.push('phone');
+        }
+        // State: required + must resolve to a 2-letter code from the picklist.
+        const stateInput = form.querySelector('[name="state"]');
+        const stateRaw = stateInput ? stateInput.value.trim() : '';
+        if (!stateRaw) {
+          markInvalid('state', 'This field is required.'); errs.push('state');
+        } else if (!resolveStateCode(stateRaw)) {
+          markInvalid('state', 'Choose your state from the list.'); errs.push('state');
+        }
+        if (values.zip && values.zip.replace(/\D/g, '').length < 4) {
+          markInvalid('zip', 'Enter a valid ZIP code.'); errs.push('zip');
+        }
+        return errs;
+      }
+
+      // Clear a field's error the moment the user edits it.
+      form.addEventListener('input', function (e) {
+        const el = e.target;
+        if (el.classList && el.classList.contains('nash-field-invalid')) {
+          el.classList.remove('nash-field-invalid');
+          const field = el.closest('.nash-field');
+          const msg = field && field.querySelector('.nash-field-msg');
+          if (msg) msg.remove();
+        }
+      });
+
       // Form submission ------------------------------------------------------
-      form.addEventListener('submit', async function (e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         errorEl.hidden = true;
         errorEl.textContent = '';
@@ -1189,7 +1449,7 @@ const PRODUCTS = [
           company:   String(formData.get('company')   || '').trim(),
           street:    String(formData.get('street')    || '').trim(),
           city:      String(formData.get('city')      || '').trim(),
-          state:     String(formData.get('state')     || '').trim().toUpperCase(),
+          state:     resolveStateCode(String(formData.get('state') || '')),
           zip:       String(formData.get('zip')       || '').trim()
         };
 
@@ -1201,57 +1461,50 @@ const PRODUCTS = [
           return;
         }
 
-        submitBtn.disabled = true;
-        const originalBtnText = submitBtn.querySelector('span').textContent;
-        submitBtn.querySelector('span').textContent = 'Saving…';
+        // Validate before anything irreversible — bad data must not reach PandaDoc.
+        const fieldErrors = validateForm(values, product);
+        if (fieldErrors.length) {
+          errorEl.textContent = 'Please fix the highlighted field' + (fieldErrors.length > 1 ? 's' : '') + ' to continue.';
+          errorEl.hidden = false;
+          const firstBad = form.querySelector('.nash-field-invalid');
+          if (firstBad) { try { firstBad.focus(); } catch (e2) {} firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+          return;
+        }
 
-        // Build Formspree payload — every product type lands in the same inbox,
-        // distinguished by `product`.
+        submitBtn.disabled = true;
+        submitBtn.querySelector('span').textContent = 'Preparing your contract…';
+
+        // Lead capture is BEST-EFFORT: fire Formspree + HubSpot, but NEVER block the
+        // signer from reaching PandaDoc if either fails — fail silently and continue.
         const formspreePayload = Object.assign({}, values, utms, {
           landing_page: 'nashville',
           product_name: product.name,
           _subject: 'Nashville LP — ' + product.name + ' — ' + values.company
         });
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(formspreePayload)
+        }).then(function (r) { if (!r.ok) throw new Error('Formspree ' + r.status); })
+          .catch(function (err) { console.warn('[nashville] Formspree submit failed (continuing):', err && err.message); });
 
-        try {
-          const res = await fetch(FORMSPREE_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(formspreePayload)
-          });
-          if (!res.ok) {
-            const errText = await res.text();
-            throw new Error('Formspree submission failed: ' + res.status + ' — ' + errText);
-          }
-          track('nashville_form_submitted', { product: product.slug });
+        submitToHubSpot(values).catch(function (err) {
+          console.warn('[nashville] HubSpot submit failed (continuing):', err && err.message);
+        });
 
-          // Pixel lead event (browser + CAPI, dedupe via hash inside the helper)
-          if (window.__metaCAPI) {
-            window.__metaCAPI.track(
-              'Lead',
-              {
-                content_name: 'nashville-contract',
-                content_category: 'nashville-lp',
-                product: product.slug
-              },
-              {
-                em: values.email,
-                ph: values.phone,
-                fn: values.firstname,
-                ln: values.lastname
-              }
-            );
-          }
+        track('nashville_form_submitted', { product: product.slug });
 
-          loadContract(product, values);
-          setStage('contract');
-        } catch (err) {
-          console.error('Nashville form submission error:', err);
-          errorEl.textContent = "Something went wrong. Please try again, or email info@attorneyassistant.com and we'll send your contract over directly.";
-          errorEl.hidden = false;
-          submitBtn.disabled = false;
-          submitBtn.querySelector('span').textContent = originalBtnText;
+        // Pixel lead event (browser + CAPI, dedupe via hash inside the helper)
+        if (window.__metaCAPI) {
+          window.__metaCAPI.track(
+            'Lead',
+            { content_name: 'nashville-contract', content_category: 'nashville-lp', product: product.slug },
+            { em: values.email, ph: values.phone, fn: values.firstname, ln: values.lastname }
+          );
         }
+
+        loadContract(product, values);
+        setStage('contract');
       });
 
       track('nashville_lp_view');
