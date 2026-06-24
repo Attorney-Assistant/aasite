@@ -1,0 +1,68 @@
+<!-- @dsCard group="Comic / Decorative" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BatSignal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0e2236;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Bangers', cursive;
+    color: #F9A630;
+  }
+  .label {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+  .stage {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    transform-origin: 34% 97%;
+    animation: comic-bat-pendulum 10s ease-in-out infinite;
+  }
+  .bat {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .glow {
+    position: absolute;
+    inset: -30%;
+    background: radial-gradient(circle, rgba(249,166,48,0.55) 0%, rgba(249,166,48,0.15) 35%, transparent 65%);
+    filter: blur(8px);
+    z-index: -1;
+    animation: comic-bat-pulse 3s ease-in-out infinite;
+  }
+  @keyframes comic-bat-pendulum {
+    0%, 100% { transform: rotate(-30deg); }
+    50% { transform: rotate(30deg); }
+  }
+  @keyframes comic-bat-pulse {
+    0%, 100% { transform: scale(0.92); opacity: .55; }
+    50% { transform: scale(1.1); opacity: .95; }
+  }
+</style>
+</head>
+<body>
+  <div class="label">BatSignal</div>
+  <div class="stage">
+    <div class="glow"></div>
+    <img class="bat" src="../../src/assets/bat-signal.svg" alt="Bat Signal" />
+  </div>
+</body>
+</html>

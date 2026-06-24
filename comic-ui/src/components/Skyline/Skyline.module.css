@@ -1,0 +1,9 @@
+.skyline {
+  height: 180px;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  opacity: 0.55;
+  mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+}

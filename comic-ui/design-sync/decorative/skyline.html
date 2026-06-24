@@ -1,0 +1,49 @@
+<!-- @dsCard group="Comic / Decorative" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0e2236;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 100vh;
+    font-family: 'Bangers', cursive;
+    color: #F9A630;
+  }
+  .label {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+  .skyline {
+    width: 100%;
+    height: 180px;
+    background-image: url('../../src/assets/skyline.svg');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    opacity: 0.55;
+    mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, #000 60%, transparent 100%);
+  }
+</style>
+</head>
+<body>
+  <span class="label">Skyline</span>
+  <div class="skyline"></div>
+</body>
+</html>

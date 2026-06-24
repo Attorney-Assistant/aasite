@@ -1,0 +1,16 @@
+.speedlines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.18) 0 2px,
+    transparent 2px 10px
+  );
+  animation: comic-speedlines 800ms ease-out forwards;
+  opacity: .5;
+}
+
+@keyframes comic-speedlines {
+  from { opacity: 0; transform: translateY(-50%) scaleX(.5); }
+  to { opacity: .5; transform: translateY(-50%) scaleX(1); }
+}

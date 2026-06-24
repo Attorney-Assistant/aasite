@@ -1,0 +1,63 @@
+<!-- @dsCard group="Comic / Decorative" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HalftoneOverlay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0e2236;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Bangers', cursive;
+    color: #0e2236;
+    gap: 16px;
+  }
+  .label {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+    text-transform: uppercase;
+    color: #F9A630;
+  }
+  .demo-block {
+    position: relative;
+    width: 280px;
+    height: 140px;
+    background: #F9A630;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.18) 1px, transparent 0);
+    background-size: 8px 8px;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    border-radius: 6px;
+  }
+  .demo-label {
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    position: relative;
+  }
+</style>
+</head>
+<body>
+  <span class="label">HalftoneOverlay</span>
+  <div class="demo-block">
+    <div class="overlay"></div>
+    <span class="demo-label">HALFTONE</span>
+  </div>
+</body>
+</html>
