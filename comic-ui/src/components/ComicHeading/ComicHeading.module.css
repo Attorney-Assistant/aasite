@@ -1,0 +1,10 @@
+.heading {
+  font-family: var(--comic-font-display);
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow: var(--comic-shadow-text);
+  font-size: var(--comic-display-md);
+  margin: 0;
+}

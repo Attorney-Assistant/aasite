@@ -1,0 +1,14 @@
+.card {
+  background: radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.10), transparent 70%), rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,255,255,0.10);
+  padding: 30px 26px 28px;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+  transform: rotate(-0.6deg);
+  color: #fff;
+}
+
+.card:hover {
+  transform: rotate(0) translateY(-6px);
+  border-color: var(--comic-gold);
+  box-shadow: var(--comic-shadow-lg);
+}

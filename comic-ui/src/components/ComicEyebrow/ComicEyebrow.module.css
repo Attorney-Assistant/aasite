@@ -1,0 +1,15 @@
+.eyebrow {
+  display: inline-block;
+  background: var(--comic-red);
+  color: #fff;
+  padding: 8px 16px;
+  font-family: var(--comic-font-display);
+  letter-spacing: 0.12em;
+  transform: rotate(-2deg);
+  box-shadow: var(--comic-shadow-md);
+}
+
+.gold {
+  background: var(--comic-gold);
+  color: var(--comic-navy-deep);
+}

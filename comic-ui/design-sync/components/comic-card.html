@@ -1,0 +1,39 @@
+<!-- @dsCard group="Comic / Components" -->
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --comic-navy-deep: #061320;
+    --comic-gold: #F9A630;
+    --comic-red: #e02a2a;
+    --comic-blue: #5087dd;
+    --comic-font-display: 'Bangers', cursive;
+    --comic-shadow-lg: 6px 6px 0 #061320;
+  }
+  body { background: #0e2236; display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start; padding: 64px 48px; font-family: 'Inter', sans-serif; }
+  .card {
+    background: radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.10), transparent 70%), rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.10);
+    padding: 30px 26px 28px;
+    transform: rotate(-0.6deg);
+    color: #fff;
+    max-width: 280px;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+  }
+  .card:hover {
+    transform: rotate(0) translateY(-6px);
+    border-color: var(--comic-gold);
+    box-shadow: var(--comic-shadow-lg);
+  }
+  .card h3 { font-family: 'Bangers', cursive; font-size: 28px; margin: 0 0 12px; color: var(--comic-gold); letter-spacing: 0.04em; }
+  .card p { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.6; margin: 0; color: rgba(255,255,255,0.8); }
+</style></head><body>
+  <div class="card">
+    <h3>FREE CASE REVIEW</h3>
+    <p>Our team reviews your situation and tells you exactly what you're entitled to — at no cost and no obligation.</p>
+  </div>
+  <div class="card">
+    <h3>WE FIGHT FOR YOU</h3>
+    <p>Aggressive legal representation from day one. We don't settle until you get what you deserve.</p>
+  </div>
+</body></html>

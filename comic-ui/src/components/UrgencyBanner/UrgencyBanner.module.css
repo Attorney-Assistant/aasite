@@ -1,0 +1,30 @@
+.banner {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: rgba(80,135,221,0.12);
+  border: 2px solid var(--comic-blue);
+  border-radius: 4px;
+  padding: 16px 18px 16px 24px;
+  box-shadow: 5px 5px 0 var(--comic-navy-deep);
+  transform: rotate(-0.4deg);
+}
+
+.bannerLabel {
+  flex-shrink: 0;
+  background: var(--comic-red);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: var(--comic-font-display);
+  letter-spacing: 0.08em;
+  transform: rotate(-6deg);
+  box-shadow: 2px 2px 0 var(--comic-navy-deep);
+}
+
+.bannerText {
+  font-family: var(--comic-font-subhead);
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.4;
+}

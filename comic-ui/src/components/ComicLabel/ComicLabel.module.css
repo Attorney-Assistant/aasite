@@ -1,0 +1,16 @@
+.label {
+  display: inline-block;
+  background: var(--comic-red);
+  color: #fff;
+  padding: 6px 16px;
+  font-family: var(--comic-font-display);
+  letter-spacing: 0.16em;
+  transform: rotate(-3deg);
+  box-shadow: 3px 3px 0 var(--comic-gold);
+}
+
+.gold {
+  background: var(--comic-gold);
+  color: var(--comic-navy-deep);
+  box-shadow: 3px 3px 0 var(--comic-navy-deep);
+}
