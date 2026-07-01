@@ -4,6 +4,26 @@ import CTABanner from "@components/CTABanner.astro";
 
 const tools = [
   {
+    title: "Lead Revenue Calculator",
+    description: "See how much revenue poor intake is costing your firm every month. Plug in your monthly leads, current conversion rate, and average case value to estimate the missed cases — and recoverable revenue — slipping through the cracks.",
+    highlights: [
+      "Instant estimate based on your firm's real numbers",
+      "Models the 2-3x conversion lift firms see with better intake",
+      "Quantifies missed cases and lost revenue per month",
+      "No signup — just move the inputs and see your number",
+    ],
+    href: "/tools/calculator",
+    cta: "Open the Calculator",
+    icon: "calculator",
+    badge: "New",
+    stats: [
+      { value: "60 sec", label: "to your number" },
+      { value: "3", label: "simple inputs" },
+      { value: "$0", label: "cost" },
+    ],
+    accent: "gold",
+  },
+  {
     title: "Intake Audit Checklist",
     description: "A 10-minute self-assessment that reveals where your firm is losing cases. Score your intake operations across five critical areas — speed to lead, call coverage, follow-up persistence, intake quality, and systems visibility.",
     highlights: [
@@ -108,6 +128,11 @@ const tools = [
                 "featured-icon featured-icon-md",
                 tool.accent === "gold" ? "featured-icon-gold" : tool.accent === "blue" ? "featured-icon-brand" : "featured-icon-navy"
               ]}>
+                {tool.icon === "calculator" && (
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0012 2.25z" />
+                  </svg>
+                )}
                 {tool.icon === "clipboard-check" && (
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
