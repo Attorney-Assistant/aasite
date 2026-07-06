@@ -1,0 +1,83 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+---
+
+<ComicCampaignLayout
+  title="You're Booked! | Attorney Assistant"
+  description="Your call with Attorney Assistant is confirmed. Every phone, answered — 24/7."
+  image="/images/lp/answering-header.jpg"
+>
+
+  <section class="relative min-h-[80vh] flex items-center justify-center py-20">
+    <div class="comic-container text-center">
+      <div class="reveal">
+        <div class="inline-block mb-8">
+          <span class="comic-pow comic-pow--gold text-2xl px-6 py-2 transform rotate-[-2deg]">BOOKED!</span>
+        </div>
+
+        <h1 class="comic-title text-5xl md:text-7xl text-white mb-4 leading-none">
+          Your Line Is <span class="comic-gold">Covered.</span>
+        </h1>
+        <p class="comic-sub text-xl md:text-2xl text-gray-300 font-semibold mb-3">
+          Your call is locked in. Check your inbox for the calendar invite.
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-brand-gold to-brand-gold-light rounded-full mx-auto my-8"></div>
+        <p class="text-gray-400 max-w-lg mx-auto mb-12">
+          In the meantime, think about when your firm misses the most calls &mdash; after hours, at lunch, on weekends. We'll start there.
+        </p>
+      </div>
+
+      <!-- Prep cards -->
+      <div class="grid md:grid-cols-3 gap-5 max-w-3xl mx-auto">
+        <div class="comic-panel p-6 text-center reveal" style="transition-delay: 100ms">
+          <div class="comic-pow comic-pow--red mb-4 inline-block">STEP 01</div>
+          <h3 class="comic-title text-xl text-white mb-2">Check Your Email</h3>
+          <p class="text-sm text-gray-400">Calendar invite incoming. Add it so you don't miss your slot.</p>
+        </div>
+        <div class="comic-panel p-6 text-center reveal" style="transition-delay: 200ms">
+          <div class="comic-pow comic-pow--amber mb-4 inline-block">STEP 02</div>
+          <h3 class="comic-title text-xl text-white mb-2">Count the Gaps</h3>
+          <p class="text-sm text-gray-400">When do your phones go unanswered? Jot down the windows &mdash; we'll build coverage around them.</p>
+        </div>
+        <div class="comic-panel p-6 text-center reveal" style="transition-delay: 300ms">
+          <div class="comic-pow comic-pow--blue mb-4 inline-block">STEP 03</div>
+          <h3 class="comic-title text-xl text-white mb-2">Show Up</h3>
+          <p class="text-sm text-gray-400">No prep needed. No sales pitch. Just a real conversation about your firm's phones.</p>
+        </div>
+      </div>
+
+      <!-- Logo -->
+      <div class="mt-16 reveal" style="transition-delay: 400ms">
+        <a href="/"><img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-8 w-auto mx-auto opacity-40" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion tracking (reuses the Simple Campaign comic thank-you setup) -->
+  <script is:inline>
+    // ─── Meta: fire Schedule + Lead via pixel + CAPI with dedup ───
+    //     Powers the Comic Campaign "Call Booked" custom conversion.
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('Schedule', { content_name: 'Comic Campaign Call Booked', content_category: 'comic_lp_booking' }, {});
+      window.__metaCAPI.track('Lead',     { content_name: 'Comic Campaign Call Booked', content_category: 'comic_lp_booking' }, {});
+      window.__metaCAPI.trackCustom('invitee_meeting_scheduled', { content_name: 'Comic Campaign Call' }, {});
+    } else if (typeof fbq !== 'undefined') {
+      fbq('track', 'Schedule', { content_name: 'Comic Campaign Call Booked' });
+      fbq('track', 'Lead',     { content_name: 'Comic Campaign Call Booked' });
+      fbq('trackCustom', 'invitee_meeting_scheduled');
+    }
+        window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'call_booked',
+      source: 'service-campaign',
+      conversion_type: 'schedule',
+      lp_name: 'Service Campaign'
+    });
+
+    // ─── OpenAI Q: appointment_scheduled
+    if (typeof oaiq !== 'undefined') {
+      oaiq("measure", "appointment_scheduled", { type: "customer_action" });
+    }
+  </script>
+
+</ComicCampaignLayout>
