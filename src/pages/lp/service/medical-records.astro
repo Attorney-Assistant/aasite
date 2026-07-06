@@ -1,0 +1,276 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+
+// Booking widget for the Service Campaign. Meeting type is configured in HubSpot
+// to redirect to /thank-you-booking-service on a successful booking.
+const BOOKING_SRC =
+  "https://meet.attorneyassistant.com/meetings/attorney-assistant/service-campaign?embed=true";
+---
+
+<ComicCampaignLayout
+  title="We Retrieve Medical Records | Attorney Assistant"
+  description="HIPAA-secure medical record retrieval for law firms. We request from every provider, follow up until they arrive, and deliver a complete, organized, case-ready file — so your cases stop stalling and your team stops chasing."
+  image="/images/lp/medical-records-service-header.jpg"
+  ogTitle="We Retrieve Medical Records"
+  ogDescription="HIPAA-secure retrieval, persistent provider follow-up, and a complete case-ready file delivered to your team. Stop letting cases stall on missing records."
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="cmc-hero relative overflow-hidden min-h-[54vh] md:min-h-[62vh] flex items-center">
+    <!-- Background image -->
+    <picture class="absolute inset-0 z-0 block">
+      <source srcset="/images/lp/medical-records-service-header.webp" type="image/webp" />
+      <img src="/images/lp/medical-records-service-header.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover object-top" width="1920" height="1080" loading="eager" fetchpriority="high" />
+    </picture>
+    <!-- Dark overlay for text legibility (same style as other comic LPs) -->
+    <div class="absolute inset-0 z-[1]" aria-hidden="true" style="background: linear-gradient(to bottom, rgba(10,22,40,0.62) 0%, rgba(10,22,40,0.58) 55%, rgba(10,22,40,1) 100%);"></div>
+    <!-- Atmospheric glow orbs -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px] z-[2]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px] z-[2]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16 w-full">
+      <div class="text-center reveal max-w-4xl mx-auto">
+        <span class="comic-pow comic-pow--gold mb-5 inline-block">CASE-READY</span>
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-5" style="text-shadow: 0 4px 24px rgba(10,22,40,0.85);">
+          We retrieve <span class="comic-gold">medical records</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-100 font-semibold max-w-2xl mx-auto mb-8" style="text-shadow: 0 2px 12px rgba(10,22,40,0.85);">
+          We request, chase, and organize every record &mdash; and hand your team a complete, case-ready file, no chasing required.
+        </p>
+        <a href="#book-now" class="mrs-btn mrs-btn--gold group inline-flex">
+          Book a Call
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-9">
+          <span class="mrs-badge">HIPAA-secure process</span>
+          <span class="mrs-badge">Complete &amp; accurate</span>
+          <span class="mrs-badge">Faster case prep</span>
+          <span class="mrs-badge">More wins, less stress</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROBLEM — Cases stall waiting on records
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.05] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">STILL WAITING?</span>
+        <h2 class="comic-section-title mb-4">The Case Isn't Stuck. <span class="comic-gold">The Records Are.</span></h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Every case that's waiting on a provider is revenue sitting frozen &mdash; and chasing it down is a full-time job your team doesn't have.</p>
+      </div>
+
+      <!-- Stat callouts -->
+      <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto mb-12">
+        <div class="comic-panel p-7 text-center reveal">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Stalled</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">cases waiting on records</p>
+          <p class="text-sm text-gray-400">Demands can't go out, settlements can't move, and files sit open for months waiting on one missing report.</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:100ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Hours</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">lost chasing providers</p>
+          <p class="text-sm text-gray-400">Phone trees, faxes, portals, follow-up calls &mdash; provider follow-up quietly eats your paralegals' entire week.</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:200ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Gaps</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">incomplete files hurt value</p>
+          <p class="text-sm text-gray-400">A missing imaging report or billing record weakens the demand &mdash; and money left on the table never shows up in a report.</p>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto reveal">
+        <div class="comic-panel p-8 md:p-10 text-center" style="border-color: rgba(239,68,68,0.35);">
+          <span class="comic-pow comic-pow--amber text-sm mb-4 inline-block">THE REAL COST</span>
+          <p class="comic-sub text-xl md:text-2xl text-white leading-snug mb-3">
+            This isn't a paperwork problem. It's an <span class="comic-gold">operations leak</span> &mdash; quietly stretching case timelines and shrinking settlements while your team drowns in follow-up.
+          </p>
+          <p class="text-base text-gray-400">Every week a file sits waiting on a provider is a week of delayed revenue and a case that's harder to win.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SOLUTION — How it works
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+    <div class="absolute top-20 left-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--gold mb-4 inline-block">HOW IT WORKS</span>
+        <h2 class="comic-section-title mb-4">From Request To <span class="comic-gold">Case-Ready File</span></h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Not a faceless retrieval vendor. Trained legal staff who work as an extension of your team &mdash; co-managed by us, HIPAA-secure end to end.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="comic-panel mrs-step reveal">
+          <div class="mrs-step-header mrs-step-header--gold"><span class="mrs-step-num">01</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Records requested</h3>
+            <p class="text-sm text-gray-400">We identify every provider on the case and send compliant requests to all of them &mdash; nothing gets skipped.</p>
+          </div>
+        </div>
+        <div class="comic-panel mrs-step reveal" style="transition-delay:100ms">
+          <div class="mrs-step-header mrs-step-header--amber"><span class="mrs-step-num">02</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Persistent follow-up</h3>
+            <p class="text-sm text-gray-400">We stay on every provider &mdash; calls, portals, resubmissions &mdash; until the records are actually in hand.</p>
+          </div>
+        </div>
+        <div class="comic-panel mrs-step reveal" style="transition-delay:200ms">
+          <div class="mrs-step-header mrs-step-header--blue"><span class="mrs-step-num">03</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Organized &amp; complete</h3>
+            <p class="text-sm text-gray-400">Reports, imaging, treatment notes, and billing sorted, labeled, and checked for gaps &mdash; a clean, complete set.</p>
+          </div>
+        </div>
+        <div class="comic-panel mrs-step reveal" style="transition-delay:300ms">
+          <div class="mrs-step-header mrs-step-header--gold"><span class="mrs-step-num">04</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Case-ready delivery</h3>
+            <p class="text-sm text-gray-400">Your team gets a finished, case-ready file &mdash; ready to build the demand and move the case forward.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-12 reveal">
+        <div class="comic-panel p-7 md:p-8 text-center" style="border-color: rgba(80,167,221,0.3);">
+          <p class="comic-sub text-lg md:text-xl text-white leading-snug">
+            Think of it as <span class="comic-gold">embedded, co-managed legal staffing</span> &mdash; your records team, our management, no outsourcer feel.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="#book-now" class="mrs-btn mrs-btn--gold group inline-flex">
+          Book a Call
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROOF — Metrics + testimonials
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-gold/[0.05] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--blue mb-4 inline-block">PROOF</span>
+        <h2 class="comic-section-title mb-4">Firms That Stopped <span class="comic-gold">Chasing Records</span></h2>
+      </div>
+
+      <!-- Outcome metrics (PLACEHOLDERS — swap with real numbers) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-14">
+        <div class="comic-panel p-7 text-center reveal">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">100%</p>
+          <p class="comic-sub text-white font-bold text-sm">HIPAA-secure retrieval</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:100ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">40%</p>
+          <p class="comic-sub text-white font-bold text-sm">faster case prep</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:200ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">0</p>
+          <p class="comic-sub text-white font-bold text-sm">hours spent chasing providers</p>
+        </div>
+      </div>
+
+      <!-- Testimonials (PLACEHOLDERS — swap with real quotes) -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <figure class="comic-panel mrs-quote p-7 reveal">
+          <div class="mrs-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;Our cases used to sit for months waiting on records. Now the complete file just shows up ready to work. Our demands go out weeks sooner.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Managing Partner<span class="block text-xs text-gray-400 font-normal">Personal Injury Firm</span></figcaption>
+        </figure>
+        <figure class="comic-panel mrs-quote p-7 reveal" style="transition-delay:100ms">
+          <div class="mrs-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;My paralegals were spending half their week on hold with providers. That's gone. They're back on real casework and nothing falls through the cracks.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Firm Administrator<span class="block text-xs text-gray-400 font-normal">Mass Tort Practice</span></figcaption>
+        </figure>
+        <figure class="comic-panel mrs-quote p-7 reveal lg:col-span-1 md:col-span-2 lg:col-auto" style="transition-delay:200ms">
+          <div class="mrs-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;The files come back complete and organized &mdash; imaging, billing, treatment notes, all of it. Our case values went up because nothing's missing anymore.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Owner<span class="block text-xs text-gray-400 font-normal">Medical Malpractice Firm</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BOOKING / CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">GET CASE-READY</span>
+          <h2 class="comic-section-title mb-4">Stop Letting Cases <span class="comic-gold">Stall on Records</span></h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll show you how our records retrieval works and what it looks like for your firm &mdash; no commitment.</p>
+        </div>
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+          </div>
+        </div>
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>window.__hsGeoReady.then(function(a){if(a){var s=document.createElement("script");s.src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";document.head.appendChild(s)}else{document.querySelectorAll(".meetings-iframe-container").forEach(function(e){e.innerHTML='<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>'})}});</script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #fff !important; }
+    .cmc-hero { padding-bottom: 0; }
+
+    /* Buttons */
+    .mrs-btn { display:inline-flex; align-items:center; gap:.5rem; font-family:'Sora',sans-serif; font-weight:700; font-size:1rem; padding:.875rem 2rem; border-radius:8px; border:none; cursor:pointer; transition:all .3s; text-decoration:none; }
+    .mrs-btn--gold { background:linear-gradient(135deg,#F9A630,#e8901a); color:#0a1628; box-shadow:0 4px 20px rgba(249,166,48,.3); }
+    .mrs-btn--gold:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(249,166,48,.4); }
+
+    /* Trust badges */
+    .mrs-badge { display:inline-flex; align-items:center; gap:.4rem; font-family:'Sora',sans-serif; font-weight:600; font-size:.8125rem; color:#e2e8f0; padding:.4rem .85rem; border-radius:9999px; border:1px solid rgba(249,166,48,.35); background:rgba(10,22,40,.45); backdrop-filter:blur(4px); }
+    .mrs-badge::before { content:'\2713'; color:#F9A630; font-weight:800; }
+
+    /* How-it-works steps */
+    .mrs-step { transition:transform .3s, box-shadow .3s; }
+    .mrs-step:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,.3); }
+    .mrs-step-header { display:flex; align-items:center; padding:.75rem 1.5rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    .mrs-step-header--gold { background:rgba(249,166,48,.08); }
+    .mrs-step-header--amber { background:rgba(245,158,11,.08); }
+    .mrs-step-header--blue { background:rgba(80,167,221,.08); }
+    .mrs-step-num { font-family:'Bangers',cursive; font-size:1.75rem; color:rgba(255,255,255,.25); letter-spacing:.05em; }
+
+    /* Testimonials */
+    .mrs-quote { transition:transform .3s, border-color .3s; }
+    .mrs-quote:hover { transform:translateY(-4px); border-color:rgba(249,166,48,.4); }
+    .mrs-stars { color:#F9A630; font-size:1rem; letter-spacing:.1em; margin-bottom:1rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mrs-btn, .mrs-step, .mrs-quote { transition:none !important; }
+    }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'service-medical-records' });
+  </script>
+
+</ComicCampaignLayout>
