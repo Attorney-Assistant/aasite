@@ -1,0 +1,276 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+
+// Booking widget for the Service Campaign. Meeting type is configured in HubSpot
+// to redirect to /thank-you-booking-service on a successful booking.
+const BOOKING_SRC =
+  "https://meet.attorneyassistant.com/meetings/attorney-assistant/service-campaign?embed=true";
+---
+
+<ComicCampaignLayout
+  title="We Draft Pleadings & Demands | Attorney Assistant"
+  description="Pleadings, demands, and discovery drafted accurately and on time by trained legal staff — delivered for attorney review so your litigation pipeline never stalls. Turn your drafting backlog into signed settlements."
+  image="/images/lp/pleadings-demands-header.jpg"
+  ogTitle="We Draft Pleadings & Demands"
+  ogDescription="Pleadings, demands, and discovery drafted accurately and delivered for attorney review. Clear your drafting backlog and keep every case moving."
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="cmc-hero relative overflow-hidden min-h-[54vh] md:min-h-[62vh] flex items-center">
+    <!-- Background image -->
+    <picture class="absolute inset-0 z-0 block">
+      <source srcset="/images/lp/pleadings-demands-header.webp" type="image/webp" />
+      <img src="/images/lp/pleadings-demands-header.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover object-top" width="1920" height="1080" loading="eager" fetchpriority="high" />
+    </picture>
+    <!-- Dark overlay for text legibility (same style as other comic LPs) -->
+    <div class="absolute inset-0 z-[1]" aria-hidden="true" style="background: linear-gradient(to bottom, rgba(10,22,40,0.62) 0%, rgba(10,22,40,0.58) 55%, rgba(10,22,40,1) 100%);"></div>
+    <!-- Atmospheric glow orbs -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px] z-[2]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px] z-[2]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16 w-full">
+      <div class="text-center reveal max-w-4xl mx-auto">
+        <span class="comic-pow comic-pow--gold mb-5 inline-block">DRAFT-READY</span>
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-5" style="text-shadow: 0 4px 24px rgba(10,22,40,0.85);">
+          We draft <span class="comic-gold">pleadings &amp; demands</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-100 font-semibold max-w-2xl mx-auto mb-8" style="text-shadow: 0 2px 12px rgba(10,22,40,0.85);">
+          Accurate, compliant drafts delivered ready for attorney review &mdash; so your litigation pipeline never stalls in the queue.
+        </p>
+        <a href="#book-now" class="pld-btn pld-btn--gold group inline-flex">
+          Book a Call
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-9">
+          <span class="pld-badge">Demands drafted</span>
+          <span class="pld-badge">Accurate &amp; compliant</span>
+          <span class="pld-badge">Fast turnaround</span>
+          <span class="pld-badge">More wins</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROBLEM — Drafting backlog stalls cases
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.05] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">IN THE QUEUE</span>
+        <h2 class="comic-section-title mb-4">Every Demand In The Queue <span class="comic-gold">Is a Settlement on the Table</span></h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Drafting backlogs slow every case &mdash; and the work that never gets sent is revenue that never comes in.</p>
+      </div>
+
+      <!-- Stat callouts -->
+      <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto mb-12">
+        <div class="comic-panel p-7 text-center reveal">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Backlog</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">every case slows down</p>
+          <p class="text-sm text-gray-400">Pleadings and demands pile up faster than the team can draft them, and every case in the stack waits its turn.</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:100ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Stuck</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">settlements sit unsent</p>
+          <p class="text-sm text-gray-400">A demand letter waiting in the queue is money waiting on the table &mdash; the case can't move until it goes out.</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:200ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Drain</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">attorneys buried in drafting</p>
+          <p class="text-sm text-gray-400">Your highest-value people spend their days drafting instead of litigating, negotiating, and winning cases.</p>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto reveal">
+        <div class="comic-panel p-8 md:p-10 text-center" style="border-color: rgba(239,68,68,0.35);">
+          <span class="comic-pow comic-pow--amber text-sm mb-4 inline-block">THE REAL COST</span>
+          <p class="comic-sub text-xl md:text-2xl text-white leading-snug mb-3">
+            This isn't a drafting problem. It's an <span class="comic-gold">operations leak</span> &mdash; quietly stretching case timelines and delaying settlements while your pipeline backs up.
+          </p>
+          <p class="text-base text-gray-400">Every week a demand sits undrafted is a week of delayed revenue and a case that takes longer to close.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SOLUTION — How it works
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+    <div class="absolute top-20 left-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--gold mb-4 inline-block">HOW IT WORKS</span>
+        <h2 class="comic-section-title mb-4">From Backlog To <span class="comic-gold">Attorney Review</span></h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Not a faceless drafting mill. Trained legal staff who work as an extension of your team &mdash; co-managed by us, with the attorney always in control.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="comic-panel pld-step reveal">
+          <div class="pld-step-header pld-step-header--gold"><span class="pld-step-num">01</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Drafted for you</h3>
+            <p class="text-sm text-gray-400">Pleadings, demands, and discovery drafted to your firm's standards, formats, and practice areas &mdash; nothing generic.</p>
+          </div>
+        </div>
+        <div class="comic-panel pld-step reveal" style="transition-delay:100ms">
+          <div class="pld-step-header pld-step-header--amber"><span class="pld-step-num">02</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Accurate &amp; on time</h3>
+            <p class="text-sm text-gray-400">Compliant, deadline-aware drafts built right the first time &mdash; so nothing bounces back and nothing gets missed.</p>
+          </div>
+        </div>
+        <div class="comic-panel pld-step reveal" style="transition-delay:200ms">
+          <div class="pld-step-header pld-step-header--blue"><span class="pld-step-num">03</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Ready for review</h3>
+            <p class="text-sm text-gray-400">Every draft lands on your attorney's desk polished and review-ready &mdash; sign off and send, no rebuilding.</p>
+          </div>
+        </div>
+        <div class="comic-panel pld-step reveal" style="transition-delay:300ms">
+          <div class="pld-step-header pld-step-header--gold"><span class="pld-step-num">04</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Pipeline keeps moving</h3>
+            <p class="text-sm text-gray-400">The backlog clears, demands go out, and your litigation pipeline keeps flowing instead of jamming up.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-12 reveal">
+        <div class="comic-panel p-7 md:p-8 text-center" style="border-color: rgba(80,167,221,0.3);">
+          <p class="comic-sub text-lg md:text-xl text-white leading-snug">
+            Think of it as <span class="comic-gold">embedded, co-managed legal staffing</span> &mdash; your drafting team, our management, no outsourcer feel.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="#book-now" class="pld-btn pld-btn--gold group inline-flex">
+          Book a Call
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROOF — Metrics + testimonials
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-gold/[0.05] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--blue mb-4 inline-block">PROOF</span>
+        <h2 class="comic-section-title mb-4">Firms That Cleared <span class="comic-gold">the Backlog</span></h2>
+      </div>
+
+      <!-- Outcome metrics (PLACEHOLDERS — swap with real numbers) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-14">
+        <div class="comic-panel p-7 text-center reveal">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">50%</p>
+          <p class="comic-sub text-white font-bold text-sm">faster demand turnaround</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:100ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">3x</p>
+          <p class="comic-sub text-white font-bold text-sm">drafting capacity</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:200ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">0</p>
+          <p class="comic-sub text-white font-bold text-sm">missed filing deadlines</p>
+        </div>
+      </div>
+
+      <!-- Testimonials (PLACEHOLDERS — swap with real quotes) -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <figure class="comic-panel pld-quote p-7 reveal">
+          <div class="pld-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;Our demands used to sit for weeks. Now they come back drafted and ready to review, and our settlements are moving faster than they ever have.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Managing Partner<span class="block text-xs text-gray-400 font-normal">Personal Injury Firm</span></figcaption>
+        </figure>
+        <figure class="comic-panel pld-quote p-7 reveal" style="transition-delay:100ms">
+          <div class="pld-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;My attorneys are back to litigating instead of drafting. The quality is right where it needs to be &mdash; they review, sign, and send.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Firm Administrator<span class="block text-xs text-gray-400 font-normal">Civil Litigation Practice</span></figcaption>
+        </figure>
+        <figure class="comic-panel pld-quote p-7 reveal lg:col-span-1 md:col-span-2 lg:col-auto" style="transition-delay:200ms">
+          <div class="pld-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;We can finally take on more cases without drowning. The drafting just keeps flowing and nothing sits in the queue anymore.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Owner<span class="block text-xs text-gray-400 font-normal">Employment Law Firm</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BOOKING / CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">CLEAR THE BACKLOG</span>
+          <h2 class="comic-section-title mb-4">Stop Letting Drafting <span class="comic-gold">Stall Your Cases</span></h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll show you how our drafting support works and what it looks like for your firm &mdash; no commitment.</p>
+        </div>
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+          </div>
+        </div>
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>window.__hsGeoReady.then(function(a){if(a){var s=document.createElement("script");s.src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";document.head.appendChild(s)}else{document.querySelectorAll(".meetings-iframe-container").forEach(function(e){e.innerHTML='<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>'})}});</script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #fff !important; }
+    .cmc-hero { padding-bottom: 0; }
+
+    /* Buttons */
+    .pld-btn { display:inline-flex; align-items:center; gap:.5rem; font-family:'Sora',sans-serif; font-weight:700; font-size:1rem; padding:.875rem 2rem; border-radius:8px; border:none; cursor:pointer; transition:all .3s; text-decoration:none; }
+    .pld-btn--gold { background:linear-gradient(135deg,#F9A630,#e8901a); color:#0a1628; box-shadow:0 4px 20px rgba(249,166,48,.3); }
+    .pld-btn--gold:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(249,166,48,.4); }
+
+    /* Trust badges */
+    .pld-badge { display:inline-flex; align-items:center; gap:.4rem; font-family:'Sora',sans-serif; font-weight:600; font-size:.8125rem; color:#e2e8f0; padding:.4rem .85rem; border-radius:9999px; border:1px solid rgba(249,166,48,.35); background:rgba(10,22,40,.45); backdrop-filter:blur(4px); }
+    .pld-badge::before { content:'\2713'; color:#F9A630; font-weight:800; }
+
+    /* How-it-works steps */
+    .pld-step { transition:transform .3s, box-shadow .3s; }
+    .pld-step:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,.3); }
+    .pld-step-header { display:flex; align-items:center; padding:.75rem 1.5rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    .pld-step-header--gold { background:rgba(249,166,48,.08); }
+    .pld-step-header--amber { background:rgba(245,158,11,.08); }
+    .pld-step-header--blue { background:rgba(80,167,221,.08); }
+    .pld-step-num { font-family:'Bangers',cursive; font-size:1.75rem; color:rgba(255,255,255,.25); letter-spacing:.05em; }
+
+    /* Testimonials */
+    .pld-quote { transition:transform .3s, border-color .3s; }
+    .pld-quote:hover { transform:translateY(-4px); border-color:rgba(249,166,48,.4); }
+    .pld-stars { color:#F9A630; font-size:1rem; letter-spacing:.1em; margin-bottom:1rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pld-btn, .pld-step, .pld-quote { transition:none !important; }
+    }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'service-pleadings-demands' });
+  </script>
+
+</ComicCampaignLayout>
