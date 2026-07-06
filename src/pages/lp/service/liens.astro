@@ -1,0 +1,276 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+
+// Booking widget for the Service Campaign. Meeting type is configured in HubSpot
+// to redirect to /thank-you-booking-service on a successful booking.
+const BOOKING_SRC =
+  "https://meet.attorneyassistant.com/meetings/attorney-assistant/service-campaign?embed=true";
+---
+
+<ComicCampaignLayout
+  title="We Negotiate Liens | Attorney Assistant"
+  description="Lien review, provider outreach, and payoff negotiation handled by trained legal staff — so liens get resolved, disbursement moves, and more stays on the table for your firm and your client."
+  image="/images/lp/liens-header.jpg"
+  ogTitle="We Negotiate Liens"
+  ogDescription="Providers contacted, payoffs negotiated, liens resolved — so settlements close and more stays on the table. Stop letting liens hold up disbursement."
+>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="cmc-hero relative overflow-hidden min-h-[54vh] md:min-h-[62vh] flex items-center">
+    <!-- Background image -->
+    <picture class="absolute inset-0 z-0 block">
+      <source srcset="/images/lp/liens-header.webp" type="image/webp" />
+      <img src="/images/lp/liens-header.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover object-top" width="1920" height="1080" loading="eager" fetchpriority="high" />
+    </picture>
+    <!-- Dark overlay for text legibility (same style as other comic LPs) -->
+    <div class="absolute inset-0 z-[1]" aria-hidden="true" style="background: linear-gradient(to bottom, rgba(10,22,40,0.62) 0%, rgba(10,22,40,0.58) 55%, rgba(10,22,40,1) 100%);"></div>
+    <!-- Atmospheric glow orbs -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-gold/[0.06] rounded-full blur-[150px] z-[2]" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-blue/[0.05] rounded-full blur-[120px] z-[2]" aria-hidden="true"></div>
+
+    <div class="comic-container relative z-10 py-12 md:py-16 w-full">
+      <div class="text-center reveal max-w-4xl mx-auto">
+        <span class="comic-pow comic-pow--gold mb-5 inline-block">SETTLEMENT-READY</span>
+        <h1 class="comic-title text-4xl md:text-6xl lg:text-7xl text-white leading-none mb-5" style="text-shadow: 0 4px 24px rgba(10,22,40,0.85);">
+          We negotiate <span class="comic-gold">liens</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-100 font-semibold max-w-2xl mx-auto mb-8" style="text-shadow: 0 2px 12px rgba(10,22,40,0.85);">
+          We contact lienholders, negotiate the payoffs, and clear the liens &mdash; so settlements close and more stays on the table.
+        </p>
+        <a href="#book-now" class="lns-btn lns-btn--gold group inline-flex">
+          Book a Call
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+
+        <!-- Trust badges -->
+        <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-9">
+          <span class="lns-badge">Negotiations that deliver</span>
+          <span class="lns-badge">Providers contacted, payoffs negotiated</span>
+          <span class="lns-badge">Faster resolution</span>
+          <span class="lns-badge">More to the table</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROBLEM — Unresolved liens delay disbursement
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.05] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--red mb-4 inline-block">STILL OPEN</span>
+        <h2 class="comic-section-title mb-4">The Case Is Won. <span class="comic-gold">The Liens Aren't Cleared.</span></h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Every unresolved lien holds up disbursement and eats into the settlement &mdash; the firm's cut and the client's.</p>
+      </div>
+
+      <!-- Stat callouts -->
+      <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto mb-12">
+        <div class="comic-panel p-7 text-center reveal">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Frozen</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">disbursement on hold</p>
+          <p class="text-sm text-gray-400">The settlement's in hand but nobody gets paid until every lien is resolved &mdash; so the case just sits open.</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:100ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Eaten</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">every dollar not negotiated</p>
+          <p class="text-sm text-gray-400">A lien paid at face value is money off the table &mdash; less for the client, less for the firm, every single time.</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:200ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-2">Drain</p>
+          <p class="comic-sub text-white font-bold text-base mb-1">staff buried in lienholder calls</p>
+          <p class="text-sm text-gray-400">Chasing providers and haggling payoffs is a job in itself &mdash; and it quietly consumes your team's week.</p>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto reveal">
+        <div class="comic-panel p-8 md:p-10 text-center" style="border-color: rgba(239,68,68,0.35);">
+          <span class="comic-pow comic-pow--amber text-sm mb-4 inline-block">THE REAL COST</span>
+          <p class="comic-sub text-xl md:text-2xl text-white leading-snug mb-3">
+            This isn't a paperwork problem. It's an <span class="comic-gold">operations leak</span> &mdash; quietly delaying disbursements and shrinking net recovery while liens sit unresolved.
+          </p>
+          <p class="text-base text-gray-400">Every week a lien goes un-negotiated is a week the client waits and a slice of the settlement handed away for nothing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SOLUTION — How it works
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e]/50 to-transparent"></div>
+    <div class="absolute top-20 left-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--gold mb-4 inline-block">HOW IT WORKS</span>
+        <h2 class="comic-section-title mb-4">From Open Lien To <span class="comic-gold">Closed Settlement</span></h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Not a faceless negotiation vendor. Trained legal staff who work as an extension of your team &mdash; co-managed by us, with the attorney always in control.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="comic-panel lns-step reveal">
+          <div class="lns-step-header lns-step-header--gold"><span class="lns-step-num">01</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Reviewed &amp; tracked</h3>
+            <p class="text-sm text-gray-400">Every lien on the case is identified, verified, and tracked in one place &mdash; nothing surfaces at the last minute.</p>
+          </div>
+        </div>
+        <div class="comic-panel lns-step reveal" style="transition-delay:100ms">
+          <div class="lns-step-header lns-step-header--amber"><span class="lns-step-num">02</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Lienholders contacted</h3>
+            <p class="text-sm text-gray-400">We reach out to every provider and lienholder and stay on them &mdash; calls, portals, follow-ups &mdash; until we get answers.</p>
+          </div>
+        </div>
+        <div class="comic-panel lns-step reveal" style="transition-delay:200ms">
+          <div class="lns-step-header lns-step-header--blue"><span class="lns-step-num">03</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Payoffs negotiated</h3>
+            <p class="text-sm text-gray-400">We negotiate reductions on every payoff we can &mdash; putting more of the settlement back on the table.</p>
+          </div>
+        </div>
+        <div class="comic-panel lns-step reveal" style="transition-delay:300ms">
+          <div class="lns-step-header lns-step-header--gold"><span class="lns-step-num">04</span></div>
+          <div class="p-6">
+            <h3 class="comic-title text-xl text-white mb-2">Liens resolved</h3>
+            <p class="text-sm text-gray-400">Liens cleared, releases documented, and the case is ready to disburse and close &mdash; no loose ends.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-12 reveal">
+        <div class="comic-panel p-7 md:p-8 text-center" style="border-color: rgba(80,167,221,0.3);">
+          <p class="comic-sub text-lg md:text-xl text-white leading-snug">
+            Think of it as <span class="comic-gold">embedded, co-managed legal staffing</span> &mdash; your lien team, our management, no outsourcer feel.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="#book-now" class="lns-btn lns-btn--gold group inline-flex">
+          Book a Call
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROOF — Metrics + testimonials
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-gold/[0.05] rounded-full blur-[120px]"></div>
+    <div class="comic-container relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="comic-pow comic-pow--blue mb-4 inline-block">PROOF</span>
+        <h2 class="comic-section-title mb-4">Firms That Stopped <span class="comic-gold">Leaving Money on the Table</span></h2>
+      </div>
+
+      <!-- Outcome metrics (PLACEHOLDERS — swap with real numbers) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-14">
+        <div class="comic-panel p-7 text-center reveal">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">40%</p>
+          <p class="comic-sub text-white font-bold text-sm">average lien reduction</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:100ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">50%</p>
+          <p class="comic-sub text-white font-bold text-sm">faster to disbursement</p>
+        </div>
+        <div class="comic-panel p-7 text-center reveal" style="transition-delay:200ms">
+          <p class="comic-title comic-gold text-5xl md:text-6xl mb-1">0</p>
+          <p class="comic-sub text-white font-bold text-sm">liens left unresolved</p>
+        </div>
+      </div>
+
+      <!-- Testimonials (PLACEHOLDERS — swap with real quotes) -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <figure class="comic-panel lns-quote p-7 reveal">
+          <div class="lns-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;Our cases used to sit for weeks after settlement while we chased lienholders. Now the liens come back negotiated and cleared, and our clients get paid.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Managing Partner<span class="block text-xs text-gray-400 font-normal">Personal Injury Firm</span></figcaption>
+        </figure>
+        <figure class="comic-panel lns-quote p-7 reveal" style="transition-delay:100ms">
+          <div class="lns-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;The reductions they get put real money back in our clients' pockets. My staff isn't stuck on the phone with providers all day anymore.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Firm Administrator<span class="block text-xs text-gray-400 font-normal">Mass Tort Practice</span></figcaption>
+        </figure>
+        <figure class="comic-panel lns-quote p-7 reveal lg:col-span-1 md:col-span-2 lg:col-auto" style="transition-delay:200ms">
+          <div class="lns-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote class="text-base text-gray-200 leading-relaxed mb-5">&ldquo;Disbursement used to be the slowest part of every case. Now liens get resolved and settlements close without the case dragging on for months.&rdquo;</blockquote>
+          <figcaption class="comic-sub text-sm text-white font-bold">Owner<span class="block text-xs text-gray-400 font-normal">Workers' Comp Firm</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BOOKING / CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]"></div>
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="comic-container relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">CLEAR THE LIENS</span>
+          <h2 class="comic-section-title mb-4">Stop Letting Liens <span class="comic-gold">Hold Up Settlements</span></h2>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto">Book a quick call. We'll show you how our lien negotiation works and what it looks like for your firm &mdash; no commitment.</p>
+        </div>
+        <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,48,0.3); transition-delay: 150ms">
+          <div class="bg-white rounded-[9px] p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+          </div>
+        </div>
+        <div class="flex justify-center gap-6 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free &mdash; no commitment</div>
+          <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>window.__hsGeoReady.then(function(a){if(a){var s=document.createElement("script");s.src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";document.head.appendChild(s)}else{document.querySelectorAll(".meetings-iframe-container").forEach(function(e){e.innerHTML='<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This form is not available from your location.</p></div>'})}});</script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #fff !important; }
+    .cmc-hero { padding-bottom: 0; }
+
+    /* Buttons */
+    .lns-btn { display:inline-flex; align-items:center; gap:.5rem; font-family:'Sora',sans-serif; font-weight:700; font-size:1rem; padding:.875rem 2rem; border-radius:8px; border:none; cursor:pointer; transition:all .3s; text-decoration:none; }
+    .lns-btn--gold { background:linear-gradient(135deg,#F9A630,#e8901a); color:#0a1628; box-shadow:0 4px 20px rgba(249,166,48,.3); }
+    .lns-btn--gold:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(249,166,48,.4); }
+
+    /* Trust badges */
+    .lns-badge { display:inline-flex; align-items:center; gap:.4rem; font-family:'Sora',sans-serif; font-weight:600; font-size:.8125rem; color:#e2e8f0; padding:.4rem .85rem; border-radius:9999px; border:1px solid rgba(249,166,48,.35); background:rgba(10,22,40,.45); backdrop-filter:blur(4px); }
+    .lns-badge::before { content:'\2713'; color:#F9A630; font-weight:800; }
+
+    /* How-it-works steps */
+    .lns-step { transition:transform .3s, box-shadow .3s; }
+    .lns-step:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,.3); }
+    .lns-step-header { display:flex; align-items:center; padding:.75rem 1.5rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    .lns-step-header--gold { background:rgba(249,166,48,.08); }
+    .lns-step-header--amber { background:rgba(245,158,11,.08); }
+    .lns-step-header--blue { background:rgba(80,167,221,.08); }
+    .lns-step-num { font-family:'Bangers',cursive; font-size:1.75rem; color:rgba(255,255,255,.25); letter-spacing:.05em; }
+
+    /* Testimonials */
+    .lns-quote { transition:transform .3s, border-color .3s; }
+    .lns-quote:hover { transform:translateY(-4px); border-color:rgba(249,166,48,.4); }
+    .lns-stars { color:#F9A630; font-size:1rem; letter-spacing:.1em; margin-bottom:1rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lns-btn, .lns-step, .lns-quote { transition:none !important; }
+    }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'service-liens' });
+  </script>
+
+</ComicCampaignLayout>
