@@ -1,0 +1,526 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+
+const IMG = "/images/lp/intake-audit";
+
+// Primary conversion: book the free secret-shopper intake audit (HubSpot Meetings widget).
+const SCHEDULER_URL = "https://meetings.hubspot.com/andrew-famular/organic-social";
+// Secondary CTA: the Intake Audit lead-magnet guide (HubSpot document link).
+const GUIDE_URL = "https://hubs.ly/Q04nZdzv0";
+
+const stats = [
+  { big: "20–40%", label: "of inbound opportunities lost before a conversation even starts" },
+  { big: "15 min", label: "maximum response window before lead quality drops sharply" },
+  { big: "8–12×", label: "follow-up attempts needed to convert a qualified lead" },
+];
+
+const funnel = [
+  { tone: "blue", title: "Inbound Lead", note: "Paid or organic — you spent money to get here." },
+  { tone: "gold", title: "Missed Call", note: "No live answer. Voicemail. No callback within 15 min." },
+  { tone: "red", title: "No Follow-Up", note: "1–2 attempts. Lead goes cold. Staff moves on." },
+  { tone: "red", title: "No Booking", note: "Consultation never scheduled. Case never evaluated." },
+  { tone: "dead", title: "Lost Case", note: "A competitor answered. They signed the client. You paid for the lead." },
+];
+
+const areas = [
+  { n: "01", title: "Speed to Lead", body: "How fast your firm responds to new inbound inquiries across every channel — the single highest-leverage variable in intake." },
+  { n: "02", title: "Call Coverage", body: "Whether inbound calls are answered live, during and after business hours — or quietly handed to voicemail." },
+  { n: "03", title: "Follow-Up Persistence", body: "How many attempts your team makes before giving up. Most quit at 2–3. Conversions happen at 5–12." },
+  { n: "04", title: "Intake Quality", body: "Whether intake calls are structured, scripted, and built to book the consult — not just collect a name." },
+  { n: "05", title: "Systems & Visibility", body: "Whether you can actually see where leads drop off — or you're running intake on gut instinct." },
+];
+---
+
+<ComicCampaignLayout
+  title="Audit Your Intake — Free Secret-Shopper Audit | Attorney Assistant"
+  description="You don't have a lead problem. You have an intake problem. We call your firm as a prospective client, document exactly what happens, and show you where you're losing the cases you already paid for. Book your free intake audit."
+  image={`${IMG}/skyline.svg`}
+  ogTitle="Audit Your Intake — Find Out Where You're Losing Cases"
+  ogDescription="A free secret-shopper audit of your firm's intake. No pitch — just a direct look at where your leads are going to die."
+>
+  <div id="ia-lp">
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="ia-hero">
+      <div class="ia-hero-skyline" aria-hidden="true"></div>
+      <div class="ia-halftone" aria-hidden="true"></div>
+
+      <div class="ia-container ia-hero-inner">
+        <span class="ia-eyebrow">Free Secret-Shopper Audit</span>
+
+        <div class="ia-hero-badge" aria-hidden="true">
+          <img src={`${IMG}/burst-4.svg`} alt="" width="150" height="150" />
+          <span>FREE</span>
+        </div>
+
+        <h1 class="ia-display">
+          You don't have a<br />
+          <span class="ia-accent-red">lead problem.</span>
+        </h1>
+        <p class="ia-hero-sub ia-display ia-display-sm">
+          You have an <span class="ia-accent-gold">intake problem.</span>
+        </p>
+
+        <p class="ia-lede">
+          We call your firm as a prospective client, document exactly what happens, and show you where the cases you <em>already paid for</em> are slipping away. No pitch — just a direct look at your operations.
+        </p>
+
+        <div class="ia-squeeze">
+          <span class="ia-squeeze-pow">THE LEAK</span>
+          <p>Most firms lose <strong>20–40% of inbound cases</strong> before a conversation even starts. More marketing won't fix it.</p>
+        </div>
+
+        <div class="ia-hero-ctas">
+          <a href="#book-audit" class="ia-cta ia-cta-gold">
+            <span>Book My Free Audit</span>
+            <span class="ia-arrow" aria-hidden="true">↓</span>
+          </a>
+          <a href={GUIDE_URL} class="ia-cta-ghost" target="_blank" rel="noopener">
+            Get the 10-minute self-audit guide →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PROBLEM
+    ═══════════════════════════════════════════ -->
+    <section class="ia-section ia-problem">
+      <div class="ia-container">
+        <div class="ia-section-head">
+          <span class="ia-eyebrow ia-eyebrow-gold">The Real Problem</span>
+          <h2 class="ia-display ia-display-md">
+            Every marketing dollar assumes<br />
+            <span class="ia-accent-gold">someone catches the lead.</span>
+          </h2>
+          <p class="ia-section-sub">
+            The intake process — the moment between a prospect reaching out and a case being booked — is where revenue disappears quietly, every single day. This isn't a theory. It's a pattern across firms of every size and practice area.
+          </p>
+        </div>
+
+        <div class="ia-stats">
+          {stats.map((s) => (
+            <div class="ia-stat">
+              <p class="ia-stat-big">{s.big}</p>
+              <p class="ia-stat-label">{s.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <p class="ia-quote">"If you're not consistently responding within 15 minutes, you're donating cases to your competitors."</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         LEAK FUNNEL
+    ═══════════════════════════════════════════ -->
+    <section class="ia-section ia-funnel-section ia-deep">
+      <div class="ia-container">
+        <div class="ia-section-head">
+          <span class="ia-eyebrow">The Uncomfortable Truth</span>
+          <h2 class="ia-display ia-display-md">
+            Where your leads<br />
+            <span class="ia-accent-red">actually go to die.</span>
+          </h2>
+          <p class="ia-section-sub">The path most inbound leads take at firms with broken intake operations.</p>
+        </div>
+
+        <div class="ia-funnel">
+          {funnel.map((step, i) => (
+            <div class="ia-funnel-step">
+              <div class={`ia-funnel-node ia-node-${step.tone}`}>
+                <span>{step.title}</span>
+              </div>
+              <p class="ia-funnel-note">{step.note}</p>
+              {i < funnel.length - 1 && <span class="ia-funnel-arrow" aria-hidden="true">↓</span>}
+            </div>
+          ))}
+        </div>
+
+        <p class="ia-funnel-kicker">
+          This happens <span class="ia-accent-gold">every day</span> at firms that haven't fixed their intake. The fix isn't more marketing — it's fixing the process that catches what you're already paying for.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         WHAT THE AUDIT COVERS
+    ═══════════════════════════════════════════ -->
+    <section class="ia-section ia-covers">
+      <div class="ia-container">
+        <div class="ia-section-head">
+          <span class="ia-eyebrow ia-eyebrow-gold">What We Check</span>
+          <h2 class="ia-display ia-display-md">
+            Five areas. Twenty checks.<br />
+            <span class="ia-accent-gold">One honest picture.</span>
+          </h2>
+          <p class="ia-section-sub">We pressure-test the five places intake breaks down — and show you exactly where your firm is leaking cases.</p>
+        </div>
+
+        <div class="ia-cards">
+          {areas.map((a) => (
+            <article class="ia-card">
+              <span class="ia-card-num">{a.n}</span>
+              <h3>{a.title}</h3>
+              <p>{a.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="ia-covers-cta">
+          <a href="#book-audit" class="ia-cta ia-cta-red">
+            <span>See Where You're Losing Cases</span>
+            <span class="ia-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         BOOK THE AUDIT — scheduler
+    ═══════════════════════════════════════════ -->
+    <section id="book-audit" class="ia-section ia-book ia-deep">
+      <div class="ia-container">
+        <div class="ia-section-head">
+          <span class="ia-book-pow">BOOK NOW!</span>
+          <h2 class="ia-display ia-display-md">
+            Get your free<br />
+            <span class="ia-accent-gold">secret-shopper audit.</span>
+          </h2>
+          <p class="ia-section-sub">
+            We'll call your firm as a prospective client, document exactly what happens, and walk you through where you're losing cases — with real data, not guesswork. No pitch. Pick a time below.
+          </p>
+        </div>
+
+        <div class="ia-scheduler-frame">
+          <span class="ia-tape ia-tape-tl" aria-hidden="true">★</span>
+          <span class="ia-tape ia-tape-tr" aria-hidden="true">★</span>
+          <div class="meetings-iframe-container" data-src={`${SCHEDULER_URL}?embed=true`}></div>
+        </div>
+
+        <p class="ia-book-secondary">
+          Not ready to book? <a href={GUIDE_URL} target="_blank" rel="noopener">Run the 10-minute self-audit guide first →</a>
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- HubSpot Meetings Embed loader (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (!allowed) {
+        document.querySelectorAll('.meetings-iframe-container').forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This scheduler is not available from your location.</div>';
+        });
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+      document.head.appendChild(s);
+    });
+  </script>
+
+  <style is:global>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+  </style>
+
+  <style is:global>
+    /* ── Comic design-kit tokens (comic-ui canonical palette) ── */
+    #ia-lp {
+      --navy: #0e2236;
+      --navy-deep: #061320;
+      --navy-mid: #1a3a5c;
+      --gold: #F9A630;
+      --gold-bright: #FBD46D;
+      --red: #E04A2C;
+      --red-bright: #FF6B45;
+      --blue: #5087dd;
+      --steel: #c0c8d4;
+      --steel-dim: #6f7a8a;
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.55;
+      overflow-x: clip;
+    }
+
+    /* ── Layout ── */
+    #ia-lp .ia-container { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 3; }
+    @media (max-width: 720px) { #ia-lp .ia-container { padding: 0 20px; } }
+
+    /* ── Typography ── */
+    #ia-lp .ia-display, #ia-lp .ia-eyebrow, #ia-lp .ia-squeeze-pow, #ia-lp .ia-book-pow,
+    #ia-lp h1, #ia-lp h2, #ia-lp h3 {
+      font-family: 'Bangers', 'Impact', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    #ia-lp .ia-display {
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 3px 3px 0 var(--red), 6px 6px 0 var(--navy-deep);
+      font-size: clamp(48px, 8vw, 104px);
+      margin: 0;
+    }
+    #ia-lp .ia-display-md { font-size: clamp(34px, 5.2vw, 68px); }
+    #ia-lp .ia-display-sm { font-size: clamp(30px, 4.4vw, 56px); }
+    #ia-lp .ia-accent-gold { color: var(--gold); }
+    #ia-lp .ia-accent-red {
+      color: var(--red-bright);
+      text-shadow: 3px 3px 0 #fff, 6px 6px 0 var(--navy-deep);
+    }
+
+    /* ── Eyebrow / labels ── */
+    #ia-lp .ia-eyebrow {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 8px 16px;
+      letter-spacing: 0.12em;
+      font-size: 16px;
+      transform: rotate(-2deg);
+      margin-bottom: 24px;
+      box-shadow: 4px 4px 0 var(--navy-deep);
+    }
+    #ia-lp .ia-eyebrow-gold { background: var(--gold); color: var(--navy-deep); }
+
+    /* ── CTA buttons ── */
+    #ia-lp .ia-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Bangers', sans-serif;
+      font-size: clamp(22px, 2.4vw, 28px);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      padding: 18px 30px;
+      box-shadow: 6px 6px 0 var(--navy-deep);
+      transform: rotate(-1deg);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    #ia-lp .ia-cta-gold { background: var(--gold); color: var(--navy-deep); }
+    #ia-lp .ia-cta-gold:hover { transform: rotate(-1deg) translate(-3px, -3px); box-shadow: 9px 9px 0 var(--navy-deep); background: var(--gold-bright); }
+    #ia-lp .ia-cta-red { background: var(--red); color: #fff; }
+    #ia-lp .ia-cta-red:hover { transform: rotate(-1deg) translate(-3px, -3px); box-shadow: 9px 9px 0 var(--navy-deep); background: var(--red-bright); }
+    #ia-lp .ia-arrow { display: inline-block; animation: ia-arrow-bob 1.6s ease-in-out infinite; }
+    @keyframes ia-arrow-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+    /* Secondary ghost CTA */
+    #ia-lp .ia-cta-ghost {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 2px solid rgba(249,166,48,0.4);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    #ia-lp .ia-cta-ghost:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
+
+    /* ── Sections ── */
+    #ia-lp .ia-section { position: relative; padding: 96px 0; isolation: isolate; overflow: hidden; background: var(--navy); }
+    #ia-lp .ia-deep { background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); }
+    #ia-lp .ia-section::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-size: 8px 8px; mix-blend-mode: screen; pointer-events: none;
+    }
+    #ia-lp .ia-section-head { text-align: center; max-width: 820px; margin: 0 auto 56px; position: relative; }
+    #ia-lp .ia-section-head h2 { margin: 0 0 16px; }
+    #ia-lp .ia-section-sub {
+      font-family: 'Sora', sans-serif; font-weight: 600;
+      font-size: clamp(16px, 1.8vw, 19px); color: var(--steel);
+      line-height: 1.5; max-width: 680px; margin: 0 auto;
+    }
+
+    /* ══ HERO ══ */
+    #ia-lp .ia-hero {
+      position: relative; padding: 96px 0 88px; isolation: isolate; overflow: hidden;
+      background:
+        radial-gradient(ellipse at 30% 25%, rgba(80,135,221,0.18), transparent 55%),
+        radial-gradient(ellipse at 75% 70%, rgba(249,166,48,0.14), transparent 60%),
+        var(--navy);
+    }
+    #ia-lp .ia-hero-skyline {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 58%;
+      background-image: url('/images/lp/intake-audit/skyline.svg');
+      background-repeat: no-repeat; background-position: bottom center; background-size: cover;
+      opacity: 0.5; z-index: 1; pointer-events: none;
+      mask-image: linear-gradient(to top, #000 55%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to top, #000 55%, transparent 100%);
+    }
+    #ia-lp .ia-halftone {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+      background-size: 8px 8px; mix-blend-mode: screen; z-index: 2; pointer-events: none;
+    }
+    #ia-lp .ia-hero-inner { text-align: center; max-width: 860px; }
+    #ia-lp .ia-hero-badge {
+      position: relative; display: inline-flex; align-items: center; justify-content: center;
+      width: 132px; height: 132px; margin: 0 0 8px;
+      animation: ia-badge-spin 18s linear infinite;
+    }
+    #ia-lp .ia-hero-badge img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    #ia-lp .ia-hero-badge span {
+      position: relative; font-family: 'Bangers', sans-serif; color: var(--navy-deep);
+      font-size: 30px; letter-spacing: 0.04em;
+    }
+    @keyframes ia-badge-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    #ia-lp .ia-hero-badge img { animation: ia-badge-spin-rev 18s linear infinite; }
+    @keyframes ia-badge-spin-rev { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
+
+    #ia-lp .ia-hero-sub { margin: 6px 0 0; }
+    #ia-lp .ia-lede {
+      font-family: 'Sora', sans-serif; font-weight: 600;
+      font-size: clamp(18px, 2.1vw, 24px); color: var(--steel);
+      line-height: 1.4; max-width: 620px; margin: 28px auto 28px;
+    }
+    #ia-lp .ia-lede em { color: #fff; font-style: italic; }
+
+    #ia-lp .ia-squeeze {
+      display: inline-flex; align-items: center; gap: 16px;
+      background: rgba(80,135,221,0.12); border: 2px solid var(--blue); border-radius: 4px;
+      padding: 14px 20px; box-shadow: 5px 5px 0 var(--navy-deep);
+      margin: 0 auto 32px; max-width: 640px; text-align: left; transform: rotate(-0.4deg);
+    }
+    #ia-lp .ia-squeeze-pow {
+      flex-shrink: 0; background: var(--red); color: #fff; padding: 6px 12px;
+      font-size: 18px; letter-spacing: 0.08em; transform: rotate(-6deg);
+      box-shadow: 2px 2px 0 var(--navy-deep);
+    }
+    #ia-lp .ia-squeeze p { margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px; color: #fff; line-height: 1.4; }
+    #ia-lp .ia-squeeze strong { color: #8bb4f5; }
+
+    #ia-lp .ia-hero-ctas { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+    /* ══ PROBLEM — stat cards ══ */
+    #ia-lp .ia-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px; max-width: 1000px; margin: 0 auto;
+    }
+    #ia-lp .ia-stat {
+      background: radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.10), transparent 70%), rgba(255,255,255,0.04);
+      border: 2px solid rgba(255,255,255,0.10); padding: 32px 26px; text-align: center;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    #ia-lp .ia-stat:nth-child(1) { transform: rotate(-0.6deg); }
+    #ia-lp .ia-stat:nth-child(2) { transform: rotate(0.5deg); }
+    #ia-lp .ia-stat:nth-child(3) { transform: rotate(-0.4deg); }
+    #ia-lp .ia-stat:hover { transform: rotate(0) translateY(-6px); border-color: var(--gold); }
+    #ia-lp .ia-stat-big { font-family: 'Bangers', sans-serif; font-size: clamp(44px, 5vw, 64px); color: var(--gold); margin: 0 0 10px; letter-spacing: 0.03em; }
+    #ia-lp .ia-stat-label { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--steel); line-height: 1.5; margin: 0; }
+
+    #ia-lp .ia-quote {
+      max-width: 760px; margin: 48px auto 0; text-align: center;
+      font-family: 'Sora', sans-serif; font-weight: 700; font-style: italic;
+      font-size: clamp(17px, 2vw, 22px); color: #fff; line-height: 1.4;
+      border-left: 4px solid var(--gold); padding: 6px 0 6px 22px;
+    }
+
+    /* ══ LEAK FUNNEL ══ */
+    #ia-lp .ia-funnel { max-width: 560px; margin: 0 auto; }
+    #ia-lp .ia-funnel-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    #ia-lp .ia-funnel-node {
+      width: 132px; height: 132px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      border: 3px solid; box-shadow: 4px 4px 0 var(--navy-deep);
+    }
+    #ia-lp .ia-funnel-node span { font-family: 'Bangers', sans-serif; font-size: 20px; line-height: 1.05; letter-spacing: 0.03em; padding: 0 10px; }
+    #ia-lp .ia-node-blue { background: rgba(80,135,221,0.22); border-color: var(--blue); color: #cfe0fb; }
+    #ia-lp .ia-node-gold { background: rgba(249,166,48,0.20); border-color: var(--gold); color: var(--gold-bright); }
+    #ia-lp .ia-node-red  { background: rgba(224,74,44,0.20); border-color: var(--red); color: var(--red-bright); }
+    #ia-lp .ia-node-dead { background: rgba(224,74,44,0.32); border-color: var(--red-bright); color: #fff; }
+    #ia-lp .ia-funnel-note { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--steel); margin: 12px 0 0; max-width: 420px; line-height: 1.5; }
+    #ia-lp .ia-funnel-arrow { color: var(--steel-dim); font-size: 26px; margin: 8px 0; }
+    #ia-lp .ia-funnel-kicker {
+      max-width: 680px; margin: 48px auto 0; text-align: center;
+      font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(16px, 1.9vw, 20px);
+      color: #fff; line-height: 1.5;
+    }
+
+    /* ══ WHAT THE AUDIT COVERS — cards ══ */
+    #ia-lp .ia-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    #ia-lp .ia-card {
+      background: radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.10), transparent 70%), rgba(255,255,255,0.04);
+      border: 2px solid rgba(255,255,255,0.10); padding: 30px 26px 28px; position: relative;
+      transition: transform 0.25s, border-color 0.25s, background 0.25s;
+    }
+    #ia-lp .ia-card:nth-child(odd) { transform: rotate(-0.6deg); }
+    #ia-lp .ia-card:nth-child(even) { transform: rotate(0.6deg); }
+    #ia-lp .ia-card:hover {
+      transform: rotate(0) translateY(-6px); border-color: var(--gold);
+      background: radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.18), transparent 70%), rgba(249,166,48,0.06);
+    }
+    #ia-lp .ia-card-num { font-family: 'Bangers', sans-serif; font-size: 34px; color: rgba(255,255,255,0.22); letter-spacing: 0.05em; }
+    #ia-lp .ia-card h3 { font-size: clamp(22px, 2.4vw, 28px); color: var(--gold); margin: 6px 0 10px; letter-spacing: 0.04em; }
+    #ia-lp .ia-card p { font-family: 'Inter', sans-serif; font-size: 14.5px; color: var(--steel); line-height: 1.55; margin: 0; }
+    #ia-lp .ia-covers-cta { text-align: center; margin-top: 56px; }
+
+    /* ══ BOOK — scheduler ══ */
+    #ia-lp .ia-book-pow {
+      display: inline-block; background: var(--red); color: #fff; padding: 8px 20px;
+      font-size: 22px; letter-spacing: 0.10em; transform: rotate(-3deg);
+      box-shadow: 4px 4px 0 var(--gold); margin-bottom: 24px;
+    }
+    #ia-lp .ia-scheduler-frame {
+      position: relative; background: #fff; border-radius: 14px; border: 4px solid var(--gold);
+      box-shadow: 10px 10px 0 var(--red), 20px 20px 0 var(--navy-deep);
+      max-width: 940px; margin: 0 auto; padding: 16px;
+    }
+    #ia-lp .ia-tape {
+      position: absolute; width: 44px; height: 44px; background: var(--red); color: #fff;
+      font-family: 'Bangers', sans-serif; font-size: 24px; display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; box-shadow: 2px 2px 0 var(--navy-deep); z-index: 2;
+    }
+    #ia-lp .ia-tape-tl { top: -18px; left: -18px; transform: rotate(-12deg); }
+    #ia-lp .ia-tape-tr { top: -18px; right: -18px; transform: rotate(12deg); background: var(--gold); color: var(--navy-deep); }
+    #ia-lp .meetings-iframe-container { min-height: 720px; }
+    #ia-lp .ia-book-secondary {
+      text-align: center; margin: 32px auto 0; font-family: 'Sora', sans-serif;
+      font-weight: 600; font-size: 15px; color: var(--steel);
+    }
+    #ia-lp .ia-book-secondary a { color: var(--gold); text-decoration: none; border-bottom: 2px solid rgba(249,166,48,0.4); }
+    #ia-lp .ia-book-secondary a:hover { color: var(--gold-bright); border-color: var(--gold-bright); }
+
+    /* ══ Mobile ══ */
+    @media (max-width: 720px) {
+      #ia-lp .ia-hero { padding: 56px 0 48px; }
+      #ia-lp .ia-hero-skyline { height: 44%; opacity: 0.42; }
+      #ia-lp .ia-section { padding: 60px 0; }
+      #ia-lp .ia-section-head { margin-bottom: 36px; }
+      #ia-lp .ia-eyebrow { font-size: 12px; padding: 6px 12px; margin-bottom: 16px; letter-spacing: 0.10em; }
+      #ia-lp .ia-lede { font-size: 16.5px; margin: 22px auto; }
+      #ia-lp .ia-squeeze { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px 16px; transform: none; box-shadow: 4px 4px 0 var(--navy-deep); }
+      #ia-lp .ia-squeeze-pow { font-size: 15px; padding: 4px 10px; transform: rotate(-4deg); }
+      #ia-lp .ia-cta { padding: 14px 24px; font-size: 22px; transform: none; box-shadow: 5px 5px 0 var(--navy-deep); }
+      #ia-lp .ia-cta-gold:hover, #ia-lp .ia-cta-red:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--navy-deep); }
+      #ia-lp .ia-stat:nth-child(1), #ia-lp .ia-stat:nth-child(2), #ia-lp .ia-stat:nth-child(3) { transform: none; }
+      #ia-lp .ia-card:nth-child(odd), #ia-lp .ia-card:nth-child(even) { transform: none; }
+      #ia-lp .ia-scheduler-frame { border-width: 3px; border-radius: 10px; box-shadow: 5px 5px 0 var(--red), 10px 10px 0 var(--navy-deep); padding: 8px; }
+      #ia-lp .ia-tape { width: 32px; height: 32px; font-size: 16px; }
+      #ia-lp .ia-tape-tl { top: -12px; left: -10px; }
+      #ia-lp .ia-tape-tr { top: -12px; right: -10px; }
+      #ia-lp .meetings-iframe-container { min-height: 680px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #ia-lp .ia-arrow, #ia-lp .ia-hero-badge, #ia-lp .ia-hero-badge img { animation: none !important; }
+    }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'intake-audit' });
+  </script>
+
+</ComicCampaignLayout>
