@@ -1,11 +1,43 @@
 ---
+export interface ScreeningQuestion {
+  /** Question text — also used verbatim as the label in the Formspree results. */
+  label: string;
+  /** "single" = pick-one (radio, also covers Yes/No); "multi" = pick-many (checkboxes). */
+  type: "single" | "multi";
+  options: string[];
+  /** If true, the applicant must answer before continuing (never disqualifies). */
+  required?: boolean;
+}
+
 export interface Props {
   formspreeAction: string;
   showPositionPicker?: boolean;
+  /** Optional per-application screening questions. When provided, they render as a
+   *  dedicated first step. Answers are appended to the end of the Formspree results. */
+  screeningQuestions?: ScreeningQuestion[];
 }
 
-const { formspreeAction, showPositionPicker = false } = Astro.props;
+const { formspreeAction, showPositionPicker = false, screeningQuestions = [] } = Astro.props;
+const hasScreening = screeningQuestions.length > 0;
 const step2Name = showPositionPicker ? "Availability & Position" : "Availability";
+
+// Wizard steps. Screening is conditionally prepended as step 0; the intro video
+// lives on its own final step. Indices shift automatically when screening is present.
+let _stepIdx = 0;
+const screeningIdx = hasScreening ? _stepIdx++ : -1;
+const personalIdx = _stepIdx++;
+const availabilityIdx = _stepIdx++;
+const experienceIdx = _stepIdx++;
+const videoIdx = _stepIdx++;
+const totalSteps = _stepIdx;
+
+const stepDefs = [
+  ...(hasScreening ? [{ short: "Screening", name: "Screening Questions" }] : []),
+  { short: "Personal Info", name: "Personal Information" },
+  { short: step2Name, name: step2Name },
+  { short: "Experience & Docs", name: "Experience & Documents" },
+  { short: "Intro Video", name: "Introduction Video" },
+];
 
 const COUNTRIES = [
   "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan",
@@ -39,14 +71,14 @@ const COUNTRIES = [
 <div class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-xs">
   <div class="container-narrow py-3">
     <div class="flex items-center justify-between mb-2">
-      <span class="text-xs font-medium text-gray-500" id="step-label">Step 1 of 3</span>
-      <span class="text-xs font-medium text-brand-gold" id="step-name">Personal Information</span>
+      <span class="text-xs font-medium text-gray-500" id="step-label">Step 1 of {totalSteps}</span>
+      <span class="text-xs font-medium text-brand-gold" id="step-name">{stepDefs[0].name}</span>
     </div>
     <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
-      <div id="progress-bar" class="h-full bg-brand-gold rounded-full transition-all duration-500 ease-out" style="width: 33.33%"></div>
+      <div id="progress-bar" class="h-full bg-brand-gold rounded-full transition-all duration-500 ease-out" style={`width: ${(100 / totalSteps).toFixed(2)}%`}></div>
     </div>
     <div class="flex justify-between mt-2">
-      {["Personal Info", step2Name, "Experience & Documents"].map((name, i) => (
+      {stepDefs.map((step, i) => (
         <button
           type="button"
           class="step-dot flex flex-col items-center gap-1 group"
@@ -54,7 +86,7 @@ const COUNTRIES = [
           disabled
         >
           <div class={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${i === 0 ? 'bg-brand-gold border-brand-gold' : 'bg-white border-gray-300'}`}></div>
-          <span class="text-[10px] text-gray-400 hidden sm:block group-disabled:text-gray-300">{name}</span>
+          <span class="text-[10px] text-gray-400 hidden sm:block group-disabled:text-gray-300">{step.short}</span>
         </button>
       ))}
     </div>
@@ -81,8 +113,53 @@ const COUNTRIES = [
       novalidate
     >
 
+      <!-- ============ STEP 0: Screening Questions (optional, per-application) ============ -->
+      {hasScreening && (
+        <div class:list={["form-step", { active: screeningIdx === 0 }]} data-step={screeningIdx}>
+          <div class="mb-8">
+            <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" /></svg>
+            </div>
+            <h2 class="text-display-xs font-heading text-gray-900 mb-1">Screening Questions</h2>
+            <p class="text-sm text-gray-500">A few quick questions before we begin.</p>
+          </div>
+
+          <div class="space-y-5">
+            {screeningQuestions.map((q, i) => (
+              <fieldset
+                data-screening-label={q.label}
+                data-screening-name={`screening_${i}`}
+                data-require-one={q.required && q.type === "multi" ? "" : undefined}
+              >
+                <legend class="label-base">{q.label} {q.required && <span class="text-error-500">*</span>}</legend>
+                {q.type === "multi" && <p class="text-xs text-gray-400 mb-2">Select all that apply.</p>}
+                {q.type === "multi" ? (
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {q.options.map((opt) => (
+                      <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-25 transition-colors cursor-pointer">
+                        <input type="checkbox" name={`screening_${i}`} value={opt} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                        <span class="text-sm text-gray-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                ) : (
+                  <div class="flex flex-wrap gap-6 mt-1">
+                    {q.options.map((opt) => (
+                      <label class="inline-flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name={`screening_${i}`} value={opt} data-required={q.required ? "" : undefined} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                        <span class="text-sm text-gray-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </fieldset>
+            ))}
+          </div>
+        </div>
+      )}
+
       <!-- ============ STEP 1: Personal Information ============ -->
-      <div class="form-step active" data-step="0">
+      <div class:list={["form-step", { active: personalIdx === 0 }]} data-step={personalIdx}>
         <div class="mb-8">
           <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
@@ -151,7 +228,7 @@ const COUNTRIES = [
             <input type="text" id="referral" name="referral" class="input-base" placeholder="Employee name (if applicable)" />
           </div>
 
-          <fieldset>
+          <fieldset data-require-one>
             <legend class="label-base">What is your preferred communication method? <span class="text-error-500">*</span></legend>
             <p class="text-xs text-gray-400 mb-2">Please ensure you actively monitor this. Select all that apply.</p>
             <div class="flex gap-6">
@@ -172,7 +249,7 @@ const COUNTRIES = [
             <input type="tel" id="whatsapp_number" name="whatsapp_number" class="input-base" placeholder="+16101234567" />
           </div>
 
-          <fieldset>
+          <fieldset data-require-one>
             <legend class="label-base">What languages are you fluent in? <span class="text-error-500">*</span></legend>
             <p class="text-xs text-gray-400 mb-2">Select all that apply.</p>
             <div class="flex flex-wrap gap-4">
@@ -194,7 +271,7 @@ const COUNTRIES = [
       </div>
 
       <!-- ============ STEP 2: Availability (+ optional Position) ============ -->
-      <div class="form-step" data-step="1">
+      <div class="form-step" data-step={availabilityIdx}>
         <div class="mb-8">
           <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
@@ -260,7 +337,7 @@ const COUNTRIES = [
                 </ol>
               </div>
 
-              <fieldset>
+              <fieldset data-require-one>
                 <legend class="label-base">Check the position(s) for which you're most interested in applying. <span class="text-error-500">*</span></legend>
                 <p class="text-xs text-gray-400 mb-2">Check all that apply.</p>
                 <div class="space-y-2">
@@ -293,7 +370,7 @@ const COUNTRIES = [
       </div>
 
       <!-- ============ STEP 3: Experience & Documents ============ -->
-      <div class="form-step" data-step="2">
+      <div class="form-step" data-step={experienceIdx}>
         <div class="mb-8">
           <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" /></svg>
@@ -314,7 +391,7 @@ const COUNTRIES = [
         </div>
 
         <div class="space-y-5">
-          <fieldset>
+          <fieldset data-require-one>
             <legend class="label-base">Select the tools in which you are proficient. <span class="text-error-500">*</span></legend>
             <p class="text-xs text-gray-400 mb-2">Select all acceptable answers.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -351,18 +428,61 @@ const COUNTRIES = [
             <p id="resume-filename" class="text-xs text-success-600 mt-1 hidden"></p>
           </div>
 
-          <!-- Intro Video Section -->
+          <div>
+            <label for="id_card" class="label-base">Please upload your Identification Card.</label>
+            <p class="text-xs text-gray-400 mb-1.5">This ID card is intended solely for identification purposes and should not be used for any other transactions or representations. PDF, document, or image. Max 10 MB.</p>
+            <div class="file-upload-area" id="id-upload-area">
+              <input type="file" id="id_card" name="id_card" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" class="file-input" />
+              <div class="file-upload-content">
+                <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+                <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>
+                <p class="text-xs text-gray-400">PDF, DOC, JPG, PNG up to 10 MB</p>
+              </div>
+            </div>
+            <p id="id-filename" class="text-xs text-success-600 mt-1 hidden"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ STEP 4: Introduction Video ============ -->
+      <div class="form-step" data-step={videoIdx}>
+        <div class="mb-8">
+          <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
+          </div>
+          <h2 class="text-display-xs font-heading text-gray-900 mb-1">Introduction Video</h2>
+          <p class="text-sm text-gray-500">Record and submit a short introduction video.</p>
+        </div>
+
+        <div class="space-y-5">
           <div class="card p-5 bg-brand-25 border-brand-100">
             <h3 class="text-sm font-heading text-gray-900 mb-2">Record an Introduction Video <span class="text-error-500">*</span></h3>
-            <p class="text-xs text-gray-600 mb-3">There are two options for submitting your intro video: Loom or Google Drive link. Click <a href="https://www.loom.com/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">here</a> to sign up for a FREE Loom account, or submit your video as a Google Drive link. <a href="https://drive.google.com/file/d/1cDarP9quVVQlKVWaNw2Ja2IMsZ35htan/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Click here for a great example of an intro video</a>.</p>
-            <p class="text-xs text-gray-900 font-bold uppercase mb-3">Please ensure your video link can be accessed for viewing by anyone. This helps to expedite our review process.</p>
+            <p class="text-xs text-gray-600 mb-2">There are two options for submitting your intro video: Loom or Google Drive link.</p>
+            <p class="text-xs text-gray-600 mb-2">Click on this link <a href="https://www.loom.com/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Free screen recorder for Mac and PC | Loom</a> to sign up for a FREE account to record a 1&ndash;2 minute introduction video using the Attorney Assistant background provided below.</p>
+            <p class="text-xs text-gray-600 mb-2">If you choose not to use Loom, you may submit your video as a Google Drive link. Please ensure you grant access for anyone to view the link.</p>
+            <p class="text-xs text-gray-600 mb-3">Click on these links for great examples of an intro video for your reference: <a href="https://drive.google.com/file/d/19sJBeq3y8RgLsZV5uNYON4UVq99zl8VJ/view" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Sample Video 1</a> &middot; <a href="https://drive.google.com/file/d/1cDarP9quVVQlKVWaNw2Ja2IMsZ35htan/view" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Sample Video 2</a></p>
+
+            <p class="text-xs font-semibold text-gray-900 mb-1">Here's what our team looks for in a GREAT video:</p>
             <ul class="text-xs text-gray-600 space-y-1.5 list-disc list-inside mb-3">
-              <li>Ensure you have great lighting and a clear picture when you record. Record in a quiet, distraction-free environment.</li>
-              <li>Eliminate background noise as much as possible. You can use a noise cancellation tool such as <a href="https://krisp.ai/noise-cancellation/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Krisp</a> to assist.</li>
-              <li>Dress to impress in business casual or professional attire.</li>
-              <li>Briefly discuss your relevant work experience and why you think you are a good fit for a role with Attorney Assistant.</li>
+              <li>Brief discussion of your RELEVANT work experience and what you bring to the role.</li>
+              <li>Length of video is 1&ndash;2 minutes.</li>
+              <li>Great lighting and a clear picture.</li>
+              <li>Quiet, distraction-free environment.</li>
+              <li>Minimal background noise. Use a noise cancellation tool such as <a href="https://krisp.ai/noise-cancellation/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Krisp</a> to assist.</li>
+              <li>DRESSED TO IMPRESS in professional attire.</li>
             </ul>
-            <p class="text-xs text-gray-700 font-semibold">YOU MUST ADD YOUR RECORDED VIDEO LINK IN THE SPACE BELOW TO BE CONSIDERED BY OUR RECRUITMENT TEAM.</p>
+
+            <p class="text-xs font-semibold text-gray-900 mb-1">Our team will request you to redo your video if:</p>
+            <ul class="text-xs text-gray-600 space-y-1.5 list-disc list-inside mb-3">
+              <li>The information you discuss is irrelevant or too personal.</li>
+              <li>The video is over 2 minutes long.</li>
+              <li>The background isn't professional, solid, blurred, or the AA background provided.</li>
+              <li>The picture and sound are not clear.</li>
+              <li>There are people or distractions in the background.</li>
+              <li>Your attire isn't professional (ex: tank top, old t-shirt, etc).</li>
+            </ul>
+
+            <p class="text-xs text-gray-900 font-bold uppercase">Please review your video before submission. You must add your recorded video link in the space below to be considered by our recruitment team. If your video doesn't meet our standards, you will be asked to redo it which could prolong your time awaiting placement.</p>
           </div>
 
           <div class="card overflow-hidden">
@@ -376,20 +496,6 @@ const COUNTRIES = [
             <label for="intro_video_url" class="label-base">Link to Your Introduction Video <span class="text-error-500">*</span></label>
             <p class="text-xs text-gray-400 mb-1.5">Paste your Loom or Google Drive share link.</p>
             <input type="url" id="intro_video_url" name="intro_video_url" data-required class="input-base" placeholder="https://www.loom.com/share/... or https://drive.google.com/file/d/..." />
-          </div>
-
-          <div>
-            <label for="id_card" class="label-base">Please upload your Identification Card.</label>
-            <p class="text-xs text-gray-400 mb-1.5">This ID card is intended solely for identification purposes and should not be used for any other transactions or representations. PDF, document, or image. Max 10 MB.</p>
-            <div class="file-upload-area" id="id-upload-area">
-              <input type="file" id="id_card" name="id_card" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp" class="file-input" />
-              <div class="file-upload-content">
-                <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
-                <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>
-                <p class="text-xs text-gray-400">PDF, DOC, JPG, PNG up to 10 MB</p>
-              </div>
-            </div>
-            <p id="id-filename" class="text-xs text-success-600 mt-1 hidden"></p>
           </div>
         </div>
       </div>
@@ -498,11 +604,11 @@ const COUNTRIES = [
   }
 </style>
 
-<script is:inline define:vars={{ stepTwoName: step2Name }}>
+<script is:inline define:vars={{ stepNames: stepDefs.map((s) => s.name) }}>
   const TEST_MODE = false;
 
-  const TOTAL_STEPS = 3;
-  const STEP_NAMES = ["Personal Information", stepTwoName, "Experience & Documents"];
+  const STEP_NAMES = stepNames;
+  const TOTAL_STEPS = STEP_NAMES.length;
   let currentStep = 0;
   let highestVisited = 0;
 
@@ -648,34 +754,22 @@ const COUNTRIES = [
       }
     });
 
-    // Email format check
-    if (currentStep === 0) {
-      const emailInput = step.querySelector('#email');
-      if (emailInput && emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-        valid = false;
-        emailInput.classList.add('field-error');
-        addError(emailInput.parentElement, 'Please enter a valid email address.');
-      }
+    // Email format check (only when this step actually contains the email field)
+    const emailInput = step.querySelector('#email');
+    if (emailInput && emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+      valid = false;
+      emailInput.classList.add('field-error');
+      addError(emailInput.parentElement, 'Please enter a valid email address.');
     }
 
-    // Checkbox group minimums (require at least one checked)
-    // Guarded so pages without certain groups (e.g. job-specific pages without
-    // the position picker) don't error.
-    const checkboxGroups = {
-      0: ['communication_method', 'languages'],
-      1: ['positions'],
-      2: ['tools'],
-    };
-
-    const groups = checkboxGroups[currentStep] || [];
-    groups.forEach(name => {
-      const firstInput = step.querySelector(`input[name="${name}"]`);
-      if (!firstInput) return;
-      const checked = step.querySelectorAll(`input[name="${name}"]:checked`);
+    // Checkbox/radio groups that require at least one selection.
+    // Marked with [data-require-one] in the markup, so this stays correct
+    // regardless of step index or which optional groups a page renders.
+    step.querySelectorAll('fieldset[data-require-one]').forEach(fieldset => {
+      const checked = fieldset.querySelectorAll('input:checked');
       if (checked.length === 0) {
         valid = false;
-        const fieldset = firstInput.closest('fieldset');
-        if (fieldset) addError(fieldset, 'Please select at least one option.');
+        addError(fieldset, 'Please select at least one option.');
       }
     });
 
@@ -774,6 +868,16 @@ const COUNTRIES = [
           formData.delete(key);
         }
       }
+
+      // Screening answers: relabel each with its question text and move to the
+      // end of the submission so they appear after the rest of the results.
+      form.querySelectorAll('fieldset[data-screening-label]').forEach(fieldset => {
+        const label = fieldset.getAttribute('data-screening-label');
+        const groupName = fieldset.getAttribute('data-screening-name');
+        if (groupName) formData.delete(groupName);
+        const values = Array.from(fieldset.querySelectorAll('input:checked')).map(i => i.value);
+        formData.append(label, values.join(', '));
+      });
 
       const response = await fetch(form.action, {
         method: 'POST',

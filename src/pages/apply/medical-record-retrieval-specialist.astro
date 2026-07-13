@@ -68,6 +68,28 @@ import ApplicationForm from "@components/ApplicationForm.astro";
 
   <ApplicationForm
     formspreeAction="https://formspree.io/f/xojbrdro"
+    screeningQuestions={[
+      {
+        label: "Do you have experience with medical records retrieval, lien negotiation, or patient outreach?",
+        type: "single",
+        options: ["Yes", "No"],
+        required: true,
+      },
+      {
+        label: "Which related experience do you have? Please select all that apply.",
+        type: "multi",
+        options: [
+          "Medical records retrieval",
+          "Lien negotiation",
+          "Patient outreach",
+          "Insurance follow-ups",
+          "Medical provider follow-ups",
+          "Records request tracking",
+          "HIPAA or confidential document handling",
+          "Other",
+        ],
+      },
+    ]}
   />
 
   <CareersPixel event="ViewContent" />
