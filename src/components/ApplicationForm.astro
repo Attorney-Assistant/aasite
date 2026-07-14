@@ -5,8 +5,11 @@ export interface ScreeningQuestion {
   /** "single" = pick-one (radio, also covers Yes/No); "multi" = pick-many (checkboxes). */
   type: "single" | "multi";
   options: string[];
-  /** If true, the applicant must answer before continuing (never disqualifies). */
+  /** If true, the applicant must answer before continuing. */
   required?: boolean;
+  /** Option values that disqualify the applicant. Selecting one shows a polite
+   *  decline (declineMessage) on Continue instead of advancing the application. */
+  disqualifyOn?: string[];
 }
 
 export interface Props {
@@ -15,9 +18,16 @@ export interface Props {
   /** Optional per-application screening questions. When provided, they render as a
    *  dedicated first step. Answers are appended to the end of the Formspree results. */
   screeningQuestions?: ScreeningQuestion[];
+  /** Message shown when a screening answer disqualifies the applicant. */
+  declineMessage?: string;
 }
 
-const { formspreeAction, showPositionPicker = false, screeningQuestions = [] } = Astro.props;
+const {
+  formspreeAction,
+  showPositionPicker = false,
+  screeningQuestions = [],
+  declineMessage = "Thank you for your interest. Based on your response, this role isn't a match for you right now, so we're unable to move forward with your application. We genuinely appreciate the time you took to apply.",
+} = Astro.props;
 const hasScreening = screeningQuestions.length > 0;
 const step2Name = showPositionPicker ? "Availability & Position" : "Availability";
 
@@ -113,6 +123,7 @@ const COUNTRIES = [
                 data-screening-label={q.label}
                 data-screening-name={`screening_${i}`}
                 data-require-one={q.required && q.type === "multi" ? "" : undefined}
+                data-disqualify={q.disqualifyOn && q.disqualifyOn.length ? q.disqualifyOn.join("|") : undefined}
               >
                 <legend class="label-base">{q.label} {q.required && <span class="text-error-500">*</span>}</legend>
                 {q.type === "multi" && <p class="text-xs text-gray-400 mb-2">Select all that apply.</p>}
@@ -520,6 +531,16 @@ const COUNTRIES = [
       <p class="text-base text-gray-500 max-w-md mx-auto mb-6">Thank you for your interest in joining Attorney Assistant. We'll review your application and be in touch via your preferred communication method.</p>
       <a href="/careers" class="btn-secondary">Back to Careers</a>
     </div>
+
+    <!-- Decline message (hidden by default; shown when a screening answer disqualifies) -->
+    <div id="decline-message" class="hidden text-center py-16">
+      <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
+      </div>
+      <h2 class="text-display-xs font-heading text-gray-900 mb-2">Thank you for your interest</h2>
+      <p class="text-base text-gray-500 max-w-md mx-auto mb-6">{declineMessage}</p>
+      <a href="/careers" class="btn-secondary">Back to Careers</a>
+    </div>
   </div>
 </section>
 
@@ -764,8 +785,30 @@ const COUNTRIES = [
     return valid;
   }
 
+  // Returns true if a screening answer in the current step disqualifies the applicant.
+  function isDisqualified() {
+    const step = steps[currentStep];
+    if (!step) return false;
+    let disqualified = false;
+    step.querySelectorAll('fieldset[data-disqualify]').forEach(fieldset => {
+      const bad = (fieldset.getAttribute('data-disqualify') || '').split('|');
+      const checked = Array.from(fieldset.querySelectorAll('input:checked')).map(i => i.value);
+      if (checked.some(v => bad.includes(v))) disqualified = true;
+    });
+    return disqualified;
+  }
+
+  function showDecline() {
+    form.classList.add('hidden');
+    const sticky = document.querySelector('.sticky');
+    if (sticky) sticky.classList.add('hidden');
+    document.getElementById('decline-message').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function nextStep() {
     if (!validateCurrentStep()) return;
+    if (isDisqualified()) { showDecline(); return; }
     if (currentStep < TOTAL_STEPS - 1) {
       currentStep++;
       updateUI();
