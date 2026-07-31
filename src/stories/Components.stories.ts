@@ -17,7 +17,7 @@ export const CTABannerBrand: Story = {
   render: () => {
     const container = document.createElement("div");
     container.innerHTML = `
-      <section style="background: #1a3a5c; padding: 64px 0; color: white; text-align: center;">
+      <section style="background: #15385f; padding: 64px 0; color: white; text-align: center;">
         <div style="max-width: 800px; margin: 0 auto; padding: 0 24px;">
           <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 36px; margin: 0 0 16px 0;">
             Stop Leaking Revenue. Start Scaling.
@@ -25,7 +25,7 @@ export const CTABannerBrand: Story = {
           <p style="font-family: 'Inter', sans-serif; font-size: 18px; color: rgba(255,255,255,0.7); margin: 0 0 32px 0;">
             Most firms don't need more leads — they need to stop losing the ones they have.
           </p>
-          <button style="background: #F9A630; color: #0b0000; border: none; padding: 16px 32px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer;">
+          <button style="background: #f9a62d; color: #0b0000; border: none; padding: 16px 32px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer;">
             Book a Call
           </button>
         </div>
@@ -48,7 +48,7 @@ export const CTABannerLight: Story = {
           <p style="font-family: 'Inter', sans-serif; font-size: 18px; color: #667085; margin: 0 0 32px 0;">
             See how Attorney Assistant can eliminate the busywork holding your firm back.
           </p>
-          <button style="background: #1a3a5c; color: #ffffff; border: none; padding: 16px 32px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer;">
+          <button style="background: #15385f; color: #ffffff; border: none; padding: 16px 32px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer;">
             Schedule a Demo
           </button>
         </div>
@@ -71,7 +71,7 @@ export const CTABannerDark: Story = {
           <p style="font-family: 'Inter', sans-serif; font-size: 18px; color: rgba(255,255,255,0.55); margin: 0 0 32px 0;">
             Don't let another lead slip through the cracks. We'll show you exactly where you're losing revenue.
           </p>
-          <button style="background: #F9A630; color: #0b0000; border: none; padding: 16px 32px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer;">
+          <button style="background: #f9a62d; color: #0b0000; border: none; padding: 16px 32px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; cursor: pointer;">
             Get a Free Audit
           </button>
         </div>
@@ -92,8 +92,8 @@ export const FeatureCard: Story = {
     container.style.maxWidth = "340px";
     container.innerHTML = `
       <div style="background: white; border-radius: 12px; padding: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #f3f4f6;">
-        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: rgba(80,167,221,0.1); border-radius: 50%; margin-bottom: 16px;">
-          <svg width="24" height="24" fill="none" stroke="#50a7dd" viewBox="0 0 24 24" stroke-width="1.5">
+        <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: rgba(81,166,220,0.1); border-radius: 50%; margin-bottom: 16px;">
+          <svg width="24" height="24" fill="none" stroke="#51a6dc" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"/>
           </svg>
         </div>
@@ -122,9 +122,9 @@ export const ServiceCard: Story = {
         <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #667085; line-height: 1.6; margin: 0 0 16px 0;">
           We handle every step of your intake process — from first contact to signed retainer — so your attorneys can focus on casework.
         </p>
-        <span style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #50a7dd; display: inline-flex; align-items: center; gap: 6px;">
+        <span style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #51a6dc; display: inline-flex; align-items: center; gap: 6px;">
           Learn more
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#50a7dd" stroke-width="2">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#51a6dc" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8h10m-4-4l4 4-4 4"/>
           </svg>
         </span>
@@ -158,12 +158,12 @@ export const ProcessSteps: Story = {
             (s, i) => `
           <div style="display: flex; gap: 20px; position: relative;">
             <div style="display: flex; flex-direction: column; align-items: center;">
-              <div style="width: 40px; height: 40px; border-radius: 50%; background: #1a3a5c; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: #15385f; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; flex-shrink: 0;">
                 ${s.num}
               </div>
               ${
                 i < steps.length - 1
-                  ? '<div style="width: 2px; flex: 1; background: linear-gradient(to bottom, #1a3a5c, #e5e7eb); margin: 4px 0;"></div>'
+                  ? '<div style="width: 2px; flex: 1; background: linear-gradient(to bottom, #15385f, #e5e7eb); margin: 4px 0;"></div>'
                   : ""
               }
             </div>
@@ -286,8 +286,8 @@ export const YouTubeEmbed: Story = {
     container.style.maxWidth = "640px";
     container.innerHTML = `
       <div style="position: relative; border-radius: 12px; overflow: hidden; background: #0b0000; aspect-ratio: 16/9; cursor: pointer;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #1a3a5c 0%, #091623 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
-          <div style="width: 72px; height: 72px; border-radius: 50%; background: rgba(249,166,48,0.95); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(249,166,48,0.4);">
+        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #15385f 0%, #091623 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: rgba(249,166,45,0.95); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(249,166,45,0.4);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
               <path d="M8 5v14l11-7z"/>
             </svg>
@@ -313,9 +313,9 @@ export const DayTimeline: Story = {
     const events = [
       { time: "8:00 AM", label: "Missed call from potential PI client", color: "#ef4444", bg: "#fef2f2" },
       { time: "9:15 AM", label: "Intake specialist captures lead details", color: "#22c55e", bg: "#f0fdf4" },
-      { time: "10:30 AM", label: "Lead qualified and entered in CRM", color: "#50a7dd", bg: "#eff6ff" },
-      { time: "11:00 AM", label: "Attorney receives case summary", color: "#50a7dd", bg: "#eff6ff" },
-      { time: "1:30 PM", label: "Follow-up call scheduled automatically", color: "#F9A630", bg: "#fffbeb" },
+      { time: "10:30 AM", label: "Lead qualified and entered in CRM", color: "#51a6dc", bg: "#eff6ff" },
+      { time: "11:00 AM", label: "Attorney receives case summary", color: "#51a6dc", bg: "#eff6ff" },
+      { time: "1:30 PM", label: "Follow-up call scheduled automatically", color: "#f9a62d", bg: "#fffbeb" },
       { time: "3:00 PM", label: "Retainer signed via e-signature", color: "#22c55e", bg: "#f0fdf4" },
     ];
 
@@ -354,10 +354,10 @@ export const BadgeVariants: Story = {
     const container = document.createElement("div");
 
     const badges = [
-      { name: "badge-brand", bg: "rgba(80,167,221,0.1)", color: "#50a7dd", label: "Brand" },
-      { name: "badge-gold", bg: "rgba(249,166,48,0.12)", color: "#b97a1e", label: "Gold" },
+      { name: "badge-brand", bg: "rgba(81,166,220,0.1)", color: "#51a6dc", label: "Brand" },
+      { name: "badge-gold", bg: "rgba(249,166,45,0.12)", color: "#b97a1e", label: "Gold" },
       { name: "badge-gray", bg: "#f3f4f6", color: "#6b7280", label: "Gray" },
-      { name: "badge-navy", bg: "rgba(26,58,92,0.1)", color: "#1a3a5c", label: "Navy" },
+      { name: "badge-navy", bg: "rgba(21,56,95,0.1)", color: "#15385f", label: "Navy" },
       { name: "badge-success", bg: "#f0fdf4", color: "#166534", label: "Success" },
       { name: "badge-warning", bg: "#fffbeb", color: "#92400e", label: "Warning" },
     ];
@@ -414,10 +414,10 @@ export const FeaturedIconVariants: Story = {
     const container = document.createElement("div");
 
     const variants = [
-      { name: "brand", bg: "rgba(80,167,221,0.1)", stroke: "#50a7dd" },
-      { name: "gold", bg: "rgba(249,166,48,0.12)", stroke: "#F9A630" },
+      { name: "brand", bg: "rgba(81,166,220,0.1)", stroke: "#51a6dc" },
+      { name: "gold", bg: "rgba(249,166,45,0.12)", stroke: "#f9a62d" },
       { name: "gray", bg: "#f3f4f6", stroke: "#6b7280" },
-      { name: "navy", bg: "rgba(26,58,92,0.1)", stroke: "#1a3a5c" },
+      { name: "navy", bg: "rgba(21,56,95,0.1)", stroke: "#15385f" },
       { name: "success", bg: "#f0fdf4", stroke: "#22c55e" },
     ];
 

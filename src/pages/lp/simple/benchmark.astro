@@ -19,8 +19,8 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     <section data-stage="intro" class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 min-h-[80vh] flex items-center">
       <div class="grain-overlay"></div>
       <!-- Floating gold orbs -->
-      <div class="bm-orb bm-orb-a" style="top: -120px; left: -80px; width: 420px; height: 420px; background: rgba(249,166,48,0.18);"></div>
-      <div class="bm-orb bm-orb-b" style="bottom: -100px; right: -60px; width: 360px; height: 360px; background: rgba(80,167,221,0.14);"></div>
+      <div class="bm-orb bm-orb-a" style="top: -120px; left: -80px; width: 420px; height: 420px; background: rgba(249,166,45,0.18);"></div>
+      <div class="bm-orb bm-orb-b" style="bottom: -100px; right: -60px; width: 360px; height: 360px; background: rgba(81,166,220,0.14);"></div>
 
       <div class="container-wide relative z-10 py-20 lg:py-28 text-center">
         <div class="max-w-3xl mx-auto reveal">
@@ -379,7 +379,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       .bmform-row-2 { grid-template-columns: 1fr 1fr; }
     }
     .bmform-field { display: flex; flex-direction: column; gap: 6px; }
-    .bmform-label { font-family: inherit; font-size: 13px; font-weight: 600; color: #1a3a5c; letter-spacing: 0.01em; }
+    .bmform-label { font-family: inherit; font-size: 13px; font-weight: 600; color: #15385f; letter-spacing: 0.01em; }
     .bmform-label em { color: #ef4444; font-style: normal; }
     .bmform-help { font-family: inherit; font-size: 12px; color: #6f7a8a; margin: -2px 0 4px; }
     .bmform input[type="text"],
@@ -392,15 +392,15 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       border-radius: 10px;
       font-family: inherit;
       font-size: 15px;
-      color: #1a3a5c;
+      color: #15385f;
       background: #fff;
       transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
     }
     .bmform input:focus,
     .bmform select:focus {
       outline: none;
-      border-color: #F9A630;
-      box-shadow: 0 0 0 4px rgba(249,166,48,0.15);
+      border-color: #f9a62d;
+      box-shadow: 0 0 0 4px rgba(249,166,45,0.15);
       transform: translateY(-1px);
     }
     .bmform input:invalid:not(:placeholder-shown) { border-color: #ef4444; }
@@ -420,17 +420,17 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
     .bmform-check:hover {
-      border-color: #F9A630;
-      background: rgba(249,166,48,0.04);
+      border-color: #f9a62d;
+      background: rgba(249,166,45,0.04);
       transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(26,58,92,0.06);
+      box-shadow: 0 4px 10px rgba(21,56,95,0.06);
     }
-    .bmform-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: #F9A630; cursor: pointer; flex-shrink: 0; }
-    .bmform-check span { font-family: inherit; font-size: 14px; font-weight: 500; color: #1a3a5c; }
+    .bmform-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: #f9a62d; cursor: pointer; flex-shrink: 0; }
+    .bmform-check span { font-family: inherit; font-size: 14px; font-weight: 500; color: #15385f; }
     .bmform-check:has(input:checked) {
-      border-color: #F9A630;
-      background: rgba(249,166,48,0.08);
-      box-shadow: 0 4px 14px rgba(249,166,48,0.18);
+      border-color: #f9a62d;
+      background: rgba(249,166,45,0.08);
+      box-shadow: 0 4px 14px rgba(249,166,45,0.18);
     }
 
     /* ─────────────────────────────────────────────────────────
@@ -450,22 +450,22 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       width: 22px; height: 22px;
       border-radius: 50%;
       background: #fff;
-      border: 3px solid #F9A630;
-      box-shadow: 0 2px 8px rgba(26,58,92,0.25);
+      border: 3px solid #f9a62d;
+      box-shadow: 0 2px 8px rgba(21,56,95,0.25);
       cursor: grab;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    .bmform-slider-row input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); box-shadow: 0 4px 14px rgba(249,166,48,0.4); }
+    .bmform-slider-row input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); box-shadow: 0 4px 14px rgba(249,166,45,0.4); }
     .bmform-slider-row input[type="range"]::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.05); }
     .bmform-slider-row input[type="range"]::-moz-range-thumb {
       width: 22px; height: 22px;
       border-radius: 50%;
       background: #fff;
-      border: 3px solid #F9A630;
-      box-shadow: 0 2px 8px rgba(26,58,92,0.25);
+      border: 3px solid #f9a62d;
+      box-shadow: 0 2px 8px rgba(21,56,95,0.25);
       cursor: grab;
     }
-    .bmform-slider-value { font-family: inherit; font-size: 15px; font-weight: 700; color: #1a3a5c; min-width: 76px; text-align: right; font-variant-numeric: tabular-nums; }
+    .bmform-slider-value { font-family: inherit; font-size: 15px; font-weight: 700; color: #15385f; min-width: 76px; text-align: right; font-variant-numeric: tabular-nums; }
     .bmform-tier-badge {
       display: inline-flex; align-items: center; gap: 6px;
       margin-top: 8px;
@@ -486,7 +486,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     .bmform-tier-badge[data-tier="bottom"] .bmform-tier-dot { background: #E89991; box-shadow: 0 0 0 4px rgba(232,153,145,0.22); }
 
     .bmform-skip { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; cursor: pointer; font-family: inherit; font-size: 13px; color: #6f7a8a; }
-    .bmform-skip input[type="checkbox"] { accent-color: #F9A630; cursor: pointer; }
+    .bmform-skip input[type="checkbox"] { accent-color: #f9a62d; cursor: pointer; }
 
     /* ─────────────────────────────────────────────────────────
        Submit button — matches site .btn-primary, shimmer, arrow
@@ -496,8 +496,8 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       overflow: hidden;
       margin-top: 6px;
       padding: 14px 24px;
-      background: #F9A630;
-      color: #1a3a5c;
+      background: #f9a62d;
+      color: #15385f;
       font-family: 'Inter', -apple-system, Segoe UI, sans-serif;
       font-size: 15px;
       font-weight: 700;
@@ -520,7 +520,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     .bmform-submit:hover:not(:disabled) {
       background: #d98a00;
       transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(249,166,48,0.35);
+      box-shadow: 0 8px 22px rgba(249,166,45,0.35);
     }
     .bmform-submit:hover:not(:disabled)::after { left: 125%; }
     .bmform-submit:disabled { opacity: 0.6; cursor: not-allowed; }
@@ -558,10 +558,10 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
       transition: all 0.25s ease;
     }
     .bm-step-dot.is-active {
-      background: #F9A630;
-      color: #1a3a5c;
-      border-color: #F9A630;
-      box-shadow: 0 0 0 6px rgba(249,166,48,0.18);
+      background: #f9a62d;
+      color: #15385f;
+      border-color: #f9a62d;
+      box-shadow: 0 0 0 6px rgba(249,166,45,0.18);
     }
     .bm-step-dot.is-complete {
       background: rgba(126,166,124,0.2);
@@ -576,7 +576,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
     }
     .bm-step-track-fill {
       height: 100%;
-      background: linear-gradient(to right, #F9A630, #d98a00);
+      background: linear-gradient(to right, #f9a62d, #d98a00);
       width: 0%;
       transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -653,8 +653,8 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
 
     /* Pulse glow on primary hero CTA */
     @keyframes bm-cta-pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(249,166,48,0.45); }
-      50%      { box-shadow: 0 0 0 14px rgba(249,166,48,0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249,166,45,0.45); }
+      50%      { box-shadow: 0 0 0 14px rgba(249,166,45,0); }
     }
     .bm-cta-pulse { animation: bm-cta-pulse 2.4s ease-in-out infinite; }
 
@@ -753,7 +753,7 @@ import { HUBSPOT_PORTAL_ID, HUBSPOT_REGION, FORM_IDS, MEETING_URLS, ASSET_URLS }
               '<div class="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[8px] border-l-transparent border-r-transparent border-b-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"></div>',
             '</div>',
             '<div class="bm-bar-aa-marker absolute -bottom-2" data-bm-target-pct="' + aaPct + '" style="left: 0%; transform: translateX(-50%)">',
-              '<div class="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-brand-gold drop-shadow-[0_-2px_4px_rgba(249,166,48,0.5)]"></div>',
+              '<div class="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-brand-gold drop-shadow-[0_-2px_4px_rgba(249,166,45,0.5)]"></div>',
             '</div>',
           '</div>',
           '<div class="flex justify-between text-[10px] text-white/40 mt-5">',

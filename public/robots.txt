@@ -4,8 +4,7 @@
 User-agent: *
 Allow: /
 Disallow: /storybook/
-Disallow: /styleguide
-Disallow: /signaturegenerator
+Disallow: /apply/hidden-applications
 Disallow: /thank-you
 Disallow: /thankyou
 Disallow: /checkout-*

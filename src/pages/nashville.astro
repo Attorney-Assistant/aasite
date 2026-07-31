@@ -350,8 +350,8 @@ const PRODUCTS = [
     #nash-lp {
       --navy: #0e2236;
       --navy-deep: #061320;
-      --navy-mid: #1a3a5c;
-      --gold: #F9A630;
+      --navy-mid: #15385f;
+      --gold: #f9a62d;
       --gold-bright: #FBD46D;
       --red: #E04A2C;
       --red-bright: #FF6B45;
@@ -408,7 +408,7 @@ const PRODUCTS = [
       overflow: hidden;
       background:
         radial-gradient(ellipse at 30% 30%, rgba(80,135,221,0.18), transparent 55%),
-        radial-gradient(ellipse at 75% 70%, rgba(249,166,48,0.14), transparent 60%),
+        radial-gradient(ellipse at 75% 70%, rgba(249,166,45,0.14), transparent 60%),
         var(--navy);
     }
     #nash-lp .nash-hero-skyline {
@@ -573,11 +573,11 @@ const PRODUCTS = [
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 0 20px rgba(249,166,48,0.65));
+      filter: drop-shadow(0 0 20px rgba(249,166,45,0.65));
     }
     #nash-lp .nash-bat-glow {
       position: absolute; inset: -30%;
-      background: radial-gradient(circle, rgba(249,166,48,0.55) 0%, rgba(249,166,48,0.15) 35%, transparent 65%);
+      background: radial-gradient(circle, rgba(249,166,45,0.55) 0%, rgba(249,166,45,0.15) 35%, transparent 65%);
       filter: blur(8px);
       animation: nash-bat-pulse 3s ease-in-out infinite;
       z-index: -1;
@@ -656,7 +656,7 @@ const PRODUCTS = [
     }
     #nash-lp .nash-product {
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.10), transparent 70%),
+        radial-gradient(ellipse at 50% 0%, rgba(249,166,45,0.10), transparent 70%),
         rgba(255,255,255,0.04);
       border: 2px solid rgba(255,255,255,0.10);
       padding: 30px 26px 28px;
@@ -688,8 +688,8 @@ const PRODUCTS = [
       transform: rotate(0) translateY(-6px);
       border-color: var(--gold);
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(249,166,48,0.18), transparent 70%),
-        rgba(249,166,48,0.06);
+        radial-gradient(ellipse at 50% 0%, rgba(249,166,45,0.18), transparent 70%),
+        rgba(249,166,45,0.06);
       box-shadow: 6px 6px 0 var(--navy-deep);
       outline: none;
     }
@@ -815,7 +815,7 @@ const PRODUCTS = [
     #nash-lp .nash-form input:focus {
       outline: none;
       border-color: var(--gold);
-      box-shadow: 0 0 0 4px rgba(249,166,48,0.18);
+      box-shadow: 0 0 0 4px rgba(249,166,45,0.18);
       background: #fffdf6;
     }
     #nash-lp .nash-form input:invalid:not(:placeholder-shown):not(:focus) {

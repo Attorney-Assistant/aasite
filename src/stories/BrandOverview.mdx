@@ -37,18 +37,18 @@ All design tokens are defined in `tailwind.config.mjs` and available via Tailwin
 |-------|---------------|-------|
 | Brand Black | `text-brand-black`, `bg-brand-black` | `#0b0000` |
 | Brand White | `text-brand-white`, `bg-brand-white` | `#ffffff` |
-| Brand Gold | `text-brand-gold`, `bg-brand-gold` | `#F9A630` |
-| Brand Blue | `text-brand-blue`, `bg-brand-blue` | `#50a7dd` |
+| Brand Gold | `text-brand-gold`, `bg-brand-gold` | `#f9a62d` |
+| Brand Blue | `text-brand-blue`, `bg-brand-blue` | `#51a6dc` |
 | Brand Steel | `text-brand-steel`, `bg-brand-steel` | `#588aa5` |
-| Brand Navy | `text-brand-navy`, `bg-brand-navy` | `#1a3a5c` |
+| Brand Navy | `text-brand-navy`, `bg-brand-navy` | `#15385f` |
 | Heading Font | `font-heading` | Sora |
 | Body Font | `font-body` | Inter |
 
 ## Ambient Animations
 
 Hero sections use floating gradient orbs for subtle depth:
-- **Blue orb**: `radial-gradient(circle, rgba(80,167,221,0.15–0.22) ...)` — multi-stop keyframe animation
-- **Orange orb**: `radial-gradient(circle, rgba(249,166,48,0.12–0.22) ...)` — multi-stop keyframe animation
+- **Blue orb**: `radial-gradient(circle, rgba(81,166,220,0.15–0.22) ...)` — multi-stop keyframe animation
+- **Orange orb**: `radial-gradient(circle, rgba(249,166,45,0.12–0.22) ...)` — multi-stop keyframe animation
 - **Placement**: Homepage hero has 3 orbs (custom inline). All subpage heroes (`Hero.astro`) have 2 orbs. 404 page has 2 orbs. Landing pages have their own orb instances.
 - All animations respect `prefers-reduced-motion: reduce`
 
@@ -62,7 +62,7 @@ Hero sections use floating gradient orbs for subtle depth:
 
 ## Special Pages
 
-- **404 page** — Dark navy (`bg-brand-950`) with grain overlay, 2 floating orbs (`rgba(80,167,221,0.22)` + `rgba(249,166,48,0.22)`), multi-stop keyframe animations, gradient "404" text (white → gold → blue), two CTAs.
+- **404 page** — Dark navy (`bg-brand-950`) with grain overlay, 2 floating orbs (`rgba(81,166,220,0.22)` + `rgba(249,166,45,0.22)`), multi-stop keyframe animations, gradient "404" text (white → gold → blue), two CTAs.
 - **Landing page** (`/lp/marketing-waste`) — Dark hero with inline form, flow diagram, stat cards, problem list, numbered fix grid, side-by-side comparison columns, numbered steps with connectors, dark proof cards section.
 
 ## Brand Positioning

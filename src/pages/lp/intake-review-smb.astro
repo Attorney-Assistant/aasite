@@ -435,7 +435,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         document.head.appendChild(s);
       } else {
         document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
-          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#F9A630;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#F9A630;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#f9a62d;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#f9a62d;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
         });
       }
     });
@@ -450,23 +450,23 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     /* ── Orbs ── */
     .smb-orb { position: absolute; border-radius: 50%; pointer-events: none; will-change: transform; z-index: 1; }
-    .smb-orb--1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(80,167,221,0.35) 0%, rgba(80,167,221,0) 70%); top: -30%; right: -15%; animation: smbFloat1 10s ease-in-out infinite; }
-    .smb-orb--2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(249,166,48,0.3) 0%, rgba(249,166,48,0) 70%); bottom: -20%; left: -8%; animation: smbFloat2 12s ease-in-out infinite; }
+    .smb-orb--1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(81,166,220,0.35) 0%, rgba(81,166,220,0) 70%); top: -30%; right: -15%; animation: smbFloat1 10s ease-in-out infinite; }
+    .smb-orb--2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(249,166,45,0.3) 0%, rgba(249,166,45,0) 70%); bottom: -20%; left: -8%; animation: smbFloat2 12s ease-in-out infinite; }
     @keyframes smbFloat1 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px,40px) scale(1.15); } 100% { transform: translate(0,0) scale(1); } }
     @keyframes smbFloat2 { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-30px) scale(1.2); } 100% { transform: translate(0,0) scale(1); } }
 
     /* ── Pulse badge ── */
-    .smb-pulse-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; background: rgba(249,166,48,0.1); color: #F9A630; border: 1px solid rgba(249,166,48,0.2); backdrop-filter: blur(8px); }
-    .smb-pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: #F9A630; animation: smbPulse 2s ease-in-out infinite; }
+    .smb-pulse-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; background: rgba(249,166,45,0.1); color: #f9a62d; border: 1px solid rgba(249,166,45,0.2); backdrop-filter: blur(8px); }
+    .smb-pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: #f9a62d; animation: smbPulse 2s ease-in-out infinite; }
     @keyframes smbPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
 
     /* ── Hero stats ── */
     .smb-hero-stat { text-align: center; padding: 1rem 0.5rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: rgba(255,255,255,0.03); }
-    .smb-hero-stat-num { display: inline; font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: #F9A630; line-height: 1; }
+    .smb-hero-stat-num { display: inline; font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; color: #f9a62d; line-height: 1; }
     .smb-hero-stat-label { display: block; font-size: 0.6875rem; color: rgba(255,255,255,0.45); margin-top: 0.375rem; line-height: 1.3; }
 
     /* ── Widget glow ── */
-    .smb-widget-glow { background: linear-gradient(135deg, rgba(249,166,48,0.3), rgba(80,167,221,0.3), rgba(249,166,48,0.3)); background-size: 200% 200%; animation: smbGlow 4s ease-in-out infinite; }
+    .smb-widget-glow { background: linear-gradient(135deg, rgba(249,166,45,0.3), rgba(81,166,220,0.3), rgba(249,166,45,0.3)); background-size: 200% 200%; animation: smbGlow 4s ease-in-out infinite; }
     @keyframes smbGlow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
     /* ── Scroll indicator ── */
@@ -480,18 +480,18 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .smb-phone-header { display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
     .smb-phone-header-left { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.7); }
     .smb-phone-status { display: flex; align-items: center; gap: 0.375rem; font-size: 0.6875rem; color: rgba(255,255,255,0.4); }
-    .smb-phone-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #F9A630; animation: smbPulse 2s ease-in-out infinite; }
+    .smb-phone-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #f9a62d; animation: smbPulse 2s ease-in-out infinite; }
     .smb-phone-body { padding: 0.5rem; }
     .smb-phone-event { display: flex; gap: 0.75rem; padding: 0.875rem; border-radius: 10px; margin-bottom: 0.5rem; transition: transform 0.3s, background 0.3s; }
     .smb-phone-event:hover { transform: translateX(4px); }
-    .smb-phone-event--ring { background: rgba(249,166,48,0.06); border: 1px solid rgba(249,166,48,0.12); }
+    .smb-phone-event--ring { background: rgba(249,166,45,0.06); border: 1px solid rgba(249,166,45,0.12); }
     .smb-phone-event--miss { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.12); }
     .smb-phone-event--gone { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.15); }
     .smb-phone-time { font-size: 0.6875rem; color: rgba(255,255,255,0.35); min-width: 48px; padding-top: 2px; }
     .smb-phone-msg-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .smb-phone-msg-title { font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.85); }
     .smb-phone-badge { font-size: 0.625rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .smb-phone-badge--ring { background: rgba(249,166,48,0.15); color: #F9A630; }
+    .smb-phone-badge--ring { background: rgba(249,166,45,0.15); color: #f9a62d; }
     .smb-phone-badge--miss { background: rgba(239,68,68,0.15); color: #ef4444; }
     .smb-phone-badge--gone { background: rgba(239,68,68,0.2); color: #f87171; }
     .smb-phone-msg-desc { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.25rem; line-height: 1.4; }
@@ -499,29 +499,29 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
     /* ── Fix cards ── */
     .smb-fix-card { padding: 1.75rem; background: white; border: 1px solid #e5e7eb; border-radius: 16px; transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
-    .smb-fix-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ef4444, #F9A630); opacity: 0; transition: opacity 0.3s; }
+    .smb-fix-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ef4444, #f9a62d); opacity: 0; transition: opacity 0.3s; }
     .smb-fix-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
     .smb-fix-card:hover::before { opacity: 1; }
     .smb-fix-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; }
     .smb-fix-icon--red { background: rgba(239,68,68,0.08); color: #ef4444; border: 1px solid rgba(239,68,68,0.12); }
-    .smb-fix-icon--amber { background: rgba(249,166,48,0.08); color: #F9A630; border: 1px solid rgba(249,166,48,0.15); }
+    .smb-fix-icon--amber { background: rgba(249,166,45,0.08); color: #f9a62d; border: 1px solid rgba(249,166,45,0.15); }
     .smb-fix-bar { height: 6px; background: #f3f4f6; border-radius: 3px; margin-top: 1rem; overflow: hidden; }
     .smb-fix-bar-fill { height: 100%; border-radius: 3px; }
     .smb-fix-bar-fill--red { background: linear-gradient(90deg, #ef4444, #f87171); }
-    .smb-fix-bar-fill--amber { background: linear-gradient(90deg, #F9A630, #fbbf24); }
+    .smb-fix-bar-fill--amber { background: linear-gradient(90deg, #f9a62d, #fbbf24); }
 
     /* ── Secret shop steps ── */
     .smb-shop-step { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: rgba(255,255,255,0.03); transition: transform 0.3s, background 0.3s; }
     .smb-shop-step:hover { transform: translateX(6px); background: rgba(255,255,255,0.06); }
-    .smb-shop-num { width: 36px; height: 36px; border-radius: 10px; background: rgba(249,166,48,0.1); color: #F9A630; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem; flex-shrink: 0; border: 1px solid rgba(249,166,48,0.2); }
+    .smb-shop-num { width: 36px; height: 36px; border-radius: 10px; background: rgba(249,166,45,0.1); color: #f9a62d; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem; flex-shrink: 0; border: 1px solid rgba(249,166,45,0.2); }
 
     /* ── Story beats timeline ── */
     .smb-story-beat { position: relative; padding-left: 0; padding-bottom: 0.75rem; }
     .smb-story-dot { position: absolute; left: 0; top: 0.45rem; width: 10px; height: 10px; border-radius: 50%; z-index: 1; }
     .smb-story-dot--red { background: #ef4444; box-shadow: 0 0 0 4px rgba(239,68,68,0.15); }
-    .smb-story-dot--amber { background: #F9A630; box-shadow: 0 0 0 4px rgba(249,166,48,0.15); }
-    .smb-story-dot--big { width: 14px; height: 14px; left: -2px; background: #F9A630; box-shadow: 0 0 0 6px rgba(249,166,48,0.2); }
-    .smb-story-line { position: absolute; left: 4px; top: 0.9rem; bottom: -0.75rem; width: 2px; background: linear-gradient(to bottom, rgba(239,68,68,0.3), rgba(249,166,48,0.1)); }
+    .smb-story-dot--amber { background: #f9a62d; box-shadow: 0 0 0 4px rgba(249,166,45,0.15); }
+    .smb-story-dot--big { width: 14px; height: 14px; left: -2px; background: #f9a62d; box-shadow: 0 0 0 6px rgba(249,166,45,0.2); }
+    .smb-story-line { position: absolute; left: 4px; top: 0.9rem; bottom: -0.75rem; width: 2px; background: linear-gradient(to bottom, rgba(239,68,68,0.3), rgba(249,166,45,0.1)); }
 
     /* ── Before / After comparison ── */
     .smb-compare { border-radius: 16px; overflow: hidden; border: 1px solid; transition: transform 0.3s, box-shadow 0.3s; }

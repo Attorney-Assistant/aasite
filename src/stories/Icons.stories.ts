@@ -42,17 +42,17 @@ export const CustomIcons: Story = {
       <h2 style="font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; color: #101828;">Custom Icon Library</h2>
       <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #667085; margin-bottom: 32px;">48 custom SVG icons in two categories. Located at <code style="font-size: 12px; background: #f2f4f7; padding: 2px 6px; border-radius: 4px;">/icons/</code></p>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a3a5c;">Business & Finance</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #15385f;">Business & Finance</h3>
       <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 40px;">
         ${businessIcons.map(name => iconCard(`/icons/buiness & finance_${name}.svg`, name)).join("")}
       </div>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a3a5c;">Law & Legal</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #15385f;">Law & Legal</h3>
       <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 40px;">
         ${legalIcons.map(name => iconCard(`/icons/law and legal_${name}.svg`, name)).join("")}
       </div>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a3a5c;">Icon Sizes</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #15385f;">Icon Sizes</h3>
       <div style="display: flex; align-items: end; gap: 24px; margin-bottom: 40px;">
         ${[20, 24, 28, 36, 48].map(size => `
           <div style="text-align: center;">
@@ -62,14 +62,14 @@ export const CustomIcons: Story = {
         `).join("")}
       </div>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a3a5c;">Featured Icon Containers</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #15385f;">Featured Icon Containers</h3>
       <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: #667085; margin-bottom: 16px;">Icons wrapped in <code style="font-size: 12px; background: #f2f4f7; padding: 2px 6px; border-radius: 4px;">.featured-icon</code> containers with background variants.</p>
       <div style="display: flex; align-items: end; gap: 20px; margin-bottom: 40px;">
         ${[
           { label: "brand", bg: "#e1eff9", border: "#c3dff3", icon: "law and legal_law scale" },
-          { label: "gold", bg: "#fff8ec", border: "rgba(249,166,48,0.2)", icon: "buiness & finance_target" },
+          { label: "gold", bg: "#fff8ec", border: "rgba(249,166,45,0.2)", icon: "buiness & finance_target" },
           { label: "gray", bg: "#f2f4f7", border: "#eaecf0", icon: "buiness & finance_chart" },
-          { label: "navy", bg: "#1a3a5c", border: "#1a3a5c", icon: "buiness & finance_analityc", filter: "brightness(0) invert(1)" },
+          { label: "navy", bg: "#15385f", border: "#15385f", icon: "buiness & finance_analityc", filter: "brightness(0) invert(1)" },
           { label: "success", bg: "#ecfdf3", border: "#dcfae6", icon: "law and legal_certificate" },
         ].map(v => `
           <div style="text-align: center;">
@@ -81,7 +81,7 @@ export const CustomIcons: Story = {
         `).join("")}
       </div>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a3a5c;">Recoloring with CSS Filter</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #15385f;">Recoloring with CSS Filter</h3>
       <div style="display: flex; gap: 20px; margin-bottom: 16px;">
         ${[
           { label: "Default", filter: "none" },
@@ -89,7 +89,7 @@ export const CustomIcons: Story = {
           { label: "Gold", filter: "brightness(0) saturate(100%) invert(58%) sepia(98%) saturate(1000%) hue-rotate(6deg) brightness(103%) contrast(101%)" },
           { label: "Navy", filter: "brightness(0) saturate(100%) invert(20%) sepia(30%) saturate(1200%) hue-rotate(175deg) brightness(95%)" },
         ].map(v => `
-          <div style="text-align: center; padding: 16px; background: ${v.label === 'White' ? '#1a3a5c' : '#f9fafb'}; border-radius: 10px; border: 1px solid #eaecf0;">
+          <div style="text-align: center; padding: 16px; background: ${v.label === 'White' ? '#15385f' : '#f9fafb'}; border-radius: 10px; border: 1px solid #eaecf0;">
             <img src="/icons/law and legal_hammer.svg" alt="" style="width: 28px; height: 28px; filter: ${v.filter};" />
             <p style="font-family: 'Inter', monospace; font-size: 10px; color: ${v.label === 'White' ? '#98a2b3' : '#98a2b3'}; margin: 8px 0 0;">${v.label}</p>
           </div>
@@ -125,8 +125,8 @@ export const Heroicons: Story = {
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
         ${Object.entries(heroicons).map(([name, path]) => `
           <div style="text-align: center; padding: 16px; background: #f9fafb; border-radius: 10px; border: 1px solid #eaecf0;">
-            <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: rgba(80,167,221,0.1); border-radius: 10px; margin-bottom: 8px;">
-              <svg width="24" height="24" fill="none" stroke="#50a7dd" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="${path}"/></svg>
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: rgba(81,166,220,0.1); border-radius: 10px; margin-bottom: 8px;">
+              <svg width="24" height="24" fill="none" stroke="#51a6dc" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="${path}"/></svg>
             </div>
             <p style="font-family: 'Inter', monospace; font-size: 10px; color: #98a2b3; margin: 0;">${name}</p>
           </div>

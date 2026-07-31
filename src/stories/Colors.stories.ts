@@ -29,15 +29,15 @@ export const ColorPalette: Story = {
     container.innerHTML = `
       <h2 style="font-family: 'Sora', sans-serif; font-size: 24px; margin-bottom: 24px;">Brand Color Palette</h2>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin: 32px 0 16px 0; border-bottom: 2px solid #F9A630; padding-bottom: 8px;">Primary Colors</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin: 32px 0 16px 0; border-bottom: 2px solid #f9a62d; padding-bottom: 8px;">Primary Colors</h3>
       ${createColorSwatch("Brand Black", "#0b0000", "brand-black", "Primary text, dark backgrounds, headers")}
       ${createColorSwatch("Brand White", "#ffffff", "brand-white", "Backgrounds, light text on dark surfaces")}
-      ${createColorSwatch("Brand Gold", "#F9A630", "brand-gold", "Primary CTA buttons, accent highlights, star ratings")}
+      ${createColorSwatch("Brand Gold", "#f9a62d", "brand-gold", "Primary CTA buttons, accent highlights, star ratings")}
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin: 32px 0 16px 0; border-bottom: 2px solid #50a7dd; padding-bottom: 8px;">Secondary Colors</h3>
-      ${createColorSwatch("Brand Blue", "#50a7dd", "brand-blue", "Links, secondary buttons, active nav states, floating orb animations")}
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin: 32px 0 16px 0; border-bottom: 2px solid #51a6dc; padding-bottom: 8px;">Secondary Colors</h3>
+      ${createColorSwatch("Brand Blue", "#51a6dc", "brand-blue", "Links, secondary buttons, active nav states, floating orb animations")}
       ${createColorSwatch("Brand Steel", "#588aa5", "brand-steel", "Subtle accents, secondary text on dark backgrounds")}
-      ${createColorSwatch("Brand Navy", "#1a3a5c", "brand-navy", "Hero overlays, dark section backgrounds, progress indicators")}
+      ${createColorSwatch("Brand Navy", "#15385f", "brand-navy", "Hero overlays, dark section backgrounds, progress indicators")}
 
       <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin: 32px 0 16px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px;">Color Combinations</h3>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
@@ -45,7 +45,7 @@ export const ColorPalette: Story = {
           <p style="font-family: 'Sora', sans-serif; margin: 0 0 4px 0;">White on Black</p>
           <p style="font-size: 12px; margin: 0; opacity: 0.7;">Footer, hero sections</p>
         </div>
-        <div style="background: #0b0000; color: #F9A630; padding: 20px; border-radius: 12px; text-align: center;">
+        <div style="background: #0b0000; color: #f9a62d; padding: 20px; border-radius: 12px; text-align: center;">
           <p style="font-family: 'Sora', sans-serif; margin: 0 0 4px 0;">Gold on Black</p>
           <p style="font-size: 12px; margin: 0; color: #9ca3af;">Footer headings</p>
         </div>
@@ -53,7 +53,7 @@ export const ColorPalette: Story = {
           <p style="font-family: 'Sora', sans-serif; margin: 0 0 4px 0;">Black on White</p>
           <p style="font-size: 12px; margin: 0; color: #6b7280;">Body text</p>
         </div>
-        <div style="background: #50a7dd; color: #ffffff; padding: 20px; border-radius: 12px; text-align: center;">
+        <div style="background: #51a6dc; color: #ffffff; padding: 20px; border-radius: 12px; text-align: center;">
           <p style="font-family: 'Sora', sans-serif; margin: 0 0 4px 0;">White on Blue</p>
           <p style="font-size: 12px; margin: 0; opacity: 0.8;">CTA variant</p>
         </div>

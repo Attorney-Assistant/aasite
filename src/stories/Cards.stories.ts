@@ -19,7 +19,7 @@ export const BlogCard: Story = {
         </div>
         <div style="padding: 20px;">
           <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-            <span style="font-size: 12px; font-weight: 500; color: #50a7dd; background: #eff6ff; padding: 4px 8px; border-radius: 4px;">Legal Tips</span>
+            <span style="font-size: 12px; font-weight: 500; color: #51a6dc; background: #eff6ff; padding: 4px 8px; border-radius: 4px;">Legal Tips</span>
           </div>
           <h3 style="font-family: Sora, sans-serif; font-weight: 600; font-size: 18px; margin: 0 0 8px 0; color: #0b0000;">
             5 Ways to Streamline Your Client Intake Process
@@ -47,7 +47,7 @@ export const TestimonialCard: Story = {
       <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #f3f4f6;">
         <div style="display: flex; gap: 4px; margin-bottom: 12px;">
           ${Array.from({ length: 5 }).map((_, i) => `
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="${i < 5 ? '#F9A630' : '#e5e7eb'}">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="${i < 5 ? '#f9a62d' : '#e5e7eb'}">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
             </svg>
           `).join("")}
@@ -74,8 +74,8 @@ export const FeatureCard: Story = {
     container.style.maxWidth = "300px";
     container.innerHTML = `
       <div style="text-align: center; padding: 24px;">
-        <div style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: rgba(80, 167, 221, 0.1); border-radius: 12px; margin-bottom: 16px;">
-          <svg width="28" height="28" fill="none" stroke="#50a7dd" viewBox="0 0 24 24" stroke-width="1.5">
+        <div style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: rgba(81, 166, 220, 0.1); border-radius: 12px; margin-bottom: 16px;">
+          <svg width="28" height="28" fill="none" stroke="#51a6dc" viewBox="0 0 24 24" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
           </svg>
         </div>

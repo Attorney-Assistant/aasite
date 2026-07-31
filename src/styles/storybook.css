@@ -7,10 +7,10 @@
 :root {
   --color-brand-black: #0b0000;
   --color-brand-white: #ffffff;
-  --color-brand-gold: #F9A630;
-  --color-brand-blue: #50a7dd;
+  --color-brand-gold: #f9a62d;
+  --color-brand-blue: #51a6dc;
   --color-brand-steel: #588aa5;
-  --color-brand-navy: #1a3a5c;
+  --color-brand-navy: #15385f;
 }
 
 body {

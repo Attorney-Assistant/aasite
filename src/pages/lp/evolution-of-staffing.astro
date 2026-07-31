@@ -361,7 +361,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         document.head.appendChild(s);
       } else {
         document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
-          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#F9A630;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#F9A630;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#f9a62d;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#f9a62d;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
         });
       }
     });
@@ -407,8 +407,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #F9A630;
-      box-shadow: 0 0 0 4px rgba(249, 166, 48, 0.15);
+      background: #f9a62d;
+      box-shadow: 0 0 0 4px rgba(249, 166, 45, 0.15);
       z-index: 1;
     }
     .evo-story-line {
@@ -417,14 +417,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       top: 0.9rem;
       bottom: -0.5rem;
       width: 2px;
-      background: linear-gradient(to bottom, rgba(249,166,48,0.3), rgba(249,166,48,0.05));
+      background: linear-gradient(to bottom, rgba(249,166,45,0.3), rgba(249,166,45,0.05));
     }
     .evo-story-beat:last-child .evo-story-line { display: none; }
     .evo-story-beat:last-child .evo-story-dot {
       width: 14px;
       height: 14px;
       left: -2px;
-      box-shadow: 0 0 0 6px rgba(249, 166, 48, 0.2);
+      box-shadow: 0 0 0 6px rgba(249, 166, 45, 0.2);
     }
 
     /* Shift cards */
@@ -437,7 +437,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       transition: all 0.3s;
     }
     .evo-shift-card:hover {
-      border-color: rgba(249, 166, 48, 0.25);
+      border-color: rgba(249, 166, 45, 0.25);
       background: rgba(255,255,255,0.07);
       transform: translateY(-4px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.2);
@@ -446,7 +446,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       font-family: var(--font-heading);
       font-size: 2rem;
       font-weight: 700;
-      color: rgba(249, 166, 48, 0.25);
+      color: rgba(249, 166, 45, 0.25);
       line-height: 1;
       margin-bottom: 0.75rem;
     }
@@ -460,7 +460,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       transition: all 0.3s;
     }
     .evo-get-card:hover {
-      border-color: rgba(249, 166, 48, 0.3);
+      border-color: rgba(249, 166, 45, 0.3);
       background: #fff;
       transform: translateY(-4px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.06);
@@ -469,12 +469,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       width: 3rem;
       height: 3rem;
       border-radius: 0.75rem;
-      background: linear-gradient(135deg, rgba(249,166,48,0.15), rgba(249,166,48,0.05));
+      background: linear-gradient(135deg, rgba(249,166,45,0.15), rgba(249,166,45,0.05));
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
-      color: #F9A630;
+      color: #f9a62d;
       transition: transform 0.3s;
     }
     .evo-get-card:hover .evo-get-icon { transform: scale(1.1) rotate(-5deg); }
@@ -488,7 +488,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       width: 4rem;
       height: 4rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(249,166,48,0.12), rgba(249,166,48,0.04));
+      background: linear-gradient(135deg, rgba(249,166,45,0.12), rgba(249,166,45,0.04));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -507,7 +507,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       transition: all 0.3s;
     }
     .evo-diff-card:hover {
-      border-color: rgba(249, 166, 48, 0.25);
+      border-color: rgba(249, 166, 45, 0.25);
       background: rgba(255,255,255,0.07);
       transform: translateY(-4px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.2);
@@ -516,7 +516,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       font-family: var(--font-heading);
       font-size: 2.5rem;
       font-weight: 700;
-      color: rgba(249, 166, 48, 0.2);
+      color: rgba(249, 166, 45, 0.2);
       line-height: 1;
       margin-bottom: 0.75rem;
     }

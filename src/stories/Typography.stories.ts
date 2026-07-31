@@ -18,7 +18,7 @@ export const TypeScale: Story = {
       <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: #9ca3af; margin: 0 0 24px; padding: 10px 14px; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px;">
         <strong>Font stack updated:</strong> Sora (headlines) + Inter (body) replaced DM Serif Display + DM Sans. Heading weight is now <strong>700</strong> (was 400 with the old serif).
       </p>
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin-bottom: 16px; color: #50a7dd;">Headings — Sora (weight 700)</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin-bottom: 16px; color: #51a6dc;">Headings — Sora (weight 700)</h3>
       <div style="margin-bottom: 40px;">
         <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #f3f4f6;">
           <p style="font-family: monospace; font-size: 12px; color: #9ca3af; margin: 0 0 4px 0;">Display 2XL — 4.5rem</p>
@@ -38,7 +38,7 @@ export const TypeScale: Story = {
         </div>
       </div>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin-bottom: 16px; color: #50a7dd;">Body — Inter</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin-bottom: 16px; color: #51a6dc;">Body — Inter</h3>
       <div style="margin-bottom: 40px;">
         <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #f3f4f6;">
           <p style="font-family: monospace; font-size: 12px; color: #9ca3af; margin: 0 0 4px 0;">Body Large — 18px/28px Regular</p>
@@ -58,7 +58,7 @@ export const TypeScale: Story = {
         </div>
       </div>
 
-      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin-bottom: 16px; color: #50a7dd;">Font Weights</h3>
+      <h3 style="font-family: 'Sora', sans-serif; font-size: 18px; margin-bottom: 16px; color: #51a6dc;">Font Weights</h3>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
         ${[
           { weight: 700, name: "Bold", font: "Sora", family: "sans-serif" },

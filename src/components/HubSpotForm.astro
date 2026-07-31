@@ -108,7 +108,7 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
           loadHubSpotForm();
         } else {
           var el = document.getElementById(containerId);
-          if (el) el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#F9A630;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#F9A630;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+          if (el) el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#f9a62d;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#f9a62d;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
         }
       });
     } else {
@@ -179,8 +179,8 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
   }
   .hubspot-form :global(.hs-form .hs-input:focus) {
     background-color: #ffffff;
-    border-color: #50a7dd;
-    box-shadow: 0 0 0 4px rgba(80, 167, 221, 0.12);
+    border-color: #51a6dc;
+    box-shadow: 0 0 0 4px rgba(81, 166, 220, 0.12);
     outline: none;
   }
   .hubspot-form :global(.hs-form select.hs-input) {
@@ -188,7 +188,7 @@ const containerId = `hs-form-${formId.slice(0, 8)}`;
   }
   .hubspot-form :global(.hs-form .hs-button) {
     width: 100%;
-    background-color: #F9A630;
+    background-color: #f9a62d;
     color: #101828;
     font-weight: 600;
     padding: 0.75rem 1.5rem;

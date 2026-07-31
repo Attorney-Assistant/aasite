@@ -133,7 +133,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
                     s.defer = true;
                     document.head.appendChild(s);
                   } else {
-                    document.getElementById('hs-scorecard-form').innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#F9A630;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#F9A630;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+                    document.getElementById('hs-scorecard-form').innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#f9a62d;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#f9a62d;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
                   }
                 });
               </script>
@@ -707,7 +707,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .lp-orb--1 {
       width: 700px;
       height: 700px;
-      background: radial-gradient(circle, rgba(80,167,221,0.35) 0%, rgba(80,167,221,0) 70%);
+      background: radial-gradient(circle, rgba(81,166,220,0.35) 0%, rgba(81,166,220,0) 70%);
       top: -30%;
       right: -15%;
       animation: lpFloat1 10s ease-in-out infinite;
@@ -715,7 +715,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .lp-orb--2 {
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(249,166,48,0.3) 0%, rgba(249,166,48,0) 70%);
+      background: radial-gradient(circle, rgba(249,166,45,0.3) 0%, rgba(249,166,45,0) 70%);
       bottom: -20%;
       left: -8%;
       animation: lpFloat2 12s ease-in-out infinite;
@@ -723,7 +723,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .lp-orb--3 {
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, rgba(249,166,48,0.15) 0%, rgba(249,166,48,0) 70%);
+      background: radial-gradient(circle, rgba(249,166,45,0.15) 0%, rgba(249,166,45,0) 70%);
       top: 40%;
       left: 35%;
       animation: lpFloat3 14s ease-in-out infinite;
@@ -764,16 +764,16 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       border-radius: 9999px;
       font-size: 0.75rem;
       font-weight: 600;
-      background: rgba(249,166,48,0.1);
-      color: #F9A630;
-      border: 1px solid rgba(249,166,48,0.2);
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.2);
       backdrop-filter: blur(8px);
     }
     .lp-pulse-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #F9A630;
+      background: #f9a62d;
       animation: lpPulse 2s ease-in-out infinite;
     }
     @keyframes lpPulse {
@@ -796,7 +796,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
       font-size: 1.75rem;
       font-weight: 700;
-      color: #F9A630;
+      color: #f9a62d;
       line-height: 1;
     }
     .lp-hero-stat-label {
@@ -811,7 +811,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
        WIDGET GLOW
     ============================================= */
     .lp-widget-glow {
-      background: linear-gradient(135deg, rgba(249,166,48,0.3), rgba(80,167,221,0.3), rgba(249,166,48,0.3));
+      background: linear-gradient(135deg, rgba(249,166,45,0.3), rgba(81,166,220,0.3), rgba(249,166,45,0.3));
       background-size: 200% 200%;
       animation: lpGlow 4s ease-in-out infinite;
     }
@@ -892,7 +892,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #ef4444, #F9A630);
+      background: linear-gradient(90deg, #ef4444, #f9a62d);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -913,9 +913,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       border: 1px solid rgba(239,68,68,0.12);
     }
     .lp-struct-icon--amber {
-      background: rgba(249,166,48,0.08);
-      color: #F9A630;
-      border-color: rgba(249,166,48,0.15);
+      background: rgba(249,166,45,0.08);
+      color: #f9a62d;
+      border-color: rgba(249,166,45,0.15);
     }
     .lp-struct-icon--red {
       background: rgba(239,68,68,0.08);
@@ -935,7 +935,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       transition: width 1.5s ease;
     }
     .lp-struct-bar-fill--red { background: linear-gradient(90deg, #ef4444, #f87171); }
-    .lp-struct-bar-fill--amber { background: linear-gradient(90deg, #F9A630, #fbbf24); }
+    .lp-struct-bar-fill--amber { background: linear-gradient(90deg, #f9a62d, #fbbf24); }
 
     /* Staggered reveal */
     .lp-struct-card--1 { transition-delay: 0ms; }
@@ -973,14 +973,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       border: 1px solid rgba(239,68,68,0.15);
     }
     .lp-cost-card-icon--amber {
-      background: rgba(249,166,48,0.1);
-      color: #F9A630;
-      border: 1px solid rgba(249,166,48,0.15);
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.15);
     }
     .lp-cost-card-icon--navy {
-      background: rgba(80,167,221,0.1);
-      color: #50a7dd;
-      border: 1px solid rgba(80,167,221,0.15);
+      background: rgba(81,166,220,0.1);
+      color: #51a6dc;
+      border: 1px solid rgba(81,166,220,0.15);
     }
     .lp-cost-card-line {
       position: absolute;
@@ -990,8 +990,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       height: 3px;
     }
     .lp-cost-card-line--red { background: linear-gradient(90deg, #ef4444, transparent); }
-    .lp-cost-card-line--amber { background: linear-gradient(90deg, #F9A630, transparent); }
-    .lp-cost-card-line--blue { background: linear-gradient(90deg, #50a7dd, transparent); }
+    .lp-cost-card-line--amber { background: linear-gradient(90deg, #f9a62d, transparent); }
+    .lp-cost-card-line--blue { background: linear-gradient(90deg, #51a6dc, transparent); }
 
     /* =============================================
        FIX CARDS v2 (dark bg)
@@ -1006,7 +1006,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .lp-fix-card-v2:hover {
       transform: translateY(-3px);
       background: rgba(255,255,255,0.08);
-      border-color: rgba(249,166,48,0.3);
+      border-color: rgba(249,166,45,0.3);
     }
     .lp-fix-card-v2-icon {
       width: 44px;
@@ -1015,14 +1015,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(249,166,48,0.12);
-      color: #F9A630;
-      border: 1px solid rgba(249,166,48,0.2);
+      background: rgba(249,166,45,0.12);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.2);
     }
     .lp-fix-card-v2-icon--blue {
-      background: rgba(80,167,221,0.12);
-      color: #50a7dd;
-      border-color: rgba(80,167,221,0.2);
+      background: rgba(81,166,220,0.12);
+      color: #51a6dc;
+      border-color: rgba(81,166,220,0.2);
     }
     .lp-fix-card-v2-icon--purple {
       background: rgba(139,92,246,0.12);
@@ -1051,8 +1051,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       box-shadow: 0 12px 40px rgba(0,0,0,0.08);
     }
     .lp-diff-card--highlight {
-      background: linear-gradient(135deg, rgba(249,166,48,0.05), rgba(249,166,48,0.02));
-      border-color: rgba(249,166,48,0.3);
+      background: linear-gradient(135deg, rgba(249,166,45,0.05), rgba(249,166,45,0.02));
+      border-color: rgba(249,166,45,0.3);
     }
     .lp-diff-card-num {
       font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
@@ -1061,7 +1061,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       color: #d0d5dd;
       letter-spacing: 0.05em;
     }
-    .lp-diff-card-num--gold { color: #F9A630; }
+    .lp-diff-card-num--gold { color: #f9a62d; }
     .lp-diff-card-icon {
       width: 52px;
       height: 52px;
@@ -1069,14 +1069,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(26,58,92,0.06);
-      color: #1a3a5c;
-      border: 1px solid rgba(26,58,92,0.1);
+      background: rgba(21,56,95,0.06);
+      color: #15385f;
+      border: 1px solid rgba(21,56,95,0.1);
     }
     .lp-diff-card-icon--gold {
-      background: rgba(249,166,48,0.1);
-      color: #F9A630;
-      border-color: rgba(249,166,48,0.2);
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border-color: rgba(249,166,45,0.2);
     }
 
     /* =============================================
@@ -1219,9 +1219,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       border: 1px solid rgba(16,185,129,0.2);
     }
     .lp-toggle-card-icon--gold {
-      background: rgba(249,166,48,0.12);
-      color: #F9A630;
-      border: 1px solid rgba(249,166,48,0.2);
+      background: rgba(249,166,45,0.12);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.2);
     }
 
     /* =============================================
@@ -1320,8 +1320,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .lp-cal-event:hover { transform: translateX(2px); }
     .lp-cal-event--red { background: rgba(239,68,68,0.06); }
     .lp-cal-event--red:hover { background: rgba(239,68,68,0.1); }
-    .lp-cal-event--amber { background: rgba(249,166,48,0.05); }
-    .lp-cal-event--amber:hover { background: rgba(249,166,48,0.08); }
+    .lp-cal-event--amber { background: rgba(249,166,45,0.05); }
+    .lp-cal-event--amber:hover { background: rgba(249,166,45,0.08); }
 
     .lp-cal-event-bar {
       width: 3px;
@@ -1329,7 +1329,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       border-radius: 3px 0 0 3px;
     }
     .lp-cal-event-bar--red { background: #ef4444; }
-    .lp-cal-event-bar--amber { background: #F9A630; }
+    .lp-cal-event-bar--amber { background: #f9a62d; }
 
     .lp-cal-event-content { padding: 0.625rem 0.875rem; flex: 1; }
 
@@ -1360,9 +1360,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       border: 1px solid rgba(239,68,68,0.2);
     }
     .lp-cal-event-badge--amber {
-      background: rgba(249,166,48,0.12);
-      color: #F9A630;
-      border: 1px solid rgba(249,166,48,0.18);
+      background: rgba(249,166,45,0.12);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.18);
     }
     .lp-cal-event-desc {
       font-size: 0.75rem;

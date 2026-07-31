@@ -11,9 +11,8 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         !page.includes("undefined") &&
-        !page.includes("/styleguide") &&
-        !page.includes("/signaturegenerator") &&
         !page.includes("/storybook") &&
+        !page.includes("/apply/hidden-applications") &&
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-impact-assistant") &&
         !page.includes("/apply/medical-record-retrieval-specialist") &&

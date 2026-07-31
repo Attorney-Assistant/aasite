@@ -19,29 +19,29 @@ export const FloatingOrbs: Story = {
       </style>
       <h2 style="font-family: 'Sora', sans-serif; font-size: 24px; margin-bottom: 8px;">Floating Orbs Animation</h2>
       <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #6b7280; margin-bottom: 24px;">
-        Ambient radial gradient orbs that float behind hero sections. Blue (#50A7DD) and orange (#F9A630).
+        Ambient radial gradient orbs that float behind hero sections. Blue (#51a6dc) and orange (#f9a62d).
       </p>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
         <div style="position: relative; overflow: hidden; border-radius: 12px; background: #091623; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-          <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(80,167,221,0.15) 0%,rgba(80,167,221,0) 65%);top:-30%;right:-10%;animation:ptFloat1 8s ease-in-out infinite;"></div>
-          <div style="position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(249,166,48,0.12) 0%,rgba(249,166,48,0) 65%);bottom:-20%;left:-5%;animation:ptFloat2 10s ease-in-out infinite;"></div>
+          <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(81,166,220,0.15) 0%,rgba(81,166,220,0) 65%);top:-30%;right:-10%;animation:ptFloat1 8s ease-in-out infinite;"></div>
+          <div style="position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(249,166,45,0.12) 0%,rgba(249,166,45,0) 65%);bottom:-20%;left:-5%;animation:ptFloat2 10s ease-in-out infinite;"></div>
           <p style="font-family: 'Sora', sans-serif; color: white; font-size: 18px; position: relative; z-index: 1;">Dark Hero</p>
         </div>
         <div style="position: relative; overflow: hidden; border-radius: 12px; background: white; border: 1px solid #eaecf0; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-          <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(80,167,221,0.18) 0%,rgba(80,167,221,0) 70%);top:-25%;right:-10%;animation:ptFloat1 8s ease-in-out infinite;"></div>
-          <div style="position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(249,166,48,0.15) 0%,rgba(249,166,48,0) 70%);bottom:-20%;left:-8%;animation:ptFloat2 10s ease-in-out infinite;"></div>
+          <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(81,166,220,0.18) 0%,rgba(81,166,220,0) 70%);top:-25%;right:-10%;animation:ptFloat1 8s ease-in-out infinite;"></div>
+          <div style="position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(249,166,45,0.15) 0%,rgba(249,166,45,0) 70%);bottom:-20%;left:-8%;animation:ptFloat2 10s ease-in-out infinite;"></div>
           <p style="font-family: 'Sora', sans-serif; color: #101828; font-size: 18px; position: relative; z-index: 1;">Light Hero</p>
         </div>
       </div>
 
       <div style="padding: 16px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;">
         <p style="font-family: monospace; font-size: 13px; color: #374151; margin: 0; white-space: pre-wrap;">/* Blue orb */
-background: radial-gradient(circle, rgba(80,167,221,0.15) 0%, rgba(80,167,221,0) 65%);
+background: radial-gradient(circle, rgba(81,166,220,0.15) 0%, rgba(81,166,220,0) 65%);
 /* multi-stop keyframe — translate + scale across 5 waypoints */
 
 /* Orange orb */
-background: radial-gradient(circle, rgba(249,166,48,0.12) 0%, rgba(249,166,48,0) 65%);
+background: radial-gradient(circle, rgba(249,166,45,0.12) 0%, rgba(249,166,45,0) 65%);
 
 /* Orb counts by context:
    - Homepage hero: 3 orbs (custom inline styles)
@@ -66,24 +66,24 @@ export const H2AccentText: Story = {
       <h2 style="font-family: 'Sora', sans-serif; font-size: 24px; margin-bottom: 24px;">H2 Accent Text Treatment</h2>
       <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #6b7280; margin-bottom: 32px;">
         Key H2 headings use italic colored accent words for visual interest. Use 1-2 accent words per heading.
-        Gold (#F9A630) and Blue (#50a7dd) are the accent colors.
+        Gold (#f9a62d) and Blue (#51a6dc) are the accent colors.
       </p>
 
       <div style="margin-bottom: 24px; padding: 24px; background: #f9fafb; border-radius: 12px;">
         <h2 style="font-family: 'Sora', sans-serif; font-size: 36px; color: #0b0000; margin: 0;">
-          <em style="font-style: italic; color: #F9A630;">Simple.</em> Fast. <em style="font-style: italic; color: #50a7dd;">Effective.</em>
+          <em style="font-style: italic; color: #f9a62d;">Simple.</em> Fast. <em style="font-style: italic; color: #51a6dc;">Effective.</em>
         </h2>
       </div>
 
       <div style="margin-bottom: 24px; padding: 24px; background: #f9fafb; border-radius: 12px;">
         <h2 style="font-family: 'Sora', sans-serif; font-size: 36px; color: #0b0000; margin: 0;">
-          It's Not a Marketing Problem. It's an <em style="font-style: italic; color: #50a7dd;">Operations</em> Problem.
+          It's Not a Marketing Problem. It's an <em style="font-style: italic; color: #51a6dc;">Operations</em> Problem.
         </h2>
       </div>
 
       <div style="margin-bottom: 24px; padding: 24px; background: #f9fafb; border-radius: 12px;">
         <h2 style="font-family: 'Sora', sans-serif; font-size: 36px; color: #0b0000; margin: 0;">
-          Stop <em style="font-style: italic; color: #F9A630;">Leaking Revenue.</em> Start Scaling.
+          Stop <em style="font-style: italic; color: #f9a62d;">Leaking Revenue.</em> Start Scaling.
         </h2>
       </div>
 
@@ -112,7 +112,7 @@ export const DottedBackground: Story = {
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
           ${[1, 2, 3].map((i) => `
             <div style="background: white; border: 1px solid #f3f4f6; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-              <div style="width: 40px; height: 40px; background: #1a3a5c; border-radius: 8px; margin: 0 auto 12px;"></div>
+              <div style="width: 40px; height: 40px; background: #15385f; border-radius: 8px; margin: 0 auto 12px;"></div>
               <p style="font-family: 'Sora', sans-serif; font-size: 16px; color: #0b0000; margin: 0 0 4px;">Service ${i}</p>
               <p style="font-family: 'Inter', sans-serif; font-size: 13px; color: #6b7280; margin: 0;">Description text</p>
             </div>
@@ -143,11 +143,11 @@ export const GrainOverlay: Story = {
       </p>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
-        <div style="background: #1a3a5c; border-radius: 12px; padding: 32px; text-align: center;">
+        <div style="background: #15385f; border-radius: 12px; padding: 32px; text-align: center;">
           <p style="font-family: 'Inter', sans-serif; color: rgba(255,255,255,0.6); font-size: 12px; margin: 0 0 8px;">Without grain</p>
           <p style="font-family: 'Sora', sans-serif; color: white; font-size: 18px; margin: 0;">Clean surface</p>
         </div>
-        <div style="background: #1a3a5c; border-radius: 12px; padding: 32px; text-align: center; position: relative; overflow: hidden;">
+        <div style="background: #15385f; border-radius: 12px; padding: 32px; text-align: center; position: relative; overflow: hidden;">
           <div style="position:absolute;inset:0;opacity:0.4;background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22256%22 height=%22256%22 filter=%22url(%23n)%22 opacity=%220.15%22/%3E%3C/svg%3E');"></div>
           <p style="font-family: 'Inter', sans-serif; color: rgba(255,255,255,0.6); font-size: 12px; margin: 0 0 8px; position: relative;">With grain</p>
           <p style="font-family: 'Sora', sans-serif; color: white; font-size: 18px; margin: 0; position: relative;">Textured surface</p>
@@ -176,8 +176,8 @@ export const DayTimelinePattern: Story = {
 
       <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
         <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eaecf0;">
-          <span style="font-family: monospace; font-size: 11px; color: #1a3a5c; font-weight: 700; min-width: 72px;">7:30 AM</span>
-          <span style="width: 10px; height: 10px; border-radius: 50%; background: #1a3a5c; border: 2px solid #fff; box-shadow: 0 0 0 1px #e5e7eb; flex-shrink: 0;"></span>
+          <span style="font-family: monospace; font-size: 11px; color: #15385f; font-weight: 700; min-width: 72px;">7:30 AM</span>
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #15385f; border: 2px solid #fff; box-shadow: 0 0 0 1px #e5e7eb; flex-shrink: 0;"></span>
           <span style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #344054;">Morning Arrival</span>
           <span style="font-family: monospace; font-size: 11px; color: #98a2b3; margin-left: auto;">▲ expanded</span>
         </div>
@@ -192,14 +192,14 @@ export const DayTimelinePattern: Story = {
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eaecf0;">
-          <span style="font-family: monospace; font-size: 11px; color: #1a3a5c; font-weight: 700; min-width: 72px;">9:00 AM</span>
+          <span style="font-family: monospace; font-size: 11px; color: #15385f; font-weight: 700; min-width: 72px;">9:00 AM</span>
           <span style="width: 10px; height: 10px; border-radius: 50%; background: #f87171; border: 2px solid #fff; box-shadow: 0 0 0 1px #e5e7eb; flex-shrink: 0;"></span>
           <span style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #344054;">Peak Call Volume</span>
           <span style="font-family: monospace; font-size: 11px; color: #d0d5dd; margin-left: auto;">▼ collapsed</span>
         </div>
         <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0;">
           <span style="font-family: monospace; font-size: 11px; color: #475467; font-weight: 700; min-width: 72px;">5:30 PM</span>
-          <span style="width: 10px; height: 10px; border-radius: 50%; background: #1a3a5c; border: 2px solid #fff; box-shadow: 0 0 0 1px #e5e7eb; flex-shrink: 0;"></span>
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #15385f; border: 2px solid #fff; box-shadow: 0 0 0 1px #e5e7eb; flex-shrink: 0;"></span>
           <span style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #344054;">Office Closing <em style="font-size: 11px; color: #667085; font-style: normal;">(evening styling)</em></span>
         </div>
       </div>
@@ -229,8 +229,8 @@ export const ScrollytellingPattern: Story = {
       </p>
 
       <div id="scrolly-demo" style="background: #132d46; border-radius: 12px; padding: 28px; margin-bottom: 24px; position: relative; overflow: hidden;">
-        <div id="scrolly-orb1" style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(80,167,221,0.08) 0%,transparent 70%);top:0;right:0;pointer-events:none;transition:background 0.6s ease;"></div>
-        <div id="scrolly-orb2" style="position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(ellipse 40% 60% at 10% 80%,rgba(80,167,221,0.12) 0%,transparent 70%);bottom:0;left:0;pointer-events:none;transition:background 0.6s ease;"></div>
+        <div id="scrolly-orb1" style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(ellipse 60% 50% at 80% 20%,rgba(81,166,220,0.08) 0%,transparent 70%);top:0;right:0;pointer-events:none;transition:background 0.6s ease;"></div>
+        <div id="scrolly-orb2" style="position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(ellipse 40% 60% at 10% 80%,rgba(81,166,220,0.12) 0%,transparent 70%);bottom:0;left:0;pointer-events:none;transition:background 0.6s ease;"></div>
         <p id="scrolly-eyebrow" style="font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: #7fb8d4; margin: 0 0 12px; text-transform: uppercase; transition: color 0.4s ease;">● The Reality</p>
         <p id="scrolly-headline" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 22px; color: #fff; margin: 0 0 16px; transition: color 0.4s ease;">Your firm is <span id="scrolly-accent" style="transition: color 0.4s ease; color: #ef4444;">leaking revenue.</span></p>
         <div style="display: flex; justify-content: center; gap: 0; margin-bottom: 20px;">
@@ -261,7 +261,7 @@ export const ScrollytellingPattern: Story = {
         <p style="font-family: monospace; font-size: 13px; color: #374151; margin: 0; white-space: pre-wrap;">Component: &lt;Scrollytelling /&gt; — self-contained, no props
 Location: Services page only (src/pages/services/index.astro)
 Background: #132d46 (lightened navy, not near-black)
-Particles: blue-tinted (rgba(80,167,221,0.15)), shift to gold on "with" state
+Particles: blue-tinted (rgba(81,166,220,0.15)), shift to gold on "with" state
 Toggle: morphs counters (3→0 calls, 47→5 min, 12→38%), story block, overnight counter
 Text colors: brightened (#98a2b3 body, #7fb8d4 eyebrow) vs old near-black version</p>
       </div>
@@ -299,8 +299,8 @@ Text colors: brightened (#98a2b3 body, #7fb8d4 eyebrow) vs old near-black versio
       accent.textContent = "leaking revenue.";
       accent.style.color = "#ef4444";
 
-      orb1.style.background = "radial-gradient(ellipse 60% 50% at 80% 20%,rgba(80,167,221,0.08) 0%,transparent 70%)";
-      orb2.style.background = "radial-gradient(ellipse 40% 60% at 10% 80%,rgba(80,167,221,0.12) 0%,transparent 70%)";
+      orb1.style.background = "radial-gradient(ellipse 60% 50% at 80% 20%,rgba(81,166,220,0.08) 0%,transparent 70%)";
+      orb2.style.background = "radial-gradient(ellipse 40% 60% at 10% 80%,rgba(81,166,220,0.12) 0%,transparent 70%)";
     }
 
     function setWith() {
@@ -321,12 +321,12 @@ Text colors: brightened (#98a2b3 body, #7fb8d4 eyebrow) vs old near-black versio
       stat3.style.color = "#22c55e";
 
       eyebrow.textContent = "● The Transformation";
-      eyebrow.style.color = "#F9A630";
+      eyebrow.style.color = "#f9a62d";
       accent.textContent = "capturing every lead.";
       accent.style.color = "#22c55e";
 
-      orb1.style.background = "radial-gradient(ellipse 60% 50% at 80% 20%,rgba(249,166,48,0.1) 0%,transparent 70%)";
-      orb2.style.background = "radial-gradient(ellipse 40% 60% at 10% 80%,rgba(249,166,48,0.15) 0%,transparent 70%)";
+      orb1.style.background = "radial-gradient(ellipse 60% 50% at 80% 20%,rgba(249,166,45,0.1) 0%,transparent 70%)";
+      orb2.style.background = "radial-gradient(ellipse 40% 60% at 10% 80%,rgba(249,166,45,0.15) 0%,transparent 70%)";
     }
 
     btnWithout.addEventListener("click", setWithout);
@@ -365,14 +365,14 @@ export const NotFoundPage: Story = {
       </p>
 
       <div style="position: relative; overflow: hidden; border-radius: 12px; background: #07111a; min-height: 280px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 24px;">
-        <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(80,167,221,0.22) 0%,rgba(80,167,221,0) 70%);top:-20%;right:-8%;animation:nfFloat1Demo 10s ease-in-out infinite;pointer-events:none;"></div>
-        <div style="position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(249,166,48,0.22) 0%,rgba(249,166,48,0) 70%);bottom:-20%;left:-8%;animation:nfFloat2Demo 12s ease-in-out infinite;pointer-events:none;"></div>
+        <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(81,166,220,0.22) 0%,rgba(81,166,220,0) 70%);top:-20%;right:-8%;animation:nfFloat1Demo 10s ease-in-out infinite;pointer-events:none;"></div>
+        <div style="position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(249,166,45,0.22) 0%,rgba(249,166,45,0) 70%);bottom:-20%;left:-8%;animation:nfFloat2Demo 12s ease-in-out infinite;pointer-events:none;"></div>
         <div style="position: relative; z-index: 1;">
-          <p style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 72px; line-height: 1; letter-spacing: -0.04em; background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(249,166,48,0.3) 50%, rgba(80,167,221,0.2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 12px;">404</p>
+          <p style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 72px; line-height: 1; letter-spacing: -0.04em; background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(249,166,45,0.3) 50%, rgba(81,166,220,0.2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 12px;">404</p>
           <h1 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 24px; color: white; margin: 0 0 8px;">This page doesn't exist.</h1>
           <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #9ca3af; margin: 0 0 20px;">Looks like this lead went cold. Let's get you back on track.</p>
           <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-            <button style="background: #F9A630; color: #0b0000; border: none; padding: 10px 20px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer;">Back to Home →</button>
+            <button style="background: #f9a62d; color: #0b0000; border: none; padding: 10px 20px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer;">Back to Home →</button>
             <button style="background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer;">Contact Us</button>
           </div>
         </div>
@@ -381,8 +381,8 @@ export const NotFoundPage: Story = {
       <div style="margin-top: 16px; padding: 16px; background: white; border: 1px solid #e5e7eb; border-radius: 8px;">
         <p style="font-family: monospace; font-size: 13px; color: #374151; margin: 0; white-space: pre-wrap;">File: src/pages/404.astro
 Background: bg-brand-950 + grain-overlay + radial gradient mesh
-Orb 1 (blue): rgba(80,167,221,0.22) — 10s multi-stop keyframe, top-right
-Orb 2 (orange): rgba(249,166,48,0.22) — 12s multi-stop keyframe, bottom-left
+Orb 1 (blue): rgba(81,166,220,0.22) — 10s multi-stop keyframe, top-right
+Orb 2 (orange): rgba(249,166,45,0.22) — 12s multi-stop keyframe, bottom-left
 404 text: gradient (white/15% → gold/30% → blue/20%), background-clip: text
 CTAs: btn-primary (gold) + btn-ghost-light (transparent/white border)</p>
       </div>
@@ -415,7 +415,7 @@ export const LandingPagePattern: Story = {
           { section: "8. Dark proof cards", desc: "Navy/dark background, testimonial or stat proof cards." },
         ].map(({ section, desc }) => `
           <div style="display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;">
-            <span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 13px; color: #1a3a5c; min-width: 160px;">${section}</span>
+            <span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 13px; color: #15385f; min-width: 160px;">${section}</span>
             <span style="font-family: 'Inter', sans-serif; font-size: 13px; color: #6b7280;">${desc}</span>
           </div>
         `).join("")}

@@ -32,8 +32,8 @@
   }
 
   ::selection {
-    background: rgba(249, 166, 48, 0.25);
-    color: #1a3a5c;
+    background: rgba(249, 166, 45, 0.25);
+    color: #15385f;
   }
 }
 
@@ -59,7 +59,7 @@
 
   .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(249, 166, 48, 0.3);
+    box-shadow: 0 4px 12px rgba(249, 166, 45, 0.3);
   }
 
   .btn-secondary {
@@ -92,7 +92,7 @@
 
   .btn-brand:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(26, 58, 92, 0.3);
+    box-shadow: 0 4px 12px rgba(21, 56, 95, 0.3);
   }
 
   .btn-ghost-light {
@@ -314,7 +314,7 @@
   top: 0;
   z-index: 9999;
   padding: 0.75rem 1.5rem;
-  background: #1a3a5c;
+  background: #15385f;
   color: #fff;
   font-weight: 600;
   font-size: 0.875rem;
@@ -323,7 +323,7 @@
 }
 .skip-to-content:focus {
   left: 0;
-  outline: 3px solid #F9A630;
+  outline: 3px solid #f9a62d;
   outline-offset: 2px;
 }
 
@@ -377,7 +377,7 @@
 
   /* Text gradient */
   .text-gradient-gold {
-    color: #F9A630;
+    color: #f9a62d;
   }
 }
 

@@ -15,19 +15,19 @@ export const SpacingAndContainers: Story = {
     container.innerHTML = `
       <h2 style="font-family: Sora, sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 32px;">Spacing & Layout</h2>
 
-      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Container Widths</h3>
+      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #51a6dc;">Container Widths</h3>
       <div style="margin-bottom: 40px;">
-        <div style="background: rgba(80,167,221,0.1); border: 2px dashed #50a7dd; border-radius: 8px; padding: 16px; max-width: 1280px; margin-bottom: 12px;">
-          <p style="font-family: monospace; font-size: 12px; color: #50a7dd; margin: 0;"><strong>.container-wide</strong> — max-width: 1280px (80rem)</p>
+        <div style="background: rgba(81,166,220,0.1); border: 2px dashed #51a6dc; border-radius: 8px; padding: 16px; max-width: 1280px; margin-bottom: 12px;">
+          <p style="font-family: monospace; font-size: 12px; color: #51a6dc; margin: 0;"><strong>.container-wide</strong> — max-width: 1280px (80rem)</p>
           <p style="font-family: Inter, sans-serif; font-size: 13px; color: #6b7280; margin: 4px 0 0 0;">Feature sections, blog grids, service overviews</p>
         </div>
-        <div style="background: rgba(249,166,48,0.1); border: 2px dashed #F9A630; border-radius: 8px; padding: 16px; max-width: 896px; margin-bottom: 12px;">
-          <p style="font-family: monospace; font-size: 12px; color: #F9A630; margin: 0;"><strong>.container-narrow</strong> — max-width: 896px (56rem)</p>
+        <div style="background: rgba(249,166,45,0.1); border: 2px dashed #f9a62d; border-radius: 8px; padding: 16px; max-width: 896px; margin-bottom: 12px;">
+          <p style="font-family: monospace; font-size: 12px; color: #f9a62d; margin: 0;"><strong>.container-narrow</strong> — max-width: 896px (56rem)</p>
           <p style="font-family: Inter, sans-serif; font-size: 13px; color: #6b7280; margin: 4px 0 0 0;">Blog post body, static page content, long-form text</p>
         </div>
       </div>
 
-      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Section Spacing</h3>
+      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #51a6dc;">Section Spacing</h3>
       <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 40px;">
         <thead>
           <tr style="border-bottom: 2px solid #e5e7eb;">
@@ -46,7 +46,7 @@ export const SpacingAndContainers: Story = {
         </tbody>
       </table>
 
-      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #50a7dd;">Border Radius</h3>
+      <h3 style="font-family: Sora, sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #51a6dc;">Border Radius</h3>
       <div style="display: flex; gap: 24px; margin-bottom: 40px;">
         ${[
           { radius: "4px", name: "sm", use: "Tags, badges" },
@@ -55,7 +55,7 @@ export const SpacingAndContainers: Story = {
           { radius: "9999px", name: "full", use: "Avatars, pills" },
         ].map(({ radius, name, use }) => `
           <div style="text-align: center;">
-            <div style="width: 64px; height: 64px; background: #50a7dd; border-radius: ${radius}; margin: 0 auto 8px;"></div>
+            <div style="width: 64px; height: 64px; background: #51a6dc; border-radius: ${radius}; margin: 0 auto 8px;"></div>
             <p style="font-family: monospace; font-size: 12px; color: #6b7280; margin: 0;">rounded-${name}</p>
             <p style="font-size: 11px; color: #9ca3af; margin: 4px 0 0 0;">${use}</p>
           </div>

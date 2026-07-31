@@ -49,7 +49,7 @@
   font-family: 'Sora', sans-serif;
   text-decoration: none;
   transition: all 0.2s;
-  background-color: #F9A630;
+  background-color: #f9a62d;
   color: #0b0000;
 }
 
@@ -126,7 +126,7 @@
 }
 
 .elementor-icon-list-item a:hover {
-  color: #50a7dd;
+  color: #51a6dc;
 }
 
 /* Elementor icon boxes */
@@ -179,8 +179,8 @@
 
 .elementor-tab-title:hover,
 .elementor-tab-title.elementor-active {
-  color: #50a7dd;
-  border-bottom-color: #50a7dd;
+  color: #51a6dc;
+  border-bottom-color: #51a6dc;
 }
 
 .elementor-tab-content {
@@ -190,7 +190,7 @@
 
 /* Elementor links and CTAs */
 .wp-content a:not(.wp-block-button__link) {
-  color: #50a7dd;
+  color: #51a6dc;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -208,7 +208,7 @@
 }
 
 .wp-block-quote {
-  border-left: 4px solid #F9A630;
+  border-left: 4px solid #f9a62d;
   padding-left: 1.5rem;
   margin: 1.5rem 0;
   font-style: italic;

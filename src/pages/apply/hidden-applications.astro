@@ -1,0 +1,83 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// Auto-discover every application page in this /apply directory so this index
+// stays current as new roles are added — no manual maintenance required.
+// Each page's human-readable name is pulled from its BaseLayout `title=` attribute.
+const rawPages = import.meta.glob("./*.astro", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+});
+
+const SITE = import.meta.env.SITE || "https://attorneyassistant.com";
+
+const applications = Object.entries(rawPages)
+  .map(([path, raw]) => {
+    const slug = path.replace(/^\.\//, "").replace(/\.astro$/, "");
+    const match = String(raw).match(/\btitle=("|')([\s\S]*?)\1/);
+    let title = match ? match[2] : slug;
+    // Strip the "Apply: " prefix and the " — Attorney Assistant" site suffix.
+    title = title
+      .replace(/^Apply:\s*/i, "")
+      .replace(/\s*[—|-]\s*Attorney Assistant\s*$/i, "")
+      .trim();
+    return { slug, title, path: `/apply/${slug}` };
+  })
+  // Exclude non-role pages: partials (_*), the shared thank-you page, and this index.
+  .filter(
+    (a) =>
+      !a.slug.startsWith("_") &&
+      a.slug !== "thank-you" &&
+      a.slug !== "hidden-applications",
+  )
+  .sort((a, b) => a.title.localeCompare(b.title));
+---
+
+<BaseLayout
+  title="Hidden Applications Index — Attorney Assistant"
+  description="Internal index of all application pages."
+  noindex={true}
+  suppressMainPixel={true}
+>
+  <section class="py-12 md:py-16">
+    <div class="container-narrow max-w-4xl">
+      <div class="mb-8">
+        <span class="badge badge-brand mb-3">Internal · Not Indexed</span>
+        <h1 class="text-display-sm font-heading text-gray-900 mb-2">
+          Hidden Applications Index
+        </h1>
+        <p class="text-sm text-gray-500 leading-relaxed">
+          A private, auto-updating list of every application page — including
+          unlisted roles not shown on the public
+          <a href="/careers" class="text-brand-600 hover:underline">Careers</a>
+          page. This page is excluded from search engines and sitemaps. Any new
+          application added under <code class="text-brand-700">/apply/</code> appears here automatically.
+        </p>
+      </div>
+
+      <div class="card overflow-hidden">
+        <div class="flex items-center justify-between px-5 py-3 bg-gray-50 border-b border-gray-200">
+          <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Job Title</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">URL</span>
+        </div>
+        <ul class="divide-y divide-gray-100">
+          {applications.map((app) => (
+            <li class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 px-5 py-4 hover:bg-gray-25 transition-colors">
+              <span class="text-sm font-medium text-gray-900">{app.title}</span>
+              <a
+                href={app.path}
+                class="text-xs text-brand-600 hover:underline break-all font-mono"
+              >
+                {SITE}{app.path}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="px-5 py-3 bg-gray-50 border-t border-gray-200">
+          <p class="text-xs text-gray-500">{applications.length} application{applications.length === 1 ? "" : "s"} total</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

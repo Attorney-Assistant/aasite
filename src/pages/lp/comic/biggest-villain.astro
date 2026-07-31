@@ -306,8 +306,8 @@ const villains = [
     :root {
       --navy: #0e2236;
       --navy-deep: #061320;
-      --navy-mid: #1a3a5c;
-      --gold: #F9A630;
+      --navy-mid: #15385f;
+      --gold: #f9a62d;
       --gold-bright: #FBD46D;
       --red: #E04A2C;
       --red-bright: #FF6B45;
@@ -328,7 +328,7 @@ const villains = [
       content: '';
       position: fixed; inset: 0; pointer-events: none; z-index: 1;
       background:
-        radial-gradient(ellipse at 20% 10%, rgba(249,166,48,0.10), transparent 50%),
+        radial-gradient(ellipse at 20% 10%, rgba(249,166,45,0.10), transparent 50%),
         radial-gradient(ellipse at 80% 70%, rgba(224,74,44,0.08), transparent 50%);
       mix-blend-mode: screen;
     }
@@ -379,7 +379,7 @@ const villains = [
       opacity: 0.55;
       pointer-events: none;
       z-index: -1;
-      filter: drop-shadow(0 8px 28px rgba(249,166,48,0.25));
+      filter: drop-shadow(0 8px 28px rgba(249,166,45,0.25));
     }
     #villain-lp .hero::after {
       content: '';
@@ -472,7 +472,7 @@ const villains = [
     }
     #villain-lp .villain-card:nth-child(odd)  { transform: rotate(-0.6deg); }
     #villain-lp .villain-card:nth-child(even) { transform: rotate( 0.6deg); }
-    #villain-lp .villain-card:hover { transform: rotate(0deg) translateY(-4px); border-color: var(--gold); background: rgba(249,166,48,0.06); }
+    #villain-lp .villain-card:hover { transform: rotate(0deg) translateY(-4px); border-color: var(--gold); background: rgba(249,166,45,0.06); }
     #villain-lp .villain-card::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
@@ -499,7 +499,7 @@ const villains = [
     #villain-lp .villain-card .villain-img {
       width: 100%; max-width: 180px; height: auto; display: block;
       margin: 0 auto 12px;
-      filter: drop-shadow(0 0 20px rgba(249,166,48,0.18));
+      filter: drop-shadow(0 0 20px rgba(249,166,45,0.18));
     }
     #villain-lp .villain-card h3 {
       font-size: 32px; letter-spacing: 0.04em; color: #fff;
@@ -529,17 +529,17 @@ const villains = [
     }
     #villain-lp .clean-label {
       font-family: 'Sora', sans-serif; font-weight: 700;
-      font-size: 22px; color: #1a3a5c;
+      font-size: 22px; color: #15385f;
       display: block; margin-bottom: 20px; line-height: 1.3;
     }
     #villain-lp .clean-select {
       width: 100%; padding: 16px;
       border: 2px solid #e5e7eb; border-radius: 10px;
-      font-family: 'Inter', sans-serif; font-size: 16px; color: #1a3a5c;
+      font-family: 'Inter', sans-serif; font-size: 16px; color: #15385f;
       background: #fff;
       margin-bottom: 20px;
     }
-    #villain-lp .clean-select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(249,166,48,0.15); }
+    #villain-lp .clean-select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(249,166,45,0.15); }
     #villain-lp .clean-next {
       background: var(--navy-mid); color: #fff;
       padding: 14px 28px;
@@ -568,7 +568,7 @@ const villains = [
       cursor: pointer;
       transition: background 0.15s;
     }
-    #villain-lp .clean-checkbox-row:hover { background: rgba(249,166,48,0.06); }
+    #villain-lp .clean-checkbox-row:hover { background: rgba(249,166,45,0.06); }
     #villain-lp .clean-checkbox-row input[type="checkbox"] {
       width: 18px; height: 18px;
       accent-color: var(--gold);
@@ -578,7 +578,7 @@ const villains = [
     #villain-lp .clean-checkbox-row span {
       font-family: 'Inter', sans-serif;
       font-size: 15px;
-      color: #1a3a5c;
+      color: #15385f;
     }
 
     /* ── Transition stage */
@@ -640,7 +640,7 @@ const villains = [
       box-shadow: 4px 4px 0 var(--navy-deep);
     }
     #villain-lp .vq-option:hover {
-      background: rgba(249,166,48,0.10);
+      background: rgba(249,166,45,0.10);
       transform: rotate(-0.5deg) translate(-2px, -2px);
       box-shadow: 6px 6px 0 var(--navy-deep);
     }
@@ -676,7 +676,7 @@ const villains = [
     #villain-lp .secondary-label { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--gold); margin-bottom: 16px; text-align: center; }
     #villain-lp .secondary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     #villain-lp .secondary-card { background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.10); padding: 20px; display: flex; gap: 16px; align-items: center; }
-    #villain-lp .secondary-card img { width: 80px; height: auto; flex-shrink: 0; filter: drop-shadow(0 0 12px rgba(249,166,48,0.2)); }
+    #villain-lp .secondary-card img { width: 80px; height: auto; flex-shrink: 0; filter: drop-shadow(0 0 12px rgba(249,166,45,0.2)); }
     #villain-lp .secondary-card .info h4 { font-family: 'Bangers', sans-serif; font-size: 22px; color: #fff; text-shadow: 1px 1px 0 var(--navy-deep); margin-bottom: 6px; line-height: 1.05; }
     #villain-lp .secondary-card .info p { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--steel); line-height: 1.4; }
 
@@ -697,7 +697,7 @@ const villains = [
       #villain-lp .vegate-row.vegate-row-2 { grid-template-columns: 1fr 1fr; }
     }
     #villain-lp .vegate-field { display: flex; flex-direction: column; gap: 6px; }
-    #villain-lp .vegate-label { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #1a3a5c; }
+    #villain-lp .vegate-label { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #15385f; }
     #villain-lp .vegate-label em { color: var(--red); font-style: normal; }
     #villain-lp .vegate-form input[type="text"],
     #villain-lp .vegate-form input[type="email"],
@@ -708,14 +708,14 @@ const villains = [
       border-radius: 10px;
       font-family: 'Inter', sans-serif;
       font-size: 15px;
-      color: #1a3a5c;
+      color: #15385f;
       background: #fff;
       transition: border-color 0.15s, box-shadow 0.15s;
     }
     #villain-lp .vegate-form input:focus {
       outline: none;
       border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(249,166,48,0.15);
+      box-shadow: 0 0 0 3px rgba(249,166,45,0.15);
     }
     #villain-lp .vegate-form input:invalid:not(:placeholder-shown) { border-color: var(--red); }
     #villain-lp .vegate-submit {

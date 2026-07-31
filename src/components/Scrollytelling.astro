@@ -89,7 +89,7 @@
                     <stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#dc2626"/>
                   </linearGradient>
                   <linearGradient id="g-check-gold" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#F9A630"/><stop offset="100%" stop-color="#e69500"/>
+                    <stop offset="0%" stop-color="#f9a62d"/><stop offset="100%" stop-color="#e69500"/>
                   </linearGradient>
                 </defs>
                 <path class="icon-without" fill="url(#g-phone-red)" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
@@ -166,7 +166,7 @@
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="g-chart" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#50a7dd"/><stop offset="100%" stop-color="#1a3a5c"/>
+                    <stop offset="0%" stop-color="#51a6dc"/><stop offset="100%" stop-color="#15385f"/>
                   </linearGradient>
                 </defs>
                 <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#g-chart)" opacity="0.9"/>
@@ -323,8 +323,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(80,167,221,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(80,167,221,0.12) 0%, transparent 70%);
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(81,166,220,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(81,166,220,0.12) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
     transition: opacity 0.6s ease;
@@ -341,8 +341,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(249,166,48,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(26,58,92,0.5) 0%, transparent 70%);
+      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(249,166,45,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(21,56,95,0.5) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
     opacity: 0;
@@ -384,21 +384,21 @@
   .particle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(80,167,221,0.15);
+    background: rgba(81,166,220,0.15);
     will-change: transform, opacity;
   }
 
   .st-strip.is-transformed .particle {
-    background: rgba(249,166,48,0.12);
+    background: rgba(249,166,45,0.12);
     transition: background 0.6s ease;
   }
 
   .p1 { width: 4px; height: 4px; left: 10%; top: 20%; animation: float-p 11s ease-in-out infinite 0s; }
-  .p2 { width: 3px; height: 3px; left: 25%; top: 65%; animation: float-p 14s ease-in-out infinite 2s; background: rgba(80,167,221,0.1); }
+  .p2 { width: 3px; height: 3px; left: 25%; top: 65%; animation: float-p 14s ease-in-out infinite 2s; background: rgba(81,166,220,0.1); }
   .p3 { width: 5px; height: 5px; left: 50%; top: 35%; animation: float-p 9s ease-in-out infinite 1s; }
-  .p4 { width: 3px; height: 3px; left: 72%; top: 75%; animation: float-p 13s ease-in-out infinite 3s; background: rgba(249,166,48,0.15); }
+  .p4 { width: 3px; height: 3px; left: 72%; top: 75%; animation: float-p 13s ease-in-out infinite 3s; background: rgba(249,166,45,0.15); }
   .p5 { width: 4px; height: 4px; left: 85%; top: 25%; animation: float-p 10s ease-in-out infinite 0.5s; }
-  .p6 { width: 3px; height: 3px; left: 38%; top: 82%; animation: float-p 12s ease-in-out infinite 4s; background: rgba(80,167,221,0.08); }
+  .p6 { width: 3px; height: 3px; left: 38%; top: 82%; animation: float-p 12s ease-in-out infinite 4s; background: rgba(81,166,220,0.08); }
 
   @keyframes float-p {
     0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.4; }
@@ -428,7 +428,7 @@
     transition: color 0.4s ease;
   }
 
-  .st-strip.is-transformed .st-eyebrow { color: #F9A630; }
+  .st-strip.is-transformed .st-eyebrow { color: #f9a62d; }
 
   .st-eyebrow-dot {
     display: inline-block;
@@ -442,8 +442,8 @@
   }
 
   .st-strip.is-transformed .st-eyebrow-dot {
-    background: #F9A630;
-    box-shadow: 0 0 8px rgba(249,166,48,0.6);
+    background: #f9a62d;
+    box-shadow: 0 0 8px rgba(249,166,45,0.6);
     animation: pulse-gold 2s ease-in-out infinite;
   }
 
@@ -453,8 +453,8 @@
   }
 
   @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 8px rgba(249,166,48,0.6); }
-    50% { box-shadow: 0 0 16px rgba(249,166,48,0.9); }
+    0%, 100% { box-shadow: 0 0 8px rgba(249,166,45,0.6); }
+    50% { box-shadow: 0 0 16px rgba(249,166,45,0.9); }
   }
 
   .st-header-icon {
@@ -479,9 +479,9 @@
 
   .st-icon-sun {
     display: none;
-    background: rgba(249,166,48,0.12);
-    border: 1px solid rgba(249,166,48,0.25);
-    color: #F9A630;
+    background: rgba(249,166,45,0.12);
+    border: 1px solid rgba(249,166,45,0.25);
+    color: #f9a62d;
     animation: pulse-gold-icon 2.5s ease-in-out infinite;
   }
 
@@ -496,8 +496,8 @@
   }
 
   @keyframes pulse-gold-icon {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(249,166,48,0.2); }
-    50% { box-shadow: 0 0 0 8px rgba(249,166,48,0); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(249,166,45,0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(249,166,45,0); }
   }
 
   .st-title {
@@ -516,8 +516,8 @@
   }
 
   .st-strip.is-transformed .st-title-accent {
-    color: #F9A630;
-    text-shadow: 0 0 40px rgba(249,166,48,0.25);
+    color: #f9a62d;
+    text-shadow: 0 0 40px rgba(249,166,45,0.25);
   }
 
   .st-subtitle {
@@ -589,14 +589,14 @@
   }
 
   .st-toggle-btn--with.is-active-tab {
-    background: rgba(249,166,48,0.08);
-    border-color: rgba(249,166,48,0.3);
-    color: #F9A630;
+    background: rgba(249,166,45,0.08);
+    border-color: rgba(249,166,45,0.3);
+    color: #f9a62d;
   }
 
   .st-toggle-btn--with.is-active-tab .st-toggle-dot--gold {
-    background: #F9A630;
-    box-shadow: 0 0 6px rgba(249,166,48,0.5);
+    background: #f9a62d;
+    box-shadow: 0 0 6px rgba(249,166,45,0.5);
   }
 
   .st-toggle-btn:hover:not(.is-active-tab) {
@@ -677,8 +677,8 @@
   }
 
   .st-strip.is-transformed .stat-card {
-    background: rgba(249,166,48,0.08);
-    border-color: rgba(249,166,48,0.25);
+    background: rgba(249,166,45,0.08);
+    border-color: rgba(249,166,45,0.25);
   }
 
   .stat-card:hover {
@@ -699,8 +699,8 @@
     left: 50%;
     transform: translateX(-50%) translateY(6px);
     width: 240px;
-    background: #1a3a5c;
-    border: 1px solid rgba(80,167,221,0.25);
+    background: #15385f;
+    border: 1px solid rgba(81,166,220,0.25);
     border-radius: 10px;
     padding: 0.75rem 1rem;
     font-size: 0.75rem;
@@ -721,7 +721,7 @@
     left: 50%;
     transform: translateX(-50%);
     border: 6px solid transparent;
-    border-top-color: #1a3a5c;
+    border-top-color: #15385f;
   }
 
   .stat-icon {
@@ -739,11 +739,11 @@
 
   .stat-icon--red { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.18); }
   .stat-icon--orange { background: rgba(251,146,60,0.12); border: 1px solid rgba(251,146,60,0.18); }
-  .stat-icon--blue { background: rgba(80,167,221,0.1); border: 1px solid rgba(80,167,221,0.15); }
+  .stat-icon--blue { background: rgba(81,166,220,0.1); border: 1px solid rgba(81,166,220,0.15); }
 
   .st-strip.is-transformed .stat-icon {
-    background: rgba(249,166,48,0.1);
-    border-color: rgba(249,166,48,0.2);
+    background: rgba(249,166,45,0.1);
+    border-color: rgba(249,166,45,0.2);
   }
 
   /* Icon without/with transition */
@@ -877,7 +877,7 @@
 
   .stat-bar--danger { background: linear-gradient(90deg, #ef4444, #dc2626); }
   .stat-bar--warn { background: linear-gradient(90deg, #fb923c, #ea580c); }
-  .stat-bar--gold { background: linear-gradient(90deg, #F9A630, #e69500); }
+  .stat-bar--gold { background: linear-gradient(90deg, #f9a62d, #e69500); }
 
   /* =============================================
      DIVIDER
@@ -908,8 +908,8 @@
     transition: color 0.4s ease;
   }
 
-  .st-strip.is-transformed .st-divider-label { color: #F9A630; }
-  .st-strip.is-transformed .st-divider-line { background: rgba(249,166,48,0.15); }
+  .st-strip.is-transformed .st-divider-label { color: #f9a62d; }
+  .st-strip.is-transformed .st-divider-line { background: rgba(249,166,45,0.15); }
 
   /* =============================================
      STORY BLOCK (simple before/after)
@@ -935,7 +935,7 @@
     color: #667085;
     margin-bottom: 0.75rem;
   }
-  .st-story-time--gold { color: #F9A630; }
+  .st-story-time--gold { color: #f9a62d; }
 
   .st-story-headline {
     font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
@@ -967,9 +967,9 @@
     border: 1px solid rgba(239,68,68,0.2);
   }
   .st-story-result--gold {
-    color: #F9A630;
-    background: rgba(249,166,48,0.1);
-    border: 1px solid rgba(249,166,48,0.2);
+    color: #f9a62d;
+    background: rgba(249,166,45,0.1);
+    border: 1px solid rgba(249,166,45,0.2);
   }
 
   /* hide story blocks via toggle */
@@ -998,8 +998,8 @@
   }
 
   .st-strip.is-transformed .overnight {
-    background: rgba(249,166,48,0.06);
-    border-color: rgba(249,166,48,0.2);
+    background: rgba(249,166,45,0.06);
+    border-color: rgba(249,166,45,0.2);
   }
 
   .overnight-label {
@@ -1011,7 +1011,7 @@
     margin-bottom: 0.5rem;
   }
 
-  .overnight-label--gold { color: #F9A630 !important; }
+  .overnight-label--gold { color: #f9a62d !important; }
 
   .overnight-num {
     font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif; font-weight: 700;
@@ -1022,7 +1022,7 @@
     transition: color 0.4s ease 0.2s;
   }
 
-  .st-strip.is-transformed .overnight-num { color: #F9A630; }
+  .st-strip.is-transformed .overnight-num { color: #f9a62d; }
 
   .overnight-sub {
     font-size: 0.8125rem;
