@@ -16,7 +16,7 @@ export interface Props {
 const {
   title,
   description = "Attorney Assistant solves the operational problems that prevent law firms from growing — intake failure, admin chaos, and inconsistent follow-up. We handle the work firms need but hate to manage.",
-  image = "/brand/logos/square_fullcolor_logo.png",
+  image = "/brand/logos/square_fullcolor_logo.png?v=2",
   canonicalUrl = Astro.url.href,
   type = "website",
   publishedDate,
@@ -30,7 +30,7 @@ const {
 const siteName = "Attorney Assistant";
 const siteUrl = "https://attorneyassistant.com";
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
-const resolvedImage = image || "/brand/logos/square_fullcolor_logo.png";
+const resolvedImage = image || "/brand/logos/square_fullcolor_logo.png?v=2";
 const absoluteImage = resolvedImage.startsWith("http") ? resolvedImage : new URL(resolvedImage, Astro.site).href;
 
 // Truncate for OG/Twitter length limits
