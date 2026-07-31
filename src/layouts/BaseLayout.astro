@@ -30,7 +30,7 @@ const { title, description, image, type, publishedDate, author, noindex, schema,
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content="index, follow" />
+    {!noindex && <meta name="robots" content="index, follow" />}
     <meta name="theme-color" content="#15385f" />
     <link rel="icon" type="image/svg+xml" href="/brand/logos/color_icon.svg" />
     <link rel="icon" type="image/png" href="/brand/logos/color_icon.png" />
@@ -55,7 +55,7 @@ const { title, description, image, type, publishedDate, author, noindex, schema,
     />
 
     <!-- Site-wide Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": ["Organization", "LocalBusiness"],
       "@id": "https://attorneyassistant.com/#organization",
@@ -118,7 +118,7 @@ const { title, description, image, type, publishedDate, author, noindex, schema,
         "availableLanguage": ["English", "Spanish"]
       }
     })} />
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": "https://attorneyassistant.com/#website",
