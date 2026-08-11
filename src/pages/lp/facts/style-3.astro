@@ -1,0 +1,317 @@
+---
+// FACTS campaign — Ad Set "Style 3" (The Horror Franchise)
+// Creative: distressed movie posters — "THE VOICEMAIL: It sat there all weekend."
+// and "IT RINGS AT NIGHT 2: And no one is there to answer."
+// Message match: cinematic dread, franchise-sequel parody, red-on-black tension.
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import YouTubeEmbed from "@components/YouTubeEmbed.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/facts?embed=true";
+---
+
+<SimpleCampaignLayout
+  title="The Voicemail. It Sat There All Weekend."
+  description="It rings at night and no one is there to answer. Attorney Assistant covers after-hours intake, follow-up, and admin for law firms — so the calls stop dying in the dark."
+  ogTitle="THE VOICEMAIL — it sat there all weekend."
+  ogDescription="It rings at night. And no one is there to answer."
+>
+
+  <!-- ═══════════════════════════ HERO / TITLE CARD ═══════════════════════════ -->
+  <section class="relative overflow-hidden hor-hero">
+    <div class="absolute inset-0 hor-vignette"></div>
+    <div class="absolute inset-0 hor-scan" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-narrow relative z-10 py-20 md:py-28 text-center">
+      <p class="hor-billing reveal">A true story, playing at firms everywhere</p>
+
+      <h1 class="hor-title reveal" style="transition-delay: 80ms">
+        <span class="hor-title-sm">The</span>
+        <span class="hor-title-lg">Voicemail</span>
+      </h1>
+
+      <p class="hor-tag reveal" style="transition-delay: 160ms">It sat there all weekend.</p>
+
+      <div class="hor-rule reveal" style="transition-delay: 220ms"></div>
+
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay: 260ms">
+        Friday, 6:52 PM. A new injury case calls your office. Nobody's there. The message light comes on and stays on until Monday &mdash; by which point the caller has already retained the firm that answered.
+      </p>
+      <p class="text-base text-brand-gold font-heading mt-5 mb-9 reveal" style="transition-delay: 300ms">
+        You don't have a lead problem. You have an operations problem.
+      </p>
+
+      <a href="#book-now" class="btn-primary btn-lg group inline-flex reveal" style="transition-delay: 340ms">
+        Book a Free Intake Audit
+        <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-7 text-sm text-white/40 reveal" style="transition-delay: 380ms">
+        <span>Trusted by 200+ law firms</span>
+        <span class="hidden sm:inline text-white/20">&bull;</span>
+        <span>Free &mdash; no commitment</span>
+        <span class="hidden sm:inline text-white/20">&bull;</span>
+        <span>15 minutes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE SEQUEL ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-black py-20 md:py-28">
+    <div class="absolute inset-0 opacity-60" style="background: radial-gradient(80% 60% at 50% 0%, #12283d 0%, #000 75%);"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-16 reveal">
+        <p class="hor-billing">Now showing &mdash; the sequel nobody wanted</p>
+        <h2 class="hor-title2 mt-5">It Rings At Night <span class="hor-two">2</span></h2>
+        <p class="hor-tag hor-tag--blue mt-3">And no one is there to answer.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="hor-scene reveal">
+          <p class="hor-scene-time">6:52 PM &mdash; Friday</p>
+          <h3 class="hor-scene-title">The call comes in</h3>
+          <p class="hor-scene-body">A rear-end collision, an ER visit, an adjuster already calling them. They dial the first firm they found. Yours.</p>
+        </div>
+        <div class="hor-scene reveal" style="transition-delay: 100ms">
+          <p class="hor-scene-time">6:52 PM &mdash; four rings</p>
+          <h3 class="hor-scene-title">Nobody answers</h3>
+          <p class="hor-scene-body">The line rolls to voicemail. Maybe they leave a message. Most don't &mdash; they just hang up and dial the next result.</p>
+        </div>
+        <div class="hor-scene hor-scene--red reveal" style="transition-delay: 200ms">
+          <p class="hor-scene-time">Monday &mdash; 9:14 AM</p>
+          <h3 class="hor-scene-title">Your team finds it</h3>
+          <p class="hor-scene-body">They call back. It's answered by someone who already has a lawyer. You paid for the click, and never learn what it cost you.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+          End the Franchise
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE FACTS ═══════════════════════════ -->
+  <section class="bg-white py-20 md:py-28">
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">Based on true events</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          The scary part is <span class="hor-ital">the data.</span>
+        </h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Four numbers explain almost every stalled law firm we walk into.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="hor-fact reveal">
+          <p class="hor-fact-num hor-fact-num--red">20%</p>
+          <p class="hor-fact-label">of leads lost before anyone picks up</p>
+          <p class="hor-fact-desc">Missed calls, slow callbacks, broken handoffs. The case dies before intake starts.</p>
+        </div>
+        <div class="hor-fact reveal" style="transition-delay: 90ms">
+          <p class="hor-fact-num hor-fact-num--amber">78%</p>
+          <p class="hor-fact-label">hire the first firm that responds</p>
+          <p class="hor-fact-desc">Speed is the whole competition. Second place looks exactly like no marketing at all.</p>
+        </div>
+        <div class="hor-fact reveal" style="transition-delay: 180ms">
+          <p class="hor-fact-num hor-fact-num--blue">15+</p>
+          <p class="hor-fact-label">hours a week lost to non-billable admin</p>
+          <p class="hor-fact-desc">Filing, scheduling, chasing records &mdash; attorney time spent on clerical work.</p>
+        </div>
+        <div class="hor-fact reveal" style="transition-delay: 270ms">
+          <p class="hor-fact-num hor-fact-num--navy">$1&ndash;2M</p>
+          <p class="hor-fact-label">the plateau firms hit without systems</p>
+          <p class="hor-fact-desc">More headcount on broken operations doesn't scale the firm. It scales the chaos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SOMEONE ANSWERS ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28">
+    <div class="absolute top-12 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[110px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <p class="hor-billing hor-billing--gold">Operations, solved</p>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-5 mb-4">
+          Turn the lights on. <span class="text-gradient-gold">Someone answers.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          We embed trained legal support inside your firm and take ownership of the work that keeps slipping. Co-managed, not outsourced &mdash; your process, your CRM, your name on the call.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="hor-do reveal">
+          <p class="hor-do-title">Live intake &mdash; nights and weekends</p>
+          <p class="hor-do-desc">Real people answering, qualifying, and documenting while the caller is still deciding who to hire.</p>
+        </div>
+        <div class="hor-do reveal" style="transition-delay: 70ms">
+          <p class="hor-do-title">Follow-up until they answer</p>
+          <p class="hor-do-desc">Call, text, email, voicemail &mdash; a sequence that runs whether or not anyone remembers.</p>
+        </div>
+        <div class="hor-do reveal" style="transition-delay: 140ms">
+          <p class="hor-do-title">Retainers and scheduling</p>
+          <p class="hor-do-desc">We don't just book consults. We get agreements out and signed so you wake up to clients.</p>
+        </div>
+        <div class="hor-do reveal" style="transition-delay: 210ms">
+          <p class="hor-do-title">Medical records retrieval</p>
+          <p class="hor-do-desc">Requests, follow-ups, and tracking handled so files stop stalling at the provider.</p>
+        </div>
+        <div class="hor-do reveal" style="transition-delay: 280ms">
+          <p class="hor-do-title">Case status calling</p>
+          <p class="hor-do-desc">Clients hear from your firm before they think to complain that they haven't.</p>
+        </div>
+        <div class="hor-do reveal" style="transition-delay: 350ms">
+          <p class="hor-do-title">Admin and file organization</p>
+          <p class="hor-do-desc">Documents, data entry, and the clerical backlog that quietly eats your attorneys' week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROOF ═══════════════════════════ -->
+  <section class="bg-gray-25 py-20 md:py-24">
+    <div class="container-wide">
+      <div class="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-16">
+        <div class="hor-proof reveal">
+          <p class="hor-proof-num">200+</p>
+          <p class="hor-proof-label">law firms supported</p>
+        </div>
+        <div class="hor-proof reveal" style="transition-delay: 90ms">
+          <p class="hor-proof-num">60%</p>
+          <p class="hor-proof-label">cost savings vs. in-house</p>
+        </div>
+        <div class="hor-proof reveal" style="transition-delay: 180ms">
+          <p class="hor-proof-num">1000s</p>
+          <p class="hor-proof-label">of attorney hours returned</p>
+        </div>
+      </div>
+
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand mb-4">From our clients</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Firms that turned the lights on</h2>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="reveal"><YouTubeEmbed videoId="o3Fac0xRxCE" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><YouTubeEmbed videoId="EZbEo5HYDqg" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><YouTubeEmbed videoId="xQCIwMPlLMc" title="Attorney Assistant client testimonial" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ BOOKING ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-16 md:py-24" id="book-now">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <a href="/"><img src="/brand/logos/color_icon.svg" alt="Attorney Assistant" class="h-8 w-auto mx-auto mb-5" /></a>
+          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+            Book a Free Intake Audit
+          </h2>
+          <p class="text-lg text-gray-500 max-w-xl mx-auto">
+            Fifteen minutes. We'll map exactly where calls, texts, and follow-ups are dying in your firm &mdash; and what it would take to close the gap. No pitch deck.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Straight to an operations conversation
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    .hor-hero { background: #000; }
+    .hor-vignette { background: radial-gradient(70% 55% at 50% 22%, rgba(239,68,68,0.16) 0%, rgba(21,56,95,0.35) 35%, #000 78%); }
+    .hor-scan { background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 3px); opacity: 0.5; }
+
+    .hor-billing { font-family: var(--font-body); font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.32em; color: rgba(255,255,255,0.42); }
+    .hor-billing--gold { color: rgba(249,166,45,0.8); letter-spacing: 0.28em; }
+
+    .hor-title { display: block; margin: 1.5rem 0 0.5rem; }
+    .hor-title-sm { display: block; font-family: var(--font-heading); font-size: clamp(1rem, 2.4vw, 1.375rem); font-weight: 400; text-transform: uppercase; letter-spacing: 0.42em; color: rgba(255,255,255,0.65); margin-bottom: 0.35rem; }
+    .hor-title-lg { display: block; font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; font-size: clamp(2.75rem, 11vw, 7rem); line-height: 0.92; letter-spacing: -0.02em; color: #e7e5e4; text-shadow: 0 0 60px rgba(239,68,68,0.28), 0 4px 24px rgba(0,0,0,0.8); }
+    .hor-title2 { font-family: var(--font-heading); font-weight: 800; text-transform: uppercase; font-size: clamp(2rem, 7.5vw, 4.5rem); line-height: 0.95; letter-spacing: -0.02em; color: #cbd5e1; text-shadow: 0 0 50px rgba(81,166,220,0.25), 0 4px 20px rgba(0,0,0,0.8); }
+    .hor-two { color: #ef4444; }
+    .hor-tag { font-family: var(--font-body); font-size: clamp(0.875rem, 2.2vw, 1.125rem); letter-spacing: 0.14em; color: #f87171; }
+    .hor-tag--blue { color: #93c5fd; }
+    .hor-rule { width: 48px; height: 2px; background: #f9a62d; margin: 1.75rem auto; }
+
+    .hor-scene { padding: 1.75rem 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+    .hor-scene--red { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.06); }
+    .hor-scene-time { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); margin-bottom: 0.75rem; }
+    .hor-scene-title { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 0.625rem; }
+    .hor-scene-body { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    .hor-ital { font-style: italic; color: #d98a00; }
+    .hor-fact { padding: 1.75rem 1.5rem; border-radius: 16px; border: 1px solid #e5e7eb; background: #fff; box-shadow: 0 1px 3px rgba(16,24,40,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hor-fact:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(16,24,40,0.08); }
+    .hor-fact-num { font-family: var(--font-heading); font-size: 2.75rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; margin-bottom: 0.625rem; }
+    .hor-fact-num--red { color: #ef4444; }
+    .hor-fact-num--amber { color: #d98a00; }
+    .hor-fact-num--blue { color: #51a6dc; }
+    .hor-fact-num--navy { color: #15385f; }
+    .hor-fact-label { font-family: var(--font-heading); font-size: 0.9375rem; font-weight: 700; color: #111827; line-height: 1.3; margin-bottom: 0.625rem; }
+    .hor-fact-desc { font-size: 0.8125rem; color: #6b7280; line-height: 1.6; }
+
+    .hor-do { padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); border-left: 3px solid #f9a62d; }
+    .hor-do-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .hor-do-desc { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    .hor-proof { text-align: center; padding: 1.75rem 1rem; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; }
+    .hor-proof-num { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: #15385f; line-height: 1; letter-spacing: -0.03em; }
+    .hor-proof-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-top: 0.5rem; }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'facts-style-3-horror', campaign: 'facts' });
+  </script>
+
+</SimpleCampaignLayout>

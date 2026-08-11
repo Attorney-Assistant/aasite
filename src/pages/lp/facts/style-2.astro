@@ -1,0 +1,363 @@
+---
+// FACTS campaign — Ad Set "Style 2" (The Breakup)
+// Creative: handwritten breakup letter from "Your Best Lead" ("It's not me. It's you.
+// I called twice. No answer.") + a Facebook relationship status: "Your Lead is in a
+// relationship with The Firm That Called Back."
+// Message match: warm, witty, the lead personified as a jilted partner.
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import YouTubeEmbed from "@components/YouTubeEmbed.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/facts?embed=true";
+---
+
+<SimpleCampaignLayout
+  title="Your Best Lead Is Breaking Up With You"
+  description="It's not them. It's you. They called twice, nobody answered, and they signed with the firm that called back. Attorney Assistant answers, qualifies, and follows up on every lead."
+  ogTitle="Your best lead is breaking up with you."
+  ogDescription="It's not me. It's you. I called twice. No answer."
+>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="relative overflow-hidden brk-hero">
+    <div class="absolute inset-0 brk-hero-wash"></div>
+    <div class="absolute top-[-15%] left-[-5%] w-[520px] h-[520px] bg-brand-gold/10 rounded-full blur-[130px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-16 md:py-20 lg:py-24">
+      <div class="grid lg:grid-cols-[1fr_1fr] gap-12 items-center">
+
+        <div class="text-center lg:text-left reveal">
+          <span class="brk-eyebrow">It's not them. It's you.</span>
+          <h1 class="text-display-md md:text-display-lg font-heading text-white leading-[1.05] mt-6 mb-5">
+            Your best lead is<br />
+            <span class="text-gradient-gold">breaking up with you.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-brand-100/80 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-4">
+            They called twice. Nobody answered. So they found a firm that picks up &mdash; and they're not coming back to explain why.
+          </p>
+          <p class="text-base text-brand-gold font-heading mb-8">
+            You don't have a lead problem. You have an operations problem.
+          </p>
+
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+            Book a Free Intake Audit
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 mt-7 text-sm text-white/45">
+            <span>Trusted by 200+ law firms</span>
+            <span class="hidden sm:inline text-white/20">&bull;</span>
+            <span>Free &mdash; no commitment</span>
+            <span class="hidden sm:inline text-white/20">&bull;</span>
+            <span>15 minutes</span>
+          </div>
+        </div>
+
+        <!-- The letter -->
+        <div class="reveal" style="transition-delay: 150ms">
+          <div class="brk-letter">
+            <p class="brk-hand brk-hand--salut">Dear Counselor,</p>
+            <p class="brk-hand">It's not me. It's you.</p>
+            <p class="brk-hand">I called twice. No answer.</p>
+            <p class="brk-hand">I've met another firm.</p>
+            <p class="brk-hand">They picked up.</p>
+            <p class="brk-hand brk-hand--close">Goodbye,</p>
+            <p class="brk-hand brk-hand--sign">Your Best Lead</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ IT'S OFFICIAL ═══════════════════════════ -->
+  <section class="bg-gray-25 py-20 md:py-28">
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">It's official</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          They already changed their <span class="brk-ital">status.</span>
+        </h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          The average injury lead contacts three firms. The one that answers first usually ends the search.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-5xl mx-auto">
+        <div class="reveal">
+          <div class="brk-post">
+            <div class="brk-post-head">
+              <span class="brk-post-avatar"></span>
+              <div>
+                <p class="brk-post-name">Your Lead</p>
+                <p class="brk-post-meta">8 hrs &middot; Public</p>
+              </div>
+            </div>
+            <div class="brk-post-body">
+              <svg class="brk-post-heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.7-9.3-9A5.6 5.6 0 0112 5.4 5.6 5.6 0 0121.3 12c-1.8 4.3-9.3 9-9.3 9z"/></svg>
+              <p class="brk-post-status">Is In A Relationship</p>
+              <p class="brk-post-with">with The Firm That Called Back</p>
+            </div>
+            <div class="brk-post-stats">
+              <span>20 likes</span><span>37 comments</span><span>1 share</span>
+            </div>
+            <div class="brk-post-actions">
+              <span>Like</span><span>Comment</span><span>Share</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay: 120ms">
+          <h3 class="text-display-xs font-heading text-gray-900 mb-5">You were the first call. Not the last.</h3>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              Here's the uncomfortable part: your marketing worked. They found you, they trusted you enough to dial, and they gave you the first shot at the case.
+            </p>
+            <p>
+              What lost it wasn't your reputation or your results. It was a phone that rang out at 6:40 PM, a voicemail nobody returned until Tuesday, and a follow-up that stopped after one attempt.
+            </p>
+            <p class="text-gray-900 font-semibold">
+              Leads don't leave because you're bad at law. They leave because nobody was there.
+            </p>
+          </div>
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex mt-8">
+            Win Them Back
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE FACTS ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28">
+    <div class="absolute top-10 left-0 w-[480px] h-[480px] bg-brand-blue/10 rounded-full blur-[120px]"></div>
+    <div class="grain-overlay"></div>
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="brk-eyebrow brk-eyebrow--gold">The facts</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-6 mb-4">
+          It's not a feeling. <span class="text-gradient-gold">It's arithmetic.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          Four numbers explain almost every stalled law firm we walk into.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="brk-fact reveal">
+          <p class="brk-fact-num">20%</p>
+          <p class="brk-fact-label">of leads lost before anyone picks up</p>
+          <p class="brk-fact-desc">Missed calls, slow callbacks, broken handoffs. The case is gone before intake starts.</p>
+        </div>
+        <div class="brk-fact reveal" style="transition-delay: 90ms">
+          <p class="brk-fact-num">78%</p>
+          <p class="brk-fact-label">hire the first firm that responds</p>
+          <p class="brk-fact-desc">Being second is functionally identical to never having run the ad at all.</p>
+        </div>
+        <div class="brk-fact reveal" style="transition-delay: 180ms">
+          <p class="brk-fact-num">15+</p>
+          <p class="brk-fact-label">hours a week lost to non-billable admin</p>
+          <p class="brk-fact-desc">Filing, scheduling, chasing records &mdash; attorney time spent on clerical work.</p>
+        </div>
+        <div class="brk-fact reveal" style="transition-delay: 270ms">
+          <p class="brk-fact-num">$1&ndash;2M</p>
+          <p class="brk-fact-label">the plateau firms hit without systems</p>
+          <p class="brk-fact-desc">More headcount on broken operations doesn't scale the firm. It scales the chaos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE RECONCILIATION ═══════════════════════════ -->
+  <section class="bg-white py-20 md:py-28">
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">Operations, solved</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          How we make your firm <span class="brk-ital">worth staying for.</span>
+        </h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          We embed trained legal support inside your firm and own the work that keeps slipping. Co-managed, not outsourced &mdash; your process, your CRM, your name on the call.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="brk-do reveal">
+          <p class="brk-do-title">Live intake &mdash; nights and weekends</p>
+          <p class="brk-do-desc">Real people answering, qualifying, and documenting while the caller is still deciding who to hire.</p>
+        </div>
+        <div class="brk-do reveal" style="transition-delay: 70ms">
+          <p class="brk-do-title">Follow-up until they answer</p>
+          <p class="brk-do-desc">Call, text, email, voicemail &mdash; a sequence that runs whether or not anyone remembers.</p>
+        </div>
+        <div class="brk-do reveal" style="transition-delay: 140ms">
+          <p class="brk-do-title">Retainers and scheduling</p>
+          <p class="brk-do-desc">We don't just book consults. We get agreements out and signed so you wake up to clients.</p>
+        </div>
+        <div class="brk-do reveal" style="transition-delay: 210ms">
+          <p class="brk-do-title">Medical records retrieval</p>
+          <p class="brk-do-desc">Requests, follow-ups, and tracking handled so files stop stalling at the provider.</p>
+        </div>
+        <div class="brk-do reveal" style="transition-delay: 280ms">
+          <p class="brk-do-title">Case status calling</p>
+          <p class="brk-do-desc">Clients hear from your firm before they think to complain that they haven't.</p>
+        </div>
+        <div class="brk-do reveal" style="transition-delay: 350ms">
+          <p class="brk-do-title">Admin and file organization</p>
+          <p class="brk-do-desc">Documents, data entry, and the clerical backlog that quietly eats your attorneys' week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROOF ═══════════════════════════ -->
+  <section class="bg-gray-25 py-20 md:py-24">
+    <div class="container-wide">
+      <div class="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-16">
+        <div class="brk-proof reveal">
+          <p class="brk-proof-num">200+</p>
+          <p class="brk-proof-label">law firms supported</p>
+        </div>
+        <div class="brk-proof reveal" style="transition-delay: 90ms">
+          <p class="brk-proof-num">60%</p>
+          <p class="brk-proof-label">cost savings vs. in-house</p>
+        </div>
+        <div class="brk-proof reveal" style="transition-delay: 180ms">
+          <p class="brk-proof-num">1000s</p>
+          <p class="brk-proof-label">of attorney hours returned</p>
+        </div>
+      </div>
+
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand mb-4">From our clients</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Firms that stopped getting dumped</h2>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="reveal"><YouTubeEmbed videoId="o3Fac0xRxCE" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><YouTubeEmbed videoId="EZbEo5HYDqg" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><YouTubeEmbed videoId="xQCIwMPlLMc" title="Attorney Assistant client testimonial" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ BOOKING ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-16 md:py-24" id="book-now">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <a href="/"><img src="/brand/logos/color_icon.svg" alt="Attorney Assistant" class="h-8 w-auto mx-auto mb-5" /></a>
+          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+            Book a Free Intake Audit
+          </h2>
+          <p class="text-lg text-gray-500 max-w-xl mx-auto">
+            Fifteen minutes. We'll map exactly where calls, texts, and follow-ups are dying in your firm &mdash; and what it would take to close the gap. No pitch deck.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Straight to an operations conversation
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <!-- Handwriting face for the breakup letter (loaded per-page; not a global brand font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    .brk-hero { background: #15385f; }
+    .brk-hero-wash { background: linear-gradient(150deg, #15385f 0%, #0e2236 55%, #091623 100%); }
+
+    .brk-eyebrow { display: inline-block; padding: 0.375rem 0.75rem; border-radius: 9999px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #f9a62d; background: rgba(249,166,45,0.1); border: 1px solid rgba(249,166,45,0.22); }
+    .brk-eyebrow--gold { color: #f9a62d; }
+    .brk-ital { font-style: italic; color: #d98a00; }
+
+    /* Handwritten letter */
+    .brk-letter { max-width: 420px; margin: 0 auto; padding: 2.75rem 2.5rem 3rem; background: linear-gradient(175deg, #f7f1e3 0%, #efe6d3 100%); border-radius: 4px; box-shadow: 0 30px 70px rgba(0,0,0,0.45); transform: rotate(-1.4deg); position: relative; }
+    .brk-letter::after { content: ''; position: absolute; inset: 0; border-radius: 4px; background: radial-gradient(120% 80% at 30% 10%, rgba(255,255,255,0.5), transparent 60%); pointer-events: none; }
+    .brk-hand { font-family: 'Caveat', 'Segoe Script', cursive; font-size: 1.5rem; line-height: 1.75; color: #2b2b2b; }
+    .brk-hand--salut { margin-bottom: 1rem; }
+    .brk-hand--close { margin-top: 1.25rem; }
+    .brk-hand--sign { padding-left: 1.5rem; }
+
+    /* Social post */
+    .brk-post { max-width: 400px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 20px 50px rgba(16,24,40,0.14); border: 1px solid #e5e7eb; overflow: hidden; }
+    .brk-post-head { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; }
+    .brk-post-avatar { width: 42px; height: 42px; border-radius: 50%; background: #cbd5e1; flex-shrink: 0; }
+    .brk-post-name { font-weight: 700; color: #1d4ed8; font-size: 0.9375rem; }
+    .brk-post-meta { font-size: 0.75rem; color: #6b7280; }
+    .brk-post-body { padding: 2.5rem 1rem 3rem; text-align: center; }
+    .brk-post-heart { width: 44px; height: 44px; margin: 0 auto 1.25rem; color: #1d4ed8; }
+    .brk-post-status { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: #111827; line-height: 1.2; }
+    .brk-post-with { font-size: 1rem; color: #374151; margin-top: 0.5rem; }
+    .brk-post-stats { display: flex; gap: 1.25rem; padding: 0.75rem 1rem; font-size: 0.75rem; color: #6b7280; border-top: 1px solid #f3f4f6; }
+    .brk-post-actions { display: flex; justify-content: space-around; padding: 0.75rem 1rem; font-size: 0.8125rem; font-weight: 600; color: #4b5563; border-top: 1px solid #f3f4f6; background: #fafafa; }
+
+    /* Facts (on navy) */
+    .brk-fact { padding: 1.75rem 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+    .brk-fact-num { font-family: var(--font-heading); font-size: 2.75rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; color: #f9a62d; margin-bottom: 0.625rem; }
+    .brk-fact-label { font-family: var(--font-heading); font-size: 0.9375rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 0.625rem; }
+    .brk-fact-desc { font-size: 0.8125rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    /* Services */
+    .brk-do { padding: 1.5rem; border-radius: 16px; border: 1px solid #e5e7eb; background: #fff; border-top: 3px solid #f9a62d; box-shadow: 0 1px 3px rgba(16,24,40,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .brk-do:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(16,24,40,0.08); }
+    .brk-do-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem; }
+    .brk-do-desc { font-size: 0.875rem; color: #6b7280; line-height: 1.6; }
+
+    /* Proof */
+    .brk-proof { text-align: center; padding: 1.75rem 1rem; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; }
+    .brk-proof-num { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: #15385f; line-height: 1; letter-spacing: -0.03em; }
+    .brk-proof-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-top: 0.5rem; }
+
+    @media (max-width: 640px) {
+      .brk-letter { padding: 2rem 1.75rem 2.5rem; transform: rotate(-1deg); }
+      .brk-hand { font-size: 1.3125rem; }
+    }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'facts-style-2-breakup', campaign: 'facts' });
+  </script>
+
+</SimpleCampaignLayout>

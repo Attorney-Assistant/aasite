@@ -1,0 +1,405 @@
+---
+// FACTS campaign — Ad Set "Style 1" (The Phone Screen)
+// Creative: iPhone lock screen with missed calls / voicemail ("Your best case called
+// last night") + a text thread left on read ("This lead was worth $40,000").
+// Message match: literal, mobile-native, the receipts on your own phone.
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import YouTubeEmbed from "@components/YouTubeEmbed.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/facts?embed=true";
+---
+
+<SimpleCampaignLayout
+  title="Your Best Case Called Last Night. Nobody Answered."
+  description="Missed calls, unread texts, voicemails that sit all weekend. Attorney Assistant answers, qualifies, and follows up on every lead your firm already paid for — 24/7."
+  ogTitle="Your best case called last night."
+  ogDescription="Nobody picked up. By morning, they'd signed with the firm that did."
+>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-brand-blue/10 rounded-full blur-[130px]"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[120px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-16 md:py-20 lg:py-24">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-10 items-center">
+
+        <div class="text-center lg:text-left reveal">
+          <span class="lck-eyebrow">
+            <span class="lck-dot"></span>
+            From last night
+          </span>
+          <h1 class="text-display-md md:text-display-lg font-heading text-white leading-[1.05] mt-6 mb-5">
+            Your best case<br />
+            <span class="text-gradient-gold">called last night.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-4">
+            Two rings. Voicemail. A text you never opened. By 9 AM they'd signed with the firm that picked up.
+          </p>
+          <p class="text-base text-brand-gold font-heading mb-8">
+            You don't have a lead problem. You have an operations problem.
+          </p>
+
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+            Book a Free Intake Audit
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 mt-7 text-sm text-white/45">
+            <span>Trusted by 200+ law firms</span>
+            <span class="hidden sm:inline text-white/20">&bull;</span>
+            <span>Free &mdash; no commitment</span>
+            <span class="hidden sm:inline text-white/20">&bull;</span>
+            <span>15 minutes</span>
+          </div>
+        </div>
+
+        <!-- Lock screen device -->
+        <div class="reveal" style="transition-delay: 150ms">
+          <div class="lck-phone">
+            <div class="lck-phone-inner">
+              <div class="lck-status">
+                <span>Tue 14</span>
+                <span class="lck-status-icons">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 13h2v4H2v-4zm4-3h2v7H6v-7zm4-3h2v10h-2V7zm4-4h2v14h-2V3z"/></svg>
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M1 6h14v8H1V6zm15 2h2v4h-2V8z"/></svg>
+                </span>
+              </div>
+              <p class="lck-time">9:41</p>
+              <p class="lck-label">From last night</p>
+
+              <div class="lck-notif lck-notif--miss">
+                <span class="lck-ico lck-ico--red"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-7.18 0-13-5.82-13-13V3.5z"/></svg></span>
+                <div><p class="lck-n-title">Missed Call</p><p class="lck-n-sub">Unknown</p></div>
+                <span class="lck-n-time">8:47 PM</span>
+              </div>
+
+              <div class="lck-notif lck-notif--miss">
+                <span class="lck-ico lck-ico--red"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-7.18 0-13-5.82-13-13V3.5z"/></svg></span>
+                <div><p class="lck-n-title">Missed Call</p><p class="lck-n-sub">Unknown</p></div>
+                <span class="lck-n-time">8:49 PM</span>
+              </div>
+
+              <div class="lck-notif">
+                <span class="lck-ico lck-ico--blue"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 4a3 3 0 100 6 3 3 0 000-6zm8 0a3 3 0 100 6 3 3 0 000-6zM3 13h14v3H3v-3z"/></svg></span>
+                <div><p class="lck-n-title">Voicemail</p><p class="lck-n-sub">0:42 &mdash; not played</p></div>
+                <span class="lck-n-time">8:52 PM</span>
+              </div>
+
+              <div class="lck-notif lck-notif--kill">
+                <span class="lck-ico lck-ico--green"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 3c-4.4 0-8 2.7-8 6s3.6 6 8 6c.6 0 1.2-.05 1.8-.16L15 17l-.5-2.6C16.6 13.3 18 11.3 18 9c0-3.3-3.6-6-8-6z"/></svg></span>
+                <div><p class="lck-n-title">iMessage</p><p class="lck-n-sub">Never mind, we found another attorney.</p></div>
+                <span class="lck-n-time">8:54 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ LEFT ON READ ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 py-20 md:py-28">
+    <div class="absolute top-0 left-0 w-[420px] h-[420px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="lck-eyebrow lck-eyebrow--gold">The other one</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-6 mb-4">
+          And one of them <span class="text-gradient-gold">texted instead.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          Nobody answered that either. Three days, three messages, no reply.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-5xl mx-auto">
+        <div class="reveal">
+          <div class="lck-thread">
+            <div class="lck-thread-head">
+              <span class="lck-avatar"></span>
+              <div>
+                <p class="lck-thread-num">+1 (312) 555-0186</p>
+                <p class="lck-thread-sub">mobile</p>
+              </div>
+            </div>
+            <div class="lck-thread-body">
+              <p class="lck-stamp">Tue 2:14 PM</p>
+              <div class="lck-bubble">Hi, do you handle car accident cases?</div>
+              <p class="lck-stamp">Wed 10:03 AM</p>
+              <div class="lck-bubble">Hello?</div>
+              <p class="lck-stamp">Thu 4:41 PM</p>
+              <div class="lck-bubble lck-bubble--short">?</div>
+            </div>
+            <div class="lck-thread-banner">This lead was worth $40,000.</div>
+          </div>
+        </div>
+
+        <div class="reveal" style="transition-delay: 120ms">
+          <h3 class="text-display-xs font-heading text-white mb-5">You already paid for that message.</h3>
+          <div class="space-y-4 text-gray-400 leading-relaxed">
+            <p>
+              The ad spend. The SEO. The referral relationship. All of it worked &mdash; someone in pain, looking for a lawyer, reached out to <em class="text-white not-italic font-semibold">you first</em>.
+            </p>
+            <p>
+              Then the process broke in the cheapest possible place: nobody was there to reply. No follow-up sequence. No second attempt. No one owning the inbox at 4:41 PM on a Thursday.
+            </p>
+            <p class="text-white">
+              This is not a marketing failure. It's an operations failure &mdash; and it's the one that's fixable this month.
+            </p>
+          </div>
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex mt-8">
+            Show Me Where We're Leaking
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE FACTS ═══════════════════════════ -->
+  <section class="bg-white py-20 md:py-28">
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">The facts</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          None of this is a mystery. <span class="lck-ital">It's measured.</span>
+        </h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Four numbers explain almost every stalled law firm we walk into.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="lck-fact reveal">
+          <p class="lck-fact-num lck-fact-num--red">20%</p>
+          <p class="lck-fact-label">of leads lost before anyone picks up</p>
+          <p class="lck-fact-desc">Missed calls, slow callbacks, broken handoffs. Revenue leaves before intake even starts.</p>
+        </div>
+        <div class="lck-fact reveal" style="transition-delay: 90ms">
+          <p class="lck-fact-num lck-fact-num--amber">78%</p>
+          <p class="lck-fact-label">hire the first firm that responds</p>
+          <p class="lck-fact-desc">Speed is the whole competition. Second place looks exactly like no marketing at all.</p>
+        </div>
+        <div class="lck-fact reveal" style="transition-delay: 180ms">
+          <p class="lck-fact-num lck-fact-num--blue">15+</p>
+          <p class="lck-fact-label">hours a week lost to non-billable admin</p>
+          <p class="lck-fact-desc">Filing, scheduling, chasing records. Attorney hours spent on work an attorney shouldn't touch.</p>
+        </div>
+        <div class="lck-fact reveal" style="transition-delay: 270ms">
+          <p class="lck-fact-num lck-fact-num--navy">$1&ndash;2M</p>
+          <p class="lck-fact-label">the plateau firms hit without systems</p>
+          <p class="lck-fact-desc">Adding headcount to broken operations doesn't scale the firm. It scales the chaos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ WHO PICKS UP ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28">
+    <div class="absolute top-16 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[110px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="lck-eyebrow lck-eyebrow--gold">Operations, solved</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-6 mb-4">
+          Starting next month, <span class="text-gradient-gold">someone picks up.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          We embed trained legal support inside your firm and take ownership of the work that keeps slipping. Co-managed, not outsourced &mdash; your process, your CRM, your name on the call.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="lck-do reveal">
+          <p class="lck-do-title">Live intake &mdash; nights and weekends</p>
+          <p class="lck-do-desc">Real people answering, qualifying, and documenting while the caller is still deciding who to hire.</p>
+        </div>
+        <div class="lck-do reveal" style="transition-delay: 70ms">
+          <p class="lck-do-title">Follow-up until they answer</p>
+          <p class="lck-do-desc">Call, text, email, voicemail &mdash; a sequence that runs whether or not anyone at your firm remembers.</p>
+        </div>
+        <div class="lck-do reveal" style="transition-delay: 140ms">
+          <p class="lck-do-title">Retainers and scheduling</p>
+          <p class="lck-do-desc">We don't just book consults. We get agreements out and signed so you wake up to clients.</p>
+        </div>
+        <div class="lck-do reveal" style="transition-delay: 210ms">
+          <p class="lck-do-title">Medical records retrieval</p>
+          <p class="lck-do-desc">Requests, follow-ups, and tracking handled so files stop stalling at the provider.</p>
+        </div>
+        <div class="lck-do reveal" style="transition-delay: 280ms">
+          <p class="lck-do-title">Case status calling</p>
+          <p class="lck-do-desc">Clients hear from your firm before they think to complain that they haven't.</p>
+        </div>
+        <div class="lck-do reveal" style="transition-delay: 350ms">
+          <p class="lck-do-title">Admin and file organization</p>
+          <p class="lck-do-desc">Documents, data entry, and the clerical backlog that quietly eats your attorneys' week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROOF ═══════════════════════════ -->
+  <section class="bg-gray-25 py-20 md:py-24">
+    <div class="container-wide">
+      <div class="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-16">
+        <div class="lck-proof reveal">
+          <p class="lck-proof-num">200+</p>
+          <p class="lck-proof-label">law firms supported</p>
+        </div>
+        <div class="lck-proof reveal" style="transition-delay: 90ms">
+          <p class="lck-proof-num">60%</p>
+          <p class="lck-proof-label">cost savings vs. in-house</p>
+        </div>
+        <div class="lck-proof reveal" style="transition-delay: 180ms">
+          <p class="lck-proof-num">1000s</p>
+          <p class="lck-proof-label">of attorney hours returned</p>
+        </div>
+      </div>
+
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand mb-4">From our clients</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Hear it from firms who fixed it</h2>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="reveal"><YouTubeEmbed videoId="o3Fac0xRxCE" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><YouTubeEmbed videoId="EZbEo5HYDqg" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><YouTubeEmbed videoId="xQCIwMPlLMc" title="Attorney Assistant client testimonial" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ BOOKING ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-16 md:py-24" id="book-now">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <a href="/"><img src="/brand/logos/color_icon.svg" alt="Attorney Assistant" class="h-8 w-auto mx-auto mb-5" /></a>
+          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+            Book a Free Intake Audit
+          </h2>
+          <p class="text-lg text-gray-500 max-w-xl mx-auto">
+            Fifteen minutes. We'll map exactly where calls, texts, and follow-ups are dying in your firm &mdash; and what it would take to close the gap. No pitch deck.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Straight to an operations conversation
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    .lck-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; border-radius: 9999px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #fca5a5; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); }
+    .lck-eyebrow--gold { color: #f9a62d; background: rgba(249,166,45,0.1); border-color: rgba(249,166,45,0.2); }
+    .lck-dot { width: 6px; height: 6px; border-radius: 50%; background: #ef4444; animation: lckPulse 2s ease-in-out infinite; }
+    @keyframes lckPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+    /* Lock screen device */
+    .lck-phone { max-width: 340px; margin: 0 auto; border-radius: 44px; padding: 10px; background: linear-gradient(160deg, #2a2a2e, #101012); box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12); }
+    .lck-phone-inner { border-radius: 36px; background: radial-gradient(120% 90% at 50% 0%, #1b2a3d 0%, #080d14 70%); padding: 1.5rem 1rem 2rem; min-height: 540px; }
+    .lck-status { display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.55); font-size: 0.6875rem; padding: 0 0.5rem 0.75rem; }
+    .lck-status-icons { display: inline-flex; gap: 4px; }
+    .lck-time { text-align: center; color: #fff; font-size: 4.25rem; line-height: 1; font-weight: 300; letter-spacing: -0.03em; margin-bottom: 1.75rem; font-family: var(--font-body); }
+    .lck-label { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255,255,255,0.35); padding-left: 0.5rem; margin-bottom: 0.625rem; }
+    .lck-notif { display: flex; align-items: center; gap: 0.625rem; padding: 0.75rem; border-radius: 16px; background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 0.5rem; }
+    .lck-notif--kill { background: rgba(249,166,45,0.14); border-color: rgba(249,166,45,0.3); }
+    .lck-ico { width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; }
+    .lck-ico--red { background: #ef4444; }
+    .lck-ico--blue { background: #3b82f6; }
+    .lck-ico--green { background: #22c55e; }
+    .lck-n-title { color: #fff; font-size: 0.8125rem; font-weight: 600; line-height: 1.2; }
+    .lck-n-sub { color: rgba(255,255,255,0.55); font-size: 0.6875rem; line-height: 1.3; margin-top: 1px; }
+    .lck-n-time { margin-left: auto; color: rgba(255,255,255,0.4); font-size: 0.625rem; flex-shrink: 0; align-self: flex-start; }
+
+    /* Text thread device */
+    .lck-thread { max-width: 380px; margin: 0 auto; border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
+    .lck-thread-head { display: flex; align-items: center; gap: 0.625rem; padding: 0.875rem 1rem; background: #f4f4f5; border-bottom: 1px solid #e4e4e7; }
+    .lck-avatar { width: 34px; height: 34px; border-radius: 50%; background: #d4d4d8; flex-shrink: 0; }
+    .lck-thread-num { font-size: 0.8125rem; font-weight: 600; color: #18181b; }
+    .lck-thread-sub { font-size: 0.6875rem; color: #71717a; }
+    .lck-thread-body { padding: 1.25rem 1rem 1.5rem; min-height: 300px; }
+    .lck-stamp { text-align: center; font-size: 0.625rem; color: #a1a1aa; margin: 1rem 0 0.5rem; }
+    .lck-stamp:first-child { margin-top: 0; }
+    .lck-bubble { display: inline-block; max-width: 80%; padding: 0.625rem 0.875rem; border-radius: 18px; background: #e9e9eb; color: #18181b; font-size: 0.875rem; line-height: 1.35; }
+    .lck-bubble--short { padding: 0.625rem 1rem; }
+    .lck-thread-banner { padding: 1rem; text-align: center; font-family: var(--font-heading); font-size: 1.0625rem; font-weight: 700; color: #15385f; background: #f9a62d; }
+
+    /* Facts */
+    .lck-ital { font-style: italic; color: #d98a00; }
+    .lck-fact { padding: 1.75rem 1.5rem; border-radius: 16px; border: 1px solid #e5e7eb; background: #fff; box-shadow: 0 1px 3px rgba(16,24,40,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .lck-fact:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(16,24,40,0.08); }
+    .lck-fact-num { font-family: var(--font-heading); font-size: 2.75rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; margin-bottom: 0.625rem; }
+    .lck-fact-num--red { color: #ef4444; }
+    .lck-fact-num--amber { color: #d98a00; }
+    .lck-fact-num--blue { color: #51a6dc; }
+    .lck-fact-num--navy { color: #15385f; }
+    .lck-fact-label { font-family: var(--font-heading); font-size: 0.9375rem; font-weight: 700; color: #111827; line-height: 1.3; margin-bottom: 0.625rem; }
+    .lck-fact-desc { font-size: 0.8125rem; color: #6b7280; line-height: 1.6; }
+
+    /* What we do */
+    .lck-do { padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); border-left: 3px solid #f9a62d; }
+    .lck-do-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .lck-do-desc { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    /* Proof */
+    .lck-proof { text-align: center; padding: 1.75rem 1rem; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; }
+    .lck-proof-num { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: #15385f; line-height: 1; letter-spacing: -0.03em; }
+    .lck-proof-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-top: 0.5rem; }
+
+    @media (max-width: 640px) {
+      .lck-time { font-size: 3.5rem; }
+      .lck-phone-inner { min-height: 480px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .lck-dot { animation: none; } }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'facts-style-1-phone-screen', campaign: 'facts' });
+  </script>
+
+</SimpleCampaignLayout>
