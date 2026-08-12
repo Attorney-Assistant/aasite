@@ -1,0 +1,98 @@
+# Manual diagnostic only — never runs on its own.
+#
+# Sends a single Conversions API event to a Meta pixel using the CAPI tokens already
+# stored as repo secrets, so events can be verified in Events Manager → Test Events
+# without the token ever leaving GitHub.
+#
+# Usage: Actions → "Meta: send CAPI test event" → Run workflow
+#   test_event_code — from Events Manager → Test Events (e.g. TEST55332)
+#   event_name      — e.g. ApplicationSubmitted
+#   pixel           — careers (1461622248739350) or main (819356476465129)
+name: Meta: send CAPI test event
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_event_code:
+        description: "Test event code from Events Manager → Test Events"
+        required: true
+      event_name:
+        description: "Event name to send"
+        required: true
+        default: ApplicationSubmitted
+      pixel:
+        description: "Which pixel to send to"
+        required: true
+        default: careers
+        type: choice
+        options: [careers, main]
+      event_source_url:
+        description: "Event source URL"
+        required: false
+        default: https://attorneyassistant.com/apply/bilingual-legal-intake-specialist-q3q42026
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send test event
+        env:
+          CAREERS_TOKEN: ${{ secrets.FB_CAREERS_PIXEL_DATA_ACCESS_TOKEN }}
+          MAIN_TOKEN: ${{ secrets.FB_PIXEL_DATA_ACCESS_TOKEN }}
+          PIXEL_CHOICE: ${{ inputs.pixel }}
+          EVENT_NAME: ${{ inputs.event_name }}
+          TEST_EVENT_CODE: ${{ inputs.test_event_code }}
+          SOURCE_URL: ${{ inputs.event_source_url }}
+        run: |
+          node <<'EOF'
+          const crypto = require('crypto');
+
+          const isCareers = process.env.PIXEL_CHOICE === 'careers';
+          const pixelId = isCareers ? '1461622248739350' : '819356476465129';
+          const token = isCareers ? process.env.CAREERS_TOKEN : process.env.MAIN_TOKEN;
+
+          if (!token) {
+            console.error(`No CAPI token secret set for the "${process.env.PIXEL_CHOICE}" pixel.`);
+            process.exit(1);
+          }
+
+          const sha256 = (v) => crypto.createHash('sha256').update(String(v).trim().toLowerCase()).digest('hex');
+          const now = Math.floor(Date.now() / 1000);
+
+          const payload = {
+            data: [{
+              event_name: process.env.EVENT_NAME,
+              event_time: now,
+              event_id: `test_${now}_${Math.random().toString(36).slice(2, 10)}`,
+              event_source_url: process.env.SOURCE_URL,
+              action_source: 'website',
+              user_data: {
+                em: [sha256('capi-test@attorneyassistant.com')],
+                ph: [sha256('15555550123')],
+                ct: [sha256('austin')],
+                client_user_agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36',
+                client_ip_address: '203.0.113.42',
+                fbc: `fb.1.${Date.now()}.CAPITESTCLICKID${now}`,
+                fbp: `fb.1.${Date.now()}.${Math.floor(Math.random() * 1e10)}`
+              },
+              custom_data: {
+                content_name: 'CAPI Test — Bilingual Legal Intake Specialist',
+                content_category: 'Job Application',
+                status: 'submitted'
+              }
+            }],
+            test_event_code: process.env.TEST_EVENT_CODE
+          };
+
+          console.log(`Pixel ${pixelId} · event "${process.env.EVENT_NAME}" · test code ${process.env.TEST_EVENT_CODE}`);
+
+          const res = await fetch(`https://graph.facebook.com/v21.0/${pixelId}/events?access_token=${token}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const body = await res.text();
+          console.log(`HTTP ${res.status}`);
+          console.log(body);
+          if (!res.ok) process.exit(1);
+          EOF
