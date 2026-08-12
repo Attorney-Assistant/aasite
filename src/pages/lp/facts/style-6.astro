@@ -1,0 +1,412 @@
+---
+// FACTS campaign — Ad Set "Style 6" (More Time)
+// Creative: luxury product launch — a gold clock under museum glass, plaque reading
+// "MORE TIME · LIMITED EDITION", headline "INTRODUCING: MORE TIME.", CTA "Get Yours".
+// Message match: minimal black-and-gold product reveal, wide letterspacing, spec sheet.
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import YouTubeEmbed from "@components/YouTubeEmbed.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/facts?embed=true";
+---
+
+<SimpleCampaignLayout
+  title="Introducing: More Time."
+  description="The one thing a law firm can't buy. Attorney Assistant takes over intake, follow-up, records, and admin so your attorneys get their hours back."
+  ogTitle="Introducing: More Time."
+  ogDescription="The one thing your firm can't buy. We make it."
+>
+
+  <!-- ═══════════════════════════ HERO / PRODUCT REVEAL ═══════════════════════════ -->
+  <section class="relative overflow-hidden mrt-hero">
+    <div class="absolute inset-0 mrt-floor" aria-hidden="true"></div>
+    <div class="absolute inset-0 mrt-spot" aria-hidden="true"></div>
+
+    <div class="container-narrow relative z-10 py-20 md:py-28 text-center">
+      <p class="mrt-kicker reveal">Introducing</p>
+
+      <h1 class="mrt-title reveal" style="transition-delay: 80ms">More Time.</h1>
+
+      <!-- Museum case -->
+      <div class="mrt-case reveal" style="transition-delay: 160ms" aria-hidden="true">
+        <div class="mrt-glass">
+          <div class="mrt-clock">
+            <span class="mrt-clock-ring"></span>
+            <span class="mrt-hand mrt-hand--hour"></span>
+            <span class="mrt-hand mrt-hand--minute"></span>
+            <span class="mrt-pin"></span>
+          </div>
+        </div>
+        <div class="mrt-plinth">
+          <span class="mrt-plaque">
+            <span class="mrt-plaque-name">More Time</span>
+            <span class="mrt-plaque-sub">Limited Edition</span>
+          </span>
+        </div>
+      </div>
+
+      <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mt-12 mb-4 reveal" style="transition-delay: 220ms">
+        Every other firm on your street is bidding for the same leads with the same ads. Nobody is bidding for the twelve hours a week your attorneys lose to work that isn't law.
+      </p>
+      <p class="text-base text-brand-gold font-heading mb-9 reveal" style="transition-delay: 260ms">
+        You don't have a lead problem. You have an operations problem.
+      </p>
+
+      <a href="#book-now" class="btn-primary btn-lg group inline-flex reveal" style="transition-delay: 300ms">
+        Book a Free Operations Audit
+        <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-7 text-sm text-white/40 reveal" style="transition-delay: 340ms">
+        <span>Trusted by 200+ law firms</span>
+        <span class="hidden sm:inline text-white/20">&bull;</span>
+        <span>Free &mdash; no commitment</span>
+        <span class="hidden sm:inline text-white/20">&bull;</span>
+        <span>15 minutes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SPECIFICATIONS ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-black py-20 md:py-28">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent"></div>
+    <div class="container-narrow relative z-10">
+      <div class="text-center mb-14 reveal">
+        <p class="mrt-kicker">Specifications</p>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-5 mb-4">
+          What's actually <span class="text-gradient-gold">in the box.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          Not software. Not a call centre. Trained legal staff embedded in your firm, running your process under your name.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto reveal" style="transition-delay: 100ms">
+        <dl class="mrt-spec">
+          <div class="mrt-spec-row">
+            <dt>Model</dt>
+            <dd>Co-managed legal operations &mdash; embedded, not outsourced</dd>
+          </div>
+          <div class="mrt-spec-row">
+            <dt>Coverage</dt>
+            <dd>Business hours, nights, weekends, and holidays</dd>
+          </div>
+          <div class="mrt-spec-row">
+            <dt>Included</dt>
+            <dd>Intake, lead follow-up, retainers &amp; scheduling, medical records, case status calling, admin</dd>
+          </div>
+          <div class="mrt-spec-row">
+            <dt>Installation</dt>
+            <dd>Your CRM, your scripts, your intake process. We adapt to the firm you already run.</dd>
+          </div>
+          <div class="mrt-spec-row">
+            <dt>Operating cost</dt>
+            <dd>Roughly 60% below the equivalent in-house hire</dd>
+          </div>
+          <div class="mrt-spec-row">
+            <dt>Deployed at</dt>
+            <dd>200+ law firms across the United States</dd>
+          </div>
+          <div class="mrt-spec-row">
+            <dt>Warranty</dt>
+            <dd>None needed. If the work isn't getting done, you'll know within a week.</dd>
+          </div>
+        </dl>
+
+        <div class="text-center mt-12">
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+            Get Yours
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE FACTS ═══════════════════════════ -->
+  <section class="bg-white py-20 md:py-28">
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">The facts</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          Why the hours <span class="mrt-ital">go missing.</span>
+        </h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Four numbers explain almost every stalled law firm we walk into.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="mrt-fact reveal">
+          <p class="mrt-fact-num mrt-fact-num--red">20%</p>
+          <p class="mrt-fact-label">of leads lost before anyone picks up</p>
+          <p class="mrt-fact-desc">Missed calls, slow callbacks, broken handoffs. The case is gone before intake starts.</p>
+        </div>
+        <div class="mrt-fact reveal" style="transition-delay: 90ms">
+          <p class="mrt-fact-num mrt-fact-num--amber">78%</p>
+          <p class="mrt-fact-label">hire the first firm that responds</p>
+          <p class="mrt-fact-desc">Speed is the whole competition. Second place looks exactly like no marketing at all.</p>
+        </div>
+        <div class="mrt-fact reveal" style="transition-delay: 180ms">
+          <p class="mrt-fact-num mrt-fact-num--blue">15+</p>
+          <p class="mrt-fact-label">hours a week lost to non-billable admin</p>
+          <p class="mrt-fact-desc">Filing, scheduling, chasing records &mdash; attorney time spent on clerical work.</p>
+        </div>
+        <div class="mrt-fact reveal" style="transition-delay: 270ms">
+          <p class="mrt-fact-num mrt-fact-num--navy">$1&ndash;2M</p>
+          <p class="mrt-fact-label">the plateau firms hit without systems</p>
+          <p class="mrt-fact-desc">More headcount on broken operations doesn't scale the firm. It scales the chaos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ HOW IT ARRIVES ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28">
+    <div class="absolute top-12 left-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[110px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <p class="mrt-kicker">Operations, solved</p>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-5 mb-4">
+          The work leaves your desk. <span class="text-gradient-gold">It doesn't leave your firm.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          We embed trained legal support inside your firm and take ownership of the work that keeps slipping. Co-managed, not outsourced &mdash; your process, your CRM, your name on the call.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="mrt-do reveal">
+          <p class="mrt-do-title">Live intake &mdash; nights and weekends</p>
+          <p class="mrt-do-desc">Real people answering, qualifying, and documenting while the caller is still deciding who to hire.</p>
+        </div>
+        <div class="mrt-do reveal" style="transition-delay: 70ms">
+          <p class="mrt-do-title">Follow-up until they answer</p>
+          <p class="mrt-do-desc">Call, text, email, voicemail &mdash; a sequence that runs whether or not anyone remembers.</p>
+        </div>
+        <div class="mrt-do reveal" style="transition-delay: 140ms">
+          <p class="mrt-do-title">Retainers and scheduling</p>
+          <p class="mrt-do-desc">We don't just book consults. We get agreements out and signed so you wake up to clients.</p>
+        </div>
+        <div class="mrt-do reveal" style="transition-delay: 210ms">
+          <p class="mrt-do-title">Medical records retrieval</p>
+          <p class="mrt-do-desc">Requests, follow-ups, and tracking handled so files stop stalling at the provider.</p>
+        </div>
+        <div class="mrt-do reveal" style="transition-delay: 280ms">
+          <p class="mrt-do-title">Case status calling</p>
+          <p class="mrt-do-desc">Clients hear from your firm before they think to complain that they haven't.</p>
+        </div>
+        <div class="mrt-do reveal" style="transition-delay: 350ms">
+          <p class="mrt-do-title">Admin and file organization</p>
+          <p class="mrt-do-desc">Documents, data entry, and the clerical backlog that quietly eats your attorneys' week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROOF ═══════════════════════════ -->
+  <section class="bg-gray-25 py-20 md:py-24">
+    <div class="container-wide">
+      <div class="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-16">
+        <div class="mrt-proof reveal">
+          <p class="mrt-proof-num">200+</p>
+          <p class="mrt-proof-label">law firms supported</p>
+        </div>
+        <div class="mrt-proof reveal" style="transition-delay: 90ms">
+          <p class="mrt-proof-num">60%</p>
+          <p class="mrt-proof-label">cost savings vs. in-house</p>
+        </div>
+        <div class="mrt-proof reveal" style="transition-delay: 180ms">
+          <p class="mrt-proof-num">1000s</p>
+          <p class="mrt-proof-label">of attorney hours returned</p>
+        </div>
+      </div>
+
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand mb-4">From our clients</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Firms already using theirs</h2>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="reveal"><YouTubeEmbed videoId="o3Fac0xRxCE" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><YouTubeEmbed videoId="EZbEo5HYDqg" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><YouTubeEmbed videoId="xQCIwMPlLMc" title="Attorney Assistant client testimonial" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ BOOKING ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-16 md:py-24" id="book-now">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <a href="/"><img src="/brand/logos/color_icon.svg" alt="Attorney Assistant" class="h-8 w-auto mx-auto mb-5" /></a>
+          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+            Book a Free Operations Audit
+          </h2>
+          <p class="text-lg text-gray-500 max-w-xl mx-auto">
+            Fifteen minutes. We'll map exactly where your attorneys' hours are going &mdash; and what it would take to hand that work off. No pitch deck.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+
+            <script is:inline>
+            (function () {
+              // HubSpot's "Facts" campaign UTM value — this is what makes HubSpot
+              // attribute the visit to the Facts campaign. Do not change it.
+              var HS_CAMPAIGN = "50854725-Facts";
+
+              var q = new URLSearchParams(window.location.search);
+
+              // Guard: only stamp traffic that actually arrived from an ad click.
+              // Direct, organic, and internal visits are left untouched so they never
+              // get misattributed to the paid Facts campaign.
+              var isAdClick = !!(q.get("fbclid") || q.get("utm_source") || q.get("utm_medium") ||
+                                 q.get("utm_campaign") || q.get("utm_content") || q.get("utm_term"));
+              if (!isAdClick) return;
+
+              var m = window.location.pathname.match(/style-(\d+)/);
+              var style = m ? "style-" + m[1] : "";
+
+              // 1) Normalize utm_campaign to the HubSpot campaign value, keeping the
+              //    original ad campaign name in utm_term so nothing is lost.
+              var incoming = q.get("utm_campaign");
+              if (incoming && incoming !== HS_CAMPAIGN && !q.get("utm_term")) q.set("utm_term", incoming);
+              q.set("utm_campaign", HS_CAMPAIGN);
+              if (!q.get("utm_source")) q.set("utm_source", "facebook");
+              if (!q.get("utm_medium")) q.set("utm_medium", "paid_social");
+              if (!q.get("utm_content") && style) q.set("utm_content", style);
+              history.replaceState(null, "", window.location.pathname + "?" + q.toString() + window.location.hash);
+
+              // 2) Pass them into the booking widget as hidden fields (same booking link).
+              var fields = {
+                utm_source:   q.get("utm_source"),
+                utm_medium:   q.get("utm_medium"),
+                utm_campaign: q.get("utm_campaign"),
+                utm_content:  q.get("utm_content"),
+                utm_term:     q.get("utm_term"),
+                facts_style:  style
+              };
+              document.querySelectorAll(".meetings-iframe-container").forEach(function (el) {
+                var src = el.getAttribute("data-src");
+                if (!src) return;
+                var u = new URL(src, window.location.origin);
+                Object.keys(fields).forEach(function (k) { if (fields[k]) u.searchParams.set(k, fields[k]); });
+                el.setAttribute("data-src", u.toString());
+              });
+            })();
+            </script>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Straight to an operations conversation
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <!-- Mono kicker face (brand spec: IBM Plex Mono); loaded per-page -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    .mrt-hero { background: #05060a; }
+    .mrt-floor { background: linear-gradient(180deg, #05060a 0%, #0a0c12 58%, #12141c 100%); }
+    .mrt-spot { background: radial-gradient(42% 34% at 50% 12%, rgba(249,166,45,0.14) 0%, transparent 70%); }
+
+    .mrt-kicker { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.42em; color: rgba(249,166,45,0.85); }
+
+    .mrt-title { font-family: var(--font-heading); font-weight: 700; font-size: clamp(2.75rem, 10vw, 6rem); line-height: 1; letter-spacing: 0.02em; color: #f5f3ef; margin: 1.25rem 0 0; text-shadow: 0 0 70px rgba(249,166,45,0.18); }
+
+    /* Museum case */
+    .mrt-case { margin: 3rem auto 0; width: min(330px, 82vw); }
+    .mrt-glass { position: relative; height: 260px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.16); background: linear-gradient(160deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.02) 42%, rgba(255,255,255,0.05) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 30px 70px rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(1px); }
+    .mrt-glass::before { content: ''; position: absolute; top: 0; left: 12%; width: 22%; height: 100%; background: linear-gradient(180deg, rgba(255,255,255,0.14), transparent 62%); }
+    .mrt-glass::after { content: ''; position: absolute; top: -1px; left: 18%; right: 18%; height: 7px; border-radius: 50%; background: rgba(255,241,214,0.55); filter: blur(7px); }
+
+    .mrt-clock { position: relative; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(70% 70% at 35% 25%, #23252c 0%, #0c0d11 75%); box-shadow: 0 0 0 2px rgba(249,166,45,0.55), 0 0 40px rgba(249,166,45,0.28), inset 0 2px 12px rgba(0,0,0,0.8); }
+    .mrt-clock-ring { position: absolute; inset: 12px; border-radius: 50%; border: 1px solid rgba(249,166,45,0.35); }
+    .mrt-hand { position: absolute; left: 50%; bottom: 50%; transform-origin: 50% 100%; background: #f9a62d; border-radius: 2px; }
+    .mrt-hand--hour { width: 3px; height: 40px; margin-left: -1.5px; transform: rotate(-18deg); }
+    .mrt-hand--minute { width: 2px; height: 56px; margin-left: -1px; transform: rotate(12deg); }
+    .mrt-pin { position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; margin: -4px 0 0 -4px; border-radius: 50%; background: #f9a62d; box-shadow: 0 0 10px rgba(249,166,45,0.8); }
+
+    .mrt-plinth { position: relative; height: 62px; border-radius: 3px; background: linear-gradient(180deg, #1a1c22 0%, #0b0c10 100%); border: 1px solid rgba(255,255,255,0.08); border-top: none; display: flex; align-items: center; justify-content: center; box-shadow: 0 24px 44px rgba(0,0,0,0.75); }
+    .mrt-plaque { display: inline-flex; flex-direction: column; align-items: center; padding: 0.4rem 1.25rem; border: 1px solid rgba(249,166,45,0.4); border-radius: 2px; }
+    .mrt-plaque-name { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.24em; color: #f9a62d; }
+    .mrt-plaque-sub { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.5625rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(249,166,45,0.5); margin-top: 2px; }
+
+    /* Spec sheet */
+    .mrt-spec { border-top: 1px solid rgba(249,166,45,0.28); }
+    .mrt-spec-row { display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem; padding: 1.25rem 0.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mrt-spec-row dt { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(249,166,45,0.8); padding-top: 0.2rem; }
+    .mrt-spec-row dd { font-size: 0.9375rem; line-height: 1.65; color: rgba(255,255,255,0.75); }
+
+    .mrt-ital { font-style: italic; color: #d98a00; }
+    .mrt-fact { padding: 1.75rem 1.5rem; border-radius: 16px; border: 1px solid #e5e7eb; background: #fff; box-shadow: 0 1px 3px rgba(16,24,40,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .mrt-fact:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(16,24,40,0.08); }
+    .mrt-fact-num { font-family: var(--font-heading); font-size: 2.75rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; margin-bottom: 0.625rem; }
+    .mrt-fact-num--red { color: #ef4444; }
+    .mrt-fact-num--amber { color: #d98a00; }
+    .mrt-fact-num--blue { color: #51a6dc; }
+    .mrt-fact-num--navy { color: #15385f; }
+    .mrt-fact-label { font-family: var(--font-heading); font-size: 0.9375rem; font-weight: 700; color: #111827; line-height: 1.3; margin-bottom: 0.625rem; }
+    .mrt-fact-desc { font-size: 0.8125rem; color: #6b7280; line-height: 1.6; }
+
+    .mrt-do { padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); border-left: 3px solid #f9a62d; }
+    .mrt-do-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .mrt-do-desc { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    .mrt-proof { text-align: center; padding: 1.75rem 1rem; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; }
+    .mrt-proof-num { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: #15385f; line-height: 1; letter-spacing: -0.03em; }
+    .mrt-proof-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-top: 0.5rem; }
+
+    @media (max-width: 640px) {
+      .mrt-glass { height: 214px; }
+      .mrt-clock { width: 120px; height: 120px; }
+      .mrt-hand--hour { height: 32px; }
+      .mrt-hand--minute { height: 45px; }
+      .mrt-spec-row { grid-template-columns: 1fr; gap: 0.375rem; }
+    }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'facts-style-6-more-time', campaign: 'facts' });
+  </script>
+
+</SimpleCampaignLayout>

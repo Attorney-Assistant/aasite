@@ -302,6 +302,14 @@ const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assist
               var HS_CAMPAIGN = "50854725-Facts";
 
               var q = new URLSearchParams(window.location.search);
+
+              // Guard: only stamp traffic that actually arrived from an ad click.
+              // Direct, organic, and internal visits are left untouched so they never
+              // get misattributed to the paid Facts campaign.
+              var isAdClick = !!(q.get("fbclid") || q.get("utm_source") || q.get("utm_medium") ||
+                                 q.get("utm_campaign") || q.get("utm_content") || q.get("utm_term"));
+              if (!isAdClick) return;
+
               var m = window.location.pathname.match(/style-(\d+)/);
               var style = m ? "style-" + m[1] : "";
 

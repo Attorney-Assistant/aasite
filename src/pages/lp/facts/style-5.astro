@@ -1,0 +1,414 @@
+---
+// FACTS campaign — Ad Set "Style 5" (The Case File / Concept 4D)
+// Creative: detective corkboard — "WHERE DID YOUR DAY GO?" with "8 HOURS MISSING"
+// at the centre, pinned polaroids timestamped 9:12 missed intake, 10:43 follow-up,
+// 12:06 scheduling, 2:18 records request, 4:37 another follow-up. CTA "Recover your time."
+// Message match: investigation board, evidence cards, red string, stencil labels.
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import YouTubeEmbed from "@components/YouTubeEmbed.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/facts?embed=true";
+---
+
+<SimpleCampaignLayout
+  title="Where Did Your Day Go? 8 Hours Missing."
+  description="Missed intake, endless follow-ups, scheduling, records requests. Attorney Assistant handles the work that keeps stealing your attorneys' billable time."
+  ogTitle="Where did your day go?"
+  ogDescription="8 hours missing. We handle the work that keeps stealing your time."
+>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="relative overflow-hidden evd-hero">
+    <div class="absolute inset-0 evd-board" aria-hidden="true"></div>
+    <div class="absolute inset-0 evd-lamp" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 py-16 md:py-24">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="evd-file reveal">Case file &middot; Time theft investigation</p>
+
+        <h1 class="text-display-md md:text-display-lg font-heading text-white leading-[1.03] mt-6 mb-7 reveal" style="transition-delay: 80ms">
+          Where did<br />
+          <span class="text-gradient-gold">your day go?</span>
+        </h1>
+
+        <div class="evd-seal reveal" style="transition-delay: 160ms">
+          <span class="evd-seal-num">8</span>
+          <span class="evd-seal-word">hours</span>
+          <span class="evd-seal-sub">missing</span>
+        </div>
+
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mt-8 mb-4 reveal" style="transition-delay: 220ms">
+          Not one big thing. Five small ones, every single day &mdash; and none of them needed an attorney.
+        </p>
+        <p class="text-base text-brand-gold font-heading mb-9 reveal" style="transition-delay: 260ms">
+          You don't have a lead problem. You have an operations problem.
+        </p>
+
+        <a href="#book-now" class="btn-primary btn-lg group inline-flex reveal" style="transition-delay: 300ms">
+          Book a Free Operations Audit
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-7 text-sm text-white/45 reveal" style="transition-delay: 340ms">
+          <span>Trusted by 200+ law firms</span>
+          <span class="hidden sm:inline text-white/20">&bull;</span>
+          <span>Free &mdash; no commitment</span>
+          <span class="hidden sm:inline text-white/20">&bull;</span>
+          <span>15 minutes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE EVIDENCE ═══════════════════════════ -->
+  <section class="relative overflow-hidden evd-evidence py-20 md:py-28">
+    <div class="absolute inset-0 evd-board" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-16 reveal">
+        <p class="evd-file">Exhibit A &mdash; yesterday</p>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-5 mb-4">
+          We reconstructed <span class="text-gradient-gold">the timeline.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          Every entry is work that had to happen. None of it is work you went to law school for.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
+        <div class="evd-card evd-card--a reveal">
+          <p class="evd-time">9:12 AM</p>
+          <p class="evd-label">Missed intake</p>
+          <p class="evd-note">A new caller rings while you're in a deposition. Voicemail takes it. Nobody calls back until tomorrow.</p>
+        </div>
+        <div class="evd-card evd-card--b reveal" style="transition-delay: 80ms">
+          <p class="evd-time">10:43 AM</p>
+          <p class="evd-label">Follow-up</p>
+          <p class="evd-note">Four leads from last week still haven't been chased. You get through two before the phone goes again.</p>
+        </div>
+        <div class="evd-card evd-card--c reveal" style="transition-delay: 160ms">
+          <p class="evd-time">12:06 PM</p>
+          <p class="evd-label">Scheduling</p>
+          <p class="evd-note">Three emails and a phone call to move one consultation. Lunch happens at your desk, if at all.</p>
+        </div>
+        <div class="evd-card evd-card--d reveal" style="transition-delay: 240ms">
+          <p class="evd-time">2:18 PM</p>
+          <p class="evd-label">Records request</p>
+          <p class="evd-note">On hold with a provider's medical records department. Again. The file hasn't moved in three weeks.</p>
+        </div>
+        <div class="evd-card evd-card--e reveal" style="transition-delay: 320ms">
+          <p class="evd-time">4:37 PM</p>
+          <p class="evd-label">Another follow-up</p>
+          <p class="evd-note">Call again. Call again. Call again. The note in the file just says "LM" for the fourth time.</p>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-14 reveal">
+        <div class="evd-sticky">
+          <p class="evd-sticky-note">Sound familiar?</p>
+        </div>
+        <p class="text-center text-lg text-gray-300 leading-relaxed mt-8">
+          Add it up and it's roughly a full billable day a week, spent on intake, follow-ups, scheduling, records, and admin. That's the theft. There's no mystery about who's doing it.
+        </p>
+        <div class="text-center mt-9">
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+            Recover My Time
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ THE FACTS ═══════════════════════════ -->
+  <section class="bg-white py-20 md:py-28">
+    <div class="container-wide">
+      <div class="text-center mb-14 reveal">
+        <span class="badge badge-brand mb-4">The facts</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          The evidence is <span class="evd-ital">not circumstantial.</span>
+        </h2>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Four numbers explain almost every stalled law firm we walk into.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div class="evd-fact reveal">
+          <p class="evd-fact-num evd-fact-num--red">20%</p>
+          <p class="evd-fact-label">of leads lost before anyone picks up</p>
+          <p class="evd-fact-desc">Missed calls, slow callbacks, broken handoffs. The case is gone before intake starts.</p>
+        </div>
+        <div class="evd-fact reveal" style="transition-delay: 90ms">
+          <p class="evd-fact-num evd-fact-num--amber">78%</p>
+          <p class="evd-fact-label">hire the first firm that responds</p>
+          <p class="evd-fact-desc">Speed is the whole competition. Second place looks exactly like no marketing at all.</p>
+        </div>
+        <div class="evd-fact reveal" style="transition-delay: 180ms">
+          <p class="evd-fact-num evd-fact-num--blue">15+</p>
+          <p class="evd-fact-label">hours a week lost to non-billable admin</p>
+          <p class="evd-fact-desc">Filing, scheduling, chasing records &mdash; attorney time spent on clerical work.</p>
+        </div>
+        <div class="evd-fact reveal" style="transition-delay: 270ms">
+          <p class="evd-fact-num evd-fact-num--navy">$1&ndash;2M</p>
+          <p class="evd-fact-label">the plateau firms hit without systems</p>
+          <p class="evd-fact-desc">More headcount on broken operations doesn't scale the firm. It scales the chaos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CASE CLOSED ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-20 md:py-28">
+    <div class="absolute top-12 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[110px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <p class="evd-file evd-file--gold">Case closed</p>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mt-5 mb-4">
+          We take the whole list. <span class="text-gradient-gold">You take the day back.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          We embed trained legal support inside your firm and take ownership of the work that keeps slipping. Co-managed, not outsourced &mdash; your process, your CRM, your name on the call.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div class="evd-do reveal">
+          <p class="evd-do-title">Live intake &mdash; nights and weekends</p>
+          <p class="evd-do-desc">Real people answering, qualifying, and documenting while the caller is still deciding who to hire.</p>
+        </div>
+        <div class="evd-do reveal" style="transition-delay: 70ms">
+          <p class="evd-do-title">Follow-up until they answer</p>
+          <p class="evd-do-desc">Call, text, email, voicemail &mdash; a sequence that runs whether or not anyone remembers.</p>
+        </div>
+        <div class="evd-do reveal" style="transition-delay: 140ms">
+          <p class="evd-do-title">Retainers and scheduling</p>
+          <p class="evd-do-desc">We don't just book consults. We get agreements out and signed so you wake up to clients.</p>
+        </div>
+        <div class="evd-do reveal" style="transition-delay: 210ms">
+          <p class="evd-do-title">Medical records retrieval</p>
+          <p class="evd-do-desc">Requests, follow-ups, and tracking handled so files stop stalling at the provider.</p>
+        </div>
+        <div class="evd-do reveal" style="transition-delay: 280ms">
+          <p class="evd-do-title">Case status calling</p>
+          <p class="evd-do-desc">Clients hear from your firm before they think to complain that they haven't.</p>
+        </div>
+        <div class="evd-do reveal" style="transition-delay: 350ms">
+          <p class="evd-do-title">Admin and file organization</p>
+          <p class="evd-do-desc">Documents, data entry, and the clerical backlog that quietly eats your attorneys' week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROOF ═══════════════════════════ -->
+  <section class="bg-gray-25 py-20 md:py-24">
+    <div class="container-wide">
+      <div class="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-16">
+        <div class="evd-proof reveal">
+          <p class="evd-proof-num">200+</p>
+          <p class="evd-proof-label">law firms supported</p>
+        </div>
+        <div class="evd-proof reveal" style="transition-delay: 90ms">
+          <p class="evd-proof-num">60%</p>
+          <p class="evd-proof-label">cost savings vs. in-house</p>
+        </div>
+        <div class="evd-proof reveal" style="transition-delay: 180ms">
+          <p class="evd-proof-num">1000s</p>
+          <p class="evd-proof-label">of attorney hours returned</p>
+        </div>
+      </div>
+
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand mb-4">From our clients</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Firms that got the day back</h2>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="reveal"><YouTubeEmbed videoId="o3Fac0xRxCE" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 100ms"><YouTubeEmbed videoId="EZbEo5HYDqg" title="Attorney Assistant client testimonial" /></div>
+        <div class="reveal" style="transition-delay: 200ms"><YouTubeEmbed videoId="xQCIwMPlLMc" title="Attorney Assistant client testimonial" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ BOOKING ═══════════════════════════ -->
+  <section class="relative overflow-hidden bg-white py-16 md:py-24" id="book-now">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+    <div class="container-wide relative z-10">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <a href="/"><img src="/brand/logos/color_icon.svg" alt="Attorney Assistant" class="h-8 w-auto mx-auto mb-5" /></a>
+          <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+            Book a Free Operations Audit
+          </h2>
+          <p class="text-lg text-gray-500 max-w-xl mx-auto">
+            Fifteen minutes. We'll map exactly where your attorneys' hours are going &mdash; and what it would take to hand that work off. No pitch deck.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+
+            <script is:inline>
+            (function () {
+              // HubSpot's "Facts" campaign UTM value — this is what makes HubSpot
+              // attribute the visit to the Facts campaign. Do not change it.
+              var HS_CAMPAIGN = "50854725-Facts";
+
+              var q = new URLSearchParams(window.location.search);
+
+              // Guard: only stamp traffic that actually arrived from an ad click.
+              // Direct, organic, and internal visits are left untouched so they never
+              // get misattributed to the paid Facts campaign.
+              var isAdClick = !!(q.get("fbclid") || q.get("utm_source") || q.get("utm_medium") ||
+                                 q.get("utm_campaign") || q.get("utm_content") || q.get("utm_term"));
+              if (!isAdClick) return;
+
+              var m = window.location.pathname.match(/style-(\d+)/);
+              var style = m ? "style-" + m[1] : "";
+
+              // 1) Normalize utm_campaign to the HubSpot campaign value, keeping the
+              //    original ad campaign name in utm_term so nothing is lost.
+              var incoming = q.get("utm_campaign");
+              if (incoming && incoming !== HS_CAMPAIGN && !q.get("utm_term")) q.set("utm_term", incoming);
+              q.set("utm_campaign", HS_CAMPAIGN);
+              if (!q.get("utm_source")) q.set("utm_source", "facebook");
+              if (!q.get("utm_medium")) q.set("utm_medium", "paid_social");
+              if (!q.get("utm_content") && style) q.set("utm_content", style);
+              history.replaceState(null, "", window.location.pathname + "?" + q.toString() + window.location.hash);
+
+              // 2) Pass them into the booking widget as hidden fields (same booking link).
+              var fields = {
+                utm_source:   q.get("utm_source"),
+                utm_medium:   q.get("utm_medium"),
+                utm_campaign: q.get("utm_campaign"),
+                utm_content:  q.get("utm_content"),
+                utm_term:     q.get("utm_term"),
+                facts_style:  style
+              };
+              document.querySelectorAll(".meetings-iframe-container").forEach(function (el) {
+                var src = el.getAttribute("data-src");
+                if (!src) return;
+                var u = new URL(src, window.location.origin);
+                Object.keys(fields).forEach(function (k) { if (fields[k]) u.searchParams.set(k, fields[k]); });
+                el.setAttribute("data-src", u.toString());
+              });
+            })();
+            </script>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-400 reveal" style="transition-delay: 250ms">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Free &mdash; no commitment
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            15 minutes
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+            Straight to an operations conversation
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <!-- Stencil/typewriter face for case-file labels; loaded per-page -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    .meetings-iframe-container iframe { background: #ffffff !important; }
+
+    .evd-hero, .evd-evidence { background: #14100c; }
+    .evd-board {
+      background-color: #14100c;
+      background-image:
+        radial-gradient(60% 40% at 50% 0%, rgba(249,166,45,0.10), transparent 70%),
+        repeating-linear-gradient(115deg, rgba(255,255,255,0.016) 0 2px, transparent 2px 7px),
+        repeating-linear-gradient(25deg, rgba(0,0,0,0.22) 0 3px, transparent 3px 9px);
+    }
+    .evd-lamp { background: radial-gradient(46% 32% at 50% 6%, rgba(255,241,214,0.16) 0%, transparent 72%); }
+
+    .evd-file { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.26em; color: #f87171; }
+    .evd-file--gold { color: rgba(249,166,45,0.85); }
+
+    /* "8 HOURS MISSING" evidence seal */
+    .evd-seal { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: 190px; height: 190px; border-radius: 50%; border: 2px solid rgba(239,68,68,0.55); box-shadow: inset 0 0 0 6px rgba(239,68,68,0.12); transform: rotate(-6deg); color: #f87171; }
+    .evd-seal-num { font-family: var(--font-heading); font-size: 4.25rem; font-weight: 800; line-height: 0.9; letter-spacing: -0.04em; color: #fca5a5; }
+    .evd-seal-word { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; line-height: 1; margin-top: 0.125rem; }
+    .evd-seal-sub { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; margin-top: 0.5rem; opacity: 0.8; }
+
+    /* Pinned evidence cards */
+    .evd-card { position: relative; padding: 2rem 1.25rem 1.5rem; border-radius: 3px; background: linear-gradient(178deg, #f5ecd8 0%, #e9dcc0 100%); box-shadow: 0 18px 38px rgba(0,0,0,0.45); }
+    .evd-card::before { content: ''; position: absolute; top: 0.6rem; left: 50%; transform: translateX(-50%); width: 11px; height: 11px; border-radius: 50%; background: #dc2626; box-shadow: 0 2px 5px rgba(0,0,0,0.5), inset 0 -2px 3px rgba(0,0,0,0.25); }
+    .evd-card--a { transform: rotate(-2deg); }
+    .evd-card--b { transform: rotate(1.4deg); }
+    .evd-card--c { transform: rotate(-1deg); }
+    .evd-card--d { transform: rotate(2deg); }
+    .evd-card--e { transform: rotate(-1.6deg); }
+    .evd-time { display: inline-block; padding: 0.125rem 0.5rem; border-radius: 2px; background: #b45309; color: #fff8ed; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .evd-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #3f2d16; margin-bottom: 0.5rem; }
+    .evd-note { font-size: 0.8125rem; line-height: 1.6; color: #55452c; }
+
+    /* Sticky note */
+    .evd-sticky { display: flex; justify-content: center; }
+    .evd-sticky-note { padding: 1.5rem 2rem; background: #fde68a; color: #422006; font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; transform: rotate(-3deg); box-shadow: 0 14px 30px rgba(0,0,0,0.4); }
+
+    .evd-ital { font-style: italic; color: #d98a00; }
+    .evd-fact { padding: 1.75rem 1.5rem; border-radius: 16px; border: 1px solid #e5e7eb; background: #fff; box-shadow: 0 1px 3px rgba(16,24,40,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .evd-fact:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(16,24,40,0.08); }
+    .evd-fact-num { font-family: var(--font-heading); font-size: 2.75rem; font-weight: 800; line-height: 1; letter-spacing: -0.03em; margin-bottom: 0.625rem; }
+    .evd-fact-num--red { color: #ef4444; }
+    .evd-fact-num--amber { color: #d98a00; }
+    .evd-fact-num--blue { color: #51a6dc; }
+    .evd-fact-num--navy { color: #15385f; }
+    .evd-fact-label { font-family: var(--font-heading); font-size: 0.9375rem; font-weight: 700; color: #111827; line-height: 1.3; margin-bottom: 0.625rem; }
+    .evd-fact-desc { font-size: 0.8125rem; color: #6b7280; line-height: 1.6; }
+
+    .evd-do { padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); border-left: 3px solid #f9a62d; }
+    .evd-do-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .evd-do-desc { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    .evd-proof { text-align: center; padding: 1.75rem 1rem; border-radius: 16px; background: #fff; border: 1px solid #e5e7eb; }
+    .evd-proof-num { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: #15385f; line-height: 1; letter-spacing: -0.03em; }
+    .evd-proof-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-top: 0.5rem; }
+
+    @media (max-width: 640px) {
+      .evd-seal { width: 158px; height: 158px; }
+      .evd-seal-num { font-size: 3.5rem; }
+      .evd-seal-word { font-size: 1.25rem; }
+      .evd-card { transform: none !important; }
+    }
+  </style>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'lp_view', lp_name: 'facts-style-5-case-file', campaign: 'facts' });
+  </script>
+
+</SimpleCampaignLayout>
