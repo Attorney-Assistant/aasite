@@ -294,6 +294,45 @@ const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assist
         <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal scroll-mt-20" style="transition-delay: 150ms">
           <div class="bg-white rounded-xl p-4 md:p-5">
             <div class="meetings-iframe-container" data-src={BOOKING_SRC}></div>
+
+            <script is:inline>
+            (function () {
+              // HubSpot's "Facts" campaign UTM value — this is what makes HubSpot
+              // attribute the visit to the Facts campaign. Do not change it.
+              var HS_CAMPAIGN = "50854725-Facts";
+
+              var q = new URLSearchParams(window.location.search);
+              var m = window.location.pathname.match(/style-(\d+)/);
+              var style = m ? "style-" + m[1] : "";
+
+              // 1) Normalize utm_campaign to the HubSpot campaign value, keeping the
+              //    original ad campaign name in utm_term so nothing is lost.
+              var incoming = q.get("utm_campaign");
+              if (incoming && incoming !== HS_CAMPAIGN && !q.get("utm_term")) q.set("utm_term", incoming);
+              q.set("utm_campaign", HS_CAMPAIGN);
+              if (!q.get("utm_source")) q.set("utm_source", "facebook");
+              if (!q.get("utm_medium")) q.set("utm_medium", "paid_social");
+              if (!q.get("utm_content") && style) q.set("utm_content", style);
+              history.replaceState(null, "", window.location.pathname + "?" + q.toString() + window.location.hash);
+
+              // 2) Pass them into the booking widget as hidden fields (same booking link).
+              var fields = {
+                utm_source:   q.get("utm_source"),
+                utm_medium:   q.get("utm_medium"),
+                utm_campaign: q.get("utm_campaign"),
+                utm_content:  q.get("utm_content"),
+                utm_term:     q.get("utm_term"),
+                facts_style:  style
+              };
+              document.querySelectorAll(".meetings-iframe-container").forEach(function (el) {
+                var src = el.getAttribute("data-src");
+                if (!src) return;
+                var u = new URL(src, window.location.origin);
+                Object.keys(fields).forEach(function (k) { if (fields[k]) u.searchParams.set(k, fields[k]); });
+                el.setAttribute("data-src", u.toString());
+              });
+            })();
+            </script>
           </div>
         </div>
 
