@@ -51,6 +51,47 @@ const CAPI_TOKEN = import.meta.env.FB_PIXEL_DATA_ACCESS_TOKEN || "";
     return match ? match.split('=')[1] : undefined;
   }
 
+  // ── Meta ClickID (fbc) ──
+  // fbevents.js writes the _fbc cookie asynchronously, so a CAPI event fired on page
+  // load can race it and ship an empty fbc while the browser pixel sends one (Meta
+  // flags this as a data-quality error). Derive fbc from the fbclid in the URL
+  // ourselves and persist it, so every CAPI event has it from the first hit.
+  function getFbclid() {
+    try { return new URLSearchParams(window.location.search).get('fbclid') || ''; }
+    catch (e) { return ''; }
+  }
+
+  function captureFbc() {
+    var fbclid = getFbclid();
+    if (!fbclid) return;
+    try {
+      var stored = localStorage.getItem('aa_fbc');
+      if (stored && stored.indexOf(fbclid) !== -1) return;
+      // Meta's format: fb.<subdomainIndex>.<creationTime>.<fbclid>
+      localStorage.setItem('aa_fbc', 'fb.1.' + Date.now() + '.' + fbclid);
+    } catch (e) {}
+  }
+
+  function readFbc() {
+    var cookie = getCookie('_fbc');
+    if (cookie) return cookie;
+    try { return localStorage.getItem('aa_fbc') || undefined; } catch (e) { return undefined; }
+  }
+
+  // Give fbevents.js a bounded window to write _fbp before we send. Adblocked or slow
+  // clients just send without it rather than hanging.
+  function waitForFbp(maxMs) {
+    return new Promise(function(resolve) {
+      var start = Date.now();
+      (function poll() {
+        if (getCookie('_fbp') || Date.now() - start > maxMs) return resolve();
+        setTimeout(poll, 100);
+      })();
+    });
+  }
+
+  captureFbc();
+
   // ── Generate event ID for deduplication ──
   function genEventId() {
     return 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
@@ -65,6 +106,7 @@ const CAPI_TOKEN = import.meta.env.FB_PIXEL_DATA_ACCESS_TOKEN || "";
     options = options || {};
 
     var eventId = options.eventId || genEventId();
+    await waitForFbp(1500);
     var ip = await getClientIp();
 
     // Build user_data with hashing
@@ -76,7 +118,7 @@ const CAPI_TOKEN = import.meta.env.FB_PIXEL_DATA_ACCESS_TOKEN || "";
 
     // Add fbp/fbc for better matching
     var fbp = getCookie('_fbp');
-    var fbc = getCookie('_fbc');
+    var fbc = readFbc();
     if (fbp) userData.fbp = fbp;
     if (fbc) userData.fbc = fbc;
 
