@@ -8,7 +8,7 @@
 #   test_event_code — from Events Manager → Test Events (e.g. TEST55332)
 #   event_name      — e.g. ApplicationSubmitted
 #   pixel           — careers (1461622248739350) or main (819356476465129)
-name: Meta: send CAPI test event
+name: "Meta: send CAPI test event"
 
 on:
   workflow_dispatch:
@@ -86,13 +86,15 @@ jobs:
 
           console.log(`Pixel ${pixelId} · event "${process.env.EVENT_NAME}" · test code ${process.env.TEST_EVENT_CODE}`);
 
-          const res = await fetch(`https://graph.facebook.com/v21.0/${pixelId}/events?access_token=${token}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-          const body = await res.text();
-          console.log(`HTTP ${res.status}`);
-          console.log(body);
-          if (!res.ok) process.exit(1);
+          (async () => {
+            const res = await fetch(`https://graph.facebook.com/v21.0/${pixelId}/events?access_token=${token}`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            const body = await res.text();
+            console.log(`HTTP ${res.status}`);
+            console.log(body);
+            if (!res.ok) process.exit(1);
+          })();
           EOF
