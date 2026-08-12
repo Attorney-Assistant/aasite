@@ -1,11 +1,23 @@
 ---
 /**
  * Careers-specific Meta Pixel (ID: 1461622248739350)
- * Only loaded on: /careers, /apply, /apply/thank-you
- * Events: ViewContent, SubmitApplication
- * Also sends server-side Conversions API events for deduplication.
+ * Only loaded on: /careers, /apply/*, /apply/thank-you
  *
- * The CAPI token is injected at build time from the FB_CAREERS_PIXEL_DATA_ACCESS_TOKEN env var.
+ * Page-level events (via the `event` prop):
+ * - ViewContent        — careers + apply page views
+ * - SubmitApplication  — /apply/thank-you page load (legacy path, not used by the form)
+ *
+ * Also exposes `window.__careersPixel` so client-side flows can fire careers-pixel
+ * events at the exact moment they happen (no page navigation required):
+ *
+ *   window.__careersPixel.track('SubmitApplication', { content_name: 'Receptionist' }, { em, ph, ct });
+ *   window.__careersPixel.trackCustom('ApplicationSubmitted', { ... }, { em, ph, ct });
+ *
+ * Both helpers fire the browser pixel and the server-side Conversions API with a
+ * shared event ID so Meta deduplicates them. PII in the third argument is raw —
+ * it is SHA-256 hashed here before it ever leaves the browser.
+ *
+ * The CAPI token is injected at build time from FB_CAREERS_PIXEL_DATA_ACCESS_TOKEN.
  * In production (GitHub Actions), it comes from the repo secret.
  */
 export interface Props {
@@ -32,92 +44,138 @@ const CAPI_TOKEN = import.meta.env.FB_CAREERS_PIXEL_DATA_ACCESS_TOKEN || "";
   fbq('init', PIXEL_ID);
   fbq('track', 'PageView');
 
-  // Generate a unique event ID for deduplication between pixel and CAPI
-  var eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  (function() {
+    'use strict';
 
-  // ── Browser pixel events ──
-
-  if (event === 'ViewContent') {
-    fbq('track', 'ViewContent', {
-      content_name: 'Careers Page',
-      content_category: 'Careers'
-    }, { eventID: eventId });
-  }
-
-  if (event === 'SubmitApplication') {
-    fbq('track', 'SubmitApplication', {
-      content_name: 'Job Application',
-      status: 'submitted'
-    }, { eventID: eventId });
-  }
-
-  // ── Conversions API (server-side deduplication) ──
-
-  (async function sendCapiEvent() {
-    if (!CAPI_TOKEN) return;
+    function genEventId() {
+      return 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+    }
 
     // SHA-256 hash for PII fields
     async function sha256(str) {
       if (!str) return undefined;
-      var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str.trim().toLowerCase()));
+      var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(String(str).trim().toLowerCase()));
       return Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
     }
 
-    // Get client IP for better event match quality
-    var clientIp = '';
-    try {
-      var ipRes = await fetch('https://api.ipify.org?format=json');
-      var ipData = await ipRes.json();
-      clientIp = ipData.ip || '';
-    } catch(e) {}
-
-    // Build user_data
-    var userData = {
-      client_user_agent: navigator.userAgent,
-      client_ip_address: clientIp
-    };
-
-    // For SubmitApplication, add hashed PII from sessionStorage
-    if (event === 'SubmitApplication') {
-      var applicantData = {};
-      try { applicantData = JSON.parse(sessionStorage.getItem('aa_applicant_data') || '{}'); } catch(e) {}
-
-      if (applicantData.email) userData.em = [await sha256(applicantData.email)];
-      if (applicantData.phone) userData.ph = [await sha256(applicantData.phone.replace(/[\s\-\(\)]/g, ''))];
-      if (applicantData.city) userData.ct = [await sha256(applicantData.city)];
-
-      // Also grab fbp and fbc cookies for better matching
-      var fbp = document.cookie.split(';').map(function(c){return c.trim();}).find(function(c){return c.startsWith('_fbp=');});
-      var fbc = document.cookie.split(';').map(function(c){return c.trim();}).find(function(c){return c.startsWith('_fbc=');});
-      if (fbp) userData.fbp = fbp.split('=')[1];
-      if (fbc) userData.fbc = fbc.split('=')[1];
-
-      // Clear stored data
-      try { sessionStorage.removeItem('aa_applicant_data'); } catch(e) {}
+    // Client IP for better event match quality (cached per page)
+    var clientIpPromise = null;
+    function getClientIp() {
+      if (!clientIpPromise) {
+        clientIpPromise = fetch('https://api.ipify.org?format=json')
+          .then(function(r) { return r.json(); })
+          .then(function(d) { return d.ip || ''; })
+          .catch(function() { return ''; });
+      }
+      return clientIpPromise;
     }
 
-    var payload = {
-      data: [{
-        event_name: event,
+    function getCookie(name) {
+      var match = document.cookie.split(';').map(function(c) { return c.trim(); })
+        .find(function(c) { return c.indexOf(name + '=') === 0; });
+      return match ? match.split('=')[1] : undefined;
+    }
+
+    // ── Server-side Conversions API send ──
+    // pii: { em, ph, fn, ln, ct, st, zp } raw/unhashed
+    async function sendCapiEvent(eventName, pii, options) {
+      if (!CAPI_TOKEN) return;
+      options = options || {};
+
+      var eventId = options.eventId || genEventId();
+      var ip = await getClientIp();
+      var ud = pii || {};
+
+      var userData = {
+        client_user_agent: navigator.userAgent,
+        client_ip_address: ip
+      };
+
+      var fbp = getCookie('_fbp');
+      var fbc = getCookie('_fbc');
+      if (fbp) userData.fbp = fbp;
+      if (fbc) userData.fbc = fbc;
+
+      if (ud.em) userData.em = [await sha256(ud.em)];
+      if (ud.ph) userData.ph = [await sha256(String(ud.ph).replace(/[\s\-\(\)]/g, ''))];
+      if (ud.fn) userData.fn = [await sha256(ud.fn)];
+      if (ud.ln) userData.ln = [await sha256(ud.ln)];
+      if (ud.ct) userData.ct = [await sha256(ud.ct)];
+      if (ud.st) userData.st = [await sha256(ud.st)];
+      if (ud.zp) userData.zp = [await sha256(ud.zp)];
+
+      var eventData = {
+        event_name: eventName,
         event_time: Math.floor(Date.now() / 1000),
         event_id: eventId,
         event_source_url: window.location.href,
         action_source: 'website',
         user_data: userData
-      }]
+      };
+      if (options.customData) eventData.custom_data = options.customData;
+
+      try {
+        fetch('https://graph.facebook.com/v21.0/' + PIXEL_ID + '/events?access_token=' + CAPI_TOKEN, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ data: [eventData] })
+        }).then(function(res) {
+          if (!res.ok) res.json().then(function(d) { console.warn('Careers CAPI error [' + eventName + ']:', d); });
+        });
+      } catch (e) {
+        console.warn('Careers CAPI send failed [' + eventName + ']:', e);
+      }
+
+      return eventId;
+    }
+
+    function fire(method, eventName, pixelData, pii, options) {
+      options = options || {};
+      var eventId = options.eventId || genEventId();
+      pixelData = pixelData || {};
+
+      if (typeof fbq !== 'undefined') {
+        fbq(method, eventName, pixelData, { eventID: eventId });
+      }
+
+      sendCapiEvent(eventName, pii || {}, { eventId: eventId, customData: pixelData });
+
+      return eventId;
+    }
+
+    // ── Public API ──
+    window.__careersPixel = {
+      pixelId: PIXEL_ID,
+      genEventId: genEventId,
+      track: function(eventName, pixelData, pii, options) {
+        return fire('track', eventName, pixelData, pii, options);
+      },
+      trackCustom: function(eventName, pixelData, pii, options) {
+        return fire('trackCustom', eventName, pixelData, pii, options);
+      }
     };
 
-    try {
-      var url = 'https://graph.facebook.com/v21.0/' + PIXEL_ID + '/events?access_token=' + CAPI_TOKEN;
-      fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).then(function(res) {
-        if (!res.ok) res.json().then(function(d) { console.warn('CAPI error:', d); });
+    // ── Page-level auto-fire ──
+    if (event === 'ViewContent') {
+      window.__careersPixel.track('ViewContent', {
+        content_name: 'Careers Page',
+        content_category: 'Careers'
+      }, {});
+    }
+
+    if (event === 'SubmitApplication') {
+      var applicantData = {};
+      try { applicantData = JSON.parse(sessionStorage.getItem('aa_applicant_data') || '{}'); } catch (e) {}
+      try { sessionStorage.removeItem('aa_applicant_data'); } catch (e) {}
+
+      window.__careersPixel.track('SubmitApplication', {
+        content_name: 'Job Application',
+        status: 'submitted'
+      }, {
+        em: applicantData.email,
+        ph: applicantData.phone,
+        ct: applicantData.city
       });
-    } catch(e) {
-      console.warn('CAPI event send failed:', e);
     }
   })();
 </script>

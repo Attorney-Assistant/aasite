@@ -866,6 +866,57 @@ const COUNTRIES = [
     area.addEventListener('drop', () => area.classList.remove('dragover'));
   });
 
+  // ── Conversion tracking ──
+  // Fires ONLY once the application actually posted successfully and the
+  // "Application Submitted!" message is on screen. Applicants who are screened out
+  // never reach this path (showDecline() returns before submission), and a failed
+  // upload throws before it. Build the Meta custom conversion on the custom event
+  // `ApplicationSubmitted` — see also `window.__careersPixel` in CareersPixel.astro.
+  function trackApplicationSubmitted() {
+    if (window.__aaApplicationTracked) return;
+    window.__aaApplicationTracked = true;
+
+    // Role name from the page title: "Apply: Receptionist — Attorney Assistant" → "Receptionist"
+    var role = (document.title || '')
+      .replace(/^Apply:\s*/i, '')
+      .replace(/\s*[—|-]\s*Attorney Assistant\s*$/i, '')
+      .trim() || 'Job Application';
+
+    var pii = {
+      em: (form.querySelector('#email')?.value || '').trim(),
+      ph: (form.querySelector('#whatsapp_number')?.value || '').trim(),
+      ct: (form.querySelector('#city')?.value || '').trim()
+    };
+
+    var payload = {
+      content_name: role,
+      content_category: 'Job Application',
+      content_ids: [window.location.pathname],
+      status: 'submitted'
+    };
+
+    if (window.__careersPixel) {
+      // Custom event — this is what the Meta custom conversion is built on.
+      window.__careersPixel.trackCustom('ApplicationSubmitted', payload, pii);
+      // Standard event kept alongside it for Meta's built-in reporting.
+      window.__careersPixel.track('SubmitApplication', payload, pii);
+    } else if (typeof fbq !== 'undefined') {
+      fbq('trackCustom', 'ApplicationSubmitted', payload);
+      fbq('track', 'SubmitApplication', payload);
+    }
+
+    // The PII was only stashed for the legacy thank-you-page path; it's been used now.
+    try { sessionStorage.removeItem('aa_applicant_data'); } catch (err) {}
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'application_submitted',
+      conversion_type: 'application',
+      role: role,
+      apply_path: window.location.pathname
+    });
+  }
+
   // ── Submission ──
 
   form.addEventListener('submit', async function(e) {
@@ -918,7 +969,7 @@ const COUNTRIES = [
         document.querySelector('.sticky').classList.add('hidden');
         document.getElementById('success-message').classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        // Conversion events fire on the /apply/thank-you page via CareersPixel
+        trackApplicationSubmitted();
       } else {
         console.error('Formspree error:', response.status, data);
         throw new Error(data.error || data.errors?.map(e => e.message).join(', ') || `Server responded with ${response.status}`);
