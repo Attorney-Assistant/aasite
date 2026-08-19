@@ -1,9 +1,10 @@
 /**
  * Unified blog content layer.
- * Merges posts from HubSpot CMS and BabyLoveGrowth.ai at build time,
- * sorted by publish date (newest first).
+ * Merges posts from HubSpot CMS, Outrank.so, and the frozen BabyLoveGrowth
+ * archive at build time, sorted by publish date (newest first).
  */
 import { fetchAllBlogPosts as fetchHubSpotPosts } from "./hubspot";
+import { fetchOutrankArticles } from "./outrank";
 import { fetchBLGArticles } from "./babylovegrowth";
 
 let allPostsPromise: Promise<any[]> | null = null;
@@ -14,20 +15,32 @@ export function fetchAllBlogPosts() {
 }
 
 async function _fetchAllBlogPosts() {
-  const [hubspot, blg] = await Promise.all([
+  const [hubspot, outrank, blg] = await Promise.all([
     fetchHubSpotPosts().catch((e) => { console.error("[blog] HubSpot fetch failed:", e.message); return []; }),
-    fetchBLGArticles().catch((e) => { console.error("[blog] BLG fetch failed:", e.message); return []; }),
+    fetchOutrankArticles().catch((e) => { console.error("[blog] Outrank fetch failed:", e.message); return []; }),
+    fetchBLGArticles().catch((e) => { console.error("[blog] BLG archive read failed:", e.message); return []; }),
   ]);
-  console.log(`[blog] Fetched ${hubspot.length} HubSpot + ${blg.length} BLG = ${hubspot.length + blg.length} total`);
-
+  console.log(`[blog] ${hubspot.length} HubSpot + ${outrank.length} Outrank + ${blg.length} BLG archive = ${hubspot.length + outrank.length + blg.length} total`);
 
   // Tag HubSpot posts with source
   const hsTagged = hubspot.map((p) => ({ ...p, source: "hubspot" as const }));
 
-  // Merge and sort by date descending
-  const all = [...hsTagged, ...blg].sort(
-    (a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
-  );
+  // Merge with slug de-dup (HubSpot wins, then Outrank, then the BLG archive)
+  // so a colliding slug can't produce duplicate /blog/[slug] routes.
+  const seen = new Set<string>();
+  const all: any[] = [];
+  for (const p of [...hsTagged, ...outrank, ...blg]) {
+    if (!p.slug) continue;
+    if (seen.has(p.slug)) {
+      console.warn(`[blog] Duplicate slug "${p.slug}" from ${p.source} — skipped.`);
+      continue;
+    }
+    seen.add(p.slug);
+    all.push(p);
+  }
+
+  // Sort by date descending
+  all.sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime());
 
   return all;
 }

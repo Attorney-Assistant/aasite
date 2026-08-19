@@ -11,7 +11,8 @@
 ## Content Sources (build-time)
 
 - **HubSpot CMS** — Blog posts (67+), tags, testimonials, landing pages (HubDB). Requires `HUBSPOT_ACCESS_TOKEN` env var.
-- **BabyLoveGrowth.ai** — AI-generated SEO blog articles. Requires `BABYLOVEGROWTH` env var.
+- **Outrank.so** — AI-generated SEO blog articles, pulled at build time. Requires `OUTRANK` env var (API key from the Outrank "Next.js Blog" integration).
+- **BabyLoveGrowth.ai (retired Aug 2026)** — legacy AI SEO articles, frozen as a static archive in `src/data/blg-articles.json` (no API calls; `scripts/freeze-blg.mjs` documents how it was captured).
 - **WordPress XML** — Legacy page content imported from `scripts/output/wp-xml-pages.json` (static, not live)
 - **Google Places API** — Reviews fetched at build time via `scripts/fetch-google-reviews.mjs`
 
@@ -35,7 +36,7 @@
 Set in `.env` locally and in GitHub repo secrets for CI:
 
 - `HUBSPOT_ACCESS_TOKEN` — HubSpot private app token
-- `BABYLOVEGROWTH` — BabyLoveGrowth API key
+- `OUTRANK` — Outrank.so API key (build fails soft without it: Outrank posts are skipped)
 - `GOOGLE_PLACES_API_KEY` (secret name: `GOOGLE_MAPS_API`) — Google reviews
 - `SITE_URL` — Canonical site URL (defaults to `https://attorneyassistant.com`)
 - FTP secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_SERVER_DIR`
