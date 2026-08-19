@@ -10,11 +10,16 @@ Our core insight: law firms don't have a lead problem — they have an operation
 
 ## Services
 
+Attorney Assistant is a staffing solutions and virtual assistant company for law firms. We recruit, vet, and train full-time virtual staff, and the firm embeds them into its own team, systems, and day-to-day processes. Everything is delivered through two services, which can be bundled: Staffline and Frontline. Frontline signs the case, Staffline carries it.
+
+### Staffline
+A dedicated full-time virtual staff member for one firm — never shared. 40 hours a week, working in the firm's systems. Sourced, vetted, and trained by Attorney Assistant; embedded and directed by the firm; co-managed by both. Any role, not just intake: case managers, records and bill retrieval, lien reduction, file opening, calendar and inbox, CRM hygiene. Every practice area. Measured on performance, not hours logged.
+
+### Frontline
+A 24/7 live intake team that answers and signs cases (formerly Intake 360) — an efficiency center staffed to close contingency fee cases, not an answering service. Every call answered live, no voicemail, no callback queue, nights and weekends included. Qualifying and closing on CFA, flat fee, and retainer. English and Español. QA on every call. $997/month includes 75 action-based credits.
+
 ### Lead Recovery
 Capture every inbound lead with rapid response and structured follow-up. Most firms lose 30-50% of their leads before they ever speak to an attorney. We fix that with sub-5-minute response times, multi-channel capture (phone, web, chat), and structured handoff protocols.
-
-### Intake 360
-End-to-end intake management platform. We handle the entire intake lifecycle — from first contact through qualification, scheduling, and retainer signing. Includes custom scripts, CRM integration, and real-time reporting.
 
 ### Lead Follow-Up
 Speed-to-lead and consistent multi-touch follow-up sequences. Research shows that responding within 5 minutes increases conversion by 400%. Our follow-up system ensures no lead falls through the cracks with automated + human touchpoints.
@@ -36,7 +41,7 @@ Align marketing spend with intake results. We help firms understand which campai
 
 ## Departments
 
-Marketing, Client Success, Sales, Recruitment, IA Liaison, Placement, Operations & Support, Tech
+Marketing, Client Success, Sales, Recruitment, Staffline Liaison, Placement, Operations & Support, Tech
 
 ## Key Differentiators
 

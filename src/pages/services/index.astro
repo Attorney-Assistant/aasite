@@ -16,7 +16,7 @@ const categories = [
       "Client engagement & check-ins",
     ],
     links: [
-      { href: "/services/intake-360", label: "Intake 360 (product)", primary: true },
+      { href: "/services/frontline", label: "Frontline (service)", primary: true },
       { href: "/services/lead-recovery", label: "Lead Recovery" },
       { href: "/services/lead-follow-up", label: "Lead Follow-Up" },
       { href: "/services/after-hours", label: "After-Hours Coverage" },
@@ -67,7 +67,7 @@ const categories = [
 
 <BaseLayout
   title="Services — Virtual Legal Assistants for Law Firms"
-  description="Virtual legal assistants for law firms — delivered two ways. Intake 360 for on-demand intake and reception coverage. Impact Assistants for on-staff case and admin support."
+  description="Virtual legal assistants for law firms, delivered two ways. Staffline for dedicated full-time virtual staff. Frontline for 24/7 live intake that answers and signs cases."
   schema={{
     "@type": "Service",
     "serviceType": "Legal Operations Support",
@@ -77,8 +77,8 @@ const categories = [
       "@type": "OfferCatalog",
       "name": "Law Firm Operations Services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intake 360", "url": "https://attorneyassistant.com/services/intake-360" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impact Assistants", "url": "https://attorneyassistant.com/services/impact-assistants" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Staffline", "url": "https://attorneyassistant.com/services/staffline" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Frontline", "url": "https://attorneyassistant.com/services/frontline" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Recovery", "url": "https://attorneyassistant.com/services/lead-recovery" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Follow-Up", "url": "https://attorneyassistant.com/services/lead-follow-up" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "After-Hours Coverage", "url": "https://attorneyassistant.com/services/after-hours" } },
@@ -104,7 +104,7 @@ const categories = [
           Virtual legal assistants for law firms, <span class="text-brand-gold">delivered two ways.</span>
         </h1>
         <p class="mt-6 text-base md:text-lg text-white/80 leading-relaxed max-w-3xl">
-          You get a virtual legal team. We deliver it through one of two products — <strong class="text-white">Intake 360</strong> for on-demand intake and reception coverage, or <strong class="text-white">Impact Assistants</strong> for an on-staff extension that handles case work, admin, and everything in between.
+          We recruit, vet, and train the person. You plug them into your team. It comes two ways: <strong class="text-white">Staffline</strong>, a dedicated full-time virtual staff member for your firm only, and <strong class="text-white">Frontline</strong>, a 24/7 live intake team that answers and signs cases.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="/contact" class="btn-primary btn-lg group">
@@ -117,29 +117,51 @@ const categories = [
     </div>
   </section>
 
-  <!-- Products: Intake 360 + Impact Assistants -->
+  <!-- Services: Staffline + Frontline -->
   <section class="section-padding" id="products">
     <div class="container-wide">
       <div class="text-center mb-12 md:mb-14 reveal max-w-3xl mx-auto">
-        <span class="badge badge-brand">The Two Products</span>
+        <span class="badge badge-brand">The Two Services</span>
         <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Pick the model that fits your firm</h2>
         <div class="divider-gold-center mt-5"></div>
         <p class="text-lg text-gray-500 leading-relaxed mt-6">
-          Every capability we offer is delivered through one of these two products — or both, paired together for complete coverage.
+          Every capability we offer is delivered through Staffline, Frontline, or both, paired together for complete coverage.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-        <!-- Intake 360 product card -->
-        <a href="/services/intake-360" class="card card-hover p-8 md:p-10 bg-white border-2 border-brand-gold/40 ring-1 ring-brand-gold/20 group flex flex-col reveal">
+        <!-- Staffline service card -->
+        <a href="/services/staffline" class="card card-hover p-8 md:p-10 bg-white border-2 border-brand-gold/40 ring-1 ring-brand-gold/20 group flex flex-col reveal">
           <div class="flex items-center justify-between mb-5">
-            <span class="badge badge-gold">Product</span>
-            <span class="text-xs font-bold uppercase tracking-wide text-brand-gold">On-demand coverage</span>
+            <span class="badge badge-gold">Service</span>
+            <span class="text-xs font-bold uppercase tracking-wide text-brand-gold">Dedicated staff</span>
           </div>
-          <h3 class="font-heading text-2xl md:text-3xl text-gray-900 mb-1">Intake<span class="text-brand-gold">360</span></h3>
-          <p class="text-sm font-semibold text-gray-500 mb-5">24/7 intake & reception, action-based pricing.</p>
+          <h3 class="font-heading text-2xl md:text-3xl text-gray-900 mb-1">Staff<span class="text-brand-gold">line</span></h3>
+          <p class="text-sm font-semibold text-gray-500 mb-5">One person. Your firm only. Never shared.</p>
           <p class="text-base text-gray-600 leading-relaxed mb-6 flex-1">
-            Always-on intake operation that answers, qualifies, signs cases on your behalf, and follows up — 24/7. Built for contingency-fee firms that can't afford to lose a single lead. <strong class="text-gray-900">$997/month.</strong>
+            A dedicated full-time virtual staff member, 40 hours a week, working in your systems. Sourced, vetted, and trained by us; embedded and directed by you; co-managed by both. Any role, not just intake: case work, records, admin, calendar, CRM.
+          </p>
+          <div class="border-t border-gray-200 pt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-3">Best for</p>
+            <ul class="space-y-2 mb-5">
+              <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Firms that can't afford to hire or can't find good staff</span></li>
+              <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Teams drowning in records, liens, pleadings, and admin</span></li>
+              <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Firms that want headcount-quality work without the recruiting cycle</span></li>
+            </ul>
+            <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Staffline <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+        <!-- Frontline service card -->
+        <a href="/services/frontline" class="card card-hover p-8 md:p-10 bg-white border-2 border-brand-gold/40 ring-1 ring-brand-gold/20 group flex flex-col reveal" style="transition-delay: 100ms">
+          <div class="flex items-center justify-between mb-5">
+            <span class="badge badge-gold">Service</span>
+            <span class="text-xs font-bold uppercase tracking-wide text-brand-gold">24/7 live intake</span>
+          </div>
+          <h3 class="font-heading text-2xl md:text-3xl text-gray-900 mb-1">Front<span class="text-brand-gold">line</span></h3>
+          <p class="text-sm font-semibold text-gray-500 mb-5">Every call answered, live, 24/7. Trained to close.</p>
+          <p class="text-base text-gray-600 leading-relaxed mb-6 flex-1">
+            A live intake team that answers every call, qualifies, signs cases on your behalf, and works an enforced follow-up cadence, nights and weekends included. Built for contingency-fee firms that can't afford to lose a single lead. <strong class="text-gray-900">$997/month.</strong>
           </p>
           <div class="border-t border-gray-200 pt-5">
             <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-3">Best for</p>
@@ -148,35 +170,13 @@ const categories = [
               <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Firms that need nights, weekends, and overflow coverage</span></li>
               <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Firms that want cases signed on first contact</span></li>
             </ul>
-            <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Intake 360 <span aria-hidden="true">→</span></span>
-          </div>
-        </a>
-
-        <!-- Impact Assistants product card -->
-        <a href="/services/impact-assistants" class="card card-hover p-8 md:p-10 bg-white border-2 border-brand-gold/40 ring-1 ring-brand-gold/20 group flex flex-col reveal" style="transition-delay: 100ms">
-          <div class="flex items-center justify-between mb-5">
-            <span class="badge badge-gold">Product</span>
-            <span class="text-xs font-bold uppercase tracking-wide text-brand-gold">On-staff extension</span>
-          </div>
-          <h3 class="font-heading text-2xl md:text-3xl text-gray-900 mb-1">Impact <span class="text-brand-gold">Assistants</span></h3>
-          <p class="text-sm font-semibold text-gray-500 mb-5">Dedicated team members, managed by legal ops experts.</p>
-          <p class="text-base text-gray-600 leading-relaxed mb-6 flex-1">
-            A dedicated assistant trained on your firm's templates, providers, and case criteria — integrated into your case management system as a seamless extension of your team. Case work, admin, drafting, calendar, CRM — they own it.
-          </p>
-          <div class="border-t border-gray-200 pt-5">
-            <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-3">Best for</p>
-            <ul class="space-y-2 mb-5">
-              <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Firms drowning in records, liens, pleadings, and admin</span></li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Firms growing past their drafting and ops capacity</span></li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-700"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Firms that want headcount-quality work without hiring</span></li>
-            </ul>
-            <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Impact Assistants <span aria-hidden="true">→</span></span>
+            <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Frontline <span aria-hidden="true">→</span></span>
           </div>
         </a>
       </div>
 
       <p class="text-center mt-10 text-sm text-gray-500 max-w-2xl mx-auto reveal">
-        Most firms pair the two. Intake 360 captures every lead; Impact Assistants run the case once it's signed. <a href="/services/virtual-legal-assistants" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600">See how virtual legal assistants work →</a>
+        Most firms pair the two. Frontline signs the case, Staffline carries it. <a href="/services/virtual-legal-assistants" class="text-brand-600 font-semibold hover:text-brand-700 underline decoration-brand-200 hover:decoration-brand-600">See how virtual legal assistants work →</a>
       </p>
     </div>
   </section>
@@ -190,7 +190,7 @@ const categories = [
         <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Three capability tracks. One coordinated team.</h2>
         <div class="divider-gold-center mt-5"></div>
         <p class="text-lg text-gray-500 leading-relaxed mt-6">
-          Whether you start with Intake 360, Impact Assistants, or both — your firm gets coverage across every part of the operation that drains attorney time.
+          Whether you start with Staffline, Frontline, or both, your firm gets coverage across every part of the operation that drains attorney time.
         </p>
       </div>
 
@@ -249,11 +249,11 @@ const categories = [
       <div class="reveal">
         <span class="badge badge-brand">Better Together</span>
         <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">
-          Most firms pair both products.
+          Most firms pair both services.
         </h2>
         <div class="divider-gold-center mt-5"></div>
         <p class="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto mb-8 mt-6">
-          Intake 360 captures every lead 24/7. Impact Assistants run the case once it's signed. Together, your firm gets end-to-end coverage from first call to final disbursement — without adding a single internal hire.
+          Frontline signs the case, Staffline carries it. Together, your firm gets end-to-end coverage from first call to final disbursement: one vendor, one relationship, one hiring bar.
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
           <a href="/book-call" class="btn-primary btn-lg group">Build Your Custom Solution</a>

@@ -33,37 +33,14 @@ const US_STATES = [
  */
 const PRODUCTS = [
   {
-    slug: 'intake360',
-    name: 'Intake360',
-    tagline: 'AI + human intake',
-    description: "AI answers, qualifies, and follows up on every lead, with our human team backing it up the moment a case needs a person. Live in 30 days.",
-    eformUrl: 'https://eform.pandadoc.com/?eform=b20a0367-0585-4ee1-a8ac-df066e039c51',
-    /* Eform primary recipient label: "Client Signer". 'Client' confirmed to work; including both. */
-    recipientRoles: ['Client Signer', 'Client'],
-    askTitle: true,
-    /* Per Josiah's source: single `_r` on FirstName/LastName/Title,
-       double `__r` only on MobilePhone. */
-    variableMap: {
-      firstname: 'Client_Contact_r.FirstName',
-      lastname:  'Client_Contact_r.LastName',
-      phone:     'Client_Contact__r.MobilePhone',
-      title:     'Client_Contact_r.Title',
-      company:   'Account.Name',
-      street:    'Account.BillingStreet',
-      city:      'Account.BillingCity',
-      state:     'Account.BillingState',
-      zip:       'Account.BillingPostalCode'
-    }
-  },
-  {
     slug: 'impact',
-    name: 'Impact Assistant',
-    tagline: 'On-staff humans',
-    description: "A dedicated team on our payroll, embedded in your firm. Trained on your playbook, working in your tools, billable on day one.",
-    /* No direct eform — selecting Impact Assistant prompts for one of the four
+    name: 'Staffline',
+    tagline: 'Dedicated staff',
+    description: "A dedicated full-time staff member, your firm only, never shared. Sourced, vetted, and trained by us, embedded in your team and tools, co-managed by both.",
+    /* No direct eform — selecting Staffline prompts for one of the four
        support types below, each with its own PandaDoc Nashville agreement. */
     eformUrl: null,
-    /* Same recipient role as Intake360. PandaDoc ignores recipient keys whose
+    /* Same recipient role as Frontline. PandaDoc ignores recipient keys whose
        role doesn't match the eform, so listing both candidates is safe. */
     recipientRoles: ['Client Signer', 'Client'],
     askTitle: false,
@@ -77,7 +54,7 @@ const PRODUCTS = [
       state:     'Account.BillingState',
       zip:       'Account.BillingPostalCode'
     },
-    /* Impact Assistant support types — each maps to its own Nashville eform.
+    /* Staffline support types — each maps to its own Nashville eform.
        They share the variableMap / recipientRoles / askTitle above. */
     types: [
       {
@@ -99,7 +76,7 @@ const PRODUCTS = [
       {
         slug: 'intake-reception',
         name: 'Intake Reception',
-        tagline: 'Front line',
+        tagline: 'Reception coverage',
         description: 'Answer, qualify, and route every new lead and caller.',
         eformUrl: 'https://eform.pandadoc.com/?eform=bf778c51-aab7-4eaa-adb4-b197bce9be87',
         bothEformUrl: 'https://eform.pandadoc.com/?eform=378e9802-658d-43e8-9a41-526e48f2f046'
@@ -115,12 +92,35 @@ const PRODUCTS = [
     ]
   },
   {
+    slug: 'intake360',
+    name: 'Frontline',
+    tagline: '24/7 live intake',
+    description: "Every call answered live, 24/7. We qualify, follow up, and sign cases on your behalf, with AI coverage that never clocks out. Live in 30 days.",
+    eformUrl: 'https://eform.pandadoc.com/?eform=b20a0367-0585-4ee1-a8ac-df066e039c51',
+    /* Eform primary recipient label: "Client Signer". 'Client' confirmed to work; including both. */
+    recipientRoles: ['Client Signer', 'Client'],
+    askTitle: true,
+    /* Per Josiah's source: single `_r` on FirstName/LastName/Title,
+       double `__r` only on MobilePhone. */
+    variableMap: {
+      firstname: 'Client_Contact_r.FirstName',
+      lastname:  'Client_Contact_r.LastName',
+      phone:     'Client_Contact__r.MobilePhone',
+      title:     'Client_Contact_r.Title',
+      company:   'Account.Name',
+      street:    'Account.BillingStreet',
+      city:      'Account.BillingCity',
+      state:     'Account.BillingState',
+      zip:       'Account.BillingPostalCode'
+    }
+  },
+  {
     slug: 'both',
-    name: 'Both Products',
+    name: 'Both Services',
     tagline: 'The full rescue',
-    description: "Intake360 + Impact Assistant together. AI on the front line, our on-staff humans behind the work, all wired into your firm.",
-    /* No direct eform — routes through the Impact support-type picker, then
-       stacks the Intake360 + chosen Impact contracts (see loadContract). */
+    description: "Staffline + Frontline together. Frontline signs the case, Staffline carries it, all wired into your firm.",
+    /* No direct eform — routes through the Staffline support-type picker, then
+       stacks the Frontline + chosen Staffline contracts (see loadContract). */
     eformUrl: null,
     askTitle: true,
     needsImpactType: true
@@ -203,7 +203,7 @@ const PRODUCTS = [
     </section>
 
     <!-- ═══════════════════════════════════════════
-         STAGE 1b: IMPACT ASSISTANT — SUPPORT TYPE
+         STAGE 1b: STAFFLINE — SUPPORT TYPE
     ═══════════════════════════════════════════ -->
     <section data-stage="impact-type" class="nash-stage nash-select">
       <div class="nash-container">
@@ -213,7 +213,7 @@ const PRODUCTS = [
             <span class="nash-stage-line">Pick your</span>
             <span class="nash-stage-line nash-accent-gold">support type.</span>
           </h2>
-          <p class="nash-stage-sub">Which Impact Assistant role is your firm signing for? We'll route you to the right agreement.</p>
+          <p class="nash-stage-sub">Which Staffline role is your firm signing for? We'll route you to the right agreement.</p>
         </div>
 
         <div class="nash-back-row">
@@ -1037,7 +1037,7 @@ const PRODUCTS = [
       let currentProduct = null;
       let impactFlow = 'impact'; // 'impact' or 'both' — which flow opened the support-type picker
 
-      // Combined "Both" contracts (Intake360 + an Impact support type) accept both
+      // Combined "Both" contracts (Frontline + a Staffline support type) accept both
       // the single-`_r` and double-`__r` variable variants, so prefill maps each
       // field to every variant the eform might use.
       const BOTH_VARIABLE_MAP = {
@@ -1112,7 +1112,7 @@ const PRODUCTS = [
           if (!product) return;
           track('nashville_product_selected', { product: slug });
 
-          // Impact Assistant (and "Both") branch into the four support types first.
+          // Staffline (and "Both") branch into the four support types first.
           if ((product.types && product.types.length) || product.needsImpactType) {
             impactFlow = slug; // 'impact' or 'both'
             if (infoBack) infoBack.setAttribute('data-go-stage', 'impact-type');
@@ -1127,7 +1127,7 @@ const PRODUCTS = [
         });
       });
 
-      // Impact Assistant support-type selection -------------------------------
+      // Staffline support-type selection -------------------------------
       document.querySelectorAll('[data-select-impact-type]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           const typeSlug = this.getAttribute('data-select-impact-type');
@@ -1142,11 +1142,11 @@ const PRODUCTS = [
           });
 
           if (impactFlow === 'both') {
-            // "Both" is now a SINGLE combined Intake360 + Impact eform per type —
+            // "Both" is now a SINGLE combined Frontline + Staffline eform per type —
             // one contract, so no completion-redirect can clobber a second one.
             currentProduct = {
               slug: 'both-' + type.slug,
-              name: 'Intake360 + ' + type.name,
+              name: 'Frontline + ' + type.name,
               askTitle: true,
               recipientRoles: base.recipientRoles,
               variableMap: BOTH_VARIABLE_MAP,

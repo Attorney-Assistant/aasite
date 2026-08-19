@@ -237,7 +237,7 @@
     "source": "/intake360/",
     "type": "page",
     "slug": "intake360",
-    "title": "Intake360"
+    "title": "Frontline"
   },
   {
     "source": "/",
@@ -303,7 +303,7 @@
     "source": "/intake-360-terms/",
     "type": "page",
     "slug": "intake-360-terms",
-    "title": "Intake 360 Terms"
+    "title": "Frontline Terms"
   },
   {
     "source": "/podcast/",
@@ -417,7 +417,7 @@
     "source": "/Blog/powering-legal-excellence-how-impact-assistants-transform-success-as-executive-assistants/",
     "destination": "/blog/powering-legal-excellence-how-impact-assistants-transform-success-as-executive-assistants/",
     "type": "post",
-    "title": "Powering Legal Excellence: How Impact Assistants Transform Success as Executive Assistants "
+    "title": "Powering Legal Excellence: How Staffline Assistants Transform Success as Executive Assistants "
   },
   {
     "source": "/Blog/remote-team-management/",
@@ -459,7 +459,7 @@
     "source": "/intake360-development/",
     "type": "page",
     "slug": "intake360-development",
-    "title": "Intake360 Development"
+    "title": "Frontline Development"
   },
   {
     "source": "/intake2025/",
@@ -777,7 +777,7 @@
     "source": "/Blog/never-lose-a-lead-again-with-intake360/",
     "destination": "/blog/never-lose-a-lead-again-with-intake360/",
     "type": "post",
-    "title": "Never Lose a Lead Again with Intake360"
+    "title": "Never Lose a Lead Again with Frontline"
   },
   {
     "source": "/Blog/artificial-intelligence-and-law-firms/",

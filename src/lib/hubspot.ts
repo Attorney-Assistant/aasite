@@ -1,3 +1,5 @@
+import { rebrandText } from "./rebrand";
+
 const HUBSPOT_ACCESS_TOKEN = import.meta.env.HUBSPOT_ACCESS_TOKEN;
 const BASE_URL = "https://api.hubapi.com";
 const LANDING_PAGES_TABLE_ID = "197972231";
@@ -99,9 +101,9 @@ async function _fetchAllBlogPosts() {
   return allPosts.map((post) => ({
     id: post.id,
     slug: post.slug.split("/").pop() || post.slug,
-    title: post.name,
-    postBody: post.postBody,
-    excerpt: stripHtml(post.postSummary || post.metaDescription || ""),
+    title: rebrandText(post.name),
+    postBody: rebrandText(post.postBody),
+    excerpt: rebrandText(stripHtml(post.postSummary || post.metaDescription || "")),
     featuredImage: post.featuredImage || null,
     publishedDate: post.publishDate,
     authorName: post.blogAuthor?.displayName || post.authorName || "",
@@ -109,8 +111,8 @@ async function _fetchAllBlogPosts() {
     tags: (post.tagIds || [])
       .map((id) => tagMap.get(id))
       .filter(Boolean) as HubSpotTag[],
-    seoTitle: post.htmlTitle || post.name,
-    seoDescription: post.metaDescription || post.postSummary || "",
+    seoTitle: rebrandText(post.htmlTitle || post.name),
+    seoDescription: rebrandText(post.metaDescription || post.postSummary || ""),
   }));
 }
 
@@ -172,8 +174,8 @@ export async function fetchAllTestimonials() {
     id: row.id,
     clientName: row.values.client_name || "",
     company: row.values.company || "",
-    role: row.values.role || "",
-    testimonialQuote: row.values.quote || "",
+    role: rebrandText(row.values.role || ""),
+    testimonialQuote: rebrandText(row.values.quote || ""),
     headshot: row.values.headshot_url || null,
     rating: row.values.rating || null,
     featured: row.values.featured || false,

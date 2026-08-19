@@ -10,8 +10,11 @@ We don't just add headcount — we diagnose and fix the operational failures tha
 
 ## Services
 
+Attorney Assistant is a staffing solutions and virtual assistant company for law firms. Everything is delivered through two services: Staffline and Frontline.
+
+- [Staffline](/services/staffline): A dedicated full-time virtual staff member for one firm — any support role, every practice area
+- [Frontline](/services/frontline): A 24/7 live intake team that answers and signs cases (formerly Intake 360)
 - [Lead Recovery](/services/lead-recovery): Capture every inbound lead with rapid response and structured follow-up
-- [Intake 360](/services/intake-360): End-to-end intake management platform for law firms
 - [Lead Follow-Up](/services/lead-follow-up): Speed-to-lead and consistent multi-touch follow-up sequences
 - [After-Hours Coverage](/services/after-hours): 24/7 live intake and reception — nights, weekends, holidays
 - [Admin Support](/services/admin-support): Back-office operations including case management, scheduling, and document handling

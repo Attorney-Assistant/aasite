@@ -57,7 +57,7 @@ async function main() {
   // 2. ViewContent (landing page)
   log("ViewContent", await sendEvent({
     event_name: "ViewContent", event_time: now, event_id: "test_vc_" + now,
-    event_source_url: "https://attorneyassistant.com/lp/intake360",
+    event_source_url: "https://attorneyassistant.com/lp/frontline",
     action_source: "website",
     user_data: { client_user_agent: UA, client_ip_address: "1.2.3.4" }
   }));

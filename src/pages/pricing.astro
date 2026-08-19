@@ -13,7 +13,7 @@ const roles = [
   },
   {
     name: "Intake / Reception",
-    href: "/services/intake-360",
+    href: "/services/frontline",
     standard: "$2,300",
     bilingual: "$2,600",
     icon: "M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z",
@@ -74,13 +74,13 @@ const wontGet = [
   <!-- Service Nav -->
   <div class="sticky top-16 lg:top-[72px] z-40 bg-white/90 backdrop-blur-md border-b border-gray-200/60">
     <div class="container-wide flex items-center justify-center gap-3 py-3">
-      <a href="#impact-assistant" class="pricing-nav-btn group">
+      <a href="#staffline" class="pricing-nav-btn group">
         <span class="pricing-nav-dot bg-brand-gold"></span>
-        Impact Assistant
+        Staffline
       </a>
-      <a href="#intake-360" class="pricing-nav-btn group">
+      <a href="#frontline" class="pricing-nav-btn group">
         <span class="pricing-nav-dot bg-brand-blue"></span>
-        Intake 360
+        Frontline
       </a>
       <a href="/book-call" class="btn-primary btn-sm ml-4 group hidden sm:inline-flex">
         Book Now
@@ -89,8 +89,9 @@ const wontGet = [
     </div>
   </div>
 
-  <!-- Interactive Pricing Calculator -->
-  <section class="py-10 md:py-14 scroll-mt-28" id="impact-assistant">
+  <!-- Interactive Pricing Calculator (Staffline) -->
+  <span id="impact-assistant" class="block scroll-mt-28" aria-hidden="true"></span>
+  <section class="py-10 md:py-14 scroll-mt-28" id="staffline">
     <div class="container-wide">
       <div class="pricing-calc card overflow-hidden reveal" id="pricing-calculator">
         <div class="grid lg:grid-cols-5">
@@ -263,8 +264,9 @@ const wontGet = [
   })();
   </script>
 
-  <!-- Intake360 -->
-  <section class="relative overflow-hidden grain-overlay scroll-mt-28" id="intake-360">
+  <!-- Frontline -->
+  <span id="intake-360" class="block scroll-mt-28" aria-hidden="true"></span>
+  <section class="relative overflow-hidden grain-overlay scroll-mt-28" id="frontline">
     <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
     <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
 
@@ -274,15 +276,15 @@ const wontGet = [
           <div class="reveal">
             <div class="inline-flex items-baseline gap-1 mb-4">
               <span class="text-xl font-heading tracking-tight">
-                <span class="text-brand-gold">INTAKE</span><span class="text-brand-blue">360</span>
+                <span class="text-brand-gold">FRONT</span><span class="text-brand-blue">LINE</span>
               </span>
             </div>
             <h2 class="text-display-xs md:text-display-sm font-heading text-white mb-4">
-              On-Demand Intake & Lead Coverage
+              24/7 Live Intake & Lead Coverage
             </h2>
             <div class="w-12 h-[3px] bg-gradient-to-r from-brand-gold to-brand-gold-light rounded-full mt-4 mb-6"></div>
             <p class="text-white/60 leading-relaxed mb-6">
-              Intake360 is our 24/7 intake and reception service — live agents who answer, qualify, follow up, and sign leads on your behalf. Your monthly subscription includes 75 action-based credits.
+              Frontline is our 24/7 live intake service: agents who answer every call, qualify, follow up, and sign cases on your behalf. Your monthly subscription includes 75 action-based credits.
             </p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-start gap-2.5 text-sm text-white/70">
@@ -309,7 +311,7 @@ const wontGet = [
                   <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
                 </svg>
               </a>
-              <a href="/services/intake-360" class="inline-flex items-center gap-1.5 text-sm font-medium text-white/50 hover:text-white/80 underline underline-offset-4 decoration-white/20 hover:decoration-white/50 transition-colors py-3">
+              <a href="/services/frontline" class="inline-flex items-center gap-1.5 text-sm font-medium text-white/50 hover:text-white/80 underline underline-offset-4 decoration-white/20 hover:decoration-white/50 transition-colors py-3">
                 Learn More
               </a>
             </div>

@@ -203,7 +203,7 @@ const CAPI_TOKEN = import.meta.env.FB_PIXEL_DATA_ACCESS_TOKEN || "";
 
   // ── Auto-fire ViewContent on landing pages, blog posts, services, pricing ──
   var path = window.location.pathname;
-  var viewContentPages = ['/lp/', '/blog/', '/services', '/pricing', '/intake360', '/contact', '/book-call'];
+  var viewContentPages = ['/lp/', '/blog/', '/services', '/pricing', '/contact', '/book-call'];
   var isViewContent = viewContentPages.some(function(p) { return path.indexOf(p) !== -1; });
 
   if (isViewContent) {

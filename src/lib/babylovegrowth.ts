@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { rebrandText } from "./rebrand";
 
 const API_KEY = import.meta.env.BABYLOVEGROWTH;
 const BASE_URL = "https://api.babylovegrowth.ai/api/integrations";
@@ -207,9 +208,9 @@ async function _fetchBLGArticles() {
   return valid.map((article) => ({
     id: `blg-${article.id}`,
     slug: article.slug,
-    title: article.title,
-    postBody: cleanContentHtml(article.content_html, article.hero_image_url),
-    excerpt: article.meta_description || stripMarkdown(article.excerpt) || "",
+    title: rebrandText(article.title),
+    postBody: rebrandText(cleanContentHtml(article.content_html, article.hero_image_url)),
+    excerpt: rebrandText(article.meta_description || stripMarkdown(article.excerpt) || ""),
     featuredImage: article.hero_image_url || null,
     publishedDate: article.created_at,
     authorName: "Attorney Assistant",
@@ -224,8 +225,8 @@ async function _fetchBLGArticles() {
           slug: kw.toLowerCase().replace(/\s+/g, "-"),
         })),
     ],
-    seoTitle: article.title,
-    seoDescription: article.meta_description || stripMarkdown(article.excerpt) || "",
+    seoTitle: rebrandText(article.title),
+    seoDescription: rebrandText(article.meta_description || stripMarkdown(article.excerpt) || ""),
     source: "babylovegrowth" as const,
   }));
 }
