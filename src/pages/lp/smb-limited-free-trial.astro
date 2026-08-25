@@ -1,0 +1,246 @@
+---
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+
+/**
+ * SMB Team exclusive: free 30-day Staffline trial.
+ * Unlinked page, reached only via direct URL. Excluded from the sitemap in
+ * astro.config.mjs and noindexed by the layout default. Staffline only:
+ * never mention Frontline or Backline here.
+ */
+
+const SMB_LOGO = "https://smbteam.com/wp-content/uploads/2026/03/header-logo-300x61.png";
+
+// Base embed URL carries the fixed SMB attribution UTMs. Any query params on
+// the page URL itself (per-client or per-rep codes) are forwarded onto this
+// by the inline script in the booking section.
+const BOOKING_SRC =
+  "https://meet.attorneyassistant.com/meetings/attorney-assistant/smb-free-trial-offer?embed=true&utm_source=smb_referral&utm_medium=landing_page&utm_campaign=smb_free_trial";
+
+const wRows = [
+  { label: "Who", body: "Attorney Assistant, SMB Team's sister company and the law firm operations problem solvers behind intake, follow-up, and back office for firms like yours." },
+  { label: "What", body: "A free 30-day trial of a live virtual assistant, a trained specialist who takes on the work your firm needs to grow but hates to manage." },
+  { label: "When", body: "For a limited time, and only the first 30 SMB Team clients who book get in." },
+  { label: "Where", body: "A quick virtual meeting with one of our account executives, booked right on this page, no need to go anywhere else." },
+  { label: "Why", body: "Because missed calls are missed cases, and one month with a real assistant on your team will prove exactly how much revenue you've been leaking." },
+];
+
+const steps = [
+  { step: "1", title: "Find the leak", desc: "We look at where your firm is losing time and money." },
+  { step: "2", title: "Place the team", desc: "A specialist gets matched to your firm." },
+  { step: "3", title: "You direct the work", desc: "It's your systems, your priorities." },
+  { step: "4", title: "We co-manage it", desc: "QA and support the whole 30 days." },
+];
+---
+
+<SimpleCampaignLayout
+  title="Free 30-Day Trial: Attorney Assistant for SMB Team Clients"
+  description="An exclusive for SMB Team clients: a free 30-day trial of a dedicated Attorney Assistant virtual assistant. Only 30 spots. Book your trial meeting on this page."
+  minimalHeader={true}
+  headerCtaHref="#booking"
+  headerCtaLabel="Book your free trial"
+  hideFooter={true}
+>
+
+  <!-- Bangers for the comic display headline (loaded by ComicCampaignLayout elsewhere; this page loads it itself) -->
+  <link slot="above-header" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link slot="above-header" href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+
+  <!-- Co-brand bar: SMB Team presents, dark background for their light logo -->
+  <div slot="above-header" class="bg-brand-950 border-b border-white/10">
+    <div class="container-wide flex items-center justify-center gap-4 py-2.5">
+      <img src={SMB_LOGO} alt="SMB Team" class="h-6 md:h-7 w-auto" loading="eager" />
+      <span class="text-white/40 text-xs font-semibold uppercase tracking-[0.2em]">presents</span>
+      <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-6 md:h-7 w-auto" loading="eager" />
+    </div>
+  </div>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-16 md:py-24">
+    <div class="grain-overlay"></div>
+    <div class="container-wide relative z-10 text-center">
+      <div class="reveal">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">An exclusive for SMB Team clients</span>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+
+      <h1 class="smb-comic-display text-white mt-8 reveal" style="transition-delay: 80ms;">
+        One meeting.<br class="md:hidden" /> <span class="text-brand-gold">One free month.</span>
+      </h1>
+
+      <div class="mt-6 reveal" style="transition-delay: 140ms;">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wide bg-brand-gold/10 text-brand-gold border border-brand-gold/25">
+          <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+          Only 30 spots
+        </span>
+      </div>
+
+      <p class="mt-6 text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto reveal" style="transition-delay: 200ms;">
+        SMB Team fills your funnel. Our sister company Attorney Assistant makes sure those leads become signed cases.
+      </p>
+
+      <div class="mt-8 reveal" style="transition-delay: 260ms;">
+        <a href="#booking" class="btn-primary btn-lg group">
+          Book your free trial
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+        <p class="mt-3 text-sm text-white/50">For a limited time. No pitch deck, no pressure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WHO / WHAT / WHEN / WHERE / WHY ═══════════════ -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="max-w-3xl mx-auto divide-y divide-gray-200">
+        {wRows.map((row, i) => (
+          <div class="grid grid-cols-[5.5rem_1fr] md:grid-cols-[7rem_1fr] gap-4 md:gap-8 py-6 reveal" style={`transition-delay: ${i * 60}ms`}>
+            <span class="text-xs font-bold uppercase tracking-[0.15em] text-brand-gold-dark pt-1">{row.label}</span>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">{row.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STAT STRIP ═══════════════ -->
+  <section class="section-padding bg-brand-gold-light">
+    <div class="container-wide">
+      <div class="text-center mb-10 md:mb-12 reveal">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold-dark">The offer, by the numbers</span>
+        <div class="divider-gold-center mt-4"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="card p-8 text-center reveal">
+          <p class="font-heading font-extrabold text-5xl md:text-6xl text-brand-navy leading-none">1</p>
+          <p class="mt-4 text-sm font-semibold uppercase tracking-wide text-gray-600 leading-snug">Person, your firm only. Never shared.</p>
+        </div>
+        <div class="card p-8 text-center reveal" style="transition-delay: 80ms">
+          <p class="font-heading font-extrabold text-5xl md:text-6xl text-brand-navy leading-none">40 <span class="text-2xl align-top">hrs</span></p>
+          <p class="mt-4 text-sm font-semibold uppercase tracking-wide text-gray-600 leading-snug">A week on your matters, trained and co-managed by us</p>
+        </div>
+        <div class="rounded-2xl p-8 text-center bg-brand-gold shadow-lg reveal" style="transition-delay: 160ms">
+          <p class="font-heading font-extrabold text-5xl md:text-6xl text-brand-navy leading-none">$0</p>
+          <p class="mt-4 text-sm font-bold uppercase tracking-wide text-brand-navy leading-snug">Your first 30 days, on us</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold-dark">How it works</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From first meeting to a working assistant</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        {steps.map((s, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class={`w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-lg border-2 ${i === steps.length - 1 ? 'bg-brand-gold border-brand-gold text-brand-navy' : 'bg-white border-brand-navy text-brand-navy'}`}>
+              {s.step}
+            </div>
+            <h3 class="text-sm font-heading text-gray-900 uppercase tracking-wide mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-500 leading-snug">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BOOKING ═══════════════ -->
+  <section class="section-padding bg-gray-25 scroll-mt-20" id="booking">
+    <div class="container-narrow">
+      <div class="text-center mb-8 reveal">
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">Grab one of the 30 spots</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="mt-5 text-lg text-gray-500">Pick a time below, it takes two minutes.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-gray-200 reveal" style="transition-delay: 100ms">
+        <div class="bg-white rounded-xl p-4 md:p-5">
+          <div class="meetings-iframe-container" data-src={BOOKING_SRC} style="min-height: 660px;"></div>
+
+          <script is:inline>
+          (function () {
+            // Forward any params on the page URL (per-client or per-rep codes)
+            // onto the widget embed URL. The three SMB attribution UTMs
+            // (utm_source / utm_medium / utm_campaign) are fixed for this
+            // offer and never overridden.
+            var el = document.querySelector('#booking .meetings-iframe-container');
+            if (!el) return;
+            var url = new URL(el.getAttribute('data-src'));
+            var q = new URLSearchParams(window.location.search);
+            q.forEach(function (v, k) {
+              if (k === 'utm_source' || k === 'utm_medium' || k === 'utm_campaign') return;
+              url.searchParams.set(k, v);
+            });
+            el.setAttribute('data-src', url.toString());
+          })();
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script (geo-gated) -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+  <!-- ═══════════════ FINAL CTA / CLOSING ═══════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950 py-16 md:py-24">
+    <div class="grain-overlay"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <h2 class="text-display-sm md:text-display-md font-heading text-white reveal">
+        Ready to see what one month buys you?
+      </h2>
+      <div class="mt-8 reveal" style="transition-delay: 100ms">
+        <a href="#booking" class="btn-primary btn-lg group">
+          Book your free trial
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+
+      <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-9 w-auto mx-auto mt-14 reveal" style="transition-delay: 160ms" />
+
+      <div class="mt-8 reveal" style="transition-delay: 220ms">
+        <p class="text-xs text-white/40 mb-4">This offer is exclusive to SMB Team clients. Please don't forward this page.</p>
+        <p class="text-sm text-white/60 leading-relaxed">
+          (215) 337-2677 &nbsp;&middot;&nbsp; info@attorneyassistant.com<br />
+          21 East 5th Ave., Suite 102, Conshohocken, PA 19428
+        </p>
+      </div>
+
+      <p class="smb-closing-line text-brand-gold mt-10 reveal" style="transition-delay: 280ms">Find us where law firms need rescuing</p>
+    </div>
+  </section>
+
+  <style>
+    /* Comic display headline: Bangers, all caps, per the campaign display pattern */
+    .smb-comic-display {
+      font-family: 'Bangers', var(--font-heading), cursive;
+      font-size: clamp(3rem, 9vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .smb-closing-line {
+      font-family: 'Bangers', var(--font-heading), cursive;
+      font-size: 1.25rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+  </style>
+
+</SimpleCampaignLayout>

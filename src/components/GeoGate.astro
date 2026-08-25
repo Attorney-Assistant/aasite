@@ -83,3 +83,42 @@
     });
 })();
 </script>
+
+<script is:inline>
+/**
+ * UTM passthrough for HubSpot meeting embeds (site-wide).
+ *
+ * Every meetings loader on the site gates on window.__hsGeoReady before
+ * injecting MeetingsEmbedCode.js. We compose that promise with DOM readiness
+ * and, before any loader runs, forward the page URL's utm_* params onto every
+ * .meetings-iframe-container[data-src] that doesn't already carry that key.
+ * Pages that stamp their own UTMs (e.g. the FACTS LPs' inline scripts, which
+ * run synchronously during parse) always win: existing keys are never
+ * overwritten. Visits with no UTMs are left completely untouched.
+ */
+(function() {
+  'use strict';
+  var geo = window.__hsGeoReady;
+  var dom = (document.readyState === 'loading')
+    ? new Promise(function(r) { document.addEventListener('DOMContentLoaded', r); })
+    : Promise.resolve();
+  window.__hsGeoReady = Promise.all([geo, dom]).then(function(res) {
+    try {
+      var q = new URLSearchParams(window.location.search);
+      var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+      var hasUtms = keys.some(function(k) { return q.get(k); });
+      if (hasUtms) {
+        document.querySelectorAll('.meetings-iframe-container[data-src]').forEach(function(el) {
+          var url = new URL(el.getAttribute('data-src'));
+          keys.forEach(function(k) {
+            var v = q.get(k);
+            if (v && !url.searchParams.get(k)) url.searchParams.set(k, v);
+          });
+          el.setAttribute('data-src', url.toString());
+        });
+      }
+    } catch (e) { /* never block the embed on a passthrough failure */ }
+    return res[0];
+  });
+})();
+</script>

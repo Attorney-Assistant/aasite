@@ -14,9 +14,18 @@ export interface Props {
   suppressMainPixel?: boolean;
   ogTitle?: string;
   ogDescription?: string;
+  /** Replace the full site header with a logo-only bar plus one on-page CTA (for sealed/unlinked offer pages). */
+  minimalHeader?: boolean;
+  headerCtaHref?: string;
+  headerCtaLabel?: string;
+  /** Drop the site footer (for sealed pages that render their own closing section). */
+  hideFooter?: boolean;
 }
 
-const { title, description, image, noindex = true, suppressMainPixel = false, ogTitle, ogDescription } = Astro.props;
+const {
+  title, description, image, noindex = true, suppressMainPixel = false, ogTitle, ogDescription,
+  minimalHeader = false, headerCtaHref = "#booking", headerCtaLabel = "Book a Call", hideFooter = false,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -87,11 +96,21 @@ const { title, description, image, noindex = true, suppressMainPixel = false, og
 
   </head>
   <body class="simple-campaign">
-    <Header />
+    <slot name="above-header" />
+    {minimalHeader ? (
+      <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/60">
+        <nav class="container-wide flex items-center justify-between h-16 lg:h-[72px]">
+          <img src="/brand/logos/long_color_logo.svg" alt="Attorney Assistant" class="h-9 lg:h-11 w-auto" />
+          <a href={headerCtaHref} class="btn-primary">{headerCtaLabel}</a>
+        </nav>
+      </header>
+    ) : (
+      <Header />
+    )}
     <main>
       <slot />
     </main>
-    <Footer />
+    {!hideFooter && <Footer />}
 
     <!-- Scroll-triggered reveal animations -->
     <script is:inline>

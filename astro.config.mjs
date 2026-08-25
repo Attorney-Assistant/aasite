@@ -14,7 +14,8 @@ export default defineConfig({
         !page.includes("/storybook") &&
         !page.includes("/apply/hidden-applications") &&
         !page.includes("/apply/receptionist") &&
-        !page.includes("/apply/legal-impact-assistant") &&
+        !page.includes("/apply/legal-staffline-assistant") &&
+        !page.includes("/lp/smb-limited-free-trial") &&
         !page.includes("/apply/medical-record-retrieval-specialist") &&
         !page.includes("/apply/legal-assistant") &&
         !page.includes("/apply/immigration-legal-assistant") &&
