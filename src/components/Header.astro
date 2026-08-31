@@ -227,16 +227,6 @@ function isActive(href: string | undefined) {
       ))}
 
       <a
-        href="/services/case-manager"
-        class:list={[
-          "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
-          isActive("/services/case-manager") ? "text-brand-navy" : "text-gray-500 hover:text-gray-900",
-        ]}
-      >
-        Case Manager
-      </a>
-
-      <a
         href="/blog"
         class:list={[
           "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
@@ -377,13 +367,6 @@ function isActive(href: string | undefined) {
           </div>
         </div>
       ))}
-
-      <a
-        href="/services/case-manager"
-        class:list={["block px-3 py-2.5 rounded-lg text-sm font-medium", isActive("/services/case-manager") ? "text-brand-navy bg-brand-25" : "text-gray-700 hover:bg-gray-50"]}
-      >
-        Case Manager
-      </a>
 
       <a
         href="/blog"
