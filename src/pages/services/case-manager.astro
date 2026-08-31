@@ -1,0 +1,209 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import FeatureCard from "@components/FeatureCard.astro";
+import CTABanner from "@components/CTABanner.astro";
+
+const deliverables = [
+  { title: "Client Communication & Updates", description: "Proactive check-in calls and status updates on a set cadence, so clients always know where their case stands — and stop calling the front desk to find out.", icon: "phone" },
+  { title: "Treatment Tracking", description: "Client treatment monitored from first appointment to discharge — gaps in care flagged early, missed appointments chased the same week.", icon: "calendar" },
+  { title: "Records & Bills Follow-Up", description: "Outstanding medical records and bills requested, tracked, and escalated until every provider delivers — nothing waits on a forgotten fax.", icon: "folder" },
+  { title: "Case File Management", description: "Your case management system kept current — documents filed, notes logged, tasks updated, every matter audit-ready at a glance.", icon: "document" },
+  { title: "Adjuster & Provider Coordination", description: "Scheduling, document requests, and routine follow-ups with adjusters, providers, and vendors — handled on your firm's direction.", icon: "mail" },
+  { title: "Task & Milestone Tracking", description: "Every file's next step tracked and flagged, so stalled cases surface in your reports instead of hiding in a drawer.", icon: "chart" },
+];
+
+const howItWorks = [
+  { step: "1", title: "System access", desc: "Your case manager works inside your case management system, trained on your firm's workflow and checklists." },
+  { step: "2", title: "Caseload handoff", desc: "Active files reviewed, statuses confirmed, and a follow-up cadence set for every matter." },
+  { step: "3", title: "Working rhythm", desc: "Client updates, treatment tracking, and records follow-up run on schedule, every week." },
+  { step: "4", title: "Attorney direction", desc: "Legal decisions stay with your attorneys — your case manager executes the administrative work that carries them out." },
+];
+
+const faqs = [
+  { q: "Are your case managers attorneys or paralegals?", a: "No — and that's by design. We are not a law firm and we never give legal advice or exercise legal judgment. Our case managers handle the administrative side of case management: client communication, treatment tracking, records follow-up, and file upkeep, all under your attorneys' direction. Every legal decision stays with your firm." },
+  { q: "What does a case manager actually take off my team's plate?", a: "The recurring, relentless work that eats a paralegal's day: calling clients with updates, chasing treatment status, following up on records requests, keeping the case management system current, and flagging files that have stalled. Your in-house team keeps the substantive legal work." },
+  { q: "Will they work in our case management system?", a: "Yes. Your case manager works directly in your system — Filevine, Litify, Clio, CASEpeak, SmartAdvocate, or whatever your firm runs — following your firm's conventions so the file looks the way your team expects." },
+  { q: "How is this different from your litigation support service?", a: "Litigation support is drafting work — pleadings, discovery, and demand packages prepared for attorney review. A case manager owns the day-to-day movement of the file: client contact, treatment, records, and status. Many firms pair the two." },
+  { q: "How do you handle confidentiality?", a: "Every case manager signs strict confidentiality agreements and works inside your systems under your firm's access controls. Conflict checks run on every new matter before work begins." },
+];
+---
+
+<BaseLayout
+  title="Case Manager — Client Updates, Treatment & File Tracking"
+  description="Dedicated virtual case managers for law firms — client communication, treatment tracking, records follow-up, and case file management, all under your attorneys' direction. We're not a law firm; your attorneys keep every legal decision."
+>
+
+  <Hero
+    badge="Case & Matter Support"
+    title="Case Managers Who Keep Every File Moving."
+    subtitle="Client updates, treatment tracking, records follow-up, and file upkeep — handled on a dedicated cadence. Your attorneys practice law. Your case manager keeps the file moving."
+    buttonText="Schedule Consultation"
+    buttonLink="/contact"
+    secondaryButtonText="See What We Handle"
+    secondaryButtonLink="#deliverables"
+    size="lg"
+  />
+
+  <!-- The Problem -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 reveal">
+          <span class="badge badge-brand">The Problem</span>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Files don't stall on the law. They stall on follow-up.</h2>
+          <div class="divider-gold mt-5 mb-6"></div>
+          <p class="text-lg text-gray-600 leading-relaxed mb-4">
+            Clients go weeks without an update and start calling — or start looking for another firm. Treatment gaps go unnoticed until they hurt the case value. Records requests sit unanswered because nobody had time to chase them.
+          </p>
+          <p class="text-base text-gray-500 leading-relaxed">
+            None of it is legal work. All of it decides how fast a case resolves — and how the client feels about your firm when it does.
+          </p>
+        </div>
+        <div class="lg:col-span-5 reveal" style="transition-delay: 100ms">
+          <div class="card p-6 md:p-7 bg-white">
+            <p class="text-xs font-bold uppercase tracking-wide text-brand-gold mb-3">Where firms get stuck</p>
+            <ul class="space-y-3 text-sm text-gray-700">
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Clients calling because nobody called them first</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Treatment gaps discovered months after they happened</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Records requests aging with no one following up</span></li>
+              <li class="flex items-start gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span><span>Case files nobody has touched in 60 days</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Handle -->
+  <section class="section-padding" id="deliverables">
+    <div class="container-wide">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <span class="badge badge-brand">What We Handle</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Every file touched, every client updated</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Administrative case management on a dedicated cadence — always under your attorneys' direction, never in place of it.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {deliverables.map((d, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
+            <FeatureCard title={d.title} description={d.description} icon={d.icon} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Which Product Delivers This -->
+  <section class="section-padding bg-gray-25 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-40"></div>
+    <div class="container-wide relative">
+      <div class="text-center mb-12 reveal max-w-2xl mx-auto">
+        <span class="badge badge-brand">Which Product Delivers This</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Case management is dedicated work — delivered by Staffline.</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <a href="/services/staffline" class="card card-hover p-7 md:p-8 bg-white border-brand-gold/40 ring-1 ring-brand-gold/30 group reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-gold">Best Fit</span>
+            <span class="text-xs font-semibold text-brand-gold uppercase tracking-wide">On-staff extension</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Staffline</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">
+            A dedicated case manager who works only your firm's files — trained on your system, your checklists, and your client-communication standards.
+          </p>
+          <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Explore Staffline <span aria-hidden="true">→</span></span>
+        </a>
+        <a href="/services/frontline" class="card card-hover p-7 md:p-8 bg-white opacity-90 group reveal" style="transition-delay: 100ms">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-brand">Different Fit</span>
+            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">On-demand coverage</span>
+          </div>
+          <h3 class="text-xl md:text-2xl font-heading text-gray-900 mb-3">Frontline</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-5">
+            Frontline covers intake and reception — the front of the funnel. Pair it with a Staffline case manager so signed cases keep moving after the handoff.
+          </p>
+          <span class="text-brand-600 font-semibold text-sm group-hover:text-brand-700 inline-flex items-center gap-1">Learn about Frontline <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand">How It Works</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">From system access to a steady weekly rhythm</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {howItWorks.map((s, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class={`w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-lg border-2 ${i === howItWorks.length - 1 ? 'bg-brand-gold border-brand-gold text-brand-navy' : 'bg-white border-brand-navy text-brand-navy'}`}>
+              {s.step}
+            </div>
+            <h3 class="text-sm font-heading text-gray-900 uppercase tracking-wide mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-500 leading-snug">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section-padding bg-gray-25">
+    <div class="container-wide">
+      <div class="text-center mb-10 reveal max-w-2xl mx-auto">
+        <span class="badge badge-brand">Outcomes</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">What changes for your firm</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {[
+          { title: "Clients stop chasing you", body: "Updates go out before clients have to ask. Fewer status calls, better reviews, and clients who stay through settlement." },
+          { title: "Cases resolve faster", body: "Treatment gaps get caught early and records arrive on time, so files reach demand-ready without dead months in between." },
+          { title: "Your team works higher-value files", body: "Paralegals and attorneys come off routine follow-up and spend their hours on the work that needs their expertise." },
+        ].map((item, i) => (
+          <div class="p-6 rounded-xl border border-gray-200 bg-white reveal" style={`transition-delay: ${i * 80}ms`}>
+            <p class="text-base font-heading text-gray-900 mb-2">{item.title}</p>
+            <p class="text-sm text-gray-500 leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding">
+    <div class="container-narrow">
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand">FAQ</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Common questions</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-3">
+        {faqs.map((f, i) => (
+          <details class="group rounded-xl border border-gray-200 bg-white p-5 md:p-6 reveal" style={`transition-delay: ${i * 50}ms`}>
+            <summary class="flex items-center justify-between cursor-pointer text-base font-heading text-gray-900 list-none">
+              <span>{f.q}</span>
+              <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+            <p class="text-sm text-gray-600 leading-relaxed mt-3">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    heading="Give Every File a Person Whose Job Is to Keep It Moving."
+    body="See how a dedicated case manager keeps clients updated and cases on track — without adding internal headcount."
+    buttonText="Schedule Consultation"
+    buttonLink="/contact"
+    variant="brand"
+  />
+
+</BaseLayout>
