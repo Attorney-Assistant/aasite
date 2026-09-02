@@ -1,0 +1,33 @@
+---
+/**
+ * Embedded HubSpot Meetings scheduler. One scheduler per page family:
+ *   free-trial family -> .../attorney-assistant/limited-trials
+ *   service family    -> .../attorney-assistant/late-2026
+ * The visitor's UTMs and click IDs are stamped onto data-src by Lt26Scripts
+ * before the meetings loader runs, so they reach the HubSpot meeting record.
+ * The post-booking redirect to the family's thank-you page is configured on
+ * the HubSpot side.
+ */
+interface Props {
+  src: string;
+  heading: string;
+  sub?: string;
+  finePrint?: string;
+}
+const { src, heading, sub, finePrint } = Astro.props;
+---
+
+<section class="py-14 md:py-20 bg-white scroll-mt-20" id="booking">
+  <div class="container-narrow">
+    <div class="text-center mb-8 reveal">
+      <p class="lt26-eyebrow lt26-eyebrow--light">Book your call</p>
+      <div class="lt26-divider lt26-divider--center"></div>
+      <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">{heading}</h2>
+      {sub && <p class="mt-4 text-base md:text-lg text-gray-500 max-w-xl mx-auto">{sub}</p>}
+    </div>
+    <div class="lt26-panel p-3 md:p-5 max-w-3xl mx-auto reveal">
+      <div class="meetings-iframe-container" data-src={src} style="min-height: 660px;"></div>
+    </div>
+    {finePrint && <p class="lt26-fineprint lt26-fineprint--light text-center mt-5">{finePrint}</p>}
+  </div>
+</section>

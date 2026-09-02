@@ -16,6 +16,12 @@ export default defineConfig({
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-staffline-assistant") &&
         !page.includes("/lp/smb-limited-free-trial") &&
+        !page.includes("/lp/free-trial-intake") &&
+        !page.includes("/lp/free-trial-staffing") &&
+        !page.includes("/lp/case-management") &&
+        !page.includes("/lp/records-retrieval") &&
+        !page.includes("/lp/back-office") &&
+        !page.includes("/thank-you-booking-late2026") &&
         !page.includes("/apply/medical-record-retrieval-specialist") &&
         !page.includes("/apply/legal-assistant") &&
         !page.includes("/apply/immigration-legal-assistant") &&

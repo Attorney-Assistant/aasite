@@ -1,0 +1,28 @@
+---
+// Shared "How It Works" block, verbatim copy per the late-2026 campaign spec.
+const steps = [
+  { title: "Find the leak", desc: "Audit intake, coverage gaps and follow-up first." },
+  { title: "Place the team", desc: "Selectively hired specialists, trained on your matters." },
+  { title: "Layer the AI", desc: "Instant answering and sequencing, humans escalate." },
+  { title: "Co-manage it", desc: "QA, reporting, weekly tuning. Never set-and-forget." },
+];
+---
+
+<section class="py-14 md:py-20 bg-white">
+  <div class="container-wide">
+    <div class="text-center mb-12 reveal">
+      <p class="lt26-eyebrow lt26-eyebrow--light">How it works</p>
+      <div class="lt26-divider lt26-divider--center"></div>
+      <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">From first call to a co-managed team</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      {steps.map((s, i) => (
+        <div class="text-center reveal" style={`transition-delay: ${i * 80}ms`}>
+          <div class={`lt26-step-num ${i === steps.length - 1 ? "lt26-step-num--last" : ""}`}>{i + 1}</div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">{s.title}</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

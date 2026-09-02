@@ -1,0 +1,243 @@
+---
+/**
+ * Late-2026 free-trial family, Meta traffic.
+ * Scheduler: limited-trials. Thank-you: /thank-you-booking-late2026-trial.
+ */
+import Lt26Layout from "@layouts/Lt26Layout.astro";
+import Lt26Picture from "@components/lt26/Lt26Picture.astro";
+import Lt26HowItWorks from "@components/lt26/Lt26HowItWorks.astro";
+import Lt26Proof from "@components/lt26/Lt26Proof.astro";
+import Lt26StillDo from "@components/lt26/Lt26StillDo.astro";
+import Lt26Faq from "@components/lt26/Lt26Faq.astro";
+import Lt26FinalCta from "@components/lt26/Lt26FinalCta.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/limited-trials?embed=true";
+const CTA_LABEL = "Claim your free 30 days";
+const FINE_PRINT = "New Attorney Assistant clients. Terms apply.";
+
+const villains = [
+  {
+    slug: "villain-paper-kraken",
+    name: "The Paper Kraken",
+    tag: "It wants your evenings. It is getting them.",
+    alt: "Comic strip of The Paper Kraken, a monster made of paperwork grabbing a lawyer's evening until an Attorney Assistant hero organizes intake, records, liens, and calendar drawers, with a first 30 days free starburst",
+  },
+  {
+    slug: "villain-hold-music-hydra",
+    name: "The Hold Music Hydra",
+    tag: "Cut off one department, two more pick up.",
+    alt: "Comic strip of The Hold Music Hydra, a many-headed phone monster holding 47 callers hostage across departments until a calm specialist checks every line off as done, with a first 30 days free starburst",
+  },
+  {
+    slug: "villain-revolving-door",
+    name: "The Revolving Door",
+    tag: "You are not hiring. You are re-hiring.",
+    alt: "Comic strip of The Revolving Door Beast flinging new hires back out on day 3, 6, 19, and 41 until a dedicated Attorney Assistant staff member boards it up, with a first 30 days free starburst",
+  },
+  {
+    slug: "villain-calendar-gremlins",
+    name: "The Calendar Gremlins",
+    tag: "They only move the deadlines that matter.",
+    alt: "Comic strip of The Calendar Gremlins moving deadlines and burying a statute of limitations under thousands of unread emails until a hero locks the calendar behind a shield of stacked reminders, with a first 30 days free starburst",
+  },
+  {
+    slug: "villain-duplicate-blob",
+    name: "The Duplicate Blob",
+    tag: "Your pipeline is not a pipeline. It is a crime scene.",
+    alt: "Comic strip of The Duplicate Blob, a slime of duplicate contact records hiding the pipeline's value until the CRM is cleaned, tagged, and worth $3,842,600, with a first 30 days free starburst",
+  },
+];
+
+const roleColumns = [
+  {
+    slug: "answer-phones-square",
+    alt: "Comic ad panel reading we answer your phones 24/7, with a caped receptionist taking live calls over a night skyline",
+    title: "Intake & client-facing",
+    kicker: "Never miss another lead",
+    items: [
+      "Reception, inbound and outbound, 24/7",
+      "Overnight intake, nights and weekends",
+      "Qualifying and closing: CFA, flat fee, retainer",
+      "15-touch follow-up across 45 days",
+    ],
+  },
+  {
+    slug: "medical-records-square",
+    alt: "Comic ad panel reading we retrieve medical records, with a records specialist holding a stack of files labeled hospital reports, imaging and labs, treatment notes, and billing records",
+    title: "Case & matter support",
+    kicker: "Keep cases moving",
+    items: [
+      "Opening case files and letters of rep",
+      "Medical record and bill retrieval and summaries",
+      "Bill balance and child support lien checks",
+      "Lien reduction requests and negotiation",
+    ],
+  },
+  {
+    slug: "sort-mail-square",
+    alt: "Comic ad panel reading we sort your mail, with an admin coordinator sorting envelopes into trays labeled to review, to file, and follow-up",
+    title: "Admin & back office",
+    kicker: "Free up the partners",
+    items: [
+      "Mail sorting, labeling and data mining",
+      "Task training and SOP build-out",
+      "Calendar and inbox management",
+      "CRM hygiene and pipeline updates",
+    ],
+  },
+];
+
+const faqItems = [
+  { q: "What roles can they cover?", a: "Case managers, records and bill retrieval, lien reduction, file opening, calendar and inbox, CRM hygiene, intake. Every practice area. Tell us what is eating your team's week and we staff to the answer." },
+  { q: "What does the free trial include?", a: "The person, the training behind them, and the co-management. Your first 30 days with a dedicated Attorney Assistant staff member are free. New clients. Terms apply." },
+  { q: "What happens after 30 days?", a: "Continue on standard pricing or walk away. We cover current pricing on the discovery call." },
+];
+---
+
+<Lt26Layout
+  title="A Dedicated Legal Staff Member, First 30 Days Free | Attorney Assistant"
+  description="One person. Your firm only. Never shared. Recruited, vetted, and trained by us, embedded in your systems. First 30 days free. New clients. Terms apply."
+  heroImage="calendar-inbox-hero"
+  slug="free-trial-staffing"
+  bookingSrc={BOOKING_SRC}
+  ctaLabel={CTA_LABEL}
+  bookingHeading="Claim your free 30 days"
+  bookingSub="Pick a time below. The call scopes the role, and your first 30 days with a dedicated staff member are free."
+  bookingFinePrint={FINE_PRINT}
+>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="lt26-hero">
+    <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+    <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+    <div class="container-wide relative z-10 py-14 md:py-20">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+        <div>
+          <p class="lt26-eyebrow">One person &middot; Your firm only &middot; Never shared</p>
+          <div class="lt26-divider"></div>
+          <h1 class="lt26-h1 mt-7">Stop doing $20 work at $400 rates.</h1>
+          <p class="lt26-body mt-6 text-base md:text-lg leading-relaxed max-w-xl">
+            The Clio 2025 Legal Trends Report found the average lawyer bills about 3 hours of an 8 hour day. A dedicated Attorney Assistant staff member takes the other 5: records, filing, follow-up, calendar, CRM. We recruit, vet, and train the person. You plug them into your team.
+          </p>
+          <div class="mt-8">
+            <span class="lt26-badge">First 30 days free</span>
+            <p class="mt-5 text-sm text-white/70 max-w-md">Your first 30 days with a dedicated Attorney Assistant staff member, free. A real trial, not a discount.</p>
+          </div>
+          <div class="mt-7">
+            <a href="#booking" class="lt26-btn" data-lt26-cta="hero">
+              {CTA_LABEL}
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+            <p class="lt26-fineprint mt-4">{FINE_PRINT}</p>
+          </div>
+        </div>
+        <div >
+          <Lt26Picture
+            slug="calendar-inbox-hero"
+            kind="hero"
+            eager={true}
+            alt="Comic panel of a caped legal assistant managing a law firm inbox and daily schedule, with callouts reading inbox organized and calendar managed"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROBLEM: THE FIVE STAFFING VILLAINS ═══════════════ -->
+  <section class="py-14 md:py-20" style="background: var(--lt26-cream);">
+    <div class="container-wide">
+      <div class="text-center mb-10 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The problem</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="lt26-display text-3xl md:text-5xl mt-6" style="color: var(--lt26-navy);">The five staffing villains</h2>
+        <p class="mt-4 text-base md:text-lg text-gray-600 max-w-xl mx-auto">You know every one of them by name. They know your firm's schedule.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {villains.map((v, i) => (
+          <div class={`lt26-villain reveal ${i === 3 ? "lg:col-start-1" : ""}`} style={`transition-delay: ${(i % 3) * 80}ms`}>
+            <Lt26Picture slug={v.slug} kind="square" alt={v.alt} />
+            <div class="p-5">
+              <p class="lt26-villain-name">{v.name}</p>
+              <p class="mt-2 text-sm text-gray-600 leading-relaxed">{v.tag}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SOLUTION: ANY ROLE, NOT JUST INTAKE ═══════════════ -->
+  <section class="py-14 md:py-20 bg-white scroll-mt-20" id="roles">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The solution</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">Any role, not just intake</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {roleColumns.map((col, i) => (
+          <div class="lt26-panel overflow-hidden reveal" style={`transition-delay: ${i * 80}ms`}>
+            <Lt26Picture slug={col.slug} kind="square" alt={col.alt} />
+            <div class="p-6">
+              <p class="lt26-eyebrow lt26-eyebrow--light text-[11px]">{col.kicker}</p>
+              <h3 class="text-lg font-bold text-gray-900 mt-2 mb-3">{col.title}</h3>
+              <ul class="space-y-2">
+                {col.items.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-gray-600 leading-relaxed">
+                    <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2" style="background: var(--lt26-orange);"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Co-managed, not handed off -->
+      <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-center max-w-5xl mx-auto mt-16">
+        <div class="reveal">
+          <Lt26Picture
+            slug="clean-crm-square"
+            kind="square"
+            alt="Comic ad panel reading we clean your CRM, with an admin operations specialist wiping a dashboard of client records until every row reads clean"
+            class="rounded-xl shadow-lg"
+          />
+        </div>
+        <div class="reveal" style="transition-delay: 100ms">
+          <h3 class="text-xl md:text-2xl font-bold text-gray-900">Co-managed, not handed off</h3>
+          <p class="mt-4 text-base text-gray-600 leading-relaxed">
+            We hire selectively, train on the fundamentals, QA the work, and help own performance. You direct the day to day. If a staff member underperforms, that is our problem to fix, not another hiring cycle for you. Measured on results, not hours logged.
+          </p>
+          <div class="lt26-panel lt26-panel--cream p-5 mt-6">
+            <p class="text-base text-gray-800 leading-relaxed">
+              <strong>"We're not organized enough yet"</strong> is the reason to start, not the reason to wait. Your staff member learns your firm as they work. You need the capacity to get organized in the first place.
+            </p>
+          </div>
+          <div class="mt-6">
+            <a href="#booking" class="lt26-btn" data-lt26-cta="mid">
+              {CTA_LABEL}
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+            <p class="lt26-fineprint lt26-fineprint--light mt-4">{FINE_PRINT}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Lt26HowItWorks />
+  <Lt26Proof />
+  <Lt26StillDo />
+  <Lt26Faq items={faqItems} />
+
+  <Lt26FinalCta
+    heading="One person. Your firm only. The first 30 days are on us."
+    body="Your first 30 days with a dedicated Attorney Assistant staff member, free. A real trial, not a discount."
+    ctaLabel={CTA_LABEL}
+    badge={true}
+    finePrint={FINE_PRINT}
+  />
+
+</Lt26Layout>

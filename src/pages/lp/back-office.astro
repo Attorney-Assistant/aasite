@@ -1,0 +1,173 @@
+---
+/**
+ * Late-2026 service family, LinkedIn and Google traffic.
+ * Scheduler: late-2026. Thank-you: /thank-you-booking-late2026.
+ * No free-trial or offer language anywhere on this page. Intake support here
+ * is support for the firm's intake process, never described as an answering
+ * service.
+ */
+import Lt26Layout from "@layouts/Lt26Layout.astro";
+import Lt26Picture from "@components/lt26/Lt26Picture.astro";
+import Lt26HowItWorks from "@components/lt26/Lt26HowItWorks.astro";
+import Lt26Proof from "@components/lt26/Lt26Proof.astro";
+import Lt26StillDo from "@components/lt26/Lt26StillDo.astro";
+import Lt26Faq from "@components/lt26/Lt26Faq.astro";
+import Lt26FinalCta from "@components/lt26/Lt26FinalCta.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/late-2026?embed=true";
+const CTA_LABEL = "Book a Discovery Call";
+
+const panels = [
+  {
+    slug: "calendar-inbox-square",
+    alt: "Comic ad panel reading we manage your calendar and inbox, with an assistant organizing a law firm inbox and a daily schedule of client calls, case review, and court filing",
+    title: "Case management",
+    kicker: "Stay organized, stay ahead",
+    body: "Files opened, deadlines calendared with stacked reminders, matters tracked to the next step, documents where your team expects them.",
+  },
+  {
+    slug: "medical-records-square",
+    alt: "Comic ad panel reading we retrieve medical records, with a records specialist holding a stack of files labeled hospital reports, imaging and labs, treatment notes, and billing records",
+    title: "Records retrieval",
+    kicker: "Fast access, complete results",
+    body: "Requests prepared and submitted, providers chased until records land, receipts logged, summaries written, balances checked.",
+  },
+  {
+    slug: "answer-phones-square",
+    alt: "Comic ad panel reading we answer your phones 24/7, with a caped receptionist taking live calls over a night skyline",
+    title: "Intake support",
+    kicker: "Captures everything, nothing missed",
+    body: "Support for your firm's intake process: leads logged, callers followed up, every inquiry captured in your CRM with nothing missed.",
+  },
+  {
+    slug: "clean-crm-square",
+    alt: "Comic ad panel reading we clean your CRM, with an admin operations specialist wiping a dashboard of client records until every row reads clean",
+    title: "All for your firm",
+    kicker: "We work for you, you win cases",
+    body: "Dedicated, never shared, co-managed, measured on results. One person embedded in your team, backed by our training and QA.",
+  },
+];
+
+const benefits = ["Law firm focused", "Firm data protected", "Save hours, win more", "Your practice, our support"];
+
+const faqItems = [
+  { q: "What roles can one person cover?", a: "Tell us what is eating your team's week and we staff to the answer: case management, records and bill retrieval, lien reduction, file opening, calendar and inbox, CRM hygiene, intake support. Every practice area." },
+];
+---
+
+<Lt26Layout
+  title="Your Firm's Back Office, Handled | Attorney Assistant"
+  description="Case management, records retrieval, intake support, calendar, and CRM hygiene. A dedicated staff member trained for legal support work, embedded in your team."
+  heroImage="clean-crm-hero"
+  slug="back-office"
+  bookingSrc={BOOKING_SRC}
+  ctaLabel={CTA_LABEL}
+  bookingHeading="Book a discovery call"
+  bookingSub="Pick a time below. We'll ask where the work is piling up and scope the roles that fit."
+>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="lt26-hero">
+    <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+    <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+    <div class="container-wide relative z-10 py-14 md:py-20">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+        <div>
+          <p class="lt26-eyebrow">Built for law firms, not consumers</p>
+          <div class="lt26-divider"></div>
+          <h1 class="lt26-h1 mt-7">Your firm's back office, handled.</h1>
+          <p class="lt26-body mt-6 text-base md:text-lg leading-relaxed max-w-xl">
+            A dedicated Attorney Assistant staff member takes the work your firm needs to grow but hates to manage: case management, records retrieval, intake support, calendar, and CRM hygiene. We recruit, vet, and train the person. You plug them into your team.
+          </p>
+          <p class="mt-4 text-sm text-white/45">For law firms and attorneys, not a service for individuals.</p>
+          <div class="mt-8">
+            <a href="#booking" class="lt26-btn" data-lt26-cta="hero">
+              {CTA_LABEL}
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+          </div>
+        </div>
+        <div >
+          <Lt26Picture
+            slug="clean-crm-hero"
+            kind="hero"
+            eager={true}
+            alt="Comic panel of an admin operations specialist in a gold cape polishing a CRM dashboard where every client record shows a green clean status"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROBLEM ═══════════════ -->
+  <section class="py-14 md:py-20" style="background: var(--lt26-cream);">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The problem</p>
+        <div class="lt26-divider"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">The back office nobody owns</h2>
+        <p class="mt-6 text-base md:text-lg text-gray-600 leading-relaxed">
+          Mail piles. Inboxes overflow. The CRM lies. Partners do $20 work at $400 rates because there is nobody else to hand it to.
+        </p>
+        <p class="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">
+          The Clio 2025 Legal Trends Report found the average lawyer bills about 3 of 8 hours. The other 5 are the back office.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SOLUTION: FOUR PANELS ═══════════════ -->
+  <section class="py-14 md:py-20 bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The solution</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">One person, four fronts</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {panels.map((p, i) => (
+          <div class="lt26-panel overflow-hidden reveal" style={`transition-delay: ${i * 70}ms`}>
+            <Lt26Picture slug={p.slug} kind="square" alt={p.alt} />
+            <div class="p-5">
+              <p class="lt26-eyebrow lt26-eyebrow--light text-[10px]">{p.kicker}</p>
+              <h3 class="text-base font-bold text-gray-900 mt-2 mb-2">{p.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">{p.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10 reveal">
+        <a href="#booking" class="lt26-btn" data-lt26-cta="mid">
+          {CTA_LABEL}
+          <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BENEFIT STRIP ═══════════════ -->
+  <section class="py-10 md:py-14 bg-white border-t border-b border-gray-100">
+    <div class="container-wide">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        {benefits.map((b, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 60}ms`}>
+            <p class="text-sm md:text-base font-bold" style="color: var(--lt26-blue-ink);">{b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Lt26HowItWorks />
+  <Lt26Proof />
+  <Lt26StillDo />
+  <Lt26Faq items={faqItems} />
+
+  <Lt26FinalCta
+    heading="Hand off the back office. Keep the casework."
+    body="A dedicated staff member trained for legal support work, embedded in your team."
+    ctaLabel={CTA_LABEL}
+  />
+
+</Lt26Layout>

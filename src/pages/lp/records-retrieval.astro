@@ -1,0 +1,182 @@
+---
+/**
+ * Late-2026 service family, LinkedIn and Google traffic.
+ * Scheduler: late-2026. Thank-you: /thank-you-booking-late2026.
+ * No free-trial or offer language anywhere on this page. FASTER is the only
+ * speed claim about our output; never promise turnaround in days.
+ */
+import Lt26Layout from "@layouts/Lt26Layout.astro";
+import Lt26Picture from "@components/lt26/Lt26Picture.astro";
+import Lt26HowItWorks from "@components/lt26/Lt26HowItWorks.astro";
+import Lt26Proof from "@components/lt26/Lt26Proof.astro";
+import Lt26StillDo from "@components/lt26/Lt26StillDo.astro";
+import Lt26Faq from "@components/lt26/Lt26Faq.astro";
+import Lt26FinalCta from "@components/lt26/Lt26FinalCta.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/late-2026?embed=true";
+const CTA_LABEL = "Book a Discovery Call";
+
+const steps = [
+  { title: "Request preparation and submission", desc: "Authorizations, forms, and provider details right the first time." },
+  { title: "Persistent follow-up", desc: "Providers and copy services chased until the records actually land." },
+  { title: "Receipt logging and completeness checks", desc: "Every page accounted for, gaps flagged and re-requested." },
+  { title: "Summaries and chronologies", desc: "Records turned into something your attorneys can use." },
+  { title: "Bill balance and lien checks", desc: "Balances verified and lien exposure surfaced early." },
+];
+
+const benefits = ["HIPAA-secure", "Faster case prep", "Complete and accurate", "More wins"];
+
+const faqItems = [
+  { q: "Do you work with our copy service or replace it?", a: "We work your process. If your firm uses a copy service or portal, your staff member drives it. If requests go direct to providers, they run the follow-up until the records land." },
+];
+---
+
+<Lt26Layout
+  title="Medical Records Retrieval For Law Firms | Attorney Assistant"
+  description="Imaging, treatment notes, billing, and provider records, retrieved, followed up, and summarized for PI and med-mal firms. HIPAA-secure handling, QA on the work."
+  heroImage="medical-records-hero"
+  slug="records-retrieval"
+  bookingSrc={BOOKING_SRC}
+  ctaLabel={CTA_LABEL}
+  bookingHeading="Book a discovery call"
+  bookingSub="Pick a time below. We'll ask where records are stalling your cases and scope the role that fixes it."
+>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="lt26-hero">
+    <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+    <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+    <div class="container-wide relative z-10 py-14 md:py-20">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+        <div>
+          <p class="lt26-eyebrow">For PI &amp; med-mal firms</p>
+          <div class="lt26-divider"></div>
+          <h1 class="lt26-h1 mt-7">We retrieve records for your firm.</h1>
+          <p class="lt26-body mt-6 text-base md:text-lg leading-relaxed max-w-xl">
+            Imaging, treatment notes, billing records, provider records. Retrieved, followed up, and summarized by trained staff, so your paralegals prep cases instead of chasing faxes.
+          </p>
+          <p class="mt-4 text-sm text-white/45">For law firms and attorneys, not a service for individuals.</p>
+          <div class="mt-8">
+            <a href="#booking" class="lt26-btn" data-lt26-cta="hero">
+              {CTA_LABEL}
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+          </div>
+        </div>
+        <div >
+          <Lt26Picture
+            slug="medical-records-hero"
+            kind="hero"
+            eager={true}
+            alt="Comic panel of a records specialist holding a stack of labeled medical records including hospital reports, imaging and labs, treatment notes, and billing records"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROBLEM: THE RECORDS BLACK HOLE ═══════════════ -->
+  <section class="py-14 md:py-20" style="background: var(--lt26-cream);">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The problem</p>
+        <div class="lt26-divider"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">The records black hole</h2>
+        <p class="mt-6 text-base md:text-lg text-gray-600 leading-relaxed">
+          Every request spawns three departments, hold music, and a re-request. Your paralegal keeps a tally sheet, months go by, and the case waits on a fax machine in a basement.
+        </p>
+        <p class="lt26-display text-2xl md:text-3xl mt-8" style="color: var(--lt26-orange-ink);">Faster records. Faster cases.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SOLUTION ═══════════════ -->
+  <section class="py-14 md:py-20 bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The solution</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">How the records role works</h2>
+      </div>
+      <div class="space-y-4 max-w-2xl mx-auto">
+        {steps.map((d, i) => (
+          <div class="lt26-panel p-5 reveal" style={`transition-delay: ${i * 60}ms`}>
+            <h3 class="text-base font-bold text-gray-900">{d.title}</h3>
+            <p class="mt-1 text-sm text-gray-600 leading-relaxed">{d.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="max-w-2xl mx-auto text-center mt-10 reveal">
+        <p class="text-base md:text-lg text-gray-600 leading-relaxed">
+          HIPAA-secure handling. QA on the work. Complete and accurate before it hits the case file.
+        </p>
+        <div class="mt-8">
+          <a href="#booking" class="lt26-btn" data-lt26-cta="mid">
+            {CTA_LABEL}
+            <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MID-PAGE BAND: LIEN CHECKS ═══════════════ -->
+  <section class="lt26-band py-12 md:py-16">
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+        <div class="reveal">
+          <Lt26Picture
+            slug="negotiate-liens-hero"
+            kind="hero"
+            alt="Comic panel of a lien negotiator on a headset call, with an inbox of lien notices and payment demands and a daily schedule that ends in lien resolved"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+        <div class="reveal" style="transition-delay: 100ms">
+          <p class="lt26-eyebrow">Records lead to liens</p>
+          <div class="lt26-divider"></div>
+          <h2 class="text-2xl md:text-4xl font-bold text-white mt-6">The same role runs your lien checks.</h2>
+          <p class="mt-5 text-base md:text-lg leading-relaxed" style="color: var(--lt26-hero-body);">
+            Bill balances verified, child support and provider liens surfaced early, reduction requests prepared and chased. The records that come in clean go out settled.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BENEFIT STRIP ═══════════════ -->
+  <section class="py-10 md:py-14 bg-white border-b border-gray-100">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-[0.4fr_1.6fr] gap-8 items-center max-w-5xl mx-auto">
+        <div class="reveal max-w-[240px] mx-auto lg:mx-0">
+          <Lt26Picture
+            slug="negotiate-liens-square"
+            kind="square"
+            alt="Comic ad panel reading we negotiate liens, with a lien negotiator working through a lien notice and a negotiation strategy binder"
+            class="rounded-xl shadow-lg"
+          />
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {benefits.map((b, i) => (
+            <div class="text-center reveal" style={`transition-delay: ${i * 60}ms`}>
+              <p class="text-sm md:text-base font-bold" style="color: var(--lt26-blue-ink);">{b}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Lt26HowItWorks />
+  <Lt26Proof />
+  <Lt26StillDo />
+  <Lt26Faq items={faqItems} />
+
+  <Lt26FinalCta
+    heading="Your paralegals prep cases. We chase the faxes."
+    body="Records retrieved, followed up, and summarized by a dedicated, trained staff member."
+    ctaLabel={CTA_LABEL}
+  />
+
+</Lt26Layout>

@@ -1,0 +1,169 @@
+---
+/**
+ * Fallback lead form, above the footer on every late-2026 landing page.
+ * Posts to the site's standard handler: the HubSpot Forms v3 submissions API
+ * with the same portal + form the homepage audit form uses. UTMs and click
+ * IDs ride in hidden fields (populated by Lt26Scripts from the URL or
+ * sessionStorage). Fires lp_lead_submit to the dataLayer and a Meta Lead
+ * (pixel + CAPI, deduped) on success.
+ */
+interface Props { pageSlug: string; }
+const { pageSlug } = Astro.props;
+
+const HS_PORTAL_ID = "49161090";
+const HS_FORM_ID = "8459e8a1-ab4f-4e5f-80ce-9767181c4791";
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid", "li_fat_id"];
+---
+
+<section class="py-14 md:py-20" style="background: #f9fafb;">
+  <div class="container-narrow">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-8 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">Prefer not to book right now?</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-6">Send us your details and we'll reach out</h2>
+      </div>
+
+      <form id="lt26-form" class="lt26-panel p-6 md:p-8 reveal" novalidate data-portal-id={HS_PORTAL_ID} data-form-id={HS_FORM_ID} data-page-slug={pageSlug}>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="lt26-firstname" class="block text-sm font-semibold text-gray-700 mb-1">First name</label>
+            <input id="lt26-firstname" name="firstname" type="text" required autocomplete="given-name" class="lt26-input" />
+          </div>
+          <div>
+            <label for="lt26-lastname" class="block text-sm font-semibold text-gray-700 mb-1">Last name</label>
+            <input id="lt26-lastname" name="lastname" type="text" required autocomplete="family-name" class="lt26-input" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="lt26-company" class="block text-sm font-semibold text-gray-700 mb-1">Firm</label>
+            <input id="lt26-company" name="company" type="text" required autocomplete="organization" class="lt26-input" />
+          </div>
+          <div>
+            <label for="lt26-email" class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
+            <input id="lt26-email" name="email" type="email" required autocomplete="email" class="lt26-input" />
+          </div>
+          <div>
+            <label for="lt26-phone" class="block text-sm font-semibold text-gray-700 mb-1">Phone</label>
+            <input id="lt26-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" class="lt26-input" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="lt26-firm-type" class="block text-sm font-semibold text-gray-700 mb-1">What type of firm are you?</label>
+            <select id="lt26-firm-type" name="firm_type" class="lt26-input">
+              <option value="PI or contingency">PI or contingency</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Attribution: populated from the URL or sessionStorage by Lt26Scripts -->
+        {UTM_KEYS.map((k) => <input type="hidden" name={k} class="lt26-utm-field" data-utm-key={k} value="" />)}
+
+        <!-- honeypot -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="lt26-hp" aria-hidden="true" />
+
+        <button type="submit" class="lt26-btn w-full justify-center mt-6">
+          Send my details
+          <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </button>
+        <p class="lt26-form-status text-sm mt-4 text-center" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lt26-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid #d0d5dd;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    color: #101828;
+    background: #fff;
+  }
+  .lt26-input:focus {
+    outline: 2px solid #489cdf;
+    outline-offset: 1px;
+    border-color: #489cdf;
+  }
+  .lt26-hp {
+    position: absolute;
+    left: -9999px;
+    height: 1px;
+    width: 1px;
+    opacity: 0;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    'use strict';
+    var form = document.getElementById('lt26-form');
+    if (!form) return;
+    var status = form.querySelector('.lt26-form-status');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (form.querySelector('.lt26-hp').value) return; // bot
+      var required = ['firstname', 'lastname', 'company', 'email', 'phone'];
+      for (var i = 0; i < required.length; i++) {
+        var el = form.elements[required[i]];
+        if (!el.value.trim()) { el.focus(); status.textContent = 'Please fill in every field.'; status.style.color = '#b42318'; return; }
+      }
+
+      var fields = [];
+      ['firstname', 'lastname', 'company', 'email', 'phone', 'firm_type'].forEach(function(n) {
+        fields.push({ name: n, value: String(form.elements[n].value) });
+      });
+      form.querySelectorAll('.lt26-utm-field').forEach(function(el) {
+        if (el.value) fields.push({ name: el.getAttribute('data-utm-key'), value: el.value });
+      });
+
+      function getCookie(name) {
+        var m = document.cookie.split(';').map(function(c) { return c.trim(); }).find(function(c) { return c.indexOf(name + '=') === 0; });
+        return m ? m.split('=')[1] : undefined;
+      }
+
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      status.textContent = 'Sending...';
+      status.style.color = '#475467';
+
+      fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + form.getAttribute('data-portal-id') + '/' + form.getAttribute('data-form-id'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: fields,
+          context: {
+            pageUri: window.location.href,
+            pageName: document.title,
+            hutk: getCookie('hubspotutk')
+          }
+        })
+      }).then(function(res) {
+        if (!res.ok) throw new Error('submit failed');
+        form.querySelectorAll('input:not([type=hidden]), select, button').forEach(function(el) { el.disabled = true; });
+        status.textContent = 'Got it. We’ll reach out shortly.';
+        status.style.color = '#067647';
+
+        var slug = form.getAttribute('data-page-slug');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'lp_lead_submit', lp_slug: slug });
+
+        var leadData = { content_name: 'Late 2026 LP fallback form', content_category: 'late2026_lp_lead' };
+        var userData = {
+          em: form.elements['email'].value,
+          ph: form.elements['phone'].value,
+          fn: form.elements['firstname'].value,
+          ln: form.elements['lastname'].value
+        };
+        if (window.__metaCAPI) window.__metaCAPI.track('Lead', leadData, userData);
+        else if (typeof fbq !== 'undefined') fbq('track', 'Lead', leadData);
+      }).catch(function() {
+        btn.disabled = false;
+        status.textContent = 'Something went wrong. Email info@attorneyassistant.com or call (215) 337-2677.';
+        status.style.color = '#b42318';
+      });
+    });
+  })();
+</script>

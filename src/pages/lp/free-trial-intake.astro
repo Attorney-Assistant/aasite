@@ -1,0 +1,239 @@
+---
+/**
+ * Late-2026 free-trial family, Meta traffic.
+ * Scheduler: limited-trials. Thank-you: /thank-you-booking-late2026-trial.
+ */
+import Lt26Layout from "@layouts/Lt26Layout.astro";
+import Lt26Picture from "@components/lt26/Lt26Picture.astro";
+import Lt26HowItWorks from "@components/lt26/Lt26HowItWorks.astro";
+import Lt26Proof from "@components/lt26/Lt26Proof.astro";
+import Lt26StillDo from "@components/lt26/Lt26StillDo.astro";
+import Lt26Faq from "@components/lt26/Lt26Faq.astro";
+import Lt26FinalCta from "@components/lt26/Lt26FinalCta.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/limited-trials?embed=true";
+const CTA_LABEL = "Claim your free 30 days";
+const FINE_PRINT = "New Attorney Assistant clients. Terms apply.";
+
+const villains = [
+  {
+    slug: "villain-voicemail-void",
+    name: "The Voicemail Void",
+    tag: "It eats every call after 5 PM.",
+    alt: "Comic strip of The Voicemail Void, a black hole swallowing after-hours calls at 8:47 PM on a Saturday until a live Attorney Assistant receptionist answers them, with a first 30 days free starburst",
+  },
+  {
+    slug: "villain-18-second-bandit",
+    name: "The 18-Second Bandit",
+    tag: "He signs your caller before you finish your coffee.",
+    alt: "Comic strip of The 18-Second Bandit, a masked rival sprinting away with a signed retainer while a lawyer's phone shows 12 missed calls, with a first 30 days free starburst",
+  },
+  {
+    slug: "villain-money-shredder",
+    name: "The Money Shredder",
+    tag: "More leads into a firm that cannot answer is just faster shredding.",
+    alt: "Comic strip of The Money Shredder, a machine shredding ad spend from unanswered calls until signed cases come out of a vault instead, with a first 30 days free starburst",
+  },
+];
+
+const leak = [
+  { num: "38%", label: "of PI calls land 5 PM to 9 AM and go to voicemail" },
+  { num: "20%", label: "of leads are mishandled when the line is busy" },
+  { num: "1 to 3", label: "follow-up attempts is standard where signing takes 10 to 15" },
+];
+
+const faqItems = [
+  { q: "Is this an answering service?", a: "No. Answering services take messages. Our intake team qualifies the caller and signs the case, with QA on every call. Taking a message is not intake." },
+  { q: "What does the free trial include?", a: "The person, the training behind them, and the co-management. Your first 30 days with a dedicated Attorney Assistant staff member are free. New clients. Terms apply." },
+  { q: "What happens after 30 days?", a: "Continue on standard pricing or walk away. We cover current pricing on the discovery call." },
+];
+---
+
+<Lt26Layout
+  title="24/7 Live Legal Intake, First 30 Days Free | Attorney Assistant"
+  description="Every call answered live, nights and weekends included. Trained to qualify and sign cases, not take messages. First 30 days with a dedicated staff member free."
+  heroImage="answer-phones-hero"
+  slug="free-trial-intake"
+  bookingSrc={BOOKING_SRC}
+  ctaLabel={CTA_LABEL}
+  bookingHeading="Claim your free 30 days"
+  bookingSub="Pick a time below. The call scopes your intake coverage, and your first 30 days with a dedicated staff member are free."
+  bookingFinePrint={FINE_PRINT}
+>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="lt26-hero">
+    <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+    <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+    <div class="container-wide relative z-10 py-14 md:py-20">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+        <div>
+          <p class="lt26-eyebrow">Live 24/7 &middot; English + Español &middot; QA on every call</p>
+          <div class="lt26-divider"></div>
+          <h1 class="lt26-h1 mt-7">It is 8:47 PM on a Saturday. Who is answering your phone?</h1>
+          <p class="lt26-body mt-6 text-base md:text-lg leading-relaxed max-w-xl">
+            The caller who hits voicemail does not call back. They call the firm down the street. Our live intake team answers 24/7, qualifies the caller, and signs the case. Taking a message is not intake.
+          </p>
+          <div class="mt-8">
+            <span class="lt26-badge">First 30 days free</span>
+            <p class="mt-5 text-sm text-white/70 max-w-md">Your first 30 days with a dedicated Attorney Assistant staff member, free. A real trial, not a discount.</p>
+          </div>
+          <div class="mt-7">
+            <a href="#booking" class="lt26-btn" data-lt26-cta="hero">
+              {CTA_LABEL}
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+            <p class="lt26-fineprint mt-4">{FINE_PRINT}</p>
+          </div>
+        </div>
+        <div >
+          <Lt26Picture
+            slug="answer-phones-hero"
+            kind="hero"
+            eager={true}
+            alt="Comic-style Attorney Assistant receptionist in a navy suit and gold cape answering calls over a night skyline, with callouts reading incoming call, call connected, and always answering 24/7"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROBLEM: THE THREE INTAKE VILLAINS ═══════════════ -->
+  <section class="py-14 md:py-20" style="background: var(--lt26-cream);">
+    <div class="container-wide">
+      <div class="text-center mb-10 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The problem</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="lt26-display text-3xl md:text-5xl mt-6" style="color: var(--lt26-navy);">The three intake villains</h2>
+        <p class="mt-4 text-base md:text-lg text-gray-600 max-w-xl mx-auto">Every firm fights them. Most firms lose to them after 5 PM.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {villains.map((v, i) => (
+          <div class="lt26-villain reveal" style={`transition-delay: ${i * 80}ms`}>
+            <Lt26Picture slug={v.slug} kind="square" alt={v.alt} />
+            <div class="p-5">
+              <p class="lt26-villain-name">{v.name}</p>
+              <p class="mt-2 text-sm text-gray-600 leading-relaxed">{v.tag}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- The million-dollar leak: internal Attorney Assistant figures only -->
+      <div class="max-w-4xl mx-auto mt-14">
+        <div class="text-center mb-8 reveal">
+          <h3 class="text-xl md:text-2xl font-bold text-gray-900">The million-dollar leak</h3>
+          <p class="text-sm text-gray-500 mt-2">Internal Attorney Assistant figures from client firms.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+          {leak.map((s, i) => (
+            <div class="lt26-panel p-6 text-center reveal" style={`transition-delay: ${i * 70}ms`}>
+              <p class="lt26-stat-num">{s.num}</p>
+              <p class="mt-3 text-sm text-gray-600 leading-snug">{s.label}</p>
+            </div>
+          ))}
+        </div>
+        <p class="lt26-display text-2xl md:text-3xl text-center mt-12 reveal" style="color: var(--lt26-orange-ink);">
+          18 seconds later, that caller signed with the firm down the street.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SOLUTION: WHAT FRONTLINE ACTUALLY IS ═══════════════ -->
+  <section class="py-14 md:py-20 bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The solution</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">What Frontline actually is</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 gap-4 reveal">
+          <Lt26Picture
+            slug="answer-phones-square"
+            kind="square"
+            alt="Comic ad panel reading we answer your phones 24/7, with a caped receptionist taking live calls over a night skyline"
+            class="rounded-xl shadow-lg"
+          />
+          <Lt26Picture
+            slug="overnight-intake-square"
+            kind="square"
+            alt="Comic ad panel reading we run your overnight intake, with a specialist answering a 2:07 AM call so the firm can sleep"
+            class="rounded-xl shadow-lg mt-8"
+          />
+        </div>
+        <div class="space-y-6">
+          <div class="lt26-panel p-6 reveal">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Every call answered live, 24/7</h3>
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed">No voicemail, no callback queue. Nights and weekends included.</p>
+          </div>
+          <div class="lt26-panel p-6 reveal" style="transition-delay: 80ms">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Speed and persistence, enforced</h3>
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed">A structured follow-up cadence instead of one call and silence. MIT research found that contacting a lead within five minutes makes you about 100 times more likely to reach them than waiting half an hour.</p>
+          </div>
+          <div class="lt26-panel p-6 reveal" style="transition-delay: 160ms">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Trained to close, not just answer</h3>
+            <p class="text-sm md:text-base text-gray-600 leading-relaxed">Qualifying and signing on CFA, flat fee, and retainer. English and Español. QA on every call.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto text-center mt-12">
+        <p class="text-base md:text-lg text-gray-600 leading-relaxed reveal">
+          The trial places a dedicated staff member in your firm. Intake coverage is scoped on the discovery call, and PI and contingency firms usually run both together.
+        </p>
+        <p class="lt26-display text-2xl md:text-3xl mt-8 reveal" style="color: var(--lt26-blue-ink);">
+          Frontline signs the case, Staffline carries it.
+        </p>
+        <div class="mt-8 reveal">
+          <a href="#booking" class="lt26-btn" data-lt26-cta="mid">
+            {CTA_LABEL}
+            <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+          <p class="lt26-fineprint lt26-fineprint--light mt-4">{FINE_PRINT}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MID-PAGE BAND ═══════════════ -->
+  <section class="lt26-band py-12 md:py-16">
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+        <div class="reveal">
+          <Lt26Picture
+            slug="overnight-intake-hero"
+            kind="hero"
+            alt="Comic panel of an overnight intake specialist smiling on a headset call at 2:00 AM with a dark city skyline behind him, saying we're awake so your firm can sleep"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+        <div class="reveal" style="transition-delay: 100ms">
+          <p class="lt26-eyebrow">Nights and weekends included</p>
+          <div class="lt26-divider"></div>
+          <h2 class="text-2xl md:text-4xl font-bold text-white mt-6">The 2 AM caller is often the best case of the week.</h2>
+          <p class="mt-5 text-base md:text-lg leading-relaxed" style="color: var(--lt26-hero-body);">
+            Accidents do not keep office hours. When the call comes in at 2 AM, someone on our team answers it live, qualifies it, and starts the signing process before the firm down the street wakes up.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Lt26HowItWorks />
+  <Lt26Proof />
+  <Lt26StillDo />
+  <Lt26Faq items={faqItems} />
+
+  <Lt26FinalCta
+    heading="Stop feeding the villains. Start signing the callers."
+    body="Your first 30 days with a dedicated Attorney Assistant staff member, free. A real trial, not a discount."
+    ctaLabel={CTA_LABEL}
+    badge={true}
+    finePrint={FINE_PRINT}
+  />
+
+</Lt26Layout>

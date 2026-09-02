@@ -1,0 +1,183 @@
+---
+/**
+ * Late-2026 service family, LinkedIn and Google traffic.
+ * Scheduler: late-2026. Thank-you: /thank-you-booking-late2026.
+ * No free-trial or offer language anywhere on this page.
+ */
+import Lt26Layout from "@layouts/Lt26Layout.astro";
+import Lt26Picture from "@components/lt26/Lt26Picture.astro";
+import Lt26HowItWorks from "@components/lt26/Lt26HowItWorks.astro";
+import Lt26Proof from "@components/lt26/Lt26Proof.astro";
+import Lt26StillDo from "@components/lt26/Lt26StillDo.astro";
+import Lt26Faq from "@components/lt26/Lt26Faq.astro";
+import Lt26FinalCta from "@components/lt26/Lt26FinalCta.astro";
+
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/late-2026?embed=true";
+const CTA_LABEL = "Book a Discovery Call";
+
+const duties = [
+  { title: "File opening and letters of rep", desc: "New matters opened, coded, and moving the day they sign." },
+  { title: "Deadline and calendar management", desc: "Stacked reminders on every date that matters, so nothing lives in one person's head." },
+  { title: "Matter status tracking and follow-up", desc: "Every file has a next step, and someone whose job is to chase it." },
+  { title: "Document organization", desc: "Files where your team expects them, named the way your firm names things." },
+  { title: "CRM and pipeline hygiene", desc: "Statuses current, duplicates gone, reports you can actually trust." },
+];
+
+const benefits = ["Deadlines tracked", "Files organized", "Free your paralegals", "More cases, less chaos"];
+
+const faqItems = [
+  { q: "Is this just intake?", a: "No. Case management is the core of this role: files, deadlines, follow-up, and matter support. Intake coverage is a separate service and the discovery call scopes whether you need both." },
+];
+---
+
+<Lt26Layout
+  title="Case Management Support For Law Firms | Attorney Assistant"
+  description="Deadlines tracked, files organized, paralegals freed for real casework. A dedicated, trained staff member manages your firm's caseload inside your systems."
+  heroImage="pleadings-hero"
+  slug="case-management"
+  bookingSrc={BOOKING_SRC}
+  ctaLabel={CTA_LABEL}
+  bookingHeading="Book a discovery call"
+  bookingSub="Pick a time below. We'll ask where the caseload is piling up and scope the role that fixes it."
+>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="lt26-hero">
+    <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+    <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+    <div class="container-wide relative z-10 py-14 md:py-20">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+        <div>
+          <p class="lt26-eyebrow">For law firms</p>
+          <div class="lt26-divider"></div>
+          <h1 class="lt26-h1 mt-7">We manage your firm's caseload.</h1>
+          <p class="lt26-body mt-6 text-base md:text-lg leading-relaxed max-w-xl">
+            Deadlines tracked. Files organized. Paralegals freed for the work that needs them. A dedicated Attorney Assistant staff member keeps every matter moving inside the systems you already run.
+          </p>
+          <p class="mt-4 text-sm text-white/45">For law firms and attorneys, not a service for individuals.</p>
+          <div class="mt-8">
+            <a href="#booking" class="lt26-btn" data-lt26-cta="hero">
+              {CTA_LABEL}
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+          </div>
+        </div>
+        <div >
+          <Lt26Picture
+            slug="pleadings-hero"
+            kind="hero"
+            eager={true}
+            alt="Comic panel of a legal support specialist drafting at a laptop while a demand letter, complaint, answer, and settlement demand flow from the screen over a night skyline"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PROBLEM: THE CASELOAD WALL ═══════════════ -->
+  <section class="py-14 md:py-20" style="background: var(--lt26-cream);">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The problem</p>
+        <div class="lt26-divider"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">The caseload wall</h2>
+        <p class="mt-6 text-base md:text-lg text-gray-600 leading-relaxed">
+          Matters stall between stages. Deadlines live in one person's head. Files scatter across inboxes, and your best paralegal spends the week on status checks instead of casework.
+        </p>
+        <p class="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">
+          The Clio 2025 Legal Trends Report found the average lawyer bills about 3 of 8 hours. The rest goes to the wall.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SOLUTION ═══════════════ -->
+  <section class="py-14 md:py-20 bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <p class="lt26-eyebrow lt26-eyebrow--light">The solution</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">What your caseload manager does</h2>
+      </div>
+      <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-center max-w-6xl mx-auto">
+        <div class="reveal">
+          <Lt26Picture
+            slug="calendar-inbox-square"
+            kind="square"
+            alt="Comic ad panel reading we manage your calendar and inbox, with an assistant organizing a law firm inbox and a daily schedule of client calls, case review, and court filing"
+            class="rounded-xl shadow-lg"
+          />
+        </div>
+        <div class="space-y-4">
+          {duties.map((d, i) => (
+            <div class="lt26-panel p-5 reveal" style={`transition-delay: ${i * 60}ms`}>
+              <h3 class="text-base font-bold text-gray-900">{d.title}</h3>
+              <p class="mt-1 text-sm text-gray-600 leading-relaxed">{d.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="max-w-3xl mx-auto text-center mt-12 reveal">
+        <p class="text-base md:text-lg text-gray-600 leading-relaxed">
+          Works in Clio, Filevine, Attorney Fuel Dashboard, or whatever your firm runs. Co-managed: we recruit, vet, train, and QA. You direct the day to day.
+        </p>
+        <div class="mt-8">
+          <a href="#booking" class="lt26-btn" data-lt26-cta="mid">
+            {CTA_LABEL}
+            <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MID-PAGE BAND ═══════════════ -->
+  <section class="lt26-band py-12 md:py-16">
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+        <div class="reveal">
+          <Lt26Picture
+            slug="sort-mail-hero"
+            kind="hero"
+            alt="Comic panel of an admin coordinator sorting law firm mail into trays labeled to review, to file, and follow-up, with callouts reading documents organized and follow-ups on track"
+            class="rounded-xl shadow-2xl"
+          />
+        </div>
+        <div class="reveal" style="transition-delay: 100ms">
+          <p class="lt26-eyebrow">Beyond the case file</p>
+          <div class="lt26-divider"></div>
+          <h2 class="text-2xl md:text-4xl font-bold text-white mt-6">The paper keeps coming. Someone owns it now.</h2>
+          <p class="mt-5 text-base md:text-lg leading-relaxed" style="color: var(--lt26-hero-body);">
+            Mail sorted and labeled, documents filed to the right matter, follow-ups logged and chased. The administrative tide that used to eat your paralegal's afternoons gets a dedicated owner.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BENEFIT STRIP ═══════════════ -->
+  <section class="py-10 md:py-14 bg-white border-b border-gray-100">
+    <div class="container-wide">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        {benefits.map((b, i) => (
+          <div class="text-center reveal" style={`transition-delay: ${i * 60}ms`}>
+            <p class="text-sm md:text-base font-bold" style="color: var(--lt26-blue-ink);">{b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Lt26HowItWorks />
+  <Lt26Proof />
+  <Lt26StillDo />
+  <Lt26Faq items={faqItems} />
+
+  <Lt26FinalCta
+    heading="Give every matter a person who keeps it moving."
+    body="A dedicated, trained staff member managing your firm's caseload inside your systems."
+    ctaLabel={CTA_LABEL}
+  />
+
+</Lt26Layout>

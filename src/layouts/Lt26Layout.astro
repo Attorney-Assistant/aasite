@@ -1,0 +1,67 @@
+---
+/**
+ * Shared shell for the five late-2026 landing pages.
+ * Wraps SimpleCampaignLayout (minimal logo-only header, standard footer,
+ * noindex by default, GTM + HubSpot + Meta pixel + CAPI all inherited) and
+ * appends the blocks every page shares below the page content:
+ * booking scheduler, fallback form, sticky mobile CTA, page scripts.
+ */
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import Lt26Booking from "@components/lt26/Lt26Booking.astro";
+import Lt26Form from "@components/lt26/Lt26Form.astro";
+import Lt26StickyCta from "@components/lt26/Lt26StickyCta.astro";
+import Lt26Scripts from "@components/lt26/Lt26Scripts.astro";
+import manifest from "../data/lt26-images.json";
+import "@/styles/lt26.css";
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  bookingSrc: string;
+  ctaLabel: string;
+  bookingHeading: string;
+  bookingSub?: string;
+  bookingFinePrint?: string;
+  /** lt26 image slug of the hero art, preloaded for LCP. */
+  heroImage?: string;
+}
+
+const { title, description, slug, bookingSrc, ctaLabel, bookingHeading, bookingSub, bookingFinePrint, heroImage } = Astro.props;
+const heroEntry = heroImage ? (manifest as Record<string, any>)[heroImage] : null;
+---
+
+<SimpleCampaignLayout
+  title={title}
+  description={description}
+  minimalHeader={true}
+  headerCtaHref="#booking"
+  headerCtaLabel={ctaLabel}
+  footerBookCallHref="#booking"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" /></noscript>
+    {heroEntry && (
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        imagesrcset={`${heroEntry.variants["800"].file} ${heroEntry.variants["800"].w}w, ${heroEntry.variants["1600"].file} ${heroEntry.variants["1600"].w}w`}
+        imagesizes="(max-width: 768px) 100vw, 50vw"
+      />
+    )}
+  </Fragment>
+
+  <div class="lt26">
+    <slot />
+
+    <Lt26Booking src={bookingSrc} heading={bookingHeading} sub={bookingSub} finePrint={bookingFinePrint} />
+    <Lt26Form pageSlug={slug} />
+    <Lt26StickyCta label={ctaLabel} />
+  </div>
+
+  <Lt26Scripts slug={slug} />
+</SimpleCampaignLayout>

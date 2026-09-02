@@ -1,0 +1,279 @@
+/*
+ * Late 2026 campaign family: five /lp/ pages + two booking thank-you pages.
+ * 2026 rebrand tokens per campaign spec. Scoped under .lt26 so nothing leaks
+ * into the rest of the site.
+ */
+
+.lt26 {
+  --lt26-navy: #15385f;
+  --lt26-navy-deep: #0d243d;
+  --lt26-orange: #f59f26;
+  --lt26-blue: #489cdf;
+  --lt26-cream: #fef6e8;
+  --lt26-orange-ink: #a8630a;
+  --lt26-blue-ink: #1f6ea8;
+  --lt26-hero-body: #9db8cf;
+  --lt26-hero-eyebrow: #7bb8e8;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #344054;
+}
+
+.lt26 h1, .lt26 h2, .lt26 h3, .lt26 h4 {
+  font-family: 'Sora', system-ui, sans-serif;
+}
+
+/* ── Eyebrows: IBM Plex Mono, uppercase ── */
+.lt26-eyebrow {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+.lt26-hero .lt26-eyebrow { color: var(--lt26-hero-eyebrow); }
+.lt26-eyebrow--light { color: var(--lt26-blue-ink); }
+
+/* ── Orange divider: 48x2 under eyebrows ── */
+.lt26-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--lt26-orange);
+  margin-top: 0.875rem;
+}
+.lt26-divider--center { margin-left: auto; margin-right: auto; }
+
+/* ── Dark hero recipe ── */
+.lt26-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--lt26-navy) 0%, var(--lt26-navy-deep) 100%);
+  color: #fff;
+}
+.lt26-hero::before {
+  /* subtle halftone dot texture */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1.5px);
+  background-size: 14px 14px;
+  pointer-events: none;
+}
+.lt26-orb {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.lt26-orb--blue {
+  top: -16%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(72, 156, 223, 0.14) 0%, transparent 65%);
+  animation: lt26-drift 14s ease-in-out infinite alternate;
+}
+.lt26-orb--orange {
+  bottom: -20%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(245, 159, 38, 0.13) 0%, transparent 65%);
+  animation: lt26-drift 17s ease-in-out infinite alternate-reverse;
+}
+@keyframes lt26-drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-36px, 28px); }
+}
+.lt26-hero h1 { color: #fff; }
+.lt26-hero .lt26-body { color: var(--lt26-hero-body); }
+
+.lt26-h1 {
+  font-size: clamp(2.1rem, 5.4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ── CTA button: orange fill, navy text, arrow ── */
+.lt26-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--lt26-orange);
+  color: var(--lt26-navy);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 1rem 1.75rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 8px 24px -8px rgba(245, 159, 38, 0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.lt26-btn:hover {
+  background: #ffab33;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -8px rgba(245, 159, 38, 0.6);
+}
+.lt26-btn .lt26-arrow { transition: transform 0.15s ease; }
+.lt26-btn:hover .lt26-arrow { transform: translateX(3px); }
+
+/* ── Comic offer badge: starburst, Bangers, rotated ── */
+.lt26-badge {
+  display: inline-block;
+  position: relative;
+  transform: rotate(-10deg);
+  background: var(--lt26-orange);
+  color: var(--lt26-navy);
+  font-family: 'Bangers', 'Sora', cursive;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.4rem;
+  clip-path: polygon(
+    2% 42%, 8% 32%, 3% 20%, 15% 20%, 17% 6%, 28% 14%, 36% 2%, 43% 13%,
+    54% 3%, 59% 15%, 71% 7%, 73% 20%, 86% 16%, 84% 30%, 97% 32%, 90% 43%,
+    99% 53%, 89% 60%, 96% 72%, 84% 73%, 85% 87%, 73% 82%, 68% 95%, 58% 86%,
+    49% 98%, 42% 86%, 31% 95%, 28% 82%, 15% 88%, 17% 74%, 4% 74%, 10% 62%, 1% 53%
+  );
+}
+.lt26-fineprint {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+.lt26-fineprint--light { color: #667085; }
+
+/* ── Ink rules for colored text on white ── */
+.lt26-orange-ink { color: var(--lt26-orange-ink); }
+.lt26-blue-ink { color: var(--lt26-blue-ink); }
+
+/* ── Comic display lines (Bangers, sparingly) ── */
+.lt26-display {
+  font-family: 'Bangers', 'Sora', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+}
+
+/* ── Panels and cards ── */
+.lt26-panel {
+  background: #fff;
+  border: 1px solid #eaecf0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px -6px rgba(13, 36, 61, 0.08);
+}
+.lt26-panel--cream { background: var(--lt26-cream); border-color: rgba(245, 159, 38, 0.25); }
+
+/* Villain cards: comic art plus caption */
+.lt26-villain {
+  overflow: hidden;
+  border: 2px solid var(--lt26-navy);
+  border-radius: 0.875rem;
+  background: #fff;
+  box-shadow: 5px 5px 0 rgba(21, 56, 95, 0.85);
+}
+.lt26-villain img { display: block; width: 100%; height: auto; }
+.lt26-villain-name {
+  font-family: 'Bangers', 'Sora', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1.25rem;
+  color: var(--lt26-navy);
+}
+
+/* ── Proof stats ── */
+.lt26-stat-num {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+  line-height: 1;
+  color: var(--lt26-navy);
+}
+
+/* ── Mid-page dark band ── */
+.lt26-band {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--lt26-navy) 0%, var(--lt26-navy-deep) 100%);
+  color: #fff;
+}
+.lt26-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px);
+  background-size: 14px 14px;
+  pointer-events: none;
+}
+
+/* ── FAQ ── */
+.lt26-faq {
+  border: 1px solid #eaecf0;
+  border-radius: 0.875rem;
+  background: #fff;
+  padding: 1.25rem 1.5rem;
+}
+.lt26-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 600;
+  color: #101828;
+  font-size: 1rem;
+}
+.lt26-faq summary::-webkit-details-marker { display: none; }
+.lt26-faq summary svg { flex-shrink: 0; transition: transform 0.2s ease; color: #98a2b3; }
+.lt26-faq[open] summary svg { transform: rotate(180deg); }
+.lt26-faq p { margin-top: 0.75rem; font-size: 0.9375rem; line-height: 1.65; color: #475467; }
+
+/* ── Sticky mobile CTA bar ── */
+.lt26-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  padding: 0.625rem 1rem calc(0.625rem + env(safe-area-inset-bottom));
+  background: rgba(13, 36, 61, 0.96);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.lt26-sticky .lt26-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.875rem 1.25rem;
+}
+@media (min-width: 1024px) {
+  .lt26-sticky { display: none; }
+}
+/* room so the sticky bar never covers the footer contact block on mobile */
+@media (max-width: 1023px) {
+  .lt26 { padding-bottom: 64px; }
+}
+
+/* ── Numbered steps (How It Works) ── */
+.lt26-step-num {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: 2px solid var(--lt26-navy);
+  color: var(--lt26-navy);
+  background: #fff;
+  margin: 0 auto 1rem;
+}
+.lt26-step-num--last {
+  background: var(--lt26-orange);
+  border-color: var(--lt26-orange);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lt26-orb--blue, .lt26-orb--orange { animation: none; }
+  .lt26-btn, .lt26-btn .lt26-arrow, .lt26-faq summary svg { transition: none; }
+}

@@ -1,0 +1,46 @@
+---
+/**
+ * Responsive <picture> for the late-2026 LP asset set.
+ * Reads dimensions from src/data/lt26-images.json (written by
+ * scripts/lt26-images.mjs) so every image ships explicit width/height.
+ */
+import manifest from "../../data/lt26-images.json";
+
+interface Props {
+  slug: string;
+  alt: string;
+  kind: "hero" | "square";
+  eager?: boolean;
+  class?: string;
+  sizes?: string;
+}
+
+const { slug, alt, kind, eager = false, class: className, sizes } = Astro.props;
+const entry = (manifest as Record<string, any>)[slug];
+if (!entry) throw new Error(`lt26 image manifest has no entry for "${slug}"`);
+
+const primaryKey = kind === "hero" ? "1600" : "800";
+const smallKey = kind === "hero" ? "800" : "400";
+const primary = entry.variants[primaryKey];
+const small = entry.variants[smallKey];
+const jpg = entry.variants.jpg;
+const defaultSizes = kind === "hero" ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 640px) 100vw, 33vw";
+---
+
+<picture>
+  <source
+    type="image/webp"
+    srcset={`${small.file} ${small.w}w, ${primary.file} ${primary.w}w`}
+    sizes={sizes || defaultSizes}
+  />
+  <img
+    src={jpg.file}
+    alt={alt}
+    width={primary.w}
+    height={primary.h}
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : "auto"}
+    decoding="async"
+    class={className}
+  />
+</picture>

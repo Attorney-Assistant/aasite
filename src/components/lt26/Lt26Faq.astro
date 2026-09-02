@@ -1,0 +1,40 @@
+---
+/**
+ * FAQ block. Pass page-specific and offer items first, shared items are
+ * appended automatically. lp_faq_open pushes are wired in Lt26Scripts via a
+ * document-level toggle listener on .lt26-faq.
+ */
+interface Item { q: string; a: string; }
+interface Props { items?: Item[]; }
+
+const shared: Item[] = [
+  { q: "Is the person shared with other firms?", a: "No. One person, your firm only, 40 hours a week, never shared." },
+  { q: "What systems do they work in?", a: "Yours. Clio, Filevine, Attorney Fuel Dashboard, or whatever CRM you already run." },
+  { q: "Do I still have to onboard them?", a: "Yes, like any new hire. See \"What you still do\" above. What you skip is the recruiting cycle and the turnover risk." },
+  { q: "Who is Attorney Assistant?", a: "A staffing solutions and virtual assistant company for law firms, led by Ethen Ostroff, Esq. Built inside a working law firm signing hundreds of cases a month before it was offered to other firms. English and Español. QA on the work." },
+];
+
+const { items = [] } = Astro.props;
+const all = [...items, ...shared];
+---
+
+<section class="py-14 md:py-20" style="background: #f9fafb;">
+  <div class="container-narrow">
+    <div class="text-center mb-10 reveal">
+      <p class="lt26-eyebrow lt26-eyebrow--light">FAQ</p>
+      <div class="lt26-divider lt26-divider--center"></div>
+      <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mt-6">Common questions</h2>
+    </div>
+    <div class="max-w-2xl mx-auto space-y-3">
+      {all.map((f, i) => (
+        <details class="lt26-faq reveal" style={`transition-delay: ${i * 40}ms`} data-faq={f.q}>
+          <summary>
+            <span>{f.q}</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,142 @@
+---
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import "@/styles/lt26.css";
+
+/**
+ * Late 2026 campaign, free-trial family booking confirmation.
+ * Set as the redirect on the HubSpot `limited-trials` meeting type (configured
+ * on the HubSpot side). Receives Meta traffic from /lp/free-trial-intake and
+ * /lp/free-trial-staffing.
+ *
+ * Conversion stack: Meta Schedule + Lead + StartTrial (pixel + CAPI, deduped
+ * via shared eventID), GTM call_booked / booking_confirmed, HubSpot page view.
+ * StartTrial fires here and ONLY here: it is what separates a trial booking
+ * from a plain discovery booking in Ads Manager.
+ * All conversion events are guarded so a refresh never fires them twice.
+ */
+
+const steps = [
+  "We'll scope the role. Intake, case management, records, admin, whatever is actually eating your week.",
+  "We source, vet, and train the person against that scope.",
+  "They start. The first 30 days are free.",
+];
+---
+
+<SimpleCampaignLayout
+  title="You're Booked | Attorney Assistant"
+  description="Your call is confirmed and your free 30 days starts on the call. Check your email for the calendar invite."
+  minimalHeader={true}
+  headerCtaHref="/"
+  headerCtaLabel="attorneyassistant.com"
+  footerBookCallHref={null}
+>
+
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" /></noscript>
+  </Fragment>
+
+  <div class="lt26">
+
+    <!-- Confirmation hero -->
+    <section class="lt26-hero">
+      <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+      <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+      <div class="container-narrow relative z-10 py-20 md:py-28 text-center">
+        <p class="lt26-eyebrow">Booking confirmed</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h1 class="lt26-h1 mt-8 max-w-3xl mx-auto">You're booked. Your free 30 days starts on the call.</h1>
+        <p class="lt26-body mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+          Check your email for the calendar invite. If it's not there in a few minutes, check spam and then email <a href="mailto:info@attorneyassistant.com" class="text-white underline decoration-white/30 underline-offset-4">info@attorneyassistant.com</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- What happens next -->
+    <section class="py-14 md:py-20 bg-white">
+      <div class="container-narrow">
+        <div class="max-w-2xl mx-auto">
+          <p class="lt26-eyebrow lt26-eyebrow--light text-center">What happens next</p>
+          <div class="lt26-divider lt26-divider--center"></div>
+          <ol class="mt-10 space-y-5">
+            {steps.map((step, i) => (
+              <li class="lt26-panel flex items-start gap-4 p-5">
+                <span class={`lt26-step-num ${i === steps.length - 1 ? "lt26-step-num--last" : ""} !m-0 flex-shrink-0 !w-10 !h-10 text-base`}>{i + 1}</span>
+                <p class="text-base text-gray-700 leading-relaxed pt-1.5">{step}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div class="lt26-panel lt26-panel--cream p-6 mt-10">
+            <p class="text-base text-gray-800 leading-relaxed">
+              You'll get a trained person, and you'll still train them on how your firm does things. Plan on real time in the first 30 to 60 days. That is what makes it stick.
+            </p>
+          </div>
+
+          <p class="lt26-fineprint lt26-fineprint--light text-center mt-8">New Attorney Assistant clients. Terms apply.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Conversion tracking: fires once per browser session, never on refresh -->
+  <script is:inline>
+    (function() {
+      'use strict';
+      var PATH = '/thank-you-booking-late2026-trial';
+      var NAME = 'Late 2026 Trial Booking';
+      var CATEGORY = 'late2026_trial_booking';
+      var GUARD = 'aa_conv_late2026_trial';
+
+      // HubSpot page view (page analytics, not a conversion; fires every load)
+      var _hsq = window._hsq = window._hsq || [];
+      _hsq.push(['setPath', PATH]);
+      _hsq.push(['trackPageView']);
+
+      // Refresh guard: conversions below fire once per session
+      var fired = false;
+      try { fired = sessionStorage.getItem(GUARD) === '1'; } catch (e) {}
+      if (fired) return;
+      try { sessionStorage.setItem(GUARD, '1'); } catch (e) {}
+
+      // UTMs persisted by the landing page, carried into the conversion events
+      var utms = {};
+      try { utms = JSON.parse(sessionStorage.getItem('aa_lt26_params') || '{}'); } catch (e) {}
+
+      var data = { content_name: NAME, content_category: CATEGORY };
+
+      // Meta: pixel + Conversions API with shared event IDs so nothing double-counts
+      if (window.__metaCAPI) {
+        window.__metaCAPI.track('Schedule', data, {});
+        window.__metaCAPI.track('Lead', data, {});
+        window.__metaCAPI.track('StartTrial', data, {});
+        window.__metaCAPI.trackCustom('invitee_meeting_scheduled', data, {});
+      } else if (typeof fbq !== 'undefined') {
+        fbq('track', 'Schedule', data);
+        fbq('track', 'Lead', data);
+        fbq('track', 'StartTrial', data);
+        fbq('trackCustom', 'invitee_meeting_scheduled', data);
+      }
+
+      // GTM / GA4: same booked-call events the existing thank-you pages use
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({
+        event: 'call_booked',
+        conversion_type: 'schedule',
+        source: 'late2026-trial',
+        campaign: 'late2026',
+        lp_family: 'free-trial'
+      }, utms));
+      window.dataLayer.push(Object.assign({
+        event: 'booking_confirmed',
+        conversion_type: 'schedule',
+        source: 'late2026-trial',
+        campaign: 'late2026'
+      }, utms));
+    })();
+  </script>
+
+</SimpleCampaignLayout>

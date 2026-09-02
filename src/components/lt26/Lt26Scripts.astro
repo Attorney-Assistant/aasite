@@ -1,0 +1,101 @@
+---
+/**
+ * Per-page scripts for the late-2026 landing pages. Include ONCE per page,
+ * after the booking section.
+ *
+ * 1. Attribution: reads utm_source/medium/campaign/term/content plus
+ *    gclid/fbclid/li_fat_id from the URL, persists them to sessionStorage
+ *    (aa_lt26_params) so they survive to the thank-you page, restores them on
+ *    UTM-less loads, stamps them onto the embedded scheduler's data-src so
+ *    they reach the HubSpot meeting record, and fills the fallback form's
+ *    hidden fields. Runs synchronously during parse, before the GeoGate
+ *    passthrough and the meetings loader.
+ * 2. dataLayer events: lp_view on load, lp_cta_click (position: hero, mid,
+ *    sticky, final) via delegation on [data-lt26-cta], lp_faq_open on first
+ *    expansion of each .lt26-faq.
+ * 3. Geo-gated HubSpot meetings loader (same pattern as the rest of the site).
+ */
+interface Props { slug: string; }
+const { slug } = Astro.props;
+---
+
+<script is:inline define:vars={{ slug }}>
+  (function() {
+    'use strict';
+    var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'li_fat_id'];
+    var STORE = 'aa_lt26_params';
+
+    // ── 1. Capture and persist attribution ──
+    var params = {};
+    try { params = JSON.parse(sessionStorage.getItem(STORE) || '{}'); } catch (e) {}
+    try {
+      var q = new URLSearchParams(window.location.search);
+      KEYS.forEach(function(k) {
+        var v = q.get(k);
+        if (v) params[k] = v;
+      });
+      sessionStorage.setItem(STORE, JSON.stringify(params));
+    } catch (e) {}
+
+    // Stamp onto every meetings embed so the values reach the meeting record.
+    // Runs during parse, so these keys are already set before the site-wide
+    // GeoGate passthrough (which never overwrites existing keys) and before
+    // the meetings loader reads data-src.
+    document.querySelectorAll('.meetings-iframe-container[data-src]').forEach(function(el) {
+      try {
+        var url = new URL(el.getAttribute('data-src'));
+        KEYS.forEach(function(k) {
+          if (params[k] && !url.searchParams.get(k)) url.searchParams.set(k, params[k]);
+        });
+        el.setAttribute('data-src', url.toString());
+      } catch (e) {}
+    });
+
+    // Fill the fallback form's hidden attribution fields
+    document.querySelectorAll('.lt26-utm-field').forEach(function(el) {
+      var k = el.getAttribute('data-utm-key');
+      if (params[k]) el.value = params[k];
+    });
+
+    // ── 2. dataLayer events ──
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: 'lp_view', lp_slug: slug }, params));
+
+    document.addEventListener('click', function(e) {
+      var cta = e.target.closest('[data-lt26-cta]');
+      if (!cta) return;
+      window.dataLayer.push({
+        event: 'lp_cta_click',
+        lp_slug: slug,
+        position: cta.getAttribute('data-lt26-cta')
+      });
+    });
+
+    document.addEventListener('toggle', function(e) {
+      var el = e.target;
+      if (!el.classList || !el.classList.contains('lt26-faq') || !el.open) return;
+      if (el.getAttribute('data-faq-opened')) return;
+      el.setAttribute('data-faq-opened', '1');
+      window.dataLayer.push({
+        event: 'lp_faq_open',
+        lp_slug: slug,
+        faq_question: el.getAttribute('data-faq') || ''
+      });
+    }, true);
+  })();
+</script>
+
+<!-- HubSpot Meetings embed loader (geo-gated, site-wide pattern) -->
+<script is:inline>
+  window.__hsGeoReady.then(function(allowed) {
+    if (allowed) {
+      var s = document.createElement('script');
+      s.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+      document.head.appendChild(s);
+    } else {
+      document.querySelectorAll('.meetings-iframe-container').forEach(function(el) {
+        el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This scheduler is not available from your location.</p></div>';
+      });
+    }
+  });
+</script>

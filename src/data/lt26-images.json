@@ -1,0 +1,577 @@
+{
+  "answer-phones-hero": {
+    "source": "1 Comic Service Hero Ads/answer phones/page-asset answer phones.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/answer-phones-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 90,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/answer-phones-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 198,
+        "q": 44
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/answer-phones-hero.jpg",
+        "kb": 199
+      }
+    }
+  },
+  "answer-phones-square": {
+    "source": "1 Comic Service Hero Ads/answer phones/1.1 square 1200x1200 answer phones.jpeg",
+    "sourceW": 1200,
+    "sourceH": 1200,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/answer-phones-square-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 39,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/answer-phones-square.webp",
+        "w": 720,
+        "h": 720,
+        "kb": 80,
+        "q": 42
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/answer-phones-square.jpg",
+        "kb": 79
+      }
+    }
+  },
+  "overnight-intake-hero": {
+    "source": "1 Comic Service Hero Ads/overnight intake/page-asset Overnight intake.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/overnight-intake-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 57,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/overnight-intake-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 165,
+        "q": 74
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/overnight-intake-hero.jpg",
+        "kb": 139
+      }
+    }
+  },
+  "overnight-intake-square": {
+    "source": "1 Comic Service Hero Ads/overnight intake/ad 2 1.1 square 1200×1200 Overnight intake.jpeg",
+    "sourceW": 1200,
+    "sourceH": 1200,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/overnight-intake-square-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 37,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/overnight-intake-square.webp",
+        "w": 720,
+        "h": 720,
+        "kb": 77,
+        "q": 42
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/overnight-intake-square.jpg",
+        "kb": 75
+      }
+    }
+  },
+  "calendar-inbox-hero": {
+    "source": "1 Comic Service Hero Ads/calendar inbox/page-asset calendar inbox.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/calendar-inbox-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 46,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/calendar-inbox-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 103,
+        "q": 74
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/calendar-inbox-hero.jpg",
+        "kb": 98
+      }
+    }
+  },
+  "sort-mail-square": {
+    "source": "1 Comic Service Hero Ads/we sort your mail/1-1.png",
+    "sourceW": 1200,
+    "sourceH": 1200,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/sort-mail-square-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 32,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/sort-mail-square.webp",
+        "w": 800,
+        "h": 800,
+        "kb": 79,
+        "q": 54
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/sort-mail-square.jpg",
+        "kb": 75
+      }
+    }
+  },
+  "medical-records-square": {
+    "source": "1 Comic Service Hero Ads/medical records/1.1 medical records.jpeg",
+    "sourceW": 1200,
+    "sourceH": 1200,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/medical-records-square-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 37,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/medical-records-square.webp",
+        "w": 720,
+        "h": 720,
+        "kb": 77,
+        "q": 42
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/medical-records-square.jpg",
+        "kb": 74
+      }
+    }
+  },
+  "clean-crm-square": {
+    "source": "1 Comic Service Hero Ads/clean your crm/1-1 clean your crm.png",
+    "sourceW": 1200,
+    "sourceH": 1200,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/clean-crm-square-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 33,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/clean-crm-square.webp",
+        "w": 800,
+        "h": 800,
+        "kb": 78,
+        "q": 48
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/clean-crm-square.jpg",
+        "kb": 78
+      }
+    }
+  },
+  "pleadings-hero": {
+    "source": "1 Comic Service Hero Ads/pleadings/page-asset pleadings.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/pleadings-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 60,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/pleadings-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 166,
+        "q": 74
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/pleadings-hero.jpg",
+        "kb": 152
+      }
+    }
+  },
+  "calendar-inbox-square": {
+    "source": "1 Comic Service Hero Ads/calendar inbox/1-1 calendar inbox.png",
+    "sourceW": 1200,
+    "sourceH": 1200,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/calendar-inbox-square-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 37,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/calendar-inbox-square.webp",
+        "w": 720,
+        "h": 720,
+        "kb": 76,
+        "q": 48
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/calendar-inbox-square.jpg",
+        "kb": 79
+      }
+    }
+  },
+  "sort-mail-hero": {
+    "source": "1 Comic Service Hero Ads/we sort your mail/page-asset.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/sort-mail-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 51,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/sort-mail-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 125,
+        "q": 74
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/sort-mail-hero.jpg",
+        "kb": 118
+      }
+    }
+  },
+  "medical-records-hero": {
+    "source": "1 Comic Service Hero Ads/medical records/page-asset medical records.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/medical-records-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 68,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/medical-records-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 192,
+        "q": 74
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/medical-records-hero.jpg",
+        "kb": 173
+      }
+    }
+  },
+  "negotiate-liens-hero": {
+    "source": "1 Comic Service Hero Ads/negotiate liens/page-asset negotiate liens.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/negotiate-liens-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 50,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/negotiate-liens-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 116,
+        "q": 74
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/negotiate-liens-hero.jpg",
+        "kb": 115
+      }
+    }
+  },
+  "negotiate-liens-square": {
+    "source": "1 Comic Service Hero Ads/negotiate liens/1-1 negotiate liens.png",
+    "sourceW": 1200,
+    "sourceH": 1200,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/negotiate-liens-square-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 33,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/negotiate-liens-square.webp",
+        "w": 800,
+        "h": 800,
+        "kb": 79,
+        "q": 48
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/negotiate-liens-square.jpg",
+        "kb": 80
+      }
+    }
+  },
+  "clean-crm-hero": {
+    "source": "1 Comic Service Hero Ads/clean your crm/page-asset clean your crm.png",
+    "sourceW": 1920,
+    "sourceH": 1080,
+    "variants": {
+      "800": {
+        "file": "/images/lp/late2026/clean-crm-hero-800.webp",
+        "w": 800,
+        "h": 450,
+        "kb": 56,
+        "q": 74
+      },
+      "1600": {
+        "file": "/images/lp/late2026/clean-crm-hero.webp",
+        "w": 1600,
+        "h": 900,
+        "kb": 137,
+        "q": 74
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/clean-crm-hero.jpg",
+        "kb": 135
+      }
+    }
+  },
+  "villain-voicemail-void": {
+    "source": "Free Trial/Concept 1/Comic_THE-VOICE-MAILVOID_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-voicemail-void-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 36,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-voicemail-void.webp",
+        "w": 720,
+        "h": 720,
+        "kb": 79,
+        "q": 48
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-voicemail-void.jpg",
+        "kb": 80
+      }
+    }
+  },
+  "villain-18-second-bandit": {
+    "source": "Free Trial/Concept 2/Comic_THE-18-SECOND-BANDIT_1-1_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-18-second-bandit-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 39,
+        "q": 60
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-18-second-bandit.webp",
+        "w": 640,
+        "h": 640,
+        "kb": 76,
+        "q": 48
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-18-second-bandit.jpg",
+        "kb": 79
+      }
+    }
+  },
+  "villain-money-shredder": {
+    "source": "Free Trial/Concept 3/Comic_THE-MONEY-SHREDDER_1-1_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-money-shredder-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 38,
+        "q": 48
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-money-shredder.webp",
+        "w": 640,
+        "h": 640,
+        "kb": 79,
+        "q": 42
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-money-shredder.jpg",
+        "kb": 78
+      }
+    }
+  },
+  "villain-paper-kraken": {
+    "source": "Free Trial/Concept 4/Comic_THE-PAPER-KRAKEN_1-1_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-paper-kraken-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 40,
+        "q": 60
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-paper-kraken.webp",
+        "w": 640,
+        "h": 640,
+        "kb": 80,
+        "q": 48
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-paper-kraken.jpg",
+        "kb": 74
+      }
+    }
+  },
+  "villain-hold-music-hydra": {
+    "source": "Free Trial/Concept 6/Comic_THE-HOLD-MUSIC-HYDRA_1-1_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-hold-music-hydra-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 38,
+        "q": 54
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-hold-music-hydra.webp",
+        "w": 640,
+        "h": 640,
+        "kb": 77,
+        "q": 42
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-hold-music-hydra.jpg",
+        "kb": 76
+      }
+    }
+  },
+  "villain-revolving-door": {
+    "source": "Free Trial/Concept 7/Comic_THE-REVOLVING-DOOR_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-revolving-door-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 40,
+        "q": 66
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-revolving-door.webp",
+        "w": 640,
+        "h": 640,
+        "kb": 79,
+        "q": 54
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-revolving-door.jpg",
+        "kb": 78
+      }
+    }
+  },
+  "villain-calendar-gremlins": {
+    "source": "Free Trial/Concept 8/Comic_THE-CALENDAR-GREMLINS_1-1_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-calendar-gremlins-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 38,
+        "q": 54
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-calendar-gremlins.webp",
+        "w": 640,
+        "h": 640,
+        "kb": 79,
+        "q": 48
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-calendar-gremlins.jpg",
+        "kb": 77
+      }
+    }
+  },
+  "villain-duplicate-blob": {
+    "source": "Free Trial/Concept 9/Comic_THE DUPLICATE BLOB_1-1_1440x1440_OfferA.jpg",
+    "sourceW": 1440,
+    "sourceH": 1440,
+    "variants": {
+      "400": {
+        "file": "/images/lp/late2026/villain-duplicate-blob-400.webp",
+        "w": 400,
+        "h": 400,
+        "kb": 39,
+        "q": 60
+      },
+      "800": {
+        "file": "/images/lp/late2026/villain-duplicate-blob.webp",
+        "w": 640,
+        "h": 640,
+        "kb": 79,
+        "q": 54
+      },
+      "jpg": {
+        "file": "/images/lp/late2026/villain-duplicate-blob.jpg",
+        "kb": 78
+      }
+    }
+  }
+}

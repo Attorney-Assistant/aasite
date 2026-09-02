@@ -1,4 +1,12 @@
 ---
+interface Props {
+  /** Override the footer's Book a Call CTA target (e.g. "#booking" on landing
+   *  pages with an embedded scheduler). Pass null to hide the CTA entirely
+   *  (booking thank-you pages, which must carry no CTA). */
+  bookCallHref?: string | null;
+}
+const { bookCallHref = "/book-call" } = Astro.props;
+
 const currentYear = new Date().getFullYear();
 
 const footerSections = [
@@ -61,10 +69,10 @@ const footerSections = [
       <!-- Brand column -->
       <div class="col-span-2">
         <a href="/" class="inline-block mb-6">
-          <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" class="h-9 w-auto" />
+          <img src="/brand/logos/long_white_logo.svg" alt="Attorney Assistant" width="885" height="176" class="h-9 w-auto" />
         </a>
         <p class="text-gray-400 text-sm leading-relaxed max-w-xs mb-6">
-          We handle the work law firms need to grow but hate to manage — intake, follow-up, admin, and operations.
+          We handle the work law firms need to grow but hate to manage: intake, follow-up, admin, and operations.
         </p>
         <div class="space-y-2 mb-6">
           <a href="tel:+12153372677" class="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
@@ -78,12 +86,14 @@ const footerSections = [
         </div>
         <div class="divider-gold mb-8"></div>
         <div class="flex flex-wrap gap-3">
-          <a href="/book-call" class="btn-primary text-sm group">
-            Book a Call
-            <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-            </svg>
-          </a>
+          {bookCallHref && (
+            <a href={bookCallHref} class="btn-primary text-sm group">
+              Book a Call
+              <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          )}
           <a href="https://turnkeyops.my.site.com/aaclientportal/s/" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm group">
             Client Portal
             <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
