@@ -49,3 +49,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
+          # Hostinger's FTP control socket intermittently stalls on the scheduled
+          # rebuilds (timeouts on 2026-09-01 and 09-02); default is 30s
+          timeout: 120000
