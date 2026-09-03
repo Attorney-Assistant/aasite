@@ -20,19 +20,19 @@ const villains = [
     slug: "villain-voicemail-void",
     name: "The Voicemail Void",
     tag: "It eats every call after 5 PM.",
-    alt: "Comic strip of The Voicemail Void, a black hole swallowing after-hours calls at 8:47 PM on a Saturday until a live Attorney Assistant receptionist answers them, with a first 30 days free starburst",
+    alt: "Comic strip of The Voicemail Void, a black hole swallowing after-hours calls at 8:47 PM on a Saturday, captioned it eats every call after 5 PM",
   },
   {
     slug: "villain-18-second-bandit",
     name: "The 18-Second Bandit",
     tag: "He signs your caller before you finish your coffee.",
-    alt: "Comic strip of The 18-Second Bandit, a masked rival sprinting away with a signed retainer while a lawyer's phone shows 12 missed calls, with a first 30 days free starburst",
+    alt: "Comic strip of The 18-Second Bandit, a masked rival sprinting off with a signed retainer while a lawyer's phone shows 12 missed calls",
   },
   {
     slug: "villain-money-shredder",
     name: "The Money Shredder",
     tag: "More leads into a firm that cannot answer is just faster shredding.",
-    alt: "Comic strip of The Money Shredder, a machine shredding ad spend from unanswered calls until signed cases come out of a vault instead, with a first 30 days free starburst",
+    alt: "Comic strip of The Money Shredder, a machine shredding ad spend from Google, Meta, and billboards while the office phone rings unanswered",
   },
 ];
 
@@ -63,10 +63,13 @@ const faqItems = [
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="lt26-hero">
+    <div class="lt26-hero-bg" aria-hidden="true">
+      <Lt26Picture slug="answer-phones-hero" kind="hero" eager={true} alt="" sizes="100vw" />
+    </div>
     <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
     <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
-    <div class="container-wide relative z-10 py-14 md:py-20">
-      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+    <div class="container-wide relative z-10 py-16 md:py-24">
+      <div class="max-w-2xl">
         <div>
           <p class="lt26-eyebrow">Live 24/7 &middot; English + Español &middot; QA on every call</p>
           <div class="lt26-divider"></div>
@@ -85,15 +88,6 @@ const faqItems = [
             </a>
             <p class="lt26-fineprint mt-4">{FINE_PRINT}</p>
           </div>
-        </div>
-        <div >
-          <Lt26Picture
-            slug="answer-phones-hero"
-            kind="hero"
-            eager={true}
-            alt="Comic-style Attorney Assistant receptionist in a navy suit and gold cape answering calls over a night skyline, with callouts reading incoming call, call connected, and always answering 24/7"
-            class="rounded-xl shadow-2xl"
-          />
         </div>
       </div>
     </div>

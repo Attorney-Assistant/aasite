@@ -25,14 +25,14 @@ const files = [
   { src: join(HERO, 'negotiate liens/page-asset negotiate liens.png'), slug: 'negotiate-liens-hero', kind: 'hero' },
   { src: join(HERO, 'negotiate liens/1-1 negotiate liens.png'), slug: 'negotiate-liens-square', kind: 'square' },
   { src: join(HERO, 'clean your crm/page-asset clean your crm.png'), slug: 'clean-crm-hero', kind: 'hero' },
-  { src: join(FT, 'Concept 1/Comic_THE-VOICE-MAILVOID_1440x1440_OfferA.jpg'), slug: 'villain-voicemail-void', kind: 'square', villain: true },
-  { src: join(FT, 'Concept 2/Comic_THE-18-SECOND-BANDIT_1-1_1440x1440_OfferA.jpg'), slug: 'villain-18-second-bandit', kind: 'square', villain: true },
-  { src: join(FT, 'Concept 3/Comic_THE-MONEY-SHREDDER_1-1_1440x1440_OfferA.jpg'), slug: 'villain-money-shredder', kind: 'square', villain: true },
-  { src: join(FT, 'Concept 4/Comic_THE-PAPER-KRAKEN_1-1_1440x1440_OfferA.jpg'), slug: 'villain-paper-kraken', kind: 'square', villain: true },
-  { src: join(FT, 'Concept 6/Comic_THE-HOLD-MUSIC-HYDRA_1-1_1440x1440_OfferA.jpg'), slug: 'villain-hold-music-hydra', kind: 'square', villain: true },
-  { src: join(FT, 'Concept 7/Comic_THE-REVOLVING-DOOR_1440x1440_OfferA.jpg'), slug: 'villain-revolving-door', kind: 'square', villain: true },
-  { src: join(FT, 'Concept 8/Comic_THE-CALENDAR-GREMLINS_1-1_1440x1440_OfferA.jpg'), slug: 'villain-calendar-gremlins', kind: 'square', villain: true },
-  { src: join(FT, 'Concept 9/Comic_THE DUPLICATE BLOB_1-1_1440x1440_OfferA.jpg'), slug: 'villain-duplicate-blob', kind: 'square', villain: true },
+  { src: join(FT, 'Concept 1/Comic_THE-VOICE-MAILVOID_1440x1440_OfferA.jpg'), slug: 'villain-voicemail-void', kind: 'square', villain: true, cropTop: 572 },
+  { src: join(FT, 'Concept 2/Comic_THE-18-SECOND-BANDIT_1-1_1440x1440_OfferA.jpg'), slug: 'villain-18-second-bandit', kind: 'square', villain: true, cropTop: 634 },
+  { src: join(FT, 'Concept 3/Comic_THE-MONEY-SHREDDER_1-1_1440x1440_OfferA.jpg'), slug: 'villain-money-shredder', kind: 'square', villain: true, cropTop: 620 },
+  { src: join(FT, 'Concept 4/Comic_THE-PAPER-KRAKEN_1-1_1440x1440_OfferA.jpg'), slug: 'villain-paper-kraken', kind: 'square', villain: true, cropTop: 636 },
+  { src: join(FT, 'Concept 6/Comic_THE-HOLD-MUSIC-HYDRA_1-1_1440x1440_OfferA.jpg'), slug: 'villain-hold-music-hydra', kind: 'square', villain: true, cropTop: 690 },
+  { src: join(FT, 'Concept 7/Comic_THE-REVOLVING-DOOR_1440x1440_OfferA.jpg'), slug: 'villain-revolving-door', kind: 'square', villain: true, cropTop: 630 },
+  { src: join(FT, 'Concept 8/Comic_THE-CALENDAR-GREMLINS_1-1_1440x1440_OfferA.jpg'), slug: 'villain-calendar-gremlins', kind: 'square', villain: true, cropTop: 672 },
+  { src: join(FT, 'Concept 9/Comic_THE DUPLICATE BLOB_1-1_1440x1440_OfferA.jpg'), slug: 'villain-duplicate-blob', kind: 'square', villain: true, cropTop: 678 },
 ];
 
 const BUDGET = { hero: 200 * 1024, square: 80 * 1024 };
@@ -44,6 +44,13 @@ async function encodeUnderBudget(pipelineFactory, dest, budget, startQ) {
     if (statSync(dest).size <= budget) return { q, size: statSync(dest).size };
   }
   return { q: 'floor', size: statSync(dest).size };
+}
+
+
+// Villain cards ship only the top comic strip: crop before resizing.
+function srcPipe(f) {
+  const p = sharp(f.src);
+  return f.cropTop ? p.extract({ left: 0, top: 0, width: 1440, height: f.cropTop }) : p;
 }
 
 const manifest = {};
@@ -64,7 +71,7 @@ for (const f of files) {
     outer: for (const tryW of widthLadder) {
       const width = Math.min(tryW, meta.width);
       for (let q = f.kind === 'hero' ? 74 : 66; q >= 42; q -= 6) {
-        await sharp(f.src).resize({ width }).webp({ quality: q, effort: 5 }).toFile(dest);
+        await srcPipe(f).resize({ width }).webp({ quality: q, effort: 5 }).toFile(dest);
         const size = statSync(dest).size;
         if (size <= budget) { r = { q, size }; usedWidth = tryW; break outer; }
       }
@@ -78,7 +85,7 @@ for (const f of files) {
   const jpgLadder = f.kind === 'square' ? [widths[0], 720, 640, 560] : [widths[0]];
   jpgOuter: for (const tryW of jpgLadder) {
     for (let q = 68; q >= 36; q -= 6) {
-      await sharp(f.src).resize({ width: Math.min(tryW, meta.width) }).jpeg({ quality: q, mozjpeg: true }).toFile(jpgDest);
+      await srcPipe(f).resize({ width: Math.min(tryW, meta.width) }).jpeg({ quality: q, mozjpeg: true }).toFile(jpgDest);
       if (statSync(jpgDest).size <= BUDGET[f.kind]) break jpgOuter;
     }
   }

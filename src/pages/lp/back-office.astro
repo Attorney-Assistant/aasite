@@ -68,10 +68,13 @@ const faqItems = [
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="lt26-hero">
+    <div class="lt26-hero-bg" aria-hidden="true">
+      <Lt26Picture slug="clean-crm-hero" kind="hero" eager={true} alt="" sizes="100vw" />
+    </div>
     <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
     <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
-    <div class="container-wide relative z-10 py-14 md:py-20">
-      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+    <div class="container-wide relative z-10 py-16 md:py-24">
+      <div class="max-w-2xl">
         <div>
           <p class="lt26-eyebrow">Built for law firms, not consumers</p>
           <div class="lt26-divider"></div>
@@ -86,15 +89,6 @@ const faqItems = [
               <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
             </a>
           </div>
-        </div>
-        <div >
-          <Lt26Picture
-            slug="clean-crm-hero"
-            kind="hero"
-            eager={true}
-            alt="Comic panel of an admin operations specialist in a gold cape polishing a CRM dashboard where every client record shows a green clean status"
-            class="rounded-xl shadow-2xl"
-          />
         </div>
       </div>
     </div>

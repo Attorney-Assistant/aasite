@@ -382,20 +382,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-voicemail-void-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 36,
+        "h": 159,
+        "kb": 13,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-voicemail-void.webp",
-        "w": 720,
-        "h": 720,
-        "kb": 79,
-        "q": 48
+        "w": 800,
+        "h": 318,
+        "kb": 42,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-voicemail-void.jpg",
-        "kb": 80
+        "kb": 41
       }
     }
   },
@@ -407,20 +407,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-18-second-bandit-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 39,
-        "q": 60
+        "h": 176,
+        "kb": 20,
+        "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-18-second-bandit.webp",
-        "w": 640,
-        "h": 640,
-        "kb": 76,
-        "q": 48
+        "w": 800,
+        "h": 352,
+        "kb": 66,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-18-second-bandit.jpg",
-        "kb": 79
+        "kb": 60
       }
     }
   },
@@ -432,20 +432,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-money-shredder-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 38,
-        "q": 48
+        "h": 172,
+        "kb": 22,
+        "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-money-shredder.webp",
-        "w": 640,
-        "h": 640,
-        "kb": 79,
-        "q": 42
+        "w": 800,
+        "h": 344,
+        "kb": 73,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-money-shredder.jpg",
-        "kb": 78
+        "kb": 63
       }
     }
   },
@@ -457,20 +457,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-paper-kraken-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 40,
-        "q": 60
+        "h": 177,
+        "kb": 21,
+        "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-paper-kraken.webp",
-        "w": 640,
-        "h": 640,
-        "kb": 80,
-        "q": 48
+        "w": 800,
+        "h": 353,
+        "kb": 74,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-paper-kraken.jpg",
-        "kb": 74
+        "kb": 64
       }
     }
   },
@@ -482,20 +482,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-hold-music-hydra-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 38,
-        "q": 54
+        "h": 192,
+        "kb": 21,
+        "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-hold-music-hydra.webp",
-        "w": 640,
-        "h": 640,
-        "kb": 77,
-        "q": 42
+        "w": 800,
+        "h": 383,
+        "kb": 70,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-hold-music-hydra.jpg",
-        "kb": 76
+        "kb": 62
       }
     }
   },
@@ -507,20 +507,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-revolving-door-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 40,
+        "h": 175,
+        "kb": 17,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-revolving-door.webp",
-        "w": 640,
-        "h": 640,
-        "kb": 79,
-        "q": 54
+        "w": 800,
+        "h": 350,
+        "kb": 59,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-revolving-door.jpg",
-        "kb": 78
+        "kb": 55
       }
     }
   },
@@ -532,20 +532,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-calendar-gremlins-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 38,
-        "q": 54
+        "h": 187,
+        "kb": 21,
+        "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-calendar-gremlins.webp",
-        "w": 640,
-        "h": 640,
-        "kb": 79,
-        "q": 48
+        "w": 800,
+        "h": 373,
+        "kb": 64,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-calendar-gremlins.jpg",
-        "kb": 77
+        "kb": 61
       }
     }
   },
@@ -557,20 +557,20 @@
       "400": {
         "file": "/images/lp/late2026/villain-duplicate-blob-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 39,
-        "q": 60
+        "h": 188,
+        "kb": 19,
+        "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/villain-duplicate-blob.webp",
-        "w": 640,
-        "h": 640,
-        "kb": 79,
-        "q": 54
+        "w": 800,
+        "h": 377,
+        "kb": 58,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/villain-duplicate-blob.jpg",
-        "kb": 78
+        "kb": 58
       }
     }
   }
