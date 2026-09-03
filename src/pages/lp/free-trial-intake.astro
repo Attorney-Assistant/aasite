@@ -18,20 +18,14 @@ const FINE_PRINT = "For new Attorney Assistant clients only.";
 const villains = [
   {
     slug: "villain-voicemail-void",
-    name: "The Voicemail Void",
-    tag: "It eats every call after 5 PM.",
     alt: "Comic strip of The Voicemail Void, a black hole swallowing after-hours calls at 8:47 PM on a Saturday, captioned it eats every call after 5 PM",
   },
   {
     slug: "villain-18-second-bandit",
-    name: "The 18-Second Bandit",
-    tag: "He signs your caller before you finish your coffee.",
     alt: "Comic strip of The 18-Second Bandit, a masked rival sprinting off with a signed retainer while a lawyer's phone shows 12 missed calls",
   },
   {
     slug: "villain-money-shredder",
-    name: "The Money Shredder",
-    tag: "More leads into a firm that cannot answer is just faster shredding.",
     alt: "Comic strip of The Money Shredder, a machine shredding ad spend from Google, Meta, and billboards while the office phone rings unanswered",
   },
 ];
@@ -106,10 +100,6 @@ const faqItems = [
         {villains.map((v, i) => (
           <div class="lt26-villain reveal" style={`transition-delay: ${i * 80}ms`}>
             <Lt26Picture slug={v.slug} kind="square" alt={v.alt} />
-            <div class="p-5">
-              <p class="lt26-villain-name">{v.name}</p>
-              <p class="mt-2 text-sm text-gray-600 leading-relaxed">{v.tag}</p>
-            </div>
           </div>
         ))}
       </div>

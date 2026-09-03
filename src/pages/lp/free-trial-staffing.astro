@@ -18,32 +18,22 @@ const FINE_PRINT = "For new Attorney Assistant clients only.";
 const villains = [
   {
     slug: "villain-paper-kraken",
-    name: "The Paper Kraken",
-    tag: "It wants your evenings. It is getting them.",
     alt: "Comic strip of The Paper Kraken, a monster made of paperwork grabbing a lawyer's evening, captioned it wants your evenings, it is getting them",
   },
   {
     slug: "villain-hold-music-hydra",
-    name: "The Hold Music Hydra",
-    tag: "Cut off one department, two more pick up.",
     alt: "Comic strip of The Hold Music Hydra, a many-headed phone monster keeping 47 callers on hold across records, billing, and voicemail",
   },
   {
     slug: "villain-revolving-door",
-    name: "The Revolving Door",
-    tag: "You are not hiring. You are re-hiring.",
     alt: "Comic strip of The Revolving Door Beast flinging new hires back out on day 3, 6, 19, and 41, captioned you are not hiring, you are re-hiring",
   },
   {
     slug: "villain-calendar-gremlins",
-    name: "The Calendar Gremlins",
-    tag: "They only move the deadlines that matter.",
     alt: "Comic strip of The Calendar Gremlins moving deadlines and burying a statute of limitations under thousands of unread emails",
   },
   {
     slug: "villain-duplicate-blob",
-    name: "The Duplicate Blob",
-    tag: "Your pipeline is not a pipeline. It is a crime scene.",
     alt: "Comic strip of The Duplicate Blob, a slime of duplicate contact records hiding the pipeline's value, captioned your pipeline is not a pipeline, it is a crime scene",
   },
 ];
@@ -151,10 +141,6 @@ const faqItems = [
         {villains.map((v, i) => (
           <div class={`lt26-villain reveal ${i === 3 ? "lg:col-start-1" : ""}`} style={`transition-delay: ${(i % 3) * 80}ms`}>
             <Lt26Picture slug={v.slug} kind="square" alt={v.alt} />
-            <div class="p-5">
-              <p class="lt26-villain-name">{v.name}</p>
-              <p class="mt-2 text-sm text-gray-600 leading-relaxed">{v.tag}</p>
-            </div>
           </div>
         ))}
       </div>

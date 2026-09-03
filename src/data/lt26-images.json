@@ -32,16 +32,16 @@
       "400": {
         "file": "/images/lp/late2026/answer-phones-square-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 39,
+        "h": 322,
+        "kb": 33,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/answer-phones-square.webp",
         "w": 720,
-        "h": 720,
-        "kb": 80,
-        "q": 42
+        "h": 580,
+        "kb": 79,
+        "q": 54
       },
       "jpg": {
         "file": "/images/lp/late2026/answer-phones-square.jpg",
@@ -82,20 +82,20 @@
       "400": {
         "file": "/images/lp/late2026/overnight-intake-square-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 37,
+        "h": 320,
+        "kb": 32,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/overnight-intake-square.webp",
-        "w": 720,
-        "h": 720,
-        "kb": 77,
+        "w": 800,
+        "h": 640,
+        "kb": 76,
         "q": 42
       },
       "jpg": {
         "file": "/images/lp/late2026/overnight-intake-square.jpg",
-        "kb": 75
+        "kb": 74
       }
     }
   },
@@ -132,20 +132,20 @@
       "400": {
         "file": "/images/lp/late2026/sort-mail-square-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 32,
+        "h": 330,
+        "kb": 27,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/sort-mail-square.webp",
         "w": 800,
-        "h": 800,
+        "h": 660,
         "kb": 79,
-        "q": 54
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/sort-mail-square.jpg",
-        "kb": 75
+        "kb": 77
       }
     }
   },
@@ -157,14 +157,14 @@
       "400": {
         "file": "/images/lp/late2026/medical-records-square-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 37,
+        "h": 328,
+        "kb": 32,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/medical-records-square.webp",
-        "w": 720,
-        "h": 720,
+        "w": 800,
+        "h": 656,
         "kb": 77,
         "q": 42
       },
@@ -182,20 +182,20 @@
       "400": {
         "file": "/images/lp/late2026/clean-crm-square-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 33,
+        "h": 334,
+        "kb": 29,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/clean-crm-square.webp",
         "w": 800,
-        "h": 800,
+        "h": 668,
         "kb": 78,
-        "q": 48
+        "q": 60
       },
       "jpg": {
         "file": "/images/lp/late2026/clean-crm-square.jpg",
-        "kb": 78
+        "kb": 73
       }
     }
   },
@@ -232,20 +232,20 @@
       "400": {
         "file": "/images/lp/late2026/calendar-inbox-square-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 37,
+        "h": 352,
+        "kb": 33,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/calendar-inbox-square.webp",
-        "w": 720,
-        "h": 720,
+        "w": 800,
+        "h": 704,
         "kb": 76,
         "q": 48
       },
       "jpg": {
         "file": "/images/lp/late2026/calendar-inbox-square.jpg",
-        "kb": 79
+        "kb": 75
       }
     }
   },
@@ -332,20 +332,20 @@
       "400": {
         "file": "/images/lp/late2026/negotiate-liens-square-400.webp",
         "w": 400,
-        "h": 400,
-        "kb": 33,
+        "h": 328,
+        "kb": 27,
         "q": 66
       },
       "800": {
         "file": "/images/lp/late2026/negotiate-liens-square.webp",
         "w": 800,
-        "h": 800,
-        "kb": 79,
-        "q": 48
+        "h": 656,
+        "kb": 80,
+        "q": 66
       },
       "jpg": {
         "file": "/images/lp/late2026/negotiate-liens-square.jpg",
-        "kb": 80
+        "kb": 79
       }
     }
   },

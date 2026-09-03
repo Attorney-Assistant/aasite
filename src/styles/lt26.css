@@ -188,22 +188,16 @@
 }
 .lt26-panel--cream { background: var(--lt26-cream); border-color: rgba(245, 159, 38, 0.25); }
 
-/* Villain cards: comic art plus caption */
+/* Villain cards: the comic strip carries its own title and caption */
 .lt26-villain {
   overflow: hidden;
   border: 2px solid var(--lt26-navy);
   border-radius: 0.875rem;
   background: #fff;
-  box-shadow: 5px 5px 0 rgba(21, 56, 95, 0.85);
+  box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.95);
+  align-self: start;
 }
 .lt26-villain img { display: block; width: 100%; height: auto; }
-.lt26-villain-name {
-  font-family: 'Bangers', 'Sora', cursive;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 1.25rem;
-  color: var(--lt26-navy);
-}
 
 /* ── Proof stats ── */
 .lt26-stat-num {
