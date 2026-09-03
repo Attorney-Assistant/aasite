@@ -96,10 +96,10 @@ const faqItems = [
         <h2 class="lt26-display text-3xl md:text-5xl mt-6" style="color: var(--lt26-navy);">The three intake villains</h2>
         <p class="mt-4 text-base md:text-lg text-gray-600 max-w-xl mx-auto">Every firm fights them. Most firms lose to them after 5 PM.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="space-y-6 max-w-3xl mx-auto">
         {villains.map((v, i) => (
-          <div class="lt26-villain reveal" style={`transition-delay: ${i * 80}ms`}>
-            <Lt26Picture slug={v.slug} kind="square" alt={v.alt} />
+          <div class="lt26-villain reveal">
+            <Lt26Picture slug={v.slug} kind="square" alt={v.alt} sizes="(max-width: 768px) 100vw, 768px" />
           </div>
         ))}
       </div>

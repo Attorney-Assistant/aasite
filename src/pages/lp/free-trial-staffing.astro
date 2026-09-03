@@ -137,10 +137,10 @@ const faqItems = [
         <h2 class="lt26-display text-3xl md:text-5xl mt-6" style="color: var(--lt26-navy);">The five staffing villains</h2>
         <p class="mt-4 text-base md:text-lg text-gray-600 max-w-xl mx-auto">You know every one of them by name. They know your firm's schedule.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="space-y-6 max-w-3xl mx-auto">
         {villains.map((v, i) => (
-          <div class={`lt26-villain reveal ${i === 3 ? "lg:col-start-1" : ""}`} style={`transition-delay: ${(i % 3) * 80}ms`}>
-            <Lt26Picture slug={v.slug} kind="square" alt={v.alt} />
+          <div class="lt26-villain reveal">
+            <Lt26Picture slug={v.slug} kind="square" alt={v.alt} sizes="(max-width: 768px) 100vw, 768px" />
           </div>
         ))}
       </div>
