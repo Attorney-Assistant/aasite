@@ -16,6 +16,7 @@ export default defineConfig({
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-staffline-assistant") &&
         !page.includes("/lp/smb-limited-free-trial") &&
+        !page.includes("/book-call-free-trial") &&
         !page.includes("/lp/free-trial-intake") &&
         !page.includes("/lp/free-trial-staffing") &&
         !page.includes("/lp/case-management") &&
