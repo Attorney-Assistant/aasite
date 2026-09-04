@@ -17,10 +17,19 @@ import "@/styles/lt26.css";
  * All conversion events are guarded so a refresh never fires them twice.
  */
 
-const steps = [
-  "We'll ask what type of firm you are and where the work is piling up.",
-  "We'll scope which roles fit and what they cost.",
-  "If it's a fit, we start sourcing.",
+const prep = [
+  {
+    title: "Know your numbers",
+    desc: "How many new leads come in per month? How many active matters per team member? Having these numbers handy helps us give you specific, actionable advice.",
+  },
+  {
+    title: "Think about your biggest bottleneck",
+    desc: "Caseload? Records? Follow-up? Admin overwhelm? Knowing what keeps you up at night lets us focus the conversation where it matters most.",
+  },
+  {
+    title: "Browse our services",
+    desc: "Take a quick look at what we offer so you can ask targeted questions about the services that interest you most.",
+  },
 ];
 ---
 
@@ -47,26 +56,40 @@ const steps = [
       <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
       <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
       <div class="container-narrow relative z-10 py-20 md:py-28 text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style="background: rgba(245, 159, 38, 0.15);">
+          <svg class="w-8 h-8" style="color: var(--lt26-orange);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+        </div>
         <p class="lt26-eyebrow">Booking confirmed</p>
         <div class="lt26-divider lt26-divider--center"></div>
-        <h1 class="lt26-h1 mt-8">You're booked.</h1>
+        <h1 class="lt26-h1 mt-8">Your call is booked.</h1>
         <p class="lt26-body mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-          Check your email for the calendar invite. If it's not there in a few minutes, check spam and then email <a href="mailto:info@attorneyassistant.com" class="text-white underline decoration-white/30 underline-offset-4">info@attorneyassistant.com</a>.
+          You should receive a calendar invite shortly. We're looking forward to learning about your firm and showing you how we can help.
+        </p>
+        <p class="mt-4 text-sm text-white/45 max-w-xl mx-auto">
+          If the invite isn't in your inbox in a few minutes, check spam and then email <a href="mailto:info@attorneyassistant.com" class="text-white underline decoration-white/30 underline-offset-4">info@attorneyassistant.com</a>.
         </p>
       </div>
     </section>
 
-    <!-- What happens next -->
+    <!-- Before your call -->
     <section class="py-14 md:py-20 bg-white">
       <div class="container-narrow">
         <div class="max-w-2xl mx-auto">
-          <p class="lt26-eyebrow lt26-eyebrow--light text-center">What happens next</p>
+          <p class="lt26-eyebrow lt26-eyebrow--light text-center">Before your call</p>
           <div class="lt26-divider lt26-divider--center"></div>
-          <ol class="mt-10 space-y-5">
-            {steps.map((step, i) => (
+          <p class="mt-8 text-base text-gray-600 text-center leading-relaxed">
+            Here are a few things you can do to get the most out of our conversation:
+          </p>
+          <ol class="mt-8 space-y-5">
+            {prep.map((item, i) => (
               <li class="lt26-panel flex items-start gap-4 p-5">
-                <span class={`lt26-step-num ${i === steps.length - 1 ? "lt26-step-num--last" : ""} !m-0 flex-shrink-0 !w-10 !h-10 text-base`}>{i + 1}</span>
-                <p class="text-base text-gray-700 leading-relaxed pt-1.5">{step}</p>
+                <span class={`lt26-step-num ${i === prep.length - 1 ? "lt26-step-num--last" : ""} !m-0 flex-shrink-0 !w-10 !h-10 text-base`}>{i + 1}</span>
+                <div class="pt-1.5">
+                  <h3 class="text-base font-bold text-gray-900">{item.title}</h3>
+                  <p class="mt-1 text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                </div>
               </li>
             ))}
           </ol>
@@ -75,6 +98,17 @@ const steps = [
             <p class="text-base text-gray-800 leading-relaxed">
               You'll get a trained person, and you'll still train them on how your firm does things. Plan on real time in the first 30 to 60 days.
             </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+            <a href="/services" class="lt26-btn">
+              Explore Our Services
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+            <a href="/blog" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold text-sm border-2 transition-colors hover:bg-gray-50" style="color: var(--lt26-blue-ink); border-color: var(--lt26-blue-ink);">
+              Read Our Blog
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
           </div>
         </div>
       </div>
