@@ -453,7 +453,7 @@ const COUNTRIES = [
             <h3 class="text-sm font-heading text-gray-900 mb-2">Record an Introduction Video <span class="text-error-500">*</span></h3>
             <p class="text-xs text-gray-600 mb-2">There are two options for submitting your intro video: Loom or Google Drive link.</p>
             <p class="text-xs text-gray-600 mb-2">Click on this link <a href="https://www.loom.com/" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Free screen recorder for Mac and PC | Loom</a> to sign up for a FREE account to record a 1&ndash;2 minute introduction video using the Attorney Assistant background provided below.</p>
-            <p class="text-xs text-gray-600 mb-2">If you choose not to use Loom, you may submit your video as a Google Drive link. Please ensure you grant access for anyone to view the link.</p>
+            <p class="text-xs text-gray-600 mb-2">If you choose not to use Loom, you may submit your video as a Google Drive link. <strong>Before submitting, set the link's sharing so that anyone with the link can view it</strong> — in Google Drive, click Share, then under General access choose "Anyone with the link."</p>
             <p class="text-xs text-gray-600 mb-3">Click on these links for great examples of an intro video for your reference: <a href="https://drive.google.com/file/d/19sJBeq3y8RgLsZV5uNYON4UVq99zl8VJ/view" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Sample Video 1</a> &middot; <a href="https://drive.google.com/file/d/1cDarP9quVVQlKVWaNw2Ja2IMsZ35htan/view" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Sample Video 2</a></p>
 
             <p class="text-xs font-semibold text-gray-900 mb-1">Here's what our team looks for in a GREAT video:</p>
@@ -489,6 +489,9 @@ const COUNTRIES = [
           <div>
             <label for="intro_video_url" class="label-base">Link to Your Introduction Video <span class="text-error-500">*</span></label>
             <p class="text-xs text-gray-400 mb-1.5">Paste your Loom or Google Drive share link.</p>
+            <div class="rounded-lg border border-warning-300 bg-warning-50 p-3 mb-2">
+              <p class="text-xs text-gray-900 leading-relaxed"><strong>Important — make your link viewable by anyone:</strong> your link must be set so <strong>anyone with the link can view</strong> it (Google Drive: Share &rarr; General access &rarr; "Anyone with the link"; Loom: Share &rarr; anyone with the link can view). If our team has to request access to open your video, the review of your application will be delayed.</p>
+            </div>
             <input type="url" id="intro_video_url" name="intro_video_url" data-required class="input-base" placeholder="https://www.loom.com/share/... or https://drive.google.com/file/d/..." />
           </div>
         </div>
