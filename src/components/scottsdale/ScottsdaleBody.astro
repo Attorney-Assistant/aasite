@@ -20,8 +20,8 @@ const { schedulerUrl, pageSlug } = Astro.props;
 <!-- ═══════════════════════════════════════════
      HERO
 ═══════════════════════════════════════════ -->
-<section class="sco-hero relative overflow-hidden">
-  <div class="comic-container relative z-10 py-20 md:py-28 lg:py-32">
+<section class="sco-hero relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 lg:pt-32 lg:pb-32">
+  <div class="comic-container relative z-10">
     <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
       <div class="text-center lg:text-left reveal">
         <span class="comic-eyebrow">SMB Growth Academy Q3: Scottsdale, September 24 to 26, 2026</span>
@@ -155,8 +155,6 @@ const { schedulerUrl, pageSlug } = Astro.props;
 
 <style>
   .meetings-iframe-container iframe { background: #fff !important; }
-
-  .sco-hero { padding-top: 1rem; }
 
   .sco-btn {
     display: inline-flex; align-items: center; gap: 0.5rem;
