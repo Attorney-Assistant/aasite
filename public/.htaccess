@@ -34,6 +34,7 @@ RewriteRule ^firm/chaos/?$ /lp/comic/law-firm-chaos [R=301,L]
 RewriteRule ^firm/villain/?$ /lp/comic/biggest-villain [R=301,L]
 
 # ── Landing page vanity redirects (case-insensitive) ──
+RewriteRule ^scottsdale/?$ /lp/scottsdale [R=301,L,NC]
 RewriteRule ^Marketing-Waste/?$ /lp/marketing-waste [R=301,L,NC]
 RewriteRule ^ForeverTaskMap/?$ /lp/forever-task-map [R=301,L,NC]
 RewriteRule ^StopBabysitting/?$ /lp/stop-babysitting-your-firm [R=301,L,NC]
