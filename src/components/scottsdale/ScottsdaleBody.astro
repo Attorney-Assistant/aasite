@@ -1,0 +1,182 @@
+---
+/**
+ * Shared body for the three SMB Growth Academy Q3 Scottsdale Workshop landing pages
+ * (/lp/scottsdale, /lp/scottsdale-rick, /lp/scottsdale-andrew). The three
+ * pages are identical apart from which rep's scheduler gets embedded here,
+ * so the content lives in one place instead of being tripled.
+ *
+ * Content follows the conference workshop deck ("What Should You Stop
+ * Doing?", 45-minute interactive session) and its closing offer: attendees
+ * who bring their three delegation targets to a call get 30 days of a new
+ * virtual assistant free.
+ */
+interface Props {
+  schedulerUrl: string;
+  pageSlug: string;
+}
+const { schedulerUrl, pageSlug } = Astro.props;
+---
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="sco-hero relative overflow-hidden">
+  <div class="comic-container relative z-10 py-16 md:py-24">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div class="text-center lg:text-left reveal">
+        <span class="comic-eyebrow">SMB Growth Academy Q3: Scottsdale, September 24 to 26, 2026</span>
+        <h1 class="comic-title text-4xl md:text-6xl text-white leading-none mt-3 mb-5">
+          What should you <span class="comic-gold">stop doing?</span>
+        </h1>
+        <p class="comic-sub text-lg md:text-xl text-gray-200 max-w-xl mx-auto lg:mx-0 mb-8">
+          You just spent 45 minutes finding the work that should move off your plate. Bring your list to a quick call and we will put a person on it, thirty days free.
+        </p>
+        <a href="#book-now" class="sco-btn sco-btn--gold group inline-flex" data-sco-cta="hero">
+          Claim My 30 Days Free
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+        </a>
+      </div>
+      <div class="reveal-scale">
+        <img
+          src="/images/lp/scottsdale/overwhelmed-desk.png"
+          alt="An overwhelmed attorney buried in records, intake forms, and email triage, wondering why he is still doing this himself"
+          width="1920" height="1080"
+          class="w-full h-auto"
+          loading="eager" fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     THE OFFER
+═══════════════════════════════════════════ -->
+<section class="relative py-16 md:py-24 overflow-hidden">
+  <div class="comic-container relative z-10">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div class="order-2 lg:order-1 reveal-scale">
+        <img
+          src="/images/lp/scottsdale/handoff.png"
+          alt="An Attorney Assistant team member handing a conference attendee a card listing their top three tasks to delegate"
+          width="1920" height="1080"
+          class="w-full h-auto"
+          loading="lazy"
+        />
+      </div>
+      <div class="order-1 lg:order-2 text-center lg:text-left reveal">
+        <span class="comic-pow comic-pow--gold mb-4 inline-block">The offer</span>
+        <h2 class="comic-section-title mb-5">
+          Bring us <span class="comic-gold">your three</span> and get <span class="comic-gold">30 days free</span>.
+        </h2>
+        <p class="text-base md:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          Whatever you circled at your table today: the after-hours calls going to voicemail, the records nobody is chasing, the CRM nobody updates, bring it to the call. For attendees of this conference, your first 30 days with a new virtual assistant are on us.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     THE FILTER, RECAPPED
+═══════════════════════════════════════════ -->
+<section class="relative py-16 md:py-24 overflow-hidden">
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
+  <div class="comic-container relative z-10">
+    <div class="text-center mb-12 reveal">
+      <span class="comic-pow comic-pow--blue mb-4 inline-block">The filter, one more time</span>
+      <h2 class="comic-section-title mb-4">Who is the <span class="comic-gold">lowest-cost capable owner?</span></h2>
+      <p class="text-base md:text-lg text-gray-400 max-w-xl mx-auto">Do not ask &ldquo;Can I delegate this?&rdquo; Ask &ldquo;Who should own this?&rdquo;</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+      <div class="comic-panel p-6 reveal">
+        <span class="sco-gate-num">1</span>
+        <p class="comic-sub font-bold text-white text-base mb-3 mt-4">Does it require legal judgment?</p>
+        <p class="text-sm text-gray-400"><span class="comic-gold font-semibold">Yes, it stays with the lawyer.</span> No, keep going.</p>
+      </div>
+      <div class="comic-panel p-6 reveal" style="transition-delay:100ms">
+        <span class="sco-gate-num">2</span>
+        <p class="comic-sub font-bold text-white text-base mb-3 mt-4">Does it require paralegal-level skill?</p>
+        <p class="text-sm text-gray-400"><span class="comic-gold font-semibold">Yes, it stays with the paralegal.</span> No, keep going.</p>
+      </div>
+      <div class="comic-panel p-6 reveal" style="transition-delay:200ms">
+        <span class="sco-gate-num">3</span>
+        <p class="comic-sub font-bold text-white text-base mb-3 mt-4">Can it be taught with a checklist, template, or short video?</p>
+        <p class="text-sm text-gray-400"><span class="comic-gold font-semibold">Yes, strong VA candidate.</span> No, simplify it first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     BOOKING
+═══════════════════════════════════════════ -->
+<section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]" aria-hidden="true"></div>
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" aria-hidden="true"></div>
+  <div class="comic-container relative z-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">Book now</span>
+        <h2 class="comic-section-title mb-4">Bring your three. <span class="comic-gold">Start the clock.</span></h2>
+        <p class="text-lg text-gray-400 max-w-xl mx-auto">Fifteen minutes. We will scope your 30 days around what you just wrote down.</p>
+      </div>
+      <div class="comic-panel p-1 reveal scroll-mt-20" style="border-color: rgba(249,166,45,0.3); transition-delay: 150ms">
+        <div class="bg-white rounded-[9px] p-4 md:p-5">
+          <div class="meetings-iframe-container" data-src={`${schedulerUrl}?embed=true`}></div>
+        </div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-8 text-sm text-gray-500 reveal" style="transition-delay: 250ms">
+        <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> Free, no commitment</div>
+        <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 15 minutes</div>
+        <div class="flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg> 30 days free for attendees</div>
+      </div>
+      <p class="text-center text-sm text-gray-500 mt-10 max-w-xl mx-auto reveal">
+        Attorney Assistant is a staffing solutions and virtual assistant company for law firms. We recruit, vet, and train the person. You plug them into your team.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script is:inline>window.__hsGeoReady.then(function(a){if(a){var s=document.createElement("script");s.src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";document.head.appendChild(s)}else{document.querySelectorAll(".meetings-iframe-container").forEach(function(e){e.innerHTML='<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid rgba(255,255,255,0.1);border-radius:0.75rem;background:rgba(255,255,255,0.03);"><p style="margin:0;color:#94a3b8;">This scheduler is not available from your location.</p></div>'})}});</script>
+
+<script is:inline define:vars={{ pageSlug }}>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: "lp_view", lp_name: pageSlug });
+  document.addEventListener("click", function (e) {
+    var cta = e.target.closest("[data-sco-cta]");
+    if (!cta) return;
+    window.dataLayer.push({ event: "lp_cta_click", lp_name: pageSlug, position: cta.getAttribute("data-sco-cta") });
+  });
+</script>
+
+<style>
+  .meetings-iframe-container iframe { background: #fff !important; }
+
+  .sco-hero { padding-top: 1rem; }
+
+  .sco-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: "Sora", sans-serif; font-weight: 700; font-size: 1rem;
+    padding: 0.875rem 2rem; border-radius: 8px; border: none; cursor: pointer;
+    transition: all 0.3s; text-decoration: none;
+  }
+  .sco-btn--gold {
+    background: linear-gradient(135deg, #f9a62d, #e8901a);
+    color: #0a1628;
+    box-shadow: 0 4px 20px rgba(249, 166, 45, 0.3);
+  }
+  .sco-btn--gold:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249, 166, 45, 0.4); }
+
+  .sco-gate-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.25rem; height: 2.25rem; border-radius: 9999px;
+    background: rgba(249, 166, 45, 0.12); border: 2px solid rgba(249, 166, 45, 0.4);
+    color: #f9a62d; font-family: "Bangers", cursive; font-size: 1.125rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sco-btn { transition: none !important; }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+import ComicCampaignLayout from "@layouts/ComicCampaignLayout.astro";
+import ScottsdaleBody from "@components/scottsdale/ScottsdaleBody.astro";
+import { MEETING_URLS } from "@/config/forms";
+---
+
+<ComicCampaignLayout
+  title="What Should You Stop Doing?"
+  description="SMB Growth Academy Q3 Scottsdale Workshop attendees: bring your three delegation targets to a quick call and get 30 days of a new virtual assistant free."
+  image="/images/lp/scottsdale/overwhelmed-desk.png"
+>
+  <ScottsdaleBody schedulerUrl={MEETING_URLS.scottsdaleRoundRobin} pageSlug="scottsdale" />
+</ComicCampaignLayout>
