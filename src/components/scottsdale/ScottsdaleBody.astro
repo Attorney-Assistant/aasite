@@ -21,14 +21,14 @@ const { schedulerUrl, pageSlug } = Astro.props;
      HERO
 ═══════════════════════════════════════════ -->
 <section class="sco-hero relative overflow-hidden">
-  <div class="comic-container relative z-10 py-16 md:py-24">
-    <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+  <div class="comic-container relative z-10 py-20 md:py-28 lg:py-32">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
       <div class="text-center lg:text-left reveal">
         <span class="comic-eyebrow">SMB Growth Academy Q3: Scottsdale, September 24 to 26, 2026</span>
-        <h1 class="comic-title text-4xl md:text-6xl text-white leading-none mt-3 mb-5">
+        <h1 class="comic-title text-4xl md:text-6xl text-white leading-none mt-5 mb-7">
           What should you <span class="comic-gold">stop doing?</span>
         </h1>
-        <p class="comic-sub text-lg md:text-xl text-gray-200 max-w-xl mx-auto lg:mx-0 mb-8">
+        <p class="comic-sub text-lg md:text-xl text-gray-200 max-w-xl mx-auto lg:mx-0 mb-10">
           You just spent 45 minutes finding the work that should move off your plate. Bring your list to a quick call and we will put a person on it, thirty days free.
         </p>
         <a href="#book-now" class="sco-btn sco-btn--gold group inline-flex" data-sco-cta="hero">
@@ -52,9 +52,10 @@ const { schedulerUrl, pageSlug } = Astro.props;
 <!-- ═══════════════════════════════════════════
      THE OFFER
 ═══════════════════════════════════════════ -->
-<section class="relative py-16 md:py-24 overflow-hidden">
+<section class="relative py-24 md:py-32 overflow-hidden">
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true"></div>
   <div class="comic-container relative z-10">
-    <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
       <div class="order-2 lg:order-1 reveal-scale">
         <img
           src="/images/lp/scottsdale/handoff.png"
@@ -65,8 +66,8 @@ const { schedulerUrl, pageSlug } = Astro.props;
         />
       </div>
       <div class="order-1 lg:order-2 text-center lg:text-left reveal">
-        <span class="comic-pow comic-pow--gold mb-4 inline-block">The offer</span>
-        <h2 class="comic-section-title mb-5">
+        <span class="comic-pow comic-pow--gold mb-6 inline-block">The offer</span>
+        <h2 class="comic-section-title mb-6">
           Bring us <span class="comic-gold">your three</span> and get <span class="comic-gold">30 days free</span>.
         </h2>
         <p class="text-base md:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -80,30 +81,31 @@ const { schedulerUrl, pageSlug } = Astro.props;
 <!-- ═══════════════════════════════════════════
      THE FILTER, RECAPPED
 ═══════════════════════════════════════════ -->
-<section class="relative py-16 md:py-24 overflow-hidden">
+<section class="relative py-24 md:py-32 overflow-hidden">
+  <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true"></div>
   <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/[0.05] rounded-full blur-[120px]" aria-hidden="true"></div>
   <div class="comic-container relative z-10">
-    <div class="text-center mb-12 reveal">
-      <span class="comic-pow comic-pow--blue mb-4 inline-block">The filter, one more time</span>
-      <h2 class="comic-section-title mb-4">Who is the <span class="comic-gold">lowest-cost capable owner?</span></h2>
+    <div class="text-center mb-16 reveal">
+      <span class="comic-pow comic-pow--blue mb-6 inline-block">The filter, one more time</span>
+      <h2 class="comic-section-title mb-5">Who is the <span class="comic-gold">lowest-cost capable owner?</span></h2>
       <p class="text-base md:text-lg text-gray-400 max-w-xl mx-auto">Do not ask &ldquo;Can I delegate this?&rdquo; Ask &ldquo;Who should own this?&rdquo;</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-      <div class="comic-panel p-6 reveal">
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+      <div class="comic-panel p-7 md:p-8 reveal">
         <span class="sco-gate-num">1</span>
-        <p class="comic-sub font-bold text-white text-base mb-3 mt-4">Does it require legal judgment?</p>
-        <p class="text-sm text-gray-400"><span class="comic-gold font-semibold">Yes, it stays with the lawyer.</span> No, keep going.</p>
+        <p class="comic-sub font-bold text-white text-base mb-3 mt-5">Does it require legal judgment?</p>
+        <p class="text-sm text-gray-400 leading-relaxed"><span class="comic-gold font-semibold">Yes, it stays with the lawyer.</span> No, keep going.</p>
       </div>
-      <div class="comic-panel p-6 reveal" style="transition-delay:100ms">
+      <div class="comic-panel p-7 md:p-8 reveal" style="transition-delay:100ms">
         <span class="sco-gate-num">2</span>
-        <p class="comic-sub font-bold text-white text-base mb-3 mt-4">Does it require paralegal-level skill?</p>
-        <p class="text-sm text-gray-400"><span class="comic-gold font-semibold">Yes, it stays with the paralegal.</span> No, keep going.</p>
+        <p class="comic-sub font-bold text-white text-base mb-3 mt-5">Does it require paralegal-level skill?</p>
+        <p class="text-sm text-gray-400 leading-relaxed"><span class="comic-gold font-semibold">Yes, it stays with the paralegal.</span> No, keep going.</p>
       </div>
-      <div class="comic-panel p-6 reveal" style="transition-delay:200ms">
+      <div class="comic-panel p-7 md:p-8 reveal" style="transition-delay:200ms">
         <span class="sco-gate-num">3</span>
-        <p class="comic-sub font-bold text-white text-base mb-3 mt-4">Can it be taught with a checklist, template, or short video?</p>
-        <p class="text-sm text-gray-400"><span class="comic-gold font-semibold">Yes, strong VA candidate.</span> No, simplify it first.</p>
+        <p class="comic-sub font-bold text-white text-base mb-3 mt-5">Can it be taught with a checklist, template, or short video?</p>
+        <p class="text-sm text-gray-400 leading-relaxed"><span class="comic-gold font-semibold">Yes, strong VA candidate.</span> No, simplify it first.</p>
       </div>
     </div>
   </div>
@@ -112,12 +114,12 @@ const { schedulerUrl, pageSlug } = Astro.props;
 <!-- ═══════════════════════════════════════════
      BOOKING
 ═══════════════════════════════════════════ -->
-<section class="relative py-16 md:py-24 overflow-hidden" id="book-now">
+<section class="relative py-24 md:py-32 overflow-hidden" id="book-now">
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#111b2e] to-[#0a1628]" aria-hidden="true"></div>
   <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" aria-hidden="true"></div>
   <div class="comic-container relative z-10">
     <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-10 reveal">
+      <div class="text-center mb-12 reveal">
         <span class="comic-pow comic-pow--gold text-lg mb-4 inline-block px-6 py-1">Book now</span>
         <h2 class="comic-section-title mb-4">Bring your three. <span class="comic-gold">Start the clock.</span></h2>
         <p class="text-lg text-gray-400 max-w-xl mx-auto">Fifteen minutes. We will scope your 30 days around what you just wrote down.</p>
