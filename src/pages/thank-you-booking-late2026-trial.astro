@@ -4,9 +4,9 @@ import "@/styles/lt26.css";
 
 /**
  * Late 2026 campaign, free-trial family booking confirmation.
- * Set as the redirect on the HubSpot `limited-trials` meeting type (configured
- * on the HubSpot side). Receives Meta traffic from /lp/free-trial-intake and
- * /lp/free-trial-staffing.
+ * Set as the redirect on the HubSpot `limited-trials` AND `ctv-free-trial`
+ * meeting types (configured on the HubSpot side). Receives traffic from
+ * /lp/free-trial-intake, /lp/free-trial-staffing, and /lp/free-trial-ctv.
  *
  * Conversion stack: Meta Schedule + Lead + StartTrial (pixel + CAPI, deduped
  * via shared eventID), GTM call_booked / booking_confirmed, HubSpot page view.
