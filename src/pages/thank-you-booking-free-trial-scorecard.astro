@@ -1,0 +1,138 @@
+---
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import "@/styles/lt26.css";
+
+/**
+ * 30 Day Free Trial Scorecard, booking confirmation.
+ * Set as the redirect on the HubSpot `magnet-30-day-free-trial-scorecard`
+ * meeting type (configured on the HubSpot side). Receives bookings from
+ * /lp/free-trial-scorecard-book-now, the booking page linked from every
+ * "Book my call" CTA on /lp/free-trial-scorecard.
+ *
+ * Conversion stack: Meta Schedule + Lead (pixel + CAPI, deduped via shared
+ * eventID), GTM call_booked / booking_confirmed, HubSpot page view.
+ * All conversion events are guarded so a refresh never fires them twice.
+ */
+---
+
+<SimpleCampaignLayout
+  title="You're Booked"
+  description="Your 30 day free trial scoping call is confirmed. Check your email for the calendar invite."
+  minimalHeader={true}
+  headerCtaHref="/"
+  headerCtaLabel="attorneyassistant.com"
+  footerBookCallHref={null}
+>
+
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" /></noscript>
+  </Fragment>
+
+  <div class="lt26">
+
+    <section class="lt26-hero">
+      <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+      <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+      <div class="container-narrow relative z-10 py-20 md:py-28 text-center">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style="background: rgba(245, 159, 38, 0.15);">
+          <svg class="w-8 h-8" style="color: var(--lt26-orange);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+        </div>
+        <p class="lt26-eyebrow">Booking confirmed</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h1 class="lt26-h1 mt-8">Your call is booked.</h1>
+        <p class="lt26-body mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+          You should receive a calendar invite shortly. Bring your scorecard results if you finished them: your leak score, your top three priorities, and your ground rules. We'll scope the 30 days around exactly what you wrote.
+        </p>
+        <p class="mt-4 text-sm text-white/45 max-w-xl mx-auto">
+          If the invite isn't in your inbox in a few minutes, check spam and then email <a href="mailto:info@attorneyassistant.com" class="text-white underline decoration-white/30 underline-offset-4">info@attorneyassistant.com</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-14 md:py-20 bg-white">
+      <div class="container-narrow">
+        <div class="max-w-2xl mx-auto text-center">
+          <p class="lt26-eyebrow lt26-eyebrow--light">Before your call</p>
+          <div class="lt26-divider lt26-divider--center"></div>
+          <p class="mt-8 text-base text-gray-600 leading-relaxed">
+            Didn't get through the scorecard, or want another look before we talk?
+          </p>
+
+          <div class="lt26-panel lt26-panel--cream p-6 mt-8 text-left">
+            <p class="text-base text-gray-800 leading-relaxed">
+              You'll get a trained person, and you'll still need to train them on how your firm does things. Plan on real time in the first 30 to 60 days: access, systems, and your top three priorities.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+            <a href="/lp/free-trial-scorecard" class="lt26-btn">
+              Revisit my scorecard
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+            <a href="/services" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold text-sm border-2 transition-colors hover:bg-gray-50" style="color: var(--lt26-blue-ink); border-color: var(--lt26-blue-ink);">
+              Explore our services
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Conversion tracking: fires once per browser session, never on refresh -->
+  <script is:inline>
+    (function() {
+      'use strict';
+      var PATH = '/thank-you-booking-free-trial-scorecard';
+      var NAME = '30 Day Free Trial Scorecard Booking';
+      var CATEGORY = 'free_trial_scorecard_booking';
+      var GUARD = 'aa_conv_free_trial_scorecard';
+
+      var _hsq = window._hsq = window._hsq || [];
+      _hsq.push(['setPath', PATH]);
+      _hsq.push(['trackPageView']);
+
+      var fired = false;
+      try { fired = sessionStorage.getItem(GUARD) === '1'; } catch (e) {}
+      if (fired) return;
+      try { sessionStorage.setItem(GUARD, '1'); } catch (e) {}
+
+      var utms = {};
+      try { utms = JSON.parse(sessionStorage.getItem('aa_lt26_params') || '{}'); } catch (e) {}
+
+      var data = { content_name: NAME, content_category: CATEGORY };
+
+      if (window.__metaCAPI) {
+        window.__metaCAPI.track('Schedule', data, {});
+        window.__metaCAPI.track('Lead', data, {});
+        window.__metaCAPI.trackCustom('invitee_meeting_scheduled', data, {});
+      } else if (typeof fbq !== 'undefined') {
+        fbq('track', 'Schedule', data);
+        fbq('track', 'Lead', data);
+        fbq('trackCustom', 'invitee_meeting_scheduled', data);
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({
+        event: 'call_booked',
+        conversion_type: 'schedule',
+        source: 'free-trial-scorecard',
+        campaign: 'free-trial-scorecard',
+        lp_family: 'free-trial-scorecard'
+      }, utms));
+      window.dataLayer.push(Object.assign({
+        event: 'booking_confirmed',
+        conversion_type: 'schedule',
+        source: 'free-trial-scorecard',
+        campaign: 'free-trial-scorecard'
+      }, utms));
+    })();
+  </script>
+
+</SimpleCampaignLayout>

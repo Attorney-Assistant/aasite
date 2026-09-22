@@ -1,0 +1,1475 @@
+---
+/**
+ * The 30 Day Free Trial Scorecard: interactive lead magnet.
+ * Single scrolling page, four numbered steps, all state kept in memory
+ * client side. Nothing is sent anywhere until the visitor clicks a CTA.
+ * Every "Book" CTA points to /lp/free-trial-scorecard-book-now, the
+ * dedicated scheduler page for this campaign.
+ */
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import "@/styles/lt26.css";
+
+const BOOK_URL = "/lp/free-trial-scorecard-book-now";
+const ARROW_D = "M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3";
+const HS_PORTAL_ID = "49161090";
+const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
+---
+
+<SimpleCampaignLayout
+  title="The 30 Day Free Trial Scorecard"
+  description="Score how your firm handles intake, follow up and case support today, see what the leak is costing you, and walk into your 30 day free trial with a plan instead of a hunch."
+  minimalHeader={true}
+  headerCtaHref={BOOK_URL}
+  headerCtaLabel="Book a Call"
+  footerBookCallHref={BOOK_URL}
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" /></noscript>
+  </Fragment>
+
+  <div class="lt26 sc">
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="lt26-hero sc-hero">
+      <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+      <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+      <div class="sc-container relative z-10 py-20 md:py-28 text-center">
+        <p class="lt26-eyebrow">Before you start the clock</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h1 class="lt26-h1 mt-8">The 30 Day Free Trial <em class="sc-accent-dark">Scorecard</em></h1>
+        <p class="lt26-body mt-6 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          Thirty days goes fast. Firms that write down what they want before day one get it. Firms that wing it spend the first three weeks deciding what to delegate. Score where you are now, build your wish list, and walk into day one with a plan instead of a hunch.
+        </p>
+        <div class="sc-meta-row" role="note">
+          <span>6 minutes</span>
+          <span class="sc-meta-dot" aria-hidden="true">&middot;</span>
+          <span>4 steps</span>
+          <span class="sc-meta-dot" aria-hidden="true">&middot;</span>
+          <span>No email required to start</span>
+        </div>
+        <a href="#step-1" class="lt26-btn mt-8" data-sc-cta="hero">
+          Start scoring
+          <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={ARROW_D} /></svg>
+        </a>
+        <div class="sc-hero-badges">
+          <span class="sc-pill">English + Español</span>
+          <span class="sc-pill">QA on every call</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STICKY PROGRESS BAR
+    ═══════════════════════════════════════════ -->
+    <nav class="sc-progress" id="sc-progress" aria-label="Scorecard progress">
+      <div class="sc-progress-track"><div class="sc-progress-fill" id="sc-progress-fill"></div></div>
+      <div class="sc-progress-steps">
+        <button type="button" class="sc-progress-step" data-step="0" data-target="#step-1">
+          <span class="sc-progress-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+          <span>Score the leak</span>
+        </button>
+        <button type="button" class="sc-progress-step" data-step="1" data-target="#step-2">
+          <span class="sc-progress-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+          <span>Build the wish list</span>
+        </button>
+        <button type="button" class="sc-progress-step" data-step="2" data-target="#step-3">
+          <span class="sc-progress-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+          <span>Rank the top three</span>
+        </button>
+        <button type="button" class="sc-progress-step" data-step="3" data-target="#step-4">
+          <span class="sc-progress-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></span>
+          <span>Set the ground rules</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         STEP 1 — SCORE THE LEAK
+    ═══════════════════════════════════════════ -->
+    <section class="sc-section bg-white" id="step-1">
+      <div class="sc-container">
+        <div class="sc-section-head">
+          <p class="lt26-eyebrow lt26-eyebrow--light">Step 1 of 4</p>
+          <div class="lt26-divider"></div>
+          <h2 class="sc-h2 mt-5">Score <em class="sc-accent-light">the leak</em>.</h2>
+          <p class="sc-intro">Eight questions about how your firm runs right now. Answer honestly. Nobody sees this but you until you choose to send it.</p>
+        </div>
+
+        <div id="sc-quiz" class="sc-quiz"></div>
+
+        <div id="sc-score-card" class="sc-score-card" hidden>
+          <div class="sc-score-num-wrap">
+            <span class="sc-score-num" id="sc-score-num">0</span>
+            <span class="sc-score-max">/ 24</span>
+          </div>
+          <h3 class="sc-score-band" id="sc-score-band"></h3>
+          <p class="sc-score-text" id="sc-score-text"></p>
+          <p class="sc-score-line">You do not have a lead problem. You have an operations and staffing problem.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         REVENUE AT RISK CALCULATOR
+    ═══════════════════════════════════════════ -->
+    <section class="lt26-band sc-section" id="calculator">
+      <div class="sc-container relative z-10">
+        <div class="sc-section-head">
+          <p class="lt26-eyebrow">What the leak costs</p>
+          <div class="lt26-divider"></div>
+          <h2 class="sc-h2 sc-h2--dark mt-5">Put a <em class="sc-accent-dark">number</em> on it.</h2>
+        </div>
+
+        <div class="sc-calc-grid">
+          <div class="sc-calc-controls">
+            <div class="sc-field">
+              <div class="sc-field-label-row">
+                <label for="sc-leads">New leads per month</label>
+                <output for="sc-leads" id="sc-leads-out">60</output>
+              </div>
+              <input type="range" id="sc-leads" class="sc-slider" min="10" max="500" step="5" value="60" />
+            </div>
+
+            <div class="sc-field">
+              <label for="sc-fee">Average fee per signed case</label>
+              <div class="sc-currency-input">
+                <span aria-hidden="true">$</span>
+                <input type="number" id="sc-fee" min="0" step="500" value="12000" inputmode="numeric" />
+              </div>
+            </div>
+
+            <div class="sc-field">
+              <div class="sc-field-label-row">
+                <label for="sc-signrate">Of the leads you do reach, what share sign?</label>
+                <output for="sc-signrate" id="sc-signrate-out">25%</output>
+              </div>
+              <input type="range" id="sc-signrate" class="sc-slider" min="5" max="60" step="1" value="25" />
+            </div>
+          </div>
+
+          <div class="sc-calc-display">
+            <p class="sc-calc-num" id="sc-monthly-risk">$0</p>
+            <p class="sc-calc-label">Revenue at risk every month</p>
+            <p class="sc-calc-annual">That is <strong id="sc-annual-risk">$0</strong> a year sitting in your own pipeline.</p>
+          </div>
+        </div>
+
+        <div class="sc-calc-foot">
+          <div class="sc-quote-card">
+            <p>&ldquo;18 seconds later, that caller signed with the firm down the street.&rdquo;</p>
+          </div>
+          <p class="lt26-fineprint sc-footnote">
+            Based on Attorney Assistant client files: roughly 20% of leads are mishandled when the line is busy, and 38% of personal injury calls land between 5 PM and 9 AM. Separately, MIT research on lead response found the odds of contacting a lead drop about 100 times between a 5 minute and a 30 minute reply.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STEP 2 — THE WISH LIST
+    ═══════════════════════════════════════════ -->
+    <section class="sc-section sc-cream" id="step-2">
+      <div class="sc-container">
+        <div class="sc-section-head">
+          <p class="lt26-eyebrow lt26-eyebrow--light">Step 2 of 4</p>
+          <div class="lt26-divider"></div>
+          <h2 class="sc-h2 mt-5">Build your <em class="sc-accent-light">wish list</em>.</h2>
+          <p class="sc-intro">Check everything you wish would just be handled. Do not filter by what you think is realistic or what you think we do. Check it all. We scope it on the call.</p>
+        </div>
+
+        <p class="sc-counter" id="sc-counter" aria-live="polite">Nothing checked yet. Start with the thing that annoyed you most last week.</p>
+
+        <div class="sc-wish-grid" id="sc-wish-grid"></div>
+
+        <div class="sc-freetext">
+          <label for="sc-wish-note">Something not on this list? Tell us. This is a wish list, not a menu.</label>
+          <textarea id="sc-wish-note" rows="2" placeholder="Whatever it is, write it here."></textarea>
+        </div>
+
+        <div class="sc-recommend" id="sc-recommend" hidden>
+          <p class="sc-recommend-line" id="sc-recommend-line"></p>
+          <p class="sc-recommend-both">Both sign cases. Both carry them. The difference is whether you need coverage you turn on or a seat you fill.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STEP 3 — RANK THE TOP THREE
+    ═══════════════════════════════════════════ -->
+    <section class="sc-section bg-white" id="step-3">
+      <div class="sc-container">
+        <div class="sc-section-head">
+          <p class="lt26-eyebrow lt26-eyebrow--light">Step 3 of 4</p>
+          <div class="lt26-divider"></div>
+          <h2 class="sc-h2 mt-5">Rank your <em class="sc-accent-light">top three</em>.</h2>
+          <p class="sc-intro">Drag the three that would change your week the most to the top. On day one, this is where your trial starts.</p>
+        </div>
+
+        <ul class="sc-rank-list" id="sc-rank-list" aria-label="Your priorities, drag or use the buttons to reorder"></ul>
+        <p class="sc-validation" id="sc-rank-validation" role="alert" hidden>Pick three. If everything is a priority, nothing is.</p>
+        <p class="sc-rank-empty" id="sc-rank-empty">Check a few things on your wish list above and they will show up here to rank.</p>
+
+        <div class="sc-textareas">
+          <div class="sc-field">
+            <label for="sc-win">What has to be true on day 30 for you to call this a win?</label>
+            <textarea id="sc-win" rows="2" placeholder="Every after hours call answered and two more signed cases than last month." required></textarea>
+            <p class="sc-validation" id="sc-win-validation" role="alert" hidden>This is the most important box on the page. What does day 30 look like?</p>
+          </div>
+          <div class="sc-field">
+            <label for="sc-hate">What is the one thing you would hate to still be doing on day 30?</label>
+            <textarea id="sc-hate" rows="2" placeholder="Requesting records at 9 PM." required></textarea>
+          </div>
+          <div class="sc-field">
+            <label for="sc-wrong">What has gone wrong the last time you tried to delegate this? <span class="sc-optional">Optional</span></label>
+            <textarea id="sc-wrong" rows="2" placeholder="We hired, trained for six weeks, and they quit."></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STEP 4 — THE GROUND RULES
+    ═══════════════════════════════════════════ -->
+    <section class="sc-section sc-gray" id="step-4">
+      <div class="sc-container">
+        <div class="sc-section-head">
+          <p class="lt26-eyebrow lt26-eyebrow--light">Step 4 of 4</p>
+          <div class="lt26-divider"></div>
+          <h2 class="sc-h2 mt-5">Set the <em class="sc-accent-light">ground rules</em>.</h2>
+          <p class="sc-intro">Last stretch. This is what lets someone start producing in week one instead of week three.</p>
+        </div>
+
+        <div class="sc-groups">
+
+          <details class="sc-group" open data-sc-group>
+            <summary>About the firm <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></summary>
+            <div class="sc-field-grid">
+              <div class="sc-field"><label for="gr-firmName">Firm name</label><input type="text" id="gr-firmName" autocomplete="organization" /></div>
+              <div class="sc-field"><label for="gr-firmType">What type of firm are you?</label>
+                <select id="gr-firmType">
+                  <option value="">Select one</option>
+                  <option>Personal injury</option><option>Other contingency</option><option>Family</option>
+                  <option>Criminal defense</option><option>Immigration</option><option>Estate planning</option>
+                  <option>Employment</option><option>Business or transactional</option><option>Other</option>
+                </select>
+              </div>
+              <div class="sc-field sc-field--full"><label for="gr-practiceAreas">Practice areas</label><input type="text" id="gr-practiceAreas" placeholder="Auto accidents, premises liability" /></div>
+              <div class="sc-field"><label for="gr-teamSize">Team size</label>
+                <select id="gr-teamSize">
+                  <option value="">Select one</option>
+                  <option>Solo</option><option>2 to 5</option><option>6 to 15</option><option>16 to 40</option><option>40 plus</option>
+                </select>
+              </div>
+              <div class="sc-field"><label for="gr-leads">New leads per month</label><input type="number" id="gr-leads" min="0" /></div>
+            </div>
+          </details>
+
+          <details class="sc-group" open data-sc-group>
+            <summary>The stack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></summary>
+            <div class="sc-field-grid">
+              <div class="sc-field"><label for="gr-cms">Case management or CRM</label>
+                <select id="gr-cms">
+                  <option value="">Select one</option>
+                  <option>Clio</option><option>Filevine</option><option>Attorney Fuel Dashboard</option>
+                  <option>Smokeball</option><option>MyCase</option><option>Litify</option><option>Spreadsheets</option><option>Other</option>
+                </select>
+              </div>
+              <div class="sc-field"><label for="gr-phoneSystem">Phone system</label><input type="text" id="gr-phoneSystem" /></div>
+              <div class="sc-field"><label for="gr-esign">E-signature tool</label><input type="text" id="gr-esign" /></div>
+              <div class="sc-field sc-field--full">
+                <span class="sc-group-label">Where do leads come from? Check all that apply.</span>
+                <div class="sc-check-row" id="gr-leadsources">
+                  {["Paid search", "LSA", "Social", "TV or radio", "Referral", "Organic", "Other"].map((v) => (
+                    <label class="sc-chip"><input type="checkbox" value={v} /><span>{v}</span></label>
+                  ))}
+                </div>
+              </div>
+              <div class="sc-field sc-field--full"><label for="gr-itNotes">Anything that will need an account, a license, or an IT approval</label><textarea id="gr-itNotes" rows="2"></textarea></div>
+            </div>
+          </details>
+
+          <details class="sc-group" open data-sc-group>
+            <summary>Coverage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></summary>
+            <div class="sc-field-grid">
+              <div class="sc-field sc-field--full">
+                <span class="sc-group-label">Hours you need covered</span>
+                <div class="sc-check-row" id="gr-hours">
+                  {["Business hours", "Evenings", "Weekends", "Overnight", "24/7"].map((v) => (
+                    <label class="sc-chip"><input type="checkbox" value={v} /><span>{v}</span></label>
+                  ))}
+                </div>
+              </div>
+              <div class="sc-field"><label for="gr-timezone">Time zone</label><input type="text" id="gr-timezone" placeholder="Eastern" /></div>
+              <div class="sc-field"><label for="gr-languages">Languages needed</label>
+                <select id="gr-languages"><option value="">Select one</option><option>English</option><option>Español</option><option>Both</option></select>
+              </div>
+            </div>
+          </details>
+
+          <details class="sc-group" open data-sc-group>
+            <summary>The humans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></summary>
+            <div class="sc-field-grid">
+              <div class="sc-field"><label for="gr-pocName">Day to day point of contact, name</label><input type="text" id="gr-pocName" /></div>
+              <div class="sc-field"><label for="gr-pocRole">Their role</label><input type="text" id="gr-pocRole" /></div>
+              <div class="sc-field"><label for="gr-pocEmail">Their email</label><input type="email" id="gr-pocEmail" /></div>
+              <div class="sc-field"><label for="gr-week1">How much time can that person give in week one</label>
+                <select id="gr-week1"><option value="">Select one</option><option>Under 2 hours</option><option>2 to 5 hours</option><option>5 hours plus</option></select>
+              </div>
+              <div class="sc-field sc-field--full"><label for="gr-signoff">Who signs off on a case being accepted</label><input type="text" id="gr-signoff" /></div>
+              <div class="sc-field sc-field--full"><label for="gr-escalate">What gets escalated to you immediately, no exceptions</label><textarea id="gr-escalate" rows="2"></textarea></div>
+              <div class="sc-field sc-field--full"><label for="gr-neverask">What should a new person never do without asking first</label><textarea id="gr-neverask" rows="2"></textarea></div>
+            </div>
+          </details>
+
+          <details class="sc-group" open data-sc-group>
+            <summary>The clock <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></summary>
+            <div class="sc-field-grid">
+              <div class="sc-field"><label for="gr-start">Target start date</label><input type="date" id="gr-start" /></div>
+              <div class="sc-field sc-field--full"><label for="gr-next60">Anything happening in the next 60 days we should plan around</label><textarea id="gr-next60" rows="2"></textarea></div>
+            </div>
+          </details>
+
+          <details class="sc-group" open data-sc-group>
+            <summary>Your details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg></summary>
+            <div class="sc-field-grid">
+              <div class="sc-field"><label for="gr-yourName">Name</label><input type="text" id="gr-yourName" autocomplete="name" /></div>
+              <div class="sc-field"><label for="gr-yourEmail">Email</label><input type="email" id="gr-yourEmail" autocomplete="email" /></div>
+              <div class="sc-field"><label for="gr-yourPhone">Phone</label><input type="tel" id="gr-yourPhone" autocomplete="tel" /></div>
+              <div class="sc-field"><label for="gr-bestTime">Best time to reach you</label><input type="text" id="gr-bestTime" placeholder="Weekday mornings" /></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         READ THIS BEFORE DAY ONE
+    ═══════════════════════════════════════════ -->
+    <section class="sc-section sc-cream">
+      <div class="sc-container">
+        <div class="sc-section-head">
+          <p class="lt26-eyebrow lt26-eyebrow--light">The part nobody else tells you</p>
+          <div class="lt26-divider"></div>
+          <h2 class="sc-h2 mt-5">You will still have to <em class="sc-accent-light">onboard them</em>.</h2>
+        </div>
+
+        <div class="sc-before-copy">
+          <p>You will get a trained person, and you will still need to train them on how your firm does things. We recruit, vet, train on the fundamentals, QA the work, coach, and own performance. You embed them in your systems and direct the work.</p>
+          <p>What you skip is the recruiting cycle and the turnover risk. What you do not skip is onboarding. Firms that treat this as plug and play struggle. Firms that treat it like welcoming a new hire win, and they win fast.</p>
+        </div>
+
+        <div class="sc-timeline">
+          <div class="sc-week-card">
+            <p class="sc-week-num">Week 1</p>
+            <p class="sc-week-body">Access, systems, shadowing, your first SOPs written down.</p>
+            <p class="sc-week-from">From you: a few hours from your point of contact.</p>
+          </div>
+          <div class="sc-week-card">
+            <p class="sc-week-num">Week 2</p>
+            <p class="sc-week-body">Supervised work on your top three, QA on every output.</p>
+            <p class="sc-week-from">From you: feedback, fast and blunt.</p>
+          </div>
+          <div class="sc-week-card">
+            <p class="sc-week-num">Week 3</p>
+            <p class="sc-week-body">Running tasks solo, escalating by your rules.</p>
+            <p class="sc-week-from">From you: less of your time.</p>
+          </div>
+          <div class="sc-week-card">
+            <p class="sc-week-num">Week 4</p>
+            <p class="sc-week-body">Measured against the win you wrote in step 3.</p>
+            <p class="sc-week-from">From you: a yes or a no.</p>
+          </div>
+        </div>
+
+        <p class="sc-closing-line">We are measured on <em class="sc-accent-light">results</em>, not hours logged.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         RESULTS — YOUR 30 DAY PLAN
+    ═══════════════════════════════════════════ -->
+    <section class="lt26-band sc-section" id="results">
+      <div class="sc-container relative z-10">
+        <div class="sc-section-head">
+          <p class="lt26-eyebrow">Your plan</p>
+          <div class="lt26-divider"></div>
+          <h2 class="sc-h2 sc-h2--dark mt-5">Here is your <em class="sc-accent-dark">30 day plan</em>.</h2>
+        </div>
+
+        <div class="sc-results-card" id="sc-results-card">
+          <div id="sc-print-meta" class="sc-print-meta"></div>
+
+          <div class="sc-results-top">
+            <div>
+              <p class="sc-results-label">Leak score</p>
+              <p class="sc-results-score" id="r-score">Not scored yet</p>
+              <p class="sc-results-band" id="r-band"></p>
+              <p class="sc-results-band-text" id="r-band-text"></p>
+            </div>
+            <div>
+              <p class="sc-results-label">Revenue at risk</p>
+              <p class="sc-results-money" id="r-monthly">$0<span>/month</span></p>
+              <p class="sc-results-annual" id="r-annual">$0 a year</p>
+            </div>
+          </div>
+
+          <div class="sc-results-block">
+            <p class="sc-results-label">Top three priorities</p>
+            <ol class="sc-results-top3" id="r-top3"><li class="sc-results-empty">Rank your top three in Step 3 to see them here.</li></ol>
+          </div>
+
+          <div class="sc-results-block">
+            <p class="sc-results-label">Your day 30 win</p>
+            <p class="sc-results-win" id="r-win">Write your day 30 win in Step 3 to see it here.</p>
+          </div>
+
+          <div class="sc-results-block">
+            <p class="sc-results-label">Full wish list</p>
+            <div id="r-wishlist" class="sc-results-wishlist"><p class="sc-results-empty">Check items in Step 2 to see your wish list here.</p></div>
+          </div>
+
+          <div class="sc-results-block" id="r-recommend-block" hidden>
+            <p class="sc-results-label">What your list points to</p>
+            <p class="sc-results-recommend" id="r-recommend"></p>
+          </div>
+
+          <div class="sc-results-block" id="r-ground-block" hidden>
+            <p class="sc-results-label">Ground rules</p>
+            <div id="r-ground" class="sc-kv"></div>
+          </div>
+        </div>
+
+        <div class="sc-cta-block">
+          <p class="sc-cta-copy">Book the call and bring this with you. We will scope the 30 days on exactly what you just wrote, not on a generic pitch. If it is not a fit, we will tell you on the call instead of six weeks in.</p>
+          <div class="sc-cta-row">
+            <a href={BOOK_URL} id="sc-book-btn" class="lt26-btn" data-sc-cta="results-book" target="_blank" rel="noopener">
+              Book my call
+              <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d={ARROW_D} /></svg>
+            </a>
+            <button type="button" class="sc-btn-secondary" id="sc-download-btn" data-sc-cta="results-download">Download my plan</button>
+            <button type="button" class="sc-btn-tertiary" id="sc-email-btn" data-sc-cta="results-email">Email a copy to me</button>
+          </div>
+          <p class="sc-reassure">No contract to start. No credit card on this page. One call to scope it.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script is:inline define:vars={{ BOOK_URL, HS_PORTAL_ID, HS_FORM_ID }}>
+    (function () {
+      "use strict";
+
+      /* ───────────────────────── ATTRIBUTION ─────────────────────────
+       * Same capture used on the booking page: persists UTMs/click ids to
+       * sessionStorage so this page's HubSpot submission and the booking
+       * page's meeting record carry consistent attribution. */
+      var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid", "li_fat_id"];
+      var utmParams = {};
+      try { utmParams = JSON.parse(sessionStorage.getItem("aa_lt26_params") || "{}"); } catch (e) {}
+      try {
+        var _q = new URLSearchParams(window.location.search);
+        UTM_KEYS.forEach(function (k) { var v = _q.get(k); if (v) utmParams[k] = v; });
+        sessionStorage.setItem("aa_lt26_params", JSON.stringify(utmParams));
+      } catch (e) {}
+
+      /* ───────────────────────── DATA ───────────────────────── */
+
+      var QUIZ = [
+        { id: "q1", text: "What happens to a call that comes in at 8 PM on a Saturday?", options: [
+          { label: "A trained person answers it live", points: 3 },
+          { label: "An answering service takes a message", points: 1 },
+          { label: "Voicemail", points: 0 },
+          { label: "I honestly do not know", points: 0 },
+        ]},
+        { id: "q2", text: "How fast does a new lead get a live human response during business hours?", options: [
+          { label: "Under 5 minutes", points: 3 },
+          { label: "5 to 30 minutes", points: 2 },
+          { label: "Same day", points: 1 },
+          { label: "Next day or longer", points: 0 },
+          { label: "We do not track it", points: 0 },
+        ]},
+        { id: "q3", text: "How many follow up attempts does a lead get before you stop?", options: [
+          { label: "10 or more", points: 3 },
+          { label: "6 to 9", points: 2 },
+          { label: "3 to 5", points: 1 },
+          { label: "1 to 2", points: 0 },
+        ]},
+        { id: "q4", text: "Who answers when your intake person is already on a call?", options: [
+          { label: "A second trained person", points: 3 },
+          { label: "Whoever happens to be free", points: 1 },
+          { label: "It rings out", points: 0 },
+        ]},
+        { id: "q5", text: "How many hours a week do your attorneys spend on work a trained assistant could do?", options: [
+          { label: "Under 5", points: 3 },
+          { label: "5 to 10", points: 2 },
+          { label: "10 to 20", points: 1 },
+          { label: "More than 20", points: 0 },
+        ]},
+        { id: "q6", text: "Where do your records and bill requests sit right now?", options: [
+          { label: "Assigned, tracked, and chased on a schedule", points: 3 },
+          { label: "Assigned to someone already buried", points: 1 },
+          { label: "On a list nobody owns", points: 0 },
+        ]},
+        { id: "q7", text: "How long did your last open role take to fill?", options: [
+          { label: "Under 30 days", points: 3 },
+          { label: "One to three months", points: 2 },
+          { label: "More than three months, or it is still open", points: 0 },
+          { label: "We stopped trying", points: 0 },
+        ]},
+        { id: "q8", text: "If your lead volume doubled next month, what breaks first?", options: [
+          { label: "Nothing, we have the capacity", points: 3 },
+          { label: "Intake", points: 0 },
+          { label: "Case management", points: 0 },
+          { label: "Records and billing", points: 0 },
+          { label: "All of it", points: 0 },
+        ]},
+      ];
+
+      var BANDS = [
+        { min: 19, max: 24, name: "Tight ship.", text: "Your systems work. Your problem is hours, not process. Use the 30 days to add capacity to a machine that already runs." },
+        { min: 12, max: 18, name: "Leaking at the edges.", text: "Business hours are covered. Nights, weekends, and follow up are where your cases go. You are losing the leads you already paid for." },
+        { min: 6, max: 11, name: "Structural leak.", text: "You are buying leads you never fully work. More marketing spend makes this worse, not better. Fix the handling first." },
+        { min: 0, max: 5, name: "The phone is the problem.", text: "Do not spend another dollar on marketing this quarter. Every lead you buy is landing in a bucket with a hole in it." },
+      ];
+
+      var ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a2.25 2.25 0 002.25-2.25v-1.372a1.5 1.5 0 00-1.183-1.465l-3.223-.805a1.5 1.5 0 00-1.51.44l-.633.633a1.125 1.125 0 01-1.408.14 10.523 10.523 0 01-4.42-4.42 1.125 1.125 0 01.14-1.408l.633-.633a1.5 1.5 0 00.44-1.51l-.805-3.223A1.5 1.5 0 007.622 4.5H6.25A2.25 2.25 0 004 6.75z"/></svg>';
+      var ICON_FOLDER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.65a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6a2.25 2.25 0 012.25-2.25h5.379a1.5 1.5 0 011.06.44l1.622 1.62a1.5 1.5 0 001.06.44H19.5A2.25 2.25 0 0121.75 6v3.776"/></svg>';
+      var ICON_DESK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h12A2.25 2.25 0 0120.25 6v6A2.25 2.25 0 0118 14.25H6A2.25 2.25 0 013.75 12V6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 20.25h19.5M9 17.25l-.5 3M15 17.25l.5 3"/></svg>';
+
+      var WISH_COLUMNS = [
+        { key: "intake", title: "Intake and client facing", tagline: "Never miss another lead.", icon: ICON_PHONE, items: [
+          { label: "Answer every call live, nights and weekends included", tag: "F" },
+          { label: "Cover overflow when my line is already busy", tag: "F" },
+          { label: "Get a human on every new lead in under 15 minutes", tag: "F" },
+          { label: "Run a 15 touch follow up across 45 days", tag: "F" },
+          { label: "Qualify leads against my case criteria before they reach me", tag: "F" },
+          { label: "Close on CFA, flat fee, or retainer", tag: "F" },
+          { label: "Handle Spanish speaking callers", tag: "F" },
+          { label: "Call back web form and chat leads within the hour", tag: "F" },
+          { label: "Work the leads sitting cold in my CRM from last quarter", tag: "S" },
+          { label: "Run outbound on the referral list I never call", tag: "S" },
+        ]},
+        { key: "case", title: "Case and matter support", tagline: "Keep cases moving.", icon: ICON_FOLDER, items: [
+          { label: "Open case files and send letters of representation", tag: "S" },
+          { label: "Request medical records and bills", tag: "S" },
+          { label: "Summarize records once they come in", tag: "S" },
+          { label: "Run bill balance and child support lien checks", tag: "S" },
+          { label: "Draft and negotiate lien reduction requests", tag: "S" },
+          { label: "Keep clients updated so they stop calling me for status", tag: "S" },
+          { label: "Chase signatures and missing documents", tag: "S" },
+          { label: "Build the demand package skeleton", tag: "S" },
+          { label: "Track statutes and deadlines", tag: "S" },
+          { label: "Restart the files that have gone quiet", tag: "S" },
+        ]},
+        { key: "admin", title: "Admin and back office", tagline: "Free up the partners.", icon: ICON_DESK, items: [
+          { label: "Manage my calendar and my inbox", tag: "S" },
+          { label: "Sort, label, and mine the mail", tag: "S" },
+          { label: "Keep the CRM clean and the pipeline current", tag: "S" },
+          { label: "Write the SOPs we have never written down", tag: "S" },
+          { label: "Data entry and file naming nobody wants to touch", tag: "S" },
+          { label: "Build the weekly report I keep meaning to build", tag: "S" },
+          { label: "Handle vendor and provider calls", tag: "S" },
+          { label: "Onboard new clients start to finish", tag: "S" },
+          { label: "Scan and file the stack sitting in the office", tag: "S" },
+          { label: "The task I am embarrassed to admit I still do myself", tag: "S" },
+        ]},
+      ];
+      WISH_COLUMNS.forEach(function (col) {
+        col.items.forEach(function (item, i) { item.id = col.key + "-" + i; item.column = col.key; item.checked = false; });
+      });
+      var ALL_WISH_ITEMS = WISH_COLUMNS.reduce(function (acc, c) { return acc.concat(c.items); }, []);
+
+      var FRONTLINE_MSG = "Your list is coverage shaped. Frontline is capacity you switch on, 24/7, sized to your call volume, with no headcount added.";
+      var STAFFLINE_MSG = "Your list is workload shaped. Staffline is a permanent dedicated person, 40 hours a week, your firm only, working in your systems.";
+      var BOTH_MSG = "Your list is both. Frontline is coverage on demand. Staffline is permanent staff. Most firms that plateau need both, and it is one relationship either way.";
+
+      var GROUND_SECTIONS = [
+        { title: "About the firm", fields: [
+          { key: "firmName", label: "Firm name" }, { key: "firmType", label: "What type of firm" },
+          { key: "practiceAreas", label: "Practice areas" }, { key: "teamSize", label: "Team size" },
+          { key: "leads", label: "New leads per month" },
+        ]},
+        { title: "The stack", fields: [
+          { key: "cms", label: "Case management or CRM" }, { key: "phoneSystem", label: "Phone system" },
+          { key: "esign", label: "E-signature tool" }, { key: "leadsources", label: "Lead sources" }, { key: "itNotes", label: "Needs an account or IT approval" },
+        ]},
+        { title: "Coverage", fields: [
+          { key: "hours", label: "Hours to cover" }, { key: "timezone", label: "Time zone" }, { key: "languages", label: "Languages needed" },
+        ]},
+        { title: "The humans", fields: [
+          { key: "poc", label: "Point of contact" }, { key: "week1", label: "Time available, week one" },
+          { key: "signoff", label: "Signs off on case acceptance" }, { key: "escalate", label: "Escalate immediately" }, { key: "neverask", label: "Never without asking" },
+        ]},
+        { title: "The clock", fields: [
+          { key: "start", label: "Target start date" }, { key: "next60", label: "Next 60 days" },
+        ]},
+        { title: "Your details", fields: [
+          { key: "yourName", label: "Name" }, { key: "yourEmail", label: "Email" }, { key: "yourPhone", label: "Phone" }, { key: "bestTime", label: "Best time to reach you" },
+        ]},
+      ];
+
+      /* ───────────────────────── STATE ───────────────────────── */
+
+      var state = {
+        quiz: {},
+        calc: { leads: 60, fee: 12000, signRate: 25 },
+        wishCount: 0,
+        wishNote: "",
+        rank: [],
+        win: "", hate: "", wrong: "",
+        ground: {},
+        groundLeadsTouched: false,
+      };
+
+      function $(sel, root) { return (root || document).querySelector(sel); }
+      function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+      function fmtMoney(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+
+      function animateNumber(el, from, to, fmt, ms) {
+        var start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min(1, (ts - start) / ms);
+          var eased = 1 - Math.pow(1 - p, 3);
+          var val = from + (to - from) * eased;
+          el.textContent = fmt(val);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      /* ───────────────────────── QUIZ ───────────────────────── */
+
+      function buildQuiz() {
+        var root = $("#sc-quiz");
+        var html = QUIZ.map(function (q, qi) {
+          var opts = q.options.map(function (o, oi) {
+            var optId = q.id + "-opt" + oi;
+            return (
+              '<label class="sc-option" for="' + optId + '">' +
+                '<input type="radio" id="' + optId + '" name="' + q.id + '" value="' + oi + '" data-points="' + o.points + '" data-qid="' + q.id + '" />' +
+                '<span class="sc-option-mark" aria-hidden="true"></span>' +
+                '<span>' + o.label + "</span>" +
+              "</label>"
+            );
+          }).join("");
+          return (
+            '<fieldset class="sc-question">' +
+              '<legend>' + (qi + 1) + ". " + q.text + "</legend>" +
+              '<div class="sc-options">' + opts + "</div>" +
+            "</fieldset>"
+          );
+        }).join("");
+        root.innerHTML = html;
+
+        root.addEventListener("change", function (e) {
+          var input = e.target;
+          if (input.type !== "radio") return;
+          state.quiz[input.getAttribute("data-qid")] = Number(input.getAttribute("data-points"));
+          $all('input[name="' + input.name + '"]').forEach(function (r) {
+            r.closest(".sc-option").classList.toggle("is-selected", r.checked);
+          });
+          scoreQuiz();
+        });
+      }
+
+      function scoreQuiz() {
+        var answered = Object.keys(state.quiz).length;
+        if (answered < QUIZ.length) { updateStepChecks(); return; }
+        var score = QUIZ.reduce(function (sum, q) { return sum + (state.quiz[q.id] || 0); }, 0);
+        var band = BANDS.filter(function (b) { return score >= b.min && score <= b.max; })[0];
+        var card = $("#sc-score-card");
+        var wasHidden = card.hasAttribute("hidden");
+        card.hidden = false;
+        var numEl = $("#sc-score-num");
+        animateNumber(numEl, wasHidden ? 0 : Number(numEl.textContent), score, function (v) { return Math.round(v); }, 900);
+        $("#sc-score-band").textContent = band.name;
+        $("#sc-score-text").textContent = band.text;
+        state.lastScore = score;
+        state.lastBand = band;
+        if (wasHidden) card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        renderResults();
+        updateStepChecks();
+      }
+
+      /* ───────────────────────── CALCULATOR ───────────────────────── */
+
+      function initCalc() {
+        var leadsEl = $("#sc-leads"), feeEl = $("#sc-fee"), rateEl = $("#sc-signrate");
+        leadsEl.addEventListener("input", function () {
+          state.calc.leads = Number(leadsEl.value);
+          $("#sc-leads-out").textContent = state.calc.leads;
+          if (!state.groundLeadsTouched) { var gl = $("#gr-leads"); if (gl) gl.value = state.calc.leads; }
+          computeCalc();
+        });
+        feeEl.addEventListener("input", function () { state.calc.fee = Number(feeEl.value) || 0; computeCalc(); });
+        rateEl.addEventListener("input", function () {
+          state.calc.signRate = Number(rateEl.value);
+          $("#sc-signrate-out").textContent = state.calc.signRate + "%";
+          computeCalc();
+        });
+        computeCalc(true);
+      }
+
+      var lastMonthlyRisk = 0;
+      function computeCalc(skipAnim) {
+        var mishandled = state.calc.leads * 0.2;
+        var lostCases = mishandled * (state.calc.signRate / 100);
+        var monthlyRisk = lostCases * state.calc.fee;
+        var annualRisk = monthlyRisk * 12;
+        var monthlyEl = $("#sc-monthly-risk");
+        if (skipAnim) monthlyEl.textContent = fmtMoney(monthlyRisk);
+        else animateNumber(monthlyEl, lastMonthlyRisk, monthlyRisk, fmtMoney, 700);
+        lastMonthlyRisk = monthlyRisk;
+        $("#sc-annual-risk").textContent = fmtMoney(annualRisk);
+        state.calc.monthlyRisk = monthlyRisk;
+        state.calc.annualRisk = annualRisk;
+        renderResults();
+      }
+
+      /* ───────────────────────── WISHLIST ───────────────────────── */
+
+      function buildWishlist() {
+        var root = $("#sc-wish-grid");
+        root.innerHTML = WISH_COLUMNS.map(function (col) {
+          var items = col.items.map(function (item) {
+            return (
+              '<label class="sc-check-item" for="wish-' + item.id + '">' +
+                '<input type="checkbox" id="wish-' + item.id + '" data-id="' + item.id + '" />' +
+                '<span class="sc-check-box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></span>' +
+                '<span>' + item.label + "</span>" +
+              "</label>"
+            );
+          }).join("");
+          return (
+            '<div class="sc-wish-col">' +
+              '<div class="sc-wish-col-head">' +
+                '<span class="sc-wish-icon">' + col.icon + "</span>" +
+                '<div><h3>' + col.title + '</h3><p class="sc-wish-tagline">' + col.tagline + "</p></div>" +
+              "</div>" +
+              '<div class="sc-wish-items">' + items + "</div>" +
+            "</div>"
+          );
+        }).join("");
+
+        root.addEventListener("change", function (e) {
+          var input = e.target;
+          if (input.type !== "checkbox") return;
+          var item = ALL_WISH_ITEMS.filter(function (i) { return i.id === input.getAttribute("data-id"); })[0];
+          item.checked = input.checked;
+          updateWishCounter();
+          syncRankFromWish();
+          updateRecommendation();
+          renderResults();
+          updateStepChecks();
+        });
+      }
+
+      function updateWishCounter() {
+        var n = ALL_WISH_ITEMS.filter(function (i) { return i.checked; }).length;
+        state.wishCount = n;
+        var el = $("#sc-counter");
+        el.textContent = n === 0
+          ? "Nothing checked yet. Start with the thing that annoyed you most last week."
+          : "You have checked " + n + (n === 1 ? " thing" : " things") + " you would rather not be doing.";
+      }
+
+      function updateRecommendation() {
+        var checked = ALL_WISH_ITEMS.filter(function (i) { return i.checked; });
+        var panel = $("#sc-recommend");
+        if (checked.length < 3) { panel.hidden = true; return; }
+        var fCount = checked.filter(function (i) { return i.tag === "F"; }).length;
+        var fPct = fCount / checked.length;
+        var label = fPct >= 0.7 ? "Frontline" : (1 - fPct) >= 0.7 ? "Staffline" : "Both";
+        var msg = label === "Frontline" ? FRONTLINE_MSG : label === "Staffline" ? STAFFLINE_MSG : BOTH_MSG;
+        $("#sc-recommend-line").textContent = msg;
+        state.recommendMsg = msg;
+        state.recommendLabel = label;
+        panel.hidden = false;
+      }
+
+      $("#sc-wish-note").addEventListener("input", function (e) { state.wishNote = e.target.value; renderResults(); });
+
+      /* ───────────────────────── RANK LIST ───────────────────────── */
+
+      function syncRankFromWish() {
+        var checkedIds = ALL_WISH_ITEMS.filter(function (i) { return i.checked; }).map(function (i) { return i.id; });
+        state.rank = state.rank.filter(function (id) { return checkedIds.indexOf(id) !== -1; });
+        checkedIds.forEach(function (id) { if (state.rank.indexOf(id) === -1) state.rank.push(id); });
+        renderRank();
+      }
+
+      function itemById(id) { return ALL_WISH_ITEMS.filter(function (i) { return i.id === id; })[0]; }
+
+      function renderRank() {
+        var list = $("#sc-rank-list");
+        $("#sc-rank-empty").hidden = state.rank.length > 0;
+        list.innerHTML = state.rank.map(function (id, i) {
+          var item = itemById(id);
+          var isTop = i < 3;
+          return (
+            '<li class="sc-rank-item ' + (isTop ? "is-top" : "is-later") + '" data-id="' + id + '" data-index="' + i + '">' +
+              (isTop ? '<span class="sc-rank-badge">' + (i + 1) + "</span>" : '<span class="sc-rank-badge sc-rank-badge--later" aria-hidden="true"></span>') +
+              '<span class="sc-rank-handle" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="6" r="1.4"/><circle cx="16" cy="6" r="1.4"/><circle cx="8" cy="12" r="1.4"/><circle cx="16" cy="12" r="1.4"/><circle cx="8" cy="18" r="1.4"/><circle cx="16" cy="18" r="1.4"/></svg></span>' +
+              '<span class="sc-rank-label">' + item.label + "</span>" +
+              '<span class="sc-rank-controls">' +
+                '<button type="button" class="sc-rank-btn" data-dir="up" data-id="' + id + '" aria-label="Move up" ' + (i === 0 ? "disabled" : "") + '><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg></button>' +
+                '<button type="button" class="sc-rank-btn" data-dir="down" data-id="' + id + '" aria-label="Move down" ' + (i === state.rank.length - 1 ? "disabled" : "") + '><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></button>' +
+              "</span>" +
+              (i === 2 && state.rank.length > 3 ? '<span class="sc-rank-divider">Later</span>' : "") +
+            "</li>"
+          );
+        }).join("");
+        validateRank();
+        renderResults();
+        updateStepChecks();
+        wireDrag();
+      }
+
+      function moveItem(id, dir) {
+        var idx = state.rank.indexOf(id);
+        var swapWith = dir === "up" ? idx - 1 : idx + 1;
+        if (swapWith < 0 || swapWith >= state.rank.length) return;
+        var tmp = state.rank[idx];
+        state.rank[idx] = state.rank[swapWith];
+        state.rank[swapWith] = tmp;
+        renderRank();
+      }
+
+      $("#sc-rank-list").addEventListener("click", function (e) {
+        var btn = e.target.closest(".sc-rank-btn");
+        if (!btn || btn.disabled) return;
+        moveItem(btn.getAttribute("data-id"), btn.getAttribute("data-dir"));
+      });
+
+      function validateRank() {
+        var msg = $("#sc-rank-validation");
+        msg.hidden = !(state.wishCount > 0 && state.rank.length > 0 && state.rank.length < 3);
+      }
+
+      function wireDrag() {
+        $all(".sc-rank-handle").forEach(function (handle) {
+          handle.style.touchAction = "none";
+          handle.onpointerdown = function (e) {
+            var item = handle.closest(".sc-rank-item");
+            var list = item.parentElement;
+            item.setPointerCapture(e.pointerId);
+            item.classList.add("is-dragging");
+            var move = function (ev) {
+              var after = getDragAfterElement(list, ev.clientY);
+              if (after == null) list.appendChild(item);
+              else list.insertBefore(item, after);
+            };
+            var up = function () {
+              item.classList.remove("is-dragging");
+              document.removeEventListener("pointermove", move);
+              document.removeEventListener("pointerup", up);
+              var newOrder = $all(".sc-rank-item", list).map(function (li) { return li.getAttribute("data-id"); });
+              state.rank = newOrder;
+              renderRank();
+            };
+            document.addEventListener("pointermove", move);
+            document.addEventListener("pointerup", up);
+          };
+        });
+      }
+
+      function getDragAfterElement(container, y) {
+        var els = $all(".sc-rank-item:not(.is-dragging)", container);
+        var closest = { offset: -Infinity, el: null };
+        els.forEach(function (el) {
+          var box = el.getBoundingClientRect();
+          var offset = y - box.top - box.height / 2;
+          if (offset < 0 && offset > closest.offset) closest = { offset: offset, el: el };
+        });
+        return closest.el;
+      }
+
+      /* ───────────────────────── TEXTAREAS ───────────────────────── */
+
+      $("#sc-win").addEventListener("input", function (e) { state.win = e.target.value; if (state.win.trim()) $("#sc-win-validation").hidden = true; renderResults(); updateStepChecks(); });
+      $("#sc-win").addEventListener("blur", function () { $("#sc-win-validation").hidden = !!state.win.trim(); });
+      $("#sc-hate").addEventListener("input", function (e) { state.hate = e.target.value; renderResults(); });
+      $("#sc-wrong").addEventListener("input", function (e) { state.wrong = e.target.value; renderResults(); });
+
+      /* ───────────────────────── GROUND RULES ───────────────────────── */
+
+      function wireGroundRules() {
+        var g = state.ground;
+        function bind(id, key, evt) {
+          var el = $(id);
+          if (!el) return;
+          el.addEventListener(evt || "input", function () { g[key] = el.value; renderResults(); updateStepChecks(); });
+        }
+        bind("#gr-firmName", "firmName");
+        bind("#gr-firmType", "firmType", "change");
+        bind("#gr-practiceAreas", "practiceAreas");
+        bind("#gr-teamSize", "teamSize", "change");
+        bind("#gr-leads", "leads");
+        $("#gr-leads").value = state.calc.leads;
+        $("#gr-leads").addEventListener("input", function () { state.groundLeadsTouched = true; });
+
+        bind("#gr-cms", "cms", "change");
+        bind("#gr-phoneSystem", "phoneSystem");
+        bind("#gr-esign", "esign");
+        bind("#gr-itNotes", "itNotes");
+        $all('#gr-leadsources input[type="checkbox"]').forEach(function (cb) {
+          cb.addEventListener("change", function () {
+            g.leadsources = $all('#gr-leadsources input:checked').map(function (c) { return c.value; }).join(", ");
+            renderResults();
+          });
+        });
+
+        $all('#gr-hours input[type="checkbox"]').forEach(function (cb) {
+          cb.addEventListener("change", function () {
+            g.hours = $all('#gr-hours input:checked').map(function (c) { return c.value; }).join(", ");
+            renderResults();
+          });
+        });
+        bind("#gr-timezone", "timezone");
+        bind("#gr-languages", "languages", "change");
+
+        bind("#gr-pocName", "pocName");
+        bind("#gr-pocRole", "pocRole");
+        bind("#gr-pocEmail", "pocEmail");
+        bind("#gr-week1", "week1", "change");
+        bind("#gr-signoff", "signoff");
+        bind("#gr-escalate", "escalate");
+        bind("#gr-neverask", "neverask");
+
+        bind("#gr-start", "start");
+        bind("#gr-next60", "next60");
+
+        bind("#gr-yourName", "yourName");
+        bind("#gr-yourEmail", "yourEmail");
+        bind("#gr-yourPhone", "yourPhone");
+        bind("#gr-bestTime", "bestTime");
+
+        if (window.matchMedia && window.matchMedia("(max-width: 767px)").matches) {
+          $all("[data-sc-group]").forEach(function (d, i) { if (i > 0) d.removeAttribute("open"); });
+        }
+      }
+
+      function groundValue(key) {
+        var g = state.ground;
+        if (key === "poc") {
+          var parts = [g.pocName, g.pocRole, g.pocEmail].filter(Boolean);
+          return parts.join(", ");
+        }
+        return g[key] || "";
+      }
+
+      /* ───────────────────────── RESULTS ───────────────────────── */
+
+      function renderResults() {
+        var answered = Object.keys(state.quiz).length;
+        if (answered >= QUIZ.length) {
+          $("#r-score").textContent = state.lastScore + " / 24";
+          $("#r-band").textContent = state.lastBand.name;
+          $("#r-band-text").textContent = state.lastBand.text;
+        } else {
+          $("#r-score").textContent = "Not scored yet";
+          $("#r-band").textContent = "";
+          $("#r-band-text").textContent = "Answer all eight questions in Step 1 to see your score.";
+        }
+
+        $("#r-monthly").innerHTML = fmtMoney(state.calc.monthlyRisk || 0) + "<span>/month</span>";
+        $("#r-annual").textContent = fmtMoney(state.calc.annualRisk || 0) + " a year";
+
+        var top3 = $("#r-top3");
+        if (state.rank.length >= 3) {
+          top3.innerHTML = state.rank.slice(0, 3).map(function (id) { return "<li>" + itemById(id).label + "</li>"; }).join("");
+        } else {
+          top3.innerHTML = '<li class="sc-results-empty">Rank your top three in Step 3 to see them here.</li>';
+        }
+
+        $("#r-win").textContent = state.win.trim() || "Write your day 30 win in Step 3 to see it here.";
+
+        var wishRoot = $("#r-wishlist");
+        var checkedByCol = WISH_COLUMNS.map(function (col) {
+          var items = col.items.filter(function (i) { return i.checked; });
+          if (!items.length) return "";
+          return '<div class="sc-results-wishcol"><h4>' + col.title + "</h4><ul>" + items.map(function (i) { return "<li>" + i.label + "</li>"; }).join("") + "</ul></div>";
+        }).filter(Boolean).join("");
+        wishRoot.innerHTML = checkedByCol || '<p class="sc-results-empty">Check items in Step 2 to see your wish list here.</p>';
+        if (state.wishNote.trim()) wishRoot.innerHTML += '<p class="sc-results-note"><strong>Also:</strong> ' + escapeHtml(state.wishNote.trim()) + "</p>";
+
+        var recBlock = $("#r-recommend-block");
+        if (state.recommendMsg) { recBlock.hidden = false; $("#r-recommend").textContent = state.recommendMsg; }
+        else recBlock.hidden = true;
+
+        var groundRoot = $("#r-ground");
+        var rows = [];
+        GROUND_SECTIONS.forEach(function (section) {
+          var sectionRows = section.fields.map(function (f) {
+            var v = groundValue(f.key);
+            return v ? '<div class="sc-kv-row"><span>' + f.label + '</span><span>' + escapeHtml(v) + "</span></div>" : "";
+          }).filter(Boolean);
+          if (sectionRows.length) rows.push('<h4 class="sc-kv-heading">' + section.title + "</h4>" + sectionRows.join(""));
+        });
+        var groundBlock = $("#r-ground-block");
+        if (rows.length) { groundBlock.hidden = false; groundRoot.innerHTML = rows.join(""); }
+        else groundBlock.hidden = true;
+
+        var meta = $("#sc-print-meta");
+        var firm = state.ground.firmName ? state.ground.firmName.trim() : "";
+        var today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+        meta.textContent = "30 Day Free Trial Scorecard · Prepared for " + (firm || "your firm") + " · " + today;
+      }
+
+      function escapeHtml(s) {
+        return s.replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+
+      /* ───────────────────────── PROGRESS BAR ───────────────────────── */
+
+      function wireProgress() {
+        var nav = $("#sc-progress");
+        var hero = $(".sc-hero");
+        var fill = $("#sc-progress-fill");
+        var steps = $all(".sc-progress-step");
+        var sections = ["#step-1", "#step-2", "#step-3", "#step-4"].map(function (s) { return $(s); });
+
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) { nav.classList.toggle("is-visible", !entry.isIntersecting && entry.boundingClientRect.top < 0); });
+        }, { threshold: 0 }).observe(hero);
+
+        steps.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var el = $(btn.getAttribute("data-target"));
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+
+        var ticking = false;
+        function update() {
+          ticking = false;
+          var refY = window.innerHeight * 0.35;
+          var activeIndex = 0;
+          for (var i = 0; i < sections.length; i++) {
+            var rect = sections[i].getBoundingClientRect();
+            if (rect.top <= refY) activeIndex = i;
+          }
+          var currentRect = sections[activeIndex].getBoundingClientRect();
+          var frac = Math.min(1, Math.max(0, (refY - currentRect.top) / Math.max(1, currentRect.height)));
+          var pct = ((activeIndex + frac) / sections.length) * 100;
+          fill.style.width = Math.min(100, Math.max(0, pct)) + "%";
+          steps.forEach(function (btn, i) { btn.classList.toggle("is-active", i === activeIndex); });
+        }
+        document.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+        update();
+      }
+
+      function updateStepChecks() {
+        var checks = $all(".sc-progress-check");
+        var step1Done = Object.keys(state.quiz).length >= QUIZ.length;
+        var step2Done = state.wishCount >= 1;
+        var step3Done = state.rank.length >= 3 && !!state.win.trim();
+        var step4Done = !!(state.ground.yourName && state.ground.yourEmail);
+        [step1Done, step2Done, step3Done, step4Done].forEach(function (done, i) {
+          $(".sc-progress-step[data-step='" + i + "']").classList.toggle("is-done", done);
+        });
+      }
+
+      /* ───────────────────────── CTA BUTTONS ───────────────────────── */
+
+      function buildFullPlanText() {
+        var lines = [];
+        lines.push("30 DAY FREE TRIAL SCORECARD");
+        lines.push("");
+        if (state.lastScore != null) lines.push("Leak score: " + state.lastScore + "/24, " + state.lastBand.name);
+        lines.push("Revenue at risk: " + fmtMoney(state.calc.monthlyRisk || 0) + "/month, " + fmtMoney(state.calc.annualRisk || 0) + "/year");
+        if (state.recommendMsg) { lines.push(""); lines.push("What the list points to: " + state.recommendMsg); }
+
+        if (state.rank.length >= 3) {
+          lines.push("");
+          lines.push("Top three priorities:");
+          state.rank.slice(0, 3).forEach(function (id, i) { lines.push((i + 1) + ". " + itemById(id).label); });
+        }
+        if (state.win.trim()) { lines.push(""); lines.push("Day 30 win: " + state.win.trim()); }
+        if (state.hate.trim()) { lines.push("Would hate to still be doing on day 30: " + state.hate.trim()); }
+        if (state.wrong.trim()) { lines.push("Went wrong last time they tried to delegate: " + state.wrong.trim()); }
+
+        var wishLines = [];
+        WISH_COLUMNS.forEach(function (col) {
+          var items = col.items.filter(function (i) { return i.checked; });
+          if (!items.length) return;
+          wishLines.push(col.title + ":");
+          items.forEach(function (i) { wishLines.push("- " + i.label); });
+        });
+        if (wishLines.length) { lines.push(""); lines.push("Wish list:"); lines = lines.concat(wishLines); }
+        if (state.wishNote.trim()) { lines.push(""); lines.push("Also: " + state.wishNote.trim()); }
+
+        var groundLines = [];
+        GROUND_SECTIONS.forEach(function (section) {
+          var rows = section.fields.map(function (f) {
+            var v = groundValue(f.key);
+            return v ? f.label + ": " + v : "";
+          }).filter(Boolean);
+          if (rows.length) { groundLines.push(section.title + ":"); groundLines = groundLines.concat(rows.map(function (r) { return "- " + r; })); }
+        });
+        if (groundLines.length) { lines.push(""); lines.push("Ground rules:"); lines = lines.concat(groundLines); }
+
+        lines.push("");
+        lines.push("Book a call: " + window.location.origin + BOOK_URL);
+        return lines.join("\n");
+      }
+
+      function toHsDate(dateStr) {
+        if (!dateStr) return null;
+        var d = new Date(dateStr + "T00:00:00Z");
+        return isNaN(d.getTime()) ? null : d.getTime();
+      }
+
+      function getCookie(name) {
+        var m = document.cookie.split(";").map(function (c) { return c.trim(); }).find(function (c) { return c.indexOf(name + "=") === 0; });
+        return m ? m.split("=")[1] : undefined;
+      }
+
+      function submitToHubSpot(position) {
+        var email = state.ground.yourEmail && state.ground.yourEmail.trim();
+        if (!email) return;
+
+        var nameParts = (state.ground.yourName || "").trim().split(/\s+/);
+        var firstname = nameParts.shift() || "";
+        var lastname = nameParts.join(" ");
+
+        var fields = [
+          { name: "email", value: email },
+          { name: "firstname", value: firstname },
+          { name: "lastname", value: lastname },
+          { name: "phone", value: state.ground.yourPhone || "" },
+          { name: "company", value: state.ground.firmName || "" },
+          { name: "scorecard_recommendation", value: state.recommendLabel || "" },
+          { name: "scorecard_top_3_priorities", value: state.rank.slice(0, 3).map(function (id, i) { return (i + 1) + ". " + itemById(id).label; }).join("\n") },
+          { name: "scorecard_day_30_win", value: state.win || "" },
+          { name: "scorecard_full_plan_text", value: buildFullPlanText() },
+          { name: "scorecard_firm_type", value: state.ground.firmType || "" },
+          { name: "scorecard_team_size", value: state.ground.teamSize || "" },
+        ];
+        if (state.lastScore != null) {
+          fields.push({ name: "scorecard_leak_score", value: String(state.lastScore) });
+          fields.push({ name: "scorecard_leak_band", value: state.lastBand.name });
+        }
+        if (state.calc.monthlyRisk) {
+          fields.push({ name: "scorecard_monthly_revenue_at_risk", value: String(Math.round(state.calc.monthlyRisk)) });
+          fields.push({ name: "scorecard_annual_revenue_at_risk", value: String(Math.round(state.calc.annualRisk)) });
+        }
+        var newLeads = state.ground.leads || state.calc.leads;
+        if (newLeads) fields.push({ name: "scorecard_new_leads_per_month", value: String(newLeads) });
+        var hsDate = toHsDate(state.ground.start);
+        if (hsDate != null) fields.push({ name: "scorecard_target_start_date", value: String(hsDate) });
+
+        UTM_KEYS.forEach(function (k) { if (utmParams[k]) fields.push({ name: k, value: utmParams[k] }); });
+
+        fetch("https://api.hsforms.com/submissions/v3/integration/submit/" + HS_PORTAL_ID + "/" + HS_FORM_ID, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fields: fields,
+            context: { pageUri: window.location.href, pageName: document.title, hutk: getCookie("hubspotutk") },
+          }),
+        }).then(function () {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "lp_lead_submit", lp_slug: "free-trial-scorecard", position: position });
+        }).catch(function () {});
+      }
+
+      $("#sc-download-btn").addEventListener("click", function () {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "free-trial-scorecard", position: "results-download" });
+        window.print();
+      });
+
+      $("#sc-book-btn").addEventListener("click", function () {
+        submitToHubSpot("results-book");
+      });
+
+      $("#sc-email-btn").addEventListener("click", function () {
+        var email = state.ground.yourEmail && state.ground.yourEmail.trim();
+        if (!email) {
+          var f = $("#gr-yourEmail");
+          f.focus();
+          f.closest("details").setAttribute("open", "");
+          f.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "free-trial-scorecard", position: "results-email" });
+        submitToHubSpot("results-email");
+
+        var subject = encodeURIComponent("Your 30 Day Free Trial Scorecard");
+        var body = encodeURIComponent(buildFullPlanText());
+        window.location.href = "mailto:" + encodeURIComponent(email) + "?subject=" + subject + "&body=" + body;
+      });
+
+      document.addEventListener("click", function (e) {
+        var cta = e.target.closest("[data-sc-cta]");
+        if (!cta || cta.id === "sc-download-btn" || cta.id === "sc-email-btn") return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "free-trial-scorecard", position: cta.getAttribute("data-sc-cta") });
+      });
+
+      /* ───────────────────────── INIT ───────────────────────── */
+
+      buildQuiz();
+      buildWishlist();
+      initCalc();
+      renderRank();
+      wireGroundRules();
+      wireProgress();
+      renderResults();
+      updateStepChecks();
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "lp_view", lp_slug: "free-trial-scorecard" });
+    })();
+  </script>
+
+</SimpleCampaignLayout>
+
+<style is:global>
+  /*
+   * Global (not scoped): a large share of this page's markup — quiz
+   * questions, wishlist checkboxes, the rank list, results rows — is
+   * built with innerHTML at runtime, so it never receives Astro's
+   * per-component scope attribute. All classes below are uniquely
+   * prefixed (sc-) to stay safely out of the rest of the site's way.
+   */
+  .sc { --sc-error: #b42318; }
+
+  .sc-container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .sc-section { padding: 96px 0; }
+  @media (max-width: 767px) { .sc-section { padding: 64px 0; } }
+
+  .sc-cream { background: var(--lt26-cream); }
+  .sc-gray { background: #f9fafb; }
+
+  .sc-accent-dark { color: var(--lt26-orange); font-style: italic; }
+  .sc-accent-light { color: var(--lt26-orange-ink); font-style: italic; }
+
+  .sc-h2 { font-family: "Sora", system-ui, sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height: 1.2; letter-spacing: -0.01em; color: #101828; }
+  .sc-h2--dark { color: #fff; }
+  .sc-section-head { max-width: 680px; }
+  .sc-intro { margin-top: 1rem; font-size: 1rem; line-height: 1.65; color: #475467; max-width: 640px; }
+  .lt26-band .sc-intro { color: var(--lt26-hero-body); }
+
+  .sc-meta-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; font-family: "IBM Plex Mono", monospace; font-size: 0.8125rem; color: var(--lt26-hero-body); text-transform: uppercase; letter-spacing: 0.06em; }
+  .sc-meta-dot { color: rgba(255,255,255,0.3); }
+
+  .sc-hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.75rem; }
+  .sc-pill { display: inline-flex; align-items: center; padding: 0.4rem 0.9rem; border-radius: 9999px; font-family: "IBM Plex Mono", monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.06); }
+
+  /* ── Sticky progress ── */
+  .sc-progress { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #eaecf0; opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; }
+  .sc-progress.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .sc-progress-track { height: 3px; background: #eaecf0; }
+  .sc-progress-fill { height: 100%; width: 0%; background: var(--lt26-orange); transition: width 0.15s linear; }
+  .sc-progress-steps { max-width: 1100px; margin: 0 auto; padding: 0.6rem 1.25rem; display: flex; gap: 1.5rem; overflow-x: auto; }
+  .sc-progress-step { display: flex; align-items: center; gap: 0.4rem; background: none; border: none; padding: 0.15rem 0; font-family: "IBM Plex Mono", monospace; font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: #98a2b3; white-space: nowrap; cursor: pointer; }
+  .sc-progress-step.is-active { color: var(--lt26-orange-ink); }
+  .sc-progress-check { width: 14px; height: 14px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: transparent; border: 1.5px solid #d0d5dd; flex-shrink: 0; }
+  .sc-progress-check svg { width: 9px; height: 9px; }
+  .sc-progress-step.is-done .sc-progress-check { color: #fff; background: var(--lt26-orange); border-color: var(--lt26-orange); }
+  .sc-progress-step:focus-visible, .sc-rank-btn:focus-visible, .sc-option input:focus-visible + .sc-option-mark, button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--lt26-blue); outline-offset: 2px;
+  }
+
+  /* ── Quiz ── */
+  .sc-quiz { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+  .sc-question { border: none; padding: 0; margin: 0; }
+  .sc-question legend { font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 1rem; color: #101828; margin-bottom: 0.75rem; padding: 0; }
+  .sc-options { display: grid; gap: 0.5rem; }
+  .sc-option { position: relative; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border: 1px solid #eaecf0; border-left: 3px solid transparent; border-radius: 10px; background: #fff; cursor: pointer; font-size: 0.9375rem; color: #344054; transition: background 0.15s ease, border-color 0.15s ease; }
+  .sc-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .sc-option-mark { width: 16px; height: 16px; border-radius: 50%; border: 1.5px solid #d0d5dd; flex-shrink: 0; position: relative; }
+  .sc-option.is-selected { background: var(--lt26-cream); border-left-color: var(--lt26-orange); border-color: rgba(245,159,38,0.35); }
+  .sc-option.is-selected .sc-option-mark { border-color: var(--lt26-orange); }
+  .sc-option.is-selected .sc-option-mark::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--lt26-orange); }
+  .sc-option:hover { background: #fcfcfd; }
+
+  .sc-score-card { margin-top: 3rem; padding: 2.25rem; text-align: center; background: #fff; border: 1px solid #eaecf0; border-radius: 1rem; box-shadow: 0 4px 16px -6px rgba(13,36,61,0.08); }
+  .sc-score-num-wrap { display: flex; align-items: baseline; justify-content: center; gap: 0.35rem; }
+  .sc-score-num { font-family: "Bangers", "Sora", cursive; font-size: clamp(3.5rem, 9vw, 5.5rem); color: var(--lt26-orange); line-height: 1; }
+  .sc-score-max { font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 1.25rem; color: #98a2b3; }
+  .sc-score-band { margin-top: 0.5rem; font-family: "Sora", system-ui, sans-serif; font-weight: 800; font-size: 1.5rem; color: #101828; }
+  .sc-score-text { margin-top: 0.75rem; font-size: 1rem; line-height: 1.6; color: #475467; max-width: 42rem; margin-left: auto; margin-right: auto; }
+  .sc-score-line { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid #eaecf0; font-weight: 700; color: var(--lt26-orange-ink); }
+
+  /* ── Calculator ── */
+  .sc-calc-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; margin-top: 3rem; align-items: center; }
+  @media (max-width: 900px) { .sc-calc-grid { grid-template-columns: 1fr; } }
+  .sc-calc-controls { display: grid; gap: 1.75rem; }
+  .sc-field-label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; }
+  .sc-field-label-row label { font-size: 0.875rem; font-weight: 600; color: #fff; }
+  .sc-field-label-row output { font-family: "Sora", system-ui, sans-serif; font-weight: 700; color: var(--lt26-orange); font-size: 1rem; }
+  .sc-field > label { display: block; font-size: 0.875rem; font-weight: 600; color: #fff; margin-bottom: 0.6rem; }
+
+  .sc-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 9999px; background: rgba(255,255,255,0.18); outline: none; }
+  .sc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--lt26-orange); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.3); cursor: pointer; }
+  .sc-slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--lt26-orange); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.3); cursor: pointer; border: none; }
+  .sc-slider::-moz-range-track { background: rgba(255,255,255,0.18); height: 6px; border-radius: 9999px; }
+
+  .sc-currency-input { display: flex; align-items: center; background: #fff; border-radius: 10px; padding: 0 0.9rem; }
+  .sc-currency-input span { color: #667085; font-weight: 600; }
+  .sc-currency-input input { border: none; background: none; padding: 0.75rem 0.5rem; font-size: 1rem; width: 100%; color: #101828; outline: none; }
+
+  .sc-calc-display { text-align: center; padding: 2rem 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); border-radius: 1rem; }
+  .sc-calc-num { font-family: "Bangers", "Sora", cursive; font-size: clamp(2.75rem, 6.5vw, 4rem); color: var(--lt26-orange); line-height: 1; }
+  .sc-calc-label { margin-top: 0.5rem; font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lt26-hero-eyebrow); }
+  .sc-calc-annual { margin-top: 1rem; font-size: 0.9375rem; color: var(--lt26-hero-body); }
+  .sc-calc-annual strong { color: #fff; }
+
+  .sc-calc-foot { margin-top: 3rem; display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; align-items: center; }
+  @media (max-width: 900px) { .sc-calc-foot { grid-template-columns: 1fr; } }
+  .sc-quote-card { padding: 1.5rem 1.75rem; border-left: 3px solid var(--lt26-orange); background: rgba(255,255,255,0.05); border-radius: 0.5rem; }
+  .sc-quote-card p { font-family: "Sora", system-ui, sans-serif; font-weight: 600; font-style: italic; color: #fff; font-size: 1.0625rem; line-height: 1.5; }
+  .sc-footnote { color: #9db8cf; }
+
+  /* ── Wishlist ── */
+  .sc-counter { margin-top: 2rem; font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 1.0625rem; color: #101828; }
+  .sc-wish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+  @media (max-width: 900px) { .sc-wish-grid { grid-template-columns: 1fr; } }
+  .sc-wish-col { background: #fff; border: 1px solid #eaecf0; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 2px rgba(16,24,40,0.05); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .sc-wish-col:hover { transform: translateY(-2px); box-shadow: 0 4px 16px -6px rgba(13,36,61,0.1); }
+  .sc-wish-col-head { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid #f2f4f7; }
+  .sc-wish-icon { width: 34px; height: 34px; flex-shrink: 0; color: var(--lt26-orange-ink); }
+  .sc-wish-icon svg { width: 100%; height: 100%; }
+  .sc-wish-col-head h3 { font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 0.9375rem; color: #101828; }
+  .sc-wish-tagline { font-style: italic; color: var(--lt26-orange-ink); font-size: 0.8125rem; margin-top: 0.15rem; }
+  .sc-wish-items { display: grid; gap: 0.6rem; }
+  .sc-check-item { display: flex; align-items: flex-start; gap: 0.65rem; cursor: pointer; font-size: 0.875rem; line-height: 1.45; color: #344054; }
+  .sc-check-item input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .sc-check-box { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid #d0d5dd; flex-shrink: 0; margin-top: 0.05rem; display: flex; align-items: center; justify-content: center; color: transparent; }
+  .sc-check-box svg { width: 12px; height: 12px; }
+  .sc-check-item input:checked + .sc-check-box { background: var(--lt26-orange); border-color: var(--lt26-orange); color: #fff; }
+
+  .sc-freetext { margin-top: 2rem; }
+  .sc-freetext label { display: block; font-weight: 600; font-size: 0.875rem; color: #344054; margin-bottom: 0.5rem; }
+
+  .sc-recommend { margin-top: 2rem; padding: 1.75rem; background: #fff; border: 1px solid rgba(245,159,38,0.3); border-radius: 1rem; opacity: 0; animation: sc-fade 0.4s ease forwards; }
+  @keyframes sc-fade { to { opacity: 1; } }
+  .sc-recommend-line { font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 1.0625rem; color: #101828; }
+  .sc-recommend-both { margin-top: 0.75rem; font-size: 0.9375rem; color: #475467; }
+
+  /* ── Rank list ── */
+  .sc-rank-list { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+  .sc-rank-item { position: relative; display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1rem; background: #fff; border: 1px solid #eaecf0; border-radius: 12px; box-shadow: 0 1px 2px rgba(16,24,40,0.04); }
+  .sc-rank-item.is-top { border-color: rgba(245,159,38,0.4); background: var(--lt26-cream); }
+  .sc-rank-item.is-later { opacity: 0.72; }
+  .sc-rank-item.is-dragging { opacity: 0.5; }
+  .sc-rank-badge { width: 28px; height: 28px; border-radius: 50%; background: var(--lt26-orange); color: var(--lt26-navy); font-family: "Sora", system-ui, sans-serif; font-weight: 800; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sc-rank-badge--later { width: 28px; height: 28px; background: transparent; }
+  .sc-rank-handle { color: #98a2b3; width: 18px; height: 20px; flex-shrink: 0; cursor: grab; }
+  .sc-rank-handle svg { width: 100%; height: 100%; }
+  .sc-rank-label { flex: 1; font-size: 0.9375rem; color: #344054; }
+  .sc-rank-controls { display: flex; gap: 0.25rem; flex-shrink: 0; }
+  .sc-rank-btn { width: 28px; height: 28px; border-radius: 8px; border: 1px solid #d0d5dd; background: #fff; color: #475467; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .sc-rank-btn svg { width: 14px; height: 14px; }
+  .sc-rank-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .sc-rank-divider { position: absolute; left: 0; right: 0; bottom: -0.85rem; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: #98a2b3; }
+  .sc-rank-divider::before, .sc-rank-divider::after { content: ""; }
+  .sc-rank-empty { margin-top: 1.5rem; font-size: 0.9375rem; color: #98a2b3; }
+  .sc-rank-list:has(.sc-rank-item) + .sc-rank-validation + .sc-rank-empty { display: none; }
+
+  .sc-validation { margin-top: 0.75rem; font-size: 0.875rem; font-weight: 600; color: var(--sc-error); }
+  .sc-textareas { display: grid; gap: 1.5rem; margin-top: 2.5rem; max-width: 640px; }
+  .sc-optional { font-weight: 400; color: #98a2b3; text-transform: none; letter-spacing: 0; font-size: 0.8125rem; }
+
+  /* ── Form fields (shared) ── */
+  .sc-field label, .sc-group-label { display: block; font-size: 0.875rem; font-weight: 600; color: #344054; margin-bottom: 0.5rem; }
+  .sc-field input[type="text"], .sc-field input[type="email"], .sc-field input[type="tel"], .sc-field input[type="number"], .sc-field input[type="date"], .sc-field select, .sc-field textarea {
+    width: 100%; padding: 0.65rem 0.875rem; border: 1px solid #d0d5dd; border-radius: 8px; font-size: 0.9375rem; color: #101828; background: #fff; font-family: inherit;
+  }
+  .sc-field textarea { resize: vertical; }
+
+  .sc-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border-radius: 9999px; border: 1px solid #d0d5dd; font-size: 0.8125rem; color: #344054; cursor: pointer; background: #fff; }
+  .sc-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .sc-chip:has(input:checked) { background: var(--lt26-cream); border-color: var(--lt26-orange); color: var(--lt26-orange-ink); font-weight: 600; }
+  .sc-check-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+  /* ── Ground rules groups ── */
+  .sc-groups { display: grid; gap: 1rem; margin-top: 2.5rem; }
+  .sc-group { background: #fff; border: 1px solid #eaecf0; border-radius: 1rem; padding: 1.25rem 1.5rem; box-shadow: 0 1px 2px rgba(16,24,40,0.04); }
+  .sc-group summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; list-style: none; font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 1rem; color: #101828; }
+  .sc-group summary::-webkit-details-marker { display: none; }
+  .sc-group summary svg { width: 18px; height: 18px; color: #98a2b3; transition: transform 0.2s ease; flex-shrink: 0; }
+  .sc-group[open] summary svg { transform: rotate(180deg); }
+  .sc-field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-top: 1.25rem; }
+  @media (max-width: 640px) { .sc-field-grid { grid-template-columns: 1fr; } }
+  .sc-field--full { grid-column: 1 / -1; }
+
+  /* ── Before day one ── */
+  .sc-before-copy { margin-top: 2rem; display: grid; gap: 1rem; max-width: 680px; font-size: 1rem; line-height: 1.7; color: #475467; }
+  .sc-timeline { margin-top: 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+  @media (max-width: 900px) { .sc-timeline { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .sc-timeline { grid-template-columns: 1fr; } }
+  .sc-week-card { background: #fff; border: 1px solid #eaecf0; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 2px rgba(16,24,40,0.05); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .sc-week-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px -6px rgba(13,36,61,0.1); }
+  .sc-week-num { font-family: "Bangers", "Sora", cursive; font-size: 2rem; color: var(--lt26-orange); line-height: 1; }
+  .sc-week-body { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.55; color: #344054; }
+  .sc-week-from { margin-top: 0.75rem; font-size: 0.8125rem; color: #98a2b3; }
+  .sc-closing-line { text-align: center; margin-top: 3rem; font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 1.375rem; color: #101828; }
+
+  /* ── Results ── */
+  .sc-results-card { margin-top: 3rem; background: #fff; border: 1px solid #eaecf0; border-radius: 1.25rem; padding: 2.25rem; box-shadow: 0 20px 48px -16px rgba(0,0,0,0.35); }
+  .sc-print-meta { display: none; }
+  .sc-results-top { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 1.75rem; border-bottom: 1px solid #eaecf0; }
+  @media (max-width: 640px) { .sc-results-top { grid-template-columns: 1fr; } }
+  .sc-results-label { font-family: "IBM Plex Mono", monospace; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: #98a2b3; }
+  .sc-results-score { margin-top: 0.4rem; font-family: "Sora", system-ui, sans-serif; font-weight: 800; font-size: 1.75rem; color: #101828; }
+  .sc-results-band { font-weight: 700; color: var(--lt26-orange-ink); margin-top: 0.15rem; }
+  .sc-results-band-text { margin-top: 0.4rem; font-size: 0.875rem; color: #667085; line-height: 1.5; }
+  .sc-results-money { margin-top: 0.4rem; font-family: "Bangers", "Sora", cursive; font-size: 2rem; color: var(--lt26-orange-ink); }
+  .sc-results-money span { font-family: "Inter", sans-serif; font-size: 0.9rem; color: #98a2b3; font-weight: 400; margin-left: 0.25rem; }
+  .sc-results-annual { margin-top: 0.25rem; font-size: 0.875rem; color: #667085; }
+  .sc-results-block { padding: 1.75rem 0; border-bottom: 1px solid #eaecf0; }
+  .sc-results-block:last-child { border-bottom: none; padding-bottom: 0; }
+  .sc-results-top3 { margin-top: 0.6rem; padding-left: 1.4rem; list-style: decimal outside; }
+  .sc-results-top3 li { color: var(--lt26-orange-ink); font-weight: 700; margin-bottom: 0.35rem; }
+  .sc-results-top3 li.sc-results-empty { list-style: none; margin-left: -1.4rem; }
+  .sc-results-wishcol ul { list-style: disc outside; padding-left: 1.2rem; }
+  .sc-results-empty { color: #98a2b3; font-size: 0.875rem; font-weight: 400; }
+  .sc-results-win { margin-top: 0.6rem; font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 1.375rem; color: #101828; line-height: 1.4; }
+  .sc-results-wishlist { margin-top: 0.6rem; display: grid; gap: 1.25rem; }
+  .sc-results-wishcol h4 { font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 0.875rem; color: #101828; margin-bottom: 0.4rem; }
+  .sc-results-wishcol ul { padding-left: 1.2rem; }
+  .sc-results-wishcol li { font-size: 0.875rem; color: #475467; margin-bottom: 0.2rem; }
+  .sc-results-note { margin-top: 0.75rem; font-size: 0.875rem; color: #475467; }
+  .sc-results-recommend { margin-top: 0.6rem; font-size: 0.9375rem; color: #344054; line-height: 1.6; }
+  .sc-kv { margin-top: 0.6rem; display: grid; }
+  .sc-kv-heading { font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 0.8125rem; color: #101828; margin-top: 1rem; margin-bottom: 0.35rem; }
+  .sc-kv-heading:first-child { margin-top: 0; }
+  .sc-kv-row { display: grid; grid-template-columns: 40% 60%; gap: 1rem; padding: 0.4rem 0; font-size: 0.875rem; border-bottom: 1px dashed #f2f4f7; }
+  .sc-kv-row span:first-child { color: #667085; }
+  .sc-kv-row span:last-child { color: #101828; font-weight: 500; }
+
+  .sc-cta-block { margin-top: 3rem; text-align: center; }
+  .sc-cta-copy { max-width: 620px; margin: 0 auto; color: var(--lt26-hero-body); font-size: 0.9375rem; line-height: 1.65; }
+  .sc-cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 1.75rem; }
+  .sc-btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: #344054; border: 1px solid #d0d5dd; font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 0.95rem 1.6rem; border-radius: 0.625rem; cursor: pointer; }
+  .sc-btn-tertiary { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); font-family: "Sora", system-ui, sans-serif; font-weight: 700; font-size: 0.9375rem; padding: 0.95rem 1.6rem; border-radius: 0.625rem; cursor: pointer; }
+  .sc-reassure { margin-top: 1.5rem; font-size: 0.8125rem; color: var(--lt26-hero-body); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sc-recommend { animation: none; opacity: 1; }
+    .sc-progress { transition: none; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    body * { visibility: hidden; }
+    .sc-results-card, .sc-results-card * { visibility: visible; }
+    .sc-results-card { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; border: none; }
+    .sc-print-meta { display: block !important; font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #667085; margin-bottom: 1.5rem; border-bottom: 1px solid #d0d5dd; padding-bottom: 0.75rem; }
+  }
+</style>

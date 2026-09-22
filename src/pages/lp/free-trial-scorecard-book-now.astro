@@ -1,0 +1,114 @@
+---
+/**
+ * Dedicated booking page for the 30 Day Free Trial Scorecard lead magnet
+ * (/lp/free-trial-scorecard). Every "Book my call" and "Book a Call" link on
+ * that page points here rather than the generic /book-call/, so the meeting
+ * type, thank-you redirect, and conversion tracking stay scoped to this one
+ * campaign. Post-booking redirect is configured on the HubSpot side, pointed
+ * at /thank-you-booking-free-trial-scorecard.
+ */
+import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
+import { MEETING_URLS } from "@/config/forms";
+import "@/styles/lt26.css";
+
+const SCHEDULER_URL = MEETING_URLS.freeTrialScorecard;
+---
+
+<SimpleCampaignLayout
+  title="Book Your 30 Day Free Trial Call"
+  description="Bring your scorecard. We'll scope your 30 day free trial around exactly what you wrote, not a generic pitch."
+  minimalHeader={true}
+  headerCtaHref="/lp/free-trial-scorecard"
+  headerCtaLabel="Back to scorecard"
+  footerBookCallHref={null}
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Bangers&display=swap" rel="stylesheet" /></noscript>
+  </Fragment>
+
+  <div class="lt26">
+
+    <section class="lt26-hero">
+      <div class="lt26-orb lt26-orb--blue" aria-hidden="true"></div>
+      <div class="lt26-orb lt26-orb--orange" aria-hidden="true"></div>
+      <div class="container-narrow relative z-10 py-16 md:py-20 text-center">
+        <p class="lt26-eyebrow">Book your call</p>
+        <div class="lt26-divider lt26-divider--center"></div>
+        <h1 class="lt26-h1 mt-8">Bring your scorecard.<br />We'll scope the 30 days around it.</h1>
+        <p class="lt26-body mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+          We will scope your trial on exactly what you wrote: your leak score, your top three priorities, and your ground rules. Not a generic pitch. If it is not a fit, we will tell you on this call instead of six weeks in.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-sm" style="color: var(--lt26-hero-body);">
+          <span>No contract to start</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>No credit card on this page</span>
+          <span aria-hidden="true">&middot;</span>
+          <span>One call to scope it</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 md:py-20 bg-white scroll-mt-20" id="booking">
+      <div class="container-narrow">
+        <div class="lt26-panel p-3 md:p-5 max-w-3xl mx-auto reveal">
+          <div class="meetings-iframe-container" data-src={SCHEDULER_URL} style="min-height: 660px;"></div>
+        </div>
+        <p class="lt26-fineprint lt26-fineprint--light text-center mt-5">
+          Didn't finish your scorecard? <a href="/lp/free-trial-scorecard" style="color: var(--lt26-blue-ink);">Go back and finish it</a>, then come book. Either way works.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Attribution capture + geo-gated HubSpot meetings loader (site-wide pattern) -->
+  <script is:inline>
+    (function() {
+      'use strict';
+      var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'li_fat_id'];
+      var STORE = 'aa_lt26_params';
+
+      var params = {};
+      try { params = JSON.parse(sessionStorage.getItem(STORE) || '{}'); } catch (e) {}
+      try {
+        var q = new URLSearchParams(window.location.search);
+        KEYS.forEach(function(k) {
+          var v = q.get(k);
+          if (v) params[k] = v;
+        });
+        sessionStorage.setItem(STORE, JSON.stringify(params));
+      } catch (e) {}
+
+      document.querySelectorAll('.meetings-iframe-container[data-src]').forEach(function(el) {
+        try {
+          var url = new URL(el.getAttribute('data-src'));
+          KEYS.forEach(function(k) {
+            if (params[k] && !url.searchParams.get(k)) url.searchParams.set(k, params[k]);
+          });
+          el.setAttribute('data-src', url.toString());
+        } catch (e) {}
+      });
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: 'lp_view', lp_slug: 'free-trial-scorecard-book-now' }, params));
+    })();
+  </script>
+
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement('script');
+        s.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll('.meetings-iframe-container').forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This scheduler is not available from your location.</p></div>';
+        });
+      }
+    });
+  </script>
+
+</SimpleCampaignLayout>

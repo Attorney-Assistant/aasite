@@ -26,6 +26,17 @@ export const MEETING_URLS = {
     'https://meet.attorneyassistant.com/meetings/attorney-assistant/great-law-firm-reset-2026',
   nashville2026:
     'https://meet.attorneyassistant.com/meetings/attorney-assistant/nashville-2026',
+  freeTrialScorecard:
+    'https://meet.attorneyassistant.com/meetings/attorney-assistant/magnet-30-day-free-trial-scorecard',
+  /* SMB Growth Academy Q3 Scottsdale Workshop, Sept 24-26 2026. Three
+     /lp/scottsdale* pages share one template and differ only in which
+     rep's scheduler they embed. */
+  scottsdaleRoundRobin:
+    'https://meet.attorneyassistant.com/meetings/attorney-assistant/scottsdale-2026-rr',
+  scottsdaleRick:
+    'https://meetings.hubspot.com/rick456/scottsdale-2026-rick',
+  scottsdaleAndrew:
+    'https://meetings.hubspot.com/andrew-famular/scottsdale-2026-andrew',
 } as const;
 
 export const ASSET_URLS = {
