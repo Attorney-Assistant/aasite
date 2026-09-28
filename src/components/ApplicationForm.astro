@@ -222,25 +222,10 @@ const COUNTRIES = [
             <input type="text" id="referral" name="referral" class="input-base" placeholder="Employee name (if applicable)" />
           </div>
 
-          <fieldset data-require-one>
-            <legend class="label-base">What is your preferred communication method? <span class="text-error-500">*</span></legend>
-            <p class="text-xs text-gray-400 mb-2">Please ensure you actively monitor this. Select all that apply.</p>
-            <div class="flex gap-6">
-              <label class="inline-flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" name="communication_method" value="Email" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
-                <span class="text-sm text-gray-700">Email</span>
-              </label>
-              <label class="inline-flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" name="communication_method" value="WhatsApp" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
-                <span class="text-sm text-gray-700">WhatsApp</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <div id="whatsapp-field" class="hidden transition-all duration-300">
-            <label for="whatsapp_number" class="label-base">If you selected WhatsApp above, please put your WhatsApp number.</label>
-            <p class="text-xs text-gray-400 mb-1.5">Please make sure to provide your area code (e.g. +16101234567).</p>
-            <input type="tel" id="whatsapp_number" name="whatsapp_number" class="input-base" placeholder="+16101234567" />
+          <div>
+            <label for="whatsapp_number" class="label-base">Our team communicates via email and WhatsApp. Please ensure you actively monitor both. <span class="text-error-500">*</span></label>
+            <p class="text-xs text-gray-400 mb-1.5">If you do not have a WhatsApp number, please set one up and ensure that it's active and that you accept invitations to group chats from our team when necessary. Please provide your WhatsApp number below and include your area code. Example: +16101234567</p>
+            <input type="tel" id="whatsapp_number" name="whatsapp_number" data-required class="input-base" placeholder="+16101234567" />
           </div>
 
           <fieldset data-require-one>
@@ -410,7 +395,7 @@ const COUNTRIES = [
 
           <div>
             <label for="resume" class="label-base">Please upload your resume/CV (must be in English). <span class="text-error-500">*</span></label>
-            <p class="text-xs text-gray-400 mb-1.5">Use the provided <a href="https://www.canva.com/design/DAGmxFnMOn4/5ipdHqpm0-QfE430qolngw/view?utm_content=DAGmxFnMOn4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Canva template</a> to update your resume. Modify the information accordingly and send it back once completed. <strong>If you do not add this information, we will not move forward with considering your application.</strong> PDF, DOC, or DOCX only. Max 10 MB.</p>
+            <p class="text-xs text-gray-400 mb-1.5">Use the provided <a href="https://www.canva.com/design/DAGmxFnMOn4/5ipdHqpm0-QfE430qolngw/view?utm_content=DAGmxFnMOn4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline">Canva template</a> to update your resume. Modify the information accordingly and send it back once completed. Be sure your resume/CV includes dates of employment at each job, detailed description or list of responsibilities for each job, and other experience or skills you would like to highlight. <strong>If you do not add this information, we will not move forward with considering your application.</strong> PDF, DOC, or DOCX only. Max 10 MB.</p>
             <div class="file-upload-area" id="resume-upload-area">
               <input type="file" id="resume" name="resume" data-required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="file-input" />
               <div class="file-upload-content">
@@ -631,16 +616,6 @@ const COUNTRIES = [
   const dots = document.querySelectorAll('.step-dot div');
 
   // ── Conditional field visibility ──
-
-  // WhatsApp number: show when WhatsApp is checked
-  document.querySelectorAll('input[name="communication_method"]').forEach(cb => {
-    cb.addEventListener('change', () => {
-      const whatsappChecked = document.querySelector('input[name="communication_method"][value="WhatsApp"]').checked;
-      const field = document.getElementById('whatsapp-field');
-      field.classList.toggle('hidden', !whatsappChecked);
-      if (!whatsappChecked) document.getElementById('whatsapp_number').value = '';
-    });
-  });
 
   // Belize office: show when country = Belize (exact, case-insensitive)
   const countryInput = document.getElementById('country');
