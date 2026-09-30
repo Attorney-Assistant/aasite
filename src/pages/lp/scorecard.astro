@@ -1,23 +1,24 @@
 ---
 /**
- * The 30 Day Free Trial Scorecard: interactive lead magnet.
+ * The 30 Day Scorecard: interactive lead magnet.
  * Single scrolling page, four numbered steps, all state kept in memory
  * client side. Nothing is sent anywhere until the visitor clicks a CTA.
- * Every "Book" CTA points to /lp/free-trial-scorecard-book-now, the
- * dedicated scheduler page for this campaign.
+ * Every "Book" CTA points to /lp/scorecard-book-now, the dedicated
+ * scheduler page for this campaign. No free-trial or offer language
+ * anywhere on this page.
  */
 import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
 import "@/styles/lt26.css";
 
-const BOOK_URL = "/lp/free-trial-scorecard-book-now";
+const BOOK_URL = "/lp/scorecard-book-now";
 const ARROW_D = "M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3";
 const HS_PORTAL_ID = "49161090";
 const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
 ---
 
 <SimpleCampaignLayout
-  title="The 30 Day Free Trial Scorecard"
-  description="Score how your firm handles intake, follow up and case support today, see what the leak is costing you, and walk into your 30 day free trial with a plan instead of a hunch."
+  title="The 30 Day Scorecard"
+  description="Score how your firm handles intake, follow up and case support today, see what the leak is costing you, and walk into day one with a plan instead of a hunch."
   minimalHeader={true}
   headerCtaHref={BOOK_URL}
   headerCtaLabel="Book a Call"
@@ -41,7 +42,7 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
       <div class="sc-container relative z-10 py-20 md:py-28 text-center">
         <p class="lt26-eyebrow">Before you start the clock</p>
         <div class="lt26-divider lt26-divider--center"></div>
-        <h1 class="lt26-h1 mt-8">The 30 Day Free Trial <em class="sc-accent-dark">Scorecard</em></h1>
+        <h1 class="lt26-h1 mt-8">The 30 Day <em class="sc-accent-dark">Scorecard</em></h1>
         <p class="lt26-body mt-6 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
           Thirty days goes fast. Firms that write down what they want before day one get it. Firms that wing it spend the first three weeks deciding what to delegate. Score where you are now, build your wish list, and walk into day one with a plan instead of a hunch.
         </p>
@@ -207,7 +208,7 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
           <p class="lt26-eyebrow lt26-eyebrow--light">Step 3 of 4</p>
           <div class="lt26-divider"></div>
           <h2 class="sc-h2 mt-5">Rank your <em class="sc-accent-light">top three</em>.</h2>
-          <p class="sc-intro">Drag the three that would change your week the most to the top. On day one, this is where your trial starts.</p>
+          <p class="sc-intro">Drag the three that would change your week the most to the top. On day one, this is where it starts.</p>
         </div>
 
         <ul class="sc-rank-list" id="sc-rank-list" aria-label="Your priorities, drag or use the buttons to reorder"></ul>
@@ -1021,7 +1022,7 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
         var meta = $("#sc-print-meta");
         var firm = state.ground.firmName ? state.ground.firmName.trim() : "";
         var today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
-        meta.textContent = "30 Day Free Trial Scorecard · Prepared for " + (firm || "your firm") + " · " + today;
+        meta.textContent = "30 Day Scorecard · Prepared for " + (firm || "your firm") + " · " + today;
       }
 
       function escapeHtml(s) {
@@ -1084,7 +1085,7 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
 
       function buildFullPlanText() {
         var lines = [];
-        lines.push("30 DAY FREE TRIAL SCORECARD");
+        lines.push("30 DAY SCORECARD");
         lines.push("");
         if (state.lastScore != null) lines.push("Leak score: " + state.lastScore + "/24, " + state.lastBand.name);
         lines.push("Revenue at risk: " + fmtMoney(state.calc.monthlyRisk || 0) + "/month, " + fmtMoney(state.calc.annualRisk || 0) + "/year");
@@ -1180,13 +1181,13 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
           }),
         }).then(function () {
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: "lp_lead_submit", lp_slug: "free-trial-scorecard", position: position });
+          window.dataLayer.push({ event: "lp_lead_submit", lp_slug: "scorecard", position: position });
         }).catch(function () {});
       }
 
       $("#sc-download-btn").addEventListener("click", function () {
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "free-trial-scorecard", position: "results-download" });
+        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "scorecard", position: "results-download" });
         window.print();
       });
 
@@ -1204,10 +1205,10 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
           return;
         }
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "free-trial-scorecard", position: "results-email" });
+        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "scorecard", position: "results-email" });
         submitToHubSpot("results-email");
 
-        var subject = encodeURIComponent("Your 30 Day Free Trial Scorecard");
+        var subject = encodeURIComponent("Your 30 Day Scorecard");
         var body = encodeURIComponent(buildFullPlanText());
         window.location.href = "mailto:" + encodeURIComponent(email) + "?subject=" + subject + "&body=" + body;
       });
@@ -1216,7 +1217,7 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
         var cta = e.target.closest("[data-sc-cta]");
         if (!cta || cta.id === "sc-download-btn" || cta.id === "sc-email-btn") return;
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "free-trial-scorecard", position: cta.getAttribute("data-sc-cta") });
+        window.dataLayer.push({ event: "lp_cta_click", lp_slug: "scorecard", position: cta.getAttribute("data-sc-cta") });
       });
 
       /* ───────────────────────── INIT ───────────────────────── */
@@ -1231,7 +1232,7 @@ const HS_FORM_ID = "c63db01e-a12a-4ff8-a5d2-0a3b440619b9";
       updateStepChecks();
 
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "lp_view", lp_slug: "free-trial-scorecard" });
+      window.dataLayer.push({ event: "lp_view", lp_slug: "scorecard" });
     })();
   </script>
 

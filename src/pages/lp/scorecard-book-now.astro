@@ -1,24 +1,24 @@
 ---
 /**
- * Dedicated booking page for the 30 Day Free Trial Scorecard lead magnet
- * (/lp/free-trial-scorecard). Every "Book my call" and "Book a Call" link on
+ * Dedicated booking page for the 30 Day Scorecard lead magnet
+ * (/lp/scorecard). Every "Book my call" and "Book a Call" link on
  * that page points here rather than the generic /book-call/, so the meeting
- * type, thank-you redirect, and conversion tracking stay scoped to this one
- * campaign. Post-booking redirect is configured on the HubSpot side, pointed
- * at /thank-you-booking-free-trial-scorecard.
+ * type and conversion tracking stay scoped to this one campaign.
+ * Scheduler: late-2026. Thank-you: /thank-you-booking-late2026.
+ * No free-trial or offer language anywhere on this page.
  */
 import SimpleCampaignLayout from "@layouts/SimpleCampaignLayout.astro";
 import { MEETING_URLS } from "@/config/forms";
 import "@/styles/lt26.css";
 
-const SCHEDULER_URL = MEETING_URLS.freeTrialScorecard;
+const SCHEDULER_URL = MEETING_URLS.staffline;
 ---
 
 <SimpleCampaignLayout
-  title="Book Your 30 Day Free Trial Call"
-  description="Bring your scorecard. We'll scope your 30 day free trial around exactly what you wrote, not a generic pitch."
+  title="Book Your 30 Day Scorecard Call"
+  description="Bring your scorecard. We'll scope your call around exactly what you wrote, not a generic pitch."
   minimalHeader={true}
-  headerCtaHref="/lp/free-trial-scorecard"
+  headerCtaHref="/lp/scorecard"
   headerCtaLabel="Back to scorecard"
   footerBookCallHref={null}
 >
@@ -37,9 +37,9 @@ const SCHEDULER_URL = MEETING_URLS.freeTrialScorecard;
       <div class="container-narrow relative z-10 py-16 md:py-20 text-center">
         <p class="lt26-eyebrow">Book your call</p>
         <div class="lt26-divider lt26-divider--center"></div>
-        <h1 class="lt26-h1 mt-8">Bring your scorecard.<br />We'll scope the 30 days around it.</h1>
+        <h1 class="lt26-h1 mt-8">Bring your scorecard.<br />We'll scope the call around it.</h1>
         <p class="lt26-body mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-          We will scope your trial on exactly what you wrote: your leak score, your top three priorities, and your ground rules. Not a generic pitch. If it is not a fit, we will tell you on this call instead of six weeks in.
+          We will scope the call on exactly what you wrote: your leak score, your top three priorities, and your ground rules. Not a generic pitch. If it is not a fit, we will tell you on this call instead of six weeks in.
         </p>
         <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-sm" style="color: var(--lt26-hero-body);">
           <span>No contract to start</span>
@@ -57,7 +57,7 @@ const SCHEDULER_URL = MEETING_URLS.freeTrialScorecard;
           <div class="meetings-iframe-container" data-src={SCHEDULER_URL} style="min-height: 660px;"></div>
         </div>
         <p class="lt26-fineprint lt26-fineprint--light text-center mt-5">
-          Didn't finish your scorecard? <a href="/lp/free-trial-scorecard" style="color: var(--lt26-blue-ink);">Go back and finish it</a>, then come book. Either way works.
+          Didn't finish your scorecard? <a href="/lp/scorecard" style="color: var(--lt26-blue-ink);">Go back and finish it</a>, then come book. Either way works.
         </p>
       </div>
     </section>
@@ -93,7 +93,7 @@ const SCHEDULER_URL = MEETING_URLS.freeTrialScorecard;
       });
 
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(Object.assign({ event: 'lp_view', lp_slug: 'free-trial-scorecard-book-now' }, params));
+      window.dataLayer.push(Object.assign({ event: 'lp_view', lp_slug: 'scorecard-book-now' }, params));
     })();
   </script>
 

@@ -33,6 +33,19 @@ RewriteRule ^staffing/problem/?$ /lp/comic/staffing [R=301,L]
 RewriteRule ^firm/chaos/?$ /lp/comic/law-firm-chaos [R=301,L]
 RewriteRule ^firm/villain/?$ /lp/comic/biggest-villain [R=301,L]
 
+# ── Free trial offer retired: old free-trial URLs → non-trial replacements ──
+RewriteRule ^lp/free-trial-ctv/?$ /lp/staffline-ctv [R=301,L]
+RewriteRule ^lp/free-trial-intake/?$ /lp/staffline-intake [R=301,L]
+RewriteRule ^lp/free-trial-staffing/?$ /lp/staffline-staffing [R=301,L]
+RewriteRule ^lp/free-trial-video-social/?$ /lp/staffline-video-social [R=301,L]
+RewriteRule ^lp/free-trial-scorecard-book-now/?$ /lp/scorecard-book-now [R=301,L]
+RewriteRule ^lp/free-trial-scorecard/?$ /lp/scorecard [R=301,L]
+RewriteRule ^lp/smb-limited-free-trial/?$ /lp/smb-exclusive [R=301,L]
+RewriteRule ^book-call-free-trial/?$ /book-call [R=301,L]
+RewriteRule ^thank-you-booking-free-trial-scorecard/?$ /thank-you-booking-late2026 [R=301,L]
+RewriteRule ^thank-you-booking-free-trial-video-social/?$ /thank-you-booking-late2026 [R=301,L]
+RewriteRule ^thank-you-booking-late2026-trial/?$ /thank-you-booking-late2026 [R=301,L]
+
 # ── Landing page vanity redirects (case-insensitive) ──
 RewriteRule ^scottsdale/?$ /lp/scottsdale [R=301,L,NC]
 RewriteRule ^scottsdale-rick/?$ /lp/scottsdale-rick [R=301,L,NC]

@@ -1,12 +1,11 @@
 ---
 /**
- * Late-2026 free-trial family, video/social traffic.
- * Scheduler: free-trial-video-social. Thank-you: dedicated page at
- * /thank-you-booking-free-trial-video-social (set as the redirect on the
- * free-trial-video-social HubSpot meeting type).
+ * Late-2026 service family, video/social traffic.
+ * Scheduler: late-2026. Thank-you: /thank-you-booking-late2026.
+ * No free-trial or offer language anywhere on this page.
  *
- * Clone of /lp/free-trial-ctv: same generic, channel-broad Staffline pitch,
- * different booking destination and its own conversion tracking.
+ * Clone of /lp/staffline-ctv: same generic, channel-broad Staffline pitch,
+ * kept as its own URL for clean per-channel ad attribution.
  */
 import Lt26Layout from "@layouts/Lt26Layout.astro";
 import Lt26Picture from "@components/lt26/Lt26Picture.astro";
@@ -16,10 +15,8 @@ import Lt26StillDo from "@components/lt26/Lt26StillDo.astro";
 import Lt26Faq from "@components/lt26/Lt26Faq.astro";
 import Lt26FinalCta from "@components/lt26/Lt26FinalCta.astro";
 
-const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/free-trial-video-social?embed=true";
-const CTA_LABEL = "Claim your free 30 days";
-const FINE_PRINT = "For new Attorney Assistant clients only.";
-const DISCLOSURE = "This offer is only available to attorneys and law firms. We do not provide consumer services.";
+const BOOKING_SRC = "https://meet.attorneyassistant.com/meetings/attorney-assistant/late-2026?embed=true";
+const CTA_LABEL = "Book a Discovery Call";
 
 const villains = [
   {
@@ -85,21 +82,18 @@ const roleColumns = [
 
 const faqItems = [
   { q: "What roles can they cover?", a: "Case managers, records and bill retrieval, lien reduction, file opening, calendar and inbox, CRM hygiene, intake. Every practice area. Tell us what is eating your team's week and we staff to the answer." },
-  { q: "What does the free trial include?", a: "The person, and the co-management. Your first 30 days with a dedicated Attorney Assistant staff member are free. For new Attorney Assistant clients only." },
-  { q: "What happens after 30 days?", a: "Continue on standard pricing or walk away. We cover current pricing on the discovery call." },
 ];
 ---
 
 <Lt26Layout
-  title="A Dedicated Legal Staff Member, First 30 Days Free"
-  description="Recruited and vetted by us, embedded in your team and systems. Any role, every practice area. First 30 days free for new Attorney Assistant clients."
+  title="A Dedicated Legal Staff Member For Your Firm"
+  description="Recruited and vetted by us, embedded in your team and systems. Any role, every practice area."
   heroImage="sort-mail-hero"
-  slug="free-trial-video-social"
+  slug="staffline-video-social"
   bookingSrc={BOOKING_SRC}
   ctaLabel={CTA_LABEL}
-  bookingHeading="Claim your free 30 days"
-  bookingSub="Pick a time below. The call scopes what you need covered, and your first 30 days with a dedicated staff member are free."
-  bookingFinePrint={`${FINE_PRINT} ${DISCLOSURE}`}
+  bookingHeading="Book a discovery call"
+  bookingSub="Pick a time below. The call scopes what you need covered."
 >
 
   <!-- ═══════════════ HERO ═══════════════ -->
@@ -118,10 +112,6 @@ const faqItems = [
           <p class="lt26-body mt-6 text-base md:text-lg leading-relaxed max-w-xl">
             Answering the phone, chasing records, updating the CRM, the calendar nobody owns. A dedicated Attorney Assistant staff member takes it off your desk. We recruit and vet the person. You plug them into your team.
           </p>
-          <div class="mt-8">
-            <span class="lt26-badge">First 30 days free</span>
-            <p class="mt-5 text-sm text-white/70 max-w-md">Your first 30 days with a dedicated Attorney Assistant staff member, free. A real trial, not a discount.</p>
-          </div>
         </div>
         <div class="reveal-scale">
           <div class="lt26-panel p-3 md:p-4" style="border-color: rgba(249,166,45,0.3);">
@@ -131,8 +121,6 @@ const faqItems = [
               <div class="meetings-iframe-container" data-src={BOOKING_SRC} style="min-height: 560px;"></div>
             </div>
           </div>
-          <p class="lt26-fineprint mt-4 text-center">{FINE_PRINT}</p>
-          <p class="lt26-fineprint mt-1.5 text-center">{DISCLOSURE}</p>
         </div>
       </div>
     </div>
@@ -210,7 +198,6 @@ const faqItems = [
               {CTA_LABEL}
               <svg class="w-4 h-4 lt26-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" /></svg>
             </a>
-            <p class="lt26-fineprint lt26-fineprint--light mt-4">{FINE_PRINT}</p>
           </div>
         </div>
       </div>
@@ -223,11 +210,9 @@ const faqItems = [
   <Lt26Faq items={faqItems} />
 
   <Lt26FinalCta
-    heading="Recruited, vetted, and ready. The first 30 days are on us."
-    body="Your first 30 days with a dedicated Attorney Assistant staff member, free. A real trial, not a discount."
+    heading="Recruited, vetted, and ready to plug into your team."
+    body="A dedicated Attorney Assistant staff member, embedded in your firm and co-managed by us."
     ctaLabel={CTA_LABEL}
-    badge={true}
-    finePrint={FINE_PRINT}
   />
 
 </Lt26Layout>

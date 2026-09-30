@@ -15,10 +15,12 @@ export default defineConfig({
         !page.includes("/apply/hidden-applications") &&
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-staffline-assistant") &&
-        !page.includes("/lp/smb-limited-free-trial") &&
-        !page.includes("/book-call-free-trial") &&
-        !page.includes("/lp/free-trial-intake") &&
-        !page.includes("/lp/free-trial-staffing") &&
+        !page.includes("/lp/smb-exclusive") &&
+        !page.includes("/lp/staffline-ctv") &&
+        !page.includes("/lp/staffline-intake") &&
+        !page.includes("/lp/staffline-staffing") &&
+        !page.includes("/lp/staffline-video-social") &&
+        !page.includes("/lp/scorecard") &&
         !page.includes("/lp/case-management") &&
         !page.includes("/lp/records-retrieval") &&
         !page.includes("/lp/back-office") &&

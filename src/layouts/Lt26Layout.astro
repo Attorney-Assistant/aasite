@@ -22,12 +22,11 @@ interface Props {
   ctaLabel: string;
   bookingHeading: string;
   bookingSub?: string;
-  bookingFinePrint?: string;
   /** lt26 image slug of the hero art, preloaded for LCP. */
   heroImage?: string;
 }
 
-const { title, description, slug, bookingSrc, ctaLabel, bookingHeading, bookingSub, bookingFinePrint, heroImage } = Astro.props;
+const { title, description, slug, bookingSrc, ctaLabel, bookingHeading, bookingSub, heroImage } = Astro.props;
 const heroEntry = heroImage ? (manifest as Record<string, any>)[heroImage] : null;
 ---
 
@@ -58,7 +57,7 @@ const heroEntry = heroImage ? (manifest as Record<string, any>)[heroImage] : nul
   <div class="lt26">
     <slot />
 
-    <Lt26Booking src={bookingSrc} heading={bookingHeading} sub={bookingSub} finePrint={bookingFinePrint} />
+    <Lt26Booking src={bookingSrc} heading={bookingHeading} sub={bookingSub} />
     <Lt26Form pageSlug={slug} />
     <Lt26StickyCta label={ctaLabel} />
   </div>
