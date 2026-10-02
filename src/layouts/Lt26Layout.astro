@@ -24,16 +24,18 @@ interface Props {
   bookingSub?: string;
   /** lt26 image slug of the hero art, preloaded for LCP. */
   heroImage?: string;
+  /** Render the site's full nav header instead of the minimal logo-only one. Defaults to minimal. */
+  fullHeader?: boolean;
 }
 
-const { title, description, slug, bookingSrc, ctaLabel, bookingHeading, bookingSub, heroImage } = Astro.props;
+const { title, description, slug, bookingSrc, ctaLabel, bookingHeading, bookingSub, heroImage, fullHeader = false } = Astro.props;
 const heroEntry = heroImage ? (manifest as Record<string, any>)[heroImage] : null;
 ---
 
 <SimpleCampaignLayout
   title={title}
   description={description}
-  minimalHeader={true}
+  minimalHeader={!fullHeader}
   headerCtaHref="#booking"
   headerCtaLabel={ctaLabel}
   footerBookCallHref="#booking"

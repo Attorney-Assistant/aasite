@@ -1,11 +1,13 @@
 ---
 /**
- * Late-2026 service family, video/social traffic.
+ * Late-2026 service family, video/social traffic (Daryl & Cheryl FB ad set).
  * Scheduler: late-2026. Thank-you: /thank-you-booking-late2026.
  * No free-trial or offer language anywhere on this page.
  *
  * Clone of /lp/staffline-ctv: same generic, channel-broad Staffline pitch,
- * kept as its own URL for clean per-channel ad attribution.
+ * kept as its own URL for clean per-channel ad attribution. Unlike its
+ * siblings, this one renders the site's full nav header (fullHeader on
+ * Lt26Layout) instead of the minimal logo-only one.
  */
 import Lt26Layout from "@layouts/Lt26Layout.astro";
 import Lt26Picture from "@components/lt26/Lt26Picture.astro";
@@ -86,14 +88,15 @@ const faqItems = [
 ---
 
 <Lt26Layout
-  title="A Dedicated Legal Staff Member For Your Firm"
-  description="Recruited and vetted by us, embedded in your team and systems. Any role, every practice area."
+  title="Scale Your Law Firm Without Wearing Every Hat"
+  description="Human-in-the-loop, AI-forward staffing that co-manages the work with you, so law firm owners can scale without doing it all themselves."
   heroImage="sort-mail-hero"
-  slug="staffline-video-social"
+  slug="daryl-and-cheryl-fb"
   bookingSrc={BOOKING_SRC}
   ctaLabel={CTA_LABEL}
   bookingHeading="Book a discovery call"
   bookingSub="Pick a time below. The call scopes what you need covered."
+  fullHeader={true}
 >
 
   <!-- ═══════════════ HERO ═══════════════ -->
@@ -106,11 +109,11 @@ const faqItems = [
     <div class="container-wide relative z-10 py-12 md:py-16">
       <div class="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
         <div>
-          <p class="lt26-eyebrow">Recruited, vetted, ready &middot; Embedded in your team</p>
+          <p class="lt26-eyebrow">Human-in-the-loop &middot; AI-forward &middot; Co-managed with you</p>
           <div class="lt26-divider"></div>
-          <h1 class="lt26-h1 mt-7">Whatever is piling up, hand it to a dedicated assistant who's ready to go.</h1>
+          <h1 class="lt26-h1 mt-7">Stop wearing every hat in your firm. Start scaling it.</h1>
           <p class="lt26-body mt-6 text-base md:text-lg leading-relaxed max-w-xl">
-            Answering the phone, chasing records, updating the CRM, the calendar nobody owns. A dedicated Attorney Assistant staff member takes it off your desk. We recruit and vet the person. You plug them into your team.
+            Owner, intake desk, records clerk, IT help — most firm owners end up doing it all themselves. We pair AI-forward systems with a real, trained staff member and keep a human in the loop on every task, co-managed with you, so you can put the hats down and put your time back into growing the firm.
           </p>
         </div>
         <div class="reveal-scale">
@@ -133,7 +136,7 @@ const faqItems = [
         <p class="lt26-eyebrow lt26-eyebrow--light">The problem</p>
         <div class="lt26-divider lt26-divider--center"></div>
         <h2 class="lt26-display text-3xl md:text-5xl mt-6" style="color: var(--lt26-navy);">The five staffing villains</h2>
-        <p class="mt-4 text-base md:text-lg text-gray-600 max-w-xl mx-auto">You know every one of them by name. They know your firm's schedule.</p>
+        <p class="mt-4 text-base md:text-lg text-gray-600 max-w-xl mx-auto">You know every one of them by name. They're the hats you never meant to wear.</p>
       </div>
       <div class="space-y-6 max-w-3xl mx-auto">
         {villains.map((v, i) => (
@@ -184,9 +187,9 @@ const faqItems = [
           />
         </div>
         <div class="reveal" style="transition-delay: 100ms">
-          <h3 class="text-xl md:text-2xl font-bold text-gray-900">Co-managed, not handed off</h3>
+          <h3 class="text-xl md:text-2xl font-bold text-gray-900">Human-in-the-loop, AI-forward, co-managed with you</h3>
           <p class="mt-4 text-base text-gray-600 leading-relaxed">
-            We hire selectively, train on the fundamentals, QA the work, and help own performance. You direct the day to day. If a staff member underperforms, that is our problem to fix, not another hiring cycle for you. Measured on results, not hours logged.
+            We pair AI-forward systems with real, trained staff and keep a human in the loop on every task. We hire selectively, train on the fundamentals, and QA the work. You direct the day to day; we co-manage performance alongside you. If a staff member underperforms, that is our problem to fix, not another hiring cycle for you. Measured on results, not hours logged.
           </p>
           <div class="lt26-panel lt26-panel--cream p-5 mt-6">
             <p class="text-base text-gray-800 leading-relaxed">
@@ -210,8 +213,8 @@ const faqItems = [
   <Lt26Faq items={faqItems} />
 
   <Lt26FinalCta
-    heading="Recruited, vetted, and ready to plug into your team."
-    body="A dedicated Attorney Assistant staff member, embedded in your firm and co-managed by us."
+    heading="Take the hat off. We'll help you scale from here."
+    body="Human-in-the-loop, AI-forward staffing, co-managed with you every step of the way."
     ctaLabel={CTA_LABEL}
   />
 
