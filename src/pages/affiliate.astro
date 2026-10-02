@@ -1,0 +1,165 @@
+---
+/**
+ * Affiliate program page. Replaces the raw WP XML dump previously served by
+ * the [...slug].astro catch-all, which rendered an un-rendered HubSpot
+ * shortcode as literal text and a "Become An Affiliate" link to a #form
+ * anchor that didn't exist anywhere on the page.
+ */
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+
+const benefits = [
+  {
+    icon: "/icons/buiness & finance_hand shake.svg",
+    title: "Partnership Focus",
+    desc: "We believe the strongest partnerships are built on a shared mission. That's why we partner with affiliates who believe in helping business owners achieve their goals.",
+  },
+  {
+    icon: "/icons/buiness & finance_target.svg",
+    title: "Impactful Partnerships",
+    desc: "We're committed to creating meaningful partnerships that deliver lasting value for all parties.",
+  },
+  {
+    icon: "/icons/law and legal_trust.svg",
+    title: "Trusted Platform",
+    desc: "Join a platform that's helping law firms streamline their operations and increase productivity.",
+  },
+  {
+    icon: "/icons/buiness & finance_money bag.svg",
+    title: "Mutual Success",
+    desc: "Our affiliate program is designed to create win-win relationships that drive success for all parties.",
+  },
+];
+---
+
+<BaseLayout
+  title="Affiliate Program"
+  description="Earn cash when you refer a new client to Attorney Assistant. Join our affiliate program and help your network work smarter, not harder."
+>
+
+  <Hero
+    badge="Affiliate Program"
+    title="Help Your Network Thrive"
+    subtitle="Empower your network to work smarter, not harder."
+    buttonText="Become an Affiliate"
+    buttonLink="#apply"
+  />
+
+  <!-- Spread the Word and Earn -->
+  <section class="section-padding bg-white">
+    <div class="container-narrow text-center">
+      <span class="badge badge-gold mb-4">How it works</span>
+      <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-4">Spread the Word and Earn</h2>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+        Earn cash when you refer a new client to Attorney Assistant, and they are live for 60 days.
+      </p>
+    </div>
+  </section>
+
+  <!-- Benefits grid -->
+  <section class="section-padding bg-gray-25">
+    <div class="container-wide">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {benefits.map((b, i) => (
+          <div class="card card-hover p-6 reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class="featured-icon featured-icon-md featured-icon-gold mb-4">
+              <img src={b.icon} alt="" aria-hidden="true" class="w-6 h-6" />
+            </div>
+            <h3 class="font-heading text-lg text-gray-900 mb-2">{b.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Apply -->
+  <section class="section-padding bg-white scroll-mt-20" id="apply">
+    <div class="container-narrow">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">Apply today and start making a difference.</h2>
+        <p class="text-gray-500">Tell us a bit about yourself and your network. We'll follow up by email.</p>
+      </div>
+
+      <form id="affiliate-form" class="card p-6 md:p-8 max-w-2xl mx-auto reveal" novalidate>
+        <div class="space-y-5">
+          <div>
+            <label for="name" class="label-base">Full name <span class="text-error-500">*</span></label>
+            <input type="text" id="name" name="name" required class="input-base" placeholder="Your full name" />
+          </div>
+          <div>
+            <label for="email" class="label-base">Email <span class="text-error-500">*</span></label>
+            <input type="email" id="email" name="email" required class="input-base" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="phone" class="label-base">Phone</label>
+            <input type="tel" id="phone" name="phone" class="input-base" placeholder="+1 (555) 123-4567" />
+          </div>
+          <div>
+            <label for="company" class="label-base">Company, website, or social handle</label>
+            <input type="text" id="company" name="company" class="input-base" placeholder="Where your network finds you" />
+          </div>
+          <div>
+            <label for="promotion_plan" class="label-base">How do you plan to promote Attorney Assistant? <span class="text-error-500">*</span></label>
+            <textarea id="promotion_plan" name="promotion_plan" required rows="4" class="input-base" placeholder="Tell us about your audience and how you'd refer law firms to us"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" id="affiliate-submit-btn" class="btn-primary btn-lg w-full justify-center mt-6">
+          Submit Application
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+        </button>
+        <p id="affiliate-form-error" class="text-sm text-error-600 mt-3 text-center hidden" role="alert"></p>
+      </form>
+
+      <div id="affiliate-success" class="hidden text-center py-16">
+        <div class="featured-icon featured-icon-lg featured-icon-success mx-auto mb-5">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+        </div>
+        <h2 class="text-display-xs font-heading text-gray-900 mb-2">Application Submitted!</h2>
+        <p class="text-base text-gray-500 max-w-md mx-auto">Thanks for your interest in partnering with us. We'll review your application and reach out by email.</p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    "use strict";
+    var form = document.getElementById("affiliate-form");
+    if (!form) return;
+    var submitBtn = document.getElementById("affiliate-submit-btn");
+    var errorEl = document.getElementById("affiliate-form-error");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      errorEl.classList.add("hidden");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting…";
+
+      try {
+        var response = await fetch("https://formspree.io/f/xjykqdjo", {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          form.classList.add("hidden");
+          document.getElementById("affiliate-success").classList.remove("hidden");
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "affiliate_application_submitted" });
+        } else {
+          var data = await response.json().catch(function () { return {}; });
+          throw new Error((data.errors && data.errors.map(function (e) { return e.message; }).join(", ")) || "Server error, please try again.");
+        }
+      } catch (err) {
+        errorEl.textContent = "Something went wrong: " + err.message;
+        errorEl.classList.remove("hidden");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Application";
+      }
+    });
+  })();
+</script>
