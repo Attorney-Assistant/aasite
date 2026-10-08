@@ -19,7 +19,7 @@ export default defineConfig({
         !page.includes("/lp/staffline-ctv") &&
         !page.includes("/lp/staffline-intake") &&
         !page.includes("/lp/staffline-staffing") &&
-        !page.includes("/lp/daryl-and-cheryl-fb") &&
+        !page.includes("/lp/daryl-and-cheryl-") &&
         !page.includes("/lp/scorecard") &&
         !page.includes("/lp/case-management") &&
         !page.includes("/lp/records-retrieval") &&
