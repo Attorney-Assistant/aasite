@@ -117,7 +117,7 @@ const faqItems = [
           </p>
         </div>
         <div class="reveal-scale">
-          <div class="lt26-panel p-3 md:p-4" style="border-color: rgba(249,166,45,0.3);">
+          <div id="hero-booking-card" class="lt26-panel p-3 md:p-4" style="border-color: rgba(249,166,45,0.3); position: relative;">
             <div class="bg-white rounded-[9px] p-3 md:p-4">
               <p class="text-sm font-bold text-gray-900 text-center mb-1">{CTA_LABEL}</p>
               <p class="text-xs text-gray-500 text-center mb-3">Pick a time. The call scopes what you need covered.</p>
@@ -219,3 +219,149 @@ const faqItems = [
   />
 
 </Lt26Layout>
+
+<style is:global>
+  /*
+   * Law-firm qualifying gate. Covers every scheduler on this page (the hero
+   * widget, plus the shared #booking section from Lt26Layout) until the
+   * visitor answers. The answer is stored in localStorage so it survives a
+   * refresh: "no" permanently blocks the scheduler and strips its data-src
+   * so it's never even requested; "yes" skips the gate on future visits.
+   */
+  .lawfirm-gate-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 1rem;
+  }
+  .lawfirm-gate-overlay .gate-inner {
+    max-width: 22rem;
+    text-align: center;
+  }
+  .lawfirm-gate-overlay .gate-question {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #101828;
+    margin: 0 0 1rem;
+  }
+  .lawfirm-gate-overlay .gate-decline {
+    font-size: 0.9375rem;
+    color: #475467;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .lawfirm-gate-overlay .gate-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .lawfirm-gate-overlay .lt26-btn {
+    border: none;
+    cursor: pointer;
+  }
+  .lawfirm-gate-overlay .gate-btn-no {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.625rem;
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #344054;
+    background: #fff;
+    border: 1px solid #d0d5dd;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .lawfirm-gate-overlay .gate-btn-no:hover {
+    border-color: #98a2b3;
+    background: #f9fafb;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    "use strict";
+
+    function initLawfirmGate() {
+      var STORAGE_KEY = "aa_lawfirm_gate_daryl-and-cheryl-fb";
+
+      function getState() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+      }
+      function setState(v) {
+        try { localStorage.setItem(STORAGE_KEY, v); } catch (e) {}
+      }
+      function stripSchedulerSources() {
+        document.querySelectorAll(".meetings-iframe-container[data-src]").forEach(function (el) {
+          el.removeAttribute("data-src");
+        });
+      }
+
+      var GATE_HTML =
+        '<div class="gate-inner">' +
+          '<p class="gate-question">Do you work for/represent a law firm?</p>' +
+          '<div class="gate-buttons">' +
+            '<button type="button" class="lt26-btn" data-gate-yes>Yes</button>' +
+            '<button type="button" class="gate-btn-no" data-gate-no>No</button>' +
+          "</div>" +
+        "</div>";
+
+      var DECLINE_HTML =
+        '<div class="gate-inner">' +
+          '<p class="gate-decline">We do not provide services to anyone other than law firms at this time.</p>' +
+        "</div>";
+
+      var state = getState();
+
+      // A visitor who already said no should never have the scheduler
+      // requested at all, refresh or not.
+      if (state === "no") stripSchedulerSources();
+
+      // A visitor who already said yes sees the scheduler normally; no gate.
+      if (state === "yes") return;
+
+      var targets = [];
+      var heroCard = document.getElementById("hero-booking-card");
+      if (heroCard) targets.push(heroCard);
+      var bookingPanel = document.querySelector("#booking .lt26-panel");
+      if (bookingPanel) targets.push(bookingPanel);
+
+      targets.forEach(function (target) {
+        target.style.position = "relative";
+        var overlay = document.createElement("div");
+        overlay.className = "lawfirm-gate-overlay";
+        overlay.innerHTML = state === "no" ? DECLINE_HTML : GATE_HTML;
+        target.appendChild(overlay);
+
+        if (state === "no") return;
+
+        overlay.querySelector("[data-gate-yes]").addEventListener("click", function () {
+          setState("yes");
+          document.querySelectorAll(".lawfirm-gate-overlay").forEach(function (o) { o.remove(); });
+        });
+        overlay.querySelector("[data-gate-no]").addEventListener("click", function () {
+          setState("no");
+          stripSchedulerSources();
+          document.querySelectorAll(".lawfirm-gate-overlay").forEach(function (o) {
+            o.innerHTML = DECLINE_HTML;
+          });
+        });
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initLawfirmGate);
+    } else {
+      initLawfirmGate();
+    }
+  })();
+</script>
