@@ -1,0 +1,103 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Call Booked — Lost Lead Rescue"
+  description="Your call with Attorney Assistant has been booked. We look forward to speaking with you."
+  noindex={true}
+>
+
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-narrow relative py-20 md:py-28">
+      <div class="text-center reveal">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold/15 mb-6">
+          <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+          </svg>
+        </div>
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">Confirmed</span>
+        <h1 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          You're Booked! Let's Rescue Those Leads.
+        </h1>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-white/60 max-w-xl mx-auto">
+          Your call is set and a calendar invite is on the way. Here's how to get the most out of it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-display-xs font-heading text-gray-900 mb-4 text-center reveal">Before Your Call</h2>
+        <div class="divider-gold-center mb-6"></div>
+        <p class="text-gray-500 mb-10 text-center max-w-2xl mx-auto reveal" style="transition-delay: 0.1s;">
+          Start pulling up to 1,000 unsigned leads from the last 6 months. The more complete your export, the faster we can start rescuing them.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8 reveal" style="transition-delay: 0.15s;">
+          <div class="card p-6 md:p-7">
+            <span class="badge badge-gold mb-4">Required Fields</span>
+            <ul class="space-y-2.5">
+              {["Firm Lead ID", "First Name", "Last Name", "Primary Phone", "Lead Date", "Case Type", "Lead Status"].map((item) => (
+                <li class="flex items-start gap-2.5 text-sm text-gray-700 leading-snug">
+                  <svg class="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="card p-6 md:p-7">
+            <span class="badge badge-brand mb-4">Nice to Have</span>
+            <ul class="space-y-2.5">
+              {["Email", "Secondary phone", "State", "Incident date", "Lead source", "Preferred language", "Prior attempts", "Last contact date", "Notes", "Do not contact flag"].map((item) => (
+                <li class="flex items-start gap-2.5 text-sm text-gray-700 leading-snug">
+                  <svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="rounded-xl bg-gray-50 border border-gray-200 p-6 mb-10 reveal" style="transition-delay: 0.2s;">
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-3">Leave These Out</p>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Signed clients, declined leads, conflicts, and anyone already represented. We only want the leads that never signed.
+          </p>
+        </div>
+
+        <div class="flex items-center justify-center gap-3 text-sm text-gray-500 flex-wrap text-center reveal" style="transition-delay: 0.25s;">
+          <span>No credit card</span>
+          <span class="text-gray-300">&middot;</span>
+          <span>No contract to start</span>
+          <span class="text-gray-300">&middot;</span>
+          <span>Your first results are free</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion tracking -->
+  <script is:inline>
+    // Fire Schedule + Lead via pixel + CAPI with dedup
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('Schedule', { content_name: 'Lost Lead Rescue Call Booked' }, {});
+      window.__metaCAPI.track('Lead', { content_name: 'Lost Lead Rescue' }, {});
+    } else {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Schedule');
+        fbq('track', 'Lead', { content_name: 'Lost Lead Rescue' });
+      }
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'booking_confirmed', conversion_type: 'schedule', source: 'lost-lead-rescue' });
+  </script>
+
+</BaseLayout>

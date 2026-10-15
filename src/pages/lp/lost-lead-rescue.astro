@@ -1,0 +1,872 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Lost Lead Rescue: Free Results on Leads You Already Paid For"
+  description="Send up to 1,000 unsigned leads from the last 6 months. Our Frontline team calls each one up to 8 times. Get your first results free. No credit card. No contract to start."
+  noindex={true}
+  schema={{
+    "@type": "WebPage",
+    "name": "Lost Lead Rescue",
+    "description": "A free rescue of up to 1,000 unsigned leads from the last 6 months, worked by Attorney Assistant's Frontline team.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Attorney Assistant"
+    }
+  }}
+>
+
+  <!-- ══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950 min-h-[90vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="lp-orb lp-orb--1" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--2" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--3" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="absolute inset-0 z-[1] opacity-[0.03]" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div class="reveal">
+          <div class="mb-5">
+            <span class="lp-pulse-badge">
+              <span class="lp-pulse-dot"></span>
+              For Law Firm Owners
+            </span>
+          </div>
+          <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
+            Rescue the Leads <br/><span class="text-gradient-gold">You Already Paid For.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            Send us up to 1,000 leads from the last 6 months that never signed. Our Frontline team calls each one up to 8 times. You keep every signed case and booked consult. Your first results are free.
+          </p>
+
+          <!-- Stat ticker -->
+          <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-prefix">Up To</span>
+              <span class="lp-hero-stat-num lp-count" data-target="1000">0</span>
+              <span class="lp-hero-stat-label">old leads worked for free</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="8">0</span>
+              <span class="lp-hero-stat-label">call attempts before we call a lead dead</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num">$</span><span class="lp-hero-stat-num lp-count" data-target="10">0</span><span class="lp-hero-stat-num">K</span>
+              <span class="lp-hero-stat-label">value, done at no cost to you</span>
+            </div>
+          </div>
+
+          <!-- What the call covers -->
+          <div class="space-y-4 mb-10">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">On Your Call We'll Cover</p>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">How many of your old leads are still worth working</p>
+                <p class="text-sm text-gray-500 mt-0.5">We'll show you the math on 1 to 3 attempts versus 8.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">What results look like for your type of firm</p>
+                <p class="text-sm text-gray-500 mt-0.5">Signed CFAs for contingency firms. Booked consults for everyone else.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">How to export your leads into our template</p>
+                <p class="text-sm text-gray-500 mt-0.5">No integration. No setup. Just a file.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              No credit card
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              No contract to start
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              English and Español
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Widget + Qualifying Gate -->
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal lp-widget-glow" style="transition-delay: 150ms" id="book-now">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="featured-icon featured-icon-md featured-icon-gold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+              </div>
+              <div>
+                <h2 class="text-lg font-heading text-gray-900">Book Your Rescue Call</h2>
+                <p class="text-xs text-gray-500">Free. No credit card. No contract to start.</p>
+              </div>
+            </div>
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/lost-lead-rescue?embed=true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 lp-scroll-hint" aria-hidden="true">
+      <div class="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
+        <div class="w-1 h-2.5 bg-brand-gold rounded-full lp-scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       KEY MESSAGE
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 lp-section-lg">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-500/3 rounded-full blur-[100px]"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-6 reveal">The Math You're Ignoring</span>
+      <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5 leading-tight reveal">
+        You already paid for these leads.
+      </h2>
+      <p class="text-lg text-gray-400 leading-relaxed mb-4 max-w-2xl mx-auto reveal">
+        Every lead that came in over the last six months cost you money. Ad spend, referral fees, marketing budget. You paid for all of it already.
+      </p>
+      <p class="text-lg text-gray-400 leading-relaxed mb-10 max-w-2xl mx-auto reveal">
+        Most firms call a lead one to three times and stop. Signing a case usually takes more attempts than that. The leads you wrote off are still sitting in your CRM.
+      </p>
+      <div class="lp-quote-banner max-w-2xl mx-auto reveal">
+        "You're sitting on cases you already paid for."
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       HOW IT WORKS
+  ═══════════════════════════════════════════════ -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand">How It Works</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">Five steps. You export. We chase.</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 max-w-6xl mx-auto">
+        {[
+          { step: "1", title: "Export", desc: "Pull your unsigned leads from the last 6 months into our template." },
+          { step: "2", title: "Clean", desc: "We remove duplicates and drop anyone already signed, represented, declined, or marked do not contact." },
+          { step: "3", title: "Chase", desc: "Frontline works each lead up to 8 times." },
+          { step: "4", title: "Deliver", desc: "Signed CFAs or booked consults go straight to you, with notes on every lead we touched." },
+          { step: "5", title: "Decide", desc: "Once you see results on your own leads, you decide if you want Frontline on new leads." },
+        ].map((s, i) => (
+          <div class="relative text-center reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class={`w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 font-heading text-lg border-2 ${i === 4 ? 'bg-brand-gold border-brand-gold text-brand-navy' : 'bg-white border-brand-navy text-brand-navy'}`}>
+              {s.step}
+            </div>
+            <h3 class="text-xs font-heading text-gray-900 uppercase tracking-wide mb-2">{s.title}</h3>
+            <p class="text-xs text-gray-500 leading-snug">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       WHAT YOU GET
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-50 lp-section-lg">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4">Your First Results, Free</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          A $10,000 value. Yours at no cost.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          We used to charge $10 per lead for this work. Your first rescue is free, and what you get depends on how your firm works.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 reveal mb-8 max-w-4xl mx-auto">
+        <div class="lp-diff-card">
+          <div class="lp-diff-card-num">Contingency Firms</div>
+          <div class="lp-diff-card-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">3 fully done intakes</h3>
+          <p class="text-gray-500">For PI, mass tort, and any CFA practice. If the case can be signed on the call, we sign the CFA too.</p>
+        </div>
+        <div class="lp-diff-card lp-diff-card--highlight">
+          <div class="lp-diff-card-num lp-diff-card-num--gold">Non-Contingency Firms</div>
+          <div class="lp-diff-card-icon lp-diff-card-icon--gold">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">5 qualified consults booked</h3>
+          <p class="text-gray-500">For flat fee, hourly, and retainer firms. Set straight on your calendar.</p>
+        </div>
+      </div>
+
+      <div class="lp-rule-box max-w-3xl mx-auto reveal mb-10">
+        <span class="lp-rule-box-label">Some Practice Areas Need Your Review First</span>
+        <p class="text-base font-semibold text-gray-900">
+          Medical malpractice and similar practice areas need attorney review before anyone signs. There, we deliver a complete intake ready for your decision. We never promise a signed CFA for those cases.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center reveal mb-10">
+        <p class="text-base font-heading text-gray-900">Clients sign with your firm. Your CFA, your name. We never take the case.</p>
+        <span class="hidden sm:block w-px h-6 bg-gray-300"></span>
+        <p class="text-base font-heading text-gray-900">Our team is bilingual. English and Español.</p>
+      </div>
+
+      <div class="text-center reveal">
+        <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+          Rescue My Leads
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       PRICING AFTER FREE RESULTS
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden lp-section-lg">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/8 rounded-full blur-[100px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-4">After Your Free Results</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5">
+          Keep Frontline on new leads, <span class="text-gradient-gold">if it's a fit.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Your free results need no contract. A plan only starts if you choose one afterward.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto reveal mb-8">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm relative overflow-hidden">
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-white/50 mb-1">Starter</p>
+          <p class="text-xs text-white/40 mb-4">Best for lower lead volume</p>
+          <div class="text-display-xs font-heading text-white">$497</div>
+          <p class="text-xs text-white/40 mb-4">/month &middot; 30 credits included</p>
+          <p class="text-xs text-white/60">Overage at $12/credit</p>
+        </div>
+        <div class="bg-white/5 border border-brand-gold/20 rounded-2xl p-6 backdrop-blur-sm relative overflow-hidden">
+          <div class="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-brand-gold to-brand-gold-light"></div>
+          <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold/80 mb-1">Pro</p>
+          <p class="text-xs text-white/40 mb-4">Best for higher lead volume</p>
+          <div class="text-display-xs font-heading text-white">$997</div>
+          <p class="text-xs text-white/40 mb-4">/month &middot; 75 credits included</p>
+          <p class="text-xs text-white/60">Overage at $10/credit</p>
+        </div>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-7 backdrop-blur-sm max-w-3xl mx-auto reveal">
+        <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold/80 mb-1">Credit Schedule</p>
+        <p class="text-xs text-white/40 mb-4">You pay for outcomes, never idle time</p>
+        <div class="space-y-2.5 text-sm border-t border-white/10 pt-4">
+          <div class="flex justify-between text-white/60">
+            <span>Signed CFA</span>
+            <span class="font-semibold text-white">8 credits</span>
+          </div>
+          <div class="flex justify-between text-white/60">
+            <span>Full intake completed (not signed)</span>
+            <span class="font-semibold text-white">4 credits</span>
+          </div>
+          <div class="flex justify-between text-white/60">
+            <span>Appointment set</span>
+            <span class="font-semibold text-white">2 credits</span>
+          </div>
+          <div class="flex justify-between text-white/60">
+            <span>Unsuccessful outbound attempt</span>
+            <span class="font-semibold text-white">1 credit</span>
+          </div>
+          <div class="flex justify-between text-white/60">
+            <span>Inbound call answered</span>
+            <span class="font-semibold text-white">0.5 credits</span>
+          </div>
+        </div>
+        <p class="text-[0.625rem] text-white/30 mt-4">Plans run on a 6-month contract, billed monthly. Unused credits expire at month end.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════════ -->
+  <section class="section-padding bg-white">
+    <div class="container-narrow">
+      <div class="text-center mb-10 reveal">
+        <span class="badge badge-brand">FAQ</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Questions firms ask before they rescue a list</h2>
+        <div class="divider-gold-center mt-5"></div>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-3">
+        {[
+          { q: "We already followed up on those.", a: "How many times? Most firms stop at 1 to 3. We do 8, on a set schedule." },
+          { q: "Those leads are dead.", a: "Some are. Many never got a second call. We find out at no cost to you." },
+          { q: "What's the catch?", a: "We want you to see how our team performs on your own leads before you spend a dollar." },
+          { q: "Who do the clients sign with?", a: "Your firm. Your CFA, your name. We never take the case." },
+          { q: "Is my data safe?", a: "We only ask for the fields we need to make the call. We skip anyone marked do not contact." },
+          { q: "Isn't this just an answering service?", a: "Taking a message is not intake. Our team qualifies and closes." },
+          { q: "What happens after the free results?", a: "You pick a plan. $497 or $997 a month, based on your volume. You pay for outcomes, not hours." },
+        ].map((f, i) => (
+          <details class="group rounded-xl border border-gray-200 bg-white p-5 md:p-6 reveal" style={`transition-delay: ${i * 50}ms`}>
+            <summary class="flex items-center justify-between cursor-pointer text-base font-heading text-gray-900 list-none">
+              <span>{f.q}</span>
+              <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </summary>
+            <p class="text-sm text-gray-600 leading-relaxed mt-3">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl lp-float-slow"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl lp-float-slow-reverse"></div>
+    </div>
+    <div class="container-wide relative py-20 md:py-28">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-6">Up to 1,000 Leads, Free</span>
+        <h2 class="text-display-sm md:text-display-lg font-heading text-white mb-6">
+          Stop writing off <span class="text-gradient-gold">cases you already paid for.</span>
+        </h2>
+        <div class="divider-gold-center mb-8"></div>
+        <p class="text-xl text-white/60 mb-10">
+          Send us your list. We'll show you what's still there.
+        </p>
+        <div class="flex flex-col items-center gap-5">
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex text-lg px-10 py-4">
+            Rescue My Leads
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust badge -->
+        <div class="mt-12 flex items-center justify-center gap-3 text-sm text-white/50 flex-wrap">
+          <span>$10,000 value, free</span>
+          <span class="text-white/30">&middot;</span>
+          <span>No credit card</span>
+          <span class="text-white/30">&middot;</span>
+          <span>English and Español</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#f9a62d;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#f9a62d;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+        });
+      }
+    });
+  </script>
+
+  <!-- Law-Firm Qualifying Gate -->
+  <script is:inline>
+    (function () {
+      "use strict";
+
+      function initLeadRescueGate() {
+        var STORAGE_KEY = "aa_lawfirm_gate_lost-lead-rescue";
+
+        function getState() {
+          try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+        }
+        function setState(v) {
+          try { localStorage.setItem(STORAGE_KEY, v); } catch (e) {}
+        }
+        function stripSchedulerSources() {
+          document.querySelectorAll(".meetings-iframe-container[data-src]").forEach(function (el) {
+            el.removeAttribute("data-src");
+          });
+        }
+        function trackGate(answer) {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "gate_response", gate_type: "law_firm_qualifier", answer: answer, source: "lost-lead-rescue" });
+        }
+
+        var GATE_HTML =
+          '<div class="gate-inner">' +
+            '<p class="gate-question">Are you a lawyer or law firm with lost leads that need rescuing?</p>' +
+            '<div class="gate-buttons">' +
+              '<button type="button" class="gate-btn-yes" data-gate-yes>Yes</button>' +
+              '<button type="button" class="gate-btn-no" data-gate-no>No</button>' +
+            "</div>" +
+          "</div>";
+
+        var DECLINE_HTML =
+          '<div class="gate-inner">' +
+            '<p class="gate-decline">Thanks for stopping by! This offer may not be the best fit for you right now, but you\'re welcome to explore what we do at <a href="https://attorneyassistant.com" class="gate-link">attorneyassistant.com</a>. Not a law firm? Our sister company, Turnkey Ops, brings the same follow-up and support model to businesses outside the legal space. Visit <a href="https://turnkeyops.io" target="_blank" rel="noopener" class="gate-link">turnkeyops.io</a>.</p>' +
+          "</div>";
+
+        var state = getState();
+
+        if (state === "no") stripSchedulerSources();
+        if (state === "yes") return;
+
+        var target = document.getElementById("book-now");
+        if (!target) return;
+
+        target.style.position = "relative";
+        var overlay = document.createElement("div");
+        overlay.className = "lawfirm-gate-overlay";
+        overlay.innerHTML = state === "no" ? DECLINE_HTML : GATE_HTML;
+        target.appendChild(overlay);
+
+        if (state === "no") return;
+
+        overlay.querySelector("[data-gate-yes]").addEventListener("click", function () {
+          setState("yes");
+          trackGate("yes");
+          overlay.remove();
+        });
+        overlay.querySelector("[data-gate-no]").addEventListener("click", function () {
+          setState("no");
+          trackGate("no");
+          stripSchedulerSources();
+          overlay.innerHTML = DECLINE_HTML;
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLeadRescueGate);
+      } else {
+        initLeadRescueGate();
+      }
+    })();
+  </script>
+
+  <style>
+    /* =============================================
+       HUBSPOT WIDGET FIX
+    ============================================= */
+    .meetings-iframe-container iframe {
+      background: #ffffff !important;
+    }
+    .meetings-iframe-container {
+      background: #ffffff !important;
+    }
+
+    /* =============================================
+       SECTION SPACING
+    ============================================= */
+    .lp-section-lg {
+      padding: 5rem 0;
+    }
+    @media (min-width: 768px) {
+      .lp-section-lg { padding: 6.5rem 0; }
+    }
+
+    /* =============================================
+       HERO ORBS — 3 animated orbs
+    ============================================= */
+    .lp-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform;
+      z-index: 1;
+    }
+    .lp-orb--1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(81,166,220,0.35) 0%, rgba(81,166,220,0) 70%);
+      top: -30%;
+      right: -15%;
+      animation: lpFloat1 10s ease-in-out infinite;
+    }
+    .lp-orb--2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(249,166,45,0.3) 0%, rgba(249,166,45,0) 70%);
+      bottom: -20%;
+      left: -8%;
+      animation: lpFloat2 12s ease-in-out infinite;
+    }
+    .lp-orb--3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(249,166,45,0.15) 0%, rgba(249,166,45,0) 70%);
+      top: 40%;
+      left: 35%;
+      animation: lpFloat3 14s ease-in-out infinite;
+    }
+    @keyframes lpFloat1 {
+      0% { transform: translate(0, 0) scale(1); }
+      20% { transform: translate(-100px, 50px) scale(1.25); }
+      40% { transform: translate(-30px, -60px) scale(0.85); }
+      60% { transform: translate(80px, 25px) scale(1.15); }
+      80% { transform: translate(30px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat2 {
+      0% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(90px, -45px) scale(1.3); }
+      50% { transform: translate(30px, 60px) scale(0.8); }
+      75% { transform: translate(-60px, -20px) scale(1.15); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat3 {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-40px, 30px) scale(1.2); }
+      66% { transform: translate(50px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lp-orb, .lp-float-slow, .lp-float-slow-reverse, .lp-scroll-dot { animation: none !important; }
+    }
+
+    /* =============================================
+       HERO PULSE BADGE
+    ============================================= */
+    .lp-pulse-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.2);
+      backdrop-filter: blur(8px);
+    }
+    .lp-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f9a62d;
+      animation: lpPulse 2s ease-in-out infinite;
+    }
+    @keyframes lpPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* =============================================
+       HERO STATS
+    ============================================= */
+    .lp-hero-stat {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+    }
+    .lp-hero-stat-prefix {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #f9a62d;
+      margin-bottom: 0.125rem;
+    }
+    .lp-hero-stat-num {
+      display: inline;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f9a62d;
+      line-height: 1;
+    }
+    .lp-hero-stat-label {
+      display: block;
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.375rem;
+      line-height: 1.3;
+    }
+
+    /* =============================================
+       WIDGET GLOW
+    ============================================= */
+    .lp-widget-glow {
+      background: linear-gradient(135deg, rgba(249,166,45,0.3), rgba(81,166,220,0.3), rgba(249,166,45,0.3));
+      background-size: 200% 200%;
+      animation: lpGlow 4s ease-in-out infinite;
+    }
+    @keyframes lpGlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* =============================================
+       SCROLL INDICATOR
+    ============================================= */
+    .lp-scroll-hint { animation: lpFadeInUp 1s ease 1.5s both; }
+    @keyframes lpFadeInUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .lp-scroll-dot {
+      animation: lpScrollBounce 1.5s ease-in-out infinite;
+    }
+    @keyframes lpScrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    /* =============================================
+       QUOTE BANNER
+    ============================================= */
+    .lp-quote-banner {
+      background: linear-gradient(135deg, #15385f, #1f4a7a);
+      border: 1px solid rgba(249,166,45,0.25);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      color: #fff;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 1.125rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       RULE / CALLOUT BOX
+    ============================================= */
+    .lp-rule-box {
+      background: #fdf6ec;
+      border: 1px solid rgba(249,166,45,0.3);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .lp-rule-box-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #f9a62d;
+      margin-bottom: 0.375rem;
+      display: block;
+    }
+
+    /* =============================================
+       DIFFERENTIATOR CARDS (what you get section)
+    ============================================= */
+    .lp-diff-card {
+      padding: 2rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .lp-diff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .lp-diff-card--highlight {
+      background: linear-gradient(135deg, rgba(249,166,45,0.05), rgba(249,166,45,0.02));
+      border-color: rgba(249,166,45,0.3);
+    }
+    .lp-diff-card-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #98a2b3;
+    }
+    .lp-diff-card-num--gold { color: #f9a62d; }
+    .lp-diff-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(21,56,95,0.06);
+      color: #15385f;
+      border: 1px solid rgba(21,56,95,0.1);
+      margin-top: 1rem;
+    }
+    .lp-diff-card-icon--gold {
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border-color: rgba(249,166,45,0.2);
+    }
+
+    /* =============================================
+       FLOATING ANIMATION (CTA orbs)
+    ============================================= */
+    .lp-float-slow {
+      animation: lpFloatSlow 8s ease-in-out infinite;
+    }
+    .lp-float-slow-reverse {
+      animation: lpFloatSlowReverse 10s ease-in-out infinite;
+    }
+    @keyframes lpFloatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+    @keyframes lpFloatSlowReverse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(25px); }
+    }
+
+    /* =============================================
+       LAW-FIRM QUALIFYING GATE
+    ============================================= */
+    .lawfirm-gate-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: #ffffff;
+      border-radius: 1rem;
+    }
+    .lawfirm-gate-overlay .gate-inner {
+      max-width: 22rem;
+      text-align: center;
+    }
+    .lawfirm-gate-overlay .gate-question {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #101828;
+      margin: 0 0 1.25rem;
+      line-height: 1.4;
+    }
+    .lawfirm-gate-overlay .gate-decline {
+      font-size: 0.9375rem;
+      color: #475467;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .lawfirm-gate-overlay .gate-link {
+      color: #f9a62d;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .lawfirm-gate-overlay .gate-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .lawfirm-gate-overlay .gate-btn-yes {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      padding: 1rem 2rem;
+      border-radius: 0.625rem;
+      font-family: 'Sora', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.0625rem;
+      color: #15385f;
+      background: #f9a62d;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .lawfirm-gate-overlay .gate-btn-yes:hover {
+      background: #fbbf24;
+      transform: translateY(-1px);
+    }
+    .lawfirm-gate-overlay .gate-btn-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      padding: 1rem 2rem;
+      border-radius: 0.625rem;
+      font-family: 'Sora', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.0625rem;
+      color: #344054;
+      background: #fff;
+      border: 1px solid #d0d5dd;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .lawfirm-gate-overlay .gate-btn-no:hover {
+      border-color: #98a2b3;
+      background: #f9fafb;
+    }
+  </style>
+
+  <!-- Count-up animation script -->
+  <script is:inline>
+  (function() {
+    var counted = false;
+    function countUp() {
+      if (counted) return;
+      counted = true;
+      document.querySelectorAll('.lp-count').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1500;
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    if ('IntersectionObserver' in window) {
+      var el = document.querySelector('.lp-count');
+      if (el) {
+        new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) countUp();
+        }, { threshold: 0.5 }).observe(el);
+      }
+    } else {
+      countUp();
+    }
+  })();
+  </script>
+
+</BaseLayout>
