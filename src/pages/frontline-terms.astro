@@ -37,8 +37,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
           <h2>1. Overview</h2>
           <p>This Agreement governs Law Firm's use of <strong>Frontline</strong> (formerly known as Intake360), a subscription-based intake and lead engagement service provided by Attorney Assistant LLC. References to "Intake360" in previously executed agreements refer to the same service.</p>
           <ul>
-            <li>The Law Firm pays a recurring monthly subscription of $997 USD, which includes 75 action-based credits per month, due at contract signing and on the same date each month thereafter. The Law Firm authorizes Attorney Assistant LLC to charge the subscription on this recurring basis until written cancellation is received.</li>
-            <li>Usage above the 75 included credits in a given month is billed in arrears as overage at $10 per credit, within 5 business days of each monthly subscription charge.</li>
+            <li>Frontline is offered in two subscription tiers, selected by the Law Firm at contract signing: <strong>Frontline Starter</strong>, a recurring monthly subscription of $497 USD which includes 30 action-based credits per month, and <strong>Frontline Pro</strong>, a recurring monthly subscription of $997 USD which includes 75 action-based credits per month. The subscription is due at contract signing and on the same date each month thereafter. The Law Firm authorizes Attorney Assistant LLC to charge the subscription on this recurring basis until written cancellation is received.</li>
+            <li>Usage above the included credits in a given month is billed in arrears as overage &mdash; $12 per credit for Frontline Starter, $10 per credit for Frontline Pro &mdash; within 5 business days of each monthly subscription charge.</li>
             <li>Unused credits expire at the end of each monthly billing cycle and do not roll over.</li>
             <li>Credits and subscription fees are non-refundable.</li>
             <li>Either party may cancel this Agreement with 30 days' written notice prior to the end of the current term. If notice is not received within the notice window, the Agreement auto-renews at the same term.</li>
@@ -49,7 +49,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         <!-- 2. Monthly Subscription & Included Credits -->
         <div>
           <h2>2. Monthly Subscription &amp; Included Credits</h2>
-          <p>The Frontline monthly subscription is a single bundled offering that combines active enrollment and lead coverage with a fixed allotment of action-based credits.</p>
+          <p>The Frontline monthly subscription is a single bundled offering that combines active enrollment and lead coverage with a fixed allotment of action-based credits, available in two tiers.</p>
           <div class="overflow-x-auto">
             <table>
               <thead>
@@ -63,7 +63,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Frontline</strong></td>
+                  <td><strong>Frontline Starter</strong></td>
+                  <td>$497/month (USD)</td>
+                  <td>30 credits/month</td>
+                  <td>$12 per credit</td>
+                  <td>Unused credits expire at month-end</td>
+                </tr>
+                <tr>
+                  <td><strong>Frontline Pro</strong></td>
                   <td>$997/month (USD)</td>
                   <td>75 credits/month</td>
                   <td>$10 per credit</td>
@@ -75,11 +82,12 @@ import BaseLayout from "@layouts/BaseLayout.astro";
           <ul>
             <li>Subscription pricing is locked for 12 months; after that, a 7% annual increase applies.</li>
             <li>The subscription recurs every 30 days against the payment method on file until canceled in writing.</li>
+            <li>The Law Firm may upgrade from Frontline Starter to Frontline Pro at any time; downgrades take effect on the next billing cycle.</li>
           </ul>
 
           <h3>What the Subscription Covers</h3>
           <ul>
-            <li>75 action-based credits per monthly billing cycle, spendable against the Credit Value Matrix in Section 7.</li>
+            <li>The plan's included action-based credits per monthly billing cycle &mdash; 30 for Frontline Starter, 75 for Frontline Pro &mdash; spendable against the Credit Value Matrix in Section 7.</li>
             <li>Active enrollment and continuous opt-in to Frontline so inbound calls, after-hours leads, overflow coverage, and follow-up continue without lapse.</li>
             <li>24/7 readiness of Frontline's intake team, systems, and routing infrastructure.</li>
             <li>Quality Assurance reviews to monitor service consistency on calls handled on the Law Firm's behalf.</li>
@@ -93,7 +101,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         <div>
           <h2>3. Overage Billing</h2>
           <ul>
-            <li><strong>Rate:</strong> $10 per credit beyond the 75 included credits in a given monthly cycle.</li>
+            <li><strong>Rate:</strong> $12 per credit beyond the 30 included credits in a given monthly cycle for Frontline Starter; $10 per credit beyond the 75 included credits for Frontline Pro.</li>
             <li><strong>Timing:</strong> Overage is billed in arrears within 5 business days of each monthly subscription charge.</li>
             <li><strong>Method:</strong> Overage charges are processed automatically against the payment method on file.</li>
             <li><strong>Visibility:</strong> Credit usage is tracked in the Client Portal and reflected on the overage invoice.</li>
@@ -236,6 +244,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         <!-- 7. Credit Value Matrix -->
         <div>
           <h2>7. Credit Value Matrix</h2>
+          <p>The credit cost of each action is identical across both subscription tiers. Only the number of included credits and the overage rate differ.</p>
           <div class="overflow-x-auto">
             <table>
               <thead>

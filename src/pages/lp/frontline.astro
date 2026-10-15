@@ -41,15 +41,25 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             </div>
             <div>
               <h2 class="text-xl font-heading text-gray-900">Frontline Subscription</h2>
-              <p class="text-sm text-gray-500">One flat monthly price, credits included</p>
+              <p class="text-sm text-gray-500">Two flat monthly plans, credits included</p>
             </div>
           </div>
-          <div class="bg-gradient-to-br from-brand-navy to-brand-800 rounded-xl p-6 mb-6 text-center">
-            <div class="text-display-md font-heading text-white mb-1">$997<span class="text-base text-white/60 font-normal">/mo</span></div>
-            <div class="flex items-center justify-center gap-4 text-sm text-white/60">
-              <span>Includes <strong class="text-white">75</strong> credits</span>
-              <span class="w-1 h-1 rounded-full bg-white/30"></span>
-              <span>Overage at <strong class="text-white">$10</strong>/credit</span>
+          <div class="grid grid-cols-2 gap-3 mb-6">
+            <div class="bg-gradient-to-br from-brand-navy to-brand-800 rounded-xl p-5 text-center">
+              <p class="text-[0.625rem] font-bold tracking-[0.1em] uppercase text-white/50 mb-1">Starter</p>
+              <div class="text-display-xs font-heading text-white mb-1">$497<span class="text-sm text-white/60 font-normal">/mo</span></div>
+              <div class="text-xs text-white/60">
+                <div>Includes <strong class="text-white">30</strong> credits</div>
+                <div>Overage at <strong class="text-white">$12</strong>/credit</div>
+              </div>
+            </div>
+            <div class="bg-gradient-to-br from-brand-navy to-brand-800 rounded-xl p-5 text-center ring-2 ring-brand-gold/60">
+              <p class="text-[0.625rem] font-bold tracking-[0.1em] uppercase text-brand-gold mb-1">Pro</p>
+              <div class="text-display-xs font-heading text-white mb-1">$997<span class="text-sm text-white/60 font-normal">/mo</span></div>
+              <div class="text-xs text-white/60">
+                <div>Includes <strong class="text-white">75</strong> credits</div>
+                <div>Overage at <strong class="text-white">$10</strong>/credit</div>
+              </div>
             </div>
           </div>
           <a href="#get-started" class="btn-primary w-full justify-center group mb-3">
