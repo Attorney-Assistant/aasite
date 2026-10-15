@@ -1,0 +1,889 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="The 5,000 Case Playbook — Free Intake Strategy Call for Law Firm Owners"
+  description="How Ethen Ostroff Law signed 5,000+ cases without attorneys ever touching intake. Five systems, one pay plan, and a follow-up cadence that gets to call 14. Book a 20-minute call."
+  noindex={true}
+  schema={{
+    "@type": "WebPage",
+    "name": "The 5,000 Case Playbook",
+    "description": "A 20-minute intake strategy call for law firm owners, based on the five-system build behind 5,000+ signed cases.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Attorney Assistant"
+    }
+  }}
+>
+
+  <!-- ══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950 min-h-[90vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="lp-orb lp-orb--1" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--2" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--3" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="absolute inset-0 z-[1] opacity-[0.03]" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div class="reveal">
+          <div class="mb-5">
+            <span class="lp-pulse-badge">
+              <span class="lp-pulse-dot"></span>
+              The Operations Playbook Series &middot; No. 01
+            </span>
+          </div>
+          <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
+            The 5,000 Case <br/><span class="text-gradient-gold">Playbook.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            How Ethen Ostroff Law signed volume without the attorneys ever touching intake. Five systems, one pay plan, and a follow-up cadence most firms quit on by call three. Book a call and we'll show you how to copy them.
+          </p>
+
+          <!-- Stat ticker -->
+          <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="5000">0</span><span class="lp-hero-stat-num">+</span>
+              <span class="lp-hero-stat-label">cases handled in a handful of years</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="22">0</span>
+              <span class="lp-hero-stat-label">contact attempts before a lead is closed</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="15">0</span>
+              <span class="lp-hero-stat-label">touches in the first 72 hours</span>
+            </div>
+          </div>
+
+          <!-- What the call covers -->
+          <div class="space-y-4 mb-10">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">On Your Call We'll Cover</p>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">Which of the five systems you're missing</p>
+                <p class="text-sm text-gray-500 mt-0.5">Split role, graded leads, the cadence, the pay plan, or hour coverage.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">What an attorney answering intake is costing you</p>
+                <p class="text-sm text-gray-500 mt-0.5">The math on 5 non-billable hours a day, every day.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">The cadence that gets to call 14</p>
+                <p class="text-sm text-gray-500 mt-0.5">Most firms stop at call three. Here's why that's the leak.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Free &mdash; 20 minutes
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              No commitment
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Built inside a working law firm
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Widget -->
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal lp-widget-glow" style="transition-delay: 150ms" id="book-now">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="featured-icon featured-icon-md featured-icon-gold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+              </div>
+              <div>
+                <h2 class="text-lg font-heading text-gray-900">Book Your Ops Call</h2>
+                <p class="text-xs text-gray-500">Free &mdash; 20 minutes</p>
+              </div>
+            </div>
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/magnet-5000-case-playbook?embed=true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 lp-scroll-hint" aria-hidden="true">
+      <div class="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
+        <div class="w-1 h-2.5 bg-brand-gold rounded-full lp-scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       OPENING — you do not have a lead problem
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 lp-section-lg">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-500/3 rounded-full blur-[100px]"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <!-- Left: Story -->
+        <div class="reveal">
+          <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-6">Why You Are Reading This</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5 leading-tight">
+            You do not have a lead problem.
+          </h2>
+          <p class="text-base text-gray-400 leading-relaxed mb-5">
+            Pull last month's leads. Count how many you actually reached, not how many you called once. Count how many got a second call on a Saturday. Count how many are sitting in a status called "no answer" that nobody has touched in nine days.
+          </p>
+          <p class="text-base text-gray-400 leading-relaxed mb-5">
+            That pile is not a marketing failure. Your marketing worked. It put the lead in the building. What happened next is an operations problem, and operations problems get solved with roles, cadence, coverage and a pay plan, not a bigger ad budget.
+          </p>
+          <p class="text-base text-gray-400 leading-relaxed mb-6">
+            Ethen Ostroff Law handled 5,000 cases in a handful of years with a simple rule underneath it: attorneys practice law, and a trained intake department does intake. Not "mostly." Not "when things get busy." Never.
+          </p>
+          <div class="lp-rule-box lp-rule-box--dark">
+            <span class="lp-rule-box-label">What An Attorney Costs You On A Dial</span>
+            <p class="text-sm text-gray-200 leading-relaxed mb-2">The average lawyer bills 3 of 8 hours. That's 38% utilization, and roughly 5 hours a day going to work that doesn't bill.</p>
+            <p class="text-xs text-gray-400 mb-2">Source: Clio 2025 Legal Trends Report</p>
+            <p class="text-sm font-semibold text-white">Every one of those 5 hours an attorney spends on a lead who won't answer is an hour no one is billing, and the lead still doesn't answer.</p>
+          </div>
+        </div>
+
+        <!-- Right: who it's for / not for -->
+        <div class="reveal space-y-6" style="transition-delay: 150ms">
+          <div>
+            <p class="text-xs font-bold text-brand-gold uppercase tracking-widest mb-4">Who This Is For</p>
+            <div class="space-y-3">
+              {[
+                "You spend $5,000 a month or more on leads and can't tell which ones died of neglect",
+                "Your intake is “whoever picks up”",
+                "Your best closer is also your best lawyer, which means you're paying settlement rates for dialing",
+                "You've been told to buy more leads to fix a conversion problem",
+              ].map((item) => (
+                <div class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd"/></svg>
+                  <p class="text-sm text-gray-300 leading-snug">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="border-t border-white/10 pt-6">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Who This Is Not For</p>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+              <p class="text-sm text-gray-400 leading-snug">Firms with no lead flow. Fix demand first, then come back. This playbook makes existing leads convert. It does not create them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FIVE SYSTEMS
+  ═══════════════════════════════════════════════ -->
+  <section class="section-padding bg-white">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge badge-brand">The Playbook At A Glance</span>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4 mb-5">Five systems. That's the whole thing.</h2>
+        <div class="divider-gold-center mt-5"></div>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto mt-6">None of these are clever. All five are boring, written down, and enforced. That's why they work.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto mb-8">
+        {[
+          { num: "01", title: "Split the Role", desc: "Stop asking one person to answer, chase and close. Three jobs, three skill levels, three pay plans." },
+          { num: "02", title: "Grade the Lead", desc: "Four lead types. They don't convert the same, so they don't get routed the same or paid the same." },
+          { num: "03", title: "Run the Cadence", desc: "15 contact attempts in 3 days. Attorney review at 15. Up to 22 when the injury justifies it. Then close it." },
+          { num: "04", title: "Pay for the 14th Call", desc: "A case closed on call 14 pays the dialer more than a case closed on call 2. That's the entire reason call 14 happens." },
+        ].map((s, i) => (
+          <div class="card p-6 md:p-7 reveal" style={`transition-delay: ${i * 60}ms`}>
+            <div class="font-heading text-3xl text-brand-gold mb-3">{s.num}</div>
+            <h3 class="text-sm font-heading text-gray-900 uppercase tracking-wide mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-500 leading-snug">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="card p-6 md:p-7 max-w-4xl mx-auto reveal" style="transition-delay: 240ms">
+        <div class="font-heading text-3xl text-brand-gold mb-3">05</div>
+        <h3 class="text-sm font-heading text-gray-900 uppercase tracking-wide mb-2">Cover the Hours Leads Actually Arrive</h3>
+        <p class="text-sm text-gray-500 leading-snug">Nights and weekends aren't overflow. For PI, they're prime time.</p>
+      </div>
+
+      <div class="lp-quote-banner mt-10 max-w-3xl mx-auto reveal mb-10">
+        Underneath all five: the attorney sets the criteria once and never touches a lead.
+      </div>
+
+      <div class="text-center reveal">
+        <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+          Book Your Ops Call
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE CADENCE & PAY PLAN
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden lp-section-lg">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/8 rounded-full blur-[100px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-10 reveal">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-4">Systems 03 &amp; 04</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5">
+          15 touches in 3 days. <span class="text-gradient-gold">Then a decision.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Ask a firm owner how many times they follow up. The answer is almost always five or six. Pull the activity log and the real number is two, maybe three, then the lead quietly moves to a status nobody reads.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto reveal mb-10 rounded-2xl border border-white/10 overflow-hidden">
+        <div class="bg-white/5 text-white/70 text-xs font-bold uppercase tracking-widest px-5 py-3 grid grid-cols-3 gap-2">
+          <span>Stage</span>
+          <span>Window</span>
+          <span>Attempts</span>
+        </div>
+        <div class="divide-y divide-white/10 text-sm">
+          {[
+            { stage: "Blitz", window: "First 72 hours", attempts: "15 minimum" },
+            { stage: "Attorney review gate", window: "At attempt 15", attempts: "1 decision" },
+            { stage: "Extended chase", window: "After the gate, if approved", attempts: "Up to 22 total" },
+            { stage: "Close out", window: "After 22", attempts: "Stop" },
+          ].map((row) => (
+            <div class="grid grid-cols-3 gap-2 px-5 py-3 text-gray-300">
+              <span class="font-semibold text-white">{row.stage}</span>
+              <span>{row.window}</span>
+              <span>{row.attempts}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="lp-quote-banner lp-quote-banner--gold max-w-2xl mx-auto reveal mb-6">
+        "One more call can pay for your intake department."
+      </div>
+      <p class="text-center text-sm text-gray-500 mb-10 reveal">&mdash; Ethen Ostroff</p>
+
+      <p class="text-base text-gray-400 max-w-2xl mx-auto text-center mb-14 reveal">
+        A car crash lead came in from social. Two follow-up attempts, no answer, marked non-responsive. Ethen called it himself. Four passengers, catastrophic injuries. The file was worth roughly $500,000. Two attempts is what almost every firm runs. The difference between two and fifteen isn't effort. It's whether somebody's job and paycheck depend on attempt fifteen happening.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto reveal">
+        <div class="lp-fix-card-v2" style="border-color: rgba(239,68,68,0.25);">
+          <p class="text-xs font-bold text-red-400 uppercase tracking-widest mb-3">Comp Plan That Fails</p>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li>Flat bonus per signed case</li>
+            <li>Same payout for every lead type</li>
+            <li>Paid on calls made</li>
+            <li>Manager chases the cadence</li>
+          </ul>
+        </div>
+        <div class="lp-fix-card-v2">
+          <p class="text-xs font-bold text-brand-gold uppercase tracking-widest mb-3">Comp Plan That Works</p>
+          <ul class="space-y-2 text-sm text-gray-300">
+            <li>Bonus scales with attempt number</li>
+            <li>Payout weighted by lead difficulty</li>
+            <li>Paid on contact made and cases signed</li>
+            <li>The pay plan chases the cadence</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lp-rule-box max-w-3xl mx-auto reveal mt-8">
+        <span class="lp-rule-box-label">Warning</span>
+        <p class="text-base font-semibold text-gray-900">Do not pay on dials. You will get 200 two-second calls a day and no conversations. Pay on contacts made and cases signed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE MATH
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white lp-section-lg">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-brand-gold to-brand-blue"></div>
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-navy/10 text-brand-navy border-brand-navy/15 mb-4">The Staffing Math</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          One additional intake staff member for every 250 leads a month.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Every firm wants the industry average. Use your own number instead.
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto reveal mb-10 rounded-2xl border border-gray-200 overflow-hidden">
+        <div class="bg-brand-navy text-white text-xs font-bold uppercase tracking-widest px-5 py-3 flex justify-between">
+          <span>Run Your Number</span>
+          <span class="text-white/60 normal-case font-normal">Illustration: 100 leads/mo, $8,000 avg. fee</span>
+        </div>
+        <div class="divide-y divide-gray-100">
+          {[
+            { label: "Leads last month", val: "100" },
+            { label: "Leads reached by a human at least once", val: "60" },
+            { label: "Leads never reached", val: "40" },
+            { label: "Sign rate on reached leads", val: "20%" },
+            { label: "More leads reached at 15 touches instead of 3", val: "13" },
+            { label: "New cases per month", val: "2.6" },
+            { label: "Average fee per case", val: "$8,000" },
+          ].map((row) => (
+            <div class="flex items-center justify-between px-5 py-3 text-sm">
+              <span class="text-gray-600">{row.label}</span>
+              <span class="font-semibold text-gray-900">{row.val}</span>
+            </div>
+          ))}
+          <div class="flex items-center justify-between px-5 py-4 bg-brand-gold/10">
+            <span class="font-heading text-gray-900">Annual revenue sitting in the gap</span>
+            <span class="font-heading text-2xl text-brand-navy">$249,600</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-rule-box max-w-3xl mx-auto reveal">
+        <span class="lp-rule-box-label">The Same Math At Scale</span>
+        <p class="text-base font-semibold text-gray-900">
+          1,000 leads a month with 20% mishandled puts millions at risk per month. 50 leads a month with 20% mishandled puts tens of thousands at risk. The percentage doesn't care how big you are.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE SCOREBOARD
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 lp-section-lg">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-4">The Scoreboard</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Five numbers. Weekly. On a wall.
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">You cannot run this on instinct. These five, every week, per person and firm wide.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 reveal mb-10">
+        {[
+          { title: "Speed to Lead", desc: "Median minutes from lead created to first contact.", target: "Under 15 min" },
+          { title: "Answer Rate", desc: "Inbound calls answered live, in-hours and after-hours.", target: "90%+" },
+          { title: "Attempts Completed", desc: "Leads that received all 15 attempts in 72 hours.", target: "90%+" },
+          { title: "Contact Rate", desc: "Leads reached by a human at least once.", target: null },
+          { title: "Close Rate by Lead Type", desc: "Four numbers, not one. Type 1 through type 4.", target: null },
+        ].map((m, i) => (
+          <div class="lp-fix-card-v2 text-left" style={`transition-delay: ${i * 60}ms`}>
+            <h3 class="text-sm font-heading text-white mb-2">{m.title}</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-3">{m.desc}</p>
+            {m.target && <p class="text-xs font-bold text-brand-gold">Target: {m.target}</p>}
+          </div>
+        ))}
+      </div>
+
+      <div class="lp-stat-box lp-stat-box--highlight max-w-xl mx-auto reveal">
+        <div class="lp-stat-box-num lp-stat-box-num--gold">109</div>
+        <p class="lp-stat-box-label">Cases signed by one Attorney Assistant staff member for a single client in 30 days</p>
+      </div>
+      <p class="text-center text-xs text-gray-500 mt-4 reveal">Internal figure, client identity protected.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE OFFERING — Staffline / Frontline
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-50 lp-section-lg">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-navy/10 text-brand-navy border-brand-navy/15 mb-4">Where Attorney Assistant Fits</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          The systems came first. The company came second.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Ethen Ostroff built this playbook to run his own firm, because he had lead flow he could not staff against and no interest in becoming his own intake department. It worked. Then other firm owners started asking how.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 reveal mb-8">
+        <div class="lp-diff-card">
+          <div class="lp-diff-card-num">Permanent Staff</div>
+          <div class="lp-diff-card-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">Staffline</h3>
+          <p class="text-gray-500">One person. Your firm only. Never shared. A permanent dedicated staff member, 40 hours a week, working in your systems on any support role you need: follow-up intake, case management, records and bill retrieval, lien reduction, file opening, calendar and inbox, CRM hygiene. Sourced, vetted, and trained by us. Directed by you. Co-managed by both.</p>
+        </div>
+        <div class="lp-diff-card lp-diff-card--highlight">
+          <div class="lp-diff-card-num lp-diff-card-num--gold">Coverage on Demand</div>
+          <div class="lp-diff-card-icon lp-diff-card-icon--gold">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">Frontline</h3>
+          <p class="text-gray-500">A live intake team you switch on without adding headcount, sized to your call volume, running nights and weekends. Trained to qualify and close on CFA, flat fee, and retainer. English and Espa&ntilde;ol. QA on every call. Taking a message is not intake.</p>
+        </div>
+      </div>
+
+      <div class="lp-rule-box max-w-3xl mx-auto reveal mb-14">
+        <span class="lp-rule-box-label">You Will Still Onboard Them</span>
+        <p class="text-base font-semibold text-gray-900">
+          We handle sourcing, vetting, baseline training, QA, coaching, and performance management. You skip the recruiting cycle and the turnover risk. You do not skip onboarding. You will get a trained person, and you will still need to train them on how your firm does things. Firms that treat this as plug and play struggle. Firms that treat it like welcoming a new employee win.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        {[
+          { num: "109", label: "Cases by one of our staff for a single client in 30 days" },
+          { num: "97%", label: "Answer rate 24/7, up from 82% in-hours only" },
+          { num: "15 min", label: "Max speed to lead, down from a 34-minute average" },
+          { num: "6", label: "Follow-up touches in 3 days, was 2 then silence" },
+        ].map((s) => (
+          <div class="lp-stat-box">
+            <div class="lp-stat-box-num lp-stat-box-num--gold">{s.num}</div>
+            <p class="lp-stat-box-label">{s.label}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-xs text-gray-400 mt-6 reveal">Attorney Assistant figures, drawn from real client files with identities protected.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl lp-float-slow"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl lp-float-slow-reverse"></div>
+    </div>
+    <div class="container-wide relative py-20 md:py-28">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-6">Your Next Step</span>
+        <h2 class="text-display-sm md:text-display-lg font-heading text-white mb-6">
+          Find out what your intake <span class="text-gradient-gold">is actually doing.</span>
+        </h2>
+        <div class="divider-gold-center mb-8"></div>
+        <p class="text-xl text-white/60 mb-10">
+          Twenty minutes. We'll map where your leads, hours, and revenue are leaking, and hand you the fix list in priority order.
+        </p>
+        <div class="flex flex-col items-center gap-5">
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex text-lg px-10 py-4">
+            Book Your Ops Call
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust badge -->
+        <div class="mt-12 flex items-center justify-center gap-3 text-sm text-white/50 flex-wrap">
+          <div class="flex items-center gap-0.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <span>4.9 Google Rating</span>
+          <span class="text-white/30">&middot;</span>
+          <span>5,000+ cases handled</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#f9a62d;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#f9a62d;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+        });
+      }
+    });
+    </script>
+
+  <style>
+    /* =============================================
+       HUBSPOT WIDGET FIX
+    ============================================= */
+    .meetings-iframe-container iframe {
+      background: #ffffff !important;
+    }
+    .meetings-iframe-container {
+      background: #ffffff !important;
+    }
+
+    /* =============================================
+       SECTION SPACING
+    ============================================= */
+    .lp-section-lg {
+      padding: 5rem 0;
+    }
+    @media (min-width: 768px) {
+      .lp-section-lg { padding: 6.5rem 0; }
+    }
+
+    /* =============================================
+       HERO ORBS — 3 animated orbs
+    ============================================= */
+    .lp-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform;
+      z-index: 1;
+    }
+    .lp-orb--1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(81,166,220,0.35) 0%, rgba(81,166,220,0) 70%);
+      top: -30%;
+      right: -15%;
+      animation: lpFloat1 10s ease-in-out infinite;
+    }
+    .lp-orb--2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(249,166,45,0.3) 0%, rgba(249,166,45,0) 70%);
+      bottom: -20%;
+      left: -8%;
+      animation: lpFloat2 12s ease-in-out infinite;
+    }
+    .lp-orb--3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(249,166,45,0.15) 0%, rgba(249,166,45,0) 70%);
+      top: 40%;
+      left: 35%;
+      animation: lpFloat3 14s ease-in-out infinite;
+    }
+    @keyframes lpFloat1 {
+      0% { transform: translate(0, 0) scale(1); }
+      20% { transform: translate(-100px, 50px) scale(1.25); }
+      40% { transform: translate(-30px, -60px) scale(0.85); }
+      60% { transform: translate(80px, 25px) scale(1.15); }
+      80% { transform: translate(30px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat2 {
+      0% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(90px, -45px) scale(1.3); }
+      50% { transform: translate(30px, 60px) scale(0.8); }
+      75% { transform: translate(-60px, -20px) scale(1.15); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat3 {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-40px, 30px) scale(1.2); }
+      66% { transform: translate(50px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lp-orb, .lp-float-slow, .lp-float-slow-reverse, .lp-scroll-dot { animation: none !important; }
+    }
+
+    /* =============================================
+       HERO PULSE BADGE
+    ============================================= */
+    .lp-pulse-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.2);
+      backdrop-filter: blur(8px);
+    }
+    .lp-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f9a62d;
+      animation: lpPulse 2s ease-in-out infinite;
+    }
+    @keyframes lpPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* =============================================
+       HERO STATS
+    ============================================= */
+    .lp-hero-stat {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+    }
+    .lp-hero-stat-num {
+      display: inline;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f9a62d;
+      line-height: 1;
+    }
+    .lp-hero-stat-label {
+      display: block;
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.375rem;
+      line-height: 1.3;
+    }
+
+    /* =============================================
+       WIDGET GLOW
+    ============================================= */
+    .lp-widget-glow {
+      background: linear-gradient(135deg, rgba(249,166,45,0.3), rgba(81,166,220,0.3), rgba(249,166,45,0.3));
+      background-size: 200% 200%;
+      animation: lpGlow 4s ease-in-out infinite;
+    }
+    @keyframes lpGlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* =============================================
+       SCROLL INDICATOR
+    ============================================= */
+    .lp-scroll-hint { animation: lpFadeInUp 1s ease 1.5s both; }
+    @keyframes lpFadeInUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .lp-scroll-dot {
+      animation: lpScrollBounce 1.5s ease-in-out infinite;
+    }
+    @keyframes lpScrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    /* =============================================
+       QUOTE BANNER
+    ============================================= */
+    .lp-quote-banner {
+      background: linear-gradient(135deg, #15385f, #1f4a7a);
+      border: 1px solid rgba(249,166,45,0.25);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      color: #fff;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 1.125rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .lp-quote-banner--gold {
+      background: linear-gradient(135deg, #f9a62d, #fbbf24);
+      color: #15385f;
+      border-color: rgba(21,56,95,0.15);
+    }
+
+    /* =============================================
+       RULE / CALLOUT BOX
+    ============================================= */
+    .lp-rule-box {
+      background: #fdf6ec;
+      border: 1px solid rgba(249,166,45,0.3);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .lp-rule-box--dark {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(249,166,45,0.25);
+    }
+    .lp-rule-box-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #f9a62d;
+      margin-bottom: 0.375rem;
+      display: block;
+    }
+
+    /* =============================================
+       STAT BOX
+    ============================================= */
+    .lp-stat-box {
+      text-align: center;
+      padding: 1.75rem 1rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+    }
+    .lp-stat-box--highlight {
+      background: linear-gradient(135deg, rgba(249,166,45,0.08), rgba(249,166,45,0.03));
+      border-color: rgba(249,166,45,0.3);
+    }
+    .lp-stat-box-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #15385f;
+      line-height: 1;
+    }
+    .lp-stat-box-num--gold { color: #f9a62d; }
+    .lp-stat-box-label {
+      font-size: 0.8125rem;
+      color: #667085;
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* =============================================
+       FIX CARDS v2 (dark bg)
+    ============================================= */
+    .lp-fix-card-v2 {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+    .lp-fix-card-v2:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* =============================================
+       DIFFERENTIATOR CARDS (offering section)
+    ============================================= */
+    .lp-diff-card {
+      padding: 2rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .lp-diff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .lp-diff-card--highlight {
+      background: linear-gradient(135deg, rgba(249,166,45,0.05), rgba(249,166,45,0.02));
+      border-color: rgba(249,166,45,0.3);
+    }
+    .lp-diff-card-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #98a2b3;
+    }
+    .lp-diff-card-num--gold { color: #f9a62d; }
+    .lp-diff-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(21,56,95,0.06);
+      color: #15385f;
+      border: 1px solid rgba(21,56,95,0.1);
+      margin-top: 1rem;
+    }
+    .lp-diff-card-icon--gold {
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border-color: rgba(249,166,45,0.2);
+    }
+
+    /* =============================================
+       FLOATING ANIMATION (CTA orbs)
+    ============================================= */
+    .lp-float-slow {
+      animation: lpFloatSlow 8s ease-in-out infinite;
+    }
+    .lp-float-slow-reverse {
+      animation: lpFloatSlowReverse 10s ease-in-out infinite;
+    }
+    @keyframes lpFloatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+    @keyframes lpFloatSlowReverse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(25px); }
+    }
+  </style>
+
+  <!-- Count-up animation script -->
+  <script is:inline>
+  (function() {
+    var counted = false;
+    function countUp() {
+      if (counted) return;
+      counted = true;
+      document.querySelectorAll('.lp-count').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1500;
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    if ('IntersectionObserver' in window) {
+      var el = document.querySelector('.lp-count');
+      if (el) {
+        new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) countUp();
+        }, { threshold: 0.5 }).observe(el);
+      }
+    } else {
+      countUp();
+    }
+  })();
+  </script>
+
+</BaseLayout>
