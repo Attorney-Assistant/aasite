@@ -62,6 +62,7 @@ RewriteRule ^benchmark/?$ /lp/simple/benchmark [R=301,L,NC]
 
 # ── Marketing vanity redirects (UTM-tagged) ──
 RewriteRule ^press/?$ /?utm_source=press&utm_medium=info&utm_campaign=banner [R=301,L,NC]
+RewriteRule ^bookacall/?$ /book-call/?utm_source=press&utm_medium=release&utm_campaign=frontline_pricing [R=301,L,NC]
 
 # ── Capital-B /Blog/ → lowercase /blog/ redirects ──
 RewriteRule ^Blog/?$ /blog [R=301,L]
