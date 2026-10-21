@@ -451,6 +451,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         if (!target) return;
 
         target.style.position = "relative";
+        target.style.minHeight = "322px";
         var overlay = document.createElement("div");
         overlay.className = "lawfirm-gate-overlay";
         overlay.innerHTML = state === "no" ? DECLINE_HTML : GATE_HTML;
@@ -760,6 +761,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     .lawfirm-gate-overlay {
       position: absolute;
       inset: 0;
+      min-height: 320px;
       z-index: 20;
       display: flex;
       align-items: center;
