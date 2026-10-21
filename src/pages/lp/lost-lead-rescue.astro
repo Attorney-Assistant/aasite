@@ -52,7 +52,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             <div class="lp-hero-stat">
               <span class="lp-hero-stat-prefix">Up To</span>
               <span class="lp-hero-stat-num lp-count" data-target="1000">0</span>
-              <span class="lp-hero-stat-label">old leads worked for free</span>
+              <span class="lp-hero-stat-label">old or new leads worked for free</span>
             </div>
             <div class="lp-hero-stat">
               <span class="lp-hero-stat-num lp-count" data-target="8">0</span>
@@ -750,9 +750,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       50% { transform: translateY(25px); }
     }
 
-    /* =============================================
-       LAW-FIRM QUALIFYING GATE
-    ============================================= */
+  </style>
+
+  <!-- Law-firm qualifying gate CSS: must be global, not scoped — the overlay
+       element is created client-side by the gate script, so it never receives
+       Astro's scoped data-astro-cid attribute and a normal <style> here would
+       silently not apply, leaving the gate invisible and the widget exposed. -->
+  <style is:global>
     .lawfirm-gate-overlay {
       position: absolute;
       inset: 0;
