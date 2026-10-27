@@ -20,6 +20,7 @@ RewriteRule ^ https://attorneyassistant.com%{REQUEST_URI} [R=301,L]
 RewriteRule ^lp/boardwalk-seminar-2026/?$ /hero/boardwalk-seminar-2026 [R=301,L]
 
 # ── Landing page alias redirects ──
+RewriteRule ^lead-rescue/?$ /lp/lost-lead-rescue [R=301,L]
 RewriteRule ^book-the-audit/?$ /lp/5000-case-playbook [R=301,L]
 RewriteRule ^lp/stop-babysitting-your-firm-magnet/?$ /lp/stop-babysitting-your-firm-download [R=301,L]
 RewriteRule ^lp/comic/medical-record/?$ /lp/comic/medical-records [R=301,L]
