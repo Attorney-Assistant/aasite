@@ -1,0 +1,53 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { MEETING_URLS } from "@/config/forms";
+
+const SCHEDULER_URL = MEETING_URLS.smbReferral;
+---
+
+<BaseLayout
+  title="SMB Referral Scheduler"
+  description="Internal scheduling page for the SMB team to book referral calls."
+  noindex={true}
+>
+
+  <section class="section-padding bg-white">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto text-center mb-10 reveal">
+        <p class="text-sm text-gray-600 mb-2">This page is for use by the members of SMB Team only.</p>
+        <p class="text-sm text-gray-600 mb-2">Put your name in the SMB Referrer field after selecting a time.</p>
+        <p class="text-sm text-gray-600 mb-2">The name, email, phone, company name here should all be the referrals.</p>
+        <p class="text-sm text-gray-600">30 minutes is our default, but you can choose 15 if the client would prefer it short.</p>
+      </div>
+
+      <div class="reveal" style="max-width: 720px; margin: 0 auto; transition-delay: 0.1s;">
+        <div class="meetings-iframe-container" data-src={`${SCHEDULER_URL}?embed=true&parentPageBackgroundColor=ffffff`} style="min-height: 660px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This scheduler is not available from your location.</div>';
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .meetings-iframe-container iframe {
+      background: #ffffff !important;
+    }
+    .meetings-iframe-container {
+      background: #ffffff !important;
+    }
+  </style>
+
+</BaseLayout>

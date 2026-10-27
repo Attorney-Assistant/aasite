@@ -37,6 +37,8 @@ export const MEETING_URLS = {
     'https://meetings.hubspot.com/rick456/scottsdale-2026-rick',
   scottsdaleAndrew:
     'https://meetings.hubspot.com/andrew-famular/scottsdale-2026-andrew',
+  smbReferral:
+    'https://meet.attorneyassistant.com/meetings/attorney-assistant/smb',
 } as const;
 
 export const ASSET_URLS = {
