@@ -13,8 +13,9 @@ const SCHEDULER_URL = MEETING_URLS.smbReferral;
 
   <section class="section-padding bg-gray-50">
     <div class="container-narrow">
-      <div class="max-w-xl mx-auto text-center mb-8 reveal">
-        <span class="badge badge-navy">SMB Referral Scheduler</span>
+      <div class="max-w-xl mx-auto text-center mb-10 reveal">
+        <h1 class="text-display-sm md:text-display-md font-heading text-gray-900">SMB Referral Scheduler</h1>
+        <div class="divider-gold-center mt-4"></div>
       </div>
 
       <div class="max-w-xl mx-auto mb-8 reveal" style="transition-delay: 0.05s;">
@@ -44,7 +45,7 @@ const SCHEDULER_URL = MEETING_URLS.smbReferral;
         </div>
       </div>
 
-      <div class="max-w-xl mx-auto reveal" style="transition-delay: 0.1s;">
+      <div class="reveal" style="transition-delay: 0.1s;">
         <div class="card p-2 sm:p-3">
           <div class="meetings-iframe-container" data-src={`${SCHEDULER_URL}?embed=true&parentPageBackgroundColor=ffffff`} style="min-height: 660px;"></div>
         </div>
