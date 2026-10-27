@@ -11,17 +11,43 @@ const SCHEDULER_URL = MEETING_URLS.smbReferral;
   noindex={true}
 >
 
-  <section class="section-padding bg-white">
+  <section class="section-padding bg-gray-50">
     <div class="container-narrow">
-      <div class="max-w-2xl mx-auto text-center mb-10 reveal">
-        <p class="text-sm text-gray-600 mb-2">This page is for use by the members of SMB Team only.</p>
-        <p class="text-sm text-gray-600 mb-2">Put your name in the SMB Referrer field after selecting a time.</p>
-        <p class="text-sm text-gray-600 mb-2">The name, email, phone, company name here should all be the referrals.</p>
-        <p class="text-sm text-gray-600">30 minutes is our default, but you can choose 15 if the client would prefer it short.</p>
+      <div class="max-w-xl mx-auto text-center mb-8 reveal">
+        <span class="badge badge-navy">SMB Referral Scheduler</span>
       </div>
 
-      <div class="reveal" style="max-width: 720px; margin: 0 auto; transition-delay: 0.1s;">
-        <div class="meetings-iframe-container" data-src={`${SCHEDULER_URL}?embed=true&parentPageBackgroundColor=ffffff`} style="min-height: 660px;"></div>
+      <div class="max-w-xl mx-auto mb-8 reveal" style="transition-delay: 0.05s;">
+        <div class="card p-6 sm:p-7 border-l-4 border-l-brand-gold">
+          <div class="flex items-start gap-3.5 mb-5">
+            <div class="featured-icon featured-icon-md featured-icon-gold flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            </div>
+            <p class="font-heading text-gray-900 pt-1.5 leading-snug">This page is for use by the members of SMB Team only.</p>
+          </div>
+          <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
+            <li class="flex gap-2.5">
+              <span class="text-brand-gold mt-1.5 flex-shrink-0">&bull;</span>
+              <span>Put your name in the <strong class="text-gray-900 font-semibold">SMB Referrer</strong> field after selecting a time.</span>
+            </li>
+            <li class="flex gap-2.5">
+              <span class="text-brand-gold mt-1.5 flex-shrink-0">&bull;</span>
+              <span>The name, email, phone, company name here should all be the referrals.</span>
+            </li>
+            <li class="flex gap-2.5">
+              <span class="text-brand-gold mt-1.5 flex-shrink-0">&bull;</span>
+              <span><strong class="text-gray-900 font-semibold">30 minutes</strong> is our default, but you can choose <strong class="text-gray-900 font-semibold">15</strong> if the client would prefer it short.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-xl mx-auto reveal" style="transition-delay: 0.1s;">
+        <div class="card p-2 sm:p-3">
+          <div class="meetings-iframe-container" data-src={`${SCHEDULER_URL}?embed=true&parentPageBackgroundColor=ffffff`} style="min-height: 660px;"></div>
+        </div>
       </div>
     </div>
   </section>
