@@ -44,7 +44,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             Rescue the Leads <br/><span class="text-gradient-gold">You Already Paid For.</span>
           </h1>
           <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-            Send us up to 1,000 leads from the last 6 months that never signed. Our Frontline team calls each one up to 8 times. You keep every signed case and booked consult. Your first results are free.
+            Send us up to 1,000 leads from the last 6 months that never signed. Our Frontline team runs each one through a structured 8-touch calling schedule — different days, different times, never a single blind redial. You keep every signed case and booked consult. Your first results are free.
           </p>
 
           <!-- Stat ticker -->
@@ -56,7 +56,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
             </div>
             <div class="lp-hero-stat">
               <span class="lp-hero-stat-num lp-count" data-target="8">0</span>
-              <span class="lp-hero-stat-label">call attempts before we call a lead dead</span>
+              <span class="lp-hero-stat-label">scheduled call attempts before we call a lead dead</span>
             </div>
             <div class="lp-hero-stat">
               <span class="lp-hero-stat-num">$</span><span class="lp-hero-stat-num lp-count" data-target="10">0</span><span class="lp-hero-stat-num">K</span>
@@ -155,11 +155,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       <p class="text-lg text-gray-400 leading-relaxed mb-4 max-w-2xl mx-auto reveal">
         Every lead that came in over the last six months cost you money. Ad spend, referral fees, marketing budget. You paid for all of it already.
       </p>
+      <p class="text-lg text-gray-400 leading-relaxed mb-4 max-w-2xl mx-auto reveal">
+        Most firms call a lead once, maybe twice, whenever someone has a free minute, and move on. There's no real schedule behind it. Signing a case almost always takes more structured attempts than that.
+      </p>
       <p class="text-lg text-gray-400 leading-relaxed mb-10 max-w-2xl mx-auto reveal">
-        Most firms call a lead one to three times and stop. Signing a case usually takes more attempts than that. The leads you wrote off are still sitting in your CRM.
+        The gap was never the leads. It's the follow-up system behind them.
       </p>
       <div class="lp-quote-banner max-w-2xl mx-auto reveal">
-        "You're sitting on cases you already paid for."
+        "It's not that the leads went cold. It's that no one called with a plan."
       </div>
     </div>
   </section>
@@ -171,14 +174,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     <div class="container-wide">
       <div class="text-center mb-12 reveal">
         <span class="badge badge-brand">How It Works</span>
-        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">Five steps. You export. We chase.</h2>
+        <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mt-4">Five steps. You export. We run the schedule.</h2>
         <div class="divider-gold-center mt-5"></div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 max-w-6xl mx-auto">
         {[
           { step: "1", title: "Export", desc: "Pull your unsigned leads from the last 6 months into our template." },
           { step: "2", title: "Clean", desc: "We remove duplicates and drop anyone already signed, represented, declined, or marked do not contact." },
-          { step: "3", title: "Chase", desc: "Frontline works each lead up to 8 times." },
+          { step: "3", title: "Run The Cadence", desc: "Each lead gets up to 8 touches on a structured schedule, timed across different days and windows." },
           { step: "4", title: "Deliver", desc: "Signed CFAs or booked consults go straight to you, with notes on every lead we touched." },
           { step: "5", title: "Decide", desc: "Once you see results on your own leads, you decide if you want Frontline on new leads." },
         ].map((s, i) => (
@@ -191,6 +194,46 @@ import BaseLayout from "@layouts/BaseLayout.astro";
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE CADENCE
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950 lp-section-lg">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute top-0 left-1/3 w-[450px] h-[450px] bg-brand-blue/8 rounded-full blur-[110px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-4">Our Cadence</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5">
+          Eight touches. <span class="text-gradient-gold">One real schedule.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+          Every lead moves through the same disciplined sequence. No single redial, no guesswork about when to try again.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 max-w-5xl mx-auto">
+        {[
+          { range: "Attempts 1–2", title: "Different Times", desc: "We test morning and evening windows in the same week, so a missed call isn't the end of the story." },
+          { range: "Attempts 3–5", title: "Different Days", desc: "We shift across weekdays, including evenings, when most firms have already stopped calling." },
+          { range: "Attempts 6–7", title: "Weekends Included", desc: "We work windows most offices never touch, where a lot of calls that 'never answer' actually pick up." },
+          { range: "Attempt 8", title: "The Last Call", desc: "A final, timed attempt before a lead is marked done, with full notes on every try along the way." },
+        ].map((c, i) => (
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm reveal" style={`transition-delay: ${i * 80}ms`}>
+            <p class="text-[0.625rem] font-bold tracking-[0.15em] uppercase text-brand-gold/80 mb-2">{c.range}</p>
+            <h3 class="text-base font-heading text-white mb-2">{c.title}</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-10 max-w-2xl mx-auto reveal">
+        Every attempt, answer, and outcome is logged, so you see exactly what happened on every lead you sent us.
+      </p>
     </div>
   </section>
 
@@ -330,8 +373,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
       </div>
       <div class="max-w-3xl mx-auto space-y-3">
         {[
-          { q: "We already followed up on those.", a: "How many times? Most firms stop at 1 to 3. We do 8, on a set schedule." },
-          { q: "Those leads are dead.", a: "Some are. Many never got a second call. We find out at no cost to you." },
+          { q: "We already followed up on those.", a: "How many times, and on what schedule? Most firms stop at 1 to 3 attempts with no real plan behind them. We run 8, spread across different days and times." },
+          { q: "Those leads are dead.", a: "Some are. Many never got a real shot, just one or two calls with no schedule behind them. We find out at no cost to you." },
           { q: "What's the catch?", a: "We want you to see how our team performs on your own leads before you spend a dollar." },
           { q: "Who do the clients sign with?", a: "Your firm. Your CFA, your name. We never take the case." },
           { q: "Is my data safe?", a: "We only ask for the fields we need to make the call. We skip anyone marked do not contact." },

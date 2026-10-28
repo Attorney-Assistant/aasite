@@ -62,19 +62,12 @@ const SCHEDULER_URL = MEETING_URLS.smbReferral;
     </div>
   </section>
 
-  <!-- HubSpot Meetings Embed Script -->
+  <!-- HubSpot Meetings Embed Script — geo-gating intentionally disabled on this
+       internal SMB team page so staff can book referrals from any location. -->
   <script is:inline>
-    window.__hsGeoReady.then(function(allowed) {
-      if (allowed) {
-        var s = document.createElement("script");
-        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-        document.head.appendChild(s);
-      } else {
-        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
-          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;">This scheduler is not available from your location.</div>';
-        });
-      }
-    });
+    var s = document.createElement("script");
+    s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+    document.head.appendChild(s);
   </script>
 
   <style>
