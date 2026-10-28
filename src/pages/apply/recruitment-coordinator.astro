@@ -1,0 +1,116 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
+import ApplicationForm from "@components/ApplicationForm.astro";
+---
+
+<BaseLayout
+  title="Apply: Recruitment Coordinator"
+  description="Apply to join Attorney Assistant as a remote Recruitment Coordinator based in the Philippines — supporting recruitment operations, candidate communications, interview scheduling, and CRM management."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge badge-gold mb-4">We're Hiring · Remote</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Apply: Recruitment Coordinator
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">
+        Keep recruitment moving — candidate communications, interview scheduling, and CRM management for Attorney Assistant's growing remote team.
+      </p>
+    </div>
+  </section>
+
+  <!-- Collapsible Job Description -->
+  <section class="py-8 md:py-10 bg-gray-25">
+    <div class="container-narrow max-w-5xl">
+      <details class="job-description card p-5 md:p-6">
+        <summary class="cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-base md:text-lg font-heading text-gray-900">About this role</span>
+          <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider flex items-center gap-2">
+            <span class="jd-show">View full description</span>
+            <span class="jd-hide hidden">Hide description</span>
+            <svg class="jd-icon w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </span>
+        </summary>
+
+        <div class="prose-brand mt-5 pt-5 border-t border-gray-200">
+          <h2>Recruitment Coordinator – Attorney Assistant | Remote</h2>
+          <p class="text-sm font-semibold text-brand-gold">Philippines (Remote)</p>
+
+          <h3>About the Company</h3>
+          <p>At Attorney Assistant, we help law firms manage the work that keeps cases moving and clients supported, including intake, follow-up, admin, legal support, and operations.</p>
+          <p>Through Staffline and Frontline, formerly known as Intake360, we provide dedicated staffing and 24/7 live intake support for U.S.-based law firms. Our team helps firms respond faster, stay organized, and build reliable support systems around their daily work.</p>
+          <p>We're growing our remote team and looking for reliable, skilled professionals who want to build long-term careers supporting law firms.</p>
+
+          <h3>Overview</h3>
+          <p>We are looking for an organized and detail-oriented Recruitment Coordinator to support daily recruitment operations, candidate communications, interview scheduling, and CRM management.</p>
+          <p>This role focuses on keeping recruitment activities organized, maintaining accurate candidate records, tracking follow-ups, and ensuring recruitment processes stay on schedule.</p>
+          <p>The ideal candidate is comfortable working with recruitment systems, managing multiple administrative tasks, and communicating professionally with candidates and recruiters.</p>
+          <p>This opportunity is open to English-speaking candidates based in the Philippines.</p>
+
+          <h3>Key Responsibilities</h3>
+          <ul>
+            <li>Review the CRM for overdue candidate follow-ups and ensure recruitment activities and records are up to date</li>
+            <li>Send approved candidate communications and coordinate interview schedules and calendar invitations</li>
+            <li>Track candidate outreach, responses, interview progress, and inactive candidates</li>
+            <li>Review CRM records for accuracy, completeness, and missing information</li>
+            <li>Identify overdue tasks, urgent follow-ups, or stalled recruitment processes and flag them to the recruiter</li>
+            <li>Maintain organized recruitment task lists, email templates, and documentation</li>
+            <li>Prepare weekly recruitment status updates and keep relevant tracking records current</li>
+            <li>Provide ongoing administrative and coordination support to help recruitment activities run smoothly</li>
+          </ul>
+
+          <h3>Required Skills and Experience</h3>
+          <ul>
+            <li>Strong organizational skills and attention to detail, particularly when managing candidate records and recruitment activities</li>
+            <li>Ability to coordinate schedules, track follow-ups, and manage multiple tasks and deadlines</li>
+            <li>Comfortable working with CRM systems, calendars, email, and administrative tracking tools</li>
+            <li>Strong written and verbal English communication skills</li>
+            <li>Ability to maintain accurate records, follow established processes, and identify items requiring attention</li>
+            <li>Reliable, proactive, and able to work independently in a remote environment</li>
+            <li>Previous recruitment coordination or talent acquisition support experience is a plus, but not required</li>
+            <li>Hands-on experience with HubSpot is preferred, but not required</li>
+          </ul>
+
+          <h3>Schedule and Benefits</h3>
+          <ul>
+            <li>Full-time remote opportunity based in the Philippines</li>
+            <li>Monday to Friday, 9:00 AM to 5:00 PM Eastern Time</li>
+            <li>Paid time off (PTO), referral incentives, and bonuses where applicable</li>
+            <li>Must have a reliable device, stable internet connection, and quiet remote work setup</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <ApplicationForm
+    formspreeAction="https://formspree.io/f/xdeezbyb"
+    screeningQuestions={[
+      {
+        label: "Do you have prior experience in recruitment coordination, talent acquisition support, or administrative roles involving CRM management, follow-ups, or scheduling?",
+        type: "single",
+        options: ["Yes", "No"],
+        required: true,
+      },
+    ]}
+  />
+
+  <CareersPixel event="ViewContent" />
+
+</BaseLayout>
+
+<style>
+  details.job-description summary { list-style: none; }
+  details.job-description summary::-webkit-details-marker { display: none; }
+  details.job-description[open] .jd-show { display: none; }
+  details.job-description[open] .jd-hide { display: inline; }
+  details.job-description[open] .jd-icon { transform: rotate(180deg); }
+</style>
