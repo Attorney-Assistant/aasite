@@ -75,7 +75,7 @@ import ApplicationForm from "@components/ApplicationForm.astro";
             <li>Strong written and verbal English communication skills</li>
             <li>Ability to maintain accurate records, follow established processes, and identify items requiring attention</li>
             <li>Reliable, proactive, and able to work independently in a remote environment</li>
-            <li>Previous recruitment coordination or talent acquisition support experience is a plus, but not required</li>
+            <li>Previous experience in recruitment coordination, talent acquisition support, or administrative roles involving CRM management, follow-ups, or scheduling is required</li>
             <li>Hands-on experience with HubSpot is preferred, but not required</li>
           </ul>
 
@@ -99,8 +99,10 @@ import ApplicationForm from "@components/ApplicationForm.astro";
         type: "single",
         options: ["Yes", "No"],
         required: true,
+        disqualifyOn: ["No"],
       },
     ]}
+    declineMessage="Thank you for your interest. This role requires prior experience in recruitment coordination, talent acquisition support, or administrative work involving CRM management, follow-ups, or scheduling, so we're unable to move forward with your application at this time. We genuinely appreciate the time you took to apply and encourage you to explore our other openings."
   />
 
   <CareersPixel event="ViewContent" />
