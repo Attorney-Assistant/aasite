@@ -1,0 +1,260 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
+import ShortApplicationForm from "@components/ShortApplicationForm.astro";
+
+const details = [
+  { label: "Title", value: "Paid Media Manager (PPC)" },
+  { label: "Salary", value: "$80,000 per year" },
+  { label: "Location", value: "Remote, United States only" },
+  { label: "Type", value: "Full-time, salaried" },
+  { label: "Reports to", value: "Nicole Hall, Director of Marketing" },
+  { label: "Monthly ad budget", value: "$40,000+ across platforms" },
+  { label: "Core channels", value: "Meta, LinkedIn, lead magnets, HubSpot" },
+];
+---
+
+<BaseLayout
+  title="Apply: Paid Media Manager (PPC)"
+  description="Apply to join Attorney Assistant as our Paid Media Manager (PPC) — own a $40K+/month paid budget across Meta and LinkedIn turning spend into qualified booked discovery calls for law firm owners."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge badge-gold mb-4">We're Hiring · Remote, US</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Apply: Paid Media Manager (PPC)
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">
+        Own every paid dollar Attorney Assistant spends, from strategy to the daily bid, and turn $40K+ a month into qualified booked discovery calls with law firm owners doing $250K+ in revenue.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Facts -->
+  <section class="py-8 md:py-10">
+    <div class="container-narrow max-w-5xl">
+      <div class="card p-5 md:p-6 grid grid-cols-2 sm:grid-cols-4 gap-5">
+        {details.map((d) => (
+          <div>
+            <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">{d.label}</p>
+            <p class="text-sm font-semibold text-gray-900">{d.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Collapsible Job Description -->
+  <section class="py-4 md:py-6 bg-gray-25">
+    <div class="container-narrow max-w-5xl">
+      <details class="job-description card p-5 md:p-6">
+        <summary class="cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-base md:text-lg font-heading text-gray-900">About this role</span>
+          <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider flex items-center gap-2">
+            <span class="jd-show">View full description</span>
+            <span class="jd-hide hidden">Hide description</span>
+            <svg class="jd-icon w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </span>
+        </summary>
+
+        <div class="prose-brand mt-5 pt-5 border-t border-gray-200">
+          <h2>About Attorney Assistant</h2>
+          <p>Attorney Assistant is a staffing solutions and virtual assistant company for law firms. We recruit, vet, and train full-time virtual staff, and the firm embeds them into its own team, systems, and daily processes.</p>
+          <p>We sell two things today:</p>
+          <ul>
+            <li><strong>Staffline:</strong> a dedicated, full-time staff member for one firm, co-managed by us</li>
+            <li><strong>Frontline:</strong> 24/7 live intake coverage on demand, trained to qualify and sign cases</li>
+          </ul>
+          <p>Our buyers are law firm owners and managing partners, mostly solo and small firms, with personal injury and contingency-fee practices as a core segment. We're based in Conshohocken, PA, and led by Ethen Ostroff, Esq.</p>
+
+          <h3>The Role</h3>
+          <p>You are the engine behind our paid pipeline. You'll plan, launch, monitor, and optimize campaigns that reach a precise audience: law firm owners, managing partners, and firm administrators in the US.</p>
+          <p>You won't design the ads, and you don't need web design skills. The only content you write is ad copy, plus landing page copy if you want to own it. We have a full-time graphic designer and videographer who produces every asset. Your job is to tell them what to make, why, and what the data says to make next. Expect a fresh creative rotation every 2 to 3 days, driven by your briefs and your test results.</p>
+          <p>Attribution is everything here. You'll design the HubSpot automations that tie every click to a contact, a booked call, and a closed deal, and Claude handles the build. If you can't prove where a deal came from, it didn't happen.</p>
+
+          <p><strong>Your loop, every week:</strong></p>
+          <ul>
+            <li>Write the briefs for every new ad and test</li>
+            <li>Design the attribution automations in HubSpot (Claude implements them)</li>
+            <li>Monitor spend, pacing, and conversion daily</li>
+            <li>Rotate creative every 2 to 3 days before fatigue sets in</li>
+            <li>Tweak and optimize bids, budgets, audiences, and offers</li>
+            <li>Explore growth by testing new channels, formats, and audiences</li>
+          </ul>
+
+          <h3>What You'll Do</h3>
+          <p><strong>Strategy and budget</strong></p>
+          <ul>
+            <li>Own a $40K+ monthly paid budget across Meta, LinkedIn, and any new channel you can make the case for</li>
+            <li>Build quarterly channel plans with targets for spend, cost per lead, cost per qualified booked call, and pipeline</li>
+            <li>Shift budget weekly toward what converts, and cut what doesn't, fast</li>
+          </ul>
+          <p><strong>Audience and targeting</strong></p>
+          <ul>
+            <li>Build precise audiences of US law firm decision-makers by title, firm size, practice area, and geography</li>
+            <li>Run LinkedIn matched audiences, Meta custom and lookalike audiences, and retargeting from HubSpot lists</li>
+            <li>Keep audiences clean, sized, and refreshed so spend reaches buyers, not job seekers or vendors</li>
+          </ul>
+          <p><strong>Creative direction</strong></p>
+          <ul>
+            <li>Write weekly creative briefs for our in-house designer and videographer: angle, hook, format, copy, and the test it answers</li>
+            <li>Launch new creative every 2 to 3 days and retire fatigued ads before performance drops</li>
+            <li>Run structured tests on hooks, offers, formats, and audiences, and share the winners with the team</li>
+          </ul>
+          <p><strong>Lead magnets and funnels</strong></p>
+          <ul>
+            <li>Launch one new lead magnet every week — you write the concept and the brief, the team writes and designs the magnet, and you run the campaign behind it (guides, calculators, audits, checklists, webinars)</li>
+            <li>Partner on landing pages and forms that convert paid traffic into booked discovery calls</li>
+            <li>Build and maintain nurture handoffs in HubSpot for every paid lead source</li>
+          </ul>
+          <p><strong>Tracking and reporting</strong></p>
+          <ul>
+            <li>Own pixel, Conversions API, LinkedIn Insight Tag, UTM, and offline conversion setup</li>
+            <li>Design HubSpot attribution workflows from first touch to closed deal, and partner with Claude to build and maintain them</li>
+            <li>Use Claude to automate reporting, alerts, and routine account checks</li>
+            <li>Post daily wins, flags, and tests in Slack, and deliver a weekly update and monthly review with clear next moves</li>
+          </ul>
+
+          <h3>Who You Are</h3>
+          <p><strong>Must have</strong></p>
+          <ul>
+            <li>B2B paid media experience. Non-negotiable. If your background is ecommerce or B2C only, this is not the role for you</li>
+            <li>5+ years managing paid media, with at least 2 years owning $40K+ in monthly spend</li>
+            <li>Hands-on, multi-platform experience: Meta Ads Manager and LinkedIn Campaign Manager are required</li>
+            <li>A track record selling to business owners or professional services, with a focus on lead generation</li>
+            <li>Proof you've run a high-velocity creative testing program and directed designers through clear briefs</li>
+            <li>Attribution expertise — multi-touch attribution, offline conversions, and closed-loop reporting in HubSpot</li>
+            <li>Claude and AI automation skills. Critical. You use Claude daily to build workflows, automate reporting, and move faster</li>
+            <li>Slack fluency. Critical. Our team runs on Slack, and you'll live there</li>
+            <li>Comfort with tracking setup: pixels, Conversions API, UTMs, and offline conversions</li>
+            <li>You live in the US and can work Eastern Time business hours</li>
+          </ul>
+          <p><strong>Nice to have</strong></p>
+          <ul>
+            <li>Experience marketing to law firms, legal tech, or other professional services</li>
+            <li>Google Ads, YouTube, or programmatic experience</li>
+            <li>Lead magnet and webinar funnel experience</li>
+          </ul>
+          <p><em>Not required: web design or graphic design skills. That's covered.</em></p>
+
+          <h3>How You Work</h3>
+          <ul>
+            <li>A numbers and optimization savant — you read the data every day, spot the trend before anyone asks, and act on it</li>
+            <li>Culturally aware — you know what's trending, what's tired, and what will land with a busy law firm owner scrolling at 10 PM</li>
+            <li>Funny, on purpose — you have a great sense of humor and you're willing to push the boundaries with sarcasm, tongue-in-cheek concepts, and ads that make people stop scrolling</li>
+            <li>Experimental — you'll test the weird idea, measure it, and kill it or scale it based on results</li>
+            <li>You write briefs a designer can execute on the first pass</li>
+            <li>You explain results in plain language and bring a recommendation every time</li>
+          </ul>
+
+          <h3>What Success Looks Like</h3>
+          <ol>
+            <li><strong>First 30 days:</strong> audit every account, fix tracking gaps, confirm HubSpot attribution, and ship your first 10 creative briefs</li>
+            <li><strong>By 60 days:</strong> run a steady 2 to 3 day creative cadence, launch one new lead magnet every week, and cut cost per lead from your baseline</li>
+            <li><strong>By 90 days:</strong> own a full-funnel report from spend to closed deal, and present a budget plan for next quarter</li>
+          </ol>
+          <p>You'll be measured on:</p>
+          <ul>
+            <li>Cost per qualified booked discovery call (qualified = a law firm with $250K+ in annual revenue), plus cost per lead</li>
+            <li>Lead-to-call and call-to-close rates by channel and campaign</li>
+            <li>Pipeline and revenue sourced from paid</li>
+            <li>Creative cadence and test velocity</li>
+            <li>Budget pacing within 5% of plan</li>
+          </ul>
+
+          <h3>Our Culture</h3>
+          <p>Our culture is the best part of working here. We're a fast, funny, no-ego team that rescues law firms from chaos, and we have a great time doing it.</p>
+          <ul>
+            <li>We move fast — ideas go from Slack thread to live test in days, not quarters</li>
+            <li>We back bold ideas — comic book campaigns, superhero ads, and sarcasm that works; weird is welcome if it converts</li>
+            <li>We're AI-first — Claude is part of the team, and we use it to do more with less busywork</li>
+            <li>We celebrate wins loudly — every signed client and every record month gets a shout-out</li>
+            <li>We own the outcome — you get real budget, real authority, and a team that has your back</li>
+          </ul>
+
+          <h3>Compensation &amp; Benefits</h3>
+          <ul>
+            <li>$80,000 base salary</li>
+            <li>Paid time off</li>
+            <li>Group health insurance through Aetna</li>
+            <li>Dental and vision coverage</li>
+            <li>401(k)</li>
+            <li>Fully remote, anywhere in the US</li>
+            <li>A dedicated in-house designer and videographer producing your creative</li>
+            <li>Direct access to leadership and real budget authority</li>
+          </ul>
+
+          <h3>Ready to Apply?</h3>
+          <p>Fill out the form below, including your largest monthly budget managed, a campaign you scaled with the numbers before and after, and a creative test that changed how you ran an account.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <ShortApplicationForm
+    formspreeAction="https://formspree.io/f/xgaazdbk"
+    screeningQuestions={[
+      {
+        label: "Do you have 5+ years of experience managing paid media, including at least 2 years owning $40K+ in monthly ad spend?",
+        type: "yesno",
+        required: true,
+        disqualifyOn: "No",
+      },
+      {
+        label: "Is your paid media background primarily B2B (not ecommerce or B2C only)?",
+        type: "yesno",
+        required: true,
+        disqualifyOn: "No",
+      },
+      {
+        label: "Do you have hands-on experience with both Meta Ads Manager and LinkedIn Campaign Manager?",
+        type: "yesno",
+        required: true,
+        disqualifyOn: "No",
+      },
+      {
+        label: "Are you based in the US and able to work Eastern Time business hours?",
+        type: "yesno",
+        required: true,
+        disqualifyOn: "No",
+      },
+      {
+        label: "What is the largest monthly budget you've managed, and on which platforms?",
+        type: "text",
+        required: true,
+        placeholder: "e.g. $60K/month across Meta and LinkedIn",
+      },
+      {
+        label: "Describe one campaign you scaled, with the numbers before and after.",
+        type: "text",
+        required: true,
+        placeholder: "e.g. Scaled a Meta lead gen campaign from $5K to $25K/month while cutting cost per lead 30%",
+      },
+      {
+        label: "Describe one creative test that changed how you ran an account.",
+        type: "text",
+        required: true,
+        placeholder: "e.g. Testing UGC-style video vs. static ads revealed...",
+      },
+    ]}
+    declineMessage="Thank you for your interest. This role requires 5+ years of hands-on B2B paid media experience across Meta and LinkedIn, including at least 2 years owning $40K+ in monthly spend, and is open to US-based candidates working Eastern Time hours, so we're unable to move forward with your application at this time. We genuinely appreciate the time you took to apply."
+  />
+
+  <CareersPixel event="ViewContent" />
+
+</BaseLayout>
+
+<style>
+  details.job-description summary { list-style: none; }
+  details.job-description summary::-webkit-details-marker { display: none; }
+  details.job-description[open] .jd-show { display: none; }
+  details.job-description[open] .jd-hide { display: inline; }
+  details.job-description[open] .jd-icon { transform: rotate(180deg); }
+</style>

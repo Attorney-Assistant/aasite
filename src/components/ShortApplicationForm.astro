@@ -1,0 +1,447 @@
+---
+export interface ScreeningQuestion {
+  /** Question text — also used verbatim as the label in the Formspree results. */
+  label: string;
+  /** "yesno" = Yes/No radio; "text" = short free-text answer. */
+  type: "yesno" | "text";
+  /** If true, the applicant must answer before submitting. */
+  required?: boolean;
+  /** "Yes" or "No" — selecting this answer shows a polite decline (declineMessage)
+   *  instead of submitting. Only applies to "yesno" questions. */
+  disqualifyOn?: "Yes" | "No";
+  /** Placeholder for "text" questions. */
+  placeholder?: string;
+}
+
+export interface Props {
+  formspreeAction: string;
+  /** Short screening questions, rendered above the basic info fields. */
+  screeningQuestions?: ScreeningQuestion[];
+  /** Message shown when a screening answer disqualifies the applicant. */
+  declineMessage?: string;
+}
+
+const {
+  formspreeAction,
+  screeningQuestions = [],
+  declineMessage = "Thank you for your interest. Based on your response, this role isn't a match for you right now, so we're unable to move forward with your application. We genuinely appreciate the time you took to apply.",
+} = Astro.props;
+---
+
+<!-- Short, single-page application form (resume, basic contact info, screener questions). -->
+<section class="py-10 md:py-14" id="form-section">
+  <div class="container-narrow max-w-3xl">
+
+    <form id="application-form" method="POST" action={formspreeAction} enctype="multipart/form-data" novalidate>
+
+      {screeningQuestions.length > 0 && (
+        <div class="mb-10">
+          <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" /></svg>
+          </div>
+          <h2 class="text-display-xs font-heading text-gray-900 mb-1">Screening Questions</h2>
+          <p class="text-sm text-gray-500 mb-5">A few quick questions before we begin.</p>
+
+          <div class="space-y-5">
+            {screeningQuestions.map((q, i) => (
+              <fieldset
+                data-screening-label={q.label}
+                data-screening-name={`screening_${i}`}
+                data-disqualify={q.type === "yesno" && q.disqualifyOn ? q.disqualifyOn : undefined}
+              >
+                <legend class="label-base">{q.label} {q.required && <span class="text-error-500">*</span>}</legend>
+                {q.type === "yesno" ? (
+                  <div class="flex flex-wrap gap-6 mt-1">
+                    {["Yes", "No"].map((opt) => (
+                      <label class="inline-flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name={`screening_${i}`} value={opt} data-required={q.required ? "" : undefined} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                        <span class="text-sm text-gray-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                ) : (
+                  <textarea name={`screening_${i}`} data-required={q.required ? "" : undefined} rows="2" class="input-base" placeholder={q.placeholder || ""}></textarea>
+                )}
+              </fieldset>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="mb-10">
+        <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+        </div>
+        <h2 class="text-display-xs font-heading text-gray-900 mb-1">Your Information</h2>
+        <p class="text-sm text-gray-500 mb-5">Let's start with the basics.</p>
+
+        <div class="space-y-5">
+          <div>
+            <label for="full_name" class="label-base">Full Name <span class="text-error-500">*</span></label>
+            <input type="text" id="full_name" name="full_name" data-required class="input-base" placeholder="Your full name" />
+          </div>
+
+          <div>
+            <label for="email" class="label-base">Email Address <span class="text-error-500">*</span></label>
+            <input type="email" id="email" name="email" data-required class="input-base" placeholder="you@example.com" />
+          </div>
+
+          <div>
+            <label for="phone" class="label-base">Phone Number <span class="text-error-500">*</span></label>
+            <input type="tel" id="phone" name="phone" data-required class="input-base" placeholder="+16101234567" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="city" class="label-base">City <span class="text-error-500">*</span></label>
+              <input type="text" id="city" name="city" data-required class="input-base" placeholder="City" />
+            </div>
+            <div>
+              <label for="state_province" class="label-base">State <span class="text-error-500">*</span></label>
+              <input type="text" id="state_province" name="state_province" data-required class="input-base" placeholder="e.g. Pennsylvania" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <div class="featured-icon featured-icon-md featured-icon-brand mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" /></svg>
+        </div>
+        <h2 class="text-display-xs font-heading text-gray-900 mb-1">Resume</h2>
+        <p class="text-sm text-gray-500 mb-5">Upload your resume and we'll be in touch.</p>
+
+        <div>
+          <label for="resume" class="label-base">Resume / CV <span class="text-error-500">*</span></label>
+          <p class="text-xs text-gray-400 mb-1.5">PDF, DOC, or DOCX only. Max 10 MB.</p>
+          <div class="file-upload-area" id="resume-upload-area">
+            <input type="file" id="resume" name="resume" data-required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="file-input" />
+            <div class="file-upload-content">
+              <svg class="w-8 h-8 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" /></svg>
+              <p class="text-sm text-gray-600 font-medium">Click to upload or drag & drop</p>
+              <p class="text-xs text-gray-400">PDF, DOC, or DOCX only — up to 10 MB</p>
+            </div>
+          </div>
+          <p id="resume-filename" class="text-xs text-success-600 mt-1 hidden"></p>
+        </div>
+      </div>
+
+      <div id="upload-note" class="hidden mt-6 card p-4 bg-brand-25 border-brand-100">
+        <div class="flex gap-3 items-start">
+          <svg class="w-5 h-5 text-brand-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></svg>
+          <p class="text-xs text-brand-700 leading-relaxed"><strong>Please note:</strong> Submission may take a moment while your resume uploads. Please don't close the page until you see the confirmation message.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-6 pt-6 border-t border-gray-200">
+        <button type="submit" id="submit-btn" class="btn-primary btn-lg">
+          Submit Application
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Success message (hidden by default) -->
+    <div id="success-message" class="hidden text-center py-16">
+      <div class="featured-icon featured-icon-lg featured-icon-success mx-auto mb-5">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+      </div>
+      <h2 class="text-display-xs font-heading text-gray-900 mb-2">Application Submitted!</h2>
+      <p class="text-base text-gray-500 max-w-md mx-auto mb-6">Thank you for your interest in joining Attorney Assistant. We'll review your application and be in touch.</p>
+      <a href="/careers" class="btn-secondary">Back to Careers</a>
+    </div>
+
+    <!-- Decline message (hidden by default; shown when a screening answer disqualifies) -->
+    <div id="decline-message" class="hidden text-center py-16">
+      <div class="featured-icon featured-icon-lg featured-icon-brand mx-auto mb-5">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
+      </div>
+      <h2 class="text-display-xs font-heading text-gray-900 mb-2">Thank you for your interest</h2>
+      <p class="text-base text-gray-500 max-w-md mx-auto mb-6">{declineMessage}</p>
+      <a href="/careers" class="btn-secondary">Back to Careers</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .file-upload-area {
+    position: relative;
+    border: 2px dashed #D0D5DD;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .file-upload-area:hover,
+  .file-upload-area.dragover {
+    border-color: #f9a62d;
+    background-color: #fef6e8;
+  }
+  .file-upload-area .file-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .file-upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .form-radio {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    accent-color: #f9a62d;
+  }
+
+  .field-error {
+    border-color: #F04438 !important;
+  }
+  .error-message {
+    color: #F04438;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const form = document.getElementById('application-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // ── Disqualifying screening answers: decline immediately ──
+    function showDecline() {
+      form.classList.add('hidden');
+      document.getElementById('decline-message').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    form.querySelectorAll('fieldset[data-disqualify]').forEach((fieldset) => {
+      const badValue = fieldset.getAttribute('data-disqualify');
+      fieldset.querySelectorAll('input[type="radio"]').forEach((radio) => {
+        radio.addEventListener('change', () => {
+          if (radio.checked && radio.value === badValue) showDecline();
+        });
+      });
+    });
+
+    // ── File upload UI ──
+    const ALLOWED_RESUME_EXT = /\.(pdf|docx?)$/i;
+    form.querySelectorAll('.file-input').forEach((input) => {
+      input.addEventListener('change', function() {
+        const area = this.closest('.file-upload-area');
+        const filenameEl = area.parentElement.querySelector('[id$="-filename"]');
+        if (this.files.length === 0) return;
+        const file = this.files[0];
+
+        if (!ALLOWED_RESUME_EXT.test(file.name)) {
+          alert('Resume must be a PDF, DOC, or DOCX file.');
+          this.value = '';
+          area.style.borderColor = '';
+          area.style.backgroundColor = '';
+          if (filenameEl) { filenameEl.textContent = ''; filenameEl.classList.add('hidden'); }
+          return;
+        }
+
+        const sizeMB = (file.size / 1024 / 1024).toFixed(1);
+        area.style.borderColor = '#17B26A';
+        area.style.backgroundColor = '#F6FEF9';
+        if (filenameEl) {
+          filenameEl.textContent = `✓ ${file.name} (${sizeMB} MB)`;
+          filenameEl.classList.remove('hidden');
+        }
+      });
+    });
+
+    form.querySelectorAll('.file-upload-area').forEach((area) => {
+      area.addEventListener('dragover', (e) => { e.preventDefault(); area.classList.add('dragover'); });
+      area.addEventListener('dragleave', () => area.classList.remove('dragover'));
+      area.addEventListener('drop', () => area.classList.remove('dragover'));
+    });
+
+    // ── Validation ──
+    function addError(container, message) {
+      if (container && !container.querySelector('.error-message')) {
+        const msg = document.createElement('p');
+        msg.className = 'error-message';
+        msg.textContent = message;
+        container.appendChild(msg);
+      }
+    }
+
+    function clearErrors() {
+      form.querySelectorAll('.field-error').forEach((el) => el.classList.remove('field-error'));
+      form.querySelectorAll('.error-message').forEach((el) => el.remove());
+      form.querySelectorAll('.file-upload-area').forEach((el) => { el.style.borderColor = ''; });
+    }
+
+    function validateForm() {
+      clearErrors();
+      let valid = true;
+      const processedRadioGroups = new Set();
+
+      form.querySelectorAll('[data-required]').forEach((input) => {
+        if (input.type === 'radio') {
+          if (processedRadioGroups.has(input.name)) return;
+          processedRadioGroups.add(input.name);
+          const group = form.querySelectorAll(`input[name="${input.name}"]`);
+          if (!Array.from(group).some((r) => r.checked)) {
+            valid = false;
+            addError(input.closest('fieldset'), 'Please select an option.');
+          }
+        } else if (input.type === 'file') {
+          if (!input.files || input.files.length === 0) {
+            valid = false;
+            const area = input.closest('.file-upload-area');
+            area.style.borderColor = '#F04438';
+            addError(area.parentElement, 'Please upload the required file.');
+          }
+        } else {
+          if (!input.value.trim()) {
+            valid = false;
+            input.classList.add('field-error');
+            addError(input.parentElement, 'This field is required.');
+          }
+        }
+      });
+
+      const emailInput = form.querySelector('#email');
+      if (emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+        valid = false;
+        emailInput.classList.add('field-error');
+        addError(emailInput.parentElement, 'Please enter a valid email address.');
+      }
+
+      if (!valid) {
+        const firstError = form.querySelector('.field-error, .error-message');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      return valid;
+    }
+
+    form.addEventListener('focusout', (e) => {
+      const input = e.target;
+      if (!input.matches('input, textarea') || input.type === 'radio' || input.type === 'file') return;
+      input.classList.remove('field-error');
+      const err = input.parentElement?.querySelector('.error-message');
+      if (err) err.remove();
+      if (input.hasAttribute('data-required') && !input.value.trim()) {
+        input.classList.add('field-error');
+        addError(input.parentElement, 'This field is required.');
+      }
+    });
+
+    form.addEventListener('input', (e) => {
+      if (e.target.classList.contains('field-error')) {
+        e.target.classList.remove('field-error');
+        const err = e.target.parentElement?.querySelector('.error-message');
+        if (err) err.remove();
+      }
+    });
+
+    // ── Conversion tracking ──
+    // Mirrors trackApplicationSubmitted() in ApplicationForm.astro — see
+    // project memory "project_careers_conversion" for why this must fire inline.
+    function trackApplicationSubmitted() {
+      if (window.__aaApplicationTracked) return;
+      window.__aaApplicationTracked = true;
+
+      var role = (document.title || '')
+        .replace(/^Apply:\s*/i, '')
+        .replace(/\s*[—|-]\s*Attorney Assistant\s*$/i, '')
+        .trim() || 'Job Application';
+
+      var pii = {
+        em: (form.querySelector('#email')?.value || '').trim(),
+        ph: (form.querySelector('#phone')?.value || '').trim(),
+        ct: (form.querySelector('#city')?.value || '').trim()
+      };
+
+      var payload = {
+        content_name: role,
+        content_category: 'Job Application',
+        content_ids: [window.location.pathname],
+        status: 'submitted'
+      };
+
+      if (window.__careersPixel) {
+        window.__careersPixel.trackCustom('ApplicationSubmitted', payload, pii);
+        window.__careersPixel.track('SubmitApplication', payload, pii);
+      } else if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', 'ApplicationSubmitted', payload);
+        fbq('track', 'SubmitApplication', payload);
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'application_submitted',
+        conversion_type: 'application',
+        role: role,
+        apply_path: window.location.pathname
+      });
+    }
+
+    // ── Submission ──
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!validateForm()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Uploading &amp; submitting&hellip;';
+      document.getElementById('upload-note').classList.remove('hidden');
+
+      try {
+        const formData = new FormData(form);
+
+        // Remove empty file fields — Formspree rejects empty file parts
+        for (const [key, value] of [...formData.entries()]) {
+          if (value instanceof File && value.size === 0) formData.delete(key);
+        }
+
+        // Screening answers: relabel each with its question text so Formspree
+        // results show the question, not "screening_0".
+        form.querySelectorAll('fieldset[data-screening-label]').forEach((fieldset) => {
+          const label = fieldset.getAttribute('data-screening-label');
+          const groupName = fieldset.getAttribute('data-screening-name');
+          if (groupName) formData.delete(groupName);
+          const checked = Array.from(fieldset.querySelectorAll('input:checked')).map((i) => i.value);
+          const textarea = fieldset.querySelector('textarea');
+          const answer = checked.length ? checked.join(', ') : (textarea ? textarea.value : '');
+          formData.append(label, answer);
+        });
+
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok) {
+          form.classList.add('hidden');
+          document.getElementById('success-message').classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          trackApplicationSubmitted();
+        } else {
+          console.error('Formspree error:', response.status, data);
+          throw new Error(data.error || data.errors?.map((e) => e.message).join(', ') || `Server responded with ${response.status}`);
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit Application <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>';
+        document.getElementById('upload-note').classList.add('hidden');
+        alert('Error: ' + err.message + '\n\nPlease try again or email talent@attorneyassistant.com directly.');
+      }
+    });
+  })();
+</script>

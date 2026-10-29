@@ -1,0 +1,163 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
+import ShortApplicationForm from "@components/ShortApplicationForm.astro";
+
+const details = [
+  { label: "Title", value: "Business Development Representative" },
+  { label: "Department", value: "Sales" },
+  { label: "Location", value: "Remote, US based" },
+  { label: "Compensation", value: "Base $65,000 / OTE $100,000" },
+];
+---
+
+<BaseLayout
+  title="Apply: Business Development Representative"
+  description="Apply to join Attorney Assistant as a Business Development Representative — drive outbound pipeline and set qualified meetings for our Account Executives. Remote, US based. Base $65,000 / OTE $100,000."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge badge-gold mb-4">We're Hiring · Remote, US</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Apply: Business Development Representative
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">
+        Turn cold outreach into qualified meetings for our Account Executives. A high-volume, fast-paced seat built for someone who thrives on the phone, loves the chase, and wants to prove they can turn activity into pipeline.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Facts -->
+  <section class="py-8 md:py-10">
+    <div class="container-narrow max-w-5xl">
+      <div class="card p-5 md:p-6 grid grid-cols-2 sm:grid-cols-4 gap-5">
+        {details.map((d) => (
+          <div>
+            <p class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">{d.label}</p>
+            <p class="text-sm font-semibold text-gray-900">{d.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Collapsible Job Description -->
+  <section class="py-4 md:py-6 bg-gray-25">
+    <div class="container-narrow max-w-5xl">
+      <details class="job-description card p-5 md:p-6">
+        <summary class="cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-base md:text-lg font-heading text-gray-900">About this role</span>
+          <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider flex items-center gap-2">
+            <span class="jd-show">View full description</span>
+            <span class="jd-hide hidden">Hide description</span>
+            <svg class="jd-icon w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </span>
+        </summary>
+
+        <div class="prose-brand mt-5 pt-5 border-t border-gray-200">
+          <h2>About Attorney Assistant</h2>
+          <p>Law firms don't have a lead problem — they have an operations problem. Missed calls, buried leads, 8pm voicemails, admin that never gets done: it all quietly costs them revenue. Attorney Assistant fixes it by embedding skilled operations professionals directly into how a firm works, not by staffing them from a distance. We're the team firms call when they're ready to stop losing business to broken processes.</p>
+
+          <h3>The Role</h3>
+          <p>We're hiring a driven Business Development Representative to fuel our sales pipeline. You'll proactively identify and engage new growth opportunities through targeted outbound engagement, turning cold outreach into qualified meetings for our Account Executives. This is a high-volume, fast-paced seat built for someone who thrives on the phone, loves the chase, and wants to prove they can turn activity into pipeline.</p>
+          <p>If you're competitive, detail-oriented, and energized by hitting — and beating — your numbers every week, this is that seat.</p>
+
+          <h3>Why Attorney Assistant</h3>
+          <p>The mission is easy to sell. You're selling relief to firms buried in missed calls and admin chaos. If you like being the person who shows up with the fix, you'll like this room.</p>
+          <ul>
+            <li>Health coverage — we cover 75% of Medical, Dental, and Vision for you and your family</li>
+            <li>Time off that's actually meant to be used — we expect you to take it and come back sharper</li>
+            <li>401(k) with company match — up to 3%</li>
+          </ul>
+
+          <h3>What You'll Do</h3>
+          <ul>
+            <li>Proactively identify and engage new growth opportunities through targeted outbound engagement</li>
+            <li>Quickly and accurately set calendar appointments for Account Executives, while serving as a trusted advisor and consultant to clients</li>
+          </ul>
+
+          <h3>What You'll Need</h3>
+          <ul>
+            <li>1+ years of sales experience in a Business Development Representative role</li>
+            <li>Competitive nature with a strong passion to exceed personal and professional goals</li>
+            <li>Consistently meets or exceeds pre-assigned KPIs and activity targets</li>
+            <li>Ability to work collaboratively and effectively, both on a team and individually, in a high-energy, ever-changing, dynamic sales environment</li>
+            <li>Quality- and detail-oriented with strong working knowledge of the internet, e-commerce, and the Microsoft Office suite</li>
+            <li>Strong communication skills that enable positive interaction with all levels and functions within the organization</li>
+            <li>Proven experience adapting and thriving in a constantly changing environment</li>
+            <li>Willingness to pick up the phone and cold call new prospects</li>
+          </ul>
+
+          <h3>What We Look For</h3>
+          <ul>
+            <li>Aggressive "go-getter" with a hunger for chasing down leads</li>
+            <li>Confident, yet humble, with a desire for constant growth and learning</li>
+            <li>Self-managing, with the ability to identify issues and take initiative to solve them</li>
+            <li>Team player who is willing to step in and help a teammate, even when it won't benefit you directly</li>
+            <li>High levels of positivity and charisma</li>
+            <li>Ability to thrive in a fast-changing start-up environment</li>
+            <li>Strong desire to help grow our clients' businesses</li>
+            <li>Excellent interpersonal and customer service skills</li>
+          </ul>
+
+          <h3>Compensation &amp; Benefits</h3>
+          <ul>
+            <li>Base salary: $65,000 annually</li>
+            <li>OTE: $100,000</li>
+            <li>Medical, Dental, and Vision — 75% employer-paid for you and your family</li>
+            <li>Paid time off</li>
+            <li>401(k) with up to 3% company match</li>
+          </ul>
+
+          <p>We're growing fast because law firms keep needing rescuing, from missed calls, leaking intake, and leads dying on hold. Join the team that saves the day and gets paid to prove it.</p>
+
+          <h3>Ready to Apply?</h3>
+          <p>Fill out the form below to get started.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <ShortApplicationForm
+    formspreeAction="https://formspree.io/f/moeelrze"
+    screeningQuestions={[
+      {
+        label: "Do you have 1+ years of sales experience in a Business Development Representative role?",
+        type: "yesno",
+        required: true,
+        disqualifyOn: "No",
+      },
+      {
+        label: "Are you based in the United States?",
+        type: "yesno",
+        required: true,
+        disqualifyOn: "No",
+      },
+      {
+        label: "Are you willing to pick up the phone and cold call new prospects daily?",
+        type: "yesno",
+        required: true,
+        disqualifyOn: "No",
+      },
+    ]}
+    declineMessage="Thank you for your interest. This role requires prior Business Development Representative sales experience, is open to US-based candidates, and involves daily outbound cold calling, so we're unable to move forward with your application at this time. We genuinely appreciate the time you took to apply."
+  />
+
+  <CareersPixel event="ViewContent" />
+
+</BaseLayout>
+
+<style>
+  details.job-description summary { list-style: none; }
+  details.job-description summary::-webkit-details-marker { display: none; }
+  details.job-description[open] .jd-show { display: none; }
+  details.job-description[open] .jd-hide { display: inline; }
+  details.job-description[open] .jd-icon { transform: rotate(180deg); }
+</style>
