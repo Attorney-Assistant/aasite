@@ -105,14 +105,14 @@ import ApplicationForm from "@components/ApplicationForm.astro";
     formspreeAction="https://formspree.io/f/mrppakqg"
     screeningQuestions={[
       {
-        label: "Do you have prior hands-on experience using LEAP Legal Software in a professional work environment?",
-        type: "single",
-        options: ["Yes", "No"],
+        label: "Which of the following software platforms have you used hands-on in a professional work environment?",
+        type: "multi",
+        options: ["LEAP Legal Software", "AccuLynx", "Buildertrend", "Builder Prime", "None of the above"],
         required: true,
-        disqualifyOn: ["No"],
+        disqualifyOn: ["None of the above"],
       },
     ]}
-    declineMessage="Thank you for your interest. This role requires prior hands-on experience using LEAP Legal Software, so we're unable to move forward with your application at this time. We genuinely appreciate the time you took to apply and encourage you to explore our other openings."
+    declineMessage="Thank you for your interest. This role requires prior hands-on experience with at least one of our required software platforms (LEAP Legal Software, AccuLynx, Buildertrend, or Builder Prime), so we're unable to move forward with your application at this time. We genuinely appreciate the time you took to apply and encourage you to explore our other openings."
   />
 
   <CareersPixel event="ViewContent" />
