@@ -3,16 +3,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 const FORMSPREE_ACTION = "https://formspree.io/f/xbggppej";
 
-// Shown in the Rep name dropdown below, plus a fixed "Other" option — edit
-// only this array to update the roster.
-const SALES_REPS = [
+// Shown in the Closer name dropdown below, plus a fixed "Other" option.
+// Edit only this array to update the roster.
+const CLOSERS = [
   "Rick Nichols",
   "Ashley Skinker",
   "Andrew Famular",
 ];
-
-const REVIEW_TIME_HOURS = Array.from({ length: 12 }, (_, i) => String(i + 1));
-const REVIEW_TIME_MINUTES = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0"));
 
 const SECTIONS = [
   { id: "call-info", num: "00", label: "Call Info" },
@@ -21,17 +18,18 @@ const SECTIONS = [
   { id: "secret-shop", num: "03", label: "Secret Shop" },
   { id: "lead-numbers", num: "04", label: "Numbers" },
   { id: "hate-list", num: "05", label: "Hate List" },
-  { id: "interview-contact", num: "06", label: "Interview" },
-  { id: "results-review", num: "07", label: "Review" },
-  { id: "rep-read", num: "08", label: "Rep Read" },
+  { id: "results-review", num: "06", label: "Review" },
+  { id: "closer-read", num: "07", label: "Closer Read" },
 ];
 ---
 
 <BaseLayout
-  title="Audit Initial Call — Internal Intake"
-  description="Internal sales-to-ops handoff form for The Stuff You Hate Audit. Not for public use."
+  title="Audit Initial Call: Internal Intake"
+  description="Internal intake form for The Stuff You Hate Audit. Not for public use."
   noindex={true}
   suppressMainPixel={true}
+  minimalHeader={true}
+  minimalHeaderLabel="Audit Initial Call"
 >
 
   <section class="aic-page bg-white">
@@ -40,7 +38,7 @@ const SECTIONS = [
       <div class="mb-6">
         <span class="badge badge-gray mb-2">Internal &middot; Not Indexed</span>
         <h1 class="text-display-xs font-heading text-gray-900">Audit Initial Call</h1>
-        <p class="text-sm text-gray-500 mt-1">Sales-to-ops handoff for The Stuff You Hate Audit. Fill this in live, on the call. Everything autosaves in this browser as you type.</p>
+        <p class="text-sm text-gray-500 mt-1">The closer fills this in live, on the call. A BDR booked that call or the firm booked it themselves. This is the only conversation anyone at the firm has with us before the results review, so this form is the whole record. Maureen runs the testing side separately.</p>
       </div>
 
       <!-- Jump nav -->
@@ -53,7 +51,7 @@ const SECTIONS = [
       <!-- ═══════════════════ FORM ═══════════════════ -->
       <form id="intake-form" method="POST" action={FORMSPREE_ACTION}>
 
-        <!-- Honeypot — hidden from humans via CSS, bots fill every field -->
+        <!-- Honeypot: hidden from humans via CSS, bots fill every field -->
         <input type="text" name="_gotcha" class="aic-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <!-- Composed in JS right before submit -->
         <input type="hidden" name="_subject" value="Audit initial call submission" />
@@ -64,23 +62,23 @@ const SECTIONS = [
           <h2 class="aic-section-title"><span class="aic-section-num">00</span>Call Info</h2>
           <div class="aic-field-grid">
             <div class="sm:col-span-2">
-              <label for="rep_name" class="label-base">Rep name <span class="text-error-500">*</span></label>
-              <select id="rep_name" name="rep_name" class="input-base">
+              <label for="closer_name" class="label-base">Closer name <span class="text-error-500">*</span></label>
+              <select id="closer_name" name="closer_name" required class="input-base">
                 <option value="" disabled selected>Choose&hellip;</option>
-                {SALES_REPS.map((rep) => <option value={rep}>{rep}</option>)}
+                {CLOSERS.map((closer) => <option value={closer}>{closer}</option>)}
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div id="rep-name-other-wrap" class="sm:col-span-2 hidden">
-              <label for="rep_name_other" class="label-base">Rep name (Other)</label>
-              <input type="text" id="rep_name_other" name="rep_name_other" class="input-base" placeholder="Type your name" />
+            <div id="closer-name-other-wrap" class="sm:col-span-2 hidden">
+              <label for="closer_name_other" class="label-base">Closer name (Other)</label>
+              <input type="text" id="closer_name_other" name="closer_name_other" class="input-base" placeholder="Type your name" />
             </div>
             <div>
-              <label for="rep_email" class="label-base">Rep email <span class="text-error-500">*</span></label>
-              <input type="text" inputmode="email" id="rep_email" name="rep_email" class="input-base" placeholder="you@attorneyassistant.com" />
+              <label for="closer_email" class="label-base">Closer email <span class="text-error-500">*</span></label>
+              <input type="text" inputmode="email" id="closer_email" name="closer_email" required class="input-base" placeholder="you@attorneyassistant.com" />
             </div>
             <div>
-              <label for="call_date" class="label-base">Date of call <span class="text-error-500">*</span></label>
+              <label for="call_date" class="label-base">Date of call</label>
               <input type="date" id="call_date" name="call_date" class="input-base" />
             </div>
             <div class="sm:col-span-2">
@@ -95,19 +93,19 @@ const SECTIONS = [
           <h2 class="aic-section-title"><span class="aic-section-num">01</span>Who We Talked To</h2>
           <div class="aic-field-grid">
             <div>
-              <label for="contact_first_name" class="label-base">Contact first name <span class="text-error-500">*</span></label>
+              <label for="contact_first_name" class="label-base">Contact first name</label>
               <input type="text" id="contact_first_name" name="contact_first_name" class="input-base" />
             </div>
             <div>
-              <label for="contact_last_name" class="label-base">Contact last name <span class="text-error-500">*</span></label>
+              <label for="contact_last_name" class="label-base">Contact last name</label>
               <input type="text" id="contact_last_name" name="contact_last_name" class="input-base" />
             </div>
             <div>
-              <label for="contact_title" class="label-base">Title or role <span class="text-error-500">*</span></label>
+              <label for="contact_title" class="label-base">Title or role</label>
               <input type="text" id="contact_title" name="contact_title" class="input-base" placeholder="e.g. Managing Partner" />
             </div>
             <div>
-              <label for="contact_email" class="label-base">Email <span class="text-error-500">*</span></label>
+              <label for="contact_email" class="label-base">Email</label>
               <input type="text" inputmode="email" id="contact_email" name="contact_email" class="input-base" />
             </div>
             <div>
@@ -131,7 +129,7 @@ const SECTIONS = [
           <h2 class="aic-section-title"><span class="aic-section-num">02</span>Firm Profile</h2>
           <div class="aic-field-grid">
             <fieldset class="sm:col-span-2">
-              <legend class="label-base">Practice areas <span class="text-error-500">*</span></legend>
+              <legend class="label-base">Practice areas</legend>
               <div class="aic-check-grid">
                 {["Personal injury", "Workers comp", "Family", "Estate", "Criminal", "Immigration", "Mass tort", "Other"].map((opt) => (
                   <label class="aic-check-option">
@@ -142,7 +140,7 @@ const SECTIONS = [
               </div>
             </fieldset>
             <fieldset class="sm:col-span-2">
-              <legend class="label-base">Fee model <span class="text-error-500">*</span></legend>
+              <legend class="label-base">Fee model</legend>
               <div class="flex flex-wrap gap-5 mt-1">
                 {["Contingency", "Hourly or flat", "Mixed"].map((opt) => (
                   <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -190,7 +188,7 @@ const SECTIONS = [
             </div>
             <div class="sm:col-span-2">
               <label for="contact_form_url" class="label-base">Contact form URL</label>
-              <p class="aic-helper">If you have it, grab it now &mdash; it speeds up day one.</p>
+              <p class="aic-helper">If you have it, grab it now. It speeds up day one.</p>
               <input type="url" id="contact_form_url" name="contact_form_url" class="input-base" placeholder="https://" />
             </div>
             <div class="sm:col-span-2">
@@ -206,7 +204,7 @@ const SECTIONS = [
               <div class="flex flex-wrap gap-5 mt-1">
                 {["Nothing", "Voicemail", "Answering service", "In-house coverage", "Not sure"].map((opt) => (
                   <label class="inline-flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="after_hours_setup" value={opt} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <input type="radio" name="after_hours_setup" value={opt} required class="form-radio text-brand-gold focus:ring-brand-gold" />
                     <span class="text-sm text-gray-700">{opt}</span>
                   </label>
                 ))}
@@ -223,7 +221,7 @@ const SECTIONS = [
             <div class="sm:col-span-2 aic-emphasis-row">
               <label class="inline-flex items-start gap-3 cursor-pointer">
                 <input type="checkbox" name="client_told_not_to_warn_staff" value="Yes" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
-                <span class="text-sm text-gray-800">Client was told not to warn staff <span class="text-error-500">*</span></span>
+                <span class="text-sm text-gray-800">Client was told not to warn staff</span>
               </label>
             </div>
           </div>
@@ -286,7 +284,7 @@ const SECTIONS = [
           <div class="aic-field-grid">
             <div class="sm:col-span-2">
               <label for="hate_list_words" class="label-base">What the team hates doing, in their words <span class="text-error-500">*</span></label>
-              <textarea id="hate_list_words" name="hate_list_words" rows="5" class="input-base" placeholder="Quote them directly where you can"></textarea>
+              <textarea id="hate_list_words" name="hate_list_words" rows="5" required class="input-base" placeholder="Quote them directly where you can"></textarea>
             </div>
             <div>
               <label for="open_records_requests" class="label-base">Open records requests</label>
@@ -327,72 +325,30 @@ const SECTIONS = [
           </div>
         </section>
 
-        <!-- ═══ 06. INTERVIEW CONTACT ═══ -->
-        <section id="interview-contact" class="aic-section">
-          <h2 class="aic-section-title"><span class="aic-section-num">06</span>Interview Contact</h2>
-          <div class="aic-field-grid">
-            <div>
-              <label for="interview_name" class="label-base">Who we should interview, name <span class="text-error-500">*</span></label>
-              <input type="text" id="interview_name" name="interview_name" required class="input-base" />
-            </div>
-            <div>
-              <label for="interview_role" class="label-base">Their role <span class="text-error-500">*</span></label>
-              <input type="text" id="interview_role" name="interview_role" class="input-base" />
-            </div>
-            <div>
-              <label for="interview_email" class="label-base">Their email <span class="text-error-500">*</span></label>
-              <input type="text" inputmode="email" id="interview_email" name="interview_email" required class="input-base" />
-            </div>
-            <div>
-              <label for="interview_phone" class="label-base">Their phone</label>
-              <input type="tel" id="interview_phone" name="interview_phone" class="input-base" />
-            </div>
-            <div class="sm:col-span-2">
-              <label for="interview_availability" class="label-base">Days or times that work</label>
-              <input type="text" id="interview_availability" name="interview_availability" class="input-base" />
-            </div>
-          </div>
-        </section>
-
-        <!-- ═══ 07. RESULTS REVIEW ═══ -->
+        <!-- ═══ 06. RESULTS REVIEW ═══ -->
         <section id="results-review" class="aic-section">
-          <h2 class="aic-section-title"><span class="aic-section-num">07</span>Results Review</h2>
+          <h2 class="aic-section-title"><span class="aic-section-num">06</span>Results Review</h2>
           <p class="aic-section-note">This is booked on your own calendar during the call, three or more business days out. Ops schedules the week backward from this date.</p>
           <div class="aic-field-grid">
             <div>
               <label for="review_date" class="label-base">Results review date <span class="text-error-500">*</span></label>
               <input type="date" id="review_date" name="review_date" required class="input-base" />
               <p id="business-days-helper" class="aic-helper hidden"></p>
+              <p id="weekend-note" class="aic-helper hidden"></p>
             </div>
             <div>
-              <label class="label-base">Results review time <span class="text-error-500">*</span></label>
-              <div class="aic-time-row">
-                <select id="review_time_hour" class="input-base aic-time-select" aria-label="Hour">
-                  <option value="" selected>Hour</option>
-                  {REVIEW_TIME_HOURS.map((h) => <option value={h}>{h}</option>)}
-                </select>
-                <span class="aic-time-colon">:</span>
-                <select id="review_time_minute" class="input-base aic-time-select" aria-label="Minute">
-                  <option value="" selected>Min</option>
-                  {REVIEW_TIME_MINUTES.map((m) => <option value={m}>{m}</option>)}
-                </select>
-                <select id="review_time_ampm" class="input-base aic-time-select" aria-label="AM or PM">
-                  <option value="" selected>&mdash;</option>
-                  <option value="AM">AM</option>
-                  <option value="PM">PM</option>
-                </select>
-              </div>
-              <input type="hidden" id="review_time" name="review_time" value="" />
+              <label for="review_time" class="label-base">Results review time <span class="text-error-500">*</span></label>
+              <input type="time" id="review_time" name="review_time" required class="input-base" />
             </div>
             <div class="sm:col-span-2 aic-emphasis-row">
               <label class="inline-flex items-start gap-3 cursor-pointer">
-                <input type="checkbox" name="invite_sent_own_calendar" value="Yes" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
+                <input type="checkbox" name="invite_sent_own_calendar" value="Yes" required class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
                 <span class="text-sm text-gray-800">Invite sent from my own calendar <span class="text-error-500">*</span></span>
               </label>
             </div>
             <div class="sm:col-span-2 aic-emphasis-row">
               <label class="inline-flex items-start gap-3 cursor-pointer">
-                <input type="checkbox" name="review_date_3plus_days" value="Yes" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
+                <input type="checkbox" name="review_date_3plus_days" value="Yes" required class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
                 <span class="text-sm text-gray-800">Date is three or more business days out <span class="text-error-500">*</span></span>
               </label>
             </div>
@@ -403,9 +359,9 @@ const SECTIONS = [
           </div>
         </section>
 
-        <!-- ═══ 08. REP READ ═══ -->
-        <section id="rep-read" class="aic-section">
-          <h2 class="aic-section-title"><span class="aic-section-num">08</span>Rep Read</h2>
+        <!-- ═══ 07. CLOSER READ ═══ -->
+        <section id="closer-read" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">07</span>Closer Read</h2>
           <div class="aic-field-grid">
             <fieldset class="sm:col-span-2">
               <legend class="label-base">Urgency</legend>
@@ -448,7 +404,7 @@ const SECTIONS = [
         <ul class="aic-checklist">
           <li>Results review is on your own calendar, three or more business days out</li>
           <li>The invite went to the client</li>
-          <li>You named a real person and email for the fifteen-minute interview</li>
+          <li>The hate list is captured in their own words, not a summary</li>
         </ul>
         <a href="/audit-initial-call" class="btn-secondary mt-6">Start another submission</a>
       </div>
@@ -544,21 +500,6 @@ const SECTIONS = [
       padding: 0.5rem 0.75rem;
       margin: 0.625rem 0 1rem;
       font-weight: 500;
-    }
-
-    .aic-time-row {
-      display: flex;
-      align-items: center;
-      gap: 0.375rem;
-    }
-    .aic-time-select {
-      width: auto;
-      min-width: 4.25rem;
-      flex: 1;
-    }
-    .aic-time-colon {
-      font-weight: 700;
-      color: #98a2b3;
     }
 
     .aic-helper {
@@ -704,9 +645,9 @@ const SECTIONS = [
       }
 
       function syncConditionalVisibility() {
-        var repName = (form.querySelector('[name="rep_name"]') || {}).value;
-        var otherWrap = document.getElementById('rep-name-other-wrap');
-        if (otherWrap) otherWrap.classList.toggle('hidden', repName !== 'Other');
+        var closerName = (form.querySelector('[name="closer_name"]') || {}).value;
+        var otherWrap = document.getElementById('closer-name-other-wrap');
+        if (otherWrap) otherWrap.classList.toggle('hidden', closerName !== 'Other');
 
         var afterHours = form.querySelector('input[name="after_hours_setup"]:checked');
         var answeringWrap = document.getElementById('answering-service-wrap');
@@ -729,52 +670,54 @@ const SECTIONS = [
         return count;
       }
 
-      function updateBusinessDaysHelper() {
-        var helper = document.getElementById('business-days-helper');
-        if (!helper) return;
+      function windowHasWeekend(startStr, endStr) {
+        if (!startStr || !endStr) return false;
+        var start = new Date(startStr + 'T00:00:00');
+        var end = new Date(endStr + 'T00:00:00');
+        if (isNaN(start.getTime()) || isNaN(end.getTime()) || end <= start) return false;
+        var cur = new Date(start);
+        cur.setDate(cur.getDate() + 1);
+        while (cur <= end) {
+          var day = cur.getDay();
+          if (day === 0 || day === 6) return true;
+          cur.setDate(cur.getDate() + 1);
+        }
+        return false;
+      }
+
+      function updateReviewDateHelpers() {
         var callDate = (form.querySelector('[name="call_date"]') || {}).value;
         var reviewDate = (form.querySelector('[name="review_date"]') || {}).value;
-        if (!callDate || !reviewDate) {
-          helper.textContent = '';
-          helper.classList.add('hidden');
-          return;
+
+        var helper = document.getElementById('business-days-helper');
+        if (helper) {
+          if (!callDate || !reviewDate) {
+            helper.textContent = '';
+            helper.classList.add('hidden');
+          } else {
+            var n = countBusinessDays(callDate, reviewDate);
+            helper.classList.remove('hidden');
+            if (n === 0) {
+              helper.innerHTML = '<span style="color:#D92D20;font-weight:600;">Review date should be after the call date.</span>';
+            } else if (n < 3) {
+              helper.innerHTML = '<span style="color:#DC6803;font-weight:600;">' + n + ' business day' + (n === 1 ? '' : 's') + ' out, fewer than 3. Fine if there is a reason.</span>';
+            } else {
+              helper.innerHTML = '<span style="color:#079455;font-weight:600;">' + n + ' business days out.</span>';
+            }
+          }
         }
-        var n = countBusinessDays(callDate, reviewDate);
-        helper.classList.remove('hidden');
-        if (n === 0) {
-          helper.innerHTML = '<span style="color:#D92D20;font-weight:600;">Review date should be after the call date.</span>';
-        } else if (n < 3) {
-          helper.innerHTML = '<span style="color:#DC6803;font-weight:600;">' + n + ' business day' + (n === 1 ? '' : 's') + ' out &mdash; fewer than 3. Fine if there is a reason.</span>';
-        } else {
-          helper.innerHTML = '<span style="color:#079455;font-weight:600;">' + n + ' business days out.</span>';
+
+        var weekendNote = document.getElementById('weekend-note');
+        if (weekendNote) {
+          if (callDate && reviewDate && windowHasWeekend(callDate, reviewDate)) {
+            weekendNote.classList.remove('hidden');
+            weekendNote.innerHTML = '<span style="color:#079455;font-weight:600;">This window includes a weekend, which covers the after-hours test contact.</span>';
+          } else {
+            weekendNote.textContent = '';
+            weekendNote.classList.add('hidden');
+          }
         }
       }
-
-      function composeReviewTime() {
-        var h = (document.getElementById('review_time_hour') || {}).value;
-        var m = (document.getElementById('review_time_minute') || {}).value;
-        var ap = (document.getElementById('review_time_ampm') || {}).value;
-        var hidden = document.getElementById('review_time');
-        if (!hidden) return;
-        hidden.value = (h && m && ap) ? (h + ':' + m + ' ' + ap) : '';
-      }
-
-      function parseReviewTime(value) {
-        if (!value) return;
-        var match = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i.exec(String(value).trim());
-        if (!match) return;
-        var hourEl = document.getElementById('review_time_hour');
-        var minuteEl = document.getElementById('review_time_minute');
-        var ampmEl = document.getElementById('review_time_ampm');
-        if (hourEl) hourEl.value = match[1];
-        if (minuteEl) minuteEl.value = match[2];
-        if (ampmEl) ampmEl.value = match[3].toUpperCase();
-      }
-
-      ['review_time_hour', 'review_time_minute', 'review_time_ampm'].forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.addEventListener('change', composeReviewTime);
-      });
 
       function saveDraft() {
         var data = {};
@@ -798,7 +741,6 @@ const SECTIONS = [
         fieldNames.forEach(function (name) {
           if (data[name] !== undefined) setFieldValue(name, data[name]);
         });
-        parseReviewTime(data.review_time);
         restoring = false;
       }
 
@@ -816,7 +758,7 @@ const SECTIONS = [
         if (!restoring) dirty = true;
         scheduleSave();
         syncConditionalVisibility();
-        updateBusinessDaysHelper();
+        updateReviewDateHelpers();
       });
 
       window.addEventListener('beforeunload', function (e) {
@@ -832,7 +774,7 @@ const SECTIONS = [
         form.querySelector('[name="call_date"]').value = new Date().toISOString().slice(0, 10);
       }
       syncConditionalVisibility();
-      updateBusinessDaysHelper();
+      updateReviewDateHelpers();
 
       // ── Jump nav: highlight whichever section is currently in view ──
       (function () {
@@ -870,12 +812,12 @@ const SECTIONS = [
         e.preventDefault();
 
         var firmName = (form.querySelector('[name="firm_name"]') || {}).value || 'Unknown Firm';
-        var repName = (form.querySelector('[name="rep_name"]') || {}).value || 'Unknown Rep';
-        if (repName === 'Other') {
-          repName = (form.querySelector('[name="rep_name_other"]') || {}).value || 'Other';
+        var closerName = (form.querySelector('[name="closer_name"]') || {}).value || 'Unknown Closer';
+        if (closerName === 'Other') {
+          closerName = (form.querySelector('[name="closer_name_other"]') || {}).value || 'Other';
         }
-        form.querySelector('[name="_subject"]').value = 'Audit intake: ' + firmName + ' / ' + repName;
-        form.querySelector('[name="_replyto"]').value = (form.querySelector('[name="rep_email"]') || {}).value || '';
+        form.querySelector('[name="_subject"]').value = 'Audit intake: ' + firmName + ' / ' + closerName;
+        form.querySelector('[name="_replyto"]').value = (form.querySelector('[name="closer_email"]') || {}).value || '';
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting…';
@@ -910,7 +852,7 @@ const SECTIONS = [
           .catch(function (err) {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit Intake';
-            alert('Something went wrong submitting this: ' + err.message + '\n\nYour notes are still saved in this browser — try again.');
+            alert('Something went wrong submitting this: ' + err.message + '\n\nYour notes are still saved in this browser. Try again.');
           });
       });
     })();

@@ -19,9 +19,12 @@ export interface Props {
   suppressMainPixel?: boolean;
   ogTitle?: string;
   ogDescription?: string;
+  /** Replace the full site header with a logo-only bar plus a plain-text page name (for internal/non-marketing pages). */
+  minimalHeader?: boolean;
+  minimalHeaderLabel?: string;
 }
 
-const { title, description, image, type, publishedDate, author, noindex, schema, suppressMainPixel = false, ogTitle, ogDescription } = Astro.props;
+const { title, description, image, type, publishedDate, author, noindex, schema, suppressMainPixel = false, ogTitle, ogDescription, minimalHeader = false, minimalHeaderLabel } = Astro.props;
 ---
 
 <!doctype html>
@@ -194,7 +197,23 @@ const { title, description, image, type, publishedDate, author, noindex, schema,
     <!-- Skip to content link -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <!-- GTM noscript removed — GTM is geo-gated so noscript fallback would bypass the gate -->
-    <Header />
+    {minimalHeader ? (
+      <header class="sticky top-0 z-50 bg-white border-b border-gray-200/60">
+        <div class="container-wide flex items-center gap-3 h-16 lg:h-[72px]">
+          <a href="/" aria-label="Attorney Assistant" class="flex-shrink-0">
+            <img src="/brand/logos/long_color_logo.svg" alt="Attorney Assistant" width="1463" height="293" class="h-8 lg:h-10 w-auto" />
+          </a>
+          {minimalHeaderLabel && (
+            <Fragment>
+              <span class="hidden sm:block h-6 w-px bg-gray-200" aria-hidden="true"></span>
+              <span class="text-sm font-semibold text-gray-600">{minimalHeaderLabel}</span>
+            </Fragment>
+          )}
+        </div>
+      </header>
+    ) : (
+      <Header />
+    )}
     <main class="flex-1" id="main-content">
       <slot />
     </main>
