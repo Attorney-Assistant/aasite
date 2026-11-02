@@ -1,0 +1,196 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HubSpotForm from "@components/HubSpotForm.astro";
+
+// TODO (Nicole): replace with the real HubSpot form ID once the 8-question
+// form is built. Portal ID is the standard Attorney Assistant portal.
+const EIGHT_QUESTIONS_FORM_ID = "REPLACE_WITH_FORM_ID";
+---
+
+<BaseLayout
+  title="Your Audit Is Booked — The Stuff You Hate Audit"
+  description="Your Stuff You Hate Audit is booked. One quick step before we start: five minutes, eight questions."
+  noindex={true}
+>
+
+  <!-- ══════════════════════════════════════════════
+       1. CONFIRMATION
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container-narrow relative py-20 md:py-24">
+      <div class="text-center reveal">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold/15 mb-6">
+          <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+        </div>
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-4">Confirmed</span>
+        <h1 class="text-display-sm md:text-display-md font-heading text-white mb-4">
+          Your Stuff You Hate Audit Is Booked
+        </h1>
+        <div class="divider-gold-center mt-4 mb-5"></div>
+        <p class="text-lg text-white/60 max-w-xl mx-auto">
+          You should receive a calendar invite shortly. That booking starts your seven-day clock &mdash; here's exactly what happens between now and your Leak Map.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       2. THE EIGHT QUESTIONS
+  ═══════════════════════════════════════════════ -->
+  <section class="relative bg-white section-padding">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-8 reveal">
+          <span class="badge badge-gold mb-4">Before We Start</span>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900 mb-3">One thing before we start</h2>
+          <p class="text-lg text-gray-500">Five minutes. Eight questions. It tells us where to look.</p>
+        </div>
+
+        <div class="syt-form-card reveal" style="transition-delay: 0.1s;">
+          <!-- Form slot: swap EIGHT_QUESTIONS_FORM_ID above once the 8-question HubSpot form exists -->
+          <HubSpotForm portalId="49161090" formId={EIGHT_QUESTIONS_FORM_ID} />
+        </div>
+
+        <p class="text-center text-sm text-gray-500 mt-6 reveal" style="transition-delay: 0.15s;">
+          If you do not get to it, we still run the audit. It just gets sharper if you do.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       3. WHAT HAPPENS NEXT
+  ═══════════════════════════════════════════════ -->
+  <section class="relative bg-gray-50 section-padding">
+    <div class="container-narrow">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-10 reveal">
+          <span class="badge badge-navy mb-4">The Next Seven Days</span>
+          <h2 class="text-display-xs md:text-display-sm font-heading text-gray-900">What happens next</h2>
+        </div>
+
+        <div class="space-y-4 reveal" style="transition-delay: 0.1s;">
+          <div class="syt-step-row">
+            <span class="syt-step-num">Today</span>
+            <p class="text-gray-700">The eight questions, five minutes.</p>
+          </div>
+          <div class="syt-step-row">
+            <span class="syt-step-num">This Week</span>
+            <p class="text-gray-700">We call your firm as a potential client, twice in business hours and once after hours. We submit your web form and time the reply.</p>
+          </div>
+          <div class="syt-step-row">
+            <span class="syt-step-num">Midweek</span>
+            <p class="text-gray-700">Fifteen minutes with you or your office manager.</p>
+          </div>
+          <div class="syt-step-row">
+            <span class="syt-step-num">Day Seven</span>
+            <p class="text-gray-700">Your Leak Map, and twenty minutes to walk through it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       4. ONE REQUEST
+  ═══════════════════════════════════════════════ -->
+  <section class="relative bg-white section-padding">
+    <div class="container-narrow">
+      <div class="syt-request-box max-w-2xl mx-auto reveal">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/15 flex items-center justify-center">
+            <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.52 10.52 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-brand-gold uppercase tracking-widest mb-1">One Request</p>
+            <p class="text-base font-semibold text-gray-900 leading-relaxed">
+              Please do not tell your team we are calling. The whole value of this is finding out what a real caller runs into. If the front desk is expecting us, you learn nothing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       5. WHO TO CONTACT
+  ═══════════════════════════════════════════════ -->
+  <section class="relative bg-gray-50 section-padding">
+    <div class="container-narrow">
+      <div class="max-w-xl mx-auto text-center reveal">
+        <span class="badge badge-gray mb-4">Need To Reach Us</span>
+        <h2 class="text-display-xs font-heading text-gray-900 mb-3">Need to move your time, or have a question first?</h2>
+        <p class="text-gray-500 mb-5">Email or call us directly &mdash; no form needed.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+          <a href="mailto:info@attorneyassistant.com" class="text-brand-navy font-semibold hover:text-brand-gold transition-colors">info@attorneyassistant.com</a>
+          <span class="hidden sm:inline text-gray-300">&middot;</span>
+          <a href="tel:+12153372677" class="text-brand-navy font-semibold hover:text-brand-gold transition-colors">(215) 337-2677</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion tracking -->
+  <script is:inline>
+    if (window.__metaCAPI) {
+      window.__metaCAPI.track('Schedule', { content_name: 'The Stuff You Hate Audit Booked' }, {});
+      window.__metaCAPI.track('Lead', { content_name: 'The Stuff You Hate Audit' }, {});
+    } else if (typeof fbq !== 'undefined') {
+      fbq('track', 'Schedule');
+      fbq('track', 'Lead', { content_name: 'The Stuff You Hate Audit' });
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'booking_confirmed', conversion_type: 'schedule', source: 'the-stuff-you-hate-audit' });
+  </script>
+
+  <style>
+    .syt-form-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 1px 3px rgba(16,24,40,0.06);
+    }
+
+    .syt-step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+    }
+    .syt-step-num {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 88px;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(21,56,95,0.08);
+      color: #15385f;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .syt-request-box {
+      background: #fdf6ec;
+      border: 1px solid rgba(249,166,45,0.3);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+  </style>
+
+</BaseLayout>
