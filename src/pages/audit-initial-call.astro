@@ -11,6 +11,9 @@ const SALES_REPS = [
   "Andrew Famular",
 ];
 
+const REVIEW_TIME_HOURS = Array.from({ length: 12 }, (_, i) => String(i + 1));
+const REVIEW_TIME_MINUTES = Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0"));
+
 const SECTIONS = [
   { id: "call-info", num: "00", label: "Call Info" },
   { id: "contact", num: "01", label: "Contact" },
@@ -74,7 +77,7 @@ const SECTIONS = [
             </div>
             <div>
               <label for="rep_email" class="label-base">Rep email <span class="text-error-500">*</span></label>
-              <input type="email" id="rep_email" name="rep_email" class="input-base" placeholder="you@attorneyassistant.com" />
+              <input type="text" inputmode="email" id="rep_email" name="rep_email" class="input-base" placeholder="you@attorneyassistant.com" />
             </div>
             <div>
               <label for="call_date" class="label-base">Date of call <span class="text-error-500">*</span></label>
@@ -105,7 +108,7 @@ const SECTIONS = [
             </div>
             <div>
               <label for="contact_email" class="label-base">Email <span class="text-error-500">*</span></label>
-              <input type="email" id="contact_email" name="contact_email" class="input-base" />
+              <input type="text" inputmode="email" id="contact_email" name="contact_email" class="input-base" />
             </div>
             <div>
               <label for="contact_phone" class="label-base">Direct phone</label>
@@ -338,7 +341,7 @@ const SECTIONS = [
             </div>
             <div>
               <label for="interview_email" class="label-base">Their email <span class="text-error-500">*</span></label>
-              <input type="email" id="interview_email" name="interview_email" required class="input-base" />
+              <input type="text" inputmode="email" id="interview_email" name="interview_email" required class="input-base" />
             </div>
             <div>
               <label for="interview_phone" class="label-base">Their phone</label>
@@ -362,8 +365,24 @@ const SECTIONS = [
               <p id="business-days-helper" class="aic-helper hidden"></p>
             </div>
             <div>
-              <label for="review_time" class="label-base">Results review time <span class="text-error-500">*</span></label>
-              <input type="time" id="review_time" name="review_time" class="input-base" />
+              <label class="label-base">Results review time <span class="text-error-500">*</span></label>
+              <div class="aic-time-row">
+                <select id="review_time_hour" class="input-base aic-time-select" aria-label="Hour">
+                  <option value="" selected>Hour</option>
+                  {REVIEW_TIME_HOURS.map((h) => <option value={h}>{h}</option>)}
+                </select>
+                <span class="aic-time-colon">:</span>
+                <select id="review_time_minute" class="input-base aic-time-select" aria-label="Minute">
+                  <option value="" selected>Min</option>
+                  {REVIEW_TIME_MINUTES.map((m) => <option value={m}>{m}</option>)}
+                </select>
+                <select id="review_time_ampm" class="input-base aic-time-select" aria-label="AM or PM">
+                  <option value="" selected>&mdash;</option>
+                  <option value="AM">AM</option>
+                  <option value="PM">PM</option>
+                </select>
+              </div>
+              <input type="hidden" id="review_time" name="review_time" value="" />
             </div>
             <div class="sm:col-span-2 aic-emphasis-row">
               <label class="inline-flex items-start gap-3 cursor-pointer">
@@ -482,6 +501,14 @@ const SECTIONS = [
       font-weight: 700;
       color: #f9a62d;
     }
+    .aic-jump-link.is-active {
+      background: #15385f;
+      border-color: #15385f;
+      color: #ffffff;
+    }
+    .aic-jump-link.is-active .aic-jump-num {
+      color: #f9a62d;
+    }
 
     .aic-section {
       scroll-margin-top: 7.5rem;
@@ -518,6 +545,21 @@ const SECTIONS = [
       padding: 0.5rem 0.75rem;
       margin: 0.625rem 0 1rem;
       font-weight: 500;
+    }
+
+    .aic-time-row {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+    .aic-time-select {
+      width: auto;
+      min-width: 4.25rem;
+      flex: 1;
+    }
+    .aic-time-colon {
+      font-weight: 700;
+      color: #98a2b3;
     }
 
     .aic-helper {
@@ -709,6 +751,32 @@ const SECTIONS = [
         }
       }
 
+      function composeReviewTime() {
+        var h = (document.getElementById('review_time_hour') || {}).value;
+        var m = (document.getElementById('review_time_minute') || {}).value;
+        var ap = (document.getElementById('review_time_ampm') || {}).value;
+        var hidden = document.getElementById('review_time');
+        if (!hidden) return;
+        hidden.value = (h && m && ap) ? (h + ':' + m + ' ' + ap) : '';
+      }
+
+      function parseReviewTime(value) {
+        if (!value) return;
+        var match = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i.exec(String(value).trim());
+        if (!match) return;
+        var hourEl = document.getElementById('review_time_hour');
+        var minuteEl = document.getElementById('review_time_minute');
+        var ampmEl = document.getElementById('review_time_ampm');
+        if (hourEl) hourEl.value = match[1];
+        if (minuteEl) minuteEl.value = match[2];
+        if (ampmEl) ampmEl.value = match[3].toUpperCase();
+      }
+
+      ['review_time_hour', 'review_time_minute', 'review_time_ampm'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('change', composeReviewTime);
+      });
+
       function saveDraft() {
         var data = {};
         fieldNames.forEach(function (name) { data[name] = getFieldValue(name); });
@@ -731,6 +799,7 @@ const SECTIONS = [
         fieldNames.forEach(function (name) {
           if (data[name] !== undefined) setFieldValue(name, data[name]);
         });
+        parseReviewTime(data.review_time);
         restoring = false;
       }
 
@@ -765,6 +834,35 @@ const SECTIONS = [
       }
       syncConditionalVisibility();
       updateBusinessDaysHelper();
+
+      // ── Jump nav: highlight whichever section is currently in view ──
+      (function () {
+        var sections = Array.from(document.querySelectorAll('.aic-section'));
+        var jumpLinks = Array.from(document.querySelectorAll('.aic-jump-link'));
+        if (!sections.length || !jumpLinks.length || !('IntersectionObserver' in window)) return;
+
+        var linkById = {};
+        jumpLinks.forEach(function (link) {
+          linkById[link.getAttribute('href').slice(1)] = link;
+        });
+
+        function setActiveSection(id) {
+          var active = linkById[id];
+          if (!active || active.classList.contains('is-active')) return;
+          jumpLinks.forEach(function (link) { link.classList.remove('is-active'); });
+          active.classList.add('is-active');
+          active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          var visible = entries.filter(function (e) { return e.isIntersecting; });
+          if (!visible.length) return;
+          visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+          setActiveSection(visible[0].target.id);
+        }, { rootMargin: '-140px 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(function (s) { observer.observe(s); });
+      })();
 
       // ── Submit ──
       var submitBtn = document.getElementById('submit-btn');
