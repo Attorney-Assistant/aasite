@@ -12,6 +12,7 @@ export default defineConfig({
       filter: (page) =>
         !page.includes("undefined") &&
         !page.includes("/storybook") &&
+        !page.includes("/audit-initial-call") &&
         !page.includes("/apply/hidden-applications") &&
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-staffline-assistant") &&

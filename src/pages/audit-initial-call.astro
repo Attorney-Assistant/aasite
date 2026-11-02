@@ -1,0 +1,822 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const FORMSPREE_ACTION = "https://formspree.io/f/xbggppej";
+
+// Nicole: replace with the live sales roster (first + last name). Shown in the
+// Rep name dropdown below, plus a fixed "Other" option — edit only this array.
+const SALES_REPS = [
+  "Rep Name 1",
+  "Rep Name 2",
+  "Rep Name 3",
+];
+
+const SECTIONS = [
+  { id: "call-info", num: "00", label: "Call Info" },
+  { id: "contact", num: "01", label: "Contact" },
+  { id: "firm-profile", num: "02", label: "Firm Profile" },
+  { id: "secret-shop", num: "03", label: "Secret Shop" },
+  { id: "lead-numbers", num: "04", label: "Numbers" },
+  { id: "hate-list", num: "05", label: "Hate List" },
+  { id: "interview-contact", num: "06", label: "Interview" },
+  { id: "results-review", num: "07", label: "Review" },
+  { id: "rep-read", num: "08", label: "Rep Read" },
+];
+---
+
+<BaseLayout
+  title="Audit Initial Call — Internal Intake"
+  description="Internal sales-to-ops handoff form for The Stuff You Hate Audit. Not for public use."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <section class="aic-page bg-white">
+    <div class="container-narrow max-w-4xl py-8">
+
+      <div class="mb-6">
+        <span class="badge badge-gray mb-2">Internal &middot; Not Indexed</span>
+        <h1 class="text-display-xs font-heading text-gray-900">Audit Initial Call</h1>
+        <p class="text-sm text-gray-500 mt-1">Sales-to-ops handoff for The Stuff You Hate Audit. Fill this in live, on the call. Everything autosaves in this browser as you type.</p>
+      </div>
+
+      <!-- Jump nav -->
+      <nav id="jump-nav" class="aic-jump-nav" aria-label="Section navigation">
+        {SECTIONS.map((s) => (
+          <a href={`#${s.id}`} class="aic-jump-link"><span class="aic-jump-num">{s.num}</span>{s.label}</a>
+        ))}
+      </nav>
+
+      <!-- ═══════════════════ FORM ═══════════════════ -->
+      <form id="intake-form" method="POST" action={FORMSPREE_ACTION}>
+
+        <!-- Honeypot — hidden from humans via CSS, bots fill every field -->
+        <input type="text" name="_gotcha" class="aic-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <!-- Composed in JS right before submit -->
+        <input type="hidden" name="_subject" value="Audit initial call submission" />
+        <input type="hidden" name="_replyto" value="" />
+
+        <!-- ═══ 00. CALL INFO ═══ -->
+        <section id="call-info" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">00</span>Call Info</h2>
+          <div class="aic-field-grid">
+            <div class="sm:col-span-2">
+              <label for="rep_name" class="label-base">Rep name <span class="text-error-500">*</span></label>
+              <select id="rep_name" name="rep_name" class="input-base">
+                <option value="" disabled selected>Choose&hellip;</option>
+                {SALES_REPS.map((rep) => <option value={rep}>{rep}</option>)}
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div id="rep-name-other-wrap" class="sm:col-span-2 hidden">
+              <label for="rep_name_other" class="label-base">Rep name (Other)</label>
+              <input type="text" id="rep_name_other" name="rep_name_other" class="input-base" placeholder="Type your name" />
+            </div>
+            <div>
+              <label for="rep_email" class="label-base">Rep email <span class="text-error-500">*</span></label>
+              <input type="email" id="rep_email" name="rep_email" class="input-base" placeholder="you@attorneyassistant.com" />
+            </div>
+            <div>
+              <label for="call_date" class="label-base">Date of call <span class="text-error-500">*</span></label>
+              <input type="date" id="call_date" name="call_date" class="input-base" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="firm_name" class="label-base">Firm name <span class="text-error-500">*</span></label>
+              <input type="text" id="firm_name" name="firm_name" required class="input-base" placeholder="Firm name" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 01. WHO WE TALKED TO ═══ -->
+        <section id="contact" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">01</span>Who We Talked To</h2>
+          <div class="aic-field-grid">
+            <div>
+              <label for="contact_first_name" class="label-base">Contact first name <span class="text-error-500">*</span></label>
+              <input type="text" id="contact_first_name" name="contact_first_name" class="input-base" />
+            </div>
+            <div>
+              <label for="contact_last_name" class="label-base">Contact last name <span class="text-error-500">*</span></label>
+              <input type="text" id="contact_last_name" name="contact_last_name" class="input-base" />
+            </div>
+            <div>
+              <label for="contact_title" class="label-base">Title or role <span class="text-error-500">*</span></label>
+              <input type="text" id="contact_title" name="contact_title" class="input-base" placeholder="e.g. Managing Partner" />
+            </div>
+            <div>
+              <label for="contact_email" class="label-base">Email <span class="text-error-500">*</span></label>
+              <input type="email" id="contact_email" name="contact_email" class="input-base" />
+            </div>
+            <div>
+              <label for="contact_phone" class="label-base">Direct phone</label>
+              <input type="tel" id="contact_phone" name="contact_phone" class="input-base" placeholder="(215) 555-0100" />
+            </div>
+            <div>
+              <label for="contact_best_reach" class="label-base">Best way to reach them</label>
+              <select id="contact_best_reach" name="contact_best_reach" class="input-base">
+                <option value="">Choose&hellip;</option>
+                <option value="Email">Email</option>
+                <option value="Call">Call</option>
+                <option value="Text">Text</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 02. FIRM PROFILE ═══ -->
+        <section id="firm-profile" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">02</span>Firm Profile</h2>
+          <div class="aic-field-grid">
+            <fieldset class="sm:col-span-2">
+              <legend class="label-base">Practice areas <span class="text-error-500">*</span></legend>
+              <div class="aic-check-grid">
+                {["Personal injury", "Workers comp", "Family", "Estate", "Criminal", "Immigration", "Mass tort", "Other"].map((opt) => (
+                  <label class="aic-check-option">
+                    <input type="checkbox" name="practice_areas" value={opt} class="form-checkbox rounded text-brand-gold focus:ring-brand-gold" />
+                    <span>{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset class="sm:col-span-2">
+              <legend class="label-base">Fee model <span class="text-error-500">*</span></legend>
+              <div class="flex flex-wrap gap-5 mt-1">
+                {["Contingency", "Hourly or flat", "Mixed"].map((opt) => (
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="fee_model" value={opt} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div>
+              <label for="attorneys_count" class="label-base">Number of attorneys</label>
+              <input type="text" id="attorneys_count" name="attorneys_count" class="input-base" placeholder="About 6" />
+            </div>
+            <div>
+              <label for="paralegals_count" class="label-base">Paralegals / case managers</label>
+              <input type="text" id="paralegals_count" name="paralegals_count" class="input-base" placeholder="About 10" />
+            </div>
+            <div>
+              <label for="admin_count" class="label-base">Admin / support staff</label>
+              <input type="text" id="admin_count" name="admin_count" class="input-base" />
+            </div>
+            <div>
+              <label for="office_locations" class="label-base">Office locations</label>
+              <input type="text" id="office_locations" name="office_locations" class="input-base" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="states_practiced" class="label-base">States they practice in</label>
+              <input type="text" id="states_practiced" name="states_practiced" class="input-base" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 03. SECRET SHOP SETUP ═══ -->
+        <section id="secret-shop" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">03</span>Secret Shop Setup</h2>
+          <p class="aic-section-note">Ops cannot run the audit without the starred fields.</p>
+          <div class="aic-field-grid">
+            <div>
+              <label for="main_phone" class="label-base">Main phone number to call <span class="text-error-500">*</span></label>
+              <input type="tel" id="main_phone" name="main_phone" required class="input-base" placeholder="(215) 555-0100" />
+            </div>
+            <div>
+              <label for="website_url" class="label-base">Website URL <span class="text-error-500">*</span></label>
+              <input type="url" id="website_url" name="website_url" required class="input-base" placeholder="https://" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="contact_form_url" class="label-base">Contact form URL</label>
+              <p class="aic-helper">If you have it, grab it now &mdash; it speeds up day one.</p>
+              <input type="url" id="contact_form_url" name="contact_form_url" class="input-base" placeholder="https://" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="do_not_call_numbers" class="label-base">Numbers we must NOT call</label>
+              <textarea id="do_not_call_numbers" name="do_not_call_numbers" rows="2" class="input-base" placeholder="Any line that should stay off-limits"></textarea>
+            </div>
+            <div>
+              <label for="business_hours" class="label-base">Posted business hours</label>
+              <input type="text" id="business_hours" name="business_hours" class="input-base" placeholder="e.g. M&ndash;F 9&ndash;5" />
+            </div>
+            <fieldset class="sm:col-span-2">
+              <legend class="label-base">After-hours setup <span class="text-error-500">*</span></legend>
+              <div class="flex flex-wrap gap-5 mt-1">
+                {["Nothing", "Voicemail", "Answering service", "In-house coverage", "Not sure"].map((opt) => (
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="after_hours_setup" value={opt} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div id="answering-service-wrap" class="sm:col-span-2 hidden">
+              <label for="answering_service_name" class="label-base">Answering service name</label>
+              <input type="text" id="answering_service_name" name="answering_service_name" class="input-base" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="who_knows_about_audit" class="label-base">Who at the firm knows about the audit</label>
+              <textarea id="who_knows_about_audit" name="who_knows_about_audit" rows="2" class="input-base"></textarea>
+            </div>
+            <div class="sm:col-span-2 aic-emphasis-row">
+              <label class="inline-flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" name="client_told_not_to_warn_staff" value="Yes" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
+                <span class="text-sm text-gray-800">Client was told not to warn staff <span class="text-error-500">*</span></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 04. LEAD AND CONVERSION NUMBERS ═══ -->
+        <section id="lead-numbers" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">04</span>Lead &amp; Conversion Numbers</h2>
+          <div class="aic-field-grid">
+            <div>
+              <label for="inquiries_per_month" class="label-base">New inquiries per month</label>
+              <input type="text" id="inquiries_per_month" name="inquiries_per_month" class="input-base" placeholder="About 80" />
+            </div>
+            <div>
+              <label for="lead_to_signed_rate" class="label-base">Lead to signed case rate</label>
+              <input type="text" id="lead_to_signed_rate" name="lead_to_signed_rate" class="input-base" placeholder="e.g. 20%, or not sure" />
+            </div>
+            <div>
+              <label for="avg_case_fee" class="label-base">Average case fee or value</label>
+              <input type="text" id="avg_case_fee" name="avg_case_fee" class="input-base" />
+            </div>
+            <div>
+              <label for="believed_speed_to_lead" class="label-base">What they believe their speed to lead is</label>
+              <input type="text" id="believed_speed_to_lead" name="believed_speed_to_lead" class="input-base" />
+            </div>
+            <div>
+              <label for="lead_owner_after_contact" class="label-base">Who owns a lead after first contact</label>
+              <input type="text" id="lead_owner_after_contact" name="lead_owner_after_contact" class="input-base" />
+            </div>
+            <div>
+              <label for="touches_before_stop" class="label-base">Touches before they stop</label>
+              <input type="text" id="touches_before_stop" name="touches_before_stop" class="input-base" />
+            </div>
+            <fieldset class="sm:col-span-2">
+              <legend class="label-base">Written follow-up cadence</legend>
+              <div class="flex flex-wrap gap-5 mt-1">
+                {["Yes", "No", "Not sure"].map((opt) => (
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="written_followup_cadence" value={opt} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div>
+              <label for="crm_system" class="label-base">Case management or CRM system</label>
+              <input type="text" id="crm_system" name="crm_system" class="input-base" />
+            </div>
+            <div>
+              <label for="leads_no_next_step" class="label-base">Leads sitting with no next step</label>
+              <input type="text" id="leads_no_next_step" name="leads_no_next_step" class="input-base" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 05. THE HATE LIST ═══ -->
+        <section id="hate-list" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">05</span>The Hate List</h2>
+          <p class="aic-section-note">Capture their words, not a summary. This section is where the seat gets sold.</p>
+          <div class="aic-field-grid">
+            <div class="sm:col-span-2">
+              <label for="hate_list_words" class="label-base">What the team hates doing, in their words <span class="text-error-500">*</span></label>
+              <textarea id="hate_list_words" name="hate_list_words" rows="5" class="input-base" placeholder="Quote them directly where you can"></textarea>
+            </div>
+            <div>
+              <label for="open_records_requests" class="label-base">Open records requests</label>
+              <input type="text" id="open_records_requests" name="open_records_requests" class="input-base" />
+            </div>
+            <div>
+              <label for="avg_records_age_days" class="label-base">Average age of a records request, in days</label>
+              <input type="text" id="avg_records_age_days" name="avg_records_age_days" class="input-base" />
+            </div>
+            <div>
+              <label for="demands_blocked_per_month" class="label-base">Demands blocked on records per month</label>
+              <input type="text" id="demands_blocked_per_month" name="demands_blocked_per_month" class="input-base" />
+            </div>
+            <div>
+              <label for="attorney_hours_no_license" class="label-base">Attorney hours/week on work needing no license</label>
+              <input type="text" id="attorney_hours_no_license" name="attorney_hours_no_license" class="input-base" />
+            </div>
+            <div>
+              <label for="paralegal_hours_no_license" class="label-base">Paralegal hours/week on the same</label>
+              <input type="text" id="paralegal_hours_no_license" name="paralegal_hours_no_license" class="input-base" />
+            </div>
+            <div>
+              <label for="who_handles_calendar" class="label-base">Who handles calendar</label>
+              <input type="text" id="who_handles_calendar" name="who_handles_calendar" class="input-base" />
+            </div>
+            <div>
+              <label for="who_handles_efiling" class="label-base">Who handles e-filing</label>
+              <input type="text" id="who_handles_efiling" name="who_handles_efiling" class="input-base" />
+            </div>
+            <div>
+              <label for="who_handles_billing_followup" class="label-base">Who handles billing follow-up</label>
+              <input type="text" id="who_handles_billing_followup" name="who_handles_billing_followup" class="input-base" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="who_handles_portal_inbox" class="label-base">Who handles portal uploads and inbox</label>
+              <input type="text" id="who_handles_portal_inbox" name="who_handles_portal_inbox" class="input-base" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 06. INTERVIEW CONTACT ═══ -->
+        <section id="interview-contact" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">06</span>Interview Contact</h2>
+          <div class="aic-field-grid">
+            <div>
+              <label for="interview_name" class="label-base">Who we should interview, name <span class="text-error-500">*</span></label>
+              <input type="text" id="interview_name" name="interview_name" required class="input-base" />
+            </div>
+            <div>
+              <label for="interview_role" class="label-base">Their role <span class="text-error-500">*</span></label>
+              <input type="text" id="interview_role" name="interview_role" class="input-base" />
+            </div>
+            <div>
+              <label for="interview_email" class="label-base">Their email <span class="text-error-500">*</span></label>
+              <input type="email" id="interview_email" name="interview_email" required class="input-base" />
+            </div>
+            <div>
+              <label for="interview_phone" class="label-base">Their phone</label>
+              <input type="tel" id="interview_phone" name="interview_phone" class="input-base" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="interview_availability" class="label-base">Days or times that work</label>
+              <input type="text" id="interview_availability" name="interview_availability" class="input-base" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 07. RESULTS REVIEW ═══ -->
+        <section id="results-review" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">07</span>Results Review</h2>
+          <p class="aic-section-note">This is booked on your own calendar during the call, three or more business days out. Ops schedules the week backward from this date.</p>
+          <div class="aic-field-grid">
+            <div>
+              <label for="review_date" class="label-base">Results review date <span class="text-error-500">*</span></label>
+              <input type="date" id="review_date" name="review_date" required class="input-base" />
+              <p id="business-days-helper" class="aic-helper hidden"></p>
+            </div>
+            <div>
+              <label for="review_time" class="label-base">Results review time <span class="text-error-500">*</span></label>
+              <input type="time" id="review_time" name="review_time" class="input-base" />
+            </div>
+            <div class="sm:col-span-2 aic-emphasis-row">
+              <label class="inline-flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" name="invite_sent_own_calendar" value="Yes" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
+                <span class="text-sm text-gray-800">Invite sent from my own calendar <span class="text-error-500">*</span></span>
+              </label>
+            </div>
+            <div class="sm:col-span-2 aic-emphasis-row">
+              <label class="inline-flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" name="review_date_3plus_days" value="Yes" class="form-checkbox rounded text-brand-gold focus:ring-brand-gold mt-0.5" />
+                <span class="text-sm text-gray-800">Date is three or more business days out <span class="text-error-500">*</span></span>
+              </label>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="review_attendees" class="label-base">Who from the firm will attend</label>
+              <input type="text" id="review_attendees" name="review_attendees" class="input-base" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ 08. REP READ ═══ -->
+        <section id="rep-read" class="aic-section">
+          <h2 class="aic-section-title"><span class="aic-section-num">08</span>Rep Read</h2>
+          <div class="aic-field-grid">
+            <fieldset class="sm:col-span-2">
+              <legend class="label-base">Urgency</legend>
+              <div class="flex flex-wrap gap-5 mt-1">
+                {["Acting now", "This quarter", "Exploring", "Unclear"].map((opt) => (
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="urgency" value={opt} class="form-radio text-brand-gold focus:ring-brand-gold" />
+                    <span class="text-sm text-gray-700">{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div class="sm:col-span-2">
+              <label for="urgency_driver" class="label-base">What is driving them to look at this</label>
+              <textarea id="urgency_driver" name="urgency_driver" rows="2" class="input-base"></textarea>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="off_limits" class="label-base">Anything off limits</label>
+              <textarea id="off_limits" name="off_limits" rows="2" class="input-base"></textarea>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="notes" class="label-base">Notes</label>
+              <textarea id="notes" name="notes" rows="5" class="input-base"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <div class="aic-submit-row">
+          <button type="submit" id="submit-btn" class="btn-primary btn-lg">Submit Intake</button>
+          <span id="autosave-indicator" class="aic-autosave-indicator" aria-live="polite"></span>
+        </div>
+      </form>
+
+      <!-- ═══════════════════ SUCCESS STATE ═══════════════════ -->
+      <div id="success-state" class="hidden py-10">
+        <div class="featured-icon featured-icon-lg featured-icon-success mb-5">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l2.25 2.5L15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        </div>
+        <h2 class="text-display-xs font-heading text-gray-900 mb-4">Submitted. Three things before you close this tab.</h2>
+        <ul class="aic-checklist">
+          <li>Results review is on your own calendar, three or more business days out</li>
+          <li>The invite went to the client</li>
+          <li>You named a real person and email for the fifteen-minute interview</li>
+        </ul>
+        <a href="/audit-initial-call" class="btn-secondary mt-6">Start another submission</a>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .aic-page { min-height: 60vh; }
+
+    .aic-jump-nav {
+      position: sticky;
+      top: 4rem;
+      z-index: 40;
+      display: flex;
+      gap: 0.375rem;
+      overflow-x: auto;
+      padding: 0.625rem 0;
+      margin-bottom: 1.5rem;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      scrollbar-width: thin;
+    }
+    @media (min-width: 1024px) {
+      .aic-jump-nav { top: 72px; }
+    }
+    .aic-jump-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #475467;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .aic-jump-link:hover {
+      border-color: #f9a62d;
+      color: #15385f;
+      background: #fdf6ec;
+    }
+    .aic-jump-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 700;
+      color: #f9a62d;
+    }
+
+    .aic-section {
+      scroll-margin-top: 7.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #eef0f3;
+    }
+    .aic-section:last-of-type { border-bottom: none; }
+
+    .aic-section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #15385f;
+      margin-bottom: 0.25rem;
+    }
+    .aic-section-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: #15385f;
+      border-radius: 6px;
+      padding: 0.125rem 0.4375rem;
+    }
+
+    .aic-section-note {
+      font-size: 0.8125rem;
+      color: #d98a00;
+      background: #fdf6ec;
+      border: 1px solid rgba(249,166,45,0.3);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      margin: 0.625rem 0 1rem;
+      font-weight: 500;
+    }
+
+    .aic-helper {
+      font-size: 0.75rem;
+      color: #667085;
+      margin: 0.25rem 0;
+    }
+
+    .aic-field-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem 1.25rem;
+      margin-top: 1rem;
+    }
+    @media (min-width: 640px) {
+      .aic-field-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .aic-check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 0.375rem;
+    }
+    @media (min-width: 640px) {
+      .aic-check-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .aic-check-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.625rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 0.8125rem;
+      color: #344054;
+      cursor: pointer;
+    }
+    .aic-check-option:hover { border-color: #f9a62d; }
+
+    .aic-emphasis-row {
+      background: #fdf6ec;
+      border: 1px solid rgba(249,166,45,0.3);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+    }
+
+    .aic-submit-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.5rem;
+    }
+    .aic-autosave-indicator {
+      font-size: 0.75rem;
+      color: #98a2b3;
+    }
+
+    .aic-honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .aic-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      max-width: 32rem;
+    }
+    .aic-checklist li {
+      position: relative;
+      padding-left: 1.75rem;
+      font-size: 0.9375rem;
+      color: #344054;
+      line-height: 1.5;
+    }
+    .aic-checklist li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.15rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      border-radius: 4px;
+      border: 2px solid #f9a62d;
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      var form = document.getElementById('intake-form');
+      var STORAGE_KEY = 'aa_audit_initial_call_draft';
+      var SKIP_NAMES = { _gotcha: true, _replyto: true, _subject: true };
+      var restoring = false;
+      var dirty = false;
+      var submitted = false;
+
+      var fieldNames = Array.from(
+        new Set(Array.from(form.elements).map(function (el) { return el.name; }).filter(function (n) { return n && !SKIP_NAMES[n]; }))
+      );
+
+      function getFieldValue(name) {
+        var els = form.querySelectorAll('[name="' + CSS.escape(name) + '"]');
+        if (!els.length) return undefined;
+        var first = els[0];
+        if (first.type === 'checkbox') {
+          if (els.length > 1) {
+            return Array.from(els).filter(function (el) { return el.checked; }).map(function (el) { return el.value; });
+          }
+          return first.checked;
+        }
+        if (first.type === 'radio') {
+          var checked = Array.from(els).find(function (el) { return el.checked; });
+          return checked ? checked.value : '';
+        }
+        return first.value;
+      }
+
+      function setFieldValue(name, value) {
+        var els = form.querySelectorAll('[name="' + CSS.escape(name) + '"]');
+        if (!els.length || value === undefined) return;
+        var first = els[0];
+        if (first.type === 'checkbox') {
+          if (els.length > 1) {
+            var arr = Array.isArray(value) ? value : [];
+            els.forEach(function (el) { el.checked = arr.indexOf(el.value) !== -1; });
+          } else {
+            first.checked = !!value;
+          }
+          return;
+        }
+        if (first.type === 'radio') {
+          els.forEach(function (el) { el.checked = el.value === value; });
+          return;
+        }
+        first.value = value == null ? '' : value;
+      }
+
+      function syncConditionalVisibility() {
+        var repName = (form.querySelector('[name="rep_name"]') || {}).value;
+        var otherWrap = document.getElementById('rep-name-other-wrap');
+        if (otherWrap) otherWrap.classList.toggle('hidden', repName !== 'Other');
+
+        var afterHours = form.querySelector('input[name="after_hours_setup"]:checked');
+        var answeringWrap = document.getElementById('answering-service-wrap');
+        if (answeringWrap) answeringWrap.classList.toggle('hidden', !afterHours || afterHours.value !== 'Answering service');
+      }
+
+      function countBusinessDays(startStr, endStr) {
+        if (!startStr || !endStr) return null;
+        var start = new Date(startStr + 'T00:00:00');
+        var end = new Date(endStr + 'T00:00:00');
+        if (isNaN(start.getTime()) || isNaN(end.getTime()) || end <= start) return 0;
+        var count = 0;
+        var cur = new Date(start);
+        cur.setDate(cur.getDate() + 1);
+        while (cur <= end) {
+          var day = cur.getDay();
+          if (day !== 0 && day !== 6) count++;
+          cur.setDate(cur.getDate() + 1);
+        }
+        return count;
+      }
+
+      function updateBusinessDaysHelper() {
+        var helper = document.getElementById('business-days-helper');
+        if (!helper) return;
+        var callDate = (form.querySelector('[name="call_date"]') || {}).value;
+        var reviewDate = (form.querySelector('[name="review_date"]') || {}).value;
+        if (!callDate || !reviewDate) {
+          helper.textContent = '';
+          helper.classList.add('hidden');
+          return;
+        }
+        var n = countBusinessDays(callDate, reviewDate);
+        helper.classList.remove('hidden');
+        if (n === 0) {
+          helper.innerHTML = '<span style="color:#D92D20;font-weight:600;">Review date should be after the call date.</span>';
+        } else if (n < 3) {
+          helper.innerHTML = '<span style="color:#DC6803;font-weight:600;">' + n + ' business day' + (n === 1 ? '' : 's') + ' out &mdash; fewer than 3. Fine if there is a reason.</span>';
+        } else {
+          helper.innerHTML = '<span style="color:#079455;font-weight:600;">' + n + ' business days out.</span>';
+        }
+      }
+
+      function saveDraft() {
+        var data = {};
+        fieldNames.forEach(function (name) { data[name] = getFieldValue(name); });
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+          var indicator = document.getElementById('autosave-indicator');
+          if (indicator) {
+            indicator.textContent = 'Saved ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          }
+        } catch (err) {}
+      }
+
+      function restoreDraft() {
+        var raw;
+        try { raw = localStorage.getItem(STORAGE_KEY); } catch (err) { return; }
+        if (!raw) return;
+        var data;
+        try { data = JSON.parse(raw); } catch (err) { return; }
+        restoring = true;
+        fieldNames.forEach(function (name) {
+          if (data[name] !== undefined) setFieldValue(name, data[name]);
+        });
+        restoring = false;
+      }
+
+      var saveTimer;
+      function scheduleSave() {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveDraft, 400);
+      }
+
+      form.addEventListener('input', function () {
+        if (!restoring) dirty = true;
+        scheduleSave();
+      });
+      form.addEventListener('change', function () {
+        if (!restoring) dirty = true;
+        scheduleSave();
+        syncConditionalVisibility();
+        updateBusinessDaysHelper();
+      });
+
+      window.addEventListener('beforeunload', function (e) {
+        if (dirty && !submitted) {
+          e.preventDefault();
+          e.returnValue = '';
+        }
+      });
+
+      // ── Init ──
+      restoreDraft();
+      if (!form.querySelector('[name="call_date"]').value) {
+        form.querySelector('[name="call_date"]').value = new Date().toISOString().slice(0, 10);
+      }
+      syncConditionalVisibility();
+      updateBusinessDaysHelper();
+
+      // ── Submit ──
+      var submitBtn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var firmName = (form.querySelector('[name="firm_name"]') || {}).value || 'Unknown Firm';
+        var repName = (form.querySelector('[name="rep_name"]') || {}).value || 'Unknown Rep';
+        if (repName === 'Other') {
+          repName = (form.querySelector('[name="rep_name_other"]') || {}).value || 'Other';
+        }
+        form.querySelector('[name="_subject"]').value = 'Audit intake: ' + firmName + ' / ' + repName;
+        form.querySelector('[name="_replyto"]').value = (form.querySelector('[name="rep_email"]') || {}).value || '';
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting…';
+
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' },
+        })
+          .then(function (response) {
+            return response.json().catch(function () { return {}; }).then(function (data) {
+              return { ok: response.ok, status: response.status, data: data };
+            });
+          })
+          .then(function (result) {
+            if (result.ok) {
+              submitted = true;
+              dirty = false;
+              try { localStorage.removeItem(STORAGE_KEY); } catch (err) {}
+              form.classList.add('hidden');
+              var nav = document.getElementById('jump-nav');
+              if (nav) nav.classList.add('hidden');
+              document.getElementById('success-state').classList.remove('hidden');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              var msg = result.data.error || ((result.data.errors || []).map(function (x) { return x.message; }).join(', ')) || ('Server responded with ' + result.status);
+              throw new Error(msg);
+            }
+          })
+          .catch(function (err) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Intake';
+            alert('Something went wrong submitting this: ' + err.message + '\n\nYour notes are still saved in this browser — try again.');
+          });
+      });
+    })();
+  </script>
+
+</BaseLayout>
