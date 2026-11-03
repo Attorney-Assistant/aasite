@@ -1,0 +1,976 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Caseload Math — Free Capacity Call for Law Firm Owners"
+  description="How to know your case manager is drowning before a client tells you. Book a free call and run the capacity math on your own case managers."
+  noindex={true}
+  schema={{
+    "@type": "WebPage",
+    "name": "Caseload Math",
+    "description": "A free capacity call for law firm owners, built around the arithmetic of case manager capacity.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Attorney Assistant"
+    }
+  }}
+>
+
+  <!-- ══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-950 min-h-[90vh] flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="lp-orb lp-orb--1" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--2" aria-hidden="true"></div>
+    <div class="lp-orb lp-orb--3" aria-hidden="true"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="absolute inset-0 z-[1] opacity-[0.03]" aria-hidden="true">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+
+    <div class="container-wide relative z-10 py-20 lg:py-28">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div class="reveal">
+          <div class="mb-5">
+            <span class="lp-pulse-badge">
+              <span class="lp-pulse-dot"></span>
+              For Law Firm Owners
+            </span>
+          </div>
+          <h1 class="text-display-md md:text-display-lg lg:text-display-xl font-heading text-white leading-tight mb-5">
+            Your case manager isn't slow. <span class="text-gradient-gold">They're over capacity.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            How to know a case manager is drowning before a client tells you &mdash; the arithmetic that turns a feeling into a hiring decision.
+          </p>
+
+          <!-- Stat ticker -->
+          <div class="grid grid-cols-3 gap-4 mb-10">
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="8">0</span>
+              <span class="lp-hero-stat-label">signs a case manager is already past capacity</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="150">0</span>
+              <span class="lp-hero-stat-label">working hours a month, the real supply number</span>
+            </div>
+            <div class="lp-hero-stat">
+              <span class="lp-hero-stat-num lp-count" data-target="116">0</span>
+              <span class="lp-hero-stat-label">hours a month over capacity in one firm's worked example</span>
+            </div>
+          </div>
+
+          <!-- What the call covers -->
+          <div class="space-y-4 mb-10">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest">On Your Call We'll Cover</p>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">Your actual capacity in files, not a guess</p>
+                <p class="text-sm text-gray-500 mt-0.5">Available hours divided by average hours per file. We'll run it live with your numbers.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">The gap in hours and in seats</p>
+                <p class="text-sm text-gray-500 mt-0.5">The exact number you can take to a hiring decision, instead of a feeling that someone seems overwhelmed.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center mt-0.5">
+                <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-white">Three ways to close the gap</p>
+                <p class="text-sm text-gray-500 mt-0.5">Cut hours per file, split the role, or add a seat &mdash; and which one fits your firm right now.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Free &mdash; 30 minutes
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              No commitment
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              Built inside a working law firm
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking Widget -->
+        <div class="bg-white rounded-2xl p-1 shadow-2xl ring-1 ring-white/10 reveal lp-widget-glow" style="transition-delay: 150ms" id="book-now">
+          <div class="bg-white rounded-xl p-4 md:p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="featured-icon featured-icon-md featured-icon-gold">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+              </div>
+              <div>
+                <h2 class="text-lg font-heading text-gray-900">Book Your Capacity Call</h2>
+                <p class="text-xs text-gray-500">Free &mdash; 30 minutes</p>
+              </div>
+            </div>
+            <div class="meetings-iframe-container" data-src="https://meet.attorneyassistant.com/meetings/attorney-assistant/magnet-caseload-math-playbook?embed=true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 lp-scroll-hint" aria-hidden="true">
+      <div class="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
+        <div class="w-1 h-2.5 bg-brand-gold rounded-full lp-scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       OPENING — the story + eight signs
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 lp-section-lg">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-500/3 rounded-full blur-[100px]"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Left: Story -->
+        <div class="reveal">
+          <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-6">Read This First</span>
+          <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5 leading-tight">
+            Here's how most firms find out a case manager is drowning.
+          </h2>
+          <p class="text-lg text-gray-400 leading-relaxed mb-6">
+            A client calls the owner directly because nobody returned three messages. Records are 60 days late on a file nobody looked at. A deadline reminder fires on a matter that was never calendared. The owner steps in, fixes the file, and quietly wonders whether the case manager is any good.
+          </p>
+          <p class="text-base text-gray-500 leading-relaxed mb-6">
+            The case manager is fine. They have 140 open files and the capacity for 90. Nothing on the list of symptoms is a performance problem. All of it is arithmetic.
+          </p>
+          <p class="text-xl font-heading text-brand-gold">
+            Nobody quits because the work is hard. They quit because there's more of it than any person could do.
+          </p>
+        </div>
+
+        <!-- Right: four of the eight signs -->
+        <div class="reveal space-y-4" style="transition-delay: 150ms">
+          <div class="lp-pain-card lp-pain-card--stagger-1">
+            <div class="lp-pain-icon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+            </div>
+            <div>
+              <p class="text-white font-heading text-base">Clients call the attorney for updates</p>
+              <p class="text-gray-400 text-sm mt-1">The scheduled update didn't happen.</p>
+            </div>
+          </div>
+          <div class="lp-pain-card lp-pain-card--stagger-2">
+            <div class="lp-pain-icon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <div>
+              <p class="text-white font-heading text-base">Records requests sit past 30 days</p>
+              <p class="text-gray-400 text-sm mt-1">Follow-up is the first task that gets dropped.</p>
+            </div>
+          </div>
+          <div class="lp-pain-card lp-pain-card--stagger-3">
+            <div class="lp-pain-icon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+            </div>
+            <div>
+              <p class="text-white font-heading text-base">Files have no activity note for 30+ days</p>
+              <p class="text-gray-400 text-sm mt-1">Not stalled files. Forgotten ones.</p>
+            </div>
+          </div>
+          <div class="lp-pain-card" style="animation: lpSlideIn 0.5s ease 0.55s both;">
+            <div class="lp-pain-icon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75h.007v.008H12V6.75zm.375 6a9.75 9.75 0 100-13.5 9.75 9.75 0 000 13.5z" /></svg>
+            </div>
+            <div>
+              <p class="text-white font-heading text-base">The case manager works weekends to catch up</p>
+              <p class="text-gray-400 text-sm mt-1">Catching up never ends.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-quote-banner mt-14 max-w-3xl mx-auto reveal">
+        &ldquo;Five or more signs checked: you are already losing files and probably about to lose a person.&rdquo;
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE MATH
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white lp-section-lg">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-brand-gold to-brand-blue"></div>
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-navy/10 text-brand-navy border-brand-navy/15 mb-4">Do This Before You Read Further</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          Capacity is hours, not file count.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          A case manager has about 1,800 working hours a year after holidays, PTO, meetings, and interruptions. Roughly 150 hours a month. That's the supply. The demand is the number of hours your files actually need.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5 reveal mb-10 max-w-3xl mx-auto">
+        <div class="flex gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-navy/10 flex items-center justify-center text-brand-navy font-heading font-bold">A</div>
+          <div>
+            <h3 class="font-heading text-gray-900 mb-1">Available hours per month per case manager</h3>
+            <p class="text-sm text-gray-500">Paid hours minus PTO, holidays, meetings, and training. Most firms land between 140 and 150.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-navy/10 flex items-center justify-center text-brand-navy font-heading font-bold">B</div>
+          <div>
+            <h3 class="font-heading text-gray-900 mb-1">Hours per file per month, by stage</h3>
+            <p class="text-sm text-gray-500">Pre-litigation might take 3 to 4 hours a month. Litigation, 6 to 10. Awaiting disbursement, under 1. Use your own numbers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-rule-box max-w-3xl mx-auto reveal mb-10 text-center">
+        <span class="lp-rule-box-label">The Formula</span>
+        <p class="text-xl md:text-2xl font-heading text-brand-navy font-mono">Capacity (files) = Available hours per month &divide; Average hours per file per month</p>
+      </div>
+
+      <div class="max-w-2xl mx-auto reveal mb-10 rounded-2xl border border-gray-200 overflow-hidden">
+        <div class="bg-brand-navy text-white text-xs font-bold uppercase tracking-widest px-5 py-3 flex justify-between">
+          <span>Worked Example</span>
+          <span class="text-white/60 normal-case font-normal">2 case managers, 115 open files</span>
+        </div>
+        <div class="divide-y divide-gray-100">
+          <div class="flex items-center justify-between px-5 py-3 text-sm">
+            <span class="text-gray-600">Available hours per month</span>
+            <span class="font-semibold text-gray-900">294</span>
+          </div>
+          <div class="flex items-center justify-between px-5 py-3 text-sm">
+            <span class="text-gray-600">Total hours needed per month</span>
+            <span class="font-semibold text-gray-900">410</span>
+          </div>
+          <div class="flex items-center justify-between px-5 py-3 text-sm">
+            <span class="text-gray-600">Capacity in files at this mix</span>
+            <span class="font-semibold text-gray-900">82 files (actual: 115)</span>
+          </div>
+          <div class="flex items-center justify-between px-5 py-3 text-sm">
+            <span class="text-gray-600">Seats needed at this mix</span>
+            <span class="font-semibold text-gray-900">2.8, round up to 3</span>
+          </div>
+          <div class="flex items-center justify-between px-5 py-4 bg-brand-gold/10">
+            <span class="font-heading text-gray-900">Gap</span>
+            <span class="font-heading text-2xl text-brand-navy">116 hrs/mo over capacity</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-quote-banner max-w-2xl mx-auto reveal mb-10">
+        &ldquo;This firm is running two people at the workload of nearly three. The gap is roughly 29 hours a week of work not getting done.&rdquo;
+      </div>
+      <p class="text-center text-lg font-heading text-gray-900 max-w-2xl mx-auto reveal">
+        Run your own number before the call. Everything else is an opinion until you have it.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THREE WAYS TO CLOSE THE GAP
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden lp-section-lg">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-900 to-brand-950"></div>
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-gold/8 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/8 rounded-full blur-[100px]"></div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10">
+      <div class="text-center mb-10 reveal">
+        <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-4">Closing The Gap</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-white mb-5">
+          Three ways to close it. <span class="text-gradient-gold">Pick deliberately.</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto">Most firms past capacity need the first and the third together. The first alone delays the hire by a quarter. It doesn't replace it.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto reveal mb-14">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 py-5 border-b border-white/10">
+          <div class="flex items-center gap-3 sm:w-48 flex-shrink-0">
+            <span class="w-9 h-9 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue font-heading font-bold flex-shrink-0">1</span>
+            <p class="text-[11px] font-bold text-brand-blue uppercase tracking-widest">Option 1</p>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-white font-heading text-base mb-1">Cut hours per file</h3>
+            <p class="text-gray-400 text-sm">Standardize the status update. Template the records request. Firms that document their process cut 15 to 25 percent of hours per file. It is never enough on its own past a certain volume.</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 py-5 border-b border-white/10">
+          <div class="flex items-center gap-3 sm:w-48 flex-shrink-0">
+            <span class="w-9 h-9 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-heading font-bold flex-shrink-0">2</span>
+            <p class="text-[11px] font-bold text-brand-gold uppercase tracking-widest">Option 2</p>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-white font-heading text-base mb-1">Split the role</h3>
+            <p class="text-gray-400 text-sm">One person owning client communication, records, and documents across 100 files is three jobs. Pull records and scheduling into an admin seat, cheaper to fill and faster to onboard.</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 py-5">
+          <div class="flex items-center gap-3 sm:w-48 flex-shrink-0">
+            <span class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white font-heading font-bold flex-shrink-0">3</span>
+            <p class="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Option 3</p>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-white font-heading text-base mb-1">Add a seat</h3>
+            <p class="text-gray-400 text-sm">When the calculator says 2.8 seats and you have 2, you need a third person. A trained remote case manager removes the recruiting cycle and lands at a fraction of the cost of adding the seat after a client leaves.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal mb-6">
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">97%</div>
+          <p class="lp-stat-box-label">Answer rate 24/7, up from 82%</p>
+        </div>
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">15 min</div>
+          <p class="lp-stat-box-label">Max speed to lead, down from 34</p>
+        </div>
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">6</div>
+          <p class="lp-stat-box-label">Follow-up touches in 3 days</p>
+        </div>
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">109</div>
+          <p class="lp-stat-box-label">Cases signed by one staff member in 30 days</p>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-500 mb-10 reveal">Attorney Assistant client figures, real client files, identities protected.</p>
+
+      <div class="text-center reveal">
+        <a href="#book-now" class="btn-primary btn-lg group inline-flex">
+          Run Your Gap
+          <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE GAP COMPOUNDS
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-950 lp-section-lg">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+    </div>
+    <div class="grain-overlay"></div>
+
+    <div class="container-wide relative z-10 text-center">
+      <span class="badge bg-brand-gold/15 text-brand-gold border-brand-gold/20 mb-6 reveal">The Cost Of Waiting</span>
+      <h2 class="text-display-md md:text-display-xl font-heading text-brand-gold mb-6 reveal">
+        116 hours.
+      </h2>
+      <p class="text-xl md:text-2xl font-heading text-white max-w-2xl mx-auto mb-3 reveal">
+        A capacity gap does not stay the same size.
+      </p>
+      <p class="text-base text-gray-400 max-w-xl mx-auto mb-14 reveal">The work that doesn't get done this month is still there next month, plus next month's work.</p>
+
+      <div class="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto text-left reveal">
+        <div class="lp-fix-card-v2">
+          <p class="text-xs font-bold text-brand-gold uppercase tracking-widest mb-2">The Client Cost</p>
+          <p class="text-sm text-gray-300">Clients who don't hear from you assume nothing is happening. The ones who stop calling leave a review or find another firm.</p>
+        </div>
+        <div class="lp-fix-card-v2">
+          <p class="text-xs font-bold text-brand-gold uppercase tracking-widest mb-2">The Attorney Cost</p>
+          <p class="text-sm text-gray-300">Every hour an attorney spends on case management work is an hour not billed. Lawyers already bill about 3 of 8 hours a day on average.</p>
+        </div>
+        <div class="lp-fix-card-v2">
+          <p class="text-xs font-bold text-brand-gold uppercase tracking-widest mb-2">The People Cost</p>
+          <p class="text-sm text-gray-300">The case manager who carried 115 files for a year leaves. Now you have a 115-file gap, a recruiting cycle, and a new hire who needs 60 days to reach full capacity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       PROOF
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-white lp-section-lg">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-gold/10 text-brand-gold border-brand-gold/20 mb-4">Where This Came From</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          We recruit and train the case manager. You plug them into your team.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Lawyers bill about 3.0 of 8 hours a day on average, 38% utilization. Overflow from an understaffed case team makes that worse. The cheapest hire is the one you make the quarter before you need it.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">97%</div>
+          <p class="lp-stat-box-label">Answer rate 24/7, up from 82%</p>
+        </div>
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">15 min</div>
+          <p class="lp-stat-box-label">Max speed to lead, down from 34</p>
+        </div>
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">6</div>
+          <p class="lp-stat-box-label">Follow-up touches in 3 days</p>
+        </div>
+        <div class="lp-stat-box lp-stat-box--highlight">
+          <div class="lp-stat-box-num lp-stat-box-num--gold">109</div>
+          <p class="lp-stat-box-label">Cases signed by one staff member in 30 days</p>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-400 mt-6 mb-10 reveal">Attorney Assistant client figures, real client files, identities protected. Clio 2025 Legal Trends Report for utilization.</p>
+
+      <div class="lp-quote-banner max-w-2xl mx-auto reveal">
+        &ldquo;A case manager we place knows legal support work and your case management system. They do not know your files, your clients, or your process on day one.&rdquo;
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       THE OFFERING — Staffline / Frontline
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gray-50 lp-section-lg">
+    <div class="container-wide">
+      <div class="text-center mb-12 reveal">
+        <span class="badge bg-brand-navy/10 text-brand-navy border-brand-navy/15 mb-4">What We Do</span>
+        <h2 class="text-display-sm md:text-display-md font-heading text-gray-900 mb-4">
+          We recruit and train the case manager. You plug them into your team.
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+          Attorney Assistant is a staffing solutions and virtual assistant company for law firms. We recruit, vet, and train full-time virtual staff in case management, records, and client communication, and your firm embeds them in your own team, systems, and day-to-day process. Co-managed: we handle QA, coaching, and performance.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 reveal mb-8">
+        <div class="lp-diff-card lp-diff-card--highlight">
+          <div class="lp-diff-card-num lp-diff-card-num--gold">Permanent Staff</div>
+          <div class="lp-diff-card-icon lp-diff-card-icon--gold">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">Staffline</h3>
+          <p class="text-gray-500">A permanent dedicated staff member for your firm, 40 hours a week. Case manager, records coordinator, admin, client communication &mdash; the seat the calculator told you to add.</p>
+        </div>
+        <div class="lp-diff-card">
+          <div class="lp-diff-card-num">Coverage On Demand</div>
+          <div class="lp-diff-card-icon">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+          </div>
+          <h3 class="text-xl font-heading text-gray-900 mt-5 mb-2">Frontline</h3>
+          <p class="text-gray-500">A 24/7 live intake team available on demand. Not an answering service. When intake is pulling your case managers off their files, Frontline takes intake back.</p>
+        </div>
+      </div>
+      <p class="text-center text-base font-heading text-gray-900 mb-12 reveal">
+        Frontline is coverage on demand. Staffline is permanent staff.
+      </p>
+
+      <div class="lp-rule-box max-w-3xl mx-auto reveal mb-14">
+        <span class="lp-rule-box-label">Onboarding</span>
+        <p class="text-base font-semibold text-gray-900">
+          You will get a trained person, and you will still need to train them on how your firm does things. A case manager we place knows legal support work and your case management system. They do not know your files, your clients, or your process on day one. We remove the recruiting cycle and the turnover risk. We do not remove onboarding. <span class="text-brand-gold">Budget 30 to 60 days.</span>
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        <div class="flex gap-3 items-start p-4 rounded-xl bg-white border border-gray-100">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 flex items-center justify-center mt-0.5">
+            <span class="text-sm font-heading font-bold text-brand-gold">1</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm text-gray-900 mb-1">Discovery Call</h3>
+            <p class="text-xs text-gray-500">What type of firm you are, and what the calculator found.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start p-4 rounded-xl bg-white border border-gray-100">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 flex items-center justify-center mt-0.5">
+            <span class="text-sm font-heading font-bold text-brand-gold">2</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm text-gray-900 mb-1">Recruit and Train</h3>
+            <p class="text-xs text-gray-500">We source, vet, and train for the seat.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start p-4 rounded-xl bg-white border border-gray-100">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 flex items-center justify-center mt-0.5">
+            <span class="text-sm font-heading font-bold text-brand-gold">3</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm text-gray-900 mb-1">Onboard With Our 30/60/90</h3>
+            <p class="text-xs text-gray-500">Into your systems, with your case managers.</p>
+          </div>
+        </div>
+        <div class="flex gap-3 items-start p-4 rounded-xl bg-white border border-gray-100">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-gold/15 flex items-center justify-center mt-0.5">
+            <span class="text-sm font-heading font-bold text-brand-gold">4</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-sm text-gray-900 mb-1">We QA, Coach, And Own Performance</h3>
+            <p class="text-xs text-gray-500">You direct the work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-800 to-brand-navy grain-overlay">
+    <div class="absolute inset-0">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-3xl lp-float-slow"></div>
+      <div class="absolute bottom-10 right-1/3 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl lp-float-slow-reverse"></div>
+    </div>
+    <div class="container-wide relative py-20 md:py-28">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <span class="badge bg-white/10 text-white/80 border-white/10 mb-6">Your Next 30 Minutes</span>
+        <h2 class="text-display-sm md:text-display-lg font-heading text-white mb-6">
+          Bring your caseload numbers <span class="text-gradient-gold">to the call.</span>
+        </h2>
+        <div class="divider-gold-center mb-8"></div>
+        <p class="text-xl text-white/60 mb-10">
+          Thirty minutes. We'll run the capacity math on your case managers and tell you the gap in hours and in seats. If the answer is you don't need us yet, we'll say that too.
+        </p>
+        <div class="flex flex-col items-center gap-5">
+          <a href="#book-now" class="btn-primary btn-lg group inline-flex text-lg px-10 py-4">
+            Book Your Capacity Call
+            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="https://eol.law" target="_blank" rel="noopener" class="text-sm text-white/50 hover:text-white/80 underline underline-offset-4 decoration-white/20 hover:decoration-white/50 transition-colors">
+            See the firm this playbook came from at eol.law
+          </a>
+        </div>
+
+        <!-- Trust badge -->
+        <div class="mt-12 flex items-center justify-center gap-3 text-sm text-white/50">
+          <div class="flex items-center gap-0.5">
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+          </div>
+          <span>4.9 Google Rating</span>
+          <span class="text-white/30">&middot;</span>
+          <span>5,000+ clients served</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot Meetings Embed Script -->
+  <script is:inline>
+    window.__hsGeoReady.then(function(allowed) {
+      if (allowed) {
+        var s = document.createElement("script");
+        s.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+        document.head.appendChild(s);
+      } else {
+        document.querySelectorAll(".meetings-iframe-container").forEach(function(el) {
+          el.innerHTML = '<div style="padding:2rem;text-align:center;color:#667085;font-size:0.875rem;border:1px solid #e5e7eb;border-radius:0.75rem;background:#f9fafb;"><p style="margin:0;">This form is not available from your location.</p><p style="margin:0.75rem 0 0;font-size:0.8rem;">If you are seeking employment, please visit <a href="/careers" style="color:#f9a62d;text-decoration:underline;">attorneyassistant.com/careers</a> or email <a href="mailto:talent@attorneyassistant.com" style="color:#f9a62d;text-decoration:underline;">talent@attorneyassistant.com</a></p></div>';
+        });
+      }
+    });
+    </script>
+
+  <style>
+    /* =============================================
+       HUBSPOT WIDGET FIX
+    ============================================= */
+    .meetings-iframe-container iframe {
+      background: #ffffff !important;
+    }
+    .meetings-iframe-container {
+      background: #ffffff !important;
+    }
+
+    /* =============================================
+       SECTION SPACING
+    ============================================= */
+    .lp-section-lg {
+      padding: 5rem 0;
+    }
+    @media (min-width: 768px) {
+      .lp-section-lg { padding: 6.5rem 0; }
+    }
+
+    /* =============================================
+       HERO ORBS
+    ============================================= */
+    .lp-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform;
+      z-index: 1;
+    }
+    .lp-orb--1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(81,166,220,0.35) 0%, rgba(81,166,220,0) 70%);
+      top: -30%;
+      right: -15%;
+      animation: lpFloat1 10s ease-in-out infinite;
+    }
+    .lp-orb--2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(249,166,45,0.3) 0%, rgba(249,166,45,0) 70%);
+      bottom: -20%;
+      left: -8%;
+      animation: lpFloat2 12s ease-in-out infinite;
+    }
+    .lp-orb--3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(249,166,45,0.15) 0%, rgba(249,166,45,0) 70%);
+      top: 40%;
+      left: 35%;
+      animation: lpFloat3 14s ease-in-out infinite;
+    }
+    @keyframes lpFloat1 {
+      0% { transform: translate(0, 0) scale(1); }
+      20% { transform: translate(-100px, 50px) scale(1.25); }
+      40% { transform: translate(-30px, -60px) scale(0.85); }
+      60% { transform: translate(80px, 25px) scale(1.15); }
+      80% { transform: translate(30px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat2 {
+      0% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(90px, -45px) scale(1.3); }
+      50% { transform: translate(30px, 60px) scale(0.8); }
+      75% { transform: translate(-60px, -20px) scale(1.15); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @keyframes lpFloat3 {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-40px, 30px) scale(1.2); }
+      66% { transform: translate(50px, -40px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lp-orb, .lp-float-slow, .lp-float-slow-reverse, .lp-scroll-dot { animation: none !important; }
+    }
+
+    /* =============================================
+       HERO PULSE BADGE
+    ============================================= */
+    .lp-pulse-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border: 1px solid rgba(249,166,45,0.2);
+      backdrop-filter: blur(8px);
+    }
+    .lp-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f9a62d;
+      animation: lpPulse 2s ease-in-out infinite;
+    }
+    @keyframes lpPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* =============================================
+       HERO STATS
+    ============================================= */
+    .lp-hero-stat {
+      text-align: center;
+      padding: 1rem 0.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+    }
+    .lp-hero-stat-num {
+      display: inline;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f9a62d;
+      line-height: 1;
+    }
+    .lp-hero-stat-label {
+      display: block;
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.375rem;
+      line-height: 1.3;
+    }
+
+    /* =============================================
+       WIDGET GLOW
+    ============================================= */
+    .lp-widget-glow {
+      background: linear-gradient(135deg, rgba(249,166,45,0.3), rgba(81,166,220,0.3), rgba(249,166,45,0.3));
+      background-size: 200% 200%;
+      animation: lpGlow 4s ease-in-out infinite;
+    }
+    @keyframes lpGlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* =============================================
+       SCROLL INDICATOR
+    ============================================= */
+    .lp-scroll-hint { animation: lpFadeInUp 1s ease 1.5s both; }
+    @keyframes lpFadeInUp {
+      from { opacity: 0; transform: translate(-50%, 10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    .lp-scroll-dot {
+      animation: lpScrollBounce 1.5s ease-in-out infinite;
+    }
+    @keyframes lpScrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.3; }
+    }
+
+    /* =============================================
+       PAIN CARDS
+    ============================================= */
+    .lp-pain-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .lp-pain-card:hover {
+      transform: translateX(4px);
+      background: rgba(255,255,255,0.07);
+    }
+    .lp-pain-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(239,68,68,0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239,68,68,0.15);
+    }
+    .lp-pain-card--stagger-1 { animation: lpSlideIn 0.5s ease 0.1s both; }
+    .lp-pain-card--stagger-2 { animation: lpSlideIn 0.5s ease 0.25s both; }
+    .lp-pain-card--stagger-3 { animation: lpSlideIn 0.5s ease 0.4s both; }
+    @keyframes lpSlideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* =============================================
+       QUOTE BANNER
+    ============================================= */
+    .lp-quote-banner {
+      background: linear-gradient(135deg, #15385f, #1f4a7a);
+      border: 1px solid rgba(249,166,45,0.25);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      color: #fff;
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-weight: 700;
+      font-size: 1.125rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       RULE / CALLOUT BOX
+    ============================================= */
+    .lp-rule-box {
+      background: #fdf6ec;
+      border: 1px solid rgba(249,166,45,0.3);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+    .lp-rule-box-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #f9a62d;
+      margin-bottom: 0.375rem;
+      display: block;
+    }
+
+    /* =============================================
+       STAT BOX
+    ============================================= */
+    .lp-stat-box {
+      text-align: center;
+      padding: 1.75rem 1rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+    }
+    .lp-stat-box--highlight {
+      background: linear-gradient(135deg, rgba(249,166,45,0.08), rgba(249,166,45,0.03));
+      border-color: rgba(249,166,45,0.3);
+    }
+    .lp-stat-box-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #15385f;
+      line-height: 1;
+    }
+    .lp-stat-box-num--gold { color: #f9a62d; }
+    .lp-stat-box-label {
+      font-size: 0.8125rem;
+      color: #667085;
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* =============================================
+       FIX CARDS v2
+    ============================================= */
+    .lp-fix-card-v2 {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+    .lp-fix-card-v2:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(249,166,45,0.3);
+    }
+
+    /* =============================================
+       DIFFERENTIATOR CARDS
+    ============================================= */
+    .lp-diff-card {
+      padding: 2rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .lp-diff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .lp-diff-card--highlight {
+      background: linear-gradient(135deg, rgba(249,166,45,0.05), rgba(249,166,45,0.02));
+      border-color: rgba(249,166,45,0.3);
+    }
+    .lp-diff-card-num {
+      font-family: 'Sora', -apple-system, 'Segoe UI', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #98a2b3;
+    }
+    .lp-diff-card-num--gold { color: #f9a62d; }
+    .lp-diff-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(21,56,95,0.06);
+      color: #15385f;
+      border: 1px solid rgba(21,56,95,0.1);
+      margin-top: 1rem;
+    }
+    .lp-diff-card-icon--gold {
+      background: rgba(249,166,45,0.1);
+      color: #f9a62d;
+      border-color: rgba(249,166,45,0.2);
+    }
+
+    /* =============================================
+       FLOATING ANIMATION (CTA orbs)
+    ============================================= */
+    .lp-float-slow {
+      animation: lpFloatSlow 8s ease-in-out infinite;
+    }
+    .lp-float-slow-reverse {
+      animation: lpFloatSlowReverse 10s ease-in-out infinite;
+    }
+    @keyframes lpFloatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+    @keyframes lpFloatSlowReverse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(25px); }
+    }
+  </style>
+
+  <!-- Count-up animation script -->
+  <script is:inline>
+  (function() {
+    var counted = false;
+    function countUp() {
+      if (counted) return;
+      counted = true;
+      document.querySelectorAll('.lp-count').forEach(function(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1500;
+        var startTime = null;
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    if ('IntersectionObserver' in window) {
+      var el = document.querySelector('.lp-count');
+      if (el) {
+        new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) countUp();
+        }, { threshold: 0.5 }).observe(el);
+      }
+    } else {
+      countUp();
+    }
+  })();
+  </script>
+
+</BaseLayout>
