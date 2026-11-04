@@ -17,6 +17,7 @@ export default defineConfig({
         !page.includes("/apply/receptionist") &&
         !page.includes("/apply/legal-staffline-assistant") &&
         !page.includes("/lp/smb-exclusive") &&
+        !page.includes("/smb") &&
         !page.includes("/lp/staffline-ctv") &&
         !page.includes("/lp/staffline-intake") &&
         !page.includes("/lp/staffline-staffing") &&
