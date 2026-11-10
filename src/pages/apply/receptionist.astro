@@ -68,6 +68,14 @@ import ApplicationForm from "@components/ApplicationForm.astro";
 
   <ApplicationForm
     formspreeAction="https://formspree.io/f/xnjrwdwv"
+    screeningQuestions={[
+      {
+        label: "Which of the following call center positions do you have experience in?",
+        type: "multi",
+        options: ["Receptionist", "Customer Service", "Technical Support", "Retention", "Leadership", "Other"],
+        required: true,
+      },
+    ]}
   />
 
   <CareersPixel event="ViewContent" />
