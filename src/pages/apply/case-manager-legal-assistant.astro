@@ -68,6 +68,20 @@ import ApplicationForm from "@components/ApplicationForm.astro";
 
   <ApplicationForm
     formspreeAction="https://formspree.io/f/mjyvlrvb"
+    screeningQuestions={[
+      {
+        label: "Which of the following legal roles do you have experience in?",
+        type: "multi",
+        options: ["Case Manager / Legal Assistant", "Intake Specialist", "Other"],
+        required: true,
+      },
+      {
+        label: "Which areas of law have you supported in a law firm or legal support role?",
+        type: "multi",
+        options: ["Personal Injury", "Workers' Compensation", "Criminal Law", "Immigration", "Family Law", "Other"],
+        required: true,
+      },
+    ]}
   />
 
   <CareersPixel event="ViewContent" />
