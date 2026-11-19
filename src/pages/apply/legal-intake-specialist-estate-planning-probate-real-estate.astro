@@ -1,0 +1,145 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CareersPixel from "@components/CareersPixel.astro";
+import ApplicationForm from "@components/ApplicationForm.astro";
+---
+
+<BaseLayout
+  title="Apply: Legal Intake Specialist (Estate Planning, Probate & Real Estate)"
+  description="Apply to join Attorney Assistant as a remote, sales-driven Legal Intake Specialist supporting a U.S.-based law firm handling Real Estate Law, Probate, and Estate Planning matters."
+  noindex={true}
+  suppressMainPixel={true}
+>
+
+  <!-- Hero -->
+  <section class="relative bg-brand-900 py-12 md:py-16 grain-overlay overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-mesh opacity-30"></div>
+    <div class="container-narrow relative z-10 text-center">
+      <span class="badge badge-gold mb-4">We're Hiring · Remote</span>
+      <h1 class="text-display-sm md:text-display-md font-heading text-white mb-3">
+        Legal Intake Specialist (Estate Planning, Probate & Real Estate)
+      </h1>
+      <p class="text-base md:text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">
+        Qualify inquiries, schedule consultations, and convert prospective clients for a U.S.-based law firm serving Real Estate Law, Probate, and Estate Planning matters throughout Eastern Iowa.
+      </p>
+    </div>
+  </section>
+
+  <!-- Collapsible Job Description -->
+  <section class="py-8 md:py-10 bg-gray-25">
+    <div class="container-narrow max-w-5xl">
+      <details class="job-description card p-5 md:p-6">
+        <summary class="cursor-pointer flex items-center justify-between gap-4">
+          <span class="text-base md:text-lg font-heading text-gray-900">About this role</span>
+          <span class="text-xs text-brand-gold font-semibold uppercase tracking-wider flex items-center gap-2">
+            <span class="jd-show">View full description</span>
+            <span class="jd-hide hidden">Hide description</span>
+            <svg class="jd-icon w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </span>
+        </summary>
+
+        <div class="prose-brand mt-5 pt-5 border-t border-gray-200">
+          <h2>Legal Intake Specialist (Estate Planning, Probate & Real Estate) – Attorney Assistant | Remote</h2>
+          <p class="text-sm font-semibold text-brand-gold">Philippines (Remote)</p>
+
+          <h3>About the Company</h3>
+          <p>At Attorney Assistant, we help law firms manage the work that keeps cases moving and clients supported, including intake, follow-up, administration, legal support, and operations.</p>
+          <p>We're growing our remote team and looking for reliable, skilled professionals who want to build long-term careers supporting law firms.</p>
+
+          <h3>Overview</h3>
+          <p>We're hiring an experienced, sales-driven Legal Intake Specialist to support a U.S.-based law firm serving families and communities throughout Eastern Iowa.</p>
+          <p>You'll be responsible for communicating with prospective clients, qualifying inquiries, scheduling consultations, managing lead follow-ups, and helping convert qualified prospects into clients.</p>
+          <p><strong>To qualify, you must have:</strong></p>
+          <ul>
+            <li>Prior professional sales experience, including lead follow-up, objection handling, and client conversion</li>
+            <li>Prior professional experience supporting all three legal practice areas: Real Estate Law, Probate, and Estate Planning</li>
+          </ul>
+          <p>Both requirements are mandatory for this position.</p>
+          <p>We're looking for someone who can build trust with prospective clients, handle sensitive conversations professionally, and confidently guide qualified leads through the intake and client onboarding process.</p>
+
+          <h3>Key Responsibilities</h3>
+          <ul>
+            <li>Handle prospective client inquiries through phone calls, emails, website submissions, and other approved communication channels</li>
+            <li>Qualify prospective clients, gather relevant information, and document intake details for Real Estate Law, Probate, and Estate Planning matters</li>
+            <li>Build rapport, address concerns, handle objections, and guide qualified prospects toward consultations or client sign-ups</li>
+            <li>Manage the lead pipeline and consistently follow up with prospective clients to support conversion goals</li>
+            <li>Coordinate attorney consultations, manage scheduling, and confirm appointments and required documents</li>
+            <li>Assist with electronic document collection, signatures, and client onboarding activities</li>
+            <li>Maintain accurate client information, communication records, and follow-up activities in CRM and case management systems</li>
+            <li>Support client feedback collection and Google review follow-ups as assigned</li>
+            <li>Monitor intake and conversion activity while identifying opportunities to improve follow-up and the prospective client experience</li>
+          </ul>
+
+          <h3>Required Skills and Experience</h3>
+          <ul>
+            <li>Prior professional sales experience, including lead qualification, objection handling, relationship building, and client conversion</li>
+            <li>Prior professional experience supporting Real Estate Law, Probate, and Estate Planning. Experience in all three areas is required</li>
+            <li>Excellent spoken and written English communication skills</li>
+            <li>Strong consultative sales skills, active listening, and the ability to build trust without using high-pressure sales tactics</li>
+            <li>Experience or demonstrated ability to manage multiple leads, appointments, and follow-up activities</li>
+            <li>Ability to use CRM systems, case management software, and digital communication tools accurately and efficiently</li>
+            <li>Strong organization, time management, attention to detail, and ability to handle confidential client information</li>
+            <li>Ability to work independently, take ownership of responsibilities, and maintain professionalism during sensitive or emotional conversations</li>
+          </ul>
+
+          <h3>Schedule and Benefits</h3>
+          <ul>
+            <li>Full-time remote opportunity based in the Philippines</li>
+            <li>Monday through Friday, 8:00 AM to 4:30 PM Central Time</li>
+            <li>Supportive work environment with opportunities for long-term professional growth</li>
+            <li>PTO, referral incentives, and bonuses where applicable</li>
+            <li>Must have a reliable device, stable internet connection, and quiet remote work setup</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <ApplicationForm
+    formspreeAction="https://formspree.io/f/mgakzddo"
+    screeningQuestions={[
+      {
+        label: "Do you have prior professional sales experience, including lead follow-up and client conversion?",
+        type: "single",
+        options: ["Yes", "No"],
+        required: true,
+        disqualifyOn: ["No"],
+      },
+      {
+        label: "Which of the following legal practice areas do you have prior professional experience supporting?",
+        type: "multi",
+        options: ["Real Estate Law", "Probate", "Estate Planning", "None"],
+        required: true,
+        disqualifyOn: ["None"],
+      },
+    ]}
+    declineMessage="Thank you for your interest. This role requires prior professional sales experience along with experience supporting Real Estate Law, Probate, and Estate Planning matters, so we're unable to move forward with your application at this time. We genuinely appreciate the time you took to apply and encourage you to explore our other openings."
+  />
+
+  <CareersPixel event="ViewContent" />
+
+</BaseLayout>
+
+<style>
+  details.job-description summary { list-style: none; }
+  details.job-description summary::-webkit-details-marker { display: none; }
+  details.job-description[open] .jd-show { display: none; }
+  details.job-description[open] .jd-hide { display: inline; }
+  details.job-description[open] .jd-icon { transform: rotate(180deg); }
+
+  /* prose-brand's prose-lg headings read oversized against this page's other
+     section headers (e.g. "About this role" at text-lg) — scale them down
+     here rather than touching the shared utility used by blog posts. */
+  .job-description .prose-brand :where(h2) {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .job-description .prose-brand :where(h3) {
+    font-size: 1.0625rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.375rem;
+  }
+</style>
